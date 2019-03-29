@@ -5,3 +5,5 @@
     abstract: true
     description: |
       The base job for the Ansible installation of Zuul.
+    vars:
+      ara_report_executable: /opt/venv/zuul-ansible/2.7.9/bin/ara

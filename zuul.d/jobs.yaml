@@ -5,3 +5,4 @@
     abstract: true
     description: |
       The base job for the Ansible installation of Zuul.
+    nodeset: centos-7-1vcpu

@@ -1,0 +1,6 @@
+---
+- nodeset:
+    name: centos-7-1vcpu
+    nodes:
+      - name: centos-7
+        label: centos-7-1vcpu

@@ -1,0 +1,2 @@
+---
+unbound_confd: /etc/unbound/unbound.conf.d

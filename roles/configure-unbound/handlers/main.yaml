@@ -1,0 +1,6 @@
+---
+- name: Restart unbound
+  become: true
+  service:
+    name: unbound
+    state: restarted

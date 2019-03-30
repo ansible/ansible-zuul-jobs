@@ -1,0 +1,77 @@
+---
+# ansible_default_ipv6 can either be undefined (no ipv6) or blank (no
+# routable address).  We only want to use ipv6 if it's available &
+# routable; combine these checks into this fact.
+- name: Check for IPv6
+  when:
+    - hostvars[inventory_hostname]['ansible_default_ipv6'] is defined
+    - hostvars[inventory_hostname]['ansible_default_ipv6']['address'] is defined
+  set_fact:
+    unbound_use_ipv6: true
+
+# Use *only* ipv6 resolvers if ipv6 is present and routable.  This
+# avoids traversing potential NAT when using ipv4 which can be
+# unreliable.
+- name: Set IPv6 nameservers
+  when:
+    - unbound_use_ipv6 is defined
+  set_fact:
+    unbound_primary_nameserver: '{{ unbound_primary_nameserver_v6 }}'
+    unbound_secondary_nameserver: '{{ unbound_secondary_nameserver_v6 }}'
+
+# Fallback to default ipv4 if there is no ipv6 available as this
+# causes timeouts and failovers that are unnecesary.
+- name: Set IPv4 nameservers
+  when:
+    - unbound_use_ipv6 is not defined
+  set_fact:
+    unbound_primary_nameserver: '{{ unbound_primary_nameserver_v4 }}'
+    unbound_secondary_nameserver: '{{ unbound_secondary_nameserver_v4 }}'
+
+- name: Include OS-specific variables
+  include_vars: "{{ item }}"
+  with_first_found:
+    - "{{ ansible_distribution }}.yaml"
+    - "{{ ansible_os_family }}.yaml"
+    - "default.yaml"
+
+- name: Ensure Unbound conf.d directory exists
+  become: true
+  file:
+    path: "{{ unbound_confd }}"
+    state: directory
+
+- name: Configure unbound forwarding
+  become: true
+  template:
+    dest: "{{ unbound_confd }}/forwarding.conf"
+    owner: root
+    group: root
+    mode: 0644
+    src: forwarding.conf.j2
+  notify:
+    - Restart unbound
+
+- name: Configure unbound TTL
+  become: true
+  template:
+    dest: "{{ unbound_confd }}/ttl.conf"
+    owner: root
+    group: root
+    mode: 0644
+    src: ttl.conf.j2
+  notify:
+    - Restart unbound
+
+- name: Update resolv.conf to localhost
+  become: true
+  copy:
+    content: nameserver 127.0.0.1
+    dest: /etc/resolv.conf
+
+- name: Start unbound
+  become: true
+  service:
+    name: unbound
+    state: started
+    enabled: true

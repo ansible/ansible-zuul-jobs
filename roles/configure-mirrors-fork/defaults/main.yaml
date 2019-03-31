@@ -1,0 +1,3 @@
+---
+mirror_fqdn: "{{ zuul_site_mirror_fqdn|default(omit) }}"
+set_apt_mirrors_trusted: false

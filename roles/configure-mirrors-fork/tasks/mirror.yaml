@@ -1,0 +1,16 @@
+---
+- name: Include OS-specific variables
+  include_vars: "{{ item }}"
+  with_first_found:
+    - "{{ ansible_distribution }}.{{ ansible_architecture }}.yaml"
+    - "{{ ansible_distribution }}.yaml"
+    - "{{ ansible_os_family }}.yaml"
+    - "default.yaml"
+
+- name: Setup distribution specific packaging mirrors
+  include: "{{ item }}"
+  static: false
+  with_first_found:
+    - "mirror/{{ ansible_distribution }}.yaml"
+    - "mirror/{{ ansible_os_family }}.yaml"
+    - "mirror/default.yaml"

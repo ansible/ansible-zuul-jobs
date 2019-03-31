@@ -1,0 +1,36 @@
+# {{ ansible_managed }}
+[fedora]
+name=Fedora $releasever - $basearch
+failovermethod=priority
+baseurl={{ package_mirror }}/releases/$releasever/Everything/$basearch/os/
+enabled=1
+metadata_expire=7d
+repo_gpgcheck=0
+type=rpm
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-$releasever-$basearch
+skip_if_unavailable=False
+
+[fedora-debuginfo]
+name=Fedora $releasever - $basearch - Debug
+failovermethod=priority
+baseurl={{ package_mirror }}/releases/$releasever/Everything/$basearch/debug/tree/
+enabled=0
+metadata_expire=7d
+repo_gpgcheck=0
+type=rpm
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-$releasever-$basearch
+skip_if_unavailable=False
+
+[fedora-source]
+name=Fedora $releasever - Source
+failovermethod=priority
+baseurl={{ package_mirror }}/releases/$releasever/Everything/source/tree/
+enabled=0
+metadata_expire=7d
+repo_gpgcheck=0
+type=rpm
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-$releasever-$basearch
+skip_if_unavailable=False

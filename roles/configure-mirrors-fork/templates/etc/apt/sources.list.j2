@@ -1,0 +1,5 @@
+# {{ ansible_managed }}
+deb {% if set_apt_mirrors_trusted %}[ trusted=yes ] {% endif %}{{ package_mirror }} {{ ansible_distribution_release }} main universe
+deb {% if set_apt_mirrors_trusted %}[ trusted=yes ] {% endif %}{{ package_mirror }} {{ ansible_distribution_release }}-updates main universe
+deb {% if set_apt_mirrors_trusted %}[ trusted=yes ] {% endif %}{{ package_mirror }} {{ ansible_distribution_release }}-backports main universe
+deb {% if set_apt_mirrors_trusted %}[ trusted=yes ] {% endif %}{{ package_mirror }} {{ ansible_distribution_release }}-security main universe

@@ -1,0 +1,16 @@
+---
+# The apt module can not be used for this since it installs python-apt
+# which can not work until this command fixes the cache.
+- name: Update apt cache
+  become: true
+  command: apt-get update
+  # ANSIBLE0006: ignore, since we cannot use the apt module
+  tags:
+    - skip_ansible_lint
+
+- name: Update yum cache
+  become: true
+  command: "{{ item }}"
+  with_items:
+    - yum clean all
+    - yum makecache

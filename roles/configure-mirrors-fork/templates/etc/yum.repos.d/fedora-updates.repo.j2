@@ -1,0 +1,48 @@
+# {{ ansible_managed }}
+[updates]
+name=Fedora $releasever - $basearch - Updates
+failovermethod=priority
+{% if ansible_distribution_version | version_compare('28', '<') %}
+baseurl={{ package_mirror }}/updates/$releasever/$basearch/
+{% else %}
+baseurl={{ package_mirror }}/updates/$releasever/Everything/$basearch/
+{% endif %}
+enabled=1
+repo_gpgcheck=0
+type=rpm
+gpgcheck=1
+metadata_expire=6h
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-$releasever-$basearch
+skip_if_unavailable=False
+
+[updates-debuginfo]
+name=Fedora $releasever - $basearch - Updates - Debug
+failovermethod=priority
+{% if ansible_distribution_version | version_compare('28', '<') %}
+baseurl={{ package_mirror }}/updates/$releasever/$basearch/debug/
+{% else %}
+baseurl={{ package_mirror }}/updates/$releasever/Everything/$basearch/debug/tree/
+{% endif %}
+enabled=0
+repo_gpgcheck=0
+type=rpm
+gpgcheck=1
+metadata_expire=6h
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-$releasever-$basearch
+skip_if_unavailable=False
+
+[updates-source]
+name=Fedora $releasever - Updates Source
+failovermethod=priority
+{% if ansible_distribution_version | version_compare('28', '<') %}
+baseurl={{ package_mirror }}/updates/$releasever/SRPMS/
+{% else %}
+baseurl={{ package_mirror }}/updates/$releasever/Everything/source/tree/
+{% endif %}
+enabled=0
+repo_gpgcheck=0
+type=rpm
+gpgcheck=1
+metadata_expire=6h
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-$releasever-$basearch
+skip_if_unavailable=False

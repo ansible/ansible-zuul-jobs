@@ -18,3 +18,7 @@
     - name: Run configure-swap role
       include_role:
         name: configure-swap
+
+    - name: Run configure-mirrors-fork role
+      include_role:
+        name: configure-mirrors-fork

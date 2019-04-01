@@ -1,0 +1,14 @@
+---
+- name: Install Fedora repository files
+  become: true
+  template:
+    dest: "/{{ item }}"
+    group: root
+    mode: 0644
+    owner: root
+    src: "{{ item }}.j2"
+  with_items:
+    - etc/yum.repos.d/fedora.repo
+    - etc/yum.repos.d/fedora-modular.repo
+    - etc/yum.repos.d/fedora-updates.repo
+    - etc/yum.repos.d/fedora-updates-modular.repo

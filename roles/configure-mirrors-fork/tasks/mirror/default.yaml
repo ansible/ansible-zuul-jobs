@@ -1,0 +1,7 @@
+---
+- name: Warn about unsupported distribution
+  debug:
+    msg: >
+      WARNING: {{ ansible_distribution }} mirrors are not supported either
+      by this role yet. The execution of the job will continue without setting
+      up cached mirrors.

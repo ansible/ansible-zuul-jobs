@@ -1,0 +1,11 @@
+---
+- project-template:
+    name: ansible-python-jobs
+    description: |
+      A common set of python jobs to run.
+    check:
+      jobs:
+        - tox-linters
+    gate:
+      jobs:
+        - tox-linters

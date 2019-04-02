@@ -5,7 +5,9 @@
       A common set of python jobs to run.
     check:
       jobs:
-        - tox-linters
+        - tox-linters:
+            nodeset: fedora-latest-1vcpu
     gate:
       jobs:
-        - tox-linters
+        - tox-linters:
+            nodeset: fedora-latest-1vcpu

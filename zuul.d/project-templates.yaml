@@ -11,3 +11,18 @@
       jobs:
         - tox-linters:
             nodeset: fedora-latest-1vcpu
+
+- project-template:
+    name: noop-jobs
+    description: |
+      This template runs no jobs, it is needed if a project does not use
+      any single job so that changes can get merged.
+
+      Do not use this with projects that have jobs defined in the gate
+      pipeline.
+    check:
+      jobs:
+        - noop
+    gate:
+      jobs:
+        - noop

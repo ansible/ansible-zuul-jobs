@@ -26,3 +26,20 @@
     gate:
       jobs:
         - noop
+
+- project-template:
+    name: system-required
+      Jobs that *every* project in Ansible should have by default.
+
+      This is automatically added to all projects in Ansible zuul tenant, no
+      repository should use this directly.
+    # Include a check queue so that initially every repo has a check queue
+    # and we can report invalid zuul.yaml files.
+    check:
+      jobs: []
+    merge-check:
+      jobs:
+        - noop
+    unlabel-on-push:
+      jobs:
+        - noop

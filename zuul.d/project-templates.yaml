@@ -29,6 +29,7 @@
 
 - project-template:
     name: system-required
+    description: |
       Jobs that *every* project in Ansible should have by default.
 
       This is automatically added to all projects in Ansible zuul tenant, no

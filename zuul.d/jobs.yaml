@@ -14,21 +14,15 @@
 
 - job:
     name: ansible-tox-py27
-    parent: tox
-    vars:
-      tox_envlist: py27
+    parent: tox-py27
     nodeset: centos-7-1vcpu
 
 - job:
     name: ansible-tox-py36
-    parent: tox
-    vars:
-      tox_envlist: py36
+    parent: tox-py36
     nodeset: fedora-latest-1vcpu
 
 - job:
     name: ansible-tox-py37
-    parent: tox
-    vars:
-      tox_envlist: py37
+    parent: tox-py37
     nodeset: fedora-latest-1vcpu

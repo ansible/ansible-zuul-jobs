@@ -1,0 +1,31 @@
+---
+- hosts: controller
+  tasks:
+    - name: Install binary dependencies
+      include_role:
+        name: bindep
+
+    - name: Run test-setup role
+      include_role:
+        name: test-setup
+
+    - name: Ensure remote SSH host keys are known
+      shell: "ssh-keyscan -t rsa {{ hostvars[item].ansible_host }} >> ~/.ssh/known_hosts"
+      with_inventory_hostnames: appliance
+
+    - name: Create /etc/ansible folder
+      become: true
+      file:
+        path: /etc/ansible
+        state: directory
+        mode: 0755
+
+    - name: Run write-inventory-fork role
+      include_role:
+        name: write-inventory-fork
+        apply:
+          become: true
+      vars:
+        write_inventory_dest: /etc/ansible/hosts
+        write_inventory_exclude_hostvars:
+          - ansible_connection

@@ -5,12 +5,10 @@
       A common set of python jobs to run.
     check:
       jobs:
-        - tox-linters:
-            nodeset: fedora-latest-1vcpu
+        - ansible-tox-linters
     gate:
       jobs:
-        - tox-linters:
-            nodeset: fedora-latest-1vcpu
+        - ansible-tox-linters
 
 - project-template:
     name: noop-jobs

@@ -11,6 +11,20 @@
         - ansible-tox-linters
 
 - project-template:
+    name: ansible-python3-jobs
+    description: |
+      Runs unit tests for an Ansible Python project under the CPython
+      version 3 releases.
+    check:
+      jobs:
+        - ansible-tox-py36
+        - ansible-tox-py37
+    gate:
+      jobs:
+        - ansible-tox-py36
+        - ansible-tox-py37
+
+- project-template:
     name: noop-jobs
     description: |
       This template runs no jobs, it is needed if a project does not use

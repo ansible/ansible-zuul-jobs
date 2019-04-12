@@ -26,3 +26,14 @@
     name: ansible-tox-py37
     parent: tox-py37
     nodeset: fedora-latest-1vcpu
+
+- job:
+    name: ansible-build-python-tarball
+    description: |
+      Test building python tarballs / wheels and the packaging metadata
+    pre-run: playbooks/ansible-build-python-tarball/pre.yaml
+    run: playbooks/ansible-build-python-tarball/run.yaml
+    nodeset: fedora-latest-1vcpu
+    vars:
+      release_python: python3
+      bdist_wheel_xargs: "--universal"

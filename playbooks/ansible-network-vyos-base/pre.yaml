@@ -29,3 +29,13 @@
         write_inventory_dest: /etc/ansible/hosts
         write_inventory_exclude_hostvars:
           - ansible_connection
+
+    - name: bootstrap venv
+      shell: tox -evenv --notest
+      args:
+        chdir: ~/src/github.com/ansible/ansible-zuul-jobs
+
+    - name: ansible
+      shell: .tox/venv/bin/ansible-playbook -v -c network_cli playbooks/ansible-network-vyos-base/files/bootstrap.yaml
+      args:
+        chdir: ~/src/github.com/ansible/ansible-zuul-jobs

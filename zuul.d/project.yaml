@@ -2,3 +2,9 @@
 - project:
     templates:
       - ansible-python-jobs
+    check:
+      jobs:
+        - ansible-network-vyos-base
+    gate:
+      jobs:
+        - ansible-network-vyos-base

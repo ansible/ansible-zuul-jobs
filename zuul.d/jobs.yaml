@@ -41,6 +41,7 @@
 - job:
     name: ansible-network-vyos-base
     pre-run: playbooks/ansible-network-vyos-base/pre.yaml
+    run: playbooks/ansible-network-vyos-base/run.yaml
     host-vars:
       vyos-1.1.8:
         ansible_connection: network_cli

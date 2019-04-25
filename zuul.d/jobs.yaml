@@ -46,4 +46,6 @@
         ansible_connection: network_cli
         ansible_network_os: vyos
         ansible_python_interpreter: python
+    required-projects:
+      - name: github.com/ansible/ansible-zuul-jobs
     nodeset: vyos-1.1.8-python3

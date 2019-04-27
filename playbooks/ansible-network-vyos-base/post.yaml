@@ -1,0 +1,21 @@
+---
+- hosts: controller
+  tasks:
+    - name: Ensure ara-report directory exists
+      file:
+        path: "{{ ansible_user_dir }}/zuul-output/logs/logs/ara-report"
+        state: directory
+
+    - name: Generate ARA HTML output
+      command: ".tox/venv/bin/ara generate html {{ ansible_user_dir }}/zuul-output/logs/logs/ara-report"
+      args:
+        chdir: "{{ ansible_user_dir }}/{{ zuul.project.src_dir }}"
+
+    # TODO: Migrate to fetch-zuul-logs when
+    # https://review.openstack.org/#/c/583346/ is merged.
+    - name: Collect log output
+      synchronize:
+        dest: "{{ zuul.executor.log_root }}/"
+        mode: pull
+        src: "{{ ansible_user_dir }}/zuul-output/logs/"
+        verify_host: true

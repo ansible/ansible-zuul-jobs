@@ -20,6 +20,12 @@
         state: directory
         mode: 0755
 
+    - name: Install ansible.cfg
+      template:
+        src: ansible.cfg.j2
+        dest: ~/.ansible.cfg
+        mode: 0644
+
     - name: Run write-inventory-fork role
       include_role:
         name: write-inventory-fork

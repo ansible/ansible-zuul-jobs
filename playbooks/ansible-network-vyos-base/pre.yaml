@@ -36,12 +36,9 @@
         write_inventory_exclude_hostvars:
           - ansible_connection
 
-    - name: Bootstrap tox environment
-      shell: tox -evenv --notest
-      args:
-        chdir: ~/src/github.com/ansible/ansible-zuul-jobs
-
-    - name: Run ansible playbook
-      shell: tox -evenv -- ansible-playbook -v -c network_cli playbooks/ansible-network-vyos-base/files/bootstrap.yaml
-      args:
-        chdir: ~/src/github.com/ansible/ansible-zuul-jobs
+    - name: Setup tox role
+      include_role:
+        name: tox
+      vars:
+        tox_extra_args: -- ansible-playbook -v -c network_cli playbooks/ansible-network-vyos-base/files/bootstrap.yaml
+        zuul_work_dir: "{{ zuul.projects['github.com/ansible/ansible-zuul-jobs'].src_dir }}"

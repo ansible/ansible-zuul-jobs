@@ -23,6 +23,22 @@
       - name: fedora-29
         label: fedora-29-4vcpu
 
+# Ansible network appliance nodesets
+- nodeset:
+    name: eos-4.20.10-python3
+    nodes:
+      - name: fedora-29
+        label: fedora-29-1vcpu
+      - name: eos-4.20.10
+        label: eos-4.20.10
+    groups:
+      - name: appliance
+        nodes:
+          - eos-4.20.10
+      - name: controller
+        nodes:
+          - fedora-29
+
 - nodeset:
     name: vyos-1.1.8-python3
     nodes:

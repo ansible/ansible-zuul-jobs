@@ -4,7 +4,9 @@
       - ansible-python-jobs
     check:
       jobs:
-        - ansible-network-vyos-base
+        - ansible-network-eos-appliance
+        - ansible-network-vyos-appliance
     gate:
       jobs:
-        - ansible-network-vyos-base
+        - ansible-network-eos-appliance
+        - ansible-network-vyos-appliance

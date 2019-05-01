@@ -35,10 +35,3 @@
         write_inventory_dest: /etc/ansible/hosts
         write_inventory_exclude_hostvars:
           - ansible_connection
-
-    - name: Setup tox role
-      include_role:
-        name: tox
-      vars:
-        tox_extra_args: -- ansible-playbook -v -c network_cli playbooks/ansible-network-vyos-base/files/bootstrap.yaml
-        zuul_work_dir: "{{ zuul.projects['github.com/ansible/ansible-zuul-jobs'].src_dir }}"

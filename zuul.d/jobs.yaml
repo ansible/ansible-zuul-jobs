@@ -1,7 +1,7 @@
 ---
 - job:
     name: base
-    parent: base-minimal-test
+    parent: base-minimal
     abstract: true
     description: |
       The base job for the Ansible installation of Zuul.

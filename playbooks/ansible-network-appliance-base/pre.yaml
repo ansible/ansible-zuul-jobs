@@ -5,7 +5,7 @@
       include_role:
         name: bindep
       vars:
-        zuul_work_dir: "{{ zuul.projects['github.com/ansible/ansible-zuul-jobs'].src_dir }}"
+        bindep_dir: "{{ zuul.projects['github.com/ansible/ansible-zuul-jobs'].src_dir }}"
 
     - name: Run test-setup role
       include_role:

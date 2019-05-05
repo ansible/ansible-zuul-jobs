@@ -1,0 +1,13 @@
+---
+- hosts: controller
+  tasks:
+    - name: Create inventory file
+      template:
+        src: inventory.j2
+        dest: ~/inventory
+        mode: 0644
+
+    - name: Run the integration test suite
+      args:
+        chdir: "{{ ansible_user_dir }}/{{ zuul.projects['github.com/ansible/ansible'].src_dir }}"
+      shell: ./test/runner/ansible-test network-integration --continue-on-error --diff --tox --tox-sitepackages --python 3.7 --inventory /home/zuul/inventory eos_.* -vv

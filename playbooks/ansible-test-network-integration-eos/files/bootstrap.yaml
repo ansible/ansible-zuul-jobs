@@ -1,0 +1,33 @@
+---
+- hosts: controller
+  gather_facts: false
+  connection: local
+  tasks:
+    - name: Install pexpect requirement
+      pip:
+        name: pexpect
+        extra_args: --user
+
+- hosts: controller
+  gather_facts: false
+  connection: local
+  tasks:
+    - name: Enable eAPI access with default configuration
+      expect:
+        command: "ssh {{ hostvars['eos-4.20.10'].ansible_host }}"
+        responses:
+          '^.*>$': enable
+          '^.*[^\)]#$':
+            - config terminal
+            - exit
+          '^.*\(config\)#$':
+            - management api http-commands
+            - write memory
+            - exit
+          '^.*\(config-mgmt-api-http-cmds\)#$':
+            - protocol http
+            - protocol https
+            - protocol unix-socket
+            - no shutdown
+            - exit
+        timeout: 60

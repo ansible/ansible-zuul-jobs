@@ -14,7 +14,7 @@
 # License for the specific language governing permissions and limitations
 # under the License.
 
-import json
+import yaml
 
 from ansible.module_utils.basic import AnsibleModule
 
@@ -61,7 +61,7 @@ def run(dest, hostvars, groups, include, exclude):
         out_all[host] = d
 
     with open(dest, 'w') as f:
-        f.write(json.dumps(out))
+        f.write(yaml.dumps(out))
 
 
 def ansible_main():

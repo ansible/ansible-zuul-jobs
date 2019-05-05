@@ -72,6 +72,15 @@
     nodeset: vyos-1.1.8-python3
 
 - job:
+    name: ansible-test-network-integration-eos
+    parent: ansible-network-eos-appliance
+    pre-run: playbooks/ansible-test-network-integration-eos/pre.yaml
+    run: playbooks/ansible-test-network-integration-eos/run.yaml
+    required-projects:
+      - name: github.com/ansible/ansible
+    timeout: 3600
+
+- job:
     name: ansible-test-network-integration-vyos
     parent: ansible-network-vyos-appliance
     pre-run: playbooks/ansible-test-network-integration-vyos/pre.yaml

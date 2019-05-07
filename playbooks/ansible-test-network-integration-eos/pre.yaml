@@ -1,0 +1,9 @@
+---
+- hosts: controller
+  tasks:
+    - name: Setup tox role
+      include_role:
+        name: tox
+      vars:
+        tox_extra_args: -- ansible-playbook -vvvv playbooks/ansible-test-network-integration-eos/files/bootstrap.yaml
+        zuul_work_dir: "{{ zuul.projects['github.com/ansible/ansible-zuul-jobs'].src_dir }}"

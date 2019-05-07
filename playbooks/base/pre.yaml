@@ -9,7 +9,7 @@
       include_role:
         name: configure-unbound
 
-- hosts: all:!appliance
+- hosts: all
   tasks:
     - name: Run validate-host role
       include_role:

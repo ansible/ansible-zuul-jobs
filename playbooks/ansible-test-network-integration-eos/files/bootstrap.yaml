@@ -1,4 +1,16 @@
 ---
+- hosts: appliance
+  gather_facts: false
+  connection: network_cli
+  tasks:
+    - name: Setup eAPI password for zuul user
+      become: true
+      become_method: enable
+      eos_config:
+        lines:
+          - username zuul secret superSecretPass
+        save_when: always
+
 - hosts: controller
   gather_facts: false
   connection: local

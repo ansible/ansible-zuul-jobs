@@ -6,5 +6,6 @@ eos-4.20.10 ansible_port=22 ansible_python_interpreter=python ansible_host={{ ho
 
 [eos:vars]
 debug=False
-cli={'transport': 'cli', 'authorize': 'yes'}
-eapi={'transport': 'eapi', 'use_ssl': 'no', 'port': '80', 'authorize': 'yes'}
+cli={'transport': 'cli', 'authorize': true}
+# NOTE(pabelanger): ansible_httpapi_pass doesn't work for ansible_connection local.
+eapi={'transport': 'eapi', 'use_ssl': false, 'port': '80', 'authorize': true, 'password': 'superSecretPass'}

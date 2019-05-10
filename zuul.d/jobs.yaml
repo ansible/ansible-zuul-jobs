@@ -69,7 +69,7 @@
         ansible_python_interpreter: python
     required-projects:
       - name: github.com/ansible/ansible-zuul-jobs
-    nodeset: vyos-1.1.8-python3
+    nodeset: vyos-1.1.8-python37
 
 - job:
     name: ansible-test-network-integration-eos
@@ -82,9 +82,24 @@
 
 - job:
     name: ansible-test-network-integration-vyos
+    abstract: true
     parent: ansible-network-vyos-appliance
     pre-run: playbooks/ansible-test-network-integration-vyos/pre.yaml
     run: playbooks/ansible-test-network-integration-vyos/run.yaml
     required-projects:
       - name: github.com/ansible/ansible
     timeout: 3600
+
+- job:
+    name: ansible-test-network-integration-vyos-python36
+    parent: ansible-test-network-integration-vyos
+    nodeset: vyos-1.1.8-python36
+    vars:
+      ansible_test_python: 3.6
+
+- job:
+    name: ansible-test-network-integration-vyos-python37
+    parent: ansible-test-network-integration-vyos
+    nodeset: vyos-1.1.8-python37
+    vars:
+      ansible_test_python: 3.7

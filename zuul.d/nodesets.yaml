@@ -25,6 +25,21 @@
 
 # Ansible network appliance nodesets
 - nodeset:
+    name: eos-4.20.10-python27
+    nodes:
+      - name: ubuntu-bionic
+        label: ubuntu-bionic-1vcpu
+      - name: eos-4.20.10
+        label: eos-4.20.10
+    groups:
+      - name: appliance
+        nodes:
+          - eos-4.20.10
+      - name: controller
+        nodes:
+          - ubuntu-bionic
+
+- nodeset:
     name: eos-4.20.10-python36
     nodes:
       - name: ubuntu-bionic
@@ -53,6 +68,21 @@
       - name: controller
         nodes:
           - fedora-29
+
+- nodeset:
+    name: vyos-1.1.8-python27
+    nodes:
+      - name: ubuntu-bionic
+        label: ubuntu-bionic-1vcpu
+      - name: vyos-1.1.8
+        label: vyos-1.1.8-1vcpu
+    groups:
+      - name: appliance
+        nodes:
+          - vyos-1.1.8
+      - name: controller
+        nodes:
+          - ubuntu-bionic
 
 - nodeset:
     name: vyos-1.1.8-python36

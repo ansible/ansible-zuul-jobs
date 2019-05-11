@@ -81,6 +81,13 @@
     timeout: 7200
 
 - job:
+    name: ansible-test-network-integration-eos-python27
+    parent: ansible-test-network-integration-eos
+    nodeset: eos-4.20.10-python36
+    vars:
+      ansible_test_python: 2.7
+
+- job:
     name: ansible-test-network-integration-eos-python36
     parent: ansible-test-network-integration-eos
     nodeset: eos-4.20.10-python36
@@ -103,6 +110,13 @@
     required-projects:
       - name: github.com/ansible/ansible
     timeout: 3600
+
+- job:
+    name: ansible-test-network-integration-vyos-python27
+    parent: ansible-test-network-integration-vyos
+    nodeset: vyos-1.1.8-python36
+    vars:
+      ansible_test_python: 2.7
 
 - job:
     name: ansible-test-network-integration-vyos-python36

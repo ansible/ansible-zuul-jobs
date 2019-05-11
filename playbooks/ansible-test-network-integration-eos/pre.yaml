@@ -6,4 +6,5 @@
         name: tox
       vars:
         tox_extra_args: -- ansible-playbook -vvvv playbooks/ansible-test-network-integration-eos/files/bootstrap.yaml
+        tox_install_siblings: false
         zuul_work_dir: "{{ zuul.projects['github.com/ansible/ansible-zuul-jobs'].src_dir }}"

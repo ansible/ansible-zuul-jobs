@@ -10,4 +10,4 @@
     - name: Run the integration test suite
       args:
         chdir: "{{ ansible_user_dir }}/{{ zuul.projects['github.com/ansible/ansible'].src_dir }}"
-      shell: ./test/runner/ansible-test network-integration --continue-on-error --diff --tox --tox-sitepackages --python 3.7 --inventory /home/zuul/inventory eos_.* -vv
+      shell: "./test/runner/ansible-test network-integration --continue-on-error --diff --tox --tox-sitepackages --python {{ ansible_test_python }} --inventory /home/zuul/inventory eos_.* -vv"

@@ -5,6 +5,6 @@
       include_role:
         name: tox
       vars:
-        tox_install_siblings: false
         tox_extra_args: -vv -- ansible-playbook -v -c network_cli playbooks/ansible-test-network-integration-vyos/files/bootstrap.yaml
+        tox_install_siblings: false
         zuul_work_dir: "{{ zuul.projects['github.com/ansible/ansible-zuul-jobs'].src_dir }}"

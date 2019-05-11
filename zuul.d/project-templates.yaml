@@ -28,6 +28,13 @@
     name: ansible-test-network-integration
     periodic:
       jobs:
+        - ansible-test-network-integration-eos-python27:
+            branches:
+              - devel
+              - stable-2.8
+              - stable-2.7
+              - stable-2.6
+              - stable-2.5
         - ansible-test-network-integration-eos-python36:
             branches:
               - devel
@@ -36,6 +43,13 @@
               - stable-2.6
               - stable-2.5
         - ansible-test-network-integration-eos-python37:
+            branches:
+              - devel
+              - stable-2.8
+              - stable-2.7
+              - stable-2.6
+              - stable-2.5
+        - ansible-test-network-integration-vyos-python27:
             branches:
               - devel
               - stable-2.8

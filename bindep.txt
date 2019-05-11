@@ -2,6 +2,7 @@
 # see http://docs.openstack.org/infra/bindep/ for additional information.
 
 gcc-c++ [test platform:rpm]
+python2.7-dev [test platform:dpkg]
 python3-devel [test !platform:centos-7 platform:rpm]
 python3-dev [test platform:dpkg]
 python3-libselinux [test !platform:centos-7 platform:rpm]

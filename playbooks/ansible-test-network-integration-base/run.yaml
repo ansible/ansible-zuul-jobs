@@ -7,14 +7,21 @@
         dest: ~/inventory
         mode: 0644
 
+    - name: Setup base virtualenv_options
+      set_fact:
+        _virtualenv_options: "--python python{{ ansible_test_python }}"
+
+    - name: Enable --system-site-packages for virtualenv_options
+      set_fact:
+        _virtualenv_options: "{{ _virtualenv_options }} --system-site-packages"
+      when: ansible_os_family == "RedHat"
+
+    - name: Create virtualenv for ansible-test
+      shell: "virtualenv {{ _virtualenv_options }} ~/venv"
+
     - name: Setup base test_options
       set_fact:
-        _test_options: "--continue-on-error --diff --tox"
-
-    - name: Enable --tox-sitepackages for test_options
-      set_fact:
-        _test_options: "{{ _test_options }} --tox-sitepackages"
-      when: ansible_os_family == "RedHat"
+        _test_options: "--continue-on-error --diff --requirements"
 
     - name: Enable --no-temp-workdir for test_options
       set_fact:
@@ -24,4 +31,5 @@
     - name: Run the integration test suite
       args:
         chdir: "{{ ansible_user_dir }}/{{ zuul.projects['github.com/ansible/ansible'].src_dir }}"
-      shell: "./test/runner/ansible-test network-integration {{ _test_options }} --python {{ ansible_test_python }} --inventory /home/zuul/inventory {{ ansible_test_network_integration }}_.* -vv"
+        executable: /bin/bash
+      shell: "source ~/venv/bin/activate; ./test/runner/ansible-test network-integration {{ _test_options }} --python {{ ansible_test_python }} --inventory /home/zuul/inventory {{ ansible_test_network_integration }}_.* -vv"

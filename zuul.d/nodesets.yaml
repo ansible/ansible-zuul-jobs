@@ -85,6 +85,21 @@
           - fedora-29
 
 - nodeset:
+    name: vsrx3-18.4R1-python37
+    nodes:
+      - name: fedora-29
+        label: fedora-29-1vcpu
+      - name: vsrx3-18.4R1
+        label: vsrx3-18.4R1
+    groups:
+      - name: appliance
+        nodes:
+          - vsrx3-18.4R1
+      - name: controller
+        nodes:
+          - fedora-29
+
+- nodeset:
     name: vyos-1.1.8-python27
     nodes:
       - name: ubuntu-bionic

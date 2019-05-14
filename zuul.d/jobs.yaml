@@ -58,6 +58,19 @@
     nodeset: eos-4.20.10-python37
 
 - job:
+    name: ansible-network-junos-appliance
+    parent: ansible-network-appliance-base
+    pre-run: playbooks/ansible-network-junos-appliance/pre.yaml
+    run: playbooks/ansible-network-junos-appliance/run.yaml
+    host-vars:
+      vsrx3-18.4R1:
+        ansible_connection: network_cli
+        ansible_network_os: junos
+    required-projects:
+      - name: github.com/ansible/ansible-zuul-jobs
+    nodeset: vsrx3-18.4R1-python37
+
+- job:
     name: ansible-network-vyos-appliance
     parent: ansible-network-appliance-base
     pre-run: playbooks/ansible-network-vyos-appliance/pre.yaml

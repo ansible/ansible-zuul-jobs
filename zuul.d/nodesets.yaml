@@ -85,6 +85,51 @@
           - fedora-29
 
 - nodeset:
+    name: vsrx3-18.4R1-python27
+    nodes:
+      - name: ubuntu-bionic
+        label: ubuntu-bionic-1vcpu
+      - name: vsrx3-18.4R1
+        label: vsrx3-18.4R1
+    groups:
+      - name: appliance
+        nodes:
+          - vsrx3-18.4R1
+      - name: controller
+        nodes:
+          - ubuntu-bionic
+
+- nodeset:
+    name: vsrx3-18.4R1-python35
+    nodes:
+      - name: ubuntu-xenial
+        label: ubuntu-xenial-1vcpu
+      - name: vsrx3-18.4R1
+        label: vsrx3-18.4R1
+    groups:
+      - name: appliance
+        nodes:
+          - vsrx3-18.4R1
+      - name: controller
+        nodes:
+          - ubuntu-xenial
+
+- nodeset:
+    name: vsrx3-18.4R1-python36
+    nodes:
+      - name: ubuntu-bionic
+        label: ubuntu-bionic-1vcpu
+      - name: vsrx3-18.4R1
+        label: vsrx3-18.4R1
+    groups:
+      - name: appliance
+        nodes:
+          - vsrx3-18.4R1
+      - name: controller
+        nodes:
+          - ubuntu-bionic
+
+- nodeset:
     name: vsrx3-18.4R1-python37
     nodes:
       - name: fedora-29

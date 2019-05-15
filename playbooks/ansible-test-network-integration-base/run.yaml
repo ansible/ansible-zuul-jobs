@@ -28,8 +28,17 @@
         _test_options: "{{ _test_options }} --no-temp-workdir"
       when: zuul.projects['github.com/ansible/ansible'].checkout not in ["stable-2.5", "stable-2.6", "stable-2.7"]
 
+    - name: Setup base target for ansible-test
+      set_fact:
+        _target: "{{ ansible_test_network_integration }}_.*"
+
+    - name: Enable netconf_.* target for ansible-test
+      set_fact:
+        _target: "{{ _target }} netconf_.*"
+      when: ansible_test_network_integration in ["junos"]
+
     - name: Run the integration test suite
       args:
         chdir: "{{ ansible_user_dir }}/{{ zuul.projects['github.com/ansible/ansible'].src_dir }}"
         executable: /bin/bash
-      shell: "source ~/venv/bin/activate; ./test/runner/ansible-test network-integration {{ _test_options }} --python {{ ansible_test_python }} --inventory /home/zuul/inventory {{ ansible_test_network_integration }}_.* -vv"
+      shell: "source ~/venv/bin/activate; ./test/runner/ansible-test network-integration {{ _test_options }} --python {{ ansible_test_python }} --inventory /home/zuul/inventory {{ _target }} -vv"

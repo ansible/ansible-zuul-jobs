@@ -1,0 +1,20 @@
+---
+# NOTE(pabelanger): For some reason, we need to toggle this port to get
+# netconf SSH working.
+- hosts: appliance
+  gather_facts: false
+  connection: network_cli
+  tasks:
+    - name: Enable NETCONF SSH on tcp/8022
+      junos_netconf:
+        netconf_port: 8022
+        state: present
+
+- hosts: appliance
+  gather_facts: false
+  connection: network_cli
+  tasks:
+    - name: Enable NETCONF SSH on tcp/830
+      junos_netconf:
+        netconf_port: 830
+        state: present

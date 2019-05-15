@@ -26,6 +26,24 @@
 
 - project-template:
     name: ansible-test-network-integration
+    periodic-3hr:
+      jobs:
+        - ansible-test-network-integration-junos-python27:
+            branches:
+              - devel
+              - stable-2.8
+        - ansible-test-network-integration-junos-python35:
+            branches:
+              - devel
+              - stable-2.8
+        - ansible-test-network-integration-junos-python36:
+            branches:
+              - devel
+              - stable-2.8
+        - ansible-test-network-integration-junos-python37:
+            branches:
+              - devel
+              - stable-2.8
     periodic:
       jobs:
         - ansible-test-network-integration-eos-python27:
@@ -53,6 +71,26 @@
             branches:
               - devel
               - stable-2.8
+              - stable-2.7
+              - stable-2.6
+              - stable-2.5
+        - ansible-test-network-integration-junos-python27:
+            branches:
+              - stable-2.7
+              - stable-2.6
+              - stable-2.5
+        - ansible-test-network-integration-junos-python35:
+            branches:
+              - stable-2.7
+              - stable-2.6
+              - stable-2.5
+        - ansible-test-network-integration-junos-python36:
+            branches:
+              - stable-2.7
+              - stable-2.6
+              - stable-2.5
+        - ansible-test-network-integration-junos-python37:
+            branches:
               - stable-2.7
               - stable-2.6
               - stable-2.5

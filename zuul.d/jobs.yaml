@@ -173,6 +173,11 @@
     timeout: 3600
     vars:
       ansible_test_network_integration: vyos
+    files:
+      - ^lib/ansible/modules/network/vyos/.*
+      - ^lib/ansible/module_utils/network/vyos/.*
+      - ^lib/ansible/plugins/connection/network_cli.py
+      - ^test/integration/targets/vyos_.*
 
 - job:
     name: ansible-test-network-integration-vyos-python27

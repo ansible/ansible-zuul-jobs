@@ -91,6 +91,7 @@
               - stable-2.7
               - stable-2.6
               - stable-2.5
+            files: []
         - ansible-test-network-integration-vyos-python35:
             branches:
               - devel
@@ -98,6 +99,7 @@
               - stable-2.7
               - stable-2.6
               - stable-2.5
+            files: []
         - ansible-test-network-integration-vyos-python36:
             branches:
               - devel
@@ -105,6 +107,7 @@
               - stable-2.7
               - stable-2.6
               - stable-2.5
+            files: []
         - ansible-test-network-integration-vyos-python37:
             branches:
               - devel
@@ -112,6 +115,7 @@
               - stable-2.7
               - stable-2.6
               - stable-2.5
+            files: []
 
 - project-template:
     name: noop-jobs

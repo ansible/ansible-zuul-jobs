@@ -116,6 +116,11 @@
               - stable-2.6
               - stable-2.5
             files: []
+    third-party-check:
+      jobs:
+        - ansible-test-network-integration-vyos-python37:
+            branches:
+              - devel
 
 - project-template:
     name: noop-jobs

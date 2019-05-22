@@ -26,13 +26,6 @@
 
 - project-template:
     name: ansible-test-network-integration
-    periodic-1hr:
-      jobs:
-        - ansible-test-network-integration-eos-python27:
-            branches:
-              - devel
-            files:
-              - ^.*
     periodic:
       jobs:
         - ansible-test-network-integration-eos-python27:

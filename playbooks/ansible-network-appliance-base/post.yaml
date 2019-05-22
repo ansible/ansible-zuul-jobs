@@ -3,11 +3,11 @@
   tasks:
     - name: Ensure ara-report directory exists
       file:
-        path: "{{ ansible_user_dir }}/zuul-output/logs/logs/ara-report"
+        path: "{{ ansible_user_dir }}/zuul-output/logs/controller/ara-report"
         state: directory
 
     - name: Generate ARA HTML output
-      command: ".tox/venv/bin/ara generate html {{ ansible_user_dir }}/zuul-output/logs/logs/ara-report"
+      command: ".tox/venv/bin/ara generate html {{ ansible_user_dir }}/zuul-output/logs/controller/ara-report"
       args:
         chdir: "{{ ansible_user_dir }}/{{ zuul.projects['github.com/ansible/ansible-zuul-jobs'].src_dir }}"
 

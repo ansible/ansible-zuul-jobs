@@ -36,7 +36,7 @@
     - name: Enable --no-temp-workdir for test_options
       set_fact:
         _test_options: "{{ _test_options }} --no-temp-workdir"
-      when: zuul.projects['github.com/ansible/ansible'].checkout not in ["stable-2.5", "stable-2.6", "stable-2.7"]
+      when: zuul.projects['github.com/ansible/ansible'].checkout not in ["stable-2.6", "stable-2.7"]
 
     - name: Setup base target for ansible-test
       set_fact:

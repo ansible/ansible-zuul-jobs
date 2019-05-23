@@ -34,84 +34,72 @@
               - stable-2.8
               - stable-2.7
               - stable-2.6
-              - stable-2.5
         - ansible-test-network-integration-eos-python35:
             branches:
               - devel
               - stable-2.8
               - stable-2.7
               - stable-2.6
-              - stable-2.5
         - ansible-test-network-integration-eos-python36:
             branches:
               - devel
               - stable-2.8
               - stable-2.7
               - stable-2.6
-              - stable-2.5
         - ansible-test-network-integration-eos-python37:
             branches:
               - devel
               - stable-2.8
               - stable-2.7
               - stable-2.6
-              - stable-2.5
         - ansible-test-network-integration-junos-python27:
             branches:
               - devel
               - stable-2.8
               - stable-2.7
               - stable-2.6
-              - stable-2.5
         - ansible-test-network-integration-junos-python35:
             branches:
               - devel
               - stable-2.8
               - stable-2.7
               - stable-2.6
-              - stable-2.5
         - ansible-test-network-integration-junos-python36:
             branches:
               - devel
               - stable-2.8
               - stable-2.7
               - stable-2.6
-              - stable-2.5
         - ansible-test-network-integration-junos-python37:
             branches:
               - devel
               - stable-2.8
               - stable-2.7
               - stable-2.6
-              - stable-2.5
         - ansible-test-network-integration-vyos-python27:
             branches:
               - devel
               - stable-2.8
               - stable-2.7
               - stable-2.6
-              - stable-2.5
         - ansible-test-network-integration-vyos-python35:
             branches:
               - devel
               - stable-2.8
               - stable-2.7
               - stable-2.6
-              - stable-2.5
         - ansible-test-network-integration-vyos-python36:
             branches:
               - devel
               - stable-2.8
               - stable-2.7
               - stable-2.6
-              - stable-2.5
         - ansible-test-network-integration-vyos-python37:
             branches:
               - devel
               - stable-2.8
               - stable-2.7
               - stable-2.6
-              - stable-2.5
     third-party-check:
       jobs:
         - ansible-test-network-integration-eos-python27:
@@ -120,7 +108,6 @@
               - stable-2.8
               - stable-2.7
               - stable-2.6
-              - stable-2.5
             files:
               - ^lib/ansible/modules/network/eos/.*
               - ^lib/ansible/module_utils/network/eos/.*
@@ -132,7 +119,6 @@
               - stable-2.8
               - stable-2.7
               - stable-2.6
-              - stable-2.5
             files:
               - ^lib/ansible/modules/network/eos/.*
               - ^lib/ansible/module_utils/network/eos/.*
@@ -144,7 +130,6 @@
               - stable-2.8
               - stable-2.7
               - stable-2.6
-              - stable-2.5
             files:
               - ^lib/ansible/modules/network/eos/.*
               - ^lib/ansible/module_utils/network/eos/.*
@@ -156,7 +141,6 @@
               - stable-2.8
               - stable-2.7
               - stable-2.6
-              - stable-2.5
             files:
               - ^lib/ansible/modules/network/eos/.*
               - ^lib/ansible/module_utils/network/eos/.*
@@ -171,7 +155,6 @@
               - stable-2.8
               - stable-2.7
               - stable-2.6
-              - stable-2.5
             files:
               - ^lib/ansible/modules/network/vyos/.*
               - ^lib/ansible/module_utils/network/vyos/.*
@@ -183,7 +166,6 @@
               - stable-2.8
               - stable-2.7
               - stable-2.6
-              - stable-2.5
             files:
               - ^lib/ansible/modules/network/vyos/.*
               - ^lib/ansible/module_utils/network/vyos/.*
@@ -195,7 +177,6 @@
               - stable-2.8
               - stable-2.7
               - stable-2.6
-              - stable-2.5
             files:
               - ^lib/ansible/modules/network/vyos/.*
               - ^lib/ansible/module_utils/network/vyos/.*
@@ -207,7 +188,6 @@
               - stable-2.8
               - stable-2.7
               - stable-2.6
-              - stable-2.5
             files:
               - ^lib/ansible/modules/network/vyos/.*
               - ^lib/ansible/module_utils/network/vyos/.*

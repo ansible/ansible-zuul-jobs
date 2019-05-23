@@ -149,6 +149,12 @@
         - ansible-test-network-integration-junos-python37:
             branches:
               - devel
+            files:
+              - ^lib/ansible/modules/network/junos/.*
+              - ^lib/ansible/module_utils/network/junos/.*
+              - ^lib/ansible/plugins/connection/network_cli.py
+              - ^test/integration/targets/junos_.*
+              - ^test/integration/targets/netconf_.*
         - ansible-test-network-integration-vyos-python27:
             branches:
               - devel

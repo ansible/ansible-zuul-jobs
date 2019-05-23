@@ -146,6 +146,9 @@
               - stable-2.7
               - stable-2.6
               - stable-2.5
+        - ansible-test-network-integration-junos-python37:
+            branches:
+              - devel
         - ansible-test-network-integration-vyos-python27:
             branches:
               - devel

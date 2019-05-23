@@ -35,7 +35,6 @@
               - stable-2.7
               - stable-2.6
               - stable-2.5
-            files: []
         - ansible-test-network-integration-eos-python35:
             branches:
               - devel
@@ -43,7 +42,6 @@
               - stable-2.7
               - stable-2.6
               - stable-2.5
-            files: []
         - ansible-test-network-integration-eos-python36:
             branches:
               - devel
@@ -51,7 +49,6 @@
               - stable-2.7
               - stable-2.6
               - stable-2.5
-            files: []
         - ansible-test-network-integration-eos-python37:
             branches:
               - devel
@@ -59,7 +56,6 @@
               - stable-2.7
               - stable-2.6
               - stable-2.5
-            files: []
         - ansible-test-network-integration-junos-python27:
             branches:
               - devel
@@ -125,6 +121,11 @@
               - stable-2.7
               - stable-2.6
               - stable-2.5
+            files:
+              - ^lib/ansible/modules/network/eos/.*
+              - ^lib/ansible/module_utils/network/eos/.*
+              - ^lib/ansible/plugins/connection/network_cli.py
+              - ^test/integration/targets/eos_.*
         - ansible-test-network-integration-eos-python35:
             branches:
               - devel
@@ -132,6 +133,11 @@
               - stable-2.7
               - stable-2.6
               - stable-2.5
+            files:
+              - ^lib/ansible/modules/network/eos/.*
+              - ^lib/ansible/module_utils/network/eos/.*
+              - ^lib/ansible/plugins/connection/network_cli.py
+              - ^test/integration/targets/eos_.*
         - ansible-test-network-integration-eos-python36:
             branches:
               - devel
@@ -139,6 +145,11 @@
               - stable-2.7
               - stable-2.6
               - stable-2.5
+            files:
+              - ^lib/ansible/modules/network/eos/.*
+              - ^lib/ansible/module_utils/network/eos/.*
+              - ^lib/ansible/plugins/connection/network_cli.py
+              - ^test/integration/targets/eos_.*
         - ansible-test-network-integration-eos-python37:
             branches:
               - devel
@@ -146,6 +157,11 @@
               - stable-2.7
               - stable-2.6
               - stable-2.5
+            files:
+              - ^lib/ansible/modules/network/eos/.*
+              - ^lib/ansible/module_utils/network/eos/.*
+              - ^lib/ansible/plugins/connection/network_cli.py
+              - ^test/integration/targets/eos_.*
         - ansible-test-network-integration-junos-python37:
             branches:
               - devel

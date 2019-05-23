@@ -94,11 +94,6 @@
     timeout: 7200
     vars:
       ansible_test_network_integration: eos
-    files:
-      - ^lib/ansible/modules/network/eos/.*
-      - ^lib/ansible/module_utils/network/eos/.*
-      - ^lib/ansible/plugins/connection/network_cli.py
-      - ^test/integration/targets/eos_.*
 
 - job:
     name: ansible-test-network-integration-eos-python27

@@ -85,6 +85,66 @@
           - fedora-29
 
 - nodeset:
+    name: ios-15.6-2T-python27
+    nodes:
+      - name: centos-7
+        label: centos-7-1vcpu
+      - name: ios-15.6-2T
+        label: iosv-15.6-2T
+    groups:
+      - name: appliance
+        nodes:
+          - ios-15.6-2T
+      - name: controller
+        nodes:
+          - centos-7
+
+- nodeset:
+    name: ios-15.6-2T-python35
+    nodes:
+      - name: ubuntu-xenial
+        label: ubuntu-xenial-1vcpu
+      - name: ios-15.6-2T
+        label: iosv-15.6-2T
+    groups:
+      - name: appliance
+        nodes:
+          - ios-15.6-2T
+      - name: controller
+        nodes:
+          - ubuntu-xenial
+
+- nodeset:
+    name: ios-15.6-2T-python36
+    nodes:
+      - name: ubuntu-bionic
+        label: ubuntu-bionic-1vcpu
+      - name: ios-15.6-2T
+        label: iosv-15.6-2T
+    groups:
+      - name: appliance
+        nodes:
+          - ios-15.6-2T
+      - name: controller
+        nodes:
+          - ubuntu-bionic
+
+- nodeset:
+    name: ios-15.6-2T-python37
+    nodes:
+      - name: fedora-29
+        label: fedora-29-1vcpu
+      - name: ios-15.6-2T
+        label: iosv-15.6-2T
+    groups:
+      - name: appliance
+        nodes:
+          - ios-15.6-2T
+      - name: controller
+        nodes:
+          - fedora-29
+
+- nodeset:
     name: vsrx3-18.4R1-python27
     nodes:
       - name: ubuntu-bionic

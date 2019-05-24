@@ -1,0 +1,38 @@
+---
+# NOTE(pabelanger): This needs to move into proper zuul-job, however until we
+# can use ios_config on zuul-executor, we need to run as nested.
+- hosts: appliance
+  gather_facts: false
+  vars:
+    ansible_password: admin
+    ansible_user: admin
+  tasks:
+    - name: lookup SSH public key
+      set_fact:
+        _ssh_key: "{{ lookup('file', '~/.ssh/id_rsa.pub') }}"
+
+    - name: Setup new user
+      become: true
+      become_method: enable
+      ios_config:
+        lines:
+          - "key-hash {{ _ssh_key.split()[0] }} {{ _ssh_key.split()[1] | b64decode | hash('md5') | upper }}"
+        parents:
+          - ip ssh pubkey-chain
+          - username zuul
+        before:
+          - ip ssh pubkey-chain
+          - username zuul
+        match: exact
+        replace: block
+        save_when: always
+
+- hosts: appliance
+  gather_facts: false
+  tasks:
+    - name: Remove admin user
+      become: true
+      become_method: enable
+      ios_user:
+        name: admin
+        state: absent

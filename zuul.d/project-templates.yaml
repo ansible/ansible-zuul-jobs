@@ -111,6 +111,7 @@
             files:
               - ^lib/ansible/modules/network/eos/.*
               - ^lib/ansible/module_utils/network/eos/.*
+              - ^lib/ansible/plugins/cliconf/eos.py
               - ^lib/ansible/plugins/connection/network_cli.py
               - ^test/integration/targets/eos_.*
         - ansible-test-network-integration-eos-python35:
@@ -122,6 +123,7 @@
             files:
               - ^lib/ansible/modules/network/eos/.*
               - ^lib/ansible/module_utils/network/eos/.*
+              - ^lib/ansible/plugins/cliconf/eos.py
               - ^lib/ansible/plugins/connection/network_cli.py
               - ^test/integration/targets/eos_.*
         - ansible-test-network-integration-eos-python36:
@@ -133,6 +135,7 @@
             files:
               - ^lib/ansible/modules/network/eos/.*
               - ^lib/ansible/module_utils/network/eos/.*
+              - ^lib/ansible/plugins/cliconf/eos.py
               - ^lib/ansible/plugins/connection/network_cli.py
               - ^test/integration/targets/eos_.*
         - ansible-test-network-integration-eos-python37:
@@ -144,6 +147,7 @@
             files:
               - ^lib/ansible/modules/network/eos/.*
               - ^lib/ansible/module_utils/network/eos/.*
+              - ^lib/ansible/plugins/cliconf/eos.py
               - ^lib/ansible/plugins/connection/network_cli.py
               - ^test/integration/targets/eos_.*
         - ansible-test-network-integration-junos-python37:
@@ -152,6 +156,7 @@
             files:
               - ^lib/ansible/modules/network/junos/.*
               - ^lib/ansible/module_utils/network/junos/.*
+              - ^lib/ansible/plugins/cliconf/junos.py
               - ^lib/ansible/plugins/connection/network_cli.py
               - ^test/integration/targets/junos_.*
               - ^test/integration/targets/netconf_.*
@@ -164,6 +169,7 @@
             files:
               - ^lib/ansible/modules/network/vyos/.*
               - ^lib/ansible/module_utils/network/vyos/.*
+              - ^lib/ansible/plugins/cliconf/vyos.py
               - ^lib/ansible/plugins/connection/network_cli.py
               - ^test/integration/targets/vyos_.*
         - ansible-test-network-integration-vyos-python35:
@@ -175,6 +181,7 @@
             files:
               - ^lib/ansible/modules/network/vyos/.*
               - ^lib/ansible/module_utils/network/vyos/.*
+              - ^lib/ansible/plugins/cliconf/vyos.py
               - ^lib/ansible/plugins/connection/network_cli.py
               - ^test/integration/targets/vyos_.*
         - ansible-test-network-integration-vyos-python36:
@@ -186,6 +193,7 @@
             files:
               - ^lib/ansible/modules/network/vyos/.*
               - ^lib/ansible/module_utils/network/vyos/.*
+              - ^lib/ansible/plugins/cliconf/vyos.py
               - ^lib/ansible/plugins/connection/network_cli.py
               - ^test/integration/targets/vyos_.*
         - ansible-test-network-integration-vyos-python37:
@@ -197,6 +205,7 @@
             files:
               - ^lib/ansible/modules/network/vyos/.*
               - ^lib/ansible/module_utils/network/vyos/.*
+              - ^lib/ansible/plugins/cliconf/vyos.py
               - ^lib/ansible/plugins/connection/network_cli.py
               - ^test/integration/targets/vyos_.*
 

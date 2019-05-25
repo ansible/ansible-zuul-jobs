@@ -58,6 +58,19 @@
     nodeset: eos-4.20.10-python37
 
 - job:
+    name: ansible-network-ios-appliance
+    parent: ansible-network-appliance-base
+    pre-run: playbooks/ansible-network-ios-appliance/pre.yaml
+    run: playbooks/ansible-network-ios-appliance/run.yaml
+    host-vars:
+      ios-15.6-2T:
+        ansible_connection: network_cli
+        ansible_network_os: ios
+    required-projects:
+      - name: github.com/ansible/ansible-zuul-jobs
+    nodeset: ios-15.6-2T-python37
+
+- job:
     name: ansible-network-junos-appliance
     parent: ansible-network-appliance-base
     pre-run: playbooks/ansible-network-junos-appliance/pre.yaml
@@ -124,17 +137,44 @@
       ansible_test_python: 3.7
 
 - job:
-    name: ansible-network-ios-appliance
-    parent: ansible-network-appliance-base
-    pre-run: playbooks/ansible-network-ios-appliance/pre.yaml
-    run: playbooks/ansible-network-ios-appliance/run.yaml
-    host-vars:
-      ios-15.6-2T:
-        ansible_connection: network_cli
-        ansible_network_os: ios
+    name: ansible-test-network-integration-ios
+    abstract: true
+    parent: ansible-network-ios-appliance
+    pre-run: playbooks/ansible-test-network-integration-base/pre.yaml
+    run: playbooks/ansible-test-network-integration-base/run.yaml
     required-projects:
-      - name: github.com/ansible/ansible-zuul-jobs
+      - name: github.com/ansible/ansible
+    timeout: 3600
+    vars:
+      ansible_test_network_integration: ios
+
+- job:
+    name: ansible-test-network-integration-ios-python27
+    parent: ansible-test-network-integration-ios
+    nodeset: ios-15.6-2T-python27
+    vars:
+      ansible_test_python: 2.7
+
+- job:
+    name: ansible-test-network-integration-ios-python35
+    parent: ansible-test-network-integration-ios
+    nodeset: ios-15.6-2T-python35
+    vars:
+      ansible_test_python: 3.5
+
+- job:
+    name: ansible-test-network-integration-ios-python36
+    parent: ansible-test-network-integration-ios
+    nodeset: ios-15.6-2T-python36
+    vars:
+      ansible_test_python: 3.6
+
+- job:
+    name: ansible-test-network-integration-ios-python37
+    parent: ansible-test-network-integration-ios
     nodeset: ios-15.6-2T-python37
+    vars:
+      ansible_test_python: 3.7
 
 - job:
     name: ansible-test-network-integration-junos

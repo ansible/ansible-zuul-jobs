@@ -52,6 +52,30 @@
               - stable-2.8
               - stable-2.7
               - stable-2.6
+        - ansible-test-network-integration-ios-python27:
+            branches:
+              - devel
+              - stable-2.8
+              - stable-2.7
+              - stable-2.6
+        - ansible-test-network-integration-ios-python35:
+            branches:
+              - devel
+              - stable-2.8
+              - stable-2.7
+              - stable-2.6
+        - ansible-test-network-integration-ios-python36:
+            branches:
+              - devel
+              - stable-2.8
+              - stable-2.7
+              - stable-2.6
+        - ansible-test-network-integration-ios-python37:
+            branches:
+              - devel
+              - stable-2.8
+              - stable-2.7
+              - stable-2.6
         - ansible-test-network-integration-junos-python27:
             branches:
               - devel

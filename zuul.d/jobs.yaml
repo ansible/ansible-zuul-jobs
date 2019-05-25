@@ -124,6 +124,19 @@
       ansible_test_python: 3.7
 
 - job:
+    name: ansible-network-ios-appliance
+    parent: ansible-network-appliance-base
+    pre-run: playbooks/ansible-network-ios-appliance/pre.yaml
+    run: playbooks/ansible-network-ios-appliance/run.yaml
+    host-vars:
+      ios-15.6-2T:
+        ansible_connection: network_cli
+        ansible_network_os: ios
+    required-projects:
+      - name: github.com/ansible/ansible-zuul-jobs
+    nodeset: ios-15.6-2T-python37
+
+- job:
     name: ansible-test-network-integration-junos
     parent: ansible-network-junos-appliance
     pre-run: playbooks/ansible-test-network-integration-base/pre.yaml

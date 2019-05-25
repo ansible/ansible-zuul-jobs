@@ -130,8 +130,8 @@
             branches:
               - devel
             files:
-              - ^lib/ansible/modules/network/common/.*
               - ^lib/ansible/modules/network/eos/.*
+              - ^lib/ansible/module_utils/network/common/.*
               - ^lib/ansible/module_utils/network/eos/.*
               - ^lib/ansible/plugins/cliconf/eos.py
               - ^lib/ansible/plugins/connection/network_cli.py
@@ -140,8 +140,8 @@
             branches:
               - devel
             files:
-              - ^lib/ansible/modules/network/common/.*
               - ^lib/ansible/modules/network/eos/.*
+              - ^lib/ansible/module_utils/network/common/.*
               - ^lib/ansible/module_utils/network/eos/.*
               - ^lib/ansible/plugins/cliconf/eos.py
               - ^lib/ansible/plugins/connection/network_cli.py
@@ -150,8 +150,8 @@
             branches:
               - devel
             files:
-              - ^lib/ansible/modules/network/common/.*
               - ^lib/ansible/modules/network/eos/.*
+              - ^lib/ansible/module_utils/network/common/.*
               - ^lib/ansible/module_utils/network/eos/.*
               - ^lib/ansible/plugins/cliconf/eos.py
               - ^lib/ansible/plugins/connection/network_cli.py
@@ -160,8 +160,8 @@
             branches:
               - devel
             files:
-              - ^lib/ansible/modules/network/common/.*
               - ^lib/ansible/modules/network/eos/.*
+              - ^lib/ansible/module_utils/network/common/.*
               - ^lib/ansible/module_utils/network/eos/.*
               - ^lib/ansible/plugins/cliconf/eos.py
               - ^lib/ansible/plugins/connection/network_cli.py
@@ -170,8 +170,8 @@
             branches:
               - devel
             files:
-              - ^lib/ansible/modules/network/common/.*
               - ^lib/ansible/modules/network/junos/.*
+              - ^lib/ansible/module_utils/network/common/.*
               - ^lib/ansible/module_utils/network/junos/.*
               - ^lib/ansible/plugins/cliconf/junos.py
               - ^lib/ansible/plugins/connection/network_cli.py
@@ -181,8 +181,8 @@
             branches:
               - devel
             files:
-              - ^lib/ansible/modules/network/common/.*
               - ^lib/ansible/modules/network/vyos/.*
+              - ^lib/ansible/module_utils/network/common/.*
               - ^lib/ansible/module_utils/network/vyos/.*
               - ^lib/ansible/plugins/cliconf/vyos.py
               - ^lib/ansible/plugins/connection/network_cli.py
@@ -191,8 +191,8 @@
             branches:
               - devel
             files:
-              - ^lib/ansible/modules/network/common/.*
               - ^lib/ansible/modules/network/vyos/.*
+              - ^lib/ansible/module_utils/network/common/.*
               - ^lib/ansible/module_utils/network/vyos/.*
               - ^lib/ansible/plugins/cliconf/vyos.py
               - ^lib/ansible/plugins/connection/network_cli.py
@@ -201,8 +201,8 @@
             branches:
               - devel
             files:
-              - ^lib/ansible/modules/network/common/.*
               - ^lib/ansible/modules/network/vyos/.*
+              - ^lib/ansible/module_utils/network/common/.*
               - ^lib/ansible/module_utils/network/vyos/.*
               - ^lib/ansible/plugins/cliconf/vyos.py
               - ^lib/ansible/plugins/connection/network_cli.py
@@ -211,8 +211,8 @@
             branches:
               - devel
             files:
-              - ^lib/ansible/modules/network/common/.*
               - ^lib/ansible/modules/network/vyos/.*
+              - ^lib/ansible/module_utils/network/common/.*
               - ^lib/ansible/module_utils/network/vyos/.*
               - ^lib/ansible/plugins/cliconf/vyos.py
               - ^lib/ansible/plugins/connection/network_cli.py
@@ -225,8 +225,8 @@
               - stable-2.7
               - stable-2.6
             files:
-              - ^lib/ansible/modules/network/common/.*
               - ^lib/ansible/modules/network/eos/.*
+              - ^lib/ansible/module_utils/network/common/.*
               - ^lib/ansible/module_utils/network/eos/.*
               - ^lib/ansible/plugins/cliconf/eos.py
               - ^lib/ansible/plugins/connection/network_cli.py
@@ -237,8 +237,8 @@
               - stable-2.7
               - stable-2.6
             files:
-              - ^lib/ansible/modules/network/common/.*
               - ^lib/ansible/modules/network/eos/.*
+              - ^lib/ansible/module_utils/network/common/.*
               - ^lib/ansible/module_utils/network/eos/.*
               - ^lib/ansible/plugins/cliconf/eos.py
               - ^lib/ansible/plugins/connection/network_cli.py
@@ -249,8 +249,8 @@
               - stable-2.7
               - stable-2.6
             files:
-              - ^lib/ansible/modules/network/common/.*
               - ^lib/ansible/modules/network/eos/.*
+              - ^lib/ansible/module_utils/network/common/.*
               - ^lib/ansible/module_utils/network/eos/.*
               - ^lib/ansible/plugins/cliconf/eos.py
               - ^lib/ansible/plugins/connection/network_cli.py
@@ -261,8 +261,8 @@
               - stable-2.7
               - stable-2.6
             files:
-              - ^lib/ansible/modules/network/common/.*
               - ^lib/ansible/modules/network/eos/.*
+              - ^lib/ansible/module_utils/network/common/.*
               - ^lib/ansible/module_utils/network/eos/.*
               - ^lib/ansible/plugins/cliconf/eos.py
               - ^lib/ansible/plugins/connection/network_cli.py
@@ -273,8 +273,8 @@
               - stable-2.7
               - stable-2.6
             files:
-              - ^lib/ansible/modules/network/common/.*
               - ^lib/ansible/modules/network/vyos/.*
+              - ^lib/ansible/module_utils/network/common/.*
               - ^lib/ansible/module_utils/network/vyos/.*
               - ^lib/ansible/plugins/cliconf/vyos.py
               - ^lib/ansible/plugins/connection/network_cli.py
@@ -285,8 +285,8 @@
               - stable-2.7
               - stable-2.6
             files:
-              - ^lib/ansible/modules/network/common/.*
               - ^lib/ansible/modules/network/vyos/.*
+              - ^lib/ansible/module_utils/network/common/.*
               - ^lib/ansible/module_utils/network/vyos/.*
               - ^lib/ansible/plugins/cliconf/vyos.py
               - ^lib/ansible/plugins/connection/network_cli.py
@@ -297,8 +297,8 @@
               - stable-2.7
               - stable-2.6
             files:
-              - ^lib/ansible/modules/network/common/.*
               - ^lib/ansible/modules/network/vyos/.*
+              - ^lib/ansible/module_utils/network/common/.*
               - ^lib/ansible/module_utils/network/vyos/.*
               - ^lib/ansible/plugins/cliconf/vyos.py
               - ^lib/ansible/plugins/connection/network_cli.py
@@ -309,8 +309,8 @@
               - stable-2.7
               - stable-2.6
             files:
-              - ^lib/ansible/modules/network/common/.*
               - ^lib/ansible/modules/network/vyos/.*
+              - ^lib/ansible/module_utils/network/common/.*
               - ^lib/ansible/module_utils/network/vyos/.*
               - ^lib/ansible/plugins/cliconf/vyos.py
               - ^lib/ansible/plugins/connection/network_cli.py

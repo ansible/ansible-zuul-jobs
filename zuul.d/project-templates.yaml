@@ -167,6 +167,7 @@
               - ^lib/ansible/plugins/connection/network_cli.py
               - ^test/integration/targets/eos_.*
         - ansible-test-network-integration-junos-python37:
+            voting: false
             branches:
               - devel
             files:

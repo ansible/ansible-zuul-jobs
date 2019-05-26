@@ -87,17 +87,17 @@
 - nodeset:
     name: ios-15.6-2T-python27
     nodes:
-      - name: centos-7
-        label: centos-7-1vcpu
+      - name: ubuntu-bionic
+        label: ubuntu-bionic-1vcpu
       - name: ios-15.6-2T
-        label: iosv-15.6-2T
+        label: ios-15.6-2T
     groups:
       - name: appliance
         nodes:
           - ios-15.6-2T
       - name: controller
         nodes:
-          - centos-7
+          - ubuntu-bionic
 
 - nodeset:
     name: ios-15.6-2T-python35
@@ -105,7 +105,7 @@
       - name: ubuntu-xenial
         label: ubuntu-xenial-1vcpu
       - name: ios-15.6-2T
-        label: iosv-15.6-2T
+        label: ios-15.6-2T
     groups:
       - name: appliance
         nodes:
@@ -120,7 +120,7 @@
       - name: ubuntu-bionic
         label: ubuntu-bionic-1vcpu
       - name: ios-15.6-2T
-        label: iosv-15.6-2T
+        label: ios-15.6-2T
     groups:
       - name: appliance
         nodes:
@@ -135,7 +135,7 @@
       - name: fedora-29
         label: fedora-29-1vcpu
       - name: ios-15.6-2T
-        label: iosv-15.6-2T
+        label: ios-15.6-2T
     groups:
       - name: appliance
         nodes:

@@ -129,6 +129,7 @@
         - ansible-test-network-integration-eos-python27:
             branches:
               - devel
+              - stable-2.8
             files:
               - ^lib/ansible/modules/network/eos/.*
               - ^lib/ansible/module_utils/network/common/.*
@@ -139,6 +140,7 @@
         - ansible-test-network-integration-eos-python35:
             branches:
               - devel
+              - stable-2.8
             files:
               - ^lib/ansible/modules/network/eos/.*
               - ^lib/ansible/module_utils/network/common/.*
@@ -149,6 +151,7 @@
         - ansible-test-network-integration-eos-python36:
             branches:
               - devel
+              - stable-2.8
             files:
               - ^lib/ansible/modules/network/eos/.*
               - ^lib/ansible/module_utils/network/common/.*
@@ -159,6 +162,7 @@
         - ansible-test-network-integration-eos-python37:
             branches:
               - devel
+              - stable-2.8
             files:
               - ^lib/ansible/modules/network/eos/.*
               - ^lib/ansible/module_utils/network/common/.*
@@ -222,7 +226,6 @@
       jobs:
         - ansible-test-network-integration-eos-python27:
             branches:
-              - stable-2.8
               - stable-2.7
               - stable-2.6
             files:
@@ -234,7 +237,6 @@
               - ^test/integration/targets/eos_.*
         - ansible-test-network-integration-eos-python35:
             branches:
-              - stable-2.8
               - stable-2.7
               - stable-2.6
             files:
@@ -246,7 +248,6 @@
               - ^test/integration/targets/eos_.*
         - ansible-test-network-integration-eos-python36:
             branches:
-              - stable-2.8
               - stable-2.7
               - stable-2.6
             files:
@@ -258,7 +259,6 @@
               - ^test/integration/targets/eos_.*
         - ansible-test-network-integration-eos-python37:
             branches:
-              - stable-2.8
               - stable-2.7
               - stable-2.6
             files:

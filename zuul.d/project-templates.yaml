@@ -33,97 +33,81 @@
               - devel
               - stable-2.8
               - stable-2.7
-              - stable-2.6
         - ansible-test-network-integration-eos-python35:
             branches:
               - devel
               - stable-2.8
               - stable-2.7
-              - stable-2.6
         - ansible-test-network-integration-eos-python36:
             branches:
               - devel
               - stable-2.8
               - stable-2.7
-              - stable-2.6
         - ansible-test-network-integration-eos-python37:
             branches:
               - devel
               - stable-2.8
               - stable-2.7
-              - stable-2.6
         - ansible-test-network-integration-ios-python27:
             branches:
               - devel
               - stable-2.8
               - stable-2.7
-              - stable-2.6
         - ansible-test-network-integration-ios-python35:
             branches:
               - devel
               - stable-2.8
               - stable-2.7
-              - stable-2.6
         - ansible-test-network-integration-ios-python36:
             branches:
               - devel
               - stable-2.8
               - stable-2.7
-              - stable-2.6
         - ansible-test-network-integration-ios-python37:
             branches:
               - devel
               - stable-2.8
               - stable-2.7
-              - stable-2.6
         - ansible-test-network-integration-junos-python27:
             branches:
               - devel
               - stable-2.8
               - stable-2.7
-              - stable-2.6
         - ansible-test-network-integration-junos-python35:
             branches:
               - devel
               - stable-2.8
               - stable-2.7
-              - stable-2.6
         - ansible-test-network-integration-junos-python36:
             branches:
               - devel
               - stable-2.8
               - stable-2.7
-              - stable-2.6
         - ansible-test-network-integration-junos-python37:
             branches:
               - devel
               - stable-2.8
               - stable-2.7
-              - stable-2.6
         - ansible-test-network-integration-vyos-python27:
             branches:
               - devel
               - stable-2.8
               - stable-2.7
-              - stable-2.6
         - ansible-test-network-integration-vyos-python35:
             branches:
               - devel
               - stable-2.8
               - stable-2.7
-              - stable-2.6
         - ansible-test-network-integration-vyos-python36:
             branches:
               - devel
               - stable-2.8
               - stable-2.7
-              - stable-2.6
         - ansible-test-network-integration-vyos-python37:
             branches:
               - devel
               - stable-2.8
               - stable-2.7
-              - stable-2.6
     third-party-check:
       jobs:
         - ansible-test-network-integration-eos-python27:
@@ -223,7 +207,6 @@
               - devel
               - stable-2.8
               - stable-2.7
-              - stable-2.6
             files:
               - ^lib/ansible/modules/network/vyos/.*
               - ^lib/ansible/module_utils/network/common/.*
@@ -236,7 +219,6 @@
               - devel
               - stable-2.8
               - stable-2.7
-              - stable-2.6
             files:
               - ^lib/ansible/modules/network/vyos/.*
               - ^lib/ansible/module_utils/network/common/.*
@@ -249,7 +231,6 @@
               - devel
               - stable-2.8
               - stable-2.7
-              - stable-2.6
             files:
               - ^lib/ansible/modules/network/vyos/.*
               - ^lib/ansible/module_utils/network/common/.*
@@ -262,7 +243,6 @@
               - devel
               - stable-2.8
               - stable-2.7
-              - stable-2.6
             files:
               - ^lib/ansible/modules/network/vyos/.*
               - ^lib/ansible/module_utils/network/common/.*
@@ -275,7 +255,6 @@
         - ansible-test-network-integration-eos-python27:
             branches:
               - stable-2.7
-              - stable-2.6
             files:
               - ^lib/ansible/modules/network/eos/.*
               - ^lib/ansible/module_utils/network/common/.*
@@ -286,7 +265,6 @@
         - ansible-test-network-integration-eos-python35:
             branches:
               - stable-2.7
-              - stable-2.6
             files:
               - ^lib/ansible/modules/network/eos/.*
               - ^lib/ansible/module_utils/network/common/.*
@@ -297,7 +275,6 @@
         - ansible-test-network-integration-eos-python36:
             branches:
               - stable-2.7
-              - stable-2.6
             files:
               - ^lib/ansible/modules/network/eos/.*
               - ^lib/ansible/module_utils/network/common/.*
@@ -308,7 +285,6 @@
         - ansible-test-network-integration-eos-python37:
             branches:
               - stable-2.7
-              - stable-2.6
             files:
               - ^lib/ansible/modules/network/eos/.*
               - ^lib/ansible/module_utils/network/common/.*
@@ -320,7 +296,6 @@
             branches:
               - stable-2.8
               - stable-2.7
-              - stable-2.6
             files:
               - ^lib/ansible/modules/network/junos/.*
               - ^lib/ansible/module_utils/network/common/.*
@@ -333,7 +308,6 @@
             branches:
               - stable-2.8
               - stable-2.7
-              - stable-2.6
             files:
               - ^lib/ansible/modules/network/junos/.*
               - ^lib/ansible/module_utils/network/common/.*
@@ -346,7 +320,6 @@
             branches:
               - stable-2.8
               - stable-2.7
-              - stable-2.6
             files:
               - ^lib/ansible/modules/network/junos/.*
               - ^lib/ansible/module_utils/network/common/.*
@@ -359,7 +332,6 @@
             branches:
               - stable-2.8
               - stable-2.7
-              - stable-2.6
             files:
               - ^lib/ansible/modules/network/junos/.*
               - ^lib/ansible/module_utils/network/common/.*

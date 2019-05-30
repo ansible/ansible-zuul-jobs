@@ -13,7 +13,7 @@
 
     - name: Ensure remote SSH host keys are known
       shell: "ssh-keyscan -t rsa {{ hostvars[item].ansible_host }} >> ~/.ssh/known_hosts"
-      with_inventory_hostnames: appliance
+      with_inventory_hostnames: appliance:openvswitch
 
     - name: Create /etc/ansible folder
       become: true

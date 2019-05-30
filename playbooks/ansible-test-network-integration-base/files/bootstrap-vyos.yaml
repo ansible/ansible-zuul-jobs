@@ -1,6 +1,7 @@
 ---
 - hosts: appliance
   gather_facts: false
+  connection: network_cli
   tasks:
     # TODO(pabelanger): The vyos network-integration tests assume
     # password authentication is enabled on images.  This needs to be fixed on

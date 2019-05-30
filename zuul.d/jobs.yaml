@@ -228,6 +228,46 @@
       ansible_test_python: 3.7
 
 - job:
+    name: ansible-test-network-integration-openvswitch
+    abstract: true
+    parent: ansible-network-openvswitch-appliance
+    pre-run: playbooks/ansible-test-network-integration-base/pre.yaml
+    run: playbooks/ansible-test-network-integration-base/run.yaml
+    required-projects:
+      - name: github.com/ansible/ansible
+    timeout: 3600
+    vars:
+      ansible_test_network_integration: openvswitch
+
+- job:
+    name: ansible-test-network-integration-openvswitch-python27
+    parent: ansible-test-network-integration-openvswitch
+    nodeset: openvswitch-2.9.0-python27
+    vars:
+      ansible_test_python: 2.7
+
+- job:
+    name: ansible-test-network-integration-openvswitch-python35
+    parent: ansible-test-network-integration-openvswitch
+    nodeset: openvswitch-2.9.0-python35
+    vars:
+      ansible_test_python: 3.5
+
+- job:
+    name: ansible-test-network-integration-openvswitch-python36
+    parent: ansible-test-network-integration-openvswitch
+    nodeset: openvswitch-2.9.0-python36
+    vars:
+      ansible_test_python: 3.6
+
+- job:
+    name: ansible-test-network-integration-openvswitch-python37
+    parent: ansible-test-network-integration-openvswitch
+    nodeset: openvswitch-2.9.0-python37
+    vars:
+      ansible_test_python: 3.7
+
+- job:
     name: ansible-test-network-integration-vyos
     abstract: true
     parent: ansible-network-vyos-appliance

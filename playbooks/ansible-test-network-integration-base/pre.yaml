@@ -5,7 +5,7 @@
       include_role:
         name: tox
       vars:
-        tox_extra_args: "-vv -- ansible-playbook -v -c network_cli playbooks/ansible-test-network-integration-base/files/bootstrap-{{ ansible_test_network_integration }}.yaml"
+        tox_extra_args: "-vv -- ansible-playbook -v playbooks/ansible-test-network-integration-base/files/bootstrap-{{ ansible_test_network_integration }}.yaml"
         tox_install_siblings: false
         zuul_work_dir: "{{ zuul.projects['github.com/ansible/ansible-zuul-jobs'].src_dir }}"
 

@@ -388,6 +388,34 @@
               - ^lib/ansible/plugins/connection/network_cli.py
               - ^test/integration/targets/junos_.*
               - ^test/integration/targets/netconf_.*
+        - ansible-test-network-integration-openvswitch-python27:
+            branches:
+              - stable-2.8
+            files:
+              - ^lib/ansible/modules/network/ovs/.*
+              - ^lib/ansible/module_utils/network/common/.*
+              - ^test/integration/targets/openvswitch_.*
+        - ansible-test-network-integration-openvswitch-python35:
+            branches:
+              - stable-2.8
+            files:
+              - ^lib/ansible/modules/network/ovs/.*
+              - ^lib/ansible/module_utils/network/common/.*
+              - ^test/integration/targets/openvswitch_.*
+        - ansible-test-network-integration-openvswitch-python36:
+            branches:
+              - stable-2.8
+            files:
+              - ^lib/ansible/modules/network/ovs/.*
+              - ^lib/ansible/module_utils/network/common/.*
+              - ^test/integration/targets/openvswitch_.*
+        - ansible-test-network-integration-openvswitch-python37:
+            branches:
+              - stable-2.8
+            files:
+              - ^lib/ansible/modules/network/ovs/.*
+              - ^lib/ansible/module_utils/network/common/.*
+              - ^test/integration/targets/openvswitch_.*
 
 - project-template:
     name: noop-jobs

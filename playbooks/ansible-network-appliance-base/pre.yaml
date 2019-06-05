@@ -11,8 +11,16 @@
       include_role:
         name: test-setup
 
+    - name: Wait 300 seconds for port tcp/22 on appliance
+      wait_for:
+        delay: 10
+        host: "{{ hostvars[item].ansible_host }}"
+        port: 22
+        search_regex: SSH
+      with_inventory_hostnames: appliance:openvswitch
+
     - name: Ensure remote SSH host keys are known
-      shell: "ssh-keyscan -t rsa {{ hostvars[item].ansible_host }} >> ~/.ssh/known_hosts"
+      shell: "ssh-keyscan {{ hostvars[item].ansible_host }} >> ~/.ssh/known_hosts"
       with_inventory_hostnames: appliance:openvswitch
 
     - name: Create /etc/ansible folder

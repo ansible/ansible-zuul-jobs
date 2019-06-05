@@ -1,0 +1,66 @@
+---
+- hosts: controller
+  gather_facts: false
+  connection: local
+  tasks:
+    - name: Install python requirements
+      pip:
+        name:
+          - paramiko
+          - pexpect
+        extra_args: --user
+
+- hosts: controller
+  gather_facts: false
+  connection: local
+  tasks:
+    # NOTE(pabelanger): This is a huge hack to deal with the fact there is no
+    # default gateway seutp.
+    - name: Ensure we can SSH into the appliance
+      expect:
+        command: "ssh admin@{{ hostvars[item].ansible_host }}"
+        responses:
+          'Are you sure you want to continue connecting': "yes"
+          'password:': admin
+          'RP/0/0/CPU0:ios#': exit
+        timeout: 60
+      with_inventory_hostnames: appliance
+
+    # TODO(pabelanger): Figure out why iosxr_user is broken.
+    - name: Generate base64 SSH public key
+      shell: "cut -d' ' -f2 ~/.ssh/id_rsa.pub | base64 -d >| id_rsa.pub.b64"
+      args:
+        executable: /bin/bash
+
+    - name: Transfer SSH public key to appliance
+      expect:
+        command: "sftp admin@{{ hostvars[item].ansible_host }}"
+        responses:
+          'password:': admin
+          'sftp>':
+            - put id_rsa.pub.b64
+            - exit
+        timeout: 60
+      with_inventory_hostnames: appliance
+
+- hosts: appliance
+  gather_facts: false
+  connection: network_cli
+  vars:
+    ansible_password: admin
+    ansible_user: admin
+  tasks:
+    - name: Add SSH public key to zuul user
+      iosxr_command:
+        commands: "admin crypto key import authentication rsa username zuul disk0:/id_rsa.pub.b64"
+
+- hosts: appliance
+  gather_facts: false
+  connection: network_cli
+  tasks:
+    - name: Remove admin user
+      become: true
+      become_method: enable
+      iosxr_user:
+        name: admin
+        state: absent

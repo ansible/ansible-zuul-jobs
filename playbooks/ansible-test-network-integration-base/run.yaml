@@ -20,7 +20,7 @@
       shell: "virtualenv {{ _virtualenv_options }} ~/venv"
 
     - name: Install ara into virtuelenv
-      shell: ~/venv/bin/pip install ara
+      shell: ~/venv/bin/pip install ara<1.0.0
 
     - name: Enable ARA callback plugin
       ini_file:

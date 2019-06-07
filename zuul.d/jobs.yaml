@@ -71,6 +71,19 @@
     nodeset: ios-15.6-2T-python37
 
 - job:
+    name: ansible-network-iosxr-appliance
+    parent: ansible-network-appliance-base
+    pre-run: playbooks/ansible-network-iosxr-appliance/pre.yaml
+    run: playbooks/ansible-network-iosxr-appliance/run.yaml
+    host-vars:
+      iosxr-6.1.3:
+        ansible_connection: network_cli
+        ansible_network_os: iosxr
+    required-projects:
+      - name: github.com/ansible/ansible-zuul-jobs
+    nodeset: iosxr-6.1.3-python37
+
+- job:
     name: ansible-network-junos-appliance
     parent: ansible-network-appliance-base
     pre-run: playbooks/ansible-network-junos-appliance/pre.yaml

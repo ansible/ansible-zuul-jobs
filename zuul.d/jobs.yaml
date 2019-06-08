@@ -202,6 +202,46 @@
       ansible_test_python: 3.7
 
 - job:
+    name: ansible-test-network-integration-iosxr
+    abstract: true
+    parent: ansible-network-iosxr-appliance
+    pre-run: playbooks/ansible-test-network-integration-base/pre.yaml
+    run: playbooks/ansible-test-network-integration-base/run.yaml
+    required-projects:
+      - name: github.com/ansible/ansible
+    timeout: 3600
+    vars:
+      ansible_test_network_integration: iosxr
+
+- job:
+    name: ansible-test-network-integration-iosxr-python27
+    parent: ansible-test-network-integration-iosxr
+    nodeset: iosxr-6.1.3-python27
+    vars:
+      ansible_test_python: 2.7
+
+- job:
+    name: ansible-test-network-integration-iosxr-python35
+    parent: ansible-test-network-integration-iosxr
+    nodeset: iosxr-6.1.3-python35
+    vars:
+      ansible_test_python: 3.5
+
+- job:
+    name: ansible-test-network-integration-iosxr-python36
+    parent: ansible-test-network-integration-iosxr
+    nodeset: iosxr-6.1.3-python36
+    vars:
+      ansible_test_python: 3.6
+
+- job:
+    name: ansible-test-network-integration-iosxr-python37
+    parent: ansible-test-network-integration-iosxr
+    nodeset: iosxr-6.1.3-python37
+    vars:
+      ansible_test_python: 3.7
+
+- job:
     name: ansible-test-network-integration-junos
     parent: ansible-network-junos-appliance
     pre-run: playbooks/ansible-test-network-integration-base/pre.yaml

@@ -284,9 +284,12 @@
               - devel
             files:
               - ^lib/ansible/modules/network/junos/.*
+              - ^lib/ansible/modules/network/netconf/.*
               - ^lib/ansible/module_utils/network/common/.*
               - ^lib/ansible/module_utils/network/junos/.*
+              - ^lib/ansible/module_utils/network/netconf/.*
               - ^lib/ansible/plugins/cliconf/junos.py
+              - ^lib/ansible/plugins/connection/netconf.py
               - ^lib/ansible/plugins/connection/network_cli.py
               - ^test/integration/targets/junos_.*
               - ^test/integration/targets/netconf_.*
@@ -296,9 +299,12 @@
               - devel
             files:
               - ^lib/ansible/modules/network/junos/.*
+              - ^lib/ansible/modules/network/netconf/.*
               - ^lib/ansible/module_utils/network/common/.*
               - ^lib/ansible/module_utils/network/junos/.*
+              - ^lib/ansible/module_utils/network/netconf/.*
               - ^lib/ansible/plugins/cliconf/junos.py
+              - ^lib/ansible/plugins/connection/netconf.py
               - ^lib/ansible/plugins/connection/network_cli.py
               - ^test/integration/targets/junos_.*
               - ^test/integration/targets/netconf_.*
@@ -308,9 +314,12 @@
               - devel
             files:
               - ^lib/ansible/modules/network/junos/.*
+              - ^lib/ansible/modules/network/netconf/.*
               - ^lib/ansible/module_utils/network/common/.*
               - ^lib/ansible/module_utils/network/junos/.*
+              - ^lib/ansible/module_utils/network/netconf/.*
               - ^lib/ansible/plugins/cliconf/junos.py
+              - ^lib/ansible/plugins/connection/netconf.py
               - ^lib/ansible/plugins/connection/network_cli.py
               - ^test/integration/targets/junos_.*
               - ^test/integration/targets/netconf_.*
@@ -320,9 +329,12 @@
               - devel
             files:
               - ^lib/ansible/modules/network/junos/.*
+              - ^lib/ansible/modules/network/netconf/.*
               - ^lib/ansible/module_utils/network/common/.*
               - ^lib/ansible/module_utils/network/junos/.*
+              - ^lib/ansible/module_utils/network/netconf/.*
               - ^lib/ansible/plugins/cliconf/junos.py
+              - ^lib/ansible/plugins/connection/netconf.py
               - ^lib/ansible/plugins/connection/network_cli.py
               - ^test/integration/targets/junos_.*
               - ^test/integration/targets/netconf_.*
@@ -450,9 +462,12 @@
               - stable-2.7
             files:
               - ^lib/ansible/modules/network/junos/.*
+              - ^lib/ansible/modules/network/netconf/.*
               - ^lib/ansible/module_utils/network/common/.*
               - ^lib/ansible/module_utils/network/junos/.*
+              - ^lib/ansible/module_utils/network/netconf/.*
               - ^lib/ansible/plugins/cliconf/junos.py
+              - ^lib/ansible/plugins/connection/netconf.py
               - ^lib/ansible/plugins/connection/network_cli.py
               - ^test/integration/targets/junos_.*
               - ^test/integration/targets/netconf_.*
@@ -462,9 +477,12 @@
               - stable-2.7
             files:
               - ^lib/ansible/modules/network/junos/.*
+              - ^lib/ansible/modules/network/netconf/.*
               - ^lib/ansible/module_utils/network/common/.*
               - ^lib/ansible/module_utils/network/junos/.*
+              - ^lib/ansible/module_utils/network/netconf/.*
               - ^lib/ansible/plugins/cliconf/junos.py
+              - ^lib/ansible/plugins/connection/netconf.py
               - ^lib/ansible/plugins/connection/network_cli.py
               - ^test/integration/targets/junos_.*
               - ^test/integration/targets/netconf_.*
@@ -474,9 +492,12 @@
               - stable-2.7
             files:
               - ^lib/ansible/modules/network/junos/.*
+              - ^lib/ansible/modules/network/netconf/.*
               - ^lib/ansible/module_utils/network/common/.*
               - ^lib/ansible/module_utils/network/junos/.*
+              - ^lib/ansible/module_utils/network/netconf/.*
               - ^lib/ansible/plugins/cliconf/junos.py
+              - ^lib/ansible/plugins/connection/netconf.py
               - ^lib/ansible/plugins/connection/network_cli.py
               - ^test/integration/targets/junos_.*
               - ^test/integration/targets/netconf_.*
@@ -486,9 +507,12 @@
               - stable-2.7
             files:
               - ^lib/ansible/modules/network/junos/.*
+              - ^lib/ansible/modules/network/netconf/.*
               - ^lib/ansible/module_utils/network/common/.*
               - ^lib/ansible/module_utils/network/junos/.*
+              - ^lib/ansible/module_utils/network/netconf/.*
               - ^lib/ansible/plugins/cliconf/junos.py
+              - ^lib/ansible/plugins/connection/netconf.py
               - ^lib/ansible/plugins/connection/network_cli.py
               - ^test/integration/targets/junos_.*
               - ^test/integration/targets/netconf_.*

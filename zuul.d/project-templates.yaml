@@ -279,7 +279,6 @@
               - ^lib/ansible/plugins/connection/network_cli.py
               - ^test/integration/targets/iosxr_.*
         - ansible-test-network-integration-junos-python27:
-            voting: false
             branches:
               - devel
             files:
@@ -294,7 +293,6 @@
               - ^test/integration/targets/junos_.*
               - ^test/integration/targets/netconf_.*
         - ansible-test-network-integration-junos-python35:
-            voting: false
             branches:
               - devel
             files:
@@ -309,7 +307,6 @@
               - ^test/integration/targets/junos_.*
               - ^test/integration/targets/netconf_.*
         - ansible-test-network-integration-junos-python36:
-            voting: false
             branches:
               - devel
             files:
@@ -324,7 +321,6 @@
               - ^test/integration/targets/junos_.*
               - ^test/integration/targets/netconf_.*
         - ansible-test-network-integration-junos-python37:
-            voting: false
             branches:
               - devel
             files:

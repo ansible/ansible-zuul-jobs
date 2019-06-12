@@ -451,6 +451,7 @@
         - ansible-test-network-integration-ios-python27:
             branches:
               - stable-2.8
+              - stable-2.7
             files:
               - ^lib/ansible/modules/network/ios/.*
               - ^lib/ansible/module_utils/network/common/.*
@@ -461,6 +462,7 @@
         - ansible-test-network-integration-ios-python35:
             branches:
               - stable-2.8
+              - stable-2.7
             files:
               - ^lib/ansible/modules/network/ios/.*
               - ^lib/ansible/module_utils/network/common/.*
@@ -471,6 +473,7 @@
         - ansible-test-network-integration-ios-python36:
             branches:
               - stable-2.8
+              - stable-2.7
             files:
               - ^lib/ansible/modules/network/ios/.*
               - ^lib/ansible/module_utils/network/common/.*
@@ -481,6 +484,7 @@
         - ansible-test-network-integration-ios-python37:
             branches:
               - stable-2.8
+              - stable-2.7
             files:
               - ^lib/ansible/modules/network/ios/.*
               - ^lib/ansible/module_utils/network/common/.*
@@ -551,6 +555,7 @@
         - ansible-test-network-integration-openvswitch-python27:
             branches:
               - stable-2.8
+              - stable-2.7
             files:
               - ^lib/ansible/modules/network/ovs/.*
               - ^lib/ansible/module_utils/network/common/.*
@@ -558,6 +563,7 @@
         - ansible-test-network-integration-openvswitch-python35:
             branches:
               - stable-2.8
+              - stable-2.7
             files:
               - ^lib/ansible/modules/network/ovs/.*
               - ^lib/ansible/module_utils/network/common/.*
@@ -565,6 +571,7 @@
         - ansible-test-network-integration-openvswitch-python36:
             branches:
               - stable-2.8
+              - stable-2.7
             files:
               - ^lib/ansible/modules/network/ovs/.*
               - ^lib/ansible/module_utils/network/common/.*
@@ -572,6 +579,7 @@
         - ansible-test-network-integration-openvswitch-python37:
             branches:
               - stable-2.8
+              - stable-2.7
             files:
               - ^lib/ansible/modules/network/ovs/.*
               - ^lib/ansible/module_utils/network/common/.*

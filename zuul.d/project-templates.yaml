@@ -155,6 +155,7 @@
               - ^lib/ansible/module_utils/network/common/.*
               - ^lib/ansible/module_utils/network/eos/.*
               - ^lib/ansible/plugins/cliconf/eos.py
+              - ^lib/ansible/plugins/connection/local.py
               - ^lib/ansible/plugins/connection/network_cli.py
               - ^test/integration/targets/eos_.*
         - ansible-test-network-integration-eos-python35:
@@ -166,6 +167,7 @@
               - ^lib/ansible/module_utils/network/common/.*
               - ^lib/ansible/module_utils/network/eos/.*
               - ^lib/ansible/plugins/cliconf/eos.py
+              - ^lib/ansible/plugins/connection/local.py
               - ^lib/ansible/plugins/connection/network_cli.py
               - ^test/integration/targets/eos_.*
         - ansible-test-network-integration-eos-python36:
@@ -177,6 +179,7 @@
               - ^lib/ansible/module_utils/network/common/.*
               - ^lib/ansible/module_utils/network/eos/.*
               - ^lib/ansible/plugins/cliconf/eos.py
+              - ^lib/ansible/plugins/connection/local.py
               - ^lib/ansible/plugins/connection/network_cli.py
               - ^test/integration/targets/eos_.*
         - ansible-test-network-integration-eos-python37:
@@ -188,6 +191,7 @@
               - ^lib/ansible/module_utils/network/common/.*
               - ^lib/ansible/module_utils/network/eos/.*
               - ^lib/ansible/plugins/cliconf/eos.py
+              - ^lib/ansible/plugins/connection/local.py
               - ^lib/ansible/plugins/connection/network_cli.py
               - ^test/integration/targets/eos_.*
         - ansible-test-network-integration-ios-python27:
@@ -198,6 +202,7 @@
               - ^lib/ansible/module_utils/network/common/.*
               - ^lib/ansible/module_utils/network/ios/.*
               - ^lib/ansible/plugins/cliconf/ios.py
+              - ^lib/ansible/plugins/connection/local.py
               - ^lib/ansible/plugins/connection/network_cli.py
               - ^test/integration/targets/ios_.*
         - ansible-test-network-integration-ios-python35:
@@ -208,6 +213,7 @@
               - ^lib/ansible/module_utils/network/common/.*
               - ^lib/ansible/module_utils/network/ios/.*
               - ^lib/ansible/plugins/cliconf/ios.py
+              - ^lib/ansible/plugins/connection/local.py
               - ^lib/ansible/plugins/connection/network_cli.py
               - ^test/integration/targets/ios_.*
         - ansible-test-network-integration-ios-python36:
@@ -218,6 +224,7 @@
               - ^lib/ansible/module_utils/network/common/.*
               - ^lib/ansible/module_utils/network/ios/.*
               - ^lib/ansible/plugins/cliconf/ios.py
+              - ^lib/ansible/plugins/connection/local.py
               - ^lib/ansible/plugins/connection/network_cli.py
               - ^test/integration/targets/ios_.*
         - ansible-test-network-integration-ios-python37:
@@ -228,6 +235,7 @@
               - ^lib/ansible/module_utils/network/common/.*
               - ^lib/ansible/module_utils/network/ios/.*
               - ^lib/ansible/plugins/cliconf/ios.py
+              - ^lib/ansible/plugins/connection/local.py
               - ^lib/ansible/plugins/connection/network_cli.py
               - ^test/integration/targets/ios_.*
         - ansible-test-network-integration-iosxr-python27:
@@ -284,6 +292,7 @@
               - ^lib/ansible/module_utils/network/junos/.*
               - ^lib/ansible/module_utils/network/netconf/.*
               - ^lib/ansible/plugins/cliconf/junos.py
+              - ^lib/ansible/plugins/connection/local.py
               - ^lib/ansible/plugins/connection/netconf.py
               - ^lib/ansible/plugins/connection/network_cli.py
               - ^test/integration/targets/junos_.*
@@ -298,6 +307,7 @@
               - ^lib/ansible/module_utils/network/junos/.*
               - ^lib/ansible/module_utils/network/netconf/.*
               - ^lib/ansible/plugins/cliconf/junos.py
+              - ^lib/ansible/plugins/connection/local.py
               - ^lib/ansible/plugins/connection/netconf.py
               - ^lib/ansible/plugins/connection/network_cli.py
               - ^test/integration/targets/junos_.*
@@ -312,6 +322,7 @@
               - ^lib/ansible/module_utils/network/junos/.*
               - ^lib/ansible/module_utils/network/netconf/.*
               - ^lib/ansible/plugins/cliconf/junos.py
+              - ^lib/ansible/plugins/connection/local.py
               - ^lib/ansible/plugins/connection/netconf.py
               - ^lib/ansible/plugins/connection/network_cli.py
               - ^test/integration/targets/junos_.*
@@ -326,6 +337,7 @@
               - ^lib/ansible/module_utils/network/junos/.*
               - ^lib/ansible/module_utils/network/netconf/.*
               - ^lib/ansible/plugins/cliconf/junos.py
+              - ^lib/ansible/plugins/connection/local.py
               - ^lib/ansible/plugins/connection/netconf.py
               - ^lib/ansible/plugins/connection/network_cli.py
               - ^test/integration/targets/junos_.*
@@ -368,6 +380,7 @@
               - ^lib/ansible/module_utils/network/common/.*
               - ^lib/ansible/module_utils/network/vyos/.*
               - ^lib/ansible/plugins/cliconf/vyos.py
+              - ^lib/ansible/plugins/connection/local.py
               - ^lib/ansible/plugins/connection/network_cli.py
               - ^test/integration/targets/vyos_.*
         - ansible-test-network-integration-vyos-python35:
@@ -380,6 +393,7 @@
               - ^lib/ansible/module_utils/network/common/.*
               - ^lib/ansible/module_utils/network/vyos/.*
               - ^lib/ansible/plugins/cliconf/vyos.py
+              - ^lib/ansible/plugins/connection/local.py
               - ^lib/ansible/plugins/connection/network_cli.py
               - ^test/integration/targets/vyos_.*
         - ansible-test-network-integration-vyos-python36:
@@ -392,6 +406,7 @@
               - ^lib/ansible/module_utils/network/common/.*
               - ^lib/ansible/module_utils/network/vyos/.*
               - ^lib/ansible/plugins/cliconf/vyos.py
+              - ^lib/ansible/plugins/connection/local.py
               - ^lib/ansible/plugins/connection/network_cli.py
               - ^test/integration/targets/vyos_.*
         - ansible-test-network-integration-vyos-python37:
@@ -404,6 +419,7 @@
               - ^lib/ansible/module_utils/network/common/.*
               - ^lib/ansible/module_utils/network/vyos/.*
               - ^lib/ansible/plugins/cliconf/vyos.py
+              - ^lib/ansible/plugins/connection/local.py
               - ^lib/ansible/plugins/connection/network_cli.py
               - ^test/integration/targets/vyos_.*
     third-party-check-silent:
@@ -416,6 +432,7 @@
               - ^lib/ansible/module_utils/network/common/.*
               - ^lib/ansible/module_utils/network/eos/.*
               - ^lib/ansible/plugins/cliconf/eos.py
+              - ^lib/ansible/plugins/connection/local.py
               - ^lib/ansible/plugins/connection/network_cli.py
               - ^test/integration/targets/eos_.*
         - ansible-test-network-integration-eos-python35:
@@ -426,6 +443,7 @@
               - ^lib/ansible/module_utils/network/common/.*
               - ^lib/ansible/module_utils/network/eos/.*
               - ^lib/ansible/plugins/cliconf/eos.py
+              - ^lib/ansible/plugins/connection/local.py
               - ^lib/ansible/plugins/connection/network_cli.py
               - ^test/integration/targets/eos_.*
         - ansible-test-network-integration-eos-python36:
@@ -436,6 +454,7 @@
               - ^lib/ansible/module_utils/network/common/.*
               - ^lib/ansible/module_utils/network/eos/.*
               - ^lib/ansible/plugins/cliconf/eos.py
+              - ^lib/ansible/plugins/connection/local.py
               - ^lib/ansible/plugins/connection/network_cli.py
               - ^test/integration/targets/eos_.*
         - ansible-test-network-integration-eos-python37:
@@ -446,6 +465,7 @@
               - ^lib/ansible/module_utils/network/common/.*
               - ^lib/ansible/module_utils/network/eos/.*
               - ^lib/ansible/plugins/cliconf/eos.py
+              - ^lib/ansible/plugins/connection/local.py
               - ^lib/ansible/plugins/connection/network_cli.py
               - ^test/integration/targets/eos_.*
         - ansible-test-network-integration-ios-python27:
@@ -457,6 +477,7 @@
               - ^lib/ansible/module_utils/network/common/.*
               - ^lib/ansible/module_utils/network/ios/.*
               - ^lib/ansible/plugins/cliconf/ios.py
+              - ^lib/ansible/plugins/connection/local.py
               - ^lib/ansible/plugins/connection/network_cli.py
               - ^test/integration/targets/ios_.*
         - ansible-test-network-integration-ios-python35:
@@ -468,6 +489,7 @@
               - ^lib/ansible/module_utils/network/common/.*
               - ^lib/ansible/module_utils/network/ios/.*
               - ^lib/ansible/plugins/cliconf/ios.py
+              - ^lib/ansible/plugins/connection/local.py
               - ^lib/ansible/plugins/connection/network_cli.py
               - ^test/integration/targets/ios_.*
         - ansible-test-network-integration-ios-python36:
@@ -479,6 +501,7 @@
               - ^lib/ansible/module_utils/network/common/.*
               - ^lib/ansible/module_utils/network/ios/.*
               - ^lib/ansible/plugins/cliconf/ios.py
+              - ^lib/ansible/plugins/connection/local.py
               - ^lib/ansible/plugins/connection/network_cli.py
               - ^test/integration/targets/ios_.*
         - ansible-test-network-integration-ios-python37:
@@ -490,6 +513,7 @@
               - ^lib/ansible/module_utils/network/common/.*
               - ^lib/ansible/module_utils/network/ios/.*
               - ^lib/ansible/plugins/cliconf/ios.py
+              - ^lib/ansible/plugins/connection/local.py
               - ^lib/ansible/plugins/connection/network_cli.py
               - ^test/integration/targets/ios_.*
         - ansible-test-network-integration-junos-python27:
@@ -503,6 +527,7 @@
               - ^lib/ansible/module_utils/network/junos/.*
               - ^lib/ansible/module_utils/network/netconf/.*
               - ^lib/ansible/plugins/cliconf/junos.py
+              - ^lib/ansible/plugins/connection/local.py
               - ^lib/ansible/plugins/connection/netconf.py
               - ^lib/ansible/plugins/connection/network_cli.py
               - ^test/integration/targets/junos_.*
@@ -518,6 +543,7 @@
               - ^lib/ansible/module_utils/network/junos/.*
               - ^lib/ansible/module_utils/network/netconf/.*
               - ^lib/ansible/plugins/cliconf/junos.py
+              - ^lib/ansible/plugins/connection/local.py
               - ^lib/ansible/plugins/connection/netconf.py
               - ^lib/ansible/plugins/connection/network_cli.py
               - ^test/integration/targets/junos_.*
@@ -533,6 +559,7 @@
               - ^lib/ansible/module_utils/network/junos/.*
               - ^lib/ansible/module_utils/network/netconf/.*
               - ^lib/ansible/plugins/cliconf/junos.py
+              - ^lib/ansible/plugins/connection/local.py
               - ^lib/ansible/plugins/connection/netconf.py
               - ^lib/ansible/plugins/connection/network_cli.py
               - ^test/integration/targets/junos_.*
@@ -548,6 +575,7 @@
               - ^lib/ansible/module_utils/network/junos/.*
               - ^lib/ansible/module_utils/network/netconf/.*
               - ^lib/ansible/plugins/cliconf/junos.py
+              - ^lib/ansible/plugins/connection/local.py
               - ^lib/ansible/plugins/connection/netconf.py
               - ^lib/ansible/plugins/connection/network_cli.py
               - ^test/integration/targets/junos_.*

@@ -45,7 +45,7 @@
     - name: Enable netconf_.* target for ansible-test
       set_fact:
         _target: "{{ _target }} netconf_.*"
-      when: ansible_test_network_integration in ["iosxrv", "junos"]
+      when: ansible_test_network_integration in ["iosxr", "junos"]
 
     - name: Run the integration test suite
       args:

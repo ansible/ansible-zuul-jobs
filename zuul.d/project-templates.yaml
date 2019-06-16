@@ -158,6 +158,7 @@
               - ^lib/ansible/plugins/connection/local.py
               - ^lib/ansible/plugins/connection/network_cli.py
               - ^test/integration/targets/eos_.*
+              - ^test/integration/targets/prepare_eos_tests/.*
         - ansible-test-network-integration-eos-python35:
             branches:
               - devel
@@ -170,6 +171,7 @@
               - ^lib/ansible/plugins/connection/local.py
               - ^lib/ansible/plugins/connection/network_cli.py
               - ^test/integration/targets/eos_.*
+              - ^test/integration/targets/prepare_eos_tests/.*
         - ansible-test-network-integration-eos-python36:
             branches:
               - devel
@@ -182,6 +184,7 @@
               - ^lib/ansible/plugins/connection/local.py
               - ^lib/ansible/plugins/connection/network_cli.py
               - ^test/integration/targets/eos_.*
+              - ^test/integration/targets/prepare_eos_tests/.*
         - ansible-test-network-integration-eos-python37:
             branches:
               - devel
@@ -194,6 +197,7 @@
               - ^lib/ansible/plugins/connection/local.py
               - ^lib/ansible/plugins/connection/network_cli.py
               - ^test/integration/targets/eos_.*
+              - ^test/integration/targets/prepare_eos_tests/.*
         - ansible-test-network-integration-ios-python27:
             branches:
               - devel
@@ -205,6 +209,7 @@
               - ^lib/ansible/plugins/connection/local.py
               - ^lib/ansible/plugins/connection/network_cli.py
               - ^test/integration/targets/ios_.*
+              - ^test/integration/targets/prepare_ios_tests/.*
         - ansible-test-network-integration-ios-python35:
             branches:
               - devel
@@ -216,6 +221,7 @@
               - ^lib/ansible/plugins/connection/local.py
               - ^lib/ansible/plugins/connection/network_cli.py
               - ^test/integration/targets/ios_.*
+              - ^test/integration/targets/prepare_ios_tests/.*
         - ansible-test-network-integration-ios-python36:
             branches:
               - devel
@@ -227,6 +233,7 @@
               - ^lib/ansible/plugins/connection/local.py
               - ^lib/ansible/plugins/connection/network_cli.py
               - ^test/integration/targets/ios_.*
+              - ^test/integration/targets/prepare_ios_tests/.*
         - ansible-test-network-integration-ios-python37:
             branches:
               - devel
@@ -238,6 +245,7 @@
               - ^lib/ansible/plugins/connection/local.py
               - ^lib/ansible/plugins/connection/network_cli.py
               - ^test/integration/targets/ios_.*
+              - ^test/integration/targets/prepare_ios_tests/.*
         - ansible-test-network-integration-iosxr-python27:
             voting: false
             branches:
@@ -253,6 +261,7 @@
               - ^lib/ansible/plugins/connection/network_cli.py
               - ^test/integration/targets/iosxr_.*
               - ^test/integration/targets/netconf_.*
+              - ^test/integration/targets/prepare_iosxr_tests/.*
         - ansible-test-network-integration-iosxr-python35:
             voting: false
             branches:
@@ -268,6 +277,7 @@
               - ^lib/ansible/plugins/connection/network_cli.py
               - ^test/integration/targets/iosxr_.*
               - ^test/integration/targets/netconf_.*
+              - ^test/integration/targets/prepare_iosxr_tests/.*
         - ansible-test-network-integration-iosxr-python36:
             voting: false
             branches:
@@ -283,6 +293,7 @@
               - ^lib/ansible/plugins/connection/network_cli.py
               - ^test/integration/targets/iosxr_.*
               - ^test/integration/targets/netconf_.*
+              - ^test/integration/targets/prepare_iosxr_tests/.*
         - ansible-test-network-integration-iosxr-python37:
             voting: false
             branches:
@@ -298,6 +309,7 @@
               - ^lib/ansible/plugins/connection/network_cli.py
               - ^test/integration/targets/iosxr_.*
               - ^test/integration/targets/netconf_.*
+              - ^test/integration/targets/prepare_iosxr_tests/.*
         - ansible-test-network-integration-junos-python27:
             branches:
               - devel
@@ -313,6 +325,7 @@
               - ^lib/ansible/plugins/connection/network_cli.py
               - ^test/integration/targets/junos_.*
               - ^test/integration/targets/netconf_.*
+              - ^test/integration/targets/prepare_junos_tests/.*
         - ansible-test-network-integration-junos-python35:
             branches:
               - devel
@@ -328,6 +341,7 @@
               - ^lib/ansible/plugins/connection/network_cli.py
               - ^test/integration/targets/junos_.*
               - ^test/integration/targets/netconf_.*
+              - ^test/integration/targets/prepare_junos_tests/.*
         - ansible-test-network-integration-junos-python36:
             branches:
               - devel
@@ -343,6 +357,7 @@
               - ^lib/ansible/plugins/connection/network_cli.py
               - ^test/integration/targets/junos_.*
               - ^test/integration/targets/netconf_.*
+              - ^test/integration/targets/prepare_junos_tests/.*
         - ansible-test-network-integration-junos-python37:
             branches:
               - devel
@@ -358,6 +373,7 @@
               - ^lib/ansible/plugins/connection/network_cli.py
               - ^test/integration/targets/junos_.*
               - ^test/integration/targets/netconf_.*
+              - ^test/integration/targets/prepare_junos_tests/.*
         - ansible-test-network-integration-openvswitch-python27:
             branches:
               - devel
@@ -365,6 +381,7 @@
               - ^lib/ansible/modules/network/ovs/.*
               - ^lib/ansible/module_utils/network/common/.*
               - ^test/integration/targets/openvswitch_.*
+              - ^test/integration/targets/prepare_ovs_tests/.*
         - ansible-test-network-integration-openvswitch-python35:
             branches:
               - devel
@@ -372,6 +389,7 @@
               - ^lib/ansible/modules/network/ovs/.*
               - ^lib/ansible/module_utils/network/common/.*
               - ^test/integration/targets/openvswitch_.*
+              - ^test/integration/targets/prepare_ovs_tests/.*
         - ansible-test-network-integration-openvswitch-python36:
             branches:
               - devel
@@ -379,6 +397,7 @@
               - ^lib/ansible/modules/network/ovs/.*
               - ^lib/ansible/module_utils/network/common/.*
               - ^test/integration/targets/openvswitch_.*
+              - ^test/integration/targets/prepare_ovs_tests/.*
         - ansible-test-network-integration-openvswitch-python37:
             branches:
               - devel
@@ -386,6 +405,7 @@
               - ^lib/ansible/modules/network/ovs/.*
               - ^lib/ansible/module_utils/network/common/.*
               - ^test/integration/targets/openvswitch_.*
+              - ^test/integration/targets/prepare_ovs_tests/.*
         - ansible-test-network-integration-vyos-python27:
             branches:
               - devel
@@ -451,6 +471,7 @@
               - ^lib/ansible/plugins/connection/local.py
               - ^lib/ansible/plugins/connection/network_cli.py
               - ^test/integration/targets/eos_.*
+              - ^test/integration/targets/prepare_eos_tests/.*
         - ansible-test-network-integration-eos-python35:
             branches:
               - stable-2.7
@@ -462,6 +483,7 @@
               - ^lib/ansible/plugins/connection/local.py
               - ^lib/ansible/plugins/connection/network_cli.py
               - ^test/integration/targets/eos_.*
+              - ^test/integration/targets/prepare_eos_tests/.*
         - ansible-test-network-integration-eos-python36:
             branches:
               - stable-2.7
@@ -473,6 +495,7 @@
               - ^lib/ansible/plugins/connection/local.py
               - ^lib/ansible/plugins/connection/network_cli.py
               - ^test/integration/targets/eos_.*
+              - ^test/integration/targets/prepare_eos_tests/.*
         - ansible-test-network-integration-eos-python37:
             branches:
               - stable-2.7
@@ -484,6 +507,7 @@
               - ^lib/ansible/plugins/connection/local.py
               - ^lib/ansible/plugins/connection/network_cli.py
               - ^test/integration/targets/eos_.*
+              - ^test/integration/targets/prepare_eos_tests/.*
         - ansible-test-network-integration-ios-python27:
             branches:
               - stable-2.8
@@ -496,6 +520,7 @@
               - ^lib/ansible/plugins/connection/local.py
               - ^lib/ansible/plugins/connection/network_cli.py
               - ^test/integration/targets/ios_.*
+              - ^test/integration/targets/prepare_ios_tests/.*
         - ansible-test-network-integration-ios-python35:
             branches:
               - stable-2.8
@@ -508,6 +533,7 @@
               - ^lib/ansible/plugins/connection/local.py
               - ^lib/ansible/plugins/connection/network_cli.py
               - ^test/integration/targets/ios_.*
+              - ^test/integration/targets/prepare_ios_tests/.*
         - ansible-test-network-integration-ios-python36:
             branches:
               - stable-2.8
@@ -520,6 +546,7 @@
               - ^lib/ansible/plugins/connection/local.py
               - ^lib/ansible/plugins/connection/network_cli.py
               - ^test/integration/targets/ios_.*
+              - ^test/integration/targets/prepare_ios_tests/.*
         - ansible-test-network-integration-ios-python37:
             branches:
               - stable-2.8
@@ -532,6 +559,7 @@
               - ^lib/ansible/plugins/connection/local.py
               - ^lib/ansible/plugins/connection/network_cli.py
               - ^test/integration/targets/ios_.*
+              - ^test/integration/targets/prepare_ios_tests/.*
         - ansible-test-network-integration-junos-python27:
             branches:
               - stable-2.8
@@ -548,6 +576,7 @@
               - ^lib/ansible/plugins/connection/network_cli.py
               - ^test/integration/targets/junos_.*
               - ^test/integration/targets/netconf_.*
+              - ^test/integration/targets/prepare_junos_tests/.*
         - ansible-test-network-integration-junos-python35:
             branches:
               - stable-2.8
@@ -564,6 +593,7 @@
               - ^lib/ansible/plugins/connection/network_cli.py
               - ^test/integration/targets/junos_.*
               - ^test/integration/targets/netconf_.*
+              - ^test/integration/targets/prepare_junos_tests/.*
         - ansible-test-network-integration-junos-python36:
             branches:
               - stable-2.8
@@ -580,6 +610,7 @@
               - ^lib/ansible/plugins/connection/network_cli.py
               - ^test/integration/targets/junos_.*
               - ^test/integration/targets/netconf_.*
+              - ^test/integration/targets/prepare_junos_tests/.*
         - ansible-test-network-integration-junos-python37:
             branches:
               - stable-2.8
@@ -596,6 +627,7 @@
               - ^lib/ansible/plugins/connection/network_cli.py
               - ^test/integration/targets/junos_.*
               - ^test/integration/targets/netconf_.*
+              - ^test/integration/targets/prepare_junos_tests/.*
         - ansible-test-network-integration-openvswitch-python27:
             branches:
               - stable-2.8
@@ -604,6 +636,7 @@
               - ^lib/ansible/modules/network/ovs/.*
               - ^lib/ansible/module_utils/network/common/.*
               - ^test/integration/targets/openvswitch_.*
+              - ^test/integration/targets/prepare_ovs_tests/.*
         - ansible-test-network-integration-openvswitch-python35:
             branches:
               - stable-2.8
@@ -612,6 +645,7 @@
               - ^lib/ansible/modules/network/ovs/.*
               - ^lib/ansible/module_utils/network/common/.*
               - ^test/integration/targets/openvswitch_.*
+              - ^test/integration/targets/prepare_ovs_tests/.*
         - ansible-test-network-integration-openvswitch-python36:
             branches:
               - stable-2.8
@@ -620,6 +654,7 @@
               - ^lib/ansible/modules/network/ovs/.*
               - ^lib/ansible/module_utils/network/common/.*
               - ^test/integration/targets/openvswitch_.*
+              - ^test/integration/targets/prepare_ovs_tests/.*
         - ansible-test-network-integration-openvswitch-python37:
             branches:
               - stable-2.8
@@ -628,6 +663,7 @@
               - ^lib/ansible/modules/network/ovs/.*
               - ^lib/ansible/module_utils/network/common/.*
               - ^test/integration/targets/openvswitch_.*
+              - ^test/integration/targets/prepare_ovs_tests/.*
 
 - project-template:
     name: noop-jobs

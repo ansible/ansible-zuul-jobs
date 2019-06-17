@@ -385,6 +385,8 @@
         - ansible-test-network-integration-openvswitch-python27:
             branches:
               - devel
+              - stable-2.8
+              - stable-2.7
             files:
               - ^lib/ansible/modules/network/ovs/.*
               - ^lib/ansible/module_utils/network/common/.*
@@ -393,6 +395,8 @@
         - ansible-test-network-integration-openvswitch-python35:
             branches:
               - devel
+              - stable-2.8
+              - stable-2.7
             files:
               - ^lib/ansible/modules/network/ovs/.*
               - ^lib/ansible/module_utils/network/common/.*
@@ -401,6 +405,8 @@
         - ansible-test-network-integration-openvswitch-python36:
             branches:
               - devel
+              - stable-2.8
+              - stable-2.7
             files:
               - ^lib/ansible/modules/network/ovs/.*
               - ^lib/ansible/module_utils/network/common/.*
@@ -409,6 +415,8 @@
         - ansible-test-network-integration-openvswitch-python37:
             branches:
               - devel
+              - stable-2.8
+              - stable-2.7
             files:
               - ^lib/ansible/modules/network/ovs/.*
               - ^lib/ansible/module_utils/network/common/.*
@@ -640,42 +648,6 @@
               - ^test/integration/targets/junos_.*
               - ^test/integration/targets/netconf_.*
               - ^test/integration/targets/prepare_junos_tests/.*
-        - ansible-test-network-integration-openvswitch-python27:
-            branches:
-              - stable-2.8
-              - stable-2.7
-            files:
-              - ^lib/ansible/modules/network/ovs/.*
-              - ^lib/ansible/module_utils/network/common/.*
-              - ^test/integration/targets/openvswitch_.*
-              - ^test/integration/targets/prepare_ovs_tests/.*
-        - ansible-test-network-integration-openvswitch-python35:
-            branches:
-              - stable-2.8
-              - stable-2.7
-            files:
-              - ^lib/ansible/modules/network/ovs/.*
-              - ^lib/ansible/module_utils/network/common/.*
-              - ^test/integration/targets/openvswitch_.*
-              - ^test/integration/targets/prepare_ovs_tests/.*
-        - ansible-test-network-integration-openvswitch-python36:
-            branches:
-              - stable-2.8
-              - stable-2.7
-            files:
-              - ^lib/ansible/modules/network/ovs/.*
-              - ^lib/ansible/module_utils/network/common/.*
-              - ^test/integration/targets/openvswitch_.*
-              - ^test/integration/targets/prepare_ovs_tests/.*
-        - ansible-test-network-integration-openvswitch-python37:
-            branches:
-              - stable-2.8
-              - stable-2.7
-            files:
-              - ^lib/ansible/modules/network/ovs/.*
-              - ^lib/ansible/module_utils/network/common/.*
-              - ^test/integration/targets/openvswitch_.*
-              - ^test/integration/targets/prepare_ovs_tests/.*
 
 - project-template:
     name: noop-jobs

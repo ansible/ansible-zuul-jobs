@@ -604,6 +604,78 @@
               - ^lib/ansible/plugins/connection/network_cli.py
               - ^test/integration/targets/ios_.*
               - ^test/integration/targets/prepare_ios_tests/.*
+        - ansible-test-network-integration-iosxr-python27:
+            branches:
+              - stable-2.8
+              - stable-2.7
+            files:
+              - ^lib/ansible/modules/network/iosxr/.*
+              - ^lib/ansible/modules/network/netconf/.*
+              - ^lib/ansible/module_utils/network/common/.*
+              - ^lib/ansible/module_utils/network/iosxr/.*
+              - ^lib/ansible/module_utils/network/netconf/.*
+              - ^lib/ansible/plugins/action/iosxr.py
+              - ^lib/ansible/plugins/cliconf/iosxr.py
+              - ^lib/ansible/plugins/connection/netconf.py
+              - ^lib/ansible/plugins/connection/network_cli.py
+              - ^lib/ansible/plugins/netconf/.*
+              - ^test/integration/targets/iosxr_.*
+              - ^test/integration/targets/netconf_.*
+              - ^test/integration/targets/prepare_iosxr_tests/.*
+        - ansible-test-network-integration-iosxr-python35:
+            branches:
+              - stable-2.8
+              - stable-2.7
+            files:
+              - ^lib/ansible/modules/network/iosxr/.*
+              - ^lib/ansible/modules/network/netconf/.*
+              - ^lib/ansible/module_utils/network/common/.*
+              - ^lib/ansible/module_utils/network/iosxr/.*
+              - ^lib/ansible/module_utils/network/netconf/.*
+              - ^lib/ansible/plugins/action/iosxr.py
+              - ^lib/ansible/plugins/cliconf/iosxr.py
+              - ^lib/ansible/plugins/connection/netconf.py
+              - ^lib/ansible/plugins/connection/network_cli.py
+              - ^lib/ansible/plugins/netconf/.*
+              - ^test/integration/targets/iosxr_.*
+              - ^test/integration/targets/netconf_.*
+              - ^test/integration/targets/prepare_iosxr_tests/.*
+        - ansible-test-network-integration-iosxr-python36:
+            branches:
+              - stable-2.8
+              - stable-2.7
+            files:
+              - ^lib/ansible/modules/network/iosxr/.*
+              - ^lib/ansible/modules/network/netconf/.*
+              - ^lib/ansible/module_utils/network/common/.*
+              - ^lib/ansible/module_utils/network/iosxr/.*
+              - ^lib/ansible/module_utils/network/netconf/.*
+              - ^lib/ansible/plugins/action/iosxr.py
+              - ^lib/ansible/plugins/cliconf/iosxr.py
+              - ^lib/ansible/plugins/connection/netconf.py
+              - ^lib/ansible/plugins/connection/network_cli.py
+              - ^lib/ansible/plugins/netconf/.*
+              - ^test/integration/targets/iosxr_.*
+              - ^test/integration/targets/netconf_.*
+              - ^test/integration/targets/prepare_iosxr_tests/.*
+        - ansible-test-network-integration-iosxr-python37:
+            branches:
+              - stable-2.8
+              - stable-2.7
+            files:
+              - ^lib/ansible/modules/network/iosxr/.*
+              - ^lib/ansible/modules/network/netconf/.*
+              - ^lib/ansible/module_utils/network/common/.*
+              - ^lib/ansible/module_utils/network/iosxr/.*
+              - ^lib/ansible/module_utils/network/netconf/.*
+              - ^lib/ansible/plugins/action/iosxr.py
+              - ^lib/ansible/plugins/cliconf/iosxr.py
+              - ^lib/ansible/plugins/connection/netconf.py
+              - ^lib/ansible/plugins/connection/network_cli.py
+              - ^lib/ansible/plugins/netconf/.*
+              - ^test/integration/targets/iosxr_.*
+              - ^test/integration/targets/netconf_.*
+              - ^test/integration/targets/prepare_iosxr_tests/.*
         - ansible-test-network-integration-junos-python27:
             branches:
               - stable-2.8

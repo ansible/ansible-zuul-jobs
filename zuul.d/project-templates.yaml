@@ -72,18 +72,22 @@
             branches:
               - devel
               - stable-2.8
+              - stable-2.7
         - ansible-test-network-integration-iosxr-python35:
             branches:
               - devel
               - stable-2.8
+              - stable-2.7
         - ansible-test-network-integration-iosxr-python36:
             branches:
               - devel
               - stable-2.8
+              - stable-2.7
         - ansible-test-network-integration-iosxr-python37:
             branches:
               - devel
               - stable-2.8
+              - stable-2.7
         - ansible-test-network-integration-junos-python27:
             branches:
               - devel
@@ -217,6 +221,7 @@
         - ansible-test-network-integration-ios-python27:
             branches:
               - devel
+              - stable-2.8
             files:
               - ^lib/ansible/modules/network/ios/.*
               - ^lib/ansible/module_utils/network/common/.*
@@ -230,6 +235,7 @@
         - ansible-test-network-integration-ios-python35:
             branches:
               - devel
+              - stable-2.8
             files:
               - ^lib/ansible/modules/network/ios/.*
               - ^lib/ansible/module_utils/network/common/.*
@@ -243,6 +249,7 @@
         - ansible-test-network-integration-ios-python36:
             branches:
               - devel
+              - stable-2.8
             files:
               - ^lib/ansible/modules/network/ios/.*
               - ^lib/ansible/module_utils/network/common/.*
@@ -256,6 +263,7 @@
         - ansible-test-network-integration-ios-python37:
             branches:
               - devel
+              - stable-2.8
             files:
               - ^lib/ansible/modules/network/ios/.*
               - ^lib/ansible/module_utils/network/common/.*
@@ -269,6 +277,7 @@
         - ansible-test-network-integration-iosxr-python27:
             branches:
               - devel
+              - stable-2.8
             files:
               - ^lib/ansible/modules/network/iosxr/.*
               - ^lib/ansible/modules/network/netconf/.*
@@ -286,6 +295,7 @@
         - ansible-test-network-integration-iosxr-python35:
             branches:
               - devel
+              - stable-2.8
             files:
               - ^lib/ansible/modules/network/iosxr/.*
               - ^lib/ansible/modules/network/netconf/.*
@@ -303,6 +313,7 @@
         - ansible-test-network-integration-iosxr-python36:
             branches:
               - devel
+              - stable-2.8
             files:
               - ^lib/ansible/modules/network/iosxr/.*
               - ^lib/ansible/modules/network/netconf/.*
@@ -320,6 +331,7 @@
         - ansible-test-network-integration-iosxr-python37:
             branches:
               - devel
+              - stable-2.8
             files:
               - ^lib/ansible/modules/network/iosxr/.*
               - ^lib/ansible/modules/network/netconf/.*
@@ -337,6 +349,7 @@
         - ansible-test-network-integration-junos-python27:
             branches:
               - devel
+              - stable-2.8
             files:
               - ^lib/ansible/modules/network/junos/.*
               - ^lib/ansible/modules/network/netconf/.*
@@ -355,6 +368,7 @@
         - ansible-test-network-integration-junos-python35:
             branches:
               - devel
+              - stable-2.8
             files:
               - ^lib/ansible/modules/network/junos/.*
               - ^lib/ansible/modules/network/netconf/.*
@@ -373,6 +387,7 @@
         - ansible-test-network-integration-junos-python36:
             branches:
               - devel
+              - stable-2.8
             files:
               - ^lib/ansible/modules/network/junos/.*
               - ^lib/ansible/modules/network/netconf/.*
@@ -391,6 +406,7 @@
         - ansible-test-network-integration-junos-python37:
             branches:
               - devel
+              - stable-2.8
             files:
               - ^lib/ansible/modules/network/junos/.*
               - ^lib/ansible/modules/network/netconf/.*
@@ -570,7 +586,6 @@
               - ^test/integration/targets/prepare_eos_tests/.*
         - ansible-test-network-integration-ios-python27:
             branches:
-              - stable-2.8
               - stable-2.7
             files:
               - ^lib/ansible/modules/network/ios/.*
@@ -584,7 +599,6 @@
               - ^test/integration/targets/prepare_ios_tests/.*
         - ansible-test-network-integration-ios-python35:
             branches:
-              - stable-2.8
               - stable-2.7
             files:
               - ^lib/ansible/modules/network/ios/.*
@@ -598,7 +612,6 @@
               - ^test/integration/targets/prepare_ios_tests/.*
         - ansible-test-network-integration-ios-python36:
             branches:
-              - stable-2.8
               - stable-2.7
             files:
               - ^lib/ansible/modules/network/ios/.*
@@ -612,7 +625,6 @@
               - ^test/integration/targets/prepare_ios_tests/.*
         - ansible-test-network-integration-ios-python37:
             branches:
-              - stable-2.8
               - stable-2.7
             files:
               - ^lib/ansible/modules/network/ios/.*
@@ -626,7 +638,6 @@
               - ^test/integration/targets/prepare_ios_tests/.*
         - ansible-test-network-integration-iosxr-python27:
             branches:
-              - stable-2.8
               - stable-2.7
             files:
               - ^lib/ansible/modules/network/iosxr/.*
@@ -644,7 +655,6 @@
               - ^test/integration/targets/prepare_iosxr_tests/.*
         - ansible-test-network-integration-iosxr-python35:
             branches:
-              - stable-2.8
               - stable-2.7
             files:
               - ^lib/ansible/modules/network/iosxr/.*
@@ -680,7 +690,6 @@
               - ^test/integration/targets/prepare_iosxr_tests/.*
         - ansible-test-network-integration-iosxr-python37:
             branches:
-              - stable-2.8
               - stable-2.7
             files:
               - ^lib/ansible/modules/network/iosxr/.*
@@ -698,7 +707,6 @@
               - ^test/integration/targets/prepare_iosxr_tests/.*
         - ansible-test-network-integration-junos-python27:
             branches:
-              - stable-2.8
               - stable-2.7
             files:
               - ^lib/ansible/modules/network/junos/.*
@@ -717,7 +725,6 @@
               - ^test/integration/targets/prepare_junos_tests/.*
         - ansible-test-network-integration-junos-python35:
             branches:
-              - stable-2.8
               - stable-2.7
             files:
               - ^lib/ansible/modules/network/junos/.*
@@ -736,7 +743,6 @@
               - ^test/integration/targets/prepare_junos_tests/.*
         - ansible-test-network-integration-junos-python36:
             branches:
-              - stable-2.8
               - stable-2.7
             files:
               - ^lib/ansible/modules/network/junos/.*
@@ -755,7 +761,6 @@
               - ^test/integration/targets/prepare_junos_tests/.*
         - ansible-test-network-integration-junos-python37:
             branches:
-              - stable-2.8
               - stable-2.7
             files:
               - ^lib/ansible/modules/network/junos/.*

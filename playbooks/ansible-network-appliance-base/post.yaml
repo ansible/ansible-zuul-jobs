@@ -13,6 +13,9 @@
       environment:
         ARA_PLAYBOOK_PER_PAGE: 50
 
+    - name: Copy ARA sqlite database
+      shell: "cp {{ ansible_user_dir }}/.ara/ansible.sqlite {{ ansible_user_dir }}/zuul-output/logs/controller/ara-report"
+
     # TODO: Migrate to fetch-zuul-logs when
     # https://review.openstack.org/#/c/583346/ is merged.
     - name: Collect log output

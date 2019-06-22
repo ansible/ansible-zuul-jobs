@@ -1,29 +1,5 @@
 ---
-# ansible_default_ipv6 can either be undefined (no ipv6) or blank (no
-# routable address).  We only want to use ipv6 if it's available &
-# routable; combine these checks into this fact.
-- name: Check for IPv6
-  when:
-    - hostvars[inventory_hostname]['ansible_default_ipv6'] is defined
-    - hostvars[inventory_hostname]['ansible_default_ipv6']['address'] is defined
-  set_fact:
-    unbound_use_ipv6: true
-
-# Use *only* ipv6 resolvers if ipv6 is present and routable.  This
-# avoids traversing potential NAT when using ipv4 which can be
-# unreliable.
-- name: Set IPv6 nameservers
-  when:
-    - unbound_use_ipv6 is defined
-  set_fact:
-    unbound_primary_nameserver: '{{ unbound_primary_nameserver_v6 }}'
-    unbound_secondary_nameserver: '{{ unbound_secondary_nameserver_v6 }}'
-
-# Fallback to default ipv4 if there is no ipv6 available as this
-# causes timeouts and failovers that are unnecesary.
 - name: Set IPv4 nameservers
-  when:
-    - unbound_use_ipv6 is not defined
   set_fact:
     unbound_primary_nameserver: '{{ unbound_primary_nameserver_v4 }}'
     unbound_secondary_nameserver: '{{ unbound_secondary_nameserver_v4 }}'

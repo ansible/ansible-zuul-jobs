@@ -3,6 +3,7 @@
     name: base
     parent: base-minimal
     abstract: true
+    ansible-version: 2.8
     description: |
       The base job for the Ansible installation of Zuul.
     pre-run: playbooks/base/pre.yaml

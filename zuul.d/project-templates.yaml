@@ -32,122 +32,98 @@
             branches:
               - devel
               - stable-2.8
-              - stable-2.7
         - ansible-test-network-integration-eos-python35:
             branches:
               - devel
               - stable-2.8
-              - stable-2.7
         - ansible-test-network-integration-eos-python36:
             branches:
               - devel
               - stable-2.8
-              - stable-2.7
         - ansible-test-network-integration-eos-python37:
             branches:
               - devel
               - stable-2.8
-              - stable-2.7
         - ansible-test-network-integration-ios-python27:
             branches:
               - devel
               - stable-2.8
-              - stable-2.7
         - ansible-test-network-integration-ios-python35:
             branches:
               - devel
               - stable-2.8
-              - stable-2.7
         - ansible-test-network-integration-ios-python36:
             branches:
               - devel
               - stable-2.8
-              - stable-2.7
         - ansible-test-network-integration-ios-python37:
             branches:
               - devel
               - stable-2.8
-              - stable-2.7
         - ansible-test-network-integration-iosxr-python27:
             branches:
               - devel
               - stable-2.8
-              - stable-2.7
         - ansible-test-network-integration-iosxr-python35:
             branches:
               - devel
               - stable-2.8
-              - stable-2.7
         - ansible-test-network-integration-iosxr-python36:
             branches:
               - devel
               - stable-2.8
-              - stable-2.7
         - ansible-test-network-integration-iosxr-python37:
             branches:
               - devel
               - stable-2.8
-              - stable-2.7
         - ansible-test-network-integration-junos-python27:
             branches:
               - devel
               - stable-2.8
-              - stable-2.7
         - ansible-test-network-integration-junos-python35:
             branches:
               - devel
               - stable-2.8
-              - stable-2.7
         - ansible-test-network-integration-junos-python36:
             branches:
               - devel
               - stable-2.8
-              - stable-2.7
         - ansible-test-network-integration-junos-python37:
             branches:
               - devel
               - stable-2.8
-              - stable-2.7
         - ansible-test-network-integration-openvswitch-python27:
             branches:
               - devel
               - stable-2.8
-              - stable-2.7
         - ansible-test-network-integration-openvswitch-python35:
             branches:
               - devel
               - stable-2.8
-              - stable-2.7
         - ansible-test-network-integration-openvswitch-python36:
             branches:
               - devel
               - stable-2.8
-              - stable-2.7
         - ansible-test-network-integration-openvswitch-python37:
             branches:
               - devel
               - stable-2.8
-              - stable-2.7
         - ansible-test-network-integration-vyos-python27:
             branches:
               - devel
               - stable-2.8
-              - stable-2.7
         - ansible-test-network-integration-vyos-python35:
             branches:
               - devel
               - stable-2.8
-              - stable-2.7
         - ansible-test-network-integration-vyos-python36:
             branches:
               - devel
               - stable-2.8
-              - stable-2.7
         - ansible-test-network-integration-vyos-python37:
             branches:
               - devel
               - stable-2.8
-              - stable-2.7
     third-party-check:
       jobs:
         - ansible-test-network-integration-eos-python27:
@@ -426,7 +402,6 @@
             branches:
               - devel
               - stable-2.8
-              - stable-2.7
             files:
               - ^lib/ansible/modules/network/ovs/.*
               - ^lib/ansible/module_utils/network/common/.*
@@ -436,7 +411,6 @@
             branches:
               - devel
               - stable-2.8
-              - stable-2.7
             files:
               - ^lib/ansible/modules/network/ovs/.*
               - ^lib/ansible/module_utils/network/common/.*
@@ -446,7 +420,6 @@
             branches:
               - devel
               - stable-2.8
-              - stable-2.7
             files:
               - ^lib/ansible/modules/network/ovs/.*
               - ^lib/ansible/module_utils/network/common/.*
@@ -456,7 +429,6 @@
             branches:
               - devel
               - stable-2.8
-              - stable-2.7
             files:
               - ^lib/ansible/modules/network/ovs/.*
               - ^lib/ansible/module_utils/network/common/.*
@@ -466,7 +438,6 @@
             branches:
               - devel
               - stable-2.8
-              - stable-2.7
             files:
               - ^lib/ansible/modules/network/vyos/.*
               - ^lib/ansible/module_utils/network/common/.*
@@ -480,7 +451,6 @@
             branches:
               - devel
               - stable-2.8
-              - stable-2.7
             files:
               - ^lib/ansible/modules/network/vyos/.*
               - ^lib/ansible/module_utils/network/common/.*
@@ -494,7 +464,6 @@
             branches:
               - devel
               - stable-2.8
-              - stable-2.7
             files:
               - ^lib/ansible/modules/network/vyos/.*
               - ^lib/ansible/module_utils/network/common/.*
@@ -508,7 +477,6 @@
             branches:
               - devel
               - stable-2.8
-              - stable-2.7
             files:
               - ^lib/ansible/modules/network/vyos/.*
               - ^lib/ansible/module_utils/network/common/.*
@@ -518,265 +486,6 @@
               - ^lib/ansible/plugins/connection/local.py
               - ^lib/ansible/plugins/connection/network_cli.py
               - ^test/integration/targets/vyos_.*
-    third-party-check-silent:
-      jobs:
-        - ansible-test-network-integration-eos-python27:
-            branches:
-              - stable-2.7
-            files:
-              - ^lib/ansible/modules/network/eos/.*
-              - ^lib/ansible/module_utils/network/common/.*
-              - ^lib/ansible/module_utils/network/eos/.*
-              - ^lib/ansible/plugins/action/eos.py
-              - ^lib/ansible/plugins/cliconf/eos.py
-              - ^lib/ansible/plugins/connection/httpapi.py
-              - ^lib/ansible/plugins/connection/local.py
-              - ^lib/ansible/plugins/connection/network_cli.py
-              - ^lib/ansible/plugins/httpapi/__init__.py
-              - ^lib/ansible/plugins/httpapi/eos.py
-              - ^test/integration/targets/eos_.*
-              - ^test/integration/targets/prepare_eos_tests/.*
-        - ansible-test-network-integration-eos-python35:
-            branches:
-              - stable-2.7
-            files:
-              - ^lib/ansible/modules/network/eos/.*
-              - ^lib/ansible/module_utils/network/common/.*
-              - ^lib/ansible/module_utils/network/eos/.*
-              - ^lib/ansible/plugins/action/eos.py
-              - ^lib/ansible/plugins/cliconf/eos.py
-              - ^lib/ansible/plugins/connection/httpapi.py
-              - ^lib/ansible/plugins/connection/local.py
-              - ^lib/ansible/plugins/connection/network_cli.py
-              - ^lib/ansible/plugins/httpapi/__init__.py
-              - ^lib/ansible/plugins/httpapi/eos.py
-              - ^test/integration/targets/eos_.*
-              - ^test/integration/targets/prepare_eos_tests/.*
-        - ansible-test-network-integration-eos-python36:
-            branches:
-              - stable-2.7
-            files:
-              - ^lib/ansible/modules/network/eos/.*
-              - ^lib/ansible/module_utils/network/common/.*
-              - ^lib/ansible/module_utils/network/eos/.*
-              - ^lib/ansible/plugins/action/eos.py
-              - ^lib/ansible/plugins/cliconf/eos.py
-              - ^lib/ansible/plugins/connection/httpapi.py
-              - ^lib/ansible/plugins/connection/local.py
-              - ^lib/ansible/plugins/connection/network_cli.py
-              - ^lib/ansible/plugins/httpapi/__init__.py
-              - ^lib/ansible/plugins/httpapi/eos.py
-              - ^test/integration/targets/eos_.*
-              - ^test/integration/targets/prepare_eos_tests/.*
-        - ansible-test-network-integration-eos-python37:
-            branches:
-              - stable-2.7
-            files:
-              - ^lib/ansible/modules/network/eos/.*
-              - ^lib/ansible/module_utils/network/common/.*
-              - ^lib/ansible/module_utils/network/eos/.*
-              - ^lib/ansible/plugins/action/eos.py
-              - ^lib/ansible/plugins/cliconf/eos.py
-              - ^lib/ansible/plugins/connection/httpapi.py
-              - ^lib/ansible/plugins/connection/local.py
-              - ^lib/ansible/plugins/connection/network_cli.py
-              - ^lib/ansible/plugins/httpapi/__init__.py
-              - ^lib/ansible/plugins/httpapi/eos.py
-              - ^test/integration/targets/eos_.*
-              - ^test/integration/targets/prepare_eos_tests/.*
-        - ansible-test-network-integration-ios-python27:
-            branches:
-              - stable-2.7
-            files:
-              - ^lib/ansible/modules/network/ios/.*
-              - ^lib/ansible/module_utils/network/common/.*
-              - ^lib/ansible/module_utils/network/ios/.*
-              - ^lib/ansible/plugins/action/ios.py
-              - ^lib/ansible/plugins/cliconf/ios.py
-              - ^lib/ansible/plugins/connection/local.py
-              - ^lib/ansible/plugins/connection/network_cli.py
-              - ^test/integration/targets/ios_.*
-              - ^test/integration/targets/prepare_ios_tests/.*
-        - ansible-test-network-integration-ios-python35:
-            branches:
-              - stable-2.7
-            files:
-              - ^lib/ansible/modules/network/ios/.*
-              - ^lib/ansible/module_utils/network/common/.*
-              - ^lib/ansible/module_utils/network/ios/.*
-              - ^lib/ansible/plugins/action/ios.py
-              - ^lib/ansible/plugins/cliconf/ios.py
-              - ^lib/ansible/plugins/connection/local.py
-              - ^lib/ansible/plugins/connection/network_cli.py
-              - ^test/integration/targets/ios_.*
-              - ^test/integration/targets/prepare_ios_tests/.*
-        - ansible-test-network-integration-ios-python36:
-            branches:
-              - stable-2.7
-            files:
-              - ^lib/ansible/modules/network/ios/.*
-              - ^lib/ansible/module_utils/network/common/.*
-              - ^lib/ansible/module_utils/network/ios/.*
-              - ^lib/ansible/plugins/action/ios.py
-              - ^lib/ansible/plugins/cliconf/ios.py
-              - ^lib/ansible/plugins/connection/local.py
-              - ^lib/ansible/plugins/connection/network_cli.py
-              - ^test/integration/targets/ios_.*
-              - ^test/integration/targets/prepare_ios_tests/.*
-        - ansible-test-network-integration-ios-python37:
-            branches:
-              - stable-2.7
-            files:
-              - ^lib/ansible/modules/network/ios/.*
-              - ^lib/ansible/module_utils/network/common/.*
-              - ^lib/ansible/module_utils/network/ios/.*
-              - ^lib/ansible/plugins/action/ios.py
-              - ^lib/ansible/plugins/cliconf/ios.py
-              - ^lib/ansible/plugins/connection/local.py
-              - ^lib/ansible/plugins/connection/network_cli.py
-              - ^test/integration/targets/ios_.*
-              - ^test/integration/targets/prepare_ios_tests/.*
-        - ansible-test-network-integration-iosxr-python27:
-            branches:
-              - stable-2.7
-            files:
-              - ^lib/ansible/modules/network/iosxr/.*
-              - ^lib/ansible/modules/network/netconf/.*
-              - ^lib/ansible/module_utils/network/common/.*
-              - ^lib/ansible/module_utils/network/iosxr/.*
-              - ^lib/ansible/module_utils/network/netconf/.*
-              - ^lib/ansible/plugins/action/iosxr.py
-              - ^lib/ansible/plugins/cliconf/iosxr.py
-              - ^lib/ansible/plugins/connection/netconf.py
-              - ^lib/ansible/plugins/connection/network_cli.py
-              - ^lib/ansible/plugins/netconf/.*
-              - ^test/integration/targets/iosxr_.*
-              - ^test/integration/targets/netconf_.*
-              - ^test/integration/targets/prepare_iosxr_tests/.*
-        - ansible-test-network-integration-iosxr-python35:
-            branches:
-              - stable-2.7
-            files:
-              - ^lib/ansible/modules/network/iosxr/.*
-              - ^lib/ansible/modules/network/netconf/.*
-              - ^lib/ansible/module_utils/network/common/.*
-              - ^lib/ansible/module_utils/network/iosxr/.*
-              - ^lib/ansible/module_utils/network/netconf/.*
-              - ^lib/ansible/plugins/action/iosxr.py
-              - ^lib/ansible/plugins/cliconf/iosxr.py
-              - ^lib/ansible/plugins/connection/netconf.py
-              - ^lib/ansible/plugins/connection/network_cli.py
-              - ^lib/ansible/plugins/netconf/.*
-              - ^test/integration/targets/iosxr_.*
-              - ^test/integration/targets/netconf_.*
-              - ^test/integration/targets/prepare_iosxr_tests/.*
-        - ansible-test-network-integration-iosxr-python36:
-            branches:
-              - stable-2.8
-              - stable-2.7
-            files:
-              - ^lib/ansible/modules/network/iosxr/.*
-              - ^lib/ansible/modules/network/netconf/.*
-              - ^lib/ansible/module_utils/network/common/.*
-              - ^lib/ansible/module_utils/network/iosxr/.*
-              - ^lib/ansible/module_utils/network/netconf/.*
-              - ^lib/ansible/plugins/action/iosxr.py
-              - ^lib/ansible/plugins/cliconf/iosxr.py
-              - ^lib/ansible/plugins/connection/netconf.py
-              - ^lib/ansible/plugins/connection/network_cli.py
-              - ^lib/ansible/plugins/netconf/.*
-              - ^test/integration/targets/iosxr_.*
-              - ^test/integration/targets/netconf_.*
-              - ^test/integration/targets/prepare_iosxr_tests/.*
-        - ansible-test-network-integration-iosxr-python37:
-            branches:
-              - stable-2.7
-            files:
-              - ^lib/ansible/modules/network/iosxr/.*
-              - ^lib/ansible/modules/network/netconf/.*
-              - ^lib/ansible/module_utils/network/common/.*
-              - ^lib/ansible/module_utils/network/iosxr/.*
-              - ^lib/ansible/module_utils/network/netconf/.*
-              - ^lib/ansible/plugins/action/iosxr.py
-              - ^lib/ansible/plugins/cliconf/iosxr.py
-              - ^lib/ansible/plugins/connection/netconf.py
-              - ^lib/ansible/plugins/connection/network_cli.py
-              - ^lib/ansible/plugins/netconf/.*
-              - ^test/integration/targets/iosxr_.*
-              - ^test/integration/targets/netconf_.*
-              - ^test/integration/targets/prepare_iosxr_tests/.*
-        - ansible-test-network-integration-junos-python27:
-            branches:
-              - stable-2.7
-            files:
-              - ^lib/ansible/modules/network/junos/.*
-              - ^lib/ansible/modules/network/netconf/.*
-              - ^lib/ansible/module_utils/network/common/.*
-              - ^lib/ansible/module_utils/network/junos/.*
-              - ^lib/ansible/module_utils/network/netconf/.*
-              - ^lib/ansible/plugins/action/junos.py
-              - ^lib/ansible/plugins/cliconf/junos.py
-              - ^lib/ansible/plugins/connection/local.py
-              - ^lib/ansible/plugins/connection/netconf.py
-              - ^lib/ansible/plugins/connection/network_cli.py
-              - ^lib/ansible/plugins/netconf/.*
-              - ^test/integration/targets/junos_.*
-              - ^test/integration/targets/netconf_.*
-              - ^test/integration/targets/prepare_junos_tests/.*
-        - ansible-test-network-integration-junos-python35:
-            branches:
-              - stable-2.7
-            files:
-              - ^lib/ansible/modules/network/junos/.*
-              - ^lib/ansible/modules/network/netconf/.*
-              - ^lib/ansible/module_utils/network/common/.*
-              - ^lib/ansible/module_utils/network/junos/.*
-              - ^lib/ansible/module_utils/network/netconf/.*
-              - ^lib/ansible/plugins/action/junos.py
-              - ^lib/ansible/plugins/cliconf/junos.py
-              - ^lib/ansible/plugins/connection/local.py
-              - ^lib/ansible/plugins/connection/netconf.py
-              - ^lib/ansible/plugins/connection/network_cli.py
-              - ^lib/ansible/plugins/netconf/.*
-              - ^test/integration/targets/junos_.*
-              - ^test/integration/targets/netconf_.*
-              - ^test/integration/targets/prepare_junos_tests/.*
-        - ansible-test-network-integration-junos-python36:
-            branches:
-              - stable-2.7
-            files:
-              - ^lib/ansible/modules/network/junos/.*
-              - ^lib/ansible/modules/network/netconf/.*
-              - ^lib/ansible/module_utils/network/common/.*
-              - ^lib/ansible/module_utils/network/junos/.*
-              - ^lib/ansible/module_utils/network/netconf/.*
-              - ^lib/ansible/plugins/action/junos.py
-              - ^lib/ansible/plugins/cliconf/junos.py
-              - ^lib/ansible/plugins/connection/local.py
-              - ^lib/ansible/plugins/connection/netconf.py
-              - ^lib/ansible/plugins/connection/network_cli.py
-              - ^lib/ansible/plugins/netconf/.*
-              - ^test/integration/targets/junos_.*
-              - ^test/integration/targets/netconf_.*
-              - ^test/integration/targets/prepare_junos_tests/.*
-        - ansible-test-network-integration-junos-python37:
-            branches:
-              - stable-2.7
-            files:
-              - ^lib/ansible/modules/network/junos/.*
-              - ^lib/ansible/modules/network/netconf/.*
-              - ^lib/ansible/module_utils/network/common/.*
-              - ^lib/ansible/module_utils/network/junos/.*
-              - ^lib/ansible/module_utils/network/netconf/.*
-              - ^lib/ansible/plugins/action/junos.py
-              - ^lib/ansible/plugins/cliconf/junos.py
-              - ^lib/ansible/plugins/connection/local.py
-              - ^lib/ansible/plugins/connection/netconf.py
-              - ^lib/ansible/plugins/connection/network_cli.py
-              - ^lib/ansible/plugins/netconf/.*
-              - ^test/integration/targets/junos_.*
-              - ^test/integration/targets/netconf_.*
-              - ^test/integration/targets/prepare_junos_tests/.*
 
 - project-template:
     name: noop-jobs

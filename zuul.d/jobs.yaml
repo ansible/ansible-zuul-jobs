@@ -170,7 +170,7 @@
     run: playbooks/ansible-test-network-integration-base/run.yaml
     required-projects:
       - name: github.com/ansible/ansible
-    timeout: 3600
+    timeout: 5400
     vars:
       ansible_test_network_integration: ios
 

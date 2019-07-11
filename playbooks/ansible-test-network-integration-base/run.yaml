@@ -29,6 +29,20 @@
         option: callback_plugins
         value: "{{ ansible_user_dir }}/venv/lib/python{{ ansible_test_python}}/site-packages/ara/plugins/callbacks"
 
+    - name: Enable persistent connection logging
+      ini_file:
+        path: "{{ ansible_user_dir }}/{{ zuul.projects['github.com/ansible/ansible'].src_dir }}/test/integration/network-integration.cfg"
+        section: persistent_connection
+        option: log_messages
+        value: true
+
+    - name: Set ansible log path
+      ini_file:
+        path: "{{ ansible_user_dir }}/{{ zuul.projects['github.com/ansible/ansible'].src_dir }}/test/integration/network-integration.cfg"
+        section: defaults
+        option: log_path
+        value: ~/ansible-debug.txt
+
     - name: Setup base test_options
       set_fact:
         _test_options: "--continue-on-error --diff --requirements"
@@ -51,4 +65,4 @@
       args:
         chdir: "{{ ansible_user_dir }}/{{ zuul.projects['github.com/ansible/ansible'].src_dir }}"
         executable: /bin/bash
-      shell: "source ~/venv/bin/activate; ./test/runner/ansible-test network-integration {{ _test_options }} --python {{ ansible_test_python }} --inventory /home/zuul/inventory -vvv {{ _target }}"
+      shell: "source ~/venv/bin/activate; ./test/runner/ansible-test network-integration {{ _test_options }} --python {{ ansible_test_python }} --inventory /home/zuul/inventory -vvvv {{ _target }}"

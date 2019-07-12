@@ -131,6 +131,7 @@
               - devel
               - stable-2.8
             files:
+              - ^lib/ansible/modules/network/cli/.*
               - ^lib/ansible/modules/network/eos/.*
               - ^lib/ansible/module_utils/network/common/.*
               - ^lib/ansible/module_utils/network/eos/.*
@@ -148,6 +149,7 @@
               - devel
               - stable-2.8
             files:
+              - ^lib/ansible/modules/network/cli/.*
               - ^lib/ansible/modules/network/eos/.*
               - ^lib/ansible/module_utils/network/common/.*
               - ^lib/ansible/module_utils/network/eos/.*
@@ -165,6 +167,7 @@
               - devel
               - stable-2.8
             files:
+              - ^lib/ansible/modules/network/cli/.*
               - ^lib/ansible/modules/network/eos/.*
               - ^lib/ansible/module_utils/network/common/.*
               - ^lib/ansible/module_utils/network/eos/.*
@@ -182,6 +185,7 @@
               - devel
               - stable-2.8
             files:
+              - ^lib/ansible/modules/network/cli/.*
               - ^lib/ansible/modules/network/eos/.*
               - ^lib/ansible/module_utils/network/common/.*
               - ^lib/ansible/module_utils/network/eos/.*
@@ -199,6 +203,7 @@
               - devel
               - stable-2.8
             files:
+              - ^lib/ansible/modules/network/cli/.*
               - ^lib/ansible/modules/network/ios/.*
               - ^lib/ansible/module_utils/network/common/.*
               - ^lib/ansible/module_utils/network/ios/.*
@@ -213,6 +218,7 @@
               - devel
               - stable-2.8
             files:
+              - ^lib/ansible/modules/network/cli/.*
               - ^lib/ansible/modules/network/ios/.*
               - ^lib/ansible/module_utils/network/common/.*
               - ^lib/ansible/module_utils/network/ios/.*
@@ -227,6 +233,7 @@
               - devel
               - stable-2.8
             files:
+              - ^lib/ansible/modules/network/cli/.*
               - ^lib/ansible/modules/network/ios/.*
               - ^lib/ansible/module_utils/network/common/.*
               - ^lib/ansible/module_utils/network/ios/.*
@@ -241,6 +248,7 @@
               - devel
               - stable-2.8
             files:
+              - ^lib/ansible/modules/network/cli/.*
               - ^lib/ansible/modules/network/ios/.*
               - ^lib/ansible/module_utils/network/common/.*
               - ^lib/ansible/module_utils/network/ios/.*
@@ -255,6 +263,7 @@
               - devel
               - stable-2.8
             files:
+              - ^lib/ansible/modules/network/cli/.*
               - ^lib/ansible/modules/network/iosxr/.*
               - ^lib/ansible/modules/network/netconf/.*
               - ^lib/ansible/module_utils/network/common/.*
@@ -273,6 +282,7 @@
               - devel
               - stable-2.8
             files:
+              - ^lib/ansible/modules/network/cli/.*
               - ^lib/ansible/modules/network/iosxr/.*
               - ^lib/ansible/modules/network/netconf/.*
               - ^lib/ansible/module_utils/network/common/.*
@@ -291,6 +301,7 @@
               - devel
               - stable-2.8
             files:
+              - ^lib/ansible/modules/network/cli/.*
               - ^lib/ansible/modules/network/iosxr/.*
               - ^lib/ansible/modules/network/netconf/.*
               - ^lib/ansible/module_utils/network/common/.*
@@ -309,6 +320,7 @@
               - devel
               - stable-2.8
             files:
+              - ^lib/ansible/modules/network/cli/.*
               - ^lib/ansible/modules/network/iosxr/.*
               - ^lib/ansible/modules/network/netconf/.*
               - ^lib/ansible/module_utils/network/common/.*
@@ -327,6 +339,7 @@
               - devel
               - stable-2.8
             files:
+              - ^lib/ansible/modules/network/cli/.*
               - ^lib/ansible/modules/network/junos/.*
               - ^lib/ansible/modules/network/netconf/.*
               - ^lib/ansible/module_utils/network/common/.*
@@ -346,6 +359,7 @@
               - devel
               - stable-2.8
             files:
+              - ^lib/ansible/modules/network/cli/.*
               - ^lib/ansible/modules/network/junos/.*
               - ^lib/ansible/modules/network/netconf/.*
               - ^lib/ansible/module_utils/network/common/.*
@@ -365,6 +379,7 @@
               - devel
               - stable-2.8
             files:
+              - ^lib/ansible/modules/network/cli/.*
               - ^lib/ansible/modules/network/junos/.*
               - ^lib/ansible/modules/network/netconf/.*
               - ^lib/ansible/module_utils/network/common/.*
@@ -384,6 +399,7 @@
               - devel
               - stable-2.8
             files:
+              - ^lib/ansible/modules/network/cli/.*
               - ^lib/ansible/modules/network/junos/.*
               - ^lib/ansible/modules/network/netconf/.*
               - ^lib/ansible/module_utils/network/common/.*
@@ -403,6 +419,7 @@
               - devel
               - stable-2.8
             files:
+              - ^lib/ansible/modules/network/cli/.*
               - ^lib/ansible/modules/network/ovs/.*
               - ^lib/ansible/module_utils/network/common/.*
               - ^test/integration/targets/openvswitch_.*
@@ -412,6 +429,7 @@
               - devel
               - stable-2.8
             files:
+              - ^lib/ansible/modules/network/cli/.*
               - ^lib/ansible/modules/network/ovs/.*
               - ^lib/ansible/module_utils/network/common/.*
               - ^test/integration/targets/openvswitch_.*
@@ -421,6 +439,7 @@
               - devel
               - stable-2.8
             files:
+              - ^lib/ansible/modules/network/cli/.*
               - ^lib/ansible/modules/network/ovs/.*
               - ^lib/ansible/module_utils/network/common/.*
               - ^test/integration/targets/openvswitch_.*
@@ -430,6 +449,7 @@
               - devel
               - stable-2.8
             files:
+              - ^lib/ansible/modules/network/cli/.*
               - ^lib/ansible/modules/network/ovs/.*
               - ^lib/ansible/module_utils/network/common/.*
               - ^test/integration/targets/openvswitch_.*
@@ -439,6 +459,7 @@
               - devel
               - stable-2.8
             files:
+              - ^lib/ansible/modules/network/cli/.*
               - ^lib/ansible/modules/network/vyos/.*
               - ^lib/ansible/module_utils/network/common/.*
               - ^lib/ansible/module_utils/network/vyos/.*
@@ -452,6 +473,7 @@
               - devel
               - stable-2.8
             files:
+              - ^lib/ansible/modules/network/cli/.*
               - ^lib/ansible/modules/network/vyos/.*
               - ^lib/ansible/module_utils/network/common/.*
               - ^lib/ansible/module_utils/network/vyos/.*
@@ -465,6 +487,7 @@
               - devel
               - stable-2.8
             files:
+              - ^lib/ansible/modules/network/cli/.*
               - ^lib/ansible/modules/network/vyos/.*
               - ^lib/ansible/module_utils/network/common/.*
               - ^lib/ansible/module_utils/network/vyos/.*
@@ -478,6 +501,7 @@
               - devel
               - stable-2.8
             files:
+              - ^lib/ansible/modules/network/cli/.*
               - ^lib/ansible/modules/network/vyos/.*
               - ^lib/ansible/module_utils/network/common/.*
               - ^lib/ansible/module_utils/network/vyos/.*

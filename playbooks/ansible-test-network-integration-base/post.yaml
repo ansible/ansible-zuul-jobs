@@ -1,0 +1,10 @@
+---
+- hosts: controller
+  tasks:
+    - name: Ensure controller directory exists
+      file:
+        path: "{{ ansible_user_dir }}/zuul-output/logs/controller/ara-report"
+        state: directory
+
+    - name: Copy ansible log file
+      shell: "cp {{ ansible_user_dir }}/ansible-debug.txt {{ ansible_user_dir }}/zuul-output/logs/controller"

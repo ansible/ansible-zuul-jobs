@@ -128,6 +128,7 @@
     parent: ansible-network-eos-appliance
     pre-run: playbooks/ansible-test-network-integration-base/pre.yaml
     run: playbooks/ansible-test-network-integration-base/run.yaml
+    post-run: playbooks/ansible-test-network-integration-base/post.yaml
     required-projects:
       - name: github.com/ansible/ansible
     timeout: 7200
@@ -168,6 +169,7 @@
     parent: ansible-network-ios-appliance
     pre-run: playbooks/ansible-test-network-integration-base/pre.yaml
     run: playbooks/ansible-test-network-integration-base/run.yaml
+    post-run: playbooks/ansible-test-network-integration-base/post.yaml
     required-projects:
       - name: github.com/ansible/ansible
     timeout: 7200
@@ -208,6 +210,7 @@
     parent: ansible-network-iosxr-appliance
     pre-run: playbooks/ansible-test-network-integration-base/pre.yaml
     run: playbooks/ansible-test-network-integration-base/run.yaml
+    post-run: playbooks/ansible-test-network-integration-base/post.yaml
     required-projects:
       - name: github.com/ansible/ansible
     timeout: 7200
@@ -247,6 +250,7 @@
     parent: ansible-network-junos-appliance
     pre-run: playbooks/ansible-test-network-integration-base/pre.yaml
     run: playbooks/ansible-test-network-integration-base/run.yaml
+    post-run: playbooks/ansible-test-network-integration-base/post.yaml
     required-projects:
       - name: github.com/ansible/ansible
     timeout: 7200
@@ -287,6 +291,7 @@
     parent: ansible-network-openvswitch-appliance
     pre-run: playbooks/ansible-test-network-integration-base/pre.yaml
     run: playbooks/ansible-test-network-integration-base/run.yaml
+    post-run: playbooks/ansible-test-network-integration-base/post.yaml
     required-projects:
       - name: github.com/ansible/ansible
     timeout: 3600
@@ -327,6 +332,7 @@
     parent: ansible-network-vyos-appliance
     pre-run: playbooks/ansible-test-network-integration-base/pre.yaml
     run: playbooks/ansible-test-network-integration-base/run.yaml
+    post-run: playbooks/ansible-test-network-integration-base/post.yaml
     required-projects:
       - name: github.com/ansible/ansible
     timeout: 5400

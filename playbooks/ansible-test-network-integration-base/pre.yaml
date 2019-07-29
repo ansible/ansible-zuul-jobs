@@ -35,8 +35,6 @@
       shell: ~/venv/bin/pip install "ara<1.0.0"
 
     - name: Install ansible into virtuelenv
-      args:
-        executable: /bin/bash
       shell: "~/venv/bin/pip install {{ ansible_user_dir }}/{{ zuul.projects['github.com/ansible/ansible'].src_dir }}"
 
     - name: Enable ARA callback plugin

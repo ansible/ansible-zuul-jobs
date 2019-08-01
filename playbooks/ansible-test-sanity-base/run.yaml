@@ -1,0 +1,56 @@
+---
+- hosts: all
+  tasks:
+    - name: Setup base virtualenv_options
+      set_fact:
+        _virtualenv_options: "--python python{{ ansible_test_python }}"
+
+    - name: Enable --system-site-packages for virtualenv_options
+      set_fact:
+        _virtualenv_options: "{{ _virtualenv_options }} --system-site-packages"
+      when: ansible_os_family == "RedHat"
+
+    - name: Create virtualenv for ansible-test
+      shell: "virtualenv {{ _virtualenv_options }} ~/venv"
+
+    - name: Install ara into virtuelenv
+      shell: ~/venv/bin/pip install yq
+
+    - name: Setup base test_options
+      set_fact:
+        _test_options: "-vv --requirements --python {{ ansible_test_python }} --lint"
+
+    - name: Get collection namespace
+      args:
+        chdir: "{{ ansible_user_dir }}/{{ zuul.project.src_dir }}"
+        executable: /bin/bash
+      shell: cat galaxy.yml | ~/venv/bin/yq -y .namespace | tail -n +1 | head -1
+      register: _collection_namespace
+
+    - name: Get collection name
+      args:
+        chdir: "{{ ansible_user_dir }}/{{ zuul.project.src_dir }}"
+        executable: /bin/bash
+      shell: cat galaxy.yml | ~/venv/bin/yq -y .name | tail -n +1 | head -1
+      register: _collection_name
+
+    - name: Install ansible into virtuelenv
+      shell: "source ~/venv/bin/activate; pip install {{ ansible_user_dir }}/{{ zuul.projects['github.com/ansible/ansible'].src_dir }}"
+
+    - name: Build collection using ansible-galaxy
+      args:
+        chdir: "{{ ansible_user_dir }}/{{ zuul.project.src_dir }}"
+        executable: /bin/bash
+      shell: "source ~/venv/bin/activate; {{ ansible_user_dir }}/{{ zuul.projects['github.com/ansible/ansible'].src_dir }}/bin/ansible-galaxy collection build"
+
+    - name: Install collection using ansible-galaxy
+      args:
+        chdir: "{{ ansible_user_dir }}/{{ zuul.project.src_dir }}"
+        executable: /bin/bash
+      shell: "source ~/venv/bin/activate; {{ ansible_user_dir }}/{{ zuul.projects['github.com/ansible/ansible'].src_dir }}/bin/ansible-galaxy collection install -p ~/.ansible/collection *.tar.gz"
+
+    - name: Run the sanity test suite
+      args:
+        chdir: "~/.ansible/collection/ansible_collections/{{ _collection_namespace.stdout }}/{{ _collection_name.stdout }}"
+        executable: /bin/bash
+      shell: "source ~/venv/bin/activate; {{ ansible_user_dir }}/{{ zuul.projects['github.com/ansible/ansible'].src_dir }}/bin/ansible-test sanity {{ _test_options }}"

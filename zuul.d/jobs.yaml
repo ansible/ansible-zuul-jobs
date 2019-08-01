@@ -366,3 +366,16 @@
     nodeset: vyos-1.1.8-python37
     vars:
       ansible_test_python: 3.7
+
+- job:
+    name: ansible-test-sanity
+    parent: unittests
+    pre-run: playbooks/ansible-test-sanity-base/pre.yaml
+    run: playbooks/ansible-test-sanity-base/run.yaml
+    post-run: playbooks/ansible-test-sanity-base/post.yaml
+    required-projects:
+      - name: github.com/ansible/ansible
+    timeout: 7200
+    nodeset: fedora-latest-1vcpu
+    vars:
+      ansible_test_python: 3.6

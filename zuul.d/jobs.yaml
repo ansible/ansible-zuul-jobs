@@ -43,12 +43,16 @@
     name: ansible-network-appliance-base
     pre-run: playbooks/ansible-network-appliance-base/pre.yaml
     post-run: playbooks/ansible-network-appliance-base/post.yaml
+    files:
+      - playbooks/ansible-network-appliance-base/.*
 
 - job:
     name: ansible-network-eos-appliance
     parent: ansible-network-appliance-base
     pre-run: playbooks/ansible-network-eos-appliance/pre.yaml
     run: playbooks/ansible-network-eos-appliance/run.yaml
+    files:
+      - playbooks/ansible-network-eos-appliance/.*
     host-vars:
       eos-4.20.10:
         ansible_connection: network_cli
@@ -63,6 +67,8 @@
     parent: ansible-network-appliance-base
     pre-run: playbooks/ansible-network-ios-appliance/pre.yaml
     run: playbooks/ansible-network-ios-appliance/run.yaml
+    files:
+      - playbooks/ansible-network-ios-appliance/.*
     host-vars:
       ios-15.6-2T:
         ansible_connection: network_cli
@@ -76,6 +82,8 @@
     parent: ansible-network-appliance-base
     pre-run: playbooks/ansible-network-iosxr-appliance/pre.yaml
     run: playbooks/ansible-network-iosxr-appliance/run.yaml
+    files:
+      - playbooks/ansible-network-iosxr-appliance/.*
     host-vars:
       iosxr-6.1.3:
         ansible_connection: network_cli
@@ -89,6 +97,8 @@
     parent: ansible-network-appliance-base
     pre-run: playbooks/ansible-network-junos-appliance/pre.yaml
     run: playbooks/ansible-network-junos-appliance/run.yaml
+    files:
+      - playbooks/ansible-network-junos-appliance/.*
     host-vars:
       vsrx3-18.4R1:
         ansible_connection: network_cli
@@ -102,6 +112,8 @@
     parent: ansible-network-appliance-base
     pre-run: playbooks/ansible-network-openvswitch-appliance/pre.yaml
     run: playbooks/ansible-network-openvswitch-appliance/run.yaml
+    files:
+      - playbooks/ansible-network-openvswitch-appliance/.*
     host-vars:
       openvswitch-2.9.0:
         ansible_network_os: openvswitch
@@ -114,6 +126,8 @@
     parent: ansible-network-appliance-base
     pre-run: playbooks/ansible-network-vyos-appliance/pre.yaml
     run: playbooks/ansible-network-vyos-appliance/run.yaml
+    files:
+      - playbooks/ansible-network-vyos-appliance/.*
     host-vars:
       vyos-1.1.8:
         ansible_connection: network_cli
@@ -129,6 +143,8 @@
     pre-run: playbooks/ansible-test-network-integration-base/pre.yaml
     run: playbooks/ansible-test-network-integration-base/run.yaml
     post-run: playbooks/ansible-test-network-integration-base/post.yaml
+    files:
+      - playbooks/ansible-test-network-integration-base/.*
     required-projects:
       - name: github.com/ansible/ansible
     timeout: 7200
@@ -170,6 +186,8 @@
     pre-run: playbooks/ansible-test-network-integration-base/pre.yaml
     run: playbooks/ansible-test-network-integration-base/run.yaml
     post-run: playbooks/ansible-test-network-integration-base/post.yaml
+    files:
+      - playbooks/ansible-test-network-integration-base/.*
     required-projects:
       - name: github.com/ansible/ansible
     timeout: 7200
@@ -211,6 +229,8 @@
     pre-run: playbooks/ansible-test-network-integration-base/pre.yaml
     run: playbooks/ansible-test-network-integration-base/run.yaml
     post-run: playbooks/ansible-test-network-integration-base/post.yaml
+    files:
+      - playbooks/ansible-test-network-integration-base/.*
     required-projects:
       - name: github.com/ansible/ansible
     timeout: 7200
@@ -251,6 +271,8 @@
     pre-run: playbooks/ansible-test-network-integration-base/pre.yaml
     run: playbooks/ansible-test-network-integration-base/run.yaml
     post-run: playbooks/ansible-test-network-integration-base/post.yaml
+    files:
+      - playbooks/ansible-test-network-integration-base/.*
     required-projects:
       - name: github.com/ansible/ansible
     timeout: 7200
@@ -292,6 +314,8 @@
     pre-run: playbooks/ansible-test-network-integration-base/pre.yaml
     run: playbooks/ansible-test-network-integration-base/run.yaml
     post-run: playbooks/ansible-test-network-integration-base/post.yaml
+    files:
+      - playbooks/ansible-test-network-integration-base/.*
     required-projects:
       - name: github.com/ansible/ansible
     timeout: 3600
@@ -333,6 +357,8 @@
     pre-run: playbooks/ansible-test-network-integration-base/pre.yaml
     run: playbooks/ansible-test-network-integration-base/run.yaml
     post-run: playbooks/ansible-test-network-integration-base/post.yaml
+    files:
+      - playbooks/ansible-test-network-integration-base/.*
     required-projects:
       - name: github.com/ansible/ansible
     timeout: 5400

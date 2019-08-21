@@ -25,6 +25,37 @@
         - ansible-tox-py37
 
 - project-template:
+    name: ansible-collections-vyos-vyos
+    check:
+      jobs:
+        - ansible-test-network-integration-vyos-python27:
+            vars:
+              ansible_test_collections: true
+        - ansible-test-network-integration-vyos-python35:
+            vars:
+              ansible_test_collections: true
+        - ansible-test-network-integration-vyos-python36:
+            vars:
+              ansible_test_collections: true
+        - ansible-test-network-integration-vyos-python37:
+            vars:
+              ansible_test_collections: true
+    gate:
+      jobs:
+        - ansible-test-network-integration-vyos-python27:
+            vars:
+              ansible_test_collections: true
+        - ansible-test-network-integration-vyos-python35:
+            vars:
+              ansible_test_collections: true
+        - ansible-test-network-integration-vyos-python36:
+            vars:
+              ansible_test_collections: true
+        - ansible-test-network-integration-vyos-python37:
+            vars:
+              ansible_test_collections: true
+
+- project-template:
     name: ansible-test-network-integration
     experimental:
       jobs:

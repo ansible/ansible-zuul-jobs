@@ -1,6 +1,10 @@
 ---
 - hosts: controller
   tasks:
+    - name: Setup location of project
+      set_fact:
+        _test_location: "{{ ansible_user_dir }}/{{ zuul.projects['github.com/ansible/ansible'].src_dir }}"
+
     - name: Setup base test_options
       set_fact:
         _test_options: "--continue-on-error --diff --requirements"
@@ -19,8 +23,56 @@
         _target: "{{ _target }} netconf_.*"
       when: ansible_test_network_integration in ["iosxr", "junos"]
 
+    - name: Setup testing for collections
+      block:
+        - name: Install jq
+          become: true
+          package:
+            name: jq
+            state: present
+
+        - name: Install ara into virtuelenv
+          shell: ~/venv/bin/pip install yq
+
+        - name: network-integration.cfg
+          shell: "cp {{ ansible_user_dir }}/{{ zuul.projects['github.com/ansible/ansible'].src_dir }}/test/integration/network-integration.cfg {{ ansible_user_dir }}/{{ zuul.project.src_dir }}/test/integration/network-integration.cfg"
+
+        - name: Build require-project collection using ansible-galaxy
+          args:
+            chdir: "{{ ansible_user_dir }}/{{ item.src_dir }}"
+            executable: /bin/bash
+          shell: "if test -f 'galaxy.yml'; then source ~/venv/bin/activate; {{ ansible_user_dir }}/{{ zuul.projects['github.com/ansible/ansible'].src_dir }}/bin/ansible-galaxy collection build; fi"
+          with_items: "{{ zuul.projects.values() | list }}"
+
+        - name: Install require-project collection using ansible-galaxy
+          args:
+            chdir: "{{ ansible_user_dir }}/{{ item.src_dir }}"
+            executable: /bin/bash
+          shell: "if test -f 'galaxy.yml'; then source ~/venv/bin/activate; {{ ansible_user_dir }}/{{ zuul.projects['github.com/ansible/ansible'].src_dir }}/bin/ansible-galaxy collection install -p ~/.ansible/collection *.tar.gz; fi"
+          with_items: "{{ zuul.projects.values() | list }}"
+
+        - name: Get collection namespace
+          args:
+            chdir: "{{ ansible_user_dir }}/{{ zuul.project.src_dir }}"
+            executable: /bin/bash
+          shell: cat galaxy.yml | ~/venv/bin/yq -y .namespace | tail -n +1 | head -1
+          register: _collection_namespace
+
+        - name: Get collection name
+          args:
+            chdir: "{{ ansible_user_dir }}/{{ zuul.project.src_dir }}"
+            executable: /bin/bash
+          shell: cat galaxy.yml | ~/venv/bin/yq -y .name | tail -n +1 | head -1
+          register: _collection_name
+
+        - name: Setup location of project
+          set_fact:
+            _test_location: "~/.ansible/collection/ansible_collections/{{ _collection_namespace.stdout }}/{{ _collection_name.stdout }}"
+
+      when: ansible_test_collections | default(False)
+
     - name: Run the integration test suite
       args:
-        chdir: "{{ ansible_user_dir }}/{{ zuul.projects['github.com/ansible/ansible'].src_dir }}"
+        chdir: "{{ _test_location }}"
         executable: /bin/bash
       shell: "source ~/venv/bin/activate; {{ ansible_user_dir }}/{{ zuul.projects['github.com/ansible/ansible'].src_dir }}/bin/ansible-test network-integration {{ _test_options }} --python {{ ansible_test_python }} --inventory /home/zuul/inventory -vvvv {{ _target }}"

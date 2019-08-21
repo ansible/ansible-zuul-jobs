@@ -131,6 +131,7 @@
     post-run: playbooks/ansible-test-network-integration-base/post.yaml
     required-projects:
       - name: github.com/ansible/ansible
+      - name: github.com/ansible-network/ansible_collections.network.cli
     timeout: 9000
     vars:
       ansible_test_network_integration: eos
@@ -172,6 +173,7 @@
     post-run: playbooks/ansible-test-network-integration-base/post.yaml
     required-projects:
       - name: github.com/ansible/ansible
+      - name: github.com/ansible-network/ansible_collections.network.cli
     timeout: 9000
     vars:
       ansible_test_network_integration: ios
@@ -213,6 +215,7 @@
     post-run: playbooks/ansible-test-network-integration-base/post.yaml
     required-projects:
       - name: github.com/ansible/ansible
+      - name: github.com/ansible-network/ansible_collections.network.cli
     timeout: 9000
     vars:
       ansible_test_network_integration: iosxr
@@ -253,6 +256,7 @@
     post-run: playbooks/ansible-test-network-integration-base/post.yaml
     required-projects:
       - name: github.com/ansible/ansible
+      - name: github.com/ansible-network/ansible_collections.network.cli
     timeout: 9000
     vars:
       ansible_test_network_integration: junos
@@ -294,6 +298,7 @@
     post-run: playbooks/ansible-test-network-integration-base/post.yaml
     required-projects:
       - name: github.com/ansible/ansible
+      - name: github.com/ansible-network/ansible_collections.network.cli
     timeout: 3600
     vars:
       ansible_test_network_integration: openvswitch
@@ -335,6 +340,7 @@
     post-run: playbooks/ansible-test-network-integration-base/post.yaml
     required-projects:
       - name: github.com/ansible/ansible
+      - name: github.com/ansible-network/ansible_collections.network.cli
     timeout: 7200
     vars:
       ansible_test_network_integration: vyos

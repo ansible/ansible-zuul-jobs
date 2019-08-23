@@ -29,160 +29,115 @@
     check:
       jobs:
         - ansible-test-network-integration-eos-python27:
+            voting: false
             vars:
               ansible_test_collections: true
         - ansible-test-network-integration-eos-python35:
+            voting: false
             vars:
               ansible_test_collections: true
         - ansible-test-network-integration-eos-python36:
+            voting: false
             vars:
               ansible_test_collections: true
         - ansible-test-network-integration-eos-python37:
+            voting: false
             vars:
               ansible_test_collections: true
     gate:
       queue: integrated
-      jobs:
-        - ansible-test-network-integration-eos-python27:
-            vars:
-              ansible_test_collections: true
-        - ansible-test-network-integration-eos-python35:
-            vars:
-              ansible_test_collections: true
-        - ansible-test-network-integration-eos-python36:
-            vars:
-              ansible_test_collections: true
-        - ansible-test-network-integration-eos-python37:
-            vars:
-              ansible_test_collections: true
 
 - project-template:
     name: ansible-collections-cisco-ios
     check:
       jobs:
         - ansible-test-network-integration-ios-python27:
+            voting: false
             vars:
               ansible_test_collections: true
         - ansible-test-network-integration-ios-python35:
+            voting: false
             vars:
               ansible_test_collections: true
         - ansible-test-network-integration-ios-python36:
+            voting: false
             vars:
               ansible_test_collections: true
         - ansible-test-network-integration-ios-python37:
+            voting: false
             vars:
               ansible_test_collections: true
     gate:
       queue: integrated
-      jobs:
-        - ansible-test-network-integration-ios-python27:
-            vars:
-              ansible_test_collections: true
-        - ansible-test-network-integration-ios-python35:
-            vars:
-              ansible_test_collections: true
-        - ansible-test-network-integration-ios-python36:
-            vars:
-              ansible_test_collections: true
-        - ansible-test-network-integration-ios-python37:
-            vars:
-              ansible_test_collections: true
 
 - project-template:
     name: ansible-collections-cisco-iosxr
     check:
       jobs:
         - ansible-test-network-integration-iosxr-python27:
+            voting: false
             vars:
               ansible_test_collections: true
         - ansible-test-network-integration-iosxr-python35:
+            voting: false
             vars:
               ansible_test_collections: true
         - ansible-test-network-integration-iosxr-python36:
+            voting: false
             vars:
               ansible_test_collections: true
         - ansible-test-network-integration-iosxr-python37:
+            voting: false
             vars:
               ansible_test_collections: true
     gate:
       queue: integrated
-      jobs:
-        - ansible-test-network-integration-iosxr-python27:
-            vars:
-              ansible_test_collections: true
-        - ansible-test-network-integration-iosxr-python35:
-            vars:
-              ansible_test_collections: true
-        - ansible-test-network-integration-iosxr-python36:
-            vars:
-              ansible_test_collections: true
-        - ansible-test-network-integration-iosxr-python37:
-            vars:
-              ansible_test_collections: true
 
 - project-template:
     name: ansible-collections-juniper-junos
     check:
       jobs:
         - ansible-test-network-integration-junos-python27:
+            voting: false
             vars:
               ansible_test_collections: true
         - ansible-test-network-integration-junos-python35:
+            voting: false
             vars:
               ansible_test_collections: true
         - ansible-test-network-integration-junos-python36:
+            voting: false
             vars:
               ansible_test_collections: true
         - ansible-test-network-integration-junos-python37:
+            voting: false
             vars:
               ansible_test_collections: true
     gate:
       queue: integrated
-      jobs:
-        - ansible-test-network-integration-junos-python27:
-            vars:
-              ansible_test_collections: true
-        - ansible-test-network-integration-junos-python35:
-            vars:
-              ansible_test_collections: true
-        - ansible-test-network-integration-junos-python36:
-            vars:
-              ansible_test_collections: true
-        - ansible-test-network-integration-junos-python37:
-            vars:
-              ansible_test_collections: true
 
 - project-template:
     name: ansible-collections-vyos-vyos
     check:
       jobs:
         - ansible-test-network-integration-vyos-python27:
+            voting: false
             vars:
               ansible_test_collections: true
         - ansible-test-network-integration-vyos-python35:
+            voting: false
             vars:
               ansible_test_collections: true
         - ansible-test-network-integration-vyos-python36:
+            voting: false
             vars:
               ansible_test_collections: true
         - ansible-test-network-integration-vyos-python37:
+            voting: false
             vars:
               ansible_test_collections: true
     gate:
       queue: integrated
-      jobs:
-        - ansible-test-network-integration-vyos-python27:
-            vars:
-              ansible_test_collections: true
-        - ansible-test-network-integration-vyos-python35:
-            vars:
-              ansible_test_collections: true
-        - ansible-test-network-integration-vyos-python36:
-            vars:
-              ansible_test_collections: true
-        - ansible-test-network-integration-vyos-python37:
-            vars:
-              ansible_test_collections: true
 
 - project-template:
     name: ansible-test-network-integration

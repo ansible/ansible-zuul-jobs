@@ -117,6 +117,29 @@
       queue: integrated
 
 - project-template:
+    name: ansible-collections-juniper-junos-netconf
+    check:
+      jobs:
+        - ansible-test-network-integration-junos-netconf-python27:
+            voting: false
+            vars:
+              ansible_test_collections: true
+        - ansible-test-network-integration-junos-netconf-python35:
+            voting: false
+            vars:
+              ansible_test_collections: true
+        - ansible-test-network-integration-junos-netconf-python36:
+            voting: false
+            vars:
+              ansible_test_collections: true
+        - ansible-test-network-integration-junos-netconf-python37:
+            voting: false
+            vars:
+              ansible_test_collections: true
+    gate:
+      queue: integrated
+
+- project-template:
     name: ansible-collections-vyos-vyos
     check:
       jobs:

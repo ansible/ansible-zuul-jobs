@@ -65,6 +65,10 @@
           shell: cat galaxy.yml | ~/venv/bin/yq -y .name | tail -n +1 | head -1
           register: _collection_name
 
+        - name: Setup base target for ansible-test
+          set_fact:
+            _target: "{{ ansible_test_network_integration }}_.*"
+
         - name: Setup location of project
           set_fact:
             _test_location: "~/.ansible/collection/ansible_collections/{{ _collection_namespace.stdout }}/{{ _collection_name.stdout }}"

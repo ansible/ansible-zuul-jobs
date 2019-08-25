@@ -1,11 +1,21 @@
 ---
 - hosts: controller
   tasks:
+    - name: Select proper ansible_network_os
+      set_fact:
+        _network_os: "{{ hostvars[groups['appliance'][0]]['ansible_network_os'] }}"
+      when: '"appliance" in groups'
+
+    - name: Select proper ansible_network_os
+      set_fact:
+        _network_os: "{{ hostvars[groups['openvswitch'][0]]['ansible_network_os'] }}"
+      when: '"openvswitch" in groups'
+
     - name: Setup tox role
       include_role:
         name: tox
       vars:
-        tox_extra_args: "-vv -- ansible-playbook -v playbooks/ansible-test-network-integration-base/files/bootstrap-{{ hostvars[groups['appliance'][0]]['ansible_network_os'] }}.yaml"
+        tox_extra_args: "-vv -- ansible-playbook -v playbooks/ansible-test-network-integration-base/files/bootstrap-{{ _network_os }}.yaml"
         tox_install_siblings: false
         zuul_work_dir: "{{ zuul.projects['github.com/ansible/ansible-zuul-jobs'].src_dir }}"
 
@@ -15,7 +25,7 @@
 
     - name: Create inventory file
       template:
-        src: "inventory-{{ hostvars[groups['appliance'][0]]['ansible_network_os'] }}.j2"
+        src: "inventory-{{ _network_os }}.j2"
         dest: ~/inventory
         mode: 0644
 

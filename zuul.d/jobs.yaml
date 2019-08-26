@@ -369,7 +369,7 @@
     required-projects:
       - name: github.com/ansible/ansible
       - name: github.com/ansible-network/ansible_collections.network.cli
-    timeout: 7200
+    timeout: 9000
     vars:
       ansible_test_network_integration: vyos
 

@@ -35,7 +35,7 @@
           shell: ~/venv/bin/pip install yq
 
         - name: network-integration.cfg
-          shell: "cp {{ ansible_user_dir }}/{{ zuul.projects['github.com/ansible/ansible'].src_dir }}/test/integration/network-integration.cfg {{ ansible_user_dir }}/{{ zuul.project.src_dir }}/test/integration/network-integration.cfg"
+          shell: "cp {{ ansible_user_dir }}/{{ zuul.projects['github.com/ansible/ansible'].src_dir }}/test/integration/network-integration.cfg {{ ansible_user_dir }}/{{ zuul.project.src_dir }}/tests/integration/network-integration.cfg"
 
         - name: Build require-project collection using ansible-galaxy
           args:

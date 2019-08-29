@@ -94,6 +94,29 @@
       queue: integrated
 
 - project-template:
+    name: ansible-collections-cisco-iosxr-netconf
+    check:
+      jobs:
+        - ansible-test-network-integration-iosxr-netconf-python27:
+            voting: false
+            vars:
+              ansible_test_collections: true
+        - ansible-test-network-integration-iosxr-netconf-python35:
+            voting: false
+            vars:
+              ansible_test_collections: true
+        - ansible-test-network-integration-iosxr-netconf-python36:
+            voting: false
+            vars:
+              ansible_test_collections: true
+        - ansible-test-network-integration-iosxr-netconf-python37:
+            voting: false
+            vars:
+              ansible_test_collections: true
+    gate:
+      queue: integrated
+
+- project-template:
     name: ansible-collections-juniper-junos
     check:
       jobs:

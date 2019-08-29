@@ -144,23 +144,32 @@
     check:
       jobs:
         - ansible-test-network-integration-vyos-python27:
-            voting: false
             vars:
               ansible_test_collections: true
         - ansible-test-network-integration-vyos-python35:
-            voting: false
             vars:
               ansible_test_collections: true
         - ansible-test-network-integration-vyos-python36:
-            voting: false
             vars:
               ansible_test_collections: true
         - ansible-test-network-integration-vyos-python37:
-            voting: false
             vars:
               ansible_test_collections: true
     gate:
       queue: integrated
+      jobs:
+        - ansible-test-network-integration-vyos-python27:
+            vars:
+              ansible_test_collections: true
+        - ansible-test-network-integration-vyos-python35:
+            vars:
+              ansible_test_collections: true
+        - ansible-test-network-integration-vyos-python36:
+            vars:
+              ansible_test_collections: true
+        - ansible-test-network-integration-vyos-python37:
+            vars:
+              ansible_test_collections: true
 
 - project-template:
     name: ansible-test-network-integration

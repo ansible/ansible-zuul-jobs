@@ -153,23 +153,32 @@
     check:
       jobs:
         - ansible-test-network-integration-junos-netconf-python27:
-            voting: false
             vars:
               ansible_test_collections: true
         - ansible-test-network-integration-junos-netconf-python35:
-            voting: false
             vars:
               ansible_test_collections: true
         - ansible-test-network-integration-junos-netconf-python36:
-            voting: false
             vars:
               ansible_test_collections: true
         - ansible-test-network-integration-junos-netconf-python37:
-            voting: false
             vars:
               ansible_test_collections: true
     gate:
       queue: integrated
+      jobs:
+        - ansible-test-network-integration-junos-netconf-python27:
+            vars:
+              ansible_test_collections: true
+        - ansible-test-network-integration-junos-netconf-python35:
+            vars:
+              ansible_test_collections: true
+        - ansible-test-network-integration-junos-netconf-python36:
+            vars:
+              ansible_test_collections: true
+        - ansible-test-network-integration-junos-netconf-python37:
+            vars:
+              ansible_test_collections: true
 
 - project-template:
     name: ansible-collections-vyos-vyos

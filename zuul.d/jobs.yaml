@@ -251,24 +251,36 @@
 - job:
     name: ansible-test-network-integration-iosxr-netconf-python27
     parent: ansible-test-network-integration-iosxr-python27
+    required-projects:
+      - name: github.com/ansible-network/ansible_collections.cisco.iosxr
+      - name: github.com/ansible-network/ansible_collections.juniper.junos
     vars:
       ansible_test_network_integration: netconf
 
 - job:
     name: ansible-test-network-integration-iosxr-netconf-python35
     parent: ansible-test-network-integration-iosxr-python35
+    required-projects:
+      - name: github.com/ansible-network/ansible_collections.cisco.iosxr
+      - name: github.com/ansible-network/ansible_collections.juniper.junos
     vars:
       ansible_test_network_integration: netconf
 
 - job:
     name: ansible-test-network-integration-iosxr-netconf-python36
     parent: ansible-test-network-integration-iosxr-python36
+    required-projects:
+      - name: github.com/ansible-network/ansible_collections.cisco.iosxr
+      - name: github.com/ansible-network/ansible_collections.juniper.junos
     vars:
       ansible_test_network_integration: netconf
 
 - job:
     name: ansible-test-network-integration-iosxr-netconf-python37
     parent: ansible-test-network-integration-iosxr-python37
+    required-projects:
+      - name: github.com/ansible-network/ansible_collections.cisco.iosxr
+      - name: github.com/ansible-network/ansible_collections.juniper.junos
     vars:
       ansible_test_network_integration: netconf
 
@@ -316,24 +328,36 @@
 - job:
     name: ansible-test-network-integration-junos-netconf-python27
     parent: ansible-test-network-integration-junos-python27
+    required-projects:
+      - name: github.com/ansible-network/ansible_collections.cisco.iosxr
+      - name: github.com/ansible-network/ansible_collections.juniper.junos
     vars:
       ansible_test_network_integration: netconf
 
 - job:
     name: ansible-test-network-integration-junos-netconf-python35
     parent: ansible-test-network-integration-junos-python35
+    required-projects:
+      - name: github.com/ansible-network/ansible_collections.cisco.iosxr
+      - name: github.com/ansible-network/ansible_collections.juniper.junos
     vars:
       ansible_test_network_integration: netconf
 
 - job:
     name: ansible-test-network-integration-junos-netconf-python36
     parent: ansible-test-network-integration-junos-python36
+    required-projects:
+      - name: github.com/ansible-network/ansible_collections.cisco.iosxr
+      - name: github.com/ansible-network/ansible_collections.juniper.junos
     vars:
       ansible_test_network_integration: netconf
 
 - job:
     name: ansible-test-network-integration-junos-netconf-python37
     parent: ansible-test-network-integration-junos-python37
+    required-projects:
+      - name: github.com/ansible-network/ansible_collections.cisco.iosxr
+      - name: github.com/ansible-network/ansible_collections.juniper.junos
     vars:
       ansible_test_network_integration: netconf
 

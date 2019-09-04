@@ -429,6 +429,8 @@
               - ^lib/ansible/plugins/connection/network_cli.py
               - ^lib/ansible/plugins/httpapi/__init__.py
               - ^lib/ansible/plugins/httpapi/eos.py
+              - ^lib/ansible/plugins/terminal/__init__.py
+              - ^lib/ansible/plugins/terminal/eos.py
               - ^test/integration/targets/eos_.*
               - ^test/integration/targets/prepare_eos_tests/.*
         - ansible-test-network-integration-eos-python35:
@@ -448,6 +450,8 @@
               - ^lib/ansible/plugins/connection/network_cli.py
               - ^lib/ansible/plugins/httpapi/__init__.py
               - ^lib/ansible/plugins/httpapi/eos.py
+              - ^lib/ansible/plugins/terminal/__init__.py
+              - ^lib/ansible/plugins/terminal/eos.py
               - ^test/integration/targets/eos_.*
               - ^test/integration/targets/prepare_eos_tests/.*
         - ansible-test-network-integration-eos-python36:
@@ -467,6 +471,8 @@
               - ^lib/ansible/plugins/connection/network_cli.py
               - ^lib/ansible/plugins/httpapi/__init__.py
               - ^lib/ansible/plugins/httpapi/eos.py
+              - ^lib/ansible/plugins/terminal/__init__.py
+              - ^lib/ansible/plugins/terminal/eos.py
               - ^test/integration/targets/eos_.*
               - ^test/integration/targets/prepare_eos_tests/.*
         - ansible-test-network-integration-eos-python37:
@@ -486,6 +492,8 @@
               - ^lib/ansible/plugins/connection/network_cli.py
               - ^lib/ansible/plugins/httpapi/__init__.py
               - ^lib/ansible/plugins/httpapi/eos.py
+              - ^lib/ansible/plugins/terminal/__init__.py
+              - ^lib/ansible/plugins/terminal/eos.py
               - ^test/integration/targets/eos_.*
               - ^test/integration/targets/prepare_eos_tests/.*
         - ansible-test-network-integration-ios-python27:
@@ -502,6 +510,8 @@
               - ^lib/ansible/plugins/cliconf/ios.py
               - ^lib/ansible/plugins/connection/local.py
               - ^lib/ansible/plugins/connection/network_cli.py
+              - ^lib/ansible/plugins/terminal/__init__.py
+              - ^lib/ansible/plugins/terminal/ios.py
               - ^test/integration/targets/ios_.*
               - ^test/integration/targets/prepare_ios_tests/.*
         - ansible-test-network-integration-ios-python35:
@@ -518,6 +528,8 @@
               - ^lib/ansible/plugins/cliconf/ios.py
               - ^lib/ansible/plugins/connection/local.py
               - ^lib/ansible/plugins/connection/network_cli.py
+              - ^lib/ansible/plugins/terminal/__init__.py
+              - ^lib/ansible/plugins/terminal/ios.py
               - ^test/integration/targets/ios_.*
               - ^test/integration/targets/prepare_ios_tests/.*
         - ansible-test-network-integration-ios-python36:
@@ -534,6 +546,8 @@
               - ^lib/ansible/plugins/cliconf/ios.py
               - ^lib/ansible/plugins/connection/local.py
               - ^lib/ansible/plugins/connection/network_cli.py
+              - ^lib/ansible/plugins/terminal/__init__.py
+              - ^lib/ansible/plugins/terminal/ios.py
               - ^test/integration/targets/ios_.*
               - ^test/integration/targets/prepare_ios_tests/.*
         - ansible-test-network-integration-ios-python37:
@@ -550,6 +564,8 @@
               - ^lib/ansible/plugins/cliconf/ios.py
               - ^lib/ansible/plugins/connection/local.py
               - ^lib/ansible/plugins/connection/network_cli.py
+              - ^lib/ansible/plugins/terminal/__init__.py
+              - ^lib/ansible/plugins/terminal/ios.py
               - ^test/integration/targets/ios_.*
               - ^test/integration/targets/prepare_ios_tests/.*
         - ansible-test-network-integration-iosxr-python27:
@@ -569,6 +585,8 @@
               - ^lib/ansible/plugins/connection/netconf.py
               - ^lib/ansible/plugins/connection/network_cli.py
               - ^lib/ansible/plugins/netconf/.*
+              - ^lib/ansible/plugins/terminal/__init__.py
+              - ^lib/ansible/plugins/terminal/iosxr.py
               - ^test/integration/targets/iosxr_.*
               - ^test/integration/targets/netconf_.*
               - ^test/integration/targets/prepare_iosxr_tests/.*
@@ -589,6 +607,8 @@
               - ^lib/ansible/plugins/connection/netconf.py
               - ^lib/ansible/plugins/connection/network_cli.py
               - ^lib/ansible/plugins/netconf/.*
+              - ^lib/ansible/plugins/terminal/__init__.py
+              - ^lib/ansible/plugins/terminal/iosxr.py
               - ^test/integration/targets/iosxr_.*
               - ^test/integration/targets/netconf_.*
               - ^test/integration/targets/prepare_iosxr_tests/.*
@@ -609,6 +629,8 @@
               - ^lib/ansible/plugins/connection/netconf.py
               - ^lib/ansible/plugins/connection/network_cli.py
               - ^lib/ansible/plugins/netconf/.*
+              - ^lib/ansible/plugins/terminal/__init__.py
+              - ^lib/ansible/plugins/terminal/iosxr.py
               - ^test/integration/targets/iosxr_.*
               - ^test/integration/targets/netconf_.*
               - ^test/integration/targets/prepare_iosxr_tests/.*
@@ -629,6 +651,8 @@
               - ^lib/ansible/plugins/connection/netconf.py
               - ^lib/ansible/plugins/connection/network_cli.py
               - ^lib/ansible/plugins/netconf/.*
+              - ^lib/ansible/plugins/terminal/__init__.py
+              - ^lib/ansible/plugins/terminal/iosxr.py
               - ^test/integration/targets/iosxr_.*
               - ^test/integration/targets/netconf_.*
               - ^test/integration/targets/prepare_iosxr_tests/.*
@@ -650,6 +674,8 @@
               - ^lib/ansible/plugins/connection/netconf.py
               - ^lib/ansible/plugins/connection/network_cli.py
               - ^lib/ansible/plugins/netconf/.*
+              - ^lib/ansible/plugins/terminal/__init__.py
+              - ^lib/ansible/plugins/terminal/junos.py
               - ^test/integration/targets/junos_.*
               - ^test/integration/targets/netconf_.*
               - ^test/integration/targets/prepare_junos_tests/.*
@@ -671,6 +697,8 @@
               - ^lib/ansible/plugins/connection/netconf.py
               - ^lib/ansible/plugins/connection/network_cli.py
               - ^lib/ansible/plugins/netconf/.*
+              - ^lib/ansible/plugins/terminal/__init__.py
+              - ^lib/ansible/plugins/terminal/junos.py
               - ^test/integration/targets/junos_.*
               - ^test/integration/targets/netconf_.*
               - ^test/integration/targets/prepare_junos_tests/.*
@@ -692,6 +720,8 @@
               - ^lib/ansible/plugins/connection/netconf.py
               - ^lib/ansible/plugins/connection/network_cli.py
               - ^lib/ansible/plugins/netconf/.*
+              - ^lib/ansible/plugins/terminal/__init__.py
+              - ^lib/ansible/plugins/terminal/junos.py
               - ^test/integration/targets/junos_.*
               - ^test/integration/targets/netconf_.*
               - ^test/integration/targets/prepare_junos_tests/.*
@@ -713,6 +743,8 @@
               - ^lib/ansible/plugins/connection/netconf.py
               - ^lib/ansible/plugins/connection/network_cli.py
               - ^lib/ansible/plugins/netconf/.*
+              - ^lib/ansible/plugins/terminal/__init__.py
+              - ^lib/ansible/plugins/terminal/junos.py
               - ^test/integration/targets/junos_.*
               - ^test/integration/targets/netconf_.*
               - ^test/integration/targets/prepare_junos_tests/.*
@@ -774,6 +806,8 @@
               - ^lib/ansible/plugins/cliconf/vyos.py
               - ^lib/ansible/plugins/connection/local.py
               - ^lib/ansible/plugins/connection/network_cli.py
+              - ^lib/ansible/plugins/terminal/__init__.py
+              - ^lib/ansible/plugins/terminal/vyos.py
               - ^test/integration/targets/vyos_.*
               - ^test/integration/targets/prepare_vyos_tests/.*
         - ansible-test-network-integration-vyos-python35:
@@ -790,6 +824,8 @@
               - ^lib/ansible/plugins/cliconf/vyos.py
               - ^lib/ansible/plugins/connection/local.py
               - ^lib/ansible/plugins/connection/network_cli.py
+              - ^lib/ansible/plugins/terminal/__init__.py
+              - ^lib/ansible/plugins/terminal/vyos.py
               - ^test/integration/targets/vyos_.*
               - ^test/integration/targets/prepare_vyos_tests/.*
         - ansible-test-network-integration-vyos-python36:
@@ -806,6 +842,8 @@
               - ^lib/ansible/plugins/cliconf/vyos.py
               - ^lib/ansible/plugins/connection/local.py
               - ^lib/ansible/plugins/connection/network_cli.py
+              - ^lib/ansible/plugins/terminal/__init__.py
+              - ^lib/ansible/plugins/terminal/vyos.py
               - ^test/integration/targets/vyos_.*
               - ^test/integration/targets/prepare_vyos_tests/.*
         - ansible-test-network-integration-vyos-python37:
@@ -822,6 +860,8 @@
               - ^lib/ansible/plugins/cliconf/vyos.py
               - ^lib/ansible/plugins/connection/local.py
               - ^lib/ansible/plugins/connection/network_cli.py
+              - ^lib/ansible/plugins/terminal/__init__.py
+              - ^lib/ansible/plugins/terminal/vyos.py
               - ^test/integration/targets/vyos_.*
               - ^test/integration/targets/prepare_vyos_tests/.*
 

@@ -18,7 +18,7 @@
     # default gateway seutp.
     - name: Ensure we can SSH into the appliance
       expect:
-        command: "ssh admin@{{ hostvars[item].ansible_host }}"
+        command: "ssh admin@{{ hostvars[item].nodepool.private_ipv4 }}"
         responses:
           'Are you sure you want to continue connecting': "yes"
           'password:': admin
@@ -34,7 +34,7 @@
 
     - name: Transfer SSH public key to appliance
       expect:
-        command: "sftp admin@{{ hostvars[item].ansible_host }}"
+        command: "sftp admin@{{ hostvars[item].nodepool.private_ipv4 }}"
         responses:
           'password:': admin
           'sftp>':

@@ -25,7 +25,8 @@ VARS = [
     'ansible_host',
     'ansible_network_os',
     'ansible_port',
-    'ansible_user'
+    'ansible_user',
+    'nodepool',
 ]
 
 

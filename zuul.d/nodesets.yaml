@@ -23,6 +23,12 @@
       - name: fedora-29
         label: fedora-29-4vcpu
 
+- nodeset:
+    name: ubuntu-latest-1vcpu
+    nodes:
+      - name: ubuntu-bionic
+        label: ubuntu-bionic-1vcpu
+
 # Ansible network appliance nodesets
 - nodeset:
     name: eos-4.20.10-python27

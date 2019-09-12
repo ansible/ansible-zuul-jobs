@@ -6,6 +6,10 @@
     check:
       jobs:
         - ansible-tox-linters
+        - ansible-tox-linters1
+        - ansible-tox-linters2
+        - ansible-tox-linters3
+        - ansible-tox-linters4
     gate:
       jobs:
         - ansible-tox-linters

@@ -626,6 +626,7 @@
               - ^test/integration/targets/iosxr_.*
               - ^test/integration/targets/netconf_.*
               - ^test/integration/targets/prepare_iosxr_tests/.*
+            voting: false
         - ansible-test-network-integration-iosxr-python35:
             branches:
               - devel
@@ -648,6 +649,7 @@
               - ^test/integration/targets/iosxr_.*
               - ^test/integration/targets/netconf_.*
               - ^test/integration/targets/prepare_iosxr_tests/.*
+            voting: false
         - ansible-test-network-integration-iosxr-python36:
             branches:
               - devel
@@ -670,6 +672,7 @@
               - ^test/integration/targets/iosxr_.*
               - ^test/integration/targets/netconf_.*
               - ^test/integration/targets/prepare_iosxr_tests/.*
+            voting: false
         - ansible-test-network-integration-iosxr-python37:
             branches:
               - devel
@@ -692,6 +695,7 @@
               - ^test/integration/targets/iosxr_.*
               - ^test/integration/targets/netconf_.*
               - ^test/integration/targets/prepare_iosxr_tests/.*
+            voting: false
         - ansible-test-network-integration-junos-python27:
             branches:
               - devel

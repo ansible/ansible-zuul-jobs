@@ -6,8 +6,7 @@
       jobs:
         - ansible-network-eos-appliance
         - ansible-network-ios-appliance
-        - ansible-network-iosxr-appliance:
-            voting: false
+        - ansible-network-iosxr-appliance
         - ansible-network-junos-appliance
         - ansible-network-openvswitch-appliance
         - ansible-network-vyos-appliance
@@ -15,6 +14,7 @@
       jobs:
         - ansible-network-eos-appliance
         - ansible-network-ios-appliance
+        - ansible-network-iosxr-appliance
         - ansible-network-junos-appliance
         - ansible-network-openvswitch-appliance
         - ansible-network-vyos-appliance

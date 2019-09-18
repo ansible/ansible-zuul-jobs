@@ -1,3 +1,3 @@
 ---
-epel_mirror: https://mirror.csclub.uwaterloo.ca/fedora/epel
-package_mirror: https://mirror.csclub.uwaterloo.ca/centos
+epel_mirror: http://fedora-epel.mirror.lstn.net
+package_mirror: http://centos.mirror.lstn.net

@@ -95,30 +95,21 @@
         - ansible-test-network-integration-iosxr-python27:
             vars:
               ansible_test_collections: true
+            voting: false
         - ansible-test-network-integration-iosxr-python35:
             vars:
               ansible_test_collections: true
+            voting: false
         - ansible-test-network-integration-iosxr-python36:
             vars:
               ansible_test_collections: true
+            voting: false
         - ansible-test-network-integration-iosxr-python37:
             vars:
               ansible_test_collections: true
+            voting: false
     gate:
       queue: integrated
-      jobs:
-        - ansible-test-network-integration-iosxr-python27:
-            vars:
-              ansible_test_collections: true
-        - ansible-test-network-integration-iosxr-python35:
-            vars:
-              ansible_test_collections: true
-        - ansible-test-network-integration-iosxr-python36:
-            vars:
-              ansible_test_collections: true
-        - ansible-test-network-integration-iosxr-python37:
-            vars:
-              ansible_test_collections: true
 
 - project-template:
     name: ansible-collections-cisco-iosxr-netconf
@@ -127,30 +118,21 @@
         - ansible-test-network-integration-iosxr-netconf-python27:
             vars:
               ansible_test_collections: true
+            voting: false
         - ansible-test-network-integration-iosxr-netconf-python35:
             vars:
               ansible_test_collections: true
+            voting: false
         - ansible-test-network-integration-iosxr-netconf-python36:
             vars:
               ansible_test_collections: true
+            voting: false
         - ansible-test-network-integration-iosxr-netconf-python37:
             vars:
               ansible_test_collections: true
+            voting: false
     gate:
       queue: integrated
-      jobs:
-        - ansible-test-network-integration-iosxr-netconf-python27:
-            vars:
-              ansible_test_collections: true
-        - ansible-test-network-integration-iosxr-netconf-python35:
-            vars:
-              ansible_test_collections: true
-        - ansible-test-network-integration-iosxr-netconf-python36:
-            vars:
-              ansible_test_collections: true
-        - ansible-test-network-integration-iosxr-netconf-python37:
-            vars:
-              ansible_test_collections: true
 
 - project-template:
     name: ansible-collections-juniper-junos

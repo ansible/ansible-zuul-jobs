@@ -18,7 +18,6 @@
     - name: Install pexpect requirement
       pip:
         name: pexpect
-        extra_args: --user
 
 - hosts: controller
   gather_facts: false

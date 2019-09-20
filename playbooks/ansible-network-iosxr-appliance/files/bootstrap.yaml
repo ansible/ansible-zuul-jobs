@@ -8,7 +8,6 @@
         name:
           - paramiko
           - pexpect
-        extra_args: --user
 
 - hosts: controller
   gather_facts: false

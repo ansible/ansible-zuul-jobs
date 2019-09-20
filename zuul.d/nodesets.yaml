@@ -153,8 +153,8 @@
 - nodeset:
     name: ios-15.6-2T-python37
     nodes:
-      - name: fedora-29
-        label: fedora-29-1vcpu
+      - name: fedora-30
+        label: fedora-30-1vcpu
       - name: ios-15.6-2T
         label: ios-15.6-2T
     groups:
@@ -163,7 +163,7 @@
           - ios-15.6-2T
       - name: controller
         nodes:
-          - fedora-29
+          - fedora-30
 
 - nodeset:
     name: ios-15.6-2T-python38
@@ -303,8 +303,8 @@
 - nodeset:
     name: openvswitch-2.9.0-python37
     nodes:
-      - name: fedora-29
-        label: fedora-29-1vcpu
+      - name: fedora-30
+        label: fedora-30-1vcpu
       - name: openvswitch-2.9.0
         label: ubuntu-bionic-1vcpu
     groups:
@@ -313,7 +313,7 @@
           - openvswitch-2.9.0
       - name: controller
         nodes:
-          - fedora-29
+          - fedora-30
 
 - nodeset:
     name: openvswitch-2.9.0-python38
@@ -378,8 +378,8 @@
 - nodeset:
     name: vsrx3-18.4R1-python37
     nodes:
-      - name: fedora-29
-        label: fedora-29-1vcpu
+      - name: fedora-30
+        label: fedora-30-1vcpu
       - name: vsrx3-18.4R1
         label: vsrx3-18.4R1
     groups:
@@ -388,7 +388,7 @@
           - vsrx3-18.4R1
       - name: controller
         nodes:
-          - fedora-29
+          - fedora-30
 
 - nodeset:
     name: vsrx3-18.4R1-python38
@@ -453,8 +453,8 @@
 - nodeset:
     name: vyos-1.1.8-python37
     nodes:
-      - name: fedora-29
-        label: fedora-29-1vcpu
+      - name: fedora-30
+        label: fedora-30-1vcpu
       - name: vyos-1.1.8
         label: vyos-1.1.8-1vcpu
     groups:
@@ -463,7 +463,7 @@
           - vyos-1.1.8
       - name: controller
         nodes:
-          - fedora-29
+          - fedora-30
 
 - nodeset:
     name: vyos-1.1.8-python38

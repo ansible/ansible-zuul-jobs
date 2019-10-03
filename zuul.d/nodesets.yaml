@@ -14,14 +14,14 @@
 - nodeset:
     name: fedora-latest-1vcpu
     nodes:
-      - name: fedora-29
-        label: fedora-29-1vcpu
+      - name: fedora-30
+        label: fedora-30-1vcpu
 
 - nodeset:
     name: fedora-latest-4vcpu
     nodes:
-      - name: fedora-29
-        label: fedora-29-4vcpu
+      - name: fedora-30
+        label: fedora-30-4vcpu
 
 # Ansible network appliance nodesets
 - nodeset:

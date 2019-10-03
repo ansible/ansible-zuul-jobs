@@ -214,6 +214,11 @@
         - ansible-test-network-integration-vyos-python37:
             vars:
               ansible_test_collections: true
+        - ansible-test-network-integration-vyos-python38:
+            branches:
+              - devel
+            vars:
+              ansible_test_collections: true
     gate:
       queue: integrated
       jobs:
@@ -229,6 +234,12 @@
         - ansible-test-network-integration-vyos-python37:
             vars:
               ansible_test_collections: true
+        - ansible-test-network-integration-vyos-python38:
+            branches:
+              - devel
+            vars:
+              ansible_test_collections: true
+
 
 - project-template:
     name: ansible-test-network-integration
@@ -304,6 +315,9 @@
             branches:
               - devel
         - ansible-test-network-integration-vyos-python37:
+            branches:
+              - devel
+        - ansible-test-network-integration-vyos-python38:
             branches:
               - devel
     periodic:
@@ -428,6 +442,9 @@
               - devel
               - stable-2.9
               - stable-2.8
+        - ansible-test-network-integration-vyos-python38:
+            branches:
+              - devel
     third-party-check:
       jobs:
         - ansible-test-network-integration-eos-python27:
@@ -873,6 +890,22 @@
               - devel
               - stable-2.9
               - stable-2.8
+            files:
+              - ^lib/ansible/modules/network/cli/.*
+              - ^lib/ansible/modules/network/vyos/.*
+              - ^lib/ansible/module_utils/network/common/.*
+              - ^lib/ansible/module_utils/network/vyos/.*
+              - ^lib/ansible/plugins/action/vyos.py
+              - ^lib/ansible/plugins/cliconf/vyos.py
+              - ^lib/ansible/plugins/connection/local.py
+              - ^lib/ansible/plugins/connection/network_cli.py
+              - ^lib/ansible/plugins/terminal/__init__.py
+              - ^lib/ansible/plugins/terminal/vyos.py
+              - ^test/integration/targets/vyos_.*
+              - ^test/integration/targets/prepare_vyos_tests/.*
+        - ansible-test-network-integration-vyos-python38:
+            branches:
+              - devel
             files:
               - ^lib/ansible/modules/network/cli/.*
               - ^lib/ansible/modules/network/vyos/.*

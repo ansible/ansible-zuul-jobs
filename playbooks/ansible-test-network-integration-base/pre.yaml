@@ -1,6 +1,25 @@
 ---
 - hosts: controller
   tasks:
+    - name: Add ppa:deadsnakes/ppa for python38 support
+      block:
+        - name: Add deadsnakes PPA
+          become: true
+          apt_repository:
+            repo: ppa:deadsnakes/ppa
+            state: present
+
+        - name: Ensure python3.8 is installed
+          become: true
+          package:
+            name:
+              - python3.8-dev
+              - python3.8-distutils
+            state: installed
+      when:
+        - ansible_os_family == "Debian"
+        - ansible_test_python is version('3.8', '==')
+
     - name: Select proper ansible_network_os
       set_fact:
         _network_os: "{{ hostvars[groups['appliance'][0]]['ansible_network_os'] }}"

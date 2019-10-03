@@ -2,6 +2,9 @@
 # see http://docs.openstack.org/infra/bindep/ for additional information.
 
 gcc-c++ [test platform:rpm]
+libffi-dev [test platform:ubuntu-bionic]
+libxml2-dev [test platform:ubuntu-bionic]
+libxslt1-dev [test platform:ubuntu-bionic]
 python2.7-dev [test platform:dpkg]
 python3-devel [test !platform:centos-7 platform:rpm]
 python3-dev [test platform:dpkg]

@@ -165,6 +165,13 @@
       ansible_test_python: 3.7
 
 - job:
+    name: ansible-test-network-integration-eos-python38
+    parent: ansible-test-network-integration-eos
+    nodeset: eos-4.20.10-python38
+    vars:
+      ansible_test_python: 3.8
+
+- job:
     name: ansible-test-network-integration-ios
     abstract: true
     parent: ansible-network-ios-appliance

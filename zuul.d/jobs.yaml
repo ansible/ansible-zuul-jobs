@@ -444,3 +444,10 @@
     nodeset: vyos-1.1.8-python37
     vars:
       ansible_test_python: 3.7
+
+- job:
+    name: ansible-test-network-integration-vyos-python38
+    parent: ansible-test-network-integration-vyos
+    nodeset: vyos-1.1.8-python38
+    vars:
+      ansible_test_python: 3.8

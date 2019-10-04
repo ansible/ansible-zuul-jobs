@@ -40,6 +40,11 @@
         - ansible-test-network-integration-eos-python37:
             vars:
               ansible_test_collections: true
+        - ansible-test-network-integration-eos-python38:
+            branches:
+              - devel
+            vars:
+              ansible_test_collections: true
     gate:
       queue: integrated
       jobs:
@@ -53,6 +58,11 @@
             vars:
               ansible_test_collections: true
         - ansible-test-network-integration-eos-python37:
+            vars:
+              ansible_test_collections: true
+        - ansible-test-network-integration-eos-python38:
+            branches:
+              - devel
             vars:
               ansible_test_collections: true
 
@@ -257,6 +267,9 @@
         - ansible-test-network-integration-eos-python37:
             branches:
               - devel
+        - ansible-test-network-integration-eos-python38:
+            branches:
+              - devel
         - ansible-test-network-integration-ios-python27:
             branches:
               - devel
@@ -342,6 +355,9 @@
               - devel
               - stable-2.9
               - stable-2.8
+        - ansible-test-network-integration-eos-python38:
+            branches:
+              - devel
         - ansible-test-network-integration-ios-python27:
             branches:
               - devel
@@ -515,6 +531,25 @@
               - devel
               - stable-2.9
               - stable-2.8
+            files:
+              - ^lib/ansible/modules/network/cli/.*
+              - ^lib/ansible/modules/network/eos/.*
+              - ^lib/ansible/module_utils/network/common/.*
+              - ^lib/ansible/module_utils/network/eos/.*
+              - ^lib/ansible/plugins/action/eos.py
+              - ^lib/ansible/plugins/cliconf/eos.py
+              - ^lib/ansible/plugins/connection/httpapi.py
+              - ^lib/ansible/plugins/connection/local.py
+              - ^lib/ansible/plugins/connection/network_cli.py
+              - ^lib/ansible/plugins/httpapi/__init__.py
+              - ^lib/ansible/plugins/httpapi/eos.py
+              - ^lib/ansible/plugins/terminal/__init__.py
+              - ^lib/ansible/plugins/terminal/eos.py
+              - ^test/integration/targets/eos_.*
+              - ^test/integration/targets/prepare_eos_tests/.*
+        - ansible-test-network-integration-eos-python38:
+            branches:
+              - devel
             files:
               - ^lib/ansible/modules/network/cli/.*
               - ^lib/ansible/modules/network/eos/.*

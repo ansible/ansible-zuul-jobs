@@ -85,6 +85,21 @@
           - fedora-29
 
 - nodeset:
+    name: eos-4.20.10-python38
+    nodes:
+      - name: ubuntu-bionic
+        label: ubuntu-bionic-1vcpu
+      - name: eos-4.20.10
+        label: eos-4.20.10
+    groups:
+      - name: appliance
+        nodes:
+          - eos-4.20.10
+      - name: controller
+        nodes:
+          - ubuntu-bionic
+
+- nodeset:
     name: ios-15.6-2T-python27
     nodes:
       - name: ubuntu-bionic

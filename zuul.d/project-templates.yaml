@@ -170,6 +170,11 @@
         - ansible-test-network-integration-junos-python37:
             vars:
               ansible_test_collections: true
+        - ansible-test-network-integration-junos-python38:
+            branches:
+              - devel
+            vars:
+              ansible_test_collections: true
     gate:
       queue: integrated
       jobs:
@@ -183,6 +188,11 @@
             vars:
               ansible_test_collections: true
         - ansible-test-network-integration-junos-python37:
+            vars:
+              ansible_test_collections: true
+        - ansible-test-network-integration-junos-python38:
+            branches:
+              - devel
             vars:
               ansible_test_collections: true
 
@@ -319,6 +329,9 @@
         - ansible-test-network-integration-junos-python37:
             branches:
               - devel
+        - ansible-test-network-integration-junos-python38:
+            branches:
+              - devel
         - ansible-test-network-integration-openvswitch-python27:
             branches:
               - devel
@@ -434,6 +447,9 @@
               - devel
               - stable-2.9
               - stable-2.8
+        - ansible-test-network-integration-junos-python38:
+            branches:
+              - devel
         - ansible-test-network-integration-openvswitch-python27:
             branches:
               - devel
@@ -836,6 +852,27 @@
               - devel
               - stable-2.9
               - stable-2.8
+            files:
+              - ^lib/ansible/modules/network/cli/.*
+              - ^lib/ansible/modules/network/junos/.*
+              - ^lib/ansible/modules/network/netconf/.*
+              - ^lib/ansible/module_utils/network/common/.*
+              - ^lib/ansible/module_utils/network/junos/.*
+              - ^lib/ansible/module_utils/network/netconf/.*
+              - ^lib/ansible/plugins/action/junos.py
+              - ^lib/ansible/plugins/cliconf/junos.py
+              - ^lib/ansible/plugins/connection/local.py
+              - ^lib/ansible/plugins/connection/netconf.py
+              - ^lib/ansible/plugins/connection/network_cli.py
+              - ^lib/ansible/plugins/netconf/.*
+              - ^lib/ansible/plugins/terminal/__init__.py
+              - ^lib/ansible/plugins/terminal/junos.py
+              - ^test/integration/targets/junos_.*
+              - ^test/integration/targets/netconf_.*
+              - ^test/integration/targets/prepare_junos_tests/.*
+        - ansible-test-network-integration-junos-python38:
+            branches:
+              - devel
             files:
               - ^lib/ansible/modules/network/cli/.*
               - ^lib/ansible/modules/network/junos/.*

@@ -214,6 +214,13 @@
       ansible_test_python: 3.7
 
 - job:
+    name: ansible-test-network-integration-ios-python38
+    parent: ansible-test-network-integration-ios
+    nodeset: ios-15.6-2T-python38
+    vars:
+      ansible_test_python: 3.8
+
+- job:
     name: ansible-test-network-integration-iosxr
     abstract: true
     parent: ansible-network-iosxr-appliance

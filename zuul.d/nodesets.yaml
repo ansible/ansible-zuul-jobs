@@ -160,6 +160,21 @@
           - fedora-29
 
 - nodeset:
+    name: ios-15.6-2T-python38
+    nodes:
+      - name: ubuntu-bionic
+        label: ubuntu-bionic-1vcpu
+      - name: ios-15.6-2T
+        label: ios-15.6-2T
+    groups:
+      - name: appliance
+        nodes:
+          - ios-15.6-2T
+      - name: controller
+        nodes:
+          - ubuntu-bionic
+
+- nodeset:
     name: iosxr-6.1.3-python27
     nodes:
       - name: ubuntu-bionic

@@ -263,6 +263,13 @@
       ansible_test_python: 3.7
 
 - job:
+    name: ansible-test-network-integration-iosxr-python38
+    parent: ansible-test-network-integration-iosxr
+    nodeset: iosxr-6.1.3-python38
+    vars:
+      ansible_test_python: 3.8
+
+- job:
     name: ansible-test-network-integration-iosxr-netconf-python27
     parent: ansible-test-network-integration-iosxr-python27
     required-projects:

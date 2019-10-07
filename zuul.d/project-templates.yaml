@@ -82,6 +82,11 @@
         - ansible-test-network-integration-ios-python37:
             vars:
               ansible_test_collections: true
+        - ansible-test-network-integration-ios-python38:
+            branches:
+              - devel
+            vars:
+              ansible_test_collections: true
     gate:
       queue: integrated
       jobs:
@@ -95,6 +100,11 @@
             vars:
               ansible_test_collections: true
         - ansible-test-network-integration-ios-python37:
+            vars:
+              ansible_test_collections: true
+        - ansible-test-network-integration-ios-python38:
+            branches:
+              - devel
             vars:
               ansible_test_collections: true
 
@@ -282,6 +292,9 @@
         - ansible-test-network-integration-ios-python37:
             branches:
               - devel
+        - ansible-test-network-integration-ios-python38:
+            branches:
+              - devel
         - ansible-test-network-integration-iosxr-python27:
             branches:
               - devel
@@ -378,6 +391,9 @@
               - devel
               - stable-2.9
               - stable-2.8
+        - ansible-test-network-integration-ios-python38:
+            branches:
+              - devel
         - ansible-test-network-integration-iosxr-python27:
             branches:
               - devel
@@ -625,6 +641,22 @@
               - devel
               - stable-2.9
               - stable-2.8
+            files:
+              - ^lib/ansible/modules/network/cli/.*
+              - ^lib/ansible/modules/network/ios/.*
+              - ^lib/ansible/module_utils/network/common/.*
+              - ^lib/ansible/module_utils/network/ios/.*
+              - ^lib/ansible/plugins/action/ios.py
+              - ^lib/ansible/plugins/cliconf/ios.py
+              - ^lib/ansible/plugins/connection/local.py
+              - ^lib/ansible/plugins/connection/network_cli.py
+              - ^lib/ansible/plugins/terminal/__init__.py
+              - ^lib/ansible/plugins/terminal/ios.py
+              - ^test/integration/targets/ios_.*
+              - ^test/integration/targets/prepare_ios_tests/.*
+        - ansible-test-network-integration-ios-python38:
+            branches:
+              - devel
             files:
               - ^lib/ansible/modules/network/cli/.*
               - ^lib/ansible/modules/network/ios/.*

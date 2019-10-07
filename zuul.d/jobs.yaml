@@ -425,6 +425,13 @@
       ansible_test_python: 3.7
 
 - job:
+    name: ansible-test-network-integration-openvswitch-python38
+    parent: ansible-test-network-integration-openvswitch
+    nodeset: openvswitch-2.9.0-python38
+    vars:
+      ansible_test_python: 3.8
+
+- job:
     name: ansible-test-network-integration-vyos
     abstract: true
     parent: ansible-network-vyos-appliance

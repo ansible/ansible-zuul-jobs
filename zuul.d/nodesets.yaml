@@ -295,6 +295,21 @@
           - fedora-29
 
 - nodeset:
+    name: openvswitch-2.9.0-python38
+    nodes:
+      - name: ubuntu-bionic
+        label: ubuntu-bionic-1vcpu
+      - name: openvswitch-2.9.0
+        label: ubuntu-bionic-1vcpu
+    groups:
+      - name: openvswitch
+        nodes:
+          - openvswitch-2.9.0
+      - name: controller
+        nodes:
+          - ubuntu-bionic
+
+- nodeset:
     name: vsrx3-18.4R1-python27
     nodes:
       - name: ubuntu-bionic

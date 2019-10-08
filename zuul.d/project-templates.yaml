@@ -128,6 +128,12 @@
             vars:
               ansible_test_collections: true
             voting: false
+        - ansible-test-network-integration-iosxr-python38:
+            branches:
+              - devel
+            vars:
+              ansible_test_collections: true
+            voting: false
     gate:
       queue: integrated
 
@@ -317,6 +323,9 @@
         - ansible-test-network-integration-iosxr-python37:
             branches:
               - devel
+        - ansible-test-network-integration-iosxr-python38:
+            branches:
+              - devel
         - ansible-test-network-integration-junos-python27:
             branches:
               - devel
@@ -430,6 +439,9 @@
               - devel
               - stable-2.9
               - stable-2.8
+        - ansible-test-network-integration-iosxr-python38:
+            branches:
+              - devel
         - ansible-test-network-integration-junos-python27:
             branches:
               - devel
@@ -766,6 +778,27 @@
               - devel
               - stable-2.9
               - stable-2.8
+            files:
+              - ^lib/ansible/modules/network/cli/.*
+              - ^lib/ansible/modules/network/iosxr/.*
+              - ^lib/ansible/modules/network/netconf/.*
+              - ^lib/ansible/module_utils/network/common/.*
+              - ^lib/ansible/module_utils/network/iosxr/.*
+              - ^lib/ansible/module_utils/network/netconf/.*
+              - ^lib/ansible/plugins/action/iosxr.py
+              - ^lib/ansible/plugins/cliconf/iosxr.py
+              - ^lib/ansible/plugins/connection/netconf.py
+              - ^lib/ansible/plugins/connection/network_cli.py
+              - ^lib/ansible/plugins/netconf/.*
+              - ^lib/ansible/plugins/terminal/__init__.py
+              - ^lib/ansible/plugins/terminal/iosxr.py
+              - ^test/integration/targets/iosxr_.*
+              - ^test/integration/targets/netconf_.*
+              - ^test/integration/targets/prepare_iosxr_tests/.*
+            voting: false
+        - ansible-test-network-integration-iosxr-python38:
+            branches:
+              - devel
             files:
               - ^lib/ansible/modules/network/cli/.*
               - ^lib/ansible/modules/network/iosxr/.*

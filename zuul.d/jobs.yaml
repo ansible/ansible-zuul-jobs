@@ -14,6 +14,14 @@
     nodeset: fedora-latest-1vcpu
 
 - job:
+    name: ansible-tox-molecule
+    parent: tox
+    pre-run: playbooks/ansible-tox-molecule/pre.yaml
+    vars:
+      tox_envlist: molecule
+    nodeset: fedora-latest-1vcpu
+
+- job:
     name: ansible-tox-py27
     parent: tox-py27
     nodeset: centos-7-1vcpu

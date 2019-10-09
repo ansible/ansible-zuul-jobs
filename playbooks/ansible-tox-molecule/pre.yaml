@@ -1,0 +1,5 @@
+---
+- hosts: all
+  tasks:
+    - name: Reset SSH connection for new group
+      meta: reset_connection

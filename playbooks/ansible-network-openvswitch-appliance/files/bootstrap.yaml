@@ -5,4 +5,4 @@
       become: true
       package:
         name: openvswitch-switch
-        state: installed
+        state: present

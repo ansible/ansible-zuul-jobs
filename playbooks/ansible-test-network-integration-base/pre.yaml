@@ -9,13 +9,13 @@
             repo: ppa:deadsnakes/ppa
             state: present
 
-        - name: Ensure python3.8 is installed
+        - name: Ensure python3.8 is present
           become: true
           package:
             name:
               - python3.8-dev
               - python3.8-distutils
-            state: installed
+            state: present
       when:
         - ansible_os_family == "Debian"
         - ansible_test_python is version('3.8', '==')

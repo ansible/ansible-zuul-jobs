@@ -1,20 +1,12 @@
 ---
 - hosts: controller
   tasks:
-    - name: Add ppa:deadsnakes/ppa for python38 support
+    - name: Add python38 support if needed
       block:
-        - name: Add deadsnakes PPA
-          become: true
-          apt_repository:
-            repo: ppa:deadsnakes/ppa
-            state: present
-
         - name: Ensure python3.8 is present
           become: true
           package:
-            name:
-              - python3.8-dev
-              - python3.8-distutils
+            name: python3.8-dev
             state: present
       when:
         - ansible_os_family == "Debian"

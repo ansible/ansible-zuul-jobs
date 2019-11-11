@@ -1,0 +1,21 @@
+# {{ ansible_managed }}
+[epel]
+name=Extra Packages for Enterprise Linux 8 - $basearch
+baseurl={{ epel_mirror }}/8/Everything/$basearch
+enabled=0
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-8
+
+[epel-debuginfo]
+name=Extra Packages for Enterprise Linux 8 - $basearch - Debug
+baseurl={{ epel_mirror }}/8/Everything/$basearch/debug
+enabled=0
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-8
+gpgcheck=1
+
+[epel-source]
+name=Extra Packages for Enterprise Linux 8 - $basearch - Source
+baseurl={{ epel_mirror }}/8/Everything/SRPMS
+enabled=0
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-8
+gpgcheck=1

@@ -1,4 +1,9 @@
 ---
+- name: gather needed facts
+  when: ansible_pkg_mgr is not defined
+  setup:
+    gather_subset: pkg_mgr
+
 - name: Set up infrastructure mirrors
   include: mirror.yaml
   when: mirror_fqdn is defined

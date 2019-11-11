@@ -1,0 +1,17 @@
+---
+- name: Install CentOS 8 repository files
+  become: true
+  template:
+    dest: "/{{ item }}"
+    group: root
+    mode: 0644
+    owner: root
+    src: "centos8/{{ item }}.j2"
+  with_items:
+    - etc/yum.repos.d/CentOS-AppStream.repo
+    - etc/yum.repos.d/CentOS-Base.repo
+    - etc/yum.repos.d/CentOS-Extras.repo
+    - etc/yum.repos.d/CentOS-PowerTools.repo
+    - etc/yum.repos.d/epel.repo
+  notify:
+    - Update yum/dnf cache

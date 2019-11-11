@@ -1,0 +1,16 @@
+---
+- name: Install Debian repository files
+  become: true
+  template:
+    dest: "/{{ item }}"
+    group: root
+    mode: 0644
+    owner: root
+    src: "apt/{{ item }}.j2"
+  with_items:
+    - etc/apt/sources.list.d/default.list
+    - etc/apt/sources.list.d/updates.list
+    - etc/apt/sources.list.d/backports.list
+    - etc/apt/sources.list.d/security.list
+  notify:
+    - Update apt cache

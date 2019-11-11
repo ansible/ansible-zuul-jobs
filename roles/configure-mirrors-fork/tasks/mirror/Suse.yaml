@@ -1,0 +1,35 @@
+---
+- name: set zypper base package repository (openSUSE Leap)
+  set_fact:
+    opensuse_repo_baseurl: "{{ package_mirror }}/distribution/leap/$releasever/repo/oss/"
+  when: not ansible_distribution | search("Tumbleweed")
+
+- name: set zypper base package repository (openSUSE Tumbleweed)
+  set_fact:
+    opensuse_repo_baseurl: "{{ package_mirror }}/tumbleweed/repo/oss/"
+  when: ansible_distribution | search("Tumbleweed")
+
+- name: Install Suse repository files
+  become: true
+  template:
+    dest: "/{{ item }}"
+    group: root
+    mode: 0644
+    owner: root
+    src: "suse/{{ item }}.j2"
+  with_items:
+    - etc/zypp/repos.d/repo-oss.repo
+  notify:
+    - Update zypper cache
+
+- name: Install openSUSE Leap Update repository
+  become: true
+  template:
+    dest: /etc/zypp/repos.d/repo-update.repo
+    group: root
+    mode: 0644
+    owner: root
+    src: suse/etc/zypp/repos.d/repo-update.repo.j2
+  notify:
+    - Update zypper cache
+  when: not ansible_distribution | search("Tumbleweed")

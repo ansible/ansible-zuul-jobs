@@ -8,9 +8,23 @@
   tags:
     - skip_ansible_lint
 
-- name: Update yum cache
+- name: Update yum/dnf cache
+  become: true
+  command: "{{ item }}"
+  args:
+    warn: false
+  # verbose is needed in order to make it possible to debug potential failures
+  with_items:
+    - "{{ ansible_pkg_mgr }} clean all"
+    - "{{ ansible_pkg_mgr }} makecache -v"
+
+- name: Update zypper cache
   become: true
   command: "{{ item }}"
   with_items:
-    - yum clean all
-    - yum makecache
+    - zypper clean
+    - zypper refresh
+
+- name: Update Gentoo cache
+  become: true
+  command: emerge-webrsync

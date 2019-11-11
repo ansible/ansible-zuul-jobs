@@ -1,0 +1,8 @@
+# {{ ansible_managed }}
+[repo-update]
+name=repo-update
+enabled=1
+autorefresh=0
+baseurl={{ package_mirror }}/update/leap/$releasever/oss/
+type=rpm-md
+keeppackages=0

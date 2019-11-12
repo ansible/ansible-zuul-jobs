@@ -6,9 +6,8 @@
     group: root
     mode: 0644
     owner: root
-    src: "{{ item }}.j2"
+    src: "apt/{{ item }}.j2"
   with_items:
     - etc/apt/sources.list
-    - etc/apt/apt.conf.d/99unauthenticated
   notify:
     - Update apt cache

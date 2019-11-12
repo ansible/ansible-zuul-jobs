@@ -1,0 +1,14 @@
+---
+- name: Install CentOS repository files
+  become: true
+  template:
+    dest: "/{{ item }}"
+    group: root
+    mode: 0644
+    owner: root
+    src: "centos7/{{ item }}.j2"
+  with_items:
+    - etc/yum.repos.d/CentOS-Base.repo
+    - etc/yum.repos.d/epel.repo
+  notify:
+    - Update yum/dnf cache

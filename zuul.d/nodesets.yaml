@@ -12,6 +12,12 @@
         label: centos-7-4vcpu
 
 - nodeset:
+    name: centos-8-1vcpu
+    nodes:
+      - name: centos-8
+        label: centos-8-1vcpu
+
+- nodeset:
     name: fedora-latest-1vcpu
     nodes:
       - name: fedora-30

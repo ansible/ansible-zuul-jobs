@@ -519,6 +519,7 @@
               - stable-2.9
               - stable-2.8
             files:
+              - ^lib/ansible/cli/scripts/ansible_connection_cli_stub.py
               - ^lib/ansible/modules/network/cli/.*
               - ^lib/ansible/modules/network/eos/.*
               - ^lib/ansible/module_utils/network/common/.*
@@ -540,6 +541,7 @@
               - stable-2.9
               - stable-2.8
             files:
+              - ^lib/ansible/cli/scripts/ansible_connection_cli_stub.py
               - ^lib/ansible/modules/network/cli/.*
               - ^lib/ansible/modules/network/eos/.*
               - ^lib/ansible/module_utils/network/common/.*
@@ -561,6 +563,7 @@
               - stable-2.9
               - stable-2.8
             files:
+              - ^lib/ansible/cli/scripts/ansible_connection_cli_stub.py
               - ^lib/ansible/modules/network/cli/.*
               - ^lib/ansible/modules/network/eos/.*
               - ^lib/ansible/module_utils/network/common/.*
@@ -582,6 +585,7 @@
               - stable-2.9
               - stable-2.8
             files:
+              - ^lib/ansible/cli/scripts/ansible_connection_cli_stub.py
               - ^lib/ansible/modules/network/cli/.*
               - ^lib/ansible/modules/network/eos/.*
               - ^lib/ansible/module_utils/network/common/.*
@@ -601,6 +605,7 @@
             branches:
               - devel
             files:
+              - ^lib/ansible/cli/scripts/ansible_connection_cli_stub.py
               - ^lib/ansible/modules/network/cli/.*
               - ^lib/ansible/modules/network/eos/.*
               - ^lib/ansible/module_utils/network/common/.*
@@ -622,6 +627,7 @@
               - stable-2.9
               - stable-2.8
             files:
+              - ^lib/ansible/cli/scripts/ansible_connection_cli_stub.py
               - ^lib/ansible/modules/network/cli/.*
               - ^lib/ansible/modules/network/ios/.*
               - ^lib/ansible/module_utils/network/common/.*
@@ -640,6 +646,7 @@
               - stable-2.9
               - stable-2.8
             files:
+              - ^lib/ansible/cli/scripts/ansible_connection_cli_stub.py
               - ^lib/ansible/modules/network/cli/.*
               - ^lib/ansible/modules/network/ios/.*
               - ^lib/ansible/module_utils/network/common/.*
@@ -658,6 +665,7 @@
               - stable-2.9
               - stable-2.8
             files:
+              - ^lib/ansible/cli/scripts/ansible_connection_cli_stub.py
               - ^lib/ansible/modules/network/cli/.*
               - ^lib/ansible/modules/network/ios/.*
               - ^lib/ansible/module_utils/network/common/.*
@@ -676,6 +684,7 @@
               - stable-2.9
               - stable-2.8
             files:
+              - ^lib/ansible/cli/scripts/ansible_connection_cli_stub.py
               - ^lib/ansible/modules/network/cli/.*
               - ^lib/ansible/modules/network/ios/.*
               - ^lib/ansible/module_utils/network/common/.*
@@ -692,6 +701,7 @@
             branches:
               - devel
             files:
+              - ^lib/ansible/cli/scripts/ansible_connection_cli_stub.py
               - ^lib/ansible/modules/network/cli/.*
               - ^lib/ansible/modules/network/ios/.*
               - ^lib/ansible/module_utils/network/common/.*
@@ -710,6 +720,7 @@
               - stable-2.9
               - stable-2.8
             files:
+              - ^lib/ansible/cli/scripts/ansible_connection_cli_stub.py
               - ^lib/ansible/modules/network/cli/.*
               - ^lib/ansible/modules/network/iosxr/.*
               - ^lib/ansible/modules/network/netconf/.*
@@ -733,6 +744,7 @@
               - stable-2.9
               - stable-2.8
             files:
+              - ^lib/ansible/cli/scripts/ansible_connection_cli_stub.py
               - ^lib/ansible/modules/network/cli/.*
               - ^lib/ansible/modules/network/iosxr/.*
               - ^lib/ansible/modules/network/netconf/.*
@@ -756,6 +768,7 @@
               - stable-2.9
               - stable-2.8
             files:
+              - ^lib/ansible/cli/scripts/ansible_connection_cli_stub.py
               - ^lib/ansible/modules/network/cli/.*
               - ^lib/ansible/modules/network/iosxr/.*
               - ^lib/ansible/modules/network/netconf/.*
@@ -779,6 +792,7 @@
               - stable-2.9
               - stable-2.8
             files:
+              - ^lib/ansible/cli/scripts/ansible_connection_cli_stub.py
               - ^lib/ansible/modules/network/cli/.*
               - ^lib/ansible/modules/network/iosxr/.*
               - ^lib/ansible/modules/network/netconf/.*
@@ -800,6 +814,7 @@
             branches:
               - devel
             files:
+              - ^lib/ansible/cli/scripts/ansible_connection_cli_stub.py
               - ^lib/ansible/modules/network/cli/.*
               - ^lib/ansible/modules/network/iosxr/.*
               - ^lib/ansible/modules/network/netconf/.*
@@ -823,6 +838,7 @@
               - stable-2.9
               - stable-2.8
             files:
+              - ^lib/ansible/cli/scripts/ansible_connection_cli_stub.py
               - ^lib/ansible/modules/network/cli/.*
               - ^lib/ansible/modules/network/junos/.*
               - ^lib/ansible/modules/network/netconf/.*
@@ -846,6 +862,7 @@
               - stable-2.9
               - stable-2.8
             files:
+              - ^lib/ansible/cli/scripts/ansible_connection_cli_stub.py
               - ^lib/ansible/modules/network/cli/.*
               - ^lib/ansible/modules/network/junos/.*
               - ^lib/ansible/modules/network/netconf/.*
@@ -869,6 +886,7 @@
               - stable-2.9
               - stable-2.8
             files:
+              - ^lib/ansible/cli/scripts/ansible_connection_cli_stub.py
               - ^lib/ansible/modules/network/cli/.*
               - ^lib/ansible/modules/network/junos/.*
               - ^lib/ansible/modules/network/netconf/.*
@@ -892,6 +910,7 @@
               - stable-2.9
               - stable-2.8
             files:
+              - ^lib/ansible/cli/scripts/ansible_connection_cli_stub.py
               - ^lib/ansible/modules/network/cli/.*
               - ^lib/ansible/modules/network/junos/.*
               - ^lib/ansible/modules/network/netconf/.*
@@ -913,6 +932,7 @@
             branches:
               - devel
             files:
+              - ^lib/ansible/cli/scripts/ansible_connection_cli_stub.py
               - ^lib/ansible/modules/network/cli/.*
               - ^lib/ansible/modules/network/junos/.*
               - ^lib/ansible/modules/network/netconf/.*
@@ -936,6 +956,7 @@
               - stable-2.9
               - stable-2.8
             files:
+              - ^lib/ansible/cli/scripts/ansible_connection_cli_stub.py
               - ^lib/ansible/modules/network/cli/.*
               - ^lib/ansible/modules/network/ovs/.*
               - ^lib/ansible/module_utils/network/common/.*
@@ -947,6 +968,7 @@
               - stable-2.9
               - stable-2.8
             files:
+              - ^lib/ansible/cli/scripts/ansible_connection_cli_stub.py
               - ^lib/ansible/modules/network/cli/.*
               - ^lib/ansible/modules/network/ovs/.*
               - ^lib/ansible/module_utils/network/common/.*
@@ -958,6 +980,7 @@
               - stable-2.9
               - stable-2.8
             files:
+              - ^lib/ansible/cli/scripts/ansible_connection_cli_stub.py
               - ^lib/ansible/modules/network/cli/.*
               - ^lib/ansible/modules/network/ovs/.*
               - ^lib/ansible/module_utils/network/common/.*
@@ -969,6 +992,7 @@
               - stable-2.9
               - stable-2.8
             files:
+              - ^lib/ansible/cli/scripts/ansible_connection_cli_stub.py
               - ^lib/ansible/modules/network/cli/.*
               - ^lib/ansible/modules/network/ovs/.*
               - ^lib/ansible/module_utils/network/common/.*
@@ -978,6 +1002,7 @@
             branches:
               - devel
             files:
+              - ^lib/ansible/cli/scripts/ansible_connection_cli_stub.py
               - ^lib/ansible/modules/network/cli/.*
               - ^lib/ansible/modules/network/ovs/.*
               - ^lib/ansible/module_utils/network/common/.*
@@ -989,6 +1014,7 @@
               - stable-2.9
               - stable-2.8
             files:
+              - ^lib/ansible/cli/scripts/ansible_connection_cli_stub.py
               - ^lib/ansible/modules/network/cli/.*
               - ^lib/ansible/modules/network/vyos/.*
               - ^lib/ansible/module_utils/network/common/.*
@@ -1007,6 +1033,7 @@
               - stable-2.9
               - stable-2.8
             files:
+              - ^lib/ansible/cli/scripts/ansible_connection_cli_stub.py
               - ^lib/ansible/modules/network/cli/.*
               - ^lib/ansible/modules/network/vyos/.*
               - ^lib/ansible/module_utils/network/common/.*
@@ -1025,6 +1052,7 @@
               - stable-2.9
               - stable-2.8
             files:
+              - ^lib/ansible/cli/scripts/ansible_connection_cli_stub.py
               - ^lib/ansible/modules/network/cli/.*
               - ^lib/ansible/modules/network/vyos/.*
               - ^lib/ansible/module_utils/network/common/.*
@@ -1043,6 +1071,7 @@
               - stable-2.9
               - stable-2.8
             files:
+              - ^lib/ansible/cli/scripts/ansible_connection_cli_stub.py
               - ^lib/ansible/modules/network/cli/.*
               - ^lib/ansible/modules/network/vyos/.*
               - ^lib/ansible/module_utils/network/common/.*
@@ -1059,6 +1088,7 @@
             branches:
               - devel
             files:
+              - ^lib/ansible/cli/scripts/ansible_connection_cli_stub.py
               - ^lib/ansible/modules/network/cli/.*
               - ^lib/ansible/modules/network/vyos/.*
               - ^lib/ansible/module_utils/network/common/.*

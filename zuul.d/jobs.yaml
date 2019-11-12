@@ -29,7 +29,7 @@
 - job:
     name: ansible-tox-py36
     parent: tox-py36
-    nodeset: fedora-latest-1vcpu
+    nodeset: centos-8-1vcpu
 
 - job:
     name: ansible-tox-py37

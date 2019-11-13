@@ -1,0 +1,3 @@
+---
+ansible_galaxy_collection_path: "{{ ansible_user_dir }}/{{ zuul.project.src_dir }}/*.tar.gz"
+ansible_galaxy_executable: ansible-galaxy

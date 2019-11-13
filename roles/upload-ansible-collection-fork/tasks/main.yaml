@@ -1,0 +1,22 @@
+---
+- name: Publish content to Ansible Galaxy
+  block:
+    - name: Create ansible.cfg configuration file tempfile
+      tempfile:
+        state: file
+      register: _ansiblecfg_tmp
+
+    - name: Create ansible.cfg configuration file
+      template:
+        dest: "{{ _ansiblecfg_tmp.path }}"
+        mode: 0400
+        src: ansible.cfg.j2
+
+    - name: Publish collection to Ansible Galaxy
+      environment:
+        ANSIBLE_CONFIG: "{{ _ansiblecfg_tmp.path }}"
+      command: "{{ ansible_galaxy_executable }} collection publish {{ ansible_galaxy_collection_path }}"
+
+  always:
+    - name: Shred ansible-galaxy credentials
+      shell: "shred {{ _ansiblecfg_tmp.path }}"

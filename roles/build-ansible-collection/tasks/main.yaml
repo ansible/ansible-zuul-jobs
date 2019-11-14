@@ -2,4 +2,4 @@
 - name: Build an ansible collection
   args:
     chdir: "{{ zuul_work_dir }}"
-  command: "{{ ansible_galaxy_executable }} collection build {{ ansible_galaxy_collection_path }}"
+  command: "{{ ansible_galaxy_executable }} collection build --output-path {{ ansible_galaxy_output_path }} {{ ansible_galaxy_collection_path }}"

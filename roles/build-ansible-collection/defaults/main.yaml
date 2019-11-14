@@ -1,4 +1,5 @@
 ---
-ansible_galaxy_executable: ansible-galaxy
 ansible_galaxy_collection_path: .
+ansible_galaxy_executable: ansible-galaxy
+ansible_galaxy_output_path: artifacts
 zuul_work_dir: "{{ zuul.project.src_dir }}"

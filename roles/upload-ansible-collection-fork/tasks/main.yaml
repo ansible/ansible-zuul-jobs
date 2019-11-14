@@ -4,12 +4,13 @@
     - name: Create ansible.cfg configuration file tempfile
       tempfile:
         state: file
+        suffix: .cfg
       register: _ansiblecfg_tmp
 
     - name: Create ansible.cfg configuration file
       template:
         dest: "{{ _ansiblecfg_tmp.path }}"
-        mode: 0400
+        mode: 0600
         src: ansible.cfg.j2
 
     - name: Publish collection to Ansible Galaxy

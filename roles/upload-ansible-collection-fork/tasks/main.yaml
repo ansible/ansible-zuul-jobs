@@ -13,10 +13,17 @@
         mode: 0600
         src: ansible.cfg.j2
 
+    - name: Find tarballs to upload
+      find:
+        paths: "{{ ansible_galaxy_collection_path }}"
+        patterns: "*.tar.gz"
+      register: found_tarballs
+
     - name: Publish collection to Ansible Galaxy
       environment:
         ANSIBLE_CONFIG: "{{ _ansiblecfg_tmp.path }}"
-      command: "{{ ansible_galaxy_executable }} collection publish {{ ansible_galaxy_collection_path }}"
+      shell: "{{ ansible_galaxy_executable }} collection publish {{ item.path }}"
+      with_items: "{{ found_tarballs.files }}"
 
   always:
     - name: Shred ansible-galaxy credentials

@@ -1118,6 +1118,22 @@
         - noop
 
 - project-template:
+    name: publish-to-galaxy
+    description: |
+      Publish an Ansible collection to Ansible Galaxy
+    post:
+      jobs:
+        - release-ansible-collection-galaxy
+
+- project-template:
+    name: publish-to-galaxy-dev
+    description: |
+      Publish an Ansible collection to Ansible Galaxy Dev
+    post:
+      jobs:
+        - release-ansible-collection-galaxy-dev
+
+- project-template:
     name: system-required
     description: |
       Jobs that *every* project in Ansible should have by default.

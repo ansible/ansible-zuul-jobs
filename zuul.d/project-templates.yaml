@@ -1118,6 +1118,15 @@
         - noop
 
 - project-template:
+    name: publish-to-galaxy-master-only
+    description: |
+      Publish an Ansible collection to Ansible Galaxy
+    post:
+      jobs:
+        - release-ansible-collection-galaxy:
+            branches: master
+
+- project-template:
     name: publish-to-galaxy
     description: |
       Publish an Ansible collection to Ansible Galaxy

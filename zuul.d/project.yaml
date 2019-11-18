@@ -3,18 +3,25 @@
     templates:
       - ansible-python-jobs
     check:
+      debug: true
+      fail-fast: true
       jobs:
-        - ansible-network-eos-appliance
-        - ansible-network-ios-appliance
-        - ansible-network-iosxr-appliance
-        - ansible-network-junos-appliance
-        - ansible-network-openvswitch-appliance
-        - ansible-network-vyos-appliance
+        # - ansible-network-eos-appliance
+        # - ansible-network-ios-appliance
+        # - ansible-network-iosxr-appliance
+        # - ansible-network-junos-appliance
+        # - ansible-network-openvswitch-appliance
+        # - ansible-network-vyos-appliance
+        - ansible-network-vmware-appliance
     gate:
+      debug: true
+      fail-fast: true
       jobs:
-        - ansible-network-eos-appliance
-        - ansible-network-ios-appliance
-        - ansible-network-iosxr-appliance
-        - ansible-network-junos-appliance
-        - ansible-network-openvswitch-appliance
-        - ansible-network-vyos-appliance
+        # - ansible-network-eos-appliance
+        # - ansible-network-ios-appliance
+        # - ansible-network-iosxr-appliance
+        # - ansible-network-junos-appliance
+        # - ansible-network-openvswitch-appliance
+        # - ansible-network-vyos-appliance
+        - ansible-network-vmware-appliance
+

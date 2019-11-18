@@ -4,11 +4,11 @@
     description: |
       A common set of python jobs to run.
     check:
-      jobs:
-        - ansible-tox-linters
+      jobs: []
+#        - ansible-tox-linters
     gate:
-      jobs:
-        - ansible-tox-linters
+      jobs: []
+#        - ansible-tox-linters
 
 - project-template:
     name: ansible-python3-jobs
@@ -509,6 +509,9 @@
               - stable-2.9
               - stable-2.8
         - ansible-test-network-integration-vyos-python38:
+            branches:
+              - devel
+        - ansible-test-network-integration-vmware-python37:
             branches:
               - devel
     third-party-check:

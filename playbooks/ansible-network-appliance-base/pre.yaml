@@ -19,7 +19,9 @@
     - name: Set SSH interface IP for IOSXR
       set_fact:
         __ssh_ip: "{{ hostvars[item].nodepool.private_ipv4 }}"
-      when: hostvars[item].ansible_network_os in ['iosxr']
+      when:
+      - "'ansible_network_os' in hostvars[item]"
+      - "hostvars[item].ansible_network_os in ['iosxr']"
       with_inventory_hostnames: appliance:openvswitch
 
     - name: Wait 300 seconds for port tcp/22 on appliance
@@ -51,7 +53,9 @@
     - name: Setup new inventory_hostvars
       set_fact:
         __inventory_hostvars: "{{ hostvars | replace(hostvars[item]['ansible_host'], hostvars[item]['nodepool']['private_ipv4']) }}"
-      when: hostvars[item].ansible_network_os in ['iosxr']
+      when:
+      - "'ansible_network_os' in hostvars[item]"
+      - "hostvars[item].ansible_network_os in ['iosxr']"
       with_inventory_hostnames: appliance:openvswitch
 
     - name: Run write-inventory-fork role

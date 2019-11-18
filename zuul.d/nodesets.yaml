@@ -479,3 +479,28 @@
       - name: controller
         nodes:
           - ubuntu-bionic
+
+- nodeset:
+    name: vmware-python37
+    nodes:
+      - name: fedora-30
+        label: fedora-30-1vcpu
+      - name: vcenter
+        label: vmware-vcsa-6.7.0
+      # - name: esxi1
+      #   label: esxi-6.7.0-20190802001-STANDARD-1vcpu
+      # - name: esxi2
+      #   label: esxi-6.7.0-20190802001-STANDARD-1vcpu
+    groups:
+      - name: appliance
+        nodes:
+          - vcenter
+          # - vcenter
+          # - esxi1
+          # - esxi2
+      - name: vcenters
+        nodes:
+          - vcenter
+      - name: controller
+        nodes:
+          - fedora-30

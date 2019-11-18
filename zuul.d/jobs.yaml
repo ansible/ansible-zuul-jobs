@@ -494,3 +494,36 @@
     nodeset: vyos-1.1.8-python38
     vars:
       ansible_test_python: 3.8
+
+# VMware
+- job:
+    name: ansible-network-vmware-appliance
+    parent: ansible-network-appliance-base
+    pre-run: playbooks/ansible-network-vmware-appliance/pre.yaml
+    run: playbooks/ansible-network-vmware-appliance/run.yaml
+    required-projects:
+      - name: github.com/ansible/ansible-zuul-jobs
+    nodeset: vmware-python37
+    attempts: 1
+
+- job:
+    name: ansible-test-network-integration-vmware
+    abstract: true
+    parent: ansible-network-vmware-appliance
+    pre-run: playbooks/ansible-test-network-integration-base/pre.yaml
+    run: playbooks/ansible-test-network-integration-base/run.yaml
+    post-run: playbooks/ansible-test-network-integration-base/post.yaml
+    required-projects:
+      - name: github.com/ansible/ansible
+    timeout: 7200
+    attempts: 1
+
+- job:
+    name: ansible-test-network-integration-vmware-python37
+    parent: ansible-test-network-integration-vmware
+    pre-run: playbooks/ansible-network-vmware-appliance/pre.yaml
+    run: playbooks/ansible-network-vmware-appliance/run.yaml
+    required-projects:
+      - name: github.com/ansible/ansible-zuul-jobs
+    nodeset: vmware-python37
+    attempts: 1

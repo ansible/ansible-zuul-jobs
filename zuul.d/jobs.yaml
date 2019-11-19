@@ -140,6 +140,7 @@
     required-projects:
       - name: github.com/ansible/ansible
       - name: github.com/ansible-network/ansible_collections.network.cli
+      - name: github.com/ansible-network/releases
     timeout: 9000
     vars:
       ansible_test_network_integration: eos
@@ -189,6 +190,7 @@
     required-projects:
       - name: github.com/ansible/ansible
       - name: github.com/ansible-network/ansible_collections.network.cli
+      - name: github.com/ansible-network/releases
     timeout: 9000
     vars:
       ansible_test_network_integration: ios
@@ -238,6 +240,7 @@
     required-projects:
       - name: github.com/ansible/ansible
       - name: github.com/ansible-network/ansible_collections.network.cli
+      - name: github.com/ansible-network/releases
     timeout: 9000
     vars:
       ansible_test_network_integration: iosxr
@@ -283,6 +286,7 @@
     required-projects:
       - name: github.com/ansible-network/ansible_collections.cisco.iosxr
       - name: github.com/ansible-network/ansible_collections.juniper.junos
+      - name: github.com/ansible-network/releases
     vars:
       ansible_test_network_integration: netconf
 
@@ -292,6 +296,7 @@
     required-projects:
       - name: github.com/ansible-network/ansible_collections.cisco.iosxr
       - name: github.com/ansible-network/ansible_collections.juniper.junos
+      - name: github.com/ansible-network/releases
     vars:
       ansible_test_network_integration: netconf
 
@@ -301,6 +306,7 @@
     required-projects:
       - name: github.com/ansible-network/ansible_collections.cisco.iosxr
       - name: github.com/ansible-network/ansible_collections.juniper.junos
+      - name: github.com/ansible-network/releases
     vars:
       ansible_test_network_integration: netconf
 
@@ -310,6 +316,7 @@
     required-projects:
       - name: github.com/ansible-network/ansible_collections.cisco.iosxr
       - name: github.com/ansible-network/ansible_collections.juniper.junos
+      - name: github.com/ansible-network/releases
     vars:
       ansible_test_network_integration: netconf
 
@@ -322,6 +329,7 @@
     required-projects:
       - name: github.com/ansible/ansible
       - name: github.com/ansible-network/ansible_collections.network.cli
+      - name: github.com/ansible-network/releases
     timeout: 9000
     vars:
       ansible_test_network_integration: junos
@@ -367,6 +375,7 @@
     required-projects:
       - name: github.com/ansible-network/ansible_collections.cisco.iosxr
       - name: github.com/ansible-network/ansible_collections.juniper.junos
+      - name: github.com/ansible-network/releases
     vars:
       ansible_test_network_integration: netconf
 
@@ -376,6 +385,7 @@
     required-projects:
       - name: github.com/ansible-network/ansible_collections.cisco.iosxr
       - name: github.com/ansible-network/ansible_collections.juniper.junos
+      - name: github.com/ansible-network/releases
     vars:
       ansible_test_network_integration: netconf
 
@@ -385,6 +395,7 @@
     required-projects:
       - name: github.com/ansible-network/ansible_collections.cisco.iosxr
       - name: github.com/ansible-network/ansible_collections.juniper.junos
+      - name: github.com/ansible-network/releases
     vars:
       ansible_test_network_integration: netconf
 
@@ -394,6 +405,7 @@
     required-projects:
       - name: github.com/ansible-network/ansible_collections.cisco.iosxr
       - name: github.com/ansible-network/ansible_collections.juniper.junos
+      - name: github.com/ansible-network/releases
     vars:
       ansible_test_network_integration: netconf
 
@@ -407,6 +419,7 @@
     required-projects:
       - name: github.com/ansible/ansible
       - name: github.com/ansible-network/ansible_collections.network.cli
+      - name: github.com/ansible-network/releases
     timeout: 3600
     vars:
       ansible_test_network_integration: openvswitch
@@ -456,6 +469,7 @@
     required-projects:
       - name: github.com/ansible/ansible
       - name: github.com/ansible-network/ansible_collections.network.cli
+      - name: github.com/ansible-network/releases
     timeout: 7200
     vars:
       ansible_test_network_integration: vyos

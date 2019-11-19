@@ -1125,6 +1125,14 @@
       jobs:
         - release-ansible-collection-galaxy:
             branches: master
+    pre-release:
+      jobs:
+        - release-ansible-collection-galaxy:
+            branches: master
+    release:
+      jobs:
+        - release-ansible-collection-galaxy:
+            branches: master
 
 - project-template:
     name: publish-to-galaxy
@@ -1133,12 +1141,24 @@
     post:
       jobs:
         - release-ansible-collection-galaxy
+    pre-release:
+      jobs:
+        - release-ansible-collection-galaxy
+    release:
+      jobs:
+        - release-ansible-collection-galaxy
 
 - project-template:
     name: publish-to-galaxy-dev
     description: |
       Publish an Ansible collection to Ansible Galaxy Dev
     post:
+      jobs:
+        - release-ansible-collection-galaxy-dev
+    post-release:
+      jobs:
+        - release-ansible-collection-galaxy-dev
+    release:
       jobs:
         - release-ansible-collection-galaxy-dev
 

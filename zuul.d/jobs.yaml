@@ -133,14 +133,16 @@
 
 - job:
     name: ansible-test-network-integration-eos
+    abstract: true
+    dependencies:
+      - name: build-ansible-collection
+        soft: true
     parent: ansible-network-eos-appliance
     pre-run: playbooks/ansible-test-network-integration-base/pre.yaml
     run: playbooks/ansible-test-network-integration-base/run.yaml
     post-run: playbooks/ansible-test-network-integration-base/post.yaml
     required-projects:
       - name: github.com/ansible/ansible
-      - name: github.com/ansible-network/ansible_collections.network.cli
-      - name: github.com/ansible-network/releases
     timeout: 9000
     vars:
       ansible_test_network_integration: eos
@@ -183,14 +185,15 @@
 - job:
     name: ansible-test-network-integration-ios
     abstract: true
+    dependencies:
+      - name: build-ansible-collection
+        soft: true
     parent: ansible-network-ios-appliance
     pre-run: playbooks/ansible-test-network-integration-base/pre.yaml
     run: playbooks/ansible-test-network-integration-base/run.yaml
     post-run: playbooks/ansible-test-network-integration-base/post.yaml
     required-projects:
       - name: github.com/ansible/ansible
-      - name: github.com/ansible-network/ansible_collections.network.cli
-      - name: github.com/ansible-network/releases
     timeout: 9000
     vars:
       ansible_test_network_integration: ios
@@ -233,14 +236,15 @@
 - job:
     name: ansible-test-network-integration-iosxr
     abstract: true
+    dependencies:
+      - name: build-ansible-collection
+        soft: true
     parent: ansible-network-iosxr-appliance
     pre-run: playbooks/ansible-test-network-integration-base/pre.yaml
     run: playbooks/ansible-test-network-integration-base/run.yaml
     post-run: playbooks/ansible-test-network-integration-base/post.yaml
     required-projects:
       - name: github.com/ansible/ansible
-      - name: github.com/ansible-network/ansible_collections.network.cli
-      - name: github.com/ansible-network/releases
     timeout: 9000
     vars:
       ansible_test_network_integration: iosxr
@@ -283,53 +287,39 @@
 - job:
     name: ansible-test-network-integration-iosxr-netconf-python27
     parent: ansible-test-network-integration-iosxr-python27
-    required-projects:
-      - name: github.com/ansible-network/ansible_collections.cisco.iosxr
-      - name: github.com/ansible-network/ansible_collections.juniper.junos
-      - name: github.com/ansible-network/releases
     vars:
       ansible_test_network_integration: netconf
 
 - job:
     name: ansible-test-network-integration-iosxr-netconf-python35
     parent: ansible-test-network-integration-iosxr-python35
-    required-projects:
-      - name: github.com/ansible-network/ansible_collections.cisco.iosxr
-      - name: github.com/ansible-network/ansible_collections.juniper.junos
-      - name: github.com/ansible-network/releases
     vars:
       ansible_test_network_integration: netconf
 
 - job:
     name: ansible-test-network-integration-iosxr-netconf-python36
     parent: ansible-test-network-integration-iosxr-python36
-    required-projects:
-      - name: github.com/ansible-network/ansible_collections.cisco.iosxr
-      - name: github.com/ansible-network/ansible_collections.juniper.junos
-      - name: github.com/ansible-network/releases
     vars:
       ansible_test_network_integration: netconf
 
 - job:
     name: ansible-test-network-integration-iosxr-netconf-python37
     parent: ansible-test-network-integration-iosxr-python37
-    required-projects:
-      - name: github.com/ansible-network/ansible_collections.cisco.iosxr
-      - name: github.com/ansible-network/ansible_collections.juniper.junos
-      - name: github.com/ansible-network/releases
     vars:
       ansible_test_network_integration: netconf
 
 - job:
     name: ansible-test-network-integration-junos
+    abstract: true
+    dependencies:
+      - name: build-ansible-collection
+        soft: true
     parent: ansible-network-junos-appliance
     pre-run: playbooks/ansible-test-network-integration-base/pre.yaml
     run: playbooks/ansible-test-network-integration-base/run.yaml
     post-run: playbooks/ansible-test-network-integration-base/post.yaml
     required-projects:
       - name: github.com/ansible/ansible
-      - name: github.com/ansible-network/ansible_collections.network.cli
-      - name: github.com/ansible-network/releases
     timeout: 9000
     vars:
       ansible_test_network_integration: junos
@@ -372,40 +362,24 @@
 - job:
     name: ansible-test-network-integration-junos-netconf-python27
     parent: ansible-test-network-integration-junos-python27
-    required-projects:
-      - name: github.com/ansible-network/ansible_collections.cisco.iosxr
-      - name: github.com/ansible-network/ansible_collections.juniper.junos
-      - name: github.com/ansible-network/releases
     vars:
       ansible_test_network_integration: netconf
 
 - job:
     name: ansible-test-network-integration-junos-netconf-python35
     parent: ansible-test-network-integration-junos-python35
-    required-projects:
-      - name: github.com/ansible-network/ansible_collections.cisco.iosxr
-      - name: github.com/ansible-network/ansible_collections.juniper.junos
-      - name: github.com/ansible-network/releases
     vars:
       ansible_test_network_integration: netconf
 
 - job:
     name: ansible-test-network-integration-junos-netconf-python36
     parent: ansible-test-network-integration-junos-python36
-    required-projects:
-      - name: github.com/ansible-network/ansible_collections.cisco.iosxr
-      - name: github.com/ansible-network/ansible_collections.juniper.junos
-      - name: github.com/ansible-network/releases
     vars:
       ansible_test_network_integration: netconf
 
 - job:
     name: ansible-test-network-integration-junos-netconf-python37
     parent: ansible-test-network-integration-junos-python37
-    required-projects:
-      - name: github.com/ansible-network/ansible_collections.cisco.iosxr
-      - name: github.com/ansible-network/ansible_collections.juniper.junos
-      - name: github.com/ansible-network/releases
     vars:
       ansible_test_network_integration: netconf
 
@@ -418,8 +392,6 @@
     post-run: playbooks/ansible-test-network-integration-base/post.yaml
     required-projects:
       - name: github.com/ansible/ansible
-      - name: github.com/ansible-network/ansible_collections.network.cli
-      - name: github.com/ansible-network/releases
     timeout: 3600
     vars:
       ansible_test_network_integration: openvswitch
@@ -462,14 +434,15 @@
 - job:
     name: ansible-test-network-integration-vyos
     abstract: true
+    dependencies:
+      - name: build-ansible-collection
+        soft: true
     parent: ansible-network-vyos-appliance
     pre-run: playbooks/ansible-test-network-integration-base/pre.yaml
     run: playbooks/ansible-test-network-integration-base/run.yaml
     post-run: playbooks/ansible-test-network-integration-base/post.yaml
     required-projects:
       - name: github.com/ansible/ansible
-      - name: github.com/ansible-network/ansible_collections.network.cli
-      - name: github.com/ansible-network/releases
     timeout: 7200
     vars:
       ansible_test_network_integration: vyos

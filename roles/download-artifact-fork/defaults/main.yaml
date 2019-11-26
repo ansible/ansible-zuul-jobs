@@ -1,0 +1,3 @@
+---
+download_artifact_query: "change={{ zuul.change }}&patchset={{ zuul.patchset }}&pipeline={{ download_artifact_pipeline }}&job_name={{ download_artifact_job }}"
+download_artifact_directory: "{{ zuul.executor.work_root }}"

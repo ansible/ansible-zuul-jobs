@@ -25,14 +25,6 @@
 
     - name: Setup testing for collections
       block:
-        - name: Setup tox role
-          include_role:
-            name: tox
-          vars:
-            tox_extra_args: -vv --notest
-            tox_install_siblings: false
-            zuul_work_dir: "{{ zuul.projects['github.com/ansible-network/releases'].src_dir }}"
-
         - name: Install jq
           become: true
           package:
@@ -45,25 +37,13 @@
         - name: network-integration.cfg
           shell: "cp {{ ansible_user_dir }}/{{ zuul.projects['github.com/ansible/ansible'].src_dir }}/test/integration/network-integration.cfg {{ ansible_user_dir }}/{{ zuul.project.src_dir }}/tests/integration/network-integration.cfg"
 
-        - name: Generate version number for ansible collection
-          args:
-            chdir: "{{ ansible_user_dir }}/{{ item.src_dir }}"
-          shell: "if test -f 'galaxy.yml'; then {{ ansible_user_dir }}/{{ zuul.projects['github.com/ansible-network/releases'].src_dir }}/.tox/venv/bin/generate-ansible-collection; fi"
-          with_items: "{{ zuul.projects.values() | list }}"
-
-        - name: Build require-project collection using ansible-galaxy
-          args:
-            chdir: "{{ ansible_user_dir }}/{{ item.src_dir }}"
-            executable: /bin/bash
-          shell: "if test -f 'galaxy.yml'; then source ~/venv/bin/activate; {{ ansible_user_dir }}/{{ zuul.projects['github.com/ansible/ansible'].src_dir }}/bin/ansible-galaxy collection build; fi"
-          with_items: "{{ zuul.projects.values() | list }}"
-
         - name: Install require-project collection using ansible-galaxy
           args:
-            chdir: "{{ ansible_user_dir }}/{{ item.src_dir }}"
+            chdir: "{{ ansible_user_dir }}/downloads"
             executable: /bin/bash
-          shell: "if test -f 'galaxy.yml'; then source ~/venv/bin/activate; {{ ansible_user_dir }}/{{ zuul.projects['github.com/ansible/ansible'].src_dir }}/bin/ansible-galaxy collection install -p ~/.ansible/collection *.tar.gz; fi"
-          with_items: "{{ zuul.projects.values() | list }}"
+          shell: "source ~/venv/bin/activate; {{ ansible_user_dir }}/{{ zuul.projects['github.com/ansible/ansible'].src_dir }}/bin/ansible-galaxy collection install -p ~/.ansible/collection {{ item.path | basename }}"
+          with_items: "{{ zuul.artifacts }}"
+          when: "metadata' in item and 'type' in item.metadata and (item.metadata.type == 'ansible_collection')"
 
         - name: Get collection namespace
           args:

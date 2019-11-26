@@ -1,5 +1,11 @@
 ---
+- name: Check if galaxy.yml exists
+  stat:
+    path: "{{ zuul_work_dir }}/galaxy.yml"
+  register: _st
+
 - name: Build an ansible collection
   args:
     chdir: "{{ zuul_work_dir }}"
-  command: "{{ ansible_galaxy_executable }} collection build --output-path {{ ansible_galaxy_output_path }} {{ ansible_galaxy_collection_path }}"
+  shell: "{{ ansible_galaxy_executable }} collection build --output-path {{ ansible_galaxy_output_path }} {{ ansible_galaxy_collection_path }}"
+  when: _st.stat.exists

@@ -1,0 +1,16 @@
+---
+- hosts: controller
+  tasks:
+    - name: Ensure sshpass is present
+      become: true
+      package:
+        name: sshpass
+        state: present
+
+    - name: Setup tox role
+      include_role:
+        name: tox
+      vars:
+        tox_extra_args: -- ansible-playbook -v playbooks/ansible-cloud/vsca-appliance/files/bootstrap.yaml
+        tox_install_siblings: false
+        zuul_work_dir: "{{ zuul.projects['github.com/ansible/ansible-zuul-jobs'].src_dir }}"

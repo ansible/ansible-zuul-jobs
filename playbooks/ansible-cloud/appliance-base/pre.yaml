@@ -1,0 +1,54 @@
+---
+- hosts: controller
+  tasks:
+    - name: Install binary dependencies
+      include_role:
+        name: bindep
+      vars:
+        bindep_dir: "{{ zuul.projects['github.com/ansible/ansible-zuul-jobs'].src_dir }}"
+
+    - name: Run test-setup role
+      include_role:
+        name: test-setup
+
+    - name: Set SSH interface IP for appliance
+      set_fact:
+        __ssh_ip: "{{ hostvars[item].ansible_host }}"
+      with_inventory_hostnames: appliance
+
+    - name: Wait 300 seconds for port tcp/22 on appliance
+      wait_for:
+        host: "{{ __ssh_ip }}"
+        port: 22
+        search_regex: SSH
+
+    - name: Ensure remote SSH host keys are known
+      shell: "ssh-keyscan {{ __ssh_ip }} >> ~/.ssh/known_hosts"
+
+    - name: Create /etc/ansible folder
+      become: true
+      file:
+        path: /etc/ansible
+        state: directory
+        mode: 0755
+
+    - name: Install ansible.cfg
+      template:
+        src: ansible.cfg.j2
+        dest: ~/.ansible.cfg
+        mode: 0644
+
+    - name: Setup new inventory_hostvars
+      set_fact:
+        __inventory_hostvars: "{{ hostvars }}"
+
+    - name: Run write-inventory-fork role
+      include_role:
+        name: write-inventory-fork
+        apply:
+          become: true
+      vars:
+        write_inventory_hostvars: "{{ __inventory_hostvars }}"
+        write_inventory_dest: /etc/ansible/hosts
+        write_inventory_exclude_hostvars:
+          - ansible_connection

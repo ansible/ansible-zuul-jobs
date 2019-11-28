@@ -129,7 +129,7 @@
         ansible_python_interpreter: python
     required-projects:
       - name: github.com/ansible/ansible-zuul-jobs
-    nodeset: vyos-1.1.8-python37
+    nodeset: vyos-1.1.8-python36
 
 - job:
     name: ansible-test-network-integration-eos

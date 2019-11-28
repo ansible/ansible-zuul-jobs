@@ -4,7 +4,7 @@
       - ansible-python-jobs
     check:
       jobs:
-        - ansible-cloud-vsca-appliance
+        - ansible-cloud-vcsa-appliance
         - ansible-network-eos-appliance
         - ansible-network-ios-appliance
         - ansible-network-iosxr-appliance
@@ -13,7 +13,7 @@
         - ansible-network-vyos-appliance
     gate:
       jobs:
-        - ansible-cloud-vsca-appliance
+        - ansible-cloud-vcsa-appliance
         - ansible-network-eos-appliance
         - ansible-network-ios-appliance
         - ansible-network-iosxr-appliance

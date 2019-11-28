@@ -4,6 +4,7 @@
     - name: Ensure sshpass is present
       become: true
       package:
+        enablerepo: epel
         name: sshpass
         state: present
 
@@ -11,6 +12,6 @@
       include_role:
         name: tox
       vars:
-        tox_extra_args: -- ansible-playbook -v playbooks/ansible-cloud/vsca-appliance/files/bootstrap.yaml
+        tox_extra_args: -- ansible-playbook -v playbooks/ansible-cloud/vcsa-appliance/files/bootstrap.yaml
         tox_install_siblings: false
         zuul_work_dir: "{{ zuul.projects['github.com/ansible/ansible-zuul-jobs'].src_dir }}"

@@ -5,10 +5,10 @@
     post-run: playbooks/ansible-cloud/appliance-base/post.yaml
 
 - job:
-    name: ansible-cloud-vsca-appliance
+    name: ansible-cloud-vcsa-appliance
     parent: ansible-cloud-appliance-base
-    pre-run: playbooks/ansible-cloud/vsca-appliance/pre.yaml
-    run: playbooks/ansible-cloud/vsca-appliance/run.yaml
+    pre-run: playbooks/ansible-cloud/vcsa-appliance/pre.yaml
+    run: playbooks/ansible-cloud/vcsa-appliance/run.yaml
     host-vars:
       vmware-vcsa-6.7.0:
         ansible_python_interpreter: python

@@ -33,8 +33,8 @@
 - nodeset:
     name: vmware-vcsa-6.7.0-python36
     nodes:
-      - name: ubuntu-bionic
-        label: ubuntu-bionic-1vcpu
+      - name: centos-8
+        label: centos-8-1vcpu
       - name: vmware-vcsa-6.7.0
         label: vmware-vcsa-6.7.0
     groups:
@@ -43,7 +43,7 @@
           - vmware-vcsa-6.7.0
       - name: controller
         nodes:
-          - ubuntu-bionic
+          - centos-8
 
 # Ansible network appliance nodesets
 - nodeset:

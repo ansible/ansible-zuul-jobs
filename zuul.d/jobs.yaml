@@ -75,9 +75,10 @@
       ios-15.6-2T:
         ansible_connection: network_cli
         ansible_network_os: ios
+        ansible_python_interpreter: python
     required-projects:
       - name: github.com/ansible/ansible-zuul-jobs
-    nodeset: ios-15.6-2T-python37
+    nodeset: ios-15.6-2T-python36
 
 - job:
     name: ansible-network-iosxr-appliance

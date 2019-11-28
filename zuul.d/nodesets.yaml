@@ -454,8 +454,8 @@
 - nodeset:
     name: vyos-1.1.8-python36
     nodes:
-      - name: ubuntu-bionic
-        label: ubuntu-bionic-1vcpu
+      - name: centos-8
+        label: centos-8-1vcpu
       - name: vyos-1.1.8
         label: vyos-1.1.8-1vcpu
     groups:
@@ -464,7 +464,7 @@
           - vyos-1.1.8
       - name: controller
         nodes:
-          - ubuntu-bionic
+          - centos-8
 
 - nodeset:
     name: vyos-1.1.8-python37

@@ -24,5 +24,7 @@
       no_log: true
 
     - name: Change zuul user password
-      shell: "echo -e 'zuul\n{{ __password }}\n{{ __password }}' | passwd zuul"
-      no_log: true
+      become: true
+      user:
+        name: zuul
+        password: "{{ __password | password_hash('sha512') }}"

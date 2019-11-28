@@ -15,3 +15,23 @@
     required-projects:
       - name: github.com/ansible/ansible-zuul-jobs
     nodeset: vmware-vcsa-6.7.0-python36
+
+- job:
+    name: ansible-test-cloud-integration-vcsa
+    abstract: true
+    parent: ansible-cloud-vcsa-appliance
+    pre-run: playbooks/ansible-test-cloud-integration-base/pre.yaml
+    run: playbooks/ansible-test-cloud-integration-base/run.yaml
+    post-run: playbooks/ansible-test-cloud-integration-base/post.yaml
+    required-projects:
+      - name: github.com/ansible/ansible
+    timeout: 3600
+
+- job:
+    name: ansible-test-cloud-integration-vcsa-python36
+    parent: ansible-test-cloud-integration-vcsa
+    nodeset: vmware-vcsa-6.7.0-python36
+    vars:
+      ansible_test_python: 3.6
+      ansible_test_integration_target: zuul/vmware/vcenter_only/
+    attempts: 1

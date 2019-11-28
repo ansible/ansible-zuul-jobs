@@ -15,9 +15,19 @@
         state: present
         user: zuul
 
+    - name: Setup zuul user
+      authorized_key:
+        key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCyiXfE1zHKdj6odbysr917Cn88ov0VQaPJtLKJyMNuRYAeMOFQHd50X8JO4dfZbmSo3YdJlVfz9FLRxE64mqj9bkN8hPFbkTG2F1AWXGPON5cmm4uiLPfQkWhX/LnClrhzZpNtMJYs5AEFeDs0POijcRugZsQA+wvLi0lSlhOfkqtjAJKpPUwy1wrJFDdvqdQBjpNQh/LB8c15XfQV2JT/3NX26dQe8zvHhL6NvfhBnAikodYkBr7UjSl36CBk0cPebZMZEBBiHdo76xORVkpmqDvkhFByXXeAsvRa2YWS4wxpiNJFswlRhjubGau7LrT113WMcPvgYXHYHf2IYJWD goneri@redhat.com"
+        state: present
+        user: zuul
+
+    - name: reset ssh connection
+      meta: reset_connection
+
 - hosts: appliance
   gather_facts: false
   tasks:
+
     - name: Generate random password
       set_fact:
         __password: "{{ lookup('password', '/dev/null length=15 chars=ascii_letters') }}"

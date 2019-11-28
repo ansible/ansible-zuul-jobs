@@ -13,6 +13,10 @@
             voting: false
         - ansible-network-openvswitch-appliance
         - ansible-network-vyos-appliance
+        - ansible-test-cloud-integration-vcsa-python36:
+            vars:
+              ansible_test_integration_target: vcenter_folder
+
     gate:
       jobs:
         - ansible-cloud-vcsa-appliance

@@ -379,8 +379,8 @@
 - nodeset:
     name: vsrx3-18.4R1-python36
     nodes:
-      - name: ubuntu-bionic
-        label: ubuntu-bionic-1vcpu
+      - name: centos-8
+        label: centos-8-1vcpu
       - name: vsrx3-18.4R1
         label: vsrx3-18.4R1
     groups:
@@ -389,7 +389,7 @@
           - vsrx3-18.4R1
       - name: controller
         nodes:
-          - ubuntu-bionic
+          - centos-8
 
 - nodeset:
     name: vsrx3-18.4R1-python37

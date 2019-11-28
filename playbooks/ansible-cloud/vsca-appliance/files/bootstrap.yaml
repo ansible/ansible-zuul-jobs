@@ -1,0 +1,28 @@
+---
+- hosts: appliance
+  gather_facts: false
+  vars:
+    ansible_password: zuul
+    ansible_user: zuul
+  tasks:
+    - name: lookup SSH public key
+      set_fact:
+        _ssh_key: "{{ lookup('file', '~/.ssh/id_rsa.pub') }}"
+
+    - name: Setup zuul user
+      authorized_key:
+        key: "{{ _ssh_key }}"
+        state: present
+        user: zuul
+
+- hosts: appliance
+  gather_facts: false
+  tasks:
+    - name: Generate random password
+      set_fact:
+        __password: "{{ lookup('password', '/dev/null length=15 chars=ascii_letters') }}"
+      no_log: true
+
+    - name: Change zuul user password
+      shell: "echo -e 'zuul\n{{ __password }}\n{{ __password }}' | passwd zuul"
+      no_log: true

@@ -29,6 +29,22 @@
       - name: fedora-30
         label: fedora-30-4vcpu
 
+# Ansible cloud appliance nodesets
+- nodeset:
+    name: vmware-vcsa-6.7.0-python36
+    nodes:
+      - name: ubuntu-bionic
+        label: ubuntu-bionic-1vcpu
+      - name: vmware-vcsa-6.7.0
+        label: vmware-vcsa-6.7.0
+    groups:
+      - name: appliance
+        nodes:
+          - vmware-vcsa-6.7.0
+      - name: controller
+        nodes:
+          - ubuntu-bionic
+
 # Ansible network appliance nodesets
 - nodeset:
     name: eos-4.20.10-python27

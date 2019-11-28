@@ -1,0 +1,17 @@
+---
+- job:
+    name: ansible-cloud-appliance-base
+    pre-run: playbooks/ansible-cloud/appliance-base/pre.yaml
+    post-run: playbooks/ansible-cloud/appliance-base/post.yaml
+
+- job:
+    name: ansible-cloud-vsca-appliance
+    parent: ansible-cloud-appliance-base
+    pre-run: playbooks/ansible-cloud/vsca-appliance/pre.yaml
+    run: playbooks/ansible-cloud/vsca-appliance/run.yaml
+    host-vars:
+      vmware-vcsa-6.7.0:
+        ansible_python_interpreter: python
+    required-projects:
+      - name: github.com/ansible/ansible-zuul-jobs
+    nodeset: vmware-vcsa-6.7.0-python36

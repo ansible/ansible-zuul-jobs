@@ -64,7 +64,7 @@
         ansible_python_interpreter: python
     required-projects:
       - name: github.com/ansible/ansible-zuul-jobs
-    nodeset: eos-4.20.10-python37
+    nodeset: eos-4.20.10-python36
 
 - job:
     name: ansible-network-ios-appliance

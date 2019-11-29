@@ -1,14 +1,21 @@
 ---
 - hosts: controller
-  gather_facts: false
   connection: local
   tasks:
+    - name: Install pexpect requirement
+      pip:
+        name: pexpect
+        executable: /usr/bin/pip3
+        extra_args: --user
+      when: ansible_python['version'].major == 3
+
     - name: Install python requirements
       pip:
         name:
           - paramiko
           - pexpect
         extra_args: --user
+      when: ansible_python['version'].major == 2
 
 - hosts: controller
   gather_facts: false

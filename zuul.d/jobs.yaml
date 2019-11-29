@@ -117,7 +117,7 @@
         ansible_network_os: openvswitch
     required-projects:
       - name: github.com/ansible/ansible-zuul-jobs
-    nodeset: openvswitch-2.9.0-python37
+    nodeset: openvswitch-2.9.0-python36
 
 - job:
     name: ansible-network-vyos-appliance

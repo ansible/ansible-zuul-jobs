@@ -9,6 +9,8 @@
         - ansible-network-ios-appliance
         - ansible-network-iosxr-appliance
         - ansible-network-junos-appliance
+        - ansible-network-nxos-appliance:
+            voting: false
         - ansible-network-openvswitch-appliance
         - ansible-network-vyos-appliance
     gate:

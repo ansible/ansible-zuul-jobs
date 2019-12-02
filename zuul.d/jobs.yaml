@@ -109,6 +109,20 @@
     nodeset: vsrx3-18.4R1-python36
 
 - job:
+    name: ansible-network-nxos-appliance
+    parent: ansible-network-appliance-base
+    pre-run: playbooks/ansible-network-nxos-appliance/pre.yaml
+    run: playbooks/ansible-network-nxos-appliance/run.yaml
+    host-vars:
+      nxos-7.0.3:
+        ansible_connection: network_cli
+        ansible_network_os: nxos
+        ansible_python_interpreter: python
+    required-projects:
+      - name: github.com/ansible/ansible-zuul-jobs
+    nodeset: nxos-7.0.3-python36
+
+- job:
     name: ansible-network-openvswitch-appliance
     parent: ansible-network-appliance-base
     pre-run: playbooks/ansible-network-openvswitch-appliance/pre.yaml

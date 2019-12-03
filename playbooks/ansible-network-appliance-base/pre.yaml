@@ -22,14 +22,25 @@
       when: hostvars[item].ansible_network_os in ['iosxr']
       with_inventory_hostnames: appliance:openvswitch
 
-    - name: Wait 300 seconds for port tcp/22 on appliance
+    - name: Set SSH interface port for appliance
+      set_fact:
+        __ssh_port: 22
+      with_inventory_hostnames: appliance:openvswitch
+
+    - name: Set SSH interface port for NXOS
+      set_fact:
+        __ssh_port: 8022
+      when: hostvars[item].ansible_network_os in ['nxos']
+      with_inventory_hostnames: appliance:openvswitch
+
+    - name: Wait 300 seconds for SSH port on appliance
       wait_for:
         host: "{{ __ssh_ip }}"
-        port: 22
+        port: "{{ __ssh_port }}"
         search_regex: SSH
 
     - name: Ensure remote SSH host keys are known
-      shell: "ssh-keyscan {{ __ssh_ip }} >> ~/.ssh/known_hosts"
+      shell: "ssh-keyscan -p {{ __ssh_port }} {{ __ssh_ip }} >> ~/.ssh/known_hosts"
 
     - name: Create /etc/ansible folder
       become: true

@@ -272,6 +272,21 @@
           - ubuntu-bionic
 
 - nodeset:
+    name: nxos-7.0.3-python36
+    nodes:
+      - name: ubuntu-bionic
+        label: ubuntu-bionic-rdocloud
+      - name: nxos-7.0.3
+        label: nxos-7.0.3
+    groups:
+      - name: appliance
+        nodes:
+          - nxos-7.0.3
+      - name: controller
+        nodes:
+          - ubuntu-bionic
+
+- nodeset:
     name: openvswitch-2.9.0-python27
     nodes:
       - name: ubuntu-bionic

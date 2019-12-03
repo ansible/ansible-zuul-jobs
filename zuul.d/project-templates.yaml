@@ -998,6 +998,24 @@
               - ^test/integration/targets/junos_.*
               - ^test/integration/targets/netconf_.*
               - ^test/integration/targets/prepare_junos_tests/.*
+        - ansible-test-network-integration-nxos-cli-python36:
+            branches:
+              - devel
+            files:
+              - ^lib/ansible/cli/scripts/ansible_connection_cli_stub.py
+              - ^lib/ansible/modules/network/cli/.*
+              - ^lib/ansible/modules/network/nxos/.*
+              - ^lib/ansible/module_utils/network/common/.*
+              - ^lib/ansible/module_utils/network/nxos/.*
+              - ^lib/ansible/plugins/action/nxos.*
+              - ^lib/ansible/plugins/cliconf/nxos.py
+              - ^lib/ansible/plugins/connection/local.py
+              - ^lib/ansible/plugins/connection/network_cli.py
+              - ^lib/ansible/plugins/terminal/__init__.py
+              - ^lib/ansible/plugins/terminal/nxos.py
+              - ^test/integration/targets/nxos_.*
+              - ^test/integration/targets/prepare_nxos_tests/.*
+            voting: false
         - ansible-test-network-integration-openvswitch-python27:
             branches:
               - devel

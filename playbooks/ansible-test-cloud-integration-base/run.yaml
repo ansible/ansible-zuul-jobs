@@ -27,6 +27,6 @@
       args:
         chdir: "{{ _test_location }}"
         executable: /bin/bash
-      shell: "source ~/venv/bin/activate; {{ ansible_user_dir }}/{{ zuul.projects['github.com/ansible/ansible'].src_dir }}/bin/ansible-test integration {{ _test_options }} --python {{ ansible_test_python }} -vvvv {{ ansible_test_integration_target }}"
+      shell: "source ~/venv/bin/activate; {{ ansible_user_dir }}/{{ zuul.projects['github.com/ansible/ansible'].src_dir }}/bin/ansible-test integration {{ _test_options }} --python {{ ansible_test_python }} -vvvv {{ ansible_test_integration_targets }}"
       environment:
         VMWARE_TEST_PLATFORM: static

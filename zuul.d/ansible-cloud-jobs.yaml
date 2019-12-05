@@ -33,5 +33,4 @@
     nodeset: vmware-vcsa-6.7.0-python36
     vars:
       ansible_test_python: 3.6
-      ansible_test_integration_target: zuul/vmware/vcenter_only/
-    attempts: 1
+      ansible_test_integration_targets: zuul/vmware/vcenter_only/

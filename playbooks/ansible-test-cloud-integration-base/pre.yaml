@@ -15,7 +15,7 @@
 
     - name: Enable --system-site-packages for virtualenv_options
       set_fact:
-        _virtualenv_options: "{{ _virtualenv_options }} --system-site-packages"
+        _virtualenv_options: "{{ _virtualenv_options }}"
       when: ansible_os_family == "RedHat"
 
     - name: Create virtualenv for ansible-test
@@ -23,10 +23,6 @@
 
     - name: Install ara into virtuelenv
       shell: ~/venv/bin/pip install "ara<1.0.0"
-
-    - name: Upgrade six for vap-runtime (workaround)
-      shell: ~/venv/bin/pip install --upgrade "six>=1.12"
-
 
     - name: Install ansible into virtuelenv
       shell: "~/venv/bin/pip install {{ ansible_user_dir }}/{{ zuul.projects['github.com/ansible/ansible'].src_dir }}"

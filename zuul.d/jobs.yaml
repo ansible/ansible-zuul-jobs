@@ -155,13 +155,16 @@
       - name: build-ansible-collection
         soft: true
     parent: ansible-network-eos-appliance
-    pre-run: playbooks/ansible-test-network-integration-base/pre.yaml
+    pre-run:
+      - playbooks/ansible-test-integration-base/pre.yaml
+      - playbooks/ansible-test-network-integration-base/pre.yaml
     run: playbooks/ansible-test-network-integration-base/run.yaml
     post-run: playbooks/ansible-test-integration-base/post.yaml
     required-projects:
       - name: github.com/ansible/ansible
     timeout: 9000
     vars:
+      ansible_test_command: network-integration
       ansible_test_integration_targets: "eos_.*"
 
 - job:
@@ -206,13 +209,16 @@
       - name: build-ansible-collection
         soft: true
     parent: ansible-network-ios-appliance
-    pre-run: playbooks/ansible-test-network-integration-base/pre.yaml
+    pre-run:
+      - playbooks/ansible-test-integration-base/pre.yaml
+      - playbooks/ansible-test-network-integration-base/pre.yaml
     run: playbooks/ansible-test-network-integration-base/run.yaml
     post-run: playbooks/ansible-test-integration-base/post.yaml
     required-projects:
       - name: github.com/ansible/ansible
     timeout: 9000
     vars:
+      ansible_test_command: network-integration
       ansible_test_integration_targets: "ios_.*"
 
 - job:
@@ -257,13 +263,16 @@
       - name: build-ansible-collection
         soft: true
     parent: ansible-network-iosxr-appliance
-    pre-run: playbooks/ansible-test-network-integration-base/pre.yaml
+    pre-run:
+      - playbooks/ansible-test-integration-base/pre.yaml
+      - playbooks/ansible-test-network-integration-base/pre.yaml
     run: playbooks/ansible-test-network-integration-base/run.yaml
     post-run: playbooks/ansible-test-integration-base/post.yaml
     required-projects:
       - name: github.com/ansible/ansible
     timeout: 9000
     vars:
+      ansible_test_command: network-integration
       ansible_test_integration_targets: "iosxr_.* netconf_.*"
 
 - job:
@@ -332,13 +341,16 @@
       - name: build-ansible-collection
         soft: true
     parent: ansible-network-junos-appliance
-    pre-run: playbooks/ansible-test-network-integration-base/pre.yaml
+    pre-run:
+      - playbooks/ansible-test-integration-base/pre.yaml
+      - playbooks/ansible-test-network-integration-base/pre.yaml
     run: playbooks/ansible-test-network-integration-base/run.yaml
     post-run: playbooks/ansible-test-integration-base/post.yaml
     required-projects:
       - name: github.com/ansible/ansible
     timeout: 9000
     vars:
+      ansible_test_command: network-integration
       ansible_test_integration_targets: "junos_.* netconf_.*"
 
 - job:
@@ -404,13 +416,16 @@
     name: ansible-test-network-integration-openvswitch
     abstract: true
     parent: ansible-network-openvswitch-appliance
-    pre-run: playbooks/ansible-test-network-integration-base/pre.yaml
+    pre-run:
+      - playbooks/ansible-test-integration-base/pre.yaml
+      - playbooks/ansible-test-network-integration-base/pre.yaml
     run: playbooks/ansible-test-network-integration-base/run.yaml
     post-run: playbooks/ansible-test-integration-base/post.yaml
     required-projects:
       - name: github.com/ansible/ansible
     timeout: 3600
     vars:
+      ansible_test_command: network-integration
       ansible_test_integration_targets: "openvswitch_.*"
 
 - job:
@@ -455,13 +470,16 @@
       - name: build-ansible-collection
         soft: true
     parent: ansible-network-vyos-appliance
-    pre-run: playbooks/ansible-test-network-integration-base/pre.yaml
+    pre-run:
+      - playbooks/ansible-test-integration-base/pre.yaml
+      - playbooks/ansible-test-network-integration-base/pre.yaml
     run: playbooks/ansible-test-network-integration-base/run.yaml
     post-run: playbooks/ansible-test-integration-base/post.yaml
     required-projects:
       - name: github.com/ansible/ansible
     timeout: 7200
     vars:
+      ansible_test_command: network-integration
       ansible_test_integration_targets: "vyos_.*"
 
 - job:

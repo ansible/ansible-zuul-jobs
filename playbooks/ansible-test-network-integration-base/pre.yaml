@@ -1,17 +1,6 @@
 ---
 - hosts: controller
   tasks:
-    - name: Add python38 support if needed
-      block:
-        - name: Ensure python3.8 is present
-          become: true
-          package:
-            name: python3.8-dev
-            state: present
-      when:
-        - ansible_os_family == "Debian"
-        - ansible_test_python is version('3.8', '==')
-
     - name: Select proper ansible_network_os
       set_fact:
         _network_os: "{{ hostvars[groups['appliance'][0]]['ansible_network_os'] }}"
@@ -40,42 +29,3 @@
         src: "inventory-{{ _network_os }}.j2"
         dest: ~/inventory
         mode: 0644
-
-    - name: Setup base virtualenv_options
-      set_fact:
-        _virtualenv_options: "--python python{{ ansible_test_python }}"
-
-    - name: Enable --system-site-packages for virtualenv_options
-      set_fact:
-        _virtualenv_options: "{{ _virtualenv_options }} --system-site-packages"
-      when: ansible_os_family == "RedHat"
-
-    - name: Create virtualenv for ansible-test
-      shell: "virtualenv {{ _virtualenv_options }} ~/venv"
-
-    - name: Install ara into virtuelenv
-      shell: ~/venv/bin/pip install "ara<1.0.0"
-
-    - name: Install ansible into virtuelenv
-      shell: "~/venv/bin/pip install {{ ansible_user_dir }}/{{ zuul.projects['github.com/ansible/ansible'].src_dir }}"
-
-    - name: Enable ARA callback plugin
-      ini_file:
-        path: "{{ ansible_user_dir }}/{{ zuul.projects['github.com/ansible/ansible'].src_dir }}/test/integration/network-integration.cfg"
-        section: defaults
-        option: callback_plugins
-        value: "{{ ansible_user_dir }}/venv/lib/python{{ ansible_test_python}}/site-packages/ara/plugins/callbacks"
-
-    - name: Enable persistent connection logging
-      ini_file:
-        path: "{{ ansible_user_dir }}/{{ zuul.projects['github.com/ansible/ansible'].src_dir }}/test/integration/network-integration.cfg"
-        section: persistent_connection
-        option: log_messages
-        value: true
-
-    - name: Set ansible log path
-      ini_file:
-        path: "{{ ansible_user_dir }}/{{ zuul.projects['github.com/ansible/ansible'].src_dir }}/test/integration/network-integration.cfg"
-        section: defaults
-        option: log_path
-        value: ~/ansible-debug.txt

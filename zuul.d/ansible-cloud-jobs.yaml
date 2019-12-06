@@ -20,12 +20,16 @@
     name: ansible-test-cloud-integration-vcsa
     abstract: true
     parent: ansible-cloud-vcsa-appliance
-    pre-run: playbooks/ansible-test-cloud-integration-base/pre.yaml
+    pre-run:
+      - playbooks/ansible-test-integration-base/pre.yaml
+      - playbooks/ansible-test-cloud-integration-base/pre.yaml
     run: playbooks/ansible-test-cloud-integration-base/run.yaml
     post-run: playbooks/ansible-test-integration-base/post.yaml
     required-projects:
       - name: github.com/ansible/ansible
     timeout: 3600
+    vars:
+      ansible_test_command: integration
 
 - job:
     name: ansible-test-cloud-integration-vcsa-python36

@@ -15,9 +15,13 @@
         state: present
         user: zuul
 
+    - name: reset ssh connection
+      meta: reset_connection
+
 - hosts: appliance
   gather_facts: false
   tasks:
+
     - name: Generate random password
       set_fact:
         __password: "{{ lookup('password', '/dev/null length=15 chars=ascii_letters') }}"

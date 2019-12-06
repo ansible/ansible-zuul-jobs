@@ -162,7 +162,7 @@
       - name: github.com/ansible/ansible
     timeout: 9000
     vars:
-      ansible_test_network_integration: eos
+      ansible_test_integration_targets: "eos_.*"
 
 - job:
     name: ansible-test-network-integration-eos-python27
@@ -213,7 +213,7 @@
       - name: github.com/ansible/ansible
     timeout: 9000
     vars:
-      ansible_test_network_integration: ios
+      ansible_test_integration_targets: "ios_.*"
 
 - job:
     name: ansible-test-network-integration-ios-python27
@@ -264,7 +264,7 @@
       - name: github.com/ansible/ansible
     timeout: 9000
     vars:
-      ansible_test_network_integration: iosxr
+      ansible_test_integration_targets: "iosxr_.* netconf_.*"
 
 - job:
     name: ansible-test-network-integration-iosxr-python27
@@ -305,25 +305,25 @@
     name: ansible-test-network-integration-iosxr-netconf-python27
     parent: ansible-test-network-integration-iosxr-python27
     vars:
-      ansible_test_network_integration: netconf
+      ansible_test_integration_targets: "netconf_.*"
 
 - job:
     name: ansible-test-network-integration-iosxr-netconf-python35
     parent: ansible-test-network-integration-iosxr-python35
     vars:
-      ansible_test_network_integration: netconf
+      ansible_test_integration_targets: "netconf_.*"
 
 - job:
     name: ansible-test-network-integration-iosxr-netconf-python36
     parent: ansible-test-network-integration-iosxr-python36
     vars:
-      ansible_test_network_integration: netconf
+      ansible_test_integration_targets: "netconf_.*"
 
 - job:
     name: ansible-test-network-integration-iosxr-netconf-python37
     parent: ansible-test-network-integration-iosxr-python37
     vars:
-      ansible_test_network_integration: netconf
+      ansible_test_integration_targets: "netconf_.*"
 
 - job:
     name: ansible-test-network-integration-junos
@@ -339,7 +339,7 @@
       - name: github.com/ansible/ansible
     timeout: 9000
     vars:
-      ansible_test_network_integration: junos
+      ansible_test_integration_targets: "junos_.* netconf_.*"
 
 - job:
     name: ansible-test-network-integration-junos-python27
@@ -380,25 +380,25 @@
     name: ansible-test-network-integration-junos-netconf-python27
     parent: ansible-test-network-integration-junos-python27
     vars:
-      ansible_test_network_integration: netconf
+      ansible_test_integration_targets: "netconf_.*"
 
 - job:
     name: ansible-test-network-integration-junos-netconf-python35
     parent: ansible-test-network-integration-junos-python35
     vars:
-      ansible_test_network_integration: netconf
+      ansible_test_integration_targets: "netconf_.*"
 
 - job:
     name: ansible-test-network-integration-junos-netconf-python36
     parent: ansible-test-network-integration-junos-python36
     vars:
-      ansible_test_network_integration: netconf
+      ansible_test_integration_targets: "netconf_.*"
 
 - job:
     name: ansible-test-network-integration-junos-netconf-python37
     parent: ansible-test-network-integration-junos-python37
     vars:
-      ansible_test_network_integration: netconf
+      ansible_test_integration_targets: "netconf_.*"
 
 - job:
     name: ansible-test-network-integration-openvswitch
@@ -411,7 +411,7 @@
       - name: github.com/ansible/ansible
     timeout: 3600
     vars:
-      ansible_test_network_integration: openvswitch
+      ansible_test_integration_targets: "openvswitch_.*"
 
 - job:
     name: ansible-test-network-integration-openvswitch-python27
@@ -462,7 +462,7 @@
       - name: github.com/ansible/ansible
     timeout: 7200
     vars:
-      ansible_test_network_integration: vyos
+      ansible_test_integration_targets: "vyos_.*"
 
 - job:
     name: ansible-test-network-integration-vyos-python27

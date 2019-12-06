@@ -14,15 +14,6 @@
         _test_options: "{{ _test_options }} --no-temp-workdir"
       when: zuul.projects['github.com/ansible/ansible'].checkout not in ["stable-2.6", "stable-2.7"]
 
-    - name: Setup base target for ansible-test
-      set_fact:
-        _target: "{{ ansible_test_network_integration }}_.*"
-
-    - name: Enable netconf_.* target for ansible-test
-      set_fact:
-        _target: "{{ _target }} netconf_.*"
-      when: ansible_test_network_integration in ["iosxr", "junos"]
-
     - name: Setup testing for collections
       block:
         - name: Setup download-artifact-fork role
@@ -64,10 +55,6 @@
           shell: cat galaxy.yml | ~/venv/bin/yq -y .name | tail -n +1 | head -1
           register: _collection_name
 
-        - name: Setup base target for ansible-test
-          set_fact:
-            _target: "{{ ansible_test_network_integration }}_.*"
-
         - name: Setup location of project
           set_fact:
             _test_location: "~/.ansible/collection/ansible_collections/{{ _collection_namespace.stdout }}/{{ _collection_name.stdout }}"
@@ -81,4 +68,4 @@
       args:
         chdir: "{{ _test_location }}"
         executable: /bin/bash
-      shell: "source ~/venv/bin/activate; {{ ansible_user_dir }}/{{ zuul.projects['github.com/ansible/ansible'].src_dir }}/bin/ansible-test network-integration {{ _test_options }} --python {{ ansible_test_python }} --inventory /home/zuul/inventory -vvvv {{ _target }}"
+      shell: "source ~/venv/bin/activate; {{ ansible_user_dir }}/{{ zuul.projects['github.com/ansible/ansible'].src_dir }}/bin/ansible-test network-integration {{ _test_options }} --python {{ ansible_test_python }} --inventory /home/zuul/inventory -vvvv {{ ansible_test_integration_targets }}"

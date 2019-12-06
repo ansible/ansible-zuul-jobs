@@ -59,13 +59,6 @@
     - name: Install ansible into virtuelenv
       shell: "~/venv/bin/pip install {{ ansible_user_dir }}/{{ zuul.projects['github.com/ansible/ansible'].src_dir }}"
 
-    - name: Enable ARA callback plugin
-      ini_file:
-        path: "{{ ansible_user_dir }}/{{ zuul.projects['github.com/ansible/ansible'].src_dir }}/test/integration/network-integration.cfg"
-        section: defaults
-        option: callback_plugins
-        value: "{{ ansible_user_dir }}/venv/lib/python{{ ansible_test_python}}/site-packages/ara/plugins/callbacks"
-
     - name: Enable persistent connection logging
       ini_file:
         path: "{{ ansible_user_dir }}/{{ zuul.projects['github.com/ansible/ansible'].src_dir }}/test/integration/network-integration.cfg"

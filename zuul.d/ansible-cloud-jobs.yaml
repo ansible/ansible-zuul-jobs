@@ -23,13 +23,15 @@
     pre-run:
       - playbooks/ansible-test-integration-base/pre.yaml
       - playbooks/ansible-test-cloud-integration-base/pre.yaml
-    run: playbooks/ansible-test-cloud-integration-base/run.yaml
+    run: playbooks/ansible-test-integration-base/run.yaml
     post-run: playbooks/ansible-test-integration-base/post.yaml
     required-projects:
       - name: github.com/ansible/ansible
     timeout: 3600
     vars:
       ansible_test_command: integration
+      ansible_test_environment:
+        VMWARE_TEST_PLATFORM: static
 
 - job:
     name: ansible-test-cloud-integration-vcsa-python36

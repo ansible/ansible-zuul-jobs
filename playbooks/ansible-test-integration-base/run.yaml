@@ -14,6 +14,11 @@
         _test_options: "{{ _test_options }} --no-temp-workdir"
       when: zuul.projects['github.com/ansible/ansible'].checkout not in ["stable-2.6", "stable-2.7"]
 
+    - name: Enable --inventory for network-integration
+      set_fact:
+        _test_options: "{{ _test_options }} --inventory /home/zuul/inventory"
+      when: ansible_test_command == 'network-integration'
+
     - name: Setup testing for collections
       block:
         - name: Setup download-artifact-fork role
@@ -59,8 +64,8 @@
           set_fact:
             _test_location: "~/.ansible/collection/ansible_collections/{{ _collection_namespace.stdout }}/{{ _collection_name.stdout }}"
 
-        - name: network-integration.cfg
-          shell: "cp {{ ansible_user_dir }}/{{ zuul.projects['github.com/ansible/ansible'].src_dir }}/test/integration/network-integration.cfg {{ _test_location }}/tests/integration/network-integration.cfg"
+        - name: Copy ansible.cfg to correct location
+          shell: "cp {{ ansible_user_dir }}/{{ zuul.projects['github.com/ansible/ansible'].src_dir }}/test/integration/{{ ansible_test_command }}.cfg {{ _test_location }}/tests/integration/{{ ansible_test_command }}.cfg"
 
       when: ansible_test_collections | default(False)
 
@@ -68,4 +73,5 @@
       args:
         chdir: "{{ _test_location }}"
         executable: /bin/bash
-      shell: "source ~/venv/bin/activate; {{ ansible_user_dir }}/{{ zuul.projects['github.com/ansible/ansible'].src_dir }}/bin/ansible-test network-integration {{ _test_options }} --python {{ ansible_test_python }} --inventory /home/zuul/inventory -vvvv {{ ansible_test_integration_targets }}"
+      environment: "{{ ansible_test_environment | default({}) }}"
+      shell: "source ~/venv/bin/activate; {{ ansible_user_dir }}/{{ zuul.projects['github.com/ansible/ansible'].src_dir }}/bin/ansible-test {{ ansible_test_command }} {{ _test_options }} --python {{ ansible_test_python }} -vvvv {{ ansible_test_integration_targets }}"

@@ -8,3 +8,12 @@
         tox_extra_args: "-vv -- ansible-playbook -v playbooks/ansible-test-cloud-integration-base/files/bootstrap-vcsa.yaml"
         tox_install_siblings: false
         zuul_work_dir: "{{ zuul.projects['github.com/ansible/ansible-zuul-jobs'].src_dir }}"
+
+    - copy:
+        content: |
+            [DEFAULT]
+            vcenter_username: administrator@vsphere.local
+            vcenter_password: !234AaAa56
+            vcenter_hostname: {{ hostvars['vmware-vcsa-6.7.0']['nodepool']['interface_ip']}}
+            vmware_validate_certs: false
+        dest: "{{ ansible_user_dir }}/{{ zuul.projects['github.com/ansible/ansible'].src_dir }}/test/integration/cloud-config-vcenter.ini"

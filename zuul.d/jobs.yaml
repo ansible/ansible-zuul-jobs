@@ -158,7 +158,7 @@
     pre-run:
       - playbooks/ansible-test-integration-base/pre.yaml
       - playbooks/ansible-test-network-integration-base/pre.yaml
-    run: playbooks/ansible-test-network-integration-base/run.yaml
+    run: playbooks/ansible-test-integration-base/run.yaml
     post-run: playbooks/ansible-test-integration-base/post.yaml
     required-projects:
       - name: github.com/ansible/ansible
@@ -212,7 +212,7 @@
     pre-run:
       - playbooks/ansible-test-integration-base/pre.yaml
       - playbooks/ansible-test-network-integration-base/pre.yaml
-    run: playbooks/ansible-test-network-integration-base/run.yaml
+    run: playbooks/ansible-test-integration-base/run.yaml
     post-run: playbooks/ansible-test-integration-base/post.yaml
     required-projects:
       - name: github.com/ansible/ansible
@@ -266,7 +266,7 @@
     pre-run:
       - playbooks/ansible-test-integration-base/pre.yaml
       - playbooks/ansible-test-network-integration-base/pre.yaml
-    run: playbooks/ansible-test-network-integration-base/run.yaml
+    run: playbooks/ansible-test-integration-base/run.yaml
     post-run: playbooks/ansible-test-integration-base/post.yaml
     required-projects:
       - name: github.com/ansible/ansible
@@ -344,7 +344,7 @@
     pre-run:
       - playbooks/ansible-test-integration-base/pre.yaml
       - playbooks/ansible-test-network-integration-base/pre.yaml
-    run: playbooks/ansible-test-network-integration-base/run.yaml
+    run: playbooks/ansible-test-integration-base/run.yaml
     post-run: playbooks/ansible-test-integration-base/post.yaml
     required-projects:
       - name: github.com/ansible/ansible
@@ -419,7 +419,7 @@
     pre-run:
       - playbooks/ansible-test-integration-base/pre.yaml
       - playbooks/ansible-test-network-integration-base/pre.yaml
-    run: playbooks/ansible-test-network-integration-base/run.yaml
+    run: playbooks/ansible-test-integration-base/run.yaml
     post-run: playbooks/ansible-test-integration-base/post.yaml
     required-projects:
       - name: github.com/ansible/ansible
@@ -473,7 +473,7 @@
     pre-run:
       - playbooks/ansible-test-integration-base/pre.yaml
       - playbooks/ansible-test-network-integration-base/pre.yaml
-    run: playbooks/ansible-test-network-integration-base/run.yaml
+    run: playbooks/ansible-test-integration-base/run.yaml
     post-run: playbooks/ansible-test-integration-base/post.yaml
     required-projects:
       - name: github.com/ansible/ansible

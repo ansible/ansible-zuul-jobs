@@ -1023,7 +1023,7 @@
               - ^lib/ansible/plugins/terminal/vyos.py
               - ^test/integration/targets/vyos_.*
               - ^test/integration/targets/prepare_vyos_tests/.*
-        - ansible-test-cloud-integration-vcsa-python36:
+        - ansible-test-cloud-integration-vcenter_only-python36:
             branches:
               - devel
             files:

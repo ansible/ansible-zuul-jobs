@@ -40,3 +40,11 @@
     vars:
       ansible_test_python: 3.6
       ansible_test_integration_targets: zuul/vmware/vcenter_only/
+
+- job:
+    name: ansible-test-cloud-integration-1vcsa-1esxi-python36
+    parent: ansible-test-cloud-integration-vcsa
+    nodeset: vmware-1vcsa-1esxi-6.7.0-python36
+    vars:
+      ansible_test_python: 3.6
+      ansible_test_integration_targets: zuul/vmware/vcenter_only/

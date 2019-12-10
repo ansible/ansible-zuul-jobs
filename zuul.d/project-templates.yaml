@@ -4,11 +4,11 @@
     description: |
       A common set of python jobs to run.
     check:
-      jobs:
-        - ansible-tox-linters
+      jobs: []
+      #- ansible-tox-linters
     gate:
-      jobs:
-        - ansible-tox-linters
+      jobs: []
+      #- ansible-tox-linters
 
 - project-template:
     name: ansible-python3-jobs

@@ -4,15 +4,16 @@
       - ansible-python-jobs
     check:
       jobs:
-        - ansible-cloud-vcsa-appliance
-        - ansible-network-eos-appliance
-        - ansible-network-ios-appliance
-        - ansible-network-iosxr-appliance
-        - ansible-network-junos-appliance
-        - ansible-network-nxos-appliance:
-            voting: false
-        - ansible-network-openvswitch-appliance
-        - ansible-network-vyos-appliance
+        # - ansible-cloud-vcsa-appliance
+        # - ansible-network-eos-appliance
+        # - ansible-network-ios-appliance
+        # - ansible-network-iosxr-appliance
+        # - ansible-network-junos-appliance
+        # - ansible-network-nxos-appliance:
+        #     voting: false
+        # - ansible-network-openvswitch-appliance
+        # - ansible-network-vyos-appliance
+        - ansible-test-cloud-integration-1vcsa-1esxi-python36
     gate:
       jobs:
         - ansible-cloud-vcsa-appliance

@@ -28,12 +28,48 @@
     name: ansible-collections-arista-eos
     check:
       jobs:
+        - ansible-test-network-integration-eos-python27:
+            vars:
+              ansible_test_collections: true
+        - ansible-test-network-integration-eos-python35:
+            vars:
+              ansible_test_collections: true
+        - ansible-test-network-integration-eos-python36:
+            vars:
+              ansible_test_collections: true
+        - ansible-test-network-integration-eos-python37:
+            vars:
+              ansible_test_collections: true
+        - ansible-test-network-integration-eos-python38:
+            branches:
+              - devel
+              - master
+            vars:
+              ansible_test_collections: true
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-network/ansible_collections.network.cli
     gate:
       queue: integrated
       jobs:
+        - ansible-test-network-integration-eos-python27:
+            vars:
+              ansible_test_collections: true
+        - ansible-test-network-integration-eos-python35:
+            vars:
+              ansible_test_collections: true
+        - ansible-test-network-integration-eos-python36:
+            vars:
+              ansible_test_collections: true
+        - ansible-test-network-integration-eos-python37:
+            vars:
+              ansible_test_collections: true
+        - ansible-test-network-integration-eos-python38:
+            branches:
+              - devel
+              - master
+            vars:
+              ansible_test_collections: true
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-network/ansible_collections.network.cli

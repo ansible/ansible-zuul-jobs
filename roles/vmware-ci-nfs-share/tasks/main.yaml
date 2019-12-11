@@ -1,0 +1,38 @@
+---
+- name: Prepare the NFS shares
+  file:
+    path: '{{ item }}'
+    state: directory
+    owner: '{{ vmware_ci_nfs_share_owner_uid }}'
+    group: '{{ vmware_ci_nfs_share_owner_gid }}'
+  with_items:
+    - /srv/share/vms
+    - /srv/share/isos
+  become: true
+
+- name: Download ISO
+  get_url:
+    url: '{{ item.url }}'
+    dest: '/srv/share/isos/{{ item.name }}'
+    mode: '0644'
+  with_items:
+    - name: fedora.iso
+      url: https://download.fedoraproject.org/pub/fedora/linux/releases/30/Workstation/x86_64/iso/Fedora-Workstation-Live-x86_64-30-1.2.iso
+    - name: centos.iso
+      url: http://isoredirect.centos.org/centos/8/isos/x86_64/CentOS-8-x86_64-1905-dvd1.iso
+
+- name: Install nfs-utils
+  package:
+    name: nfs-utils
+    state: latest
+  become: true
+  notify:
+    - Restart nfs-server
+
+- name: Prepare the /etc/exports file
+  template:
+    src: exports.j2
+    dest: /etc/exports
+  become: true
+  notify:
+    - Restart nfs-server

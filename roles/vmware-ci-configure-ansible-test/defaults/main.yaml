@@ -1,0 +1,2 @@
+---
+vmware_ci_set_passwords_secret_dir: /tmp

@@ -1,0 +1,31 @@
+---
+- setup:
+    gather_subset: '!all'
+
+- copy:
+    content: |
+      127.0.0.1 localhost
+      ::1 localhost
+      {% for host in ['datastore', 'esxi1', 'esxi2', 'esxi3', 'vcenter'] %}
+      {% if host in vmware_ci_write_etc_hosts_mapping and vmware_ci_write_etc_hosts_mapping[host] %}
+      {{ vmware_ci_write_etc_hosts_mapping[host] }} {{ host }}.test {{ host }}
+
+      {% endif %}
+      {% endfor %}
+    dest: /etc/hosts
+  register: etc_hosts_result
+  notify: reboot vcenter
+  become: "{{ ansible_system != 'VMkernel' }}"
+
+- when: ansible_hostname != inventory_hostname
+  block:
+    - name: set the correct ESXi hostname
+      command: "esxcli system hostname set --fqdn={{ inventory_hostname }}.test"
+      when: inventory_hostname.startswith("esxi")
+
+    - name: set the vCenter hostname
+      command: "hostnamectl set-hostname {{ inventory_hostname }}.test"
+      notify: reboot vcenter
+      when: inventory_hostname == 'vcenter'
+
+- meta: flush_handlers

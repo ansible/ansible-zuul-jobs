@@ -1,6 +1,9 @@
 ---
+
 - hosts: controller
+  gather_facts: false
   tasks:
+
     - name: Setup tox role
       include_role:
         name: tox
@@ -9,11 +12,27 @@
         tox_install_siblings: false
         zuul_work_dir: "{{ zuul.projects['github.com/ansible/ansible-zuul-jobs'].src_dir }}"
 
-    - copy:
-        content: |
-            [DEFAULT]
-            vcenter_username: administrator@vsphere.local
-            vcenter_password: !234AaAa56
-            vcenter_hostname: {{ hostvars['vcenter']['nodepool']['interface_ip']}}
-            vmware_validate_certs: false
-        dest: "{{ ansible_user_dir }}/{{ zuul.projects['github.com/ansible/ansible'].src_dir }}/test/integration/cloud-config-vcenter.ini"
+    - import_role:
+        name: vmware-ci-nfs-share
+      vars:
+        vmware_ci_nfs_share_allow_ips:
+          - "{{ hostvars['esxi1']['nodepool']['interface_ip'] }}"
+      when: "'esxi1' in hostvars"
+
+    - import_role:
+        name: vmware-ci-configure-ansible-test
+      vars:
+        vmware_ci_configure_ansible_test_ansible_path: "{{ ansible_user_dir }}/{{ zuul.projects['github.com/ansible/ansible'].src_dir }}"
+        vmware_ci_set_passwords_secret_dir: '{{ zuul.executor.work_root }}'
+
+    - name: "wait for the vcenter service"
+      uri:
+        url: "https://vcenter.test"
+        validate_certs: false
+        return_content: true
+      register: result
+      until:
+        - "result.status == 200"
+        - "'vmc-documentation-link' in result.content"
+      retries: 100
+      delay: 5

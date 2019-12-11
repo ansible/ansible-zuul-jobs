@@ -33,6 +33,11 @@
         _test_options: "{{ _test_options }} --inventory /home/zuul/inventory"
       when: ansible_test_command == 'network-integration'
 
+    - name: Enable --retry-on-error
+      set_fact:
+        _test_options: "{{ _test_options }} --retry-on-error"
+      when: ansible_test_retry_on_error | default(False)
+
     - name: Setup testing for collections
       block:
         - name: Setup download-artifact-fork role

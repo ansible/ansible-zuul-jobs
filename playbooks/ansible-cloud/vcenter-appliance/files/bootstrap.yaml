@@ -4,7 +4,12 @@
   vars:
     ansible_password: zuul
     ansible_user: zuul
+    authorized_keys_file:
+      esxi1: /etc/ssh/keys-zuul/authorized_keys
+      esxi2: /etc/ssh/keys-zuul/authorized_keys
+      vcenter: /home/zuul/.ssh/authorized_keys
   tasks:
+
     - name: lookup SSH public key
       set_fact:
         _ssh_key: "{{ lookup('file', '~/.ssh/id_rsa.pub') }}"
@@ -14,6 +19,7 @@
         key: "{{ _ssh_key }}"
         state: present
         user: zuul
+        path: "{{ authorized_keys_file[inventory_hostname] }}"
 
     - name: reset ssh connection
       meta: reset_connection
@@ -24,29 +30,17 @@
 
     - name: Generate random password
       set_fact:
-        __password: "{{ lookup('password', '/dev/null length=15 chars=ascii_letters') }}"
+        __password: "{{ lookup('password', '/dev/null length=15 chars=ascii_letters,digits,hexdigits') }}"
       no_log: true
 
-    - name: Change zuul user password
+    - name: Change zuul user password (vcenter)
       become: true
       user:
         name: zuul
         password: "{{ __password | password_hash('sha512') }}"
+      when: inventory_hostname == "vcenter"
 
-- hosts: vcenter
-  gather_facts: false
-  tasks:
-    # NOTE(Gonéri): ok, some explanations here. We can set the hostname of the vcenter node
-    # during the installation, and we can hardly change it after. So we configure the VM
-    # to use dnsmasq internally and use /etc/hosts as a source of trust.
-    # Also, the hostname has to be in the format $hostname.$domain. In addition, some services
-    # use the reverse DNS resolution to know the public IP of the node. So we cannot just go
-    # with "vcenter.test==127.0.0.1", this won't work.
-    - name: Write the /etc/hosts file
-      copy:
-        content: |
-          127.0.0.1  localhost
-          ::1  localhost ipv6-localhost ipv6-loopback
-          {{ hostvars['vcenter']['nodepool']['interface_ip']}} vcenter.test vcenter
-        dest: /etc/hosts
-      become: true
+    - name: Change zuul user password (ESXi)
+      shell: "echo {{ __password }} | passwd -s"
+      no_log: true
+      when: inventory_hostname.startswith("esxi")

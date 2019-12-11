@@ -11,19 +11,9 @@
       include_role:
         name: test-setup
 
-    - name: Set SSH interface IP for appliance
-      set_fact:
-        __ssh_ip: "{{ hostvars[item].ansible_host }}"
-      with_inventory_hostnames: appliance
-
-    - name: Wait 300 seconds for port tcp/22 on appliance
-      wait_for:
-        host: "{{ __ssh_ip }}"
-        port: 22
-        search_regex: SSH
-
     - name: Ensure remote SSH host keys are known
-      shell: "ssh-keyscan {{ __ssh_ip }} >> ~/.ssh/known_hosts"
+      shell: "ssh-keyscan {{hostvars[item].ansible_host }} >> ~/.ssh/known_hosts"
+      with_inventory_hostnames: appliance
 
     - name: Create /etc/ansible folder
       become: true

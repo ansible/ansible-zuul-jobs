@@ -1,0 +1,15 @@
+[DEFAULT]
+vcenter_username: administrator@vsphere.local
+vcenter_password: {{ lookup('file', '{{ zuul.executor.work_root }}/vcenter/tmp/vcenter_password.txt') }}
+vcenter_hostname: vcenter.test
+vmware_validate_certs: false
+{% if 'esxi1' in hostvars %}
+esxi1_username: zuul
+esxi1_hostname: esxi1.test
+esxi1_password: {{ lookup('file', '{{ zuul.executor.work_root }}/vcenter/tmp/esxi_password_zuul.txt') }}
+{% endif %}
+{% if 'esxi2' in hostvars %}
+esxi2_username: zuul
+esxi2_hostname: esxi2.test
+esxi2_password: {{ lookup('file', '{{ zuul.executor.work_root }}/vcenter/tmp/esxi_password_zuul.txt') }}
+{% endif %}

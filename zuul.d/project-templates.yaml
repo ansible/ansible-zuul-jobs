@@ -28,46 +28,12 @@
     name: ansible-collections-arista-eos
     check:
       jobs:
-        - ansible-test-network-integration-eos-python27:
-            vars:
-              ansible_test_collections: true
-        - ansible-test-network-integration-eos-python35:
-            vars:
-              ansible_test_collections: true
-        - ansible-test-network-integration-eos-python36:
-            vars:
-              ansible_test_collections: true
-        - ansible-test-network-integration-eos-python37:
-            vars:
-              ansible_test_collections: true
-        - ansible-test-network-integration-eos-python38:
-            branches:
-              - devel
-            vars:
-              ansible_test_collections: true
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-network/ansible_collections.network.cli
     gate:
       queue: integrated
       jobs:
-        - ansible-test-network-integration-eos-python27:
-            vars:
-              ansible_test_collections: true
-        - ansible-test-network-integration-eos-python35:
-            vars:
-              ansible_test_collections: true
-        - ansible-test-network-integration-eos-python36:
-            vars:
-              ansible_test_collections: true
-        - ansible-test-network-integration-eos-python37:
-            vars:
-              ansible_test_collections: true
-        - ansible-test-network-integration-eos-python38:
-            branches:
-              - devel
-            vars:
-              ansible_test_collections: true
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-network/ansible_collections.network.cli
@@ -76,46 +42,12 @@
     name: ansible-collections-cisco-ios
     check:
       jobs:
-        - ansible-test-network-integration-ios-python27:
-            vars:
-              ansible_test_collections: true
-        - ansible-test-network-integration-ios-python35:
-            vars:
-              ansible_test_collections: true
-        - ansible-test-network-integration-ios-python36:
-            vars:
-              ansible_test_collections: true
-        - ansible-test-network-integration-ios-python37:
-            vars:
-              ansible_test_collections: true
-        - ansible-test-network-integration-ios-python38:
-            branches:
-              - devel
-            vars:
-              ansible_test_collections: true
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-network/ansible_collections.network.cli
     gate:
       queue: integrated
       jobs:
-        - ansible-test-network-integration-ios-python27:
-            vars:
-              ansible_test_collections: true
-        - ansible-test-network-integration-ios-python35:
-            vars:
-              ansible_test_collections: true
-        - ansible-test-network-integration-ios-python36:
-            vars:
-              ansible_test_collections: true
-        - ansible-test-network-integration-ios-python37:
-            vars:
-              ansible_test_collections: true
-        - ansible-test-network-integration-ios-python38:
-            branches:
-              - devel
-            vars:
-              ansible_test_collections: true
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-network/ansible_collections.network.cli
@@ -124,28 +56,6 @@
     name: ansible-collections-cisco-iosxr
     check:
       jobs:
-        - ansible-test-network-integration-iosxr-python27:
-            vars:
-              ansible_test_collections: true
-            voting: false
-        - ansible-test-network-integration-iosxr-python35:
-            vars:
-              ansible_test_collections: true
-            voting: false
-        - ansible-test-network-integration-iosxr-python36:
-            vars:
-              ansible_test_collections: true
-            voting: false
-        - ansible-test-network-integration-iosxr-python37:
-            vars:
-              ansible_test_collections: true
-            voting: false
-        - ansible-test-network-integration-iosxr-python38:
-            branches:
-              - devel
-            vars:
-              ansible_test_collections: true
-            voting: false
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-network/ansible_collections.network.cli
@@ -160,22 +70,6 @@
     name: ansible-collections-cisco-iosxr-netconf
     check:
       jobs:
-        - ansible-test-network-integration-iosxr-netconf-python27:
-            vars:
-              ansible_test_collections: true
-            voting: false
-        - ansible-test-network-integration-iosxr-netconf-python35:
-            vars:
-              ansible_test_collections: true
-            voting: false
-        - ansible-test-network-integration-iosxr-netconf-python36:
-            vars:
-              ansible_test_collections: true
-            voting: false
-        - ansible-test-network-integration-iosxr-netconf-python37:
-            vars:
-              ansible_test_collections: true
-            voting: false
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-network/ansible_collections.cisco.iosxr
@@ -192,46 +86,12 @@
     name: ansible-collections-juniper-junos
     check:
       jobs:
-        - ansible-test-network-integration-junos-python27:
-            vars:
-              ansible_test_collections: true
-        - ansible-test-network-integration-junos-python35:
-            vars:
-              ansible_test_collections: true
-        - ansible-test-network-integration-junos-python36:
-            vars:
-              ansible_test_collections: true
-        - ansible-test-network-integration-junos-python37:
-            vars:
-              ansible_test_collections: true
-        - ansible-test-network-integration-junos-python38:
-            branches:
-              - devel
-            vars:
-              ansible_test_collections: true
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-network/ansible_collections.network.cli
     gate:
       queue: integrated
       jobs:
-        - ansible-test-network-integration-junos-python27:
-            vars:
-              ansible_test_collections: true
-        - ansible-test-network-integration-junos-python35:
-            vars:
-              ansible_test_collections: true
-        - ansible-test-network-integration-junos-python36:
-            vars:
-              ansible_test_collections: true
-        - ansible-test-network-integration-junos-python37:
-            vars:
-              ansible_test_collections: true
-        - ansible-test-network-integration-junos-python38:
-            branches:
-              - devel
-            vars:
-              ansible_test_collections: true
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-network/ansible_collections.network.cli
@@ -240,18 +100,6 @@
     name: ansible-collections-juniper-junos-netconf
     check:
       jobs:
-        - ansible-test-network-integration-junos-netconf-python27:
-            vars:
-              ansible_test_collections: true
-        - ansible-test-network-integration-junos-netconf-python35:
-            vars:
-              ansible_test_collections: true
-        - ansible-test-network-integration-junos-netconf-python36:
-            vars:
-              ansible_test_collections: true
-        - ansible-test-network-integration-junos-netconf-python37:
-            vars:
-              ansible_test_collections: true
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-network/ansible_collections.juniper.junos
@@ -259,18 +107,6 @@
     gate:
       queue: integrated
       jobs:
-        - ansible-test-network-integration-junos-netconf-python27:
-            vars:
-              ansible_test_collections: true
-        - ansible-test-network-integration-junos-netconf-python35:
-            vars:
-              ansible_test_collections: true
-        - ansible-test-network-integration-junos-netconf-python36:
-            vars:
-              ansible_test_collections: true
-        - ansible-test-network-integration-junos-netconf-python37:
-            vars:
-              ansible_test_collections: true
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-network/ansible_collections.juniper.junos
@@ -280,46 +116,12 @@
     name: ansible-collections-vyos-vyos
     check:
       jobs:
-        - ansible-test-network-integration-vyos-python27:
-            vars:
-              ansible_test_collections: true
-        - ansible-test-network-integration-vyos-python35:
-            vars:
-              ansible_test_collections: true
-        - ansible-test-network-integration-vyos-python36:
-            vars:
-              ansible_test_collections: true
-        - ansible-test-network-integration-vyos-python37:
-            vars:
-              ansible_test_collections: true
-        - ansible-test-network-integration-vyos-python38:
-            branches:
-              - devel
-            vars:
-              ansible_test_collections: true
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-network/ansible_collections.network.cli
     gate:
       queue: integrated
       jobs:
-        - ansible-test-network-integration-vyos-python27:
-            vars:
-              ansible_test_collections: true
-        - ansible-test-network-integration-vyos-python35:
-            vars:
-              ansible_test_collections: true
-        - ansible-test-network-integration-vyos-python36:
-            vars:
-              ansible_test_collections: true
-        - ansible-test-network-integration-vyos-python37:
-            vars:
-              ansible_test_collections: true
-        - ansible-test-network-integration-vyos-python38:
-            branches:
-              - devel
-            vars:
-              ansible_test_collections: true
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-network/ansible_collections.network.cli

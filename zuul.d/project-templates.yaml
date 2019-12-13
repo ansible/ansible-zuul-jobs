@@ -30,13 +30,13 @@
       jobs:
         - build-ansible-collection:
             required-projects:
-              - name: github.com/ansible-network/ansible_collections.network.cli
+              - name: github.com/ansible-network/ansible_collections.ansible.netcommon
     gate:
       queue: integrated
       jobs:
         - build-ansible-collection:
             required-projects:
-              - name: github.com/ansible-network/ansible_collections.network.cli
+              - name: github.com/ansible-network/ansible_collections.ansible.netcommon
 
 - project-template:
     name: ansible-collections-cisco-ios
@@ -44,13 +44,13 @@
       jobs:
         - build-ansible-collection:
             required-projects:
-              - name: github.com/ansible-network/ansible_collections.network.cli
+              - name: github.com/ansible-network/ansible_collections.ansible.netcommon
     gate:
       queue: integrated
       jobs:
         - build-ansible-collection:
             required-projects:
-              - name: github.com/ansible-network/ansible_collections.network.cli
+              - name: github.com/ansible-network/ansible_collections.ansible.netcommon
 
 - project-template:
     name: ansible-collections-cisco-iosxr
@@ -58,13 +58,13 @@
       jobs:
         - build-ansible-collection:
             required-projects:
-              - name: github.com/ansible-network/ansible_collections.network.cli
+              - name: github.com/ansible-network/ansible_collections.ansible.netcommon
     gate:
       queue: integrated
       jobs:
         - build-ansible-collection:
             required-projects:
-              - name: github.com/ansible-network/ansible_collections.network.cli
+              - name: github.com/ansible-network/ansible_collections.ansible.netcommon
 
 - project-template:
     name: ansible-collections-cisco-iosxr-netconf
@@ -73,14 +73,14 @@
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-network/ansible_collections.cisco.iosxr
-              - name: github.com/ansible-network/ansible_collections.network.cli
+              - name: github.com/ansible-network/ansible_collections.ansible.netcommon
     gate:
       queue: integrated
       jobs:
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-network/ansible_collections.cisco.iosxr
-              - name: github.com/ansible-network/ansible_collections.network.cli
+              - name: github.com/ansible-network/ansible_collections.ansible.netcommon
 
 - project-template:
     name: ansible-collections-juniper-junos
@@ -88,13 +88,13 @@
       jobs:
         - build-ansible-collection:
             required-projects:
-              - name: github.com/ansible-network/ansible_collections.network.cli
+              - name: github.com/ansible-network/ansible_collections.ansible.netcommon
     gate:
       queue: integrated
       jobs:
         - build-ansible-collection:
             required-projects:
-              - name: github.com/ansible-network/ansible_collections.network.cli
+              - name: github.com/ansible-network/ansible_collections.ansible.netcommon
 
 - project-template:
     name: ansible-collections-juniper-junos-netconf
@@ -103,14 +103,14 @@
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-network/ansible_collections.juniper.junos
-              - name: github.com/ansible-network/ansible_collections.network.cli
+              - name: github.com/ansible-network/ansible_collections.ansible.netcommon
     gate:
       queue: integrated
       jobs:
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-network/ansible_collections.juniper.junos
-              - name: github.com/ansible-network/ansible_collections.network.cli
+              - name: github.com/ansible-network/ansible_collections.ansible.netcommon
 
 - project-template:
     name: ansible-collections-vyos-vyos
@@ -118,13 +118,13 @@
       jobs:
         - build-ansible-collection:
             required-projects:
-              - name: github.com/ansible-network/ansible_collections.network.cli
+              - name: github.com/ansible-network/ansible_collections.ansible.netcommon
     gate:
       queue: integrated
       jobs:
         - build-ansible-collection:
             required-projects:
-              - name: github.com/ansible-network/ansible_collections.network.cli
+              - name: github.com/ansible-network/ansible_collections.ansible.netcommon
 
 
 - project-template:

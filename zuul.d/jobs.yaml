@@ -162,6 +162,7 @@
     post-run: playbooks/ansible-test-integration-base/post.yaml
     required-projects:
       - name: github.com/ansible/ansible
+      - name: github.com/ansible-collection-migration/ansible-minimal
     timeout: 9000
     vars:
       ansible_test_command: network-integration
@@ -216,6 +217,7 @@
     post-run: playbooks/ansible-test-integration-base/post.yaml
     required-projects:
       - name: github.com/ansible/ansible
+      - name: github.com/ansible-collection-migration/ansible-minimal
     timeout: 9000
     vars:
       ansible_test_command: network-integration
@@ -270,6 +272,7 @@
     post-run: playbooks/ansible-test-integration-base/post.yaml
     required-projects:
       - name: github.com/ansible/ansible
+      - name: github.com/ansible-collection-migration/ansible-minimal
     timeout: 9000
     vars:
       ansible_test_command: network-integration
@@ -348,6 +351,7 @@
     post-run: playbooks/ansible-test-integration-base/post.yaml
     required-projects:
       - name: github.com/ansible/ansible
+      - name: github.com/ansible-collection-migration/ansible-minimal
     timeout: 9000
     vars:
       ansible_test_command: network-integration
@@ -426,6 +430,7 @@
     post-run: playbooks/ansible-test-integration-base/post.yaml
     required-projects:
       - name: github.com/ansible/ansible
+      - name: github.com/ansible-collection-migration/ansible-minimal
     timeout: 10800
     vars:
       ansible_test_command: network-integration
@@ -450,6 +455,7 @@
     post-run: playbooks/ansible-test-integration-base/post.yaml
     required-projects:
       - name: github.com/ansible/ansible
+      - name: github.com/ansible-collection-migration/ansible-minimal
     timeout: 3600
     vars:
       ansible_test_command: network-integration
@@ -504,6 +510,7 @@
     post-run: playbooks/ansible-test-integration-base/post.yaml
     required-projects:
       - name: github.com/ansible/ansible
+      - name: github.com/ansible-collection-migration/ansible-minimal
     timeout: 7200
     vars:
       ansible_test_command: network-integration

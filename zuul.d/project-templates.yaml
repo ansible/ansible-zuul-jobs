@@ -35,6 +35,29 @@
     name: ansible-collections-arista-eos
     check:
       jobs:
+        - ansible-test-network-integration-eos-python27:
+            vars:
+              ansible_test_collections: true
+            voting: false
+        - ansible-test-network-integration-eos-python35:
+            vars:
+              ansible_test_collections: true
+            voting: false
+        - ansible-test-network-integration-eos-python36:
+            vars:
+              ansible_test_collections: true
+            voting: false
+        - ansible-test-network-integration-eos-python37:
+            vars:
+              ansible_test_collections: true
+            voting: false
+        - ansible-test-network-integration-eos-python38:
+            branches:
+              - devel
+              - master
+            vars:
+              ansible_test_collections: true
+            voting: false
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-network/ansible_collections.ansible.netcommon
@@ -49,6 +72,29 @@
     name: ansible-collections-cisco-ios
     check:
       jobs:
+        - ansible-test-network-integration-ios-python27:
+            vars:
+              ansible_test_collections: true
+            voting: false
+        - ansible-test-network-integration-ios-python35:
+            vars:
+              ansible_test_collections: true
+            voting: false
+        - ansible-test-network-integration-ios-python36:
+            vars:
+              ansible_test_collections: true
+            voting: false
+        - ansible-test-network-integration-ios-python37:
+            vars:
+              ansible_test_collections: true
+            voting: false
+        - ansible-test-network-integration-ios-python38:
+            branches:
+              - devel
+              - master
+            vars:
+              ansible_test_collections: true
+            voting: false
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-network/ansible_collections.ansible.netcommon

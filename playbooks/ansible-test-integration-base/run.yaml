@@ -79,4 +79,4 @@
         chdir: "{{ _test_location }}"
         executable: /bin/bash
       environment: "{{ ansible_test_environment | default({}) }}"
-      shell: "source ~/venv/bin/activate; {{ ansible_user_dir }}/{{ zuul.projects['github.com/ansible/ansible'].src_dir }}/bin/ansible-test {{ ansible_test_command }} {{ _test_options }} --python {{ ansible_test_python }} -vvvv {{ ansible_test_integration_targets }}"
+      shell: "source ~/venv/bin/activate; ansible-test {{ ansible_test_command }} {{ _test_options }} --python {{ ansible_test_python }} -vvvv {{ ansible_test_integration_targets }}"

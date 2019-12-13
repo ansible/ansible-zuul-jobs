@@ -74,23 +74,7 @@
               - name: github.com/ansible-network/ansible_collections.ansible.netcommon
 
 - project-template:
-    name: ansible-collections-cisco-iosxr-netconf
-    check:
-      jobs:
-        - build-ansible-collection:
-            required-projects:
-              - name: github.com/ansible-network/ansible_collections.cisco.iosxr
-              - name: github.com/ansible-network/ansible_collections.ansible.netcommon
-    gate:
-      queue: integrated
-      jobs:
-        - build-ansible-collection:
-            required-projects:
-              - name: github.com/ansible-network/ansible_collections.cisco.iosxr
-              - name: github.com/ansible-network/ansible_collections.ansible.netcommon
-
-- project-template:
-    name: ansible-collections-juniper-junos
+    name: ansible-collections-junipernetworks-junos
     check:
       jobs:
         - build-ansible-collection:
@@ -101,22 +85,6 @@
       jobs:
         - build-ansible-collection:
             required-projects:
-              - name: github.com/ansible-network/ansible_collections.ansible.netcommon
-
-- project-template:
-    name: ansible-collections-juniper-junos-netconf
-    check:
-      jobs:
-        - build-ansible-collection:
-            required-projects:
-              - name: github.com/ansible-network/ansible_collections.juniper.junos
-              - name: github.com/ansible-network/ansible_collections.ansible.netcommon
-    gate:
-      queue: integrated
-      jobs:
-        - build-ansible-collection:
-            required-projects:
-              - name: github.com/ansible-network/ansible_collections.juniper.junos
               - name: github.com/ansible-network/ansible_collections.ansible.netcommon
 
 - project-template:

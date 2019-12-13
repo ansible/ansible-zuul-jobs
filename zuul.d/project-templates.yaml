@@ -1,5 +1,12 @@
 ---
 - project-template:
+    name: integrated-queue
+    description: |
+      Group projects together into a shared (integrated) change queue.
+    gate:
+      queue: integrated
+
+- project-template:
     name: ansible-python-jobs
     description: |
       A common set of python jobs to run.

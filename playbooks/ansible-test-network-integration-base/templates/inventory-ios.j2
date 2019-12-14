@@ -6,9 +6,9 @@ ios-15.6-2T ansible_port=22 ansible_host={{ hostvars['ios-15.6-2T'].ansible_host
 
 [ios:vars]
 ansible_become=true
-ansible_become_method=enable
-ansible_connection=network_cli
-ansible_network_os=ios
+ansible_become_method={% if ansible_test_collections is defined -%}ansible.netcommon.{%- endif %}enable
+ansible_connection={% if ansible_test_collections is defined -%}ansible.netcommon.{%- endif %}network_cli
+ansible_network_os={% if ansible_test_collections is defined -%}cisco.ios.{%- endif %}ios
 ansible_python_interpreter=/home/zuul/venv/bin/python
 cli={'authorize': true}
 debug=False

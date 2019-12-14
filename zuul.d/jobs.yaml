@@ -159,7 +159,9 @@
       - playbooks/ansible-test-integration-base/pre.yaml
       - playbooks/ansible-test-network-integration-base/pre.yaml
     run: playbooks/ansible-test-integration-base/run.yaml
-    post-run: playbooks/ansible-test-integration-base/post.yaml
+    post-run:
+      - playbooks/ansible-test-network-integration-base/post.yaml
+      - playbooks/ansible-test-integration-base/post.yaml
     required-projects:
       - name: github.com/ansible/ansible
     timeout: 9000
@@ -213,7 +215,9 @@
       - playbooks/ansible-test-integration-base/pre.yaml
       - playbooks/ansible-test-network-integration-base/pre.yaml
     run: playbooks/ansible-test-integration-base/run.yaml
-    post-run: playbooks/ansible-test-integration-base/post.yaml
+    post-run:
+      - playbooks/ansible-test-network-integration-base/post.yaml
+      - playbooks/ansible-test-integration-base/post.yaml
     required-projects:
       - name: github.com/ansible/ansible
     timeout: 9000
@@ -267,7 +271,9 @@
       - playbooks/ansible-test-integration-base/pre.yaml
       - playbooks/ansible-test-network-integration-base/pre.yaml
     run: playbooks/ansible-test-integration-base/run.yaml
-    post-run: playbooks/ansible-test-integration-base/post.yaml
+    post-run:
+      - playbooks/ansible-test-network-integration-base/post.yaml
+      - playbooks/ansible-test-integration-base/post.yaml
     required-projects:
       - name: github.com/ansible/ansible
     timeout: 9000
@@ -345,7 +351,9 @@
       - playbooks/ansible-test-integration-base/pre.yaml
       - playbooks/ansible-test-network-integration-base/pre.yaml
     run: playbooks/ansible-test-integration-base/run.yaml
-    post-run: playbooks/ansible-test-integration-base/post.yaml
+    post-run:
+      - playbooks/ansible-test-network-integration-base/post.yaml
+      - playbooks/ansible-test-integration-base/post.yaml
     required-projects:
       - name: github.com/ansible/ansible
     timeout: 9000
@@ -423,7 +431,9 @@
       - playbooks/ansible-test-integration-base/pre.yaml
       - playbooks/ansible-test-network-integration-base/pre.yaml
     run: playbooks/ansible-test-integration-base/run.yaml
-    post-run: playbooks/ansible-test-integration-base/post.yaml
+    post-run:
+      - playbooks/ansible-test-network-integration-base/post.yaml
+      - playbooks/ansible-test-integration-base/post.yaml
     required-projects:
       - name: github.com/ansible/ansible
     timeout: 10800
@@ -447,7 +457,9 @@
       - playbooks/ansible-test-integration-base/pre.yaml
       - playbooks/ansible-test-network-integration-base/pre.yaml
     run: playbooks/ansible-test-integration-base/run.yaml
-    post-run: playbooks/ansible-test-integration-base/post.yaml
+    post-run:
+      - playbooks/ansible-test-network-integration-base/post.yaml
+      - playbooks/ansible-test-integration-base/post.yaml
     required-projects:
       - name: github.com/ansible/ansible
     timeout: 3600
@@ -501,7 +513,9 @@
       - playbooks/ansible-test-integration-base/pre.yaml
       - playbooks/ansible-test-network-integration-base/pre.yaml
     run: playbooks/ansible-test-integration-base/run.yaml
-    post-run: playbooks/ansible-test-integration-base/post.yaml
+    post-run:
+      - playbooks/ansible-test-network-integration-base/post.yaml
+      - playbooks/ansible-test-integration-base/post.yaml
     required-projects:
       - name: github.com/ansible/ansible
     timeout: 7200

@@ -42,6 +42,14 @@
             download_artifact_directory: ~/downloads
             download_artifact_type:
               - ansible_collection
+              - python_sdist
+
+        - name: Install ansible-minimal
+          args:
+            chdir: "{{ ansible_user_dir }}/downloads"
+          shell: "~/venv/bin/pip install {{ item.url | basename }}"
+          with_items: "{{ zuul.artifacts }}"
+          when: "'metadata' in item and 'type' in item.metadata and (item.metadata.type == 'python_sdist')"
 
         - name: Install jq
           become: true

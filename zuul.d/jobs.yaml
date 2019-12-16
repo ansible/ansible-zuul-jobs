@@ -154,6 +154,8 @@
     dependencies:
       - name: build-ansible-collection
         soft: true
+      - name: build-ansible-minimal
+        soft: true
     parent: ansible-network-eos-appliance
     pre-run:
       - playbooks/ansible-test-integration-base/pre.yaml
@@ -164,7 +166,6 @@
       - playbooks/ansible-test-integration-base/post.yaml
     required-projects:
       - name: github.com/ansible/ansible
-      - name: github.com/ansible-collection-migration/ansible-minimal
     timeout: 9000
     vars:
       ansible_test_command: network-integration
@@ -211,6 +212,8 @@
     dependencies:
       - name: build-ansible-collection
         soft: true
+      - name: build-ansible-minimal
+        soft: true
     parent: ansible-network-ios-appliance
     pre-run:
       - playbooks/ansible-test-integration-base/pre.yaml
@@ -221,7 +224,6 @@
       - playbooks/ansible-test-integration-base/post.yaml
     required-projects:
       - name: github.com/ansible/ansible
-      - name: github.com/ansible-collection-migration/ansible-minimal
     timeout: 9000
     vars:
       ansible_test_command: network-integration
@@ -268,6 +270,8 @@
     dependencies:
       - name: build-ansible-collection
         soft: true
+      - name: build-ansible-minimal
+        soft: true
     parent: ansible-network-iosxr-appliance
     pre-run:
       - playbooks/ansible-test-integration-base/pre.yaml
@@ -278,7 +282,6 @@
       - playbooks/ansible-test-integration-base/post.yaml
     required-projects:
       - name: github.com/ansible/ansible
-      - name: github.com/ansible-collection-migration/ansible-minimal
     timeout: 9000
     vars:
       ansible_test_command: network-integration
@@ -349,6 +352,8 @@
     dependencies:
       - name: build-ansible-collection
         soft: true
+      - name: build-ansible-minimal
+        soft: true
     parent: ansible-network-junos-appliance
     pre-run:
       - playbooks/ansible-test-integration-base/pre.yaml
@@ -359,7 +364,6 @@
       - playbooks/ansible-test-integration-base/post.yaml
     required-projects:
       - name: github.com/ansible/ansible
-      - name: github.com/ansible-collection-migration/ansible-minimal
     timeout: 9000
     vars:
       ansible_test_command: network-integration
@@ -430,6 +434,8 @@
     dependencies:
       - name: build-ansible-collection
         soft: true
+      - name: build-ansible-minimal
+        soft: true
     parent: ansible-network-nxos-appliance
     pre-run:
       - playbooks/ansible-test-integration-base/pre.yaml
@@ -440,7 +446,6 @@
       - playbooks/ansible-test-integration-base/post.yaml
     required-projects:
       - name: github.com/ansible/ansible
-      - name: github.com/ansible-collection-migration/ansible-minimal
     timeout: 10800
     vars:
       ansible_test_command: network-integration
@@ -467,7 +472,6 @@
       - playbooks/ansible-test-integration-base/post.yaml
     required-projects:
       - name: github.com/ansible/ansible
-      - name: github.com/ansible-collection-migration/ansible-minimal
     timeout: 3600
     vars:
       ansible_test_command: network-integration
@@ -514,6 +518,8 @@
     dependencies:
       - name: build-ansible-collection
         soft: true
+      - name: build-ansible-minimal
+        soft: true
     parent: ansible-network-vyos-appliance
     pre-run:
       - playbooks/ansible-test-integration-base/pre.yaml
@@ -524,7 +530,6 @@
       - playbooks/ansible-test-integration-base/post.yaml
     required-projects:
       - name: github.com/ansible/ansible
-      - name: github.com/ansible-collection-migration/ansible-minimal
     timeout: 7200
     vars:
       ansible_test_command: network-integration

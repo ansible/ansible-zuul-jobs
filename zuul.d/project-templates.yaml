@@ -58,6 +58,7 @@
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-network/ansible_collections.ansible.netcommon
+        - build-ansible-minimal
     gate:
       queue: integrated
       jobs:
@@ -92,6 +93,7 @@
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-network/ansible_collections.ansible.netcommon
+        - build-ansible-minimal
     gate:
       queue: integrated
       jobs:

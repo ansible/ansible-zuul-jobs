@@ -27,10 +27,6 @@
       shell: ~/venv/bin/pip install "ara<1.0.0"
 
     - name: Install ansible into virtualenv
-      shell: "~/venv/bin/pip install {{ ansible_user_dir }}/{{ zuul.projects['github.com/ansible-collection-migration/ansible-minimal'].src_dir }}"
-      when: ansible_test_collections is defined
-
-    - name: Install ansible into virtualenv
       shell: "~/venv/bin/pip install {{ ansible_user_dir }}/{{ zuul.projects['github.com/ansible/ansible'].src_dir }}"
       when: ansible_test_collections is not defined
 

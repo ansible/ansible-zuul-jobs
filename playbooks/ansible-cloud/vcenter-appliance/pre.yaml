@@ -12,13 +12,13 @@
       include_role:
         name: tox
       vars:
-        tox_extra_args: -- ansible-playbook -v playbooks/ansible-cloud/vcsa-appliance/files/bootstrap.yaml
+        tox_extra_args: -- ansible-playbook -v playbooks/ansible-cloud/vcenter-appliance/files/bootstrap.yaml
         tox_install_siblings: false
         zuul_work_dir: "{{ zuul.projects['github.com/ansible/ansible-zuul-jobs'].src_dir }}"
 
     - name: "wait for the vcenter service"
       uri:
-        url: "https://{{ hostvars['vmware-vcsa-6.7.0']['nodepool']['interface_ip'] }}"
+        url: "https://{{ hostvars['vcenter']['nodepool']['interface_ip'] }}"
         validate_certs: false
         return_content: true
       register: result

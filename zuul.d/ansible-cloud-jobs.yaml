@@ -5,21 +5,21 @@
     post-run: playbooks/ansible-cloud/appliance-base/post.yaml
 
 - job:
-    name: ansible-cloud-vcsa-appliance
+    name: ansible-cloud-vcenter-appliance
     parent: ansible-cloud-appliance-base
-    pre-run: playbooks/ansible-cloud/vcsa-appliance/pre.yaml
-    run: playbooks/ansible-cloud/vcsa-appliance/run.yaml
+    pre-run: playbooks/ansible-cloud/vcenter-appliance/pre.yaml
+    run: playbooks/ansible-cloud/vcenter-appliance/run.yaml
     host-vars:
-      vmware-vcsa-6.7.0:
+      vcenter:
         ansible_python_interpreter: python
     required-projects:
       - name: github.com/ansible/ansible-zuul-jobs
     nodeset: vmware-vcsa-6.7.0-python36
 
 - job:
-    name: ansible-test-cloud-integration-vcsa
+    name: ansible-test-cloud-integration-vcenter
     abstract: true
-    parent: ansible-cloud-vcsa-appliance
+    parent: ansible-cloud-vcenter-appliance
     pre-run:
       - playbooks/ansible-test-integration-base/pre.yaml
       - playbooks/ansible-test-cloud-integration-base/pre.yaml
@@ -34,8 +34,8 @@
         VMWARE_TEST_PLATFORM: static
 
 - job:
-    name: ansible-test-cloud-integration-vcsa-python36
-    parent: ansible-test-cloud-integration-vcsa
+    name: ansible-test-cloud-integration-vcenter_only-python36
+    parent: ansible-test-cloud-integration-vcenter
     nodeset: vmware-vcsa-6.7.0-python36
     vars:
       ansible_test_python: 3.6

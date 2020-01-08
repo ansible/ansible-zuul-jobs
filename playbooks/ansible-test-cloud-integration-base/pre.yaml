@@ -12,20 +12,22 @@
         tox_install_siblings: false
         zuul_work_dir: "{{ zuul.projects['github.com/ansible/ansible-zuul-jobs'].src_dir }}"
 
-    - import_role:
+    - name: Prepare the NFS datastore
+      import_role:
         name: vmware-ci-nfs-share
       vars:
         vmware_ci_nfs_share_allow_ips:
           - "{{ hostvars['esxi1']['nodepool']['interface_ip'] }}"
       when: "'esxi1' in hostvars"
 
-    - import_role:
+    - name: Write the configuration for ansible-test
+      import_role:
         name: vmware-ci-configure-ansible-test
       vars:
         vmware_ci_configure_ansible_test_ansible_path: "{{ ansible_user_dir }}/{{ zuul.projects['github.com/ansible/ansible'].src_dir }}"
         vmware_ci_set_passwords_secret_dir: '{{ zuul.executor.work_root }}'
 
-    - name: "wait for the vcenter service"
+    - name: wait for the vcenter service
       uri:
         url: "https://vcenter.test"
         validate_certs: false

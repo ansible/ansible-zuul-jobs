@@ -12,6 +12,33 @@
         tox_install_siblings: false
         zuul_work_dir: "{{ zuul.projects['github.com/ansible/ansible-zuul-jobs'].src_dir }}"
 
+
+    - name: Restore the cache files for the NFS datastore
+      block:
+        - name: Create the ISO directory
+          file:
+            path: /srv/share/isos
+            state: directory
+          become: true
+
+        - name: Move the cached files
+          shell: |
+             mv /opt/cache/files/CentOS-8-x86_64-1905-dvd1.iso /srv/share/isos/centos.iso
+             mv /opt/cache/files/Fedora-Workstation-Live-x86_64-30-1.2.iso /srv/share/isos/fedora.iso
+          args:
+            creates: /srv/share/isos/fedora.iso
+          become: true
+
+        - name: Adjust the ownership
+          file:
+            path: /srv/share/isos
+            state: directory
+            recurse: true
+            owner: '1000'
+            group: '1000'
+          become: true
+
+
     - name: Prepare the NFS datastore
       import_role:
         name: vmware-ci-nfs-share

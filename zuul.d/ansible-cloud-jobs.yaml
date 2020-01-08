@@ -50,5 +50,4 @@
       ansible_test_python: 3.6
       ansible_test_integration_targets: zuul/vmware/vcenter_1esxi/
       ansible_test_retry_on_error: true
-    attempts: 1
     timeout: 7200

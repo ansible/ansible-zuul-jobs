@@ -12,19 +12,16 @@
 
 - name: Download ISO
   get_url:
-    url: '{{ item.url }}'
-    dest: '/srv/share/isos/{{ item.name }}'
+    url: '{{ item.value.url }}'
+    dest: '/srv/share/isos/{{ item.key }}'
+    checksum: '{{ item.value.checksum }}'
     mode: '0644'
-  with_items:
-    - name: fedora.iso
-      url: https://download.fedoraproject.org/pub/fedora/linux/releases/30/Workstation/x86_64/iso/Fedora-Workstation-Live-x86_64-30-1.2.iso
-    - name: centos.iso
-      url: http://isoredirect.centos.org/centos/8/isos/x86_64/CentOS-8-x86_64-1905-dvd1.iso
+  with_dict: "{{ vmware_ci_nfs_share_iso_files }}"
 
 - name: Install nfs-utils
   package:
     name: nfs-utils
-    state: latest
+    state: present
   become: true
   notify:
     - Restart nfs-server

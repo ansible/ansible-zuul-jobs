@@ -23,24 +23,3 @@
 
     - name: reset ssh connection
       meta: reset_connection
-
-- hosts: appliance
-  gather_facts: false
-  tasks:
-
-    - name: Generate random password
-      set_fact:
-        __password: "{{ lookup('password', '/dev/null length=15 chars=ascii_letters,digits,hexdigits') }}"
-      no_log: true
-
-    - name: Change zuul user password (vcenter)
-      become: true
-      user:
-        name: zuul
-        password: "{{ __password | password_hash('sha512') }}"
-      when: inventory_hostname == "vcenter"
-
-    - name: Change zuul user password (ESXi)
-      shell: "echo {{ __password }} | passwd -s"
-      no_log: true
-      when: inventory_hostname.startswith("esxi")

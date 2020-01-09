@@ -1,0 +1,3 @@
+---
+ansible_test_options: "--continue-on-error --diff --no-temp-workdir"
+ansible_test_executable: "{{ ansible_test_location }}/bin/ansible-test"

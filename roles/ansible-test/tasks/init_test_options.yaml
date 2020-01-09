@@ -1,0 +1,15 @@
+---
+- name: Setup --skip-tags for test_options
+  set_fact:
+    ansible_test_options: "{{ ansible_test_options }} --skip-tags {{ ansible_test_skip_tags }}"
+  when: ansible_test_skip_tags
+
+- name: Enable --inventory for network-integration
+  set_fact:
+    ansible_test_options: "{{ ansible_test_options }} --inventory {{ ansible_test_inventory_path }}"
+  when: ansible_test_test_command == 'network-integration'
+
+- name: Enable --retry-on-error
+  set_fact:
+    ansible_test_options: "{{ ansible_test_options }} --retry-on-error"
+  when: ansible_test_retry_on_error

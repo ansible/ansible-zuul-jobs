@@ -1,0 +1,38 @@
+---
+- name: Include branch specific variables.
+  include_vars: "{{ item }}"
+  with_first_found:
+    - '{{ ansible_test_git_branch }}.yaml'
+    - default.yaml
+
+- name: Enable --requirements
+  set_fact:
+    _test_options: "{{ _test_options }} --requirements"
+  when: not ansible_test_test_collections
+
+- name: Prepare ansible-test parameters
+  import_tasks: init_test_options.yaml
+
+- name: Check if galaxy.yml exists
+  stat:
+    path: "{{ ansible_test_location }}/galaxy.yml"
+  register: galaxy_stat_result
+
+- name: Single ansible mode
+  import_tasks: init_collection.yaml
+  when: not galaxy_stat_result.stat.exists
+
+- name: Ansible with collections
+  when: galaxy_stat_result.stat.exists
+  import_tasks: init_collection.yaml
+
+- name: Install ara
+  import_tasks: install_ara.yaml
+  when: ansible_test_enable_ara
+
+- name: Run the integration test suite
+  args:
+    chdir: "{{ _test_location }}"
+    executable: /bin/bash
+  environment: "{{ ansible_test_environment | default({}) }}"
+  shell: "source {{ ansible_test_venv_path }}/bin/activate; {{ ansible_test_executable }} {{ ansible_test_test_command }} {{ ansible_test_options }} --python {{ ansible_test_python }} -vvvv {{ ansible_test_integration_targets }}"

@@ -45,4 +45,5 @@
       fetch:
         src: "/tmp/esxi_password_{{ item.key }}.txt"
         dest: "{{ vmware_ci_set_passwords_secret_dir }}/"
+      no_log: true
       with_dict: "{{ hostvars.localhost.vmware_ci_set_passwords_passwords }}"

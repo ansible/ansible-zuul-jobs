@@ -1,0 +1,32 @@
+---
+- name: Include branch specific variables.
+  include_vars: "{{ item }}"
+  with_first_found:
+    - '{{ ansible_test_git_branch }}.yaml'
+    - default.yaml
+
+- name: Setup --skip-tags for test_options
+  set_fact:
+    ansible_test_options: "{{ ansible_test_options }} --skip-tags {{ ansible_test_skip_tags }}"
+  when: ansible_test_skip_tags
+
+- name: Enable --inventory for network-integration
+  set_fact:
+    ansible_test_options: "{{ ansible_test_options }} --inventory {{ ansible_test_inventory_path }}"
+  when: ansible_test_test_command == 'network-integration'
+
+- name: Enable --retry-on-error
+  set_fact:
+    ansible_test_options: "{{ ansible_test_options }} --retry-on-error"
+  when: ansible_test_retry_on_error
+
+- name: Setup testing for collections
+  import_tasks: setup_for_collection.yaml
+  when: ansible_test_test_collections
+
+- name: Run the integration test suite
+  args:
+    chdir: "{{ ansible_test_location }}"
+    executable: /bin/bash
+  environment: "{{ ansible_test_environment | default({}) }}"
+  shell: "source {{ ansible_test_venv_path }}/bin/activate; {{ ansible_test_executable }} {{ ansible_test_test_command }} {{ ansible_test_options }} --python {{ ansible_test_python }} -vvvv {{ ansible_test_integration_targets }}"

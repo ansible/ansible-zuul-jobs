@@ -1,0 +1,62 @@
+---
+- name: Setup download-artifact-fork role
+  include_role:
+    name: download-artifact-fork
+  vars:
+    download_artifact_directory: ~/downloads
+    download_artifact_type:
+      - ansible_collection
+      - python_sdist
+
+- name: Install ansible-minimal
+  args:
+    chdir: "{{ ansible_user_dir }}/downloads"
+  shell: "~/venv/bin/pip install {{ item.url | basename }}"
+  with_items: "{{ zuul.artifacts }}"
+  when: "'metadata' in item and 'type' in item.metadata and (item.metadata.type == 'python_sdist')"
+
+- name: Install jq
+  become: true
+  package:
+    name: jq
+    state: present
+
+- name: Install ara into virtuelenv
+  shell: ~/venv/bin/pip install yq
+
+- name: define __collections
+  set_fact:
+    __collections: ""
+
+- name: Create list of collections
+  set_fact:
+    __collections: "{{ __collections }} {{ item.url | basename }}"
+  with_items: "{{ zuul.artifacts }}"
+  when: "'metadata' in item and 'type' in item.metadata and (item.metadata.type == 'ansible_collection')"
+
+- name: Install require-project collection using ansible-galaxy
+  args:
+    chdir: "{{ ansible_user_dir }}/downloads"
+    executable: /bin/bash
+  shell: "source ~/venv/bin/activate; ansible-galaxy collection install -p ~/.ansible/collection {{ __collections }}"
+
+- name: Get collection namespace
+  args:
+    chdir: "{{ ansible_user_dir }}/{{ zuul.project.src_dir }}"
+    executable: /bin/bash
+  shell: cat galaxy.yml | ~/venv/bin/yq -y .namespace | tail -n +1 | head -1
+  register: _collection_namespace
+
+- name: Get collection name
+  args:
+    chdir: "{{ ansible_user_dir }}/{{ zuul.project.src_dir }}"
+    executable: /bin/bash
+  shell: cat galaxy.yml | ~/venv/bin/yq -y .name | tail -n +1 | head -1
+  register: _collection_name
+
+- name: Setup location of project
+  set_fact:
+    _test_location: "~/.ansible/collection/ansible_collections/{{ _collection_namespace.stdout }}/{{ _collection_name.stdout }}"
+
+- name: Copy ansible.cfg to correct location
+  shell: "cp {{ ansible_user_dir }}/{{ zuul.projects['github.com/ansible/ansible'].src_dir }}/test/integration/{{ ansible_test_command }}.cfg {{ _test_location }}/tests/integration/{{ ansible_test_command }}.cfg"

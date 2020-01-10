@@ -434,6 +434,7 @@
               - ^lib/ansible/module_utils/network/common/.*
               - ^lib/ansible/module_utils/network/eos/.*
               - ^lib/ansible/plugins/action/eos.py
+              - ^lib/ansible/plugins/action/net_.*
               - ^lib/ansible/plugins/cliconf/eos.py
               - ^lib/ansible/plugins/connection/httpapi.py
               - ^lib/ansible/plugins/connection/local.py
@@ -456,6 +457,7 @@
               - ^lib/ansible/module_utils/network/common/.*
               - ^lib/ansible/module_utils/network/eos/.*
               - ^lib/ansible/plugins/action/eos.py
+              - ^lib/ansible/plugins/action/net_.*
               - ^lib/ansible/plugins/cliconf/eos.py
               - ^lib/ansible/plugins/connection/httpapi.py
               - ^lib/ansible/plugins/connection/local.py
@@ -478,6 +480,7 @@
               - ^lib/ansible/module_utils/network/common/.*
               - ^lib/ansible/module_utils/network/eos/.*
               - ^lib/ansible/plugins/action/eos.py
+              - ^lib/ansible/plugins/action/net_.*
               - ^lib/ansible/plugins/cliconf/eos.py
               - ^lib/ansible/plugins/connection/httpapi.py
               - ^lib/ansible/plugins/connection/local.py
@@ -500,6 +503,7 @@
               - ^lib/ansible/module_utils/network/common/.*
               - ^lib/ansible/module_utils/network/eos/.*
               - ^lib/ansible/plugins/action/eos.py
+              - ^lib/ansible/plugins/action/net_.*
               - ^lib/ansible/plugins/cliconf/eos.py
               - ^lib/ansible/plugins/connection/httpapi.py
               - ^lib/ansible/plugins/connection/local.py
@@ -520,6 +524,7 @@
               - ^lib/ansible/module_utils/network/common/.*
               - ^lib/ansible/module_utils/network/eos/.*
               - ^lib/ansible/plugins/action/eos.py
+              - ^lib/ansible/plugins/action/net_.*
               - ^lib/ansible/plugins/cliconf/eos.py
               - ^lib/ansible/plugins/connection/httpapi.py
               - ^lib/ansible/plugins/connection/local.py
@@ -542,6 +547,7 @@
               - ^lib/ansible/module_utils/network/common/.*
               - ^lib/ansible/module_utils/network/ios/.*
               - ^lib/ansible/plugins/action/ios.py
+              - ^lib/ansible/plugins/action/net_.*
               - ^lib/ansible/plugins/cliconf/ios.py
               - ^lib/ansible/plugins/connection/local.py
               - ^lib/ansible/plugins/connection/network_cli.py
@@ -561,6 +567,7 @@
               - ^lib/ansible/module_utils/network/common/.*
               - ^lib/ansible/module_utils/network/ios/.*
               - ^lib/ansible/plugins/action/ios.py
+              - ^lib/ansible/plugins/action/net_.*
               - ^lib/ansible/plugins/cliconf/ios.py
               - ^lib/ansible/plugins/connection/local.py
               - ^lib/ansible/plugins/connection/network_cli.py
@@ -580,6 +587,7 @@
               - ^lib/ansible/module_utils/network/common/.*
               - ^lib/ansible/module_utils/network/ios/.*
               - ^lib/ansible/plugins/action/ios.py
+              - ^lib/ansible/plugins/action/net_.*
               - ^lib/ansible/plugins/cliconf/ios.py
               - ^lib/ansible/plugins/connection/local.py
               - ^lib/ansible/plugins/connection/network_cli.py
@@ -599,6 +607,7 @@
               - ^lib/ansible/module_utils/network/common/.*
               - ^lib/ansible/module_utils/network/ios/.*
               - ^lib/ansible/plugins/action/ios.py
+              - ^lib/ansible/plugins/action/net_.*
               - ^lib/ansible/plugins/cliconf/ios.py
               - ^lib/ansible/plugins/connection/local.py
               - ^lib/ansible/plugins/connection/network_cli.py
@@ -616,6 +625,7 @@
               - ^lib/ansible/module_utils/network/common/.*
               - ^lib/ansible/module_utils/network/ios/.*
               - ^lib/ansible/plugins/action/ios.py
+              - ^lib/ansible/plugins/action/net_.*
               - ^lib/ansible/plugins/cliconf/ios.py
               - ^lib/ansible/plugins/connection/local.py
               - ^lib/ansible/plugins/connection/network_cli.py
@@ -637,6 +647,7 @@
               - ^lib/ansible/module_utils/network/iosxr/.*
               - ^lib/ansible/module_utils/network/netconf/.*
               - ^lib/ansible/plugins/action/iosxr.py
+              - ^lib/ansible/plugins/action/net_.*
               - ^lib/ansible/plugins/cliconf/iosxr.py
               - ^lib/ansible/plugins/connection/netconf.py
               - ^lib/ansible/plugins/connection/network_cli.py
@@ -661,6 +672,7 @@
               - ^lib/ansible/module_utils/network/iosxr/.*
               - ^lib/ansible/module_utils/network/netconf/.*
               - ^lib/ansible/plugins/action/iosxr.py
+              - ^lib/ansible/plugins/action/net_.*
               - ^lib/ansible/plugins/cliconf/iosxr.py
               - ^lib/ansible/plugins/connection/netconf.py
               - ^lib/ansible/plugins/connection/network_cli.py
@@ -685,6 +697,7 @@
               - ^lib/ansible/module_utils/network/iosxr/.*
               - ^lib/ansible/module_utils/network/netconf/.*
               - ^lib/ansible/plugins/action/iosxr.py
+              - ^lib/ansible/plugins/action/net_.*
               - ^lib/ansible/plugins/cliconf/iosxr.py
               - ^lib/ansible/plugins/connection/netconf.py
               - ^lib/ansible/plugins/connection/network_cli.py
@@ -709,6 +722,7 @@
               - ^lib/ansible/module_utils/network/iosxr/.*
               - ^lib/ansible/module_utils/network/netconf/.*
               - ^lib/ansible/plugins/action/iosxr.py
+              - ^lib/ansible/plugins/action/net_.*
               - ^lib/ansible/plugins/cliconf/iosxr.py
               - ^lib/ansible/plugins/connection/netconf.py
               - ^lib/ansible/plugins/connection/network_cli.py
@@ -731,6 +745,7 @@
               - ^lib/ansible/module_utils/network/iosxr/.*
               - ^lib/ansible/module_utils/network/netconf/.*
               - ^lib/ansible/plugins/action/iosxr.py
+              - ^lib/ansible/plugins/action/net_.*
               - ^lib/ansible/plugins/cliconf/iosxr.py
               - ^lib/ansible/plugins/connection/netconf.py
               - ^lib/ansible/plugins/connection/network_cli.py
@@ -755,6 +770,7 @@
               - ^lib/ansible/module_utils/network/junos/.*
               - ^lib/ansible/module_utils/network/netconf/.*
               - ^lib/ansible/plugins/action/junos.py
+              - ^lib/ansible/plugins/action/net_.*
               - ^lib/ansible/plugins/cliconf/junos.py
               - ^lib/ansible/plugins/connection/local.py
               - ^lib/ansible/plugins/connection/netconf.py
@@ -779,6 +795,7 @@
               - ^lib/ansible/module_utils/network/junos/.*
               - ^lib/ansible/module_utils/network/netconf/.*
               - ^lib/ansible/plugins/action/junos.py
+              - ^lib/ansible/plugins/action/net_.*
               - ^lib/ansible/plugins/cliconf/junos.py
               - ^lib/ansible/plugins/connection/local.py
               - ^lib/ansible/plugins/connection/netconf.py
@@ -803,6 +820,7 @@
               - ^lib/ansible/module_utils/network/junos/.*
               - ^lib/ansible/module_utils/network/netconf/.*
               - ^lib/ansible/plugins/action/junos.py
+              - ^lib/ansible/plugins/action/net_.*
               - ^lib/ansible/plugins/cliconf/junos.py
               - ^lib/ansible/plugins/connection/local.py
               - ^lib/ansible/plugins/connection/netconf.py
@@ -827,6 +845,7 @@
               - ^lib/ansible/module_utils/network/junos/.*
               - ^lib/ansible/module_utils/network/netconf/.*
               - ^lib/ansible/plugins/action/junos.py
+              - ^lib/ansible/plugins/action/net_.*
               - ^lib/ansible/plugins/cliconf/junos.py
               - ^lib/ansible/plugins/connection/local.py
               - ^lib/ansible/plugins/connection/netconf.py
@@ -849,6 +868,7 @@
               - ^lib/ansible/module_utils/network/junos/.*
               - ^lib/ansible/module_utils/network/netconf/.*
               - ^lib/ansible/plugins/action/junos.py
+              - ^lib/ansible/plugins/action/net_.*
               - ^lib/ansible/plugins/cliconf/junos.py
               - ^lib/ansible/plugins/connection/local.py
               - ^lib/ansible/plugins/connection/netconf.py
@@ -868,6 +888,7 @@
               - ^lib/ansible/modules/network/nxos/.*
               - ^lib/ansible/module_utils/network/common/.*
               - ^lib/ansible/module_utils/network/nxos/.*
+              - ^lib/ansible/plugins/action/net_.*
               - ^lib/ansible/plugins/action/nxos.*
               - ^lib/ansible/plugins/cliconf/nxos.py
               - ^lib/ansible/plugins/connection/local.py
@@ -946,6 +967,7 @@
               - ^lib/ansible/modules/network/vyos/.*
               - ^lib/ansible/module_utils/network/common/.*
               - ^lib/ansible/module_utils/network/vyos/.*
+              - ^lib/ansible/plugins/action/net_.*
               - ^lib/ansible/plugins/action/vyos.py
               - ^lib/ansible/plugins/cliconf/vyos.py
               - ^lib/ansible/plugins/connection/local.py
@@ -965,6 +987,7 @@
               - ^lib/ansible/modules/network/vyos/.*
               - ^lib/ansible/module_utils/network/common/.*
               - ^lib/ansible/module_utils/network/vyos/.*
+              - ^lib/ansible/plugins/action/net_.*
               - ^lib/ansible/plugins/action/vyos.py
               - ^lib/ansible/plugins/cliconf/vyos.py
               - ^lib/ansible/plugins/connection/local.py
@@ -984,6 +1007,7 @@
               - ^lib/ansible/modules/network/vyos/.*
               - ^lib/ansible/module_utils/network/common/.*
               - ^lib/ansible/module_utils/network/vyos/.*
+              - ^lib/ansible/plugins/action/net_.*
               - ^lib/ansible/plugins/action/vyos.py
               - ^lib/ansible/plugins/cliconf/vyos.py
               - ^lib/ansible/plugins/connection/local.py
@@ -1003,6 +1027,7 @@
               - ^lib/ansible/modules/network/vyos/.*
               - ^lib/ansible/module_utils/network/common/.*
               - ^lib/ansible/module_utils/network/vyos/.*
+              - ^lib/ansible/plugins/action/net_.*
               - ^lib/ansible/plugins/action/vyos.py
               - ^lib/ansible/plugins/cliconf/vyos.py
               - ^lib/ansible/plugins/connection/local.py
@@ -1020,6 +1045,7 @@
               - ^lib/ansible/modules/network/vyos/.*
               - ^lib/ansible/module_utils/network/common/.*
               - ^lib/ansible/module_utils/network/vyos/.*
+              - ^lib/ansible/plugins/action/net_.*
               - ^lib/ansible/plugins/action/vyos.py
               - ^lib/ansible/plugins/cliconf/vyos.py
               - ^lib/ansible/plugins/connection/local.py

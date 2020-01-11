@@ -1,0 +1,15 @@
+---
+- hosts: localhost
+  gather_facts: false
+  tasks:
+    - name: Check if project's .github/workflows exists
+      stat:
+        path: "{{ zuul.executor.src_root }}/{{ zuul.project.canonical_name }}/.github/workflows"
+      register: p
+
+    - name: File check failed
+      fail:
+        msg: "Your project contains GitHub workflow files (eg: .github/workflows). Unfortuantly,  GitHub does not allow GitHub applications the ability merge changes to these files. As a result, Zuul will not be able to merge your pull requests.  Please delete this folder."
+      when:
+        - p.stat.exists
+        - p.stat.isdir

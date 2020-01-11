@@ -72,9 +72,13 @@
         nodes:
           - vcenter
           - esxi1
+      - name: esxis
+        nodes:
+          - esxi1
       - name: controller
         nodes:
           - centos-8
+
 
 # Ansible network appliance nodesets
 - nodeset:

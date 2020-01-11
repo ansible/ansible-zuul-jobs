@@ -1152,11 +1152,9 @@
     # and we can report invalid zuul.yaml files.
     check:
       jobs:
-        - dco-license
         - github-workflows
     gate:
       jobs:
-        - dco-license
         - github-workflows
     merge-check:
       jobs:

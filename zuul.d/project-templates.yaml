@@ -1151,7 +1151,11 @@
     # Include a check queue so that initially every repo has a check queue
     # and we can report invalid zuul.yaml files.
     check:
-      jobs: []
+      jobs:
+        - github-workflows
+    gate:
+      jobs:
+        - github-workflows
     merge-check:
       jobs:
         - noop

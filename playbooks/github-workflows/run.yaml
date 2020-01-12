@@ -9,7 +9,7 @@
 
     - name: File check failed
       fail:
-        msg: "Your project contains GitHub workflow files (eg: .github/workflows). Unfortuantly,  GitHub does not allow GitHub applications the ability merge changes to these files. As a result, Zuul will not be able to merge your pull requests.  Please delete this folder."
+        msg: "Your project contains GitHub workflow files (eg: .github/workflows).  Unfortunately, GitHub does not allow GitHub applications the ability merge changes to these files. As a result, Zuul will not be able to merge your pull requests.  Please delete this folder."
       when:
         - p.stat.exists
         - p.stat.isdir

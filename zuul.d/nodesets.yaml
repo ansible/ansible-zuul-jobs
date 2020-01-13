@@ -57,6 +57,25 @@
         nodes:
           - centos-8
 
+
+- nodeset:
+    name: vmware-vcsa_1esxi-6.7.0-python36
+    nodes:
+      - name: centos-8
+        label: centos-8-1vcpu
+      - name: vcenter
+        label: vmware-vcsa-6.7.0
+      - name: esxi1
+        label: esxi-6.7.0
+    groups:
+      - name: appliance
+        nodes:
+          - vcenter
+          - esxi1
+      - name: controller
+        nodes:
+          - centos-8
+
 # Ansible network appliance nodesets
 - nodeset:
     name: eos-4.20.10-python27

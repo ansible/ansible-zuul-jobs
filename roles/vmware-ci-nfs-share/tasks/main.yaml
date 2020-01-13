@@ -1,0 +1,35 @@
+---
+- name: Prepare the NFS shares
+  file:
+    path: '{{ item }}'
+    state: directory
+    owner: '{{ vmware_ci_nfs_share_owner_uid }}'
+    group: '{{ vmware_ci_nfs_share_owner_gid }}'
+  with_items:
+    - /srv/share/vms
+    - /srv/share/isos
+  become: true
+
+- name: Download ISO
+  get_url:
+    url: '{{ item.value.url }}'
+    dest: '/srv/share/isos/{{ item.key }}'
+    checksum: '{{ item.value.checksum }}'
+    mode: '0644'
+  with_dict: "{{ vmware_ci_nfs_share_iso_files }}"
+
+- name: Install nfs-utils
+  package:
+    name: nfs-utils
+    state: present
+  become: true
+  notify:
+    - Restart nfs-server
+
+- name: Prepare the /etc/exports file
+  template:
+    src: exports.j2
+    dest: /etc/exports
+  become: true
+  notify:
+    - Restart nfs-server

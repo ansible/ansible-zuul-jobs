@@ -1,6 +1,9 @@
 ---
+
 - hosts: controller
+  gather_facts: false
   tasks:
+
     - name: Setup tox role
       include_role:
         name: tox
@@ -9,11 +12,56 @@
         tox_install_siblings: false
         zuul_work_dir: "{{ zuul.projects['github.com/ansible/ansible-zuul-jobs'].src_dir }}"
 
-    - copy:
-        content: |
-            [DEFAULT]
-            vcenter_username: administrator@vsphere.local
-            vcenter_password: !234AaAa56
-            vcenter_hostname: {{ hostvars['vcenter']['nodepool']['interface_ip']}}
-            vmware_validate_certs: false
-        dest: "{{ ansible_user_dir }}/{{ zuul.projects['github.com/ansible/ansible'].src_dir }}/test/integration/cloud-config-vcenter.ini"
+
+    - name: Restore the cache files for the NFS datastore
+      block:
+        - name: Create the ISO directory
+          file:
+            path: /srv/share/isos
+            state: directory
+          become: true
+
+        - name: Move the cached files
+          shell: |
+             mv /opt/cache/files/CentOS-8-x86_64-1905-boot.iso /srv/share/isos/centos.iso
+             mv /opt/cache/files/Fedora-Workstation-Live-x86_64-31-1.9.iso /srv/share/isos/fedora.iso
+          args:
+            creates: /srv/share/isos/fedora.iso
+          become: true
+
+        - name: Adjust the ownership
+          file:
+            path: /srv/share/isos
+            state: directory
+            recurse: true
+            owner: '1000'
+            group: '1000'
+          become: true
+
+
+    - name: Prepare the NFS datastore
+      import_role:
+        name: vmware-ci-nfs-share
+      vars:
+        vmware_ci_nfs_share_allow_ips:
+          - "{{ hostvars['esxi1']['nodepool']['interface_ip'] }}"
+      when: "'esxi1' in hostvars"
+
+    - name: Write the configuration for ansible-test
+      import_role:
+        name: vmware-ci-configure-ansible-test
+      vars:
+        vmware_ci_configure_ansible_test_ansible_path: "{{ ansible_user_dir }}/{{ zuul.projects['github.com/ansible/ansible'].src_dir }}"
+        vmware_ci_set_passwords_secret_dir: '{{ zuul.executor.work_root }}'
+
+    - name: wait for the vcenter service
+      uri:
+        url: "https://vcenter.test"
+        validate_certs: false
+        return_content: true
+      register: result
+      until:
+        - "result.status == 200"
+        - "'vmc-documentation-link' in result.content"
+      retries: 100
+      delay: 5

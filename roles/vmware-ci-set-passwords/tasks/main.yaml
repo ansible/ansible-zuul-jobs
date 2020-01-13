@@ -1,0 +1,49 @@
+---
+- setup:
+    gather_subset: '!all'
+
+- name: Change users password (vcenter)
+  user:
+    name: "{{ item.key }}"
+    password: "{{ item.value | password_hash('sha512') }}"
+  no_log: true
+  with_dict: "{{ hostvars.localhost.vmware_ci_set_passwords_passwords }}"
+  become: true
+  when: ansible_system != 'VMkernel'
+
+- name: Change users password (ESXi)
+  shell: "echo {{ item.value }} | passwd -s {{ item.key }}"
+  with_dict: "{{ hostvars.localhost.vmware_ci_set_passwords_passwords }}"
+  no_log: true
+  when: ansible_system == 'VMkernel'
+
+- when: inventory_hostname == 'vcenter'
+  block:
+    - copy:
+        src: vcenter_set_password
+        dest: /tmp/vcenter_set_password
+        mode: '0700'
+      become: true
+
+    - copy:
+        content: "{{ item.value }}"
+        dest: "/tmp/esxi_password_{{ item.key }}.txt"
+      no_log: true
+      with_dict: "{{ hostvars.localhost.vmware_ci_set_passwords_passwords }}"
+
+    - name: Change the vCenter admin password
+      shell: "python /tmp/vcenter_set_password > /tmp/vcenter_password.txt"
+      become: true
+      no_log: true
+
+    - name: Collect the vcenter password
+      fetch:
+        src: "/tmp/vcenter_password.txt"
+        dest: "{{ vmware_ci_set_passwords_secret_dir }}/"
+
+    - name: Collect the ESXi password(s)
+      fetch:
+        src: "/tmp/esxi_password_{{ item.key }}.txt"
+        dest: "{{ vmware_ci_set_passwords_secret_dir }}/"
+      no_log: true
+      with_dict: "{{ hostvars.localhost.vmware_ci_set_passwords_passwords }}"

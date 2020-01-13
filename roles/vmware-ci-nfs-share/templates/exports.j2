@@ -1,0 +1,3 @@
+/srv/share/isos {% for allowed_ip in vmware_ci_nfs_share_allow_ips -%}{{ allowed_ip }}(ro,anonuid={{ vmware_ci_nfs_share_owner_uid }},anongid={{ vmware_ci_nfs_share_owner_gid }}) {% endfor %}
+
+/srv/share/vms {% for allowed_ip in vmware_ci_nfs_share_allow_ips -%}{{ allowed_ip }}(rw,anonuid={{ vmware_ci_nfs_share_owner_uid }},anongid={{ vmware_ci_nfs_share_owner_gid }}) {% endfor %}

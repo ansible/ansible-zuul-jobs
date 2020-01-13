@@ -1,0 +1,11 @@
+---
+vmware_ci_nfs_share_allowed_ips: []
+vmware_ci_nfs_share_owner_uid: '1000'
+vmware_ci_nfs_share_owner_gid: '1000'
+vmware_ci_nfs_share_iso_files:
+    fedora.iso:
+        url: https://mirror.csclub.uwaterloo.ca/fedora/linux/releases/31/Workstation/x86_64/iso/Fedora-Workstation-Live-x86_64-31-1.9.iso
+        checksum: sha256:1d73ce30bfb96274c53b09013ea23320f0f64a1b0c663217110a5baf0b2c6528
+    centos.iso:
+        url: http://mirror.csclub.uwaterloo.ca/centos/8.0.1905/isos/x86_64/CentOS-8-x86_64-1905-boot.iso
+        checksum: sha256:a7993a0d4b7fef2433e0d4f53530b63c715d3aadbe91f152ee5c3621139a2cbc

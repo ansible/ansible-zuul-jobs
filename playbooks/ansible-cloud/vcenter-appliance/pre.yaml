@@ -1,4 +1,14 @@
 ---
+- hosts: localhost
+  gather_facts: false
+  tasks:
+    - set_fact:
+        vmware_ci_set_passwords_passwords:
+          # the trailing 56 are here to be sure the password is valie (ascii+digits)
+          root: "{{ lookup('password', '/dev/null length=15 chars=ascii_letters,digits,hexdigits') }}56"
+          zuul: "{{ lookup('password', '/dev/null length=15 chars=ascii_letters,digits,hexdigits') }}56"
+      no_log: true
+
 - hosts: controller
   tasks:
     - name: Ensure sshpass is present
@@ -16,14 +26,29 @@
         tox_install_siblings: false
         zuul_work_dir: "{{ zuul.projects['github.com/ansible/ansible-zuul-jobs'].src_dir }}"
 
-    - name: "wait for the vcenter service"
-      uri:
-        url: "https://{{ hostvars['vcenter']['nodepool']['interface_ip'] }}"
-        validate_certs: false
-        return_content: true
-      register: result
-      until:
-        - "result.status == 200"
-        - "'vmc-documentation-link' in result.content"
-      retries: 100
-      delay: 5
+- hosts: all
+  gather_facts: false
+  tasks:
+    - import_role:
+        name: vmware-ci-write-etc-hosts
+      vars:
+        vmware_ci_write_etc_hosts_mapping:
+          vcenter: "{{ hostvars['vcenter']['nodepool']['interface_ip']}}"
+          esxi1: "{{ 'esxi1' in hostvars and hostvars['esxi1']['nodepool']['interface_ip']}}"
+          esxi2: "{{ 'esxi2' in hostvars and hostvars['esxi2']['nodepool']['interface_ip']}}"
+          datastore: "{{ hostvars[groups['controller'][0]]['nodepool']['interface_ip']}}"
+
+- hosts: appliance
+  gather_facts: false
+  tasks:
+    - import_role:
+        name: vmware-ci-set-passwords
+      vars:
+        vmware_ci_set_passwords_secret_dir: '{{ zuul.executor.work_root }}'
+
+- hosts: appliance
+  gather_facts: false
+  tasks:
+    - name: Ensure the ESXi will reboot if they get a BlueScreenOfDeath
+      command: esxcfg-advcfg -s 1 /Misc/BlueScreenTimeout
+      when: inventory_hostname.startswith("esxi")

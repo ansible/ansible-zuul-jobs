@@ -23,7 +23,8 @@
         search_regex: SSH
 
     - name: Ensure remote SSH host keys are known
-      shell: "ssh-keyscan {{ __ssh_ip }} >> ~/.ssh/known_hosts"
+      shell: "ssh-keyscan {{hostvars[item].ansible_host }} >> ~/.ssh/known_hosts"
+      with_inventory_hostnames: appliance
 
     - name: Create /etc/ansible folder
       become: true

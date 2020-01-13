@@ -40,7 +40,7 @@
         search_regex: SSH
 
     - name: Ensure remote SSH host keys are known
-      shell: "ssh-keyscan -p {{ __ssh_port }} {{ __ssh_ip }} >> ~/.ssh/known_hosts"
+      shell: "ssh-keyscan -v -p {{ __ssh_port }} {{ __ssh_ip }} >> ~/.ssh/known_hosts"
 
     - name: Create /etc/ansible folder
       become: true

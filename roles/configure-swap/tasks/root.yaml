@@ -1,7 +1,7 @@
 ---
 - name: Calculate required swap
   set_fact:
-    swap_required: "{{ configure_swap_size - ansible_memory_mb['swap']['total'] | int }}"
+    swap_required: "{{ configure_swap_size - configure_swap_current_total | int }}"
 
 - block:
     - name: Get root filesystem

@@ -1,3 +1,4 @@
 ---
 # Default swap partition/file size, in MiB
 configure_swap_size: 8192
+configure_swap_current_total: "{{ ansible_memory_mb['swap']['total'] }}"

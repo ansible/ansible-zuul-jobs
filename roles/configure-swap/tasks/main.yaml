@@ -2,7 +2,7 @@
 - include: root.yaml
   static: false
   when:
-    - ansible_memory_mb['swap']['total'] | int + 10 <= configure_swap_size
+    - configure_swap_current_total | int + 10 <= configure_swap_size
 
 # ensure a standard level of swappiness.  Some platforms
 # (rax+centos7) come with swappiness of 0 (presumably because the

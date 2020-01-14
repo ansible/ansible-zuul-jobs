@@ -23,8 +23,9 @@
 
 - job:
     name: ansible-tox-molecule
-    parent: tox
+    parent: tox-molecule
     pre-run: playbooks/ansible-tox-molecule/pre.yaml
+    post-run: playbooks/ansible-tox-molecule/post.yaml
     vars:
       tox_envlist: molecule
     nodeset: fedora-latest-1vcpu

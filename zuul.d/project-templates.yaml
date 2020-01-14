@@ -38,27 +38,22 @@
         - ansible-test-network-integration-eos-python27:
             vars:
               ansible_test_collections: true
-              ansible_test_skip_tags: connection_local
             voting: false
         - ansible-test-network-integration-eos-python35:
             vars:
               ansible_test_collections: true
-              ansible_test_skip_tags: connection_local
             voting: false
         - ansible-test-network-integration-eos-python36:
             vars:
               ansible_test_collections: true
-              ansible_test_skip_tags: connection_local
             voting: false
         - ansible-test-network-integration-eos-python37:
             vars:
               ansible_test_collections: true
-              ansible_test_skip_tags: connection_local
             voting: false
         - ansible-test-network-integration-eos-python38:
             vars:
               ansible_test_collections: true
-              ansible_test_skip_tags: connection_local
             voting: false
         - build-ansible-collection:
             required-projects:
@@ -78,27 +73,22 @@
         - ansible-test-network-integration-ios-python27:
             vars:
               ansible_test_collections: true
-              ansible_test_skip_tags: connection_local
             voting: false
         - ansible-test-network-integration-ios-python35:
             vars:
               ansible_test_collections: true
-              ansible_test_skip_tags: connection_local
             voting: false
         - ansible-test-network-integration-ios-python36:
             vars:
               ansible_test_collections: true
-              ansible_test_skip_tags: connection_local
             voting: false
         - ansible-test-network-integration-ios-python37:
             vars:
               ansible_test_collections: true
-              ansible_test_skip_tags: connection_local
             voting: false
         - ansible-test-network-integration-ios-python38:
             vars:
               ansible_test_collections: true
-              ansible_test_skip_tags: connection_local
             voting: false
         - build-ansible-collection:
             required-projects:

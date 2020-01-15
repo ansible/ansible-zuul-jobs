@@ -45,3 +45,9 @@
         name: vmware-ci-set-passwords
       vars:
         vmware_ci_set_passwords_secret_dir: '{{ zuul.executor.work_root }}'
+
+- hosts: vcenter
+  gather_facts: false
+  tasks:
+    - import_role:
+        name: vmware-ci-vcenter-services

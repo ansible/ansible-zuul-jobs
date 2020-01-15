@@ -65,6 +65,7 @@
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-network/ansible_collections.ansible.netcommon
+        - build-ansible-minimal
 
 - project-template:
     name: ansible-collections-cisco-ios
@@ -100,6 +101,7 @@
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-network/ansible_collections.ansible.netcommon
+        - build-ansible-minimal
 
 - project-template:
     name: ansible-collections-cisco-iosxr
@@ -133,12 +135,14 @@
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-network/ansible_collections.ansible.netcommon
+        - build-ansible-minimal
     gate:
       queue: integrated
       jobs:
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-network/ansible_collections.ansible.netcommon
+        - build-ansible-minimal
 
 - project-template:
     name: ansible-collections-cisco-iosxr-netconf
@@ -163,12 +167,14 @@
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-network/ansible_collections.ansible.netcommon
+        - build-ansible-minimal
     gate:
       queue: integrated
       jobs:
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-network/ansible_collections.ansible.netcommon
+        - build-ansible-minimal
 
 - project-template:
     name: ansible-collections-juniper-junos-netconf
@@ -213,13 +219,14 @@
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-network/ansible_collections.ansible.netcommon
+        - build-ansible-minimal
     gate:
       queue: integrated
       jobs:
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-network/ansible_collections.ansible.netcommon
-
+        - build-ansible-minimal
 
 - project-template:
     name: ansible-test-network-integration

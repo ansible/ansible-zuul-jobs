@@ -5,6 +5,6 @@
 vyos-1.1.8 ansible_port=22 ansible_host={{ hostvars['vyos-1.1.8'].ansible_host }} ansible_user=zuul
 
 [vyos:vars]
-ansible_connection=network_cli
-ansible_network_os=vyos
+ansible_connection={% if ansible_test_collections is defined -%}ansible.netcommon.{%- endif %}network_cli
+ansible_network_os={% if ansible_test_collections is defined -%}vyos.vyos.{%- endif %}vyos
 ansible_python_interpreter=/home/zuul/venv/bin/python

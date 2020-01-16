@@ -1,7 +1,13 @@
 ---
+- name: Check if swapfile exists
+  stat:
+    path: /root/swapfile
+  become: true
+  register: swapfile_result
 - include: root.yaml
   static: false
   when:
+    - not swapfile_result.stat.exists
     - configure_swap_current_total | int + 10 <= configure_swap_size
 
 # ensure a standard level of swappiness.  Some platforms

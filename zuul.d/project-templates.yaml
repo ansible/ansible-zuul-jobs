@@ -148,10 +148,27 @@
     name: ansible-collections-cisco-iosxr-netconf
     check:
       jobs:
+        - ansible-test-network-integration-iosxr-netconf-python27:
+            vars:
+              ansible_test_collections: true
+            voting: false
+        - ansible-test-network-integration-iosxr-netconf-python35:
+            vars:
+              ansible_test_collections: true
+            voting: false
+        - ansible-test-network-integration-iosxr-netconf-python36:
+            vars:
+              ansible_test_collections: true
+            voting: false
+        - ansible-test-network-integration-iosxr-netconf-python37:
+            vars:
+              ansible_test_collections: true
+            voting: false
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-network/ansible_collections.cisco.iosxr
               - name: github.com/ansible-network/ansible_collections.ansible.netcommon
+        - build-ansible-minimal
     gate:
       queue: integrated
       jobs:
@@ -159,6 +176,7 @@
             required-projects:
               - name: github.com/ansible-network/ansible_collections.cisco.iosxr
               - name: github.com/ansible-network/ansible_collections.ansible.netcommon
+        - build-ansible-minimal
 
 - project-template:
     name: ansible-collections-juniper-junos

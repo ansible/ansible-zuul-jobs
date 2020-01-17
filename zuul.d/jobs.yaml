@@ -118,13 +118,17 @@
     parent: ansible-network-appliance-base
     pre-run: playbooks/ansible-network-junos-appliance/pre.yaml
     run: playbooks/ansible-network-junos-appliance/run.yaml
+    required-projects:
+      - name: github.com/ansible/ansible-zuul-jobs
+
+- job:
+    name: ansible-network-junos-vsrx-appliance
+    parent: ansible-network-junos-appliance
     host-vars:
       vsrx3-18.4R1:
         ansible_connection: network_cli
         ansible_network_os: junos
         ansible_python_interpreter: python
-    required-projects:
-      - name: github.com/ansible/ansible-zuul-jobs
     nodeset: vsrx3-18.4R1-python36
 
 - job:
@@ -366,14 +370,14 @@
       ansible_test_integration_targets: "netconf_.*"
 
 - job:
-    name: ansible-test-network-integration-junos
+    name: ansible-test-network-integration-junos-vsrx
     abstract: true
     dependencies:
       - name: build-ansible-collection
         soft: true
       - name: build-ansible-minimal
         soft: true
-    parent: ansible-network-junos-appliance
+    parent: ansible-network-junos-vsrx-appliance
     pre-run:
       - playbooks/ansible-test-integration-base/pre.yaml
       - playbooks/ansible-test-network-integration-base/pre.yaml
@@ -389,61 +393,61 @@
       ansible_test_integration_targets: "junos_.* netconf_.*"
 
 - job:
-    name: ansible-test-network-integration-junos-python27
-    parent: ansible-test-network-integration-junos
+    name: ansible-test-network-integration-junos-vsrx-python27
+    parent: ansible-test-network-integration-junos-vsrx
     nodeset: vsrx3-18.4R1-python27
     vars:
       ansible_test_python: 2.7
 
 - job:
-    name: ansible-test-network-integration-junos-python35
-    parent: ansible-test-network-integration-junos
+    name: ansible-test-network-integration-junos-vsrx-python35
+    parent: ansible-test-network-integration-junos-vsrx
     nodeset: vsrx3-18.4R1-python35
     vars:
       ansible_test_python: 3.5
 
 - job:
-    name: ansible-test-network-integration-junos-python36
-    parent: ansible-test-network-integration-junos
+    name: ansible-test-network-integration-junos-vsrx-python36
+    parent: ansible-test-network-integration-junos-vsrx
     nodeset: vsrx3-18.4R1-python36
     vars:
       ansible_test_python: 3.6
 
 - job:
-    name: ansible-test-network-integration-junos-python37
-    parent: ansible-test-network-integration-junos
+    name: ansible-test-network-integration-junos-vsrx-python37
+    parent: ansible-test-network-integration-junos-vsrx
     nodeset: vsrx3-18.4R1-python37
     vars:
       ansible_test_python: 3.7
 
 - job:
-    name: ansible-test-network-integration-junos-python38
-    parent: ansible-test-network-integration-junos
+    name: ansible-test-network-integration-junos-vsrx-python38
+    parent: ansible-test-network-integration-junos-vsrx
     nodeset: vsrx3-18.4R1-python38
     vars:
       ansible_test_python: 3.8
 
 - job:
-    name: ansible-test-network-integration-junos-netconf-python27
-    parent: ansible-test-network-integration-junos-python27
+    name: ansible-test-network-integration-junos-vsrx-netconf-python27
+    parent: ansible-test-network-integration-junos-vsrx-python27
     vars:
       ansible_test_integration_targets: "netconf_.*"
 
 - job:
-    name: ansible-test-network-integration-junos-netconf-python35
-    parent: ansible-test-network-integration-junos-python35
+    name: ansible-test-network-integration-junos-vsrx-netconf-python35
+    parent: ansible-test-network-integration-junos-vsrx-python35
     vars:
       ansible_test_integration_targets: "netconf_.*"
 
 - job:
-    name: ansible-test-network-integration-junos-netconf-python36
-    parent: ansible-test-network-integration-junos-python36
+    name: ansible-test-network-integration-junos-vsrx-netconf-python36
+    parent: ansible-test-network-integration-junos-vsrx-python36
     vars:
       ansible_test_integration_targets: "netconf_.*"
 
 - job:
-    name: ansible-test-network-integration-junos-netconf-python37
-    parent: ansible-test-network-integration-junos-python37
+    name: ansible-test-network-integration-junos-vsrx-netconf-python37
+    parent: ansible-test-network-integration-junos-vsrx-python37
     vars:
       ansible_test_integration_targets: "netconf_.*"
 

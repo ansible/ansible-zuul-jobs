@@ -70,6 +70,8 @@
     name: ansible-network-appliance-base
     pre-run: playbooks/ansible-network-appliance-base/pre.yaml
     post-run: playbooks/ansible-network-appliance-base/post.yaml
+    files:
+      - playbooks/ansible-network-appliance-base/.*
 
 - job:
     name: ansible-network-eos-appliance
@@ -84,6 +86,8 @@
     required-projects:
       - name: github.com/ansible/ansible-zuul-jobs
     nodeset: eos-4.20.10-python36
+    files:
+      - .*
 
 - job:
     name: ansible-network-ios-appliance

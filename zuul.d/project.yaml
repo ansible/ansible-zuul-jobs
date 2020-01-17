@@ -6,19 +6,58 @@
       jobs:
         - ansible-cloud-vcenter-appliance:
             voting: false
-        - ansible-network-eos-appliance
-        - ansible-network-ios-appliance
-        - ansible-network-iosxr-appliance
-        - ansible-network-junos-appliance
+        - ansible-network-eos-appliance:
+            files:
+              - playbooks/ansible-network-appliance-base/.*
+              - playbooks/ansible-network-eos-appliance/.*
+        - ansible-network-ios-appliance:
+            files:
+              - playbooks/ansible-network-appliance-base/.*
+              - playbooks/ansible-network-ios-appliance/.*
+        - ansible-network-iosxr-appliance:
+            files:
+              - playbooks/ansible-network-appliance-base/.*
+              - playbooks/ansible-network-iosxr-appliance/.*
+        - ansible-network-junos-appliance:
+            files:
+              - playbooks/ansible-network-appliance-base/.*
+              - playbooks/ansible-network-junos-appliance/.*
         - ansible-network-nxos-appliance:
+            files:
+              - playbooks/ansible-network-appliance-base/.*
+              - playbooks/ansible-network-nxos-appliance/.*
             voting: false
-        - ansible-network-openvswitch-appliance
-        - ansible-network-vyos-appliance
+        - ansible-network-openvswitch-appliance:
+            files:
+              - playbooks/ansible-network-appliance-base/.*
+              - playbooks/ansible-network-openvswitch-appliance/.*
+        - ansible-network-vyos-appliance:
+            files:
+              - playbooks/ansible-network-appliance-base/.*
+              - playbooks/ansible-network-vyos-appliance/.*
     gate:
       jobs:
-        - ansible-network-eos-appliance
-        - ansible-network-ios-appliance
-        - ansible-network-iosxr-appliance
-        - ansible-network-junos-appliance
-        - ansible-network-openvswitch-appliance
-        - ansible-network-vyos-appliance
+        - ansible-network-eos-appliance:
+            files:
+              - playbooks/ansible-network-appliance-base/.*
+              - playbooks/ansible-network-eos-appliance/.*
+        - ansible-network-ios-appliance:
+            files:
+              - playbooks/ansible-network-appliance-base/.*
+              - playbooks/ansible-network-ios-appliance/.*
+        - ansible-network-iosxr-appliance:
+            files:
+              - playbooks/ansible-network-appliance-base/.*
+              - playbooks/ansible-network-iosxr-appliance/.*
+        - ansible-network-junos-appliance:
+            files:
+              - playbooks/ansible-network-appliance-base/.*
+              - playbooks/ansible-network-junos-appliance/.*
+        - ansible-network-openvswitch-appliance:
+            files:
+              - playbooks/ansible-network-appliance-base/.*
+              - playbooks/ansible-network-openvswitch-appliance/.*
+        - ansible-network-vyos-appliance:
+            files:
+              - playbooks/ansible-network-appliance-base/.*
+              - playbooks/ansible-network-vyos-appliance/.*

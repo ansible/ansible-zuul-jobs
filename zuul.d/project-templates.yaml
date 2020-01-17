@@ -295,19 +295,19 @@
         - ansible-test-network-integration-iosxr-python38:
             branches:
               - devel
-        - ansible-test-network-integration-junos-python27:
+        - ansible-test-network-integration-junos-vsrx-python27:
             branches:
               - devel
-        - ansible-test-network-integration-junos-python35:
+        - ansible-test-network-integration-junos-vsrx-python35:
             branches:
               - devel
-        - ansible-test-network-integration-junos-python36:
+        - ansible-test-network-integration-junos-vsrx-python36:
             branches:
               - devel
-        - ansible-test-network-integration-junos-python37:
+        - ansible-test-network-integration-junos-vsrx-python37:
             branches:
               - devel
-        - ansible-test-network-integration-junos-python38:
+        - ansible-test-network-integration-junos-vsrx-python38:
             branches:
               - devel
         - ansible-test-network-integration-openvswitch-python27:
@@ -411,27 +411,27 @@
         - ansible-test-network-integration-iosxr-python38:
             branches:
               - devel
-        - ansible-test-network-integration-junos-python27:
+        - ansible-test-network-integration-junos-vsrx-python27:
             branches:
               - devel
               - stable-2.9
               - stable-2.8
-        - ansible-test-network-integration-junos-python35:
+        - ansible-test-network-integration-junos-vsrx-python35:
             branches:
               - devel
               - stable-2.9
               - stable-2.8
-        - ansible-test-network-integration-junos-python36:
+        - ansible-test-network-integration-junos-vsrx-python36:
             branches:
               - devel
               - stable-2.9
               - stable-2.8
-        - ansible-test-network-integration-junos-python37:
+        - ansible-test-network-integration-junos-vsrx-python37:
             branches:
               - devel
               - stable-2.9
               - stable-2.8
-        - ansible-test-network-integration-junos-python38:
+        - ansible-test-network-integration-junos-vsrx-python38:
             branches:
               - devel
         - ansible-test-network-integration-openvswitch-python27:
@@ -816,7 +816,7 @@
               - ^test/integration/targets/netconf_.*
               - ^test/integration/targets/prepare_iosxr_tests/.*
             voting: false
-        - ansible-test-network-integration-junos-python27:
+        - ansible-test-network-integration-junos-vsrx-python27:
             branches:
               - devel
               - stable-2.9
@@ -841,7 +841,7 @@
               - ^test/integration/targets/junos_.*
               - ^test/integration/targets/netconf_.*
               - ^test/integration/targets/prepare_junos_tests/.*
-        - ansible-test-network-integration-junos-python35:
+        - ansible-test-network-integration-junos-vsrx-python35:
             branches:
               - devel
               - stable-2.9
@@ -866,7 +866,7 @@
               - ^test/integration/targets/junos_.*
               - ^test/integration/targets/netconf_.*
               - ^test/integration/targets/prepare_junos_tests/.*
-        - ansible-test-network-integration-junos-python36:
+        - ansible-test-network-integration-junos-vsrx-python36:
             branches:
               - devel
               - stable-2.9
@@ -891,7 +891,7 @@
               - ^test/integration/targets/junos_.*
               - ^test/integration/targets/netconf_.*
               - ^test/integration/targets/prepare_junos_tests/.*
-        - ansible-test-network-integration-junos-python37:
+        - ansible-test-network-integration-junos-vsrx-python37:
             branches:
               - devel
               - stable-2.9
@@ -916,7 +916,7 @@
               - ^test/integration/targets/junos_.*
               - ^test/integration/targets/netconf_.*
               - ^test/integration/targets/prepare_junos_tests/.*
-        - ansible-test-network-integration-junos-python38:
+        - ansible-test-network-integration-junos-vsrx-python38:
             branches:
               - devel
             files:

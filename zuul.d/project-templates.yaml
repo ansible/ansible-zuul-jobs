@@ -182,6 +182,31 @@
     name: ansible-collections-juniper-junos
     check:
       jobs:
+        - ansible-test-network-integration-junos-vsrx-python27:
+            vars:
+              ansible_test_collections: true
+              ansible_test_integration_targets: "junos_.*"
+            voting: false
+        - ansible-test-network-integration-junos-vsrx-python35:
+            vars:
+              ansible_test_collections: true
+              ansible_test_integration_targets: "junos_.*"
+            voting: false
+        - ansible-test-network-integration-junos-vsrx-python36:
+            vars:
+              ansible_test_collections: true
+              ansible_test_integration_targets: "junos_.*"
+            voting: false
+        - ansible-test-network-integration-junos-vsrx-python37:
+            vars:
+              ansible_test_collections: true
+              ansible_test_integration_targets: "junos_.*"
+            voting: false
+        - ansible-test-network-integration-junos-vsrx-python38:
+            vars:
+              ansible_test_collections: true
+              ansible_test_integration_targets: "junos_.*"
+            voting: false
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-network/ansible_collections.ansible.netcommon

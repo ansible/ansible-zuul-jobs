@@ -18,6 +18,11 @@
             files:
               - playbooks/ansible-network-appliance-base/.*
               - playbooks/ansible-network-iosxr-appliance/.*
+        - ansible-network-junos-vqfx-appliance:
+            files:
+              - playbooks/ansible-network-appliance-base/.*
+              - playbooks/ansible-network-junos-appliance/.*
+            voting: false
         - ansible-network-junos-vsrx-appliance:
             files:
               - playbooks/ansible-network-appliance-base/.*

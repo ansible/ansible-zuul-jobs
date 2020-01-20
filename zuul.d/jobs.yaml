@@ -137,6 +137,16 @@
     nodeset: vsrx3-18.4R1-python36
 
 - job:
+    name: ansible-network-junos-vqfx-appliance
+    parent: ansible-network-junos-appliance
+    host-vars:
+      vqfx-18.1R3:
+        ansible_connection: network_cli
+        ansible_network_os: junos
+        ansible_python_interpreter: python
+    nodeset: vqfx-18.1R3-python36
+
+- job:
     name: ansible-network-nxos-appliance
     parent: ansible-network-appliance-base
     pre-run: playbooks/ansible-network-nxos-appliance/pre.yaml

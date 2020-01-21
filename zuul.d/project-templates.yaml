@@ -225,17 +225,41 @@
     name: ansible-collections-juniper-junos-netconf
     check:
       jobs:
+        - ansible-test-network-integration-junos-vsrx-netconf-python27:
+            vars:
+              ansible_test_collections: true
+            voting: false
+        - ansible-test-network-integration-junos-vsrx-netconf-python35:
+            vars:
+              ansible_test_collections: true
+            voting: false
+        - ansible-test-network-integration-junos-vsrx-netconf-python36:
+            vars:
+              ansible_test_collections: true
+            voting: false
+        - ansible-test-network-integration-junos-vsrx-netconf-python37:
+            vars:
+              ansible_test_collections: true
+            voting: false
+        - ansible-test-network-integration-junos-vsrx-netconf-python38:
+            vars:
+              ansible_test_collections: true
+            voting: false
         - build-ansible-collection:
             required-projects:
-              - name: github.com/ansible-network/ansible_collections.juniper.junos
               - name: github.com/ansible-network/ansible_collections.ansible.netcommon
+              - name: github.com/ansible-network/ansible_collections.cisco.iosxr
+              - name: github.com/ansible-network/ansible_collections.junipernetworks.junos
+        - build-ansible-minimal
     gate:
       queue: integrated
       jobs:
         - build-ansible-collection:
             required-projects:
-              - name: github.com/ansible-network/ansible_collections.juniper.junos
               - name: github.com/ansible-network/ansible_collections.ansible.netcommon
+              - name: github.com/ansible-network/ansible_collections.cisco.iosxr
+              - name: github.com/ansible-network/ansible_collections.junipernetworks.junos
+        - build-ansible-minimal
 
 - project-template:
     name: ansible-collections-vyos-vyos

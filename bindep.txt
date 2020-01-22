@@ -3,6 +3,8 @@
 
 gcc-c++ [test platform:rpm]
 libffi-dev [test platform:ubuntu-bionic]
+libssh-devel [test platform:rpm]
+libssh-dev [test platform:dpkg]
 libxml2-dev [test platform:ubuntu-bionic]
 libxslt1-dev [test platform:ubuntu-bionic]
 python2.7-dev [test platform:dpkg]

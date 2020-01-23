@@ -208,7 +208,7 @@
     dependencies:
       - name: build-ansible-collection
         soft: true
-      - name: build-ansible-minimal
+      - name: build-ansible-base
         soft: true
     parent: ansible-network-eos-appliance
     pre-run:
@@ -266,7 +266,7 @@
     dependencies:
       - name: build-ansible-collection
         soft: true
-      - name: build-ansible-minimal
+      - name: build-ansible-base
         soft: true
     parent: ansible-network-ios-appliance
     pre-run:
@@ -324,7 +324,7 @@
     dependencies:
       - name: build-ansible-collection
         soft: true
-      - name: build-ansible-minimal
+      - name: build-ansible-base
         soft: true
     parent: ansible-network-iosxr-appliance
     pre-run:
@@ -406,7 +406,7 @@
     dependencies:
       - name: build-ansible-collection
         soft: true
-      - name: build-ansible-minimal
+      - name: build-ansible-base
         soft: true
     parent: ansible-network-junos-vsrx-appliance
     pre-run:
@@ -494,7 +494,7 @@
     dependencies:
       - name: build-ansible-collection
         soft: true
-      - name: build-ansible-minimal
+      - name: build-ansible-base
         soft: true
     parent: ansible-network-nxos-appliance
     pre-run:
@@ -578,7 +578,7 @@
     dependencies:
       - name: build-ansible-collection
         soft: true
-      - name: build-ansible-minimal
+      - name: build-ansible-base
         soft: true
     parent: ansible-network-vyos-appliance
     pre-run:

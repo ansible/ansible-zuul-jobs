@@ -58,14 +58,14 @@
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-network/ansible_collections.ansible.netcommon
-        - build-ansible-minimal
+        - build-ansible-base
     gate:
       queue: integrated
       jobs:
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-network/ansible_collections.ansible.netcommon
-        - build-ansible-minimal
+        - build-ansible-base
 
 - project-template:
     name: ansible-collections-cisco-ios
@@ -94,14 +94,14 @@
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-network/ansible_collections.ansible.netcommon
-        - build-ansible-minimal
+        - build-ansible-base
     gate:
       queue: integrated
       jobs:
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-network/ansible_collections.ansible.netcommon
-        - build-ansible-minimal
+        - build-ansible-base
 
 - project-template:
     name: ansible-collections-cisco-iosxr
@@ -135,14 +135,14 @@
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-network/ansible_collections.ansible.netcommon
-        - build-ansible-minimal
+        - build-ansible-base
     gate:
       queue: integrated
       jobs:
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-network/ansible_collections.ansible.netcommon
-        - build-ansible-minimal
+        - build-ansible-base
 
 - project-template:
     name: ansible-collections-cisco-iosxr-netconf
@@ -169,7 +169,7 @@
               - name: github.com/ansible-network/ansible_collections.ansible.netcommon
               - name: github.com/ansible-network/ansible_collections.cisco.iosxr
               - name: github.com/ansible-network/ansible_collections.junipernetworks.junos
-        - build-ansible-minimal
+        - build-ansible-base
     gate:
       queue: integrated
       jobs:
@@ -178,7 +178,7 @@
               - name: github.com/ansible-network/ansible_collections.ansible.netcommon
               - name: github.com/ansible-network/ansible_collections.cisco.iosxr
               - name: github.com/ansible-network/ansible_collections.junipernetworks.junos
-        - build-ansible-minimal
+        - build-ansible-base
 
 - project-template:
     name: ansible-collections-juniper-junos
@@ -212,14 +212,14 @@
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-network/ansible_collections.ansible.netcommon
-        - build-ansible-minimal
+        - build-ansible-base
     gate:
       queue: integrated
       jobs:
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-network/ansible_collections.ansible.netcommon
-        - build-ansible-minimal
+        - build-ansible-base
 
 - project-template:
     name: ansible-collections-juniper-junos-netconf
@@ -250,7 +250,7 @@
               - name: github.com/ansible-network/ansible_collections.ansible.netcommon
               - name: github.com/ansible-network/ansible_collections.cisco.iosxr
               - name: github.com/ansible-network/ansible_collections.junipernetworks.junos
-        - build-ansible-minimal
+        - build-ansible-base
     gate:
       queue: integrated
       jobs:
@@ -259,7 +259,7 @@
               - name: github.com/ansible-network/ansible_collections.ansible.netcommon
               - name: github.com/ansible-network/ansible_collections.cisco.iosxr
               - name: github.com/ansible-network/ansible_collections.junipernetworks.junos
-        - build-ansible-minimal
+        - build-ansible-base
 
 - project-template:
     name: ansible-collections-vyos-vyos
@@ -288,14 +288,14 @@
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-network/ansible_collections.ansible.netcommon
-        - build-ansible-minimal
+        - build-ansible-base
     gate:
       queue: integrated
       jobs:
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-network/ansible_collections.ansible.netcommon
-        - build-ansible-minimal
+        - build-ansible-base
 
 - project-template:
     name: ansible-test-network-integration

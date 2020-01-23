@@ -20,8 +20,8 @@
 - nodeset:
     name: fedora-latest-1vcpu
     nodes:
-      - name: fedora-30
-        label: fedora-30-1vcpu
+      - name: fedora-31
+        label: fedora-31-1vcpu
 
 - nodeset:
     name: fedora-latest-4vcpu

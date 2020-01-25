@@ -82,7 +82,7 @@
       Test building python tarballs / wheels and the packaging metadata
     pre-run: playbooks/ansible-build-python-tarball/pre.yaml
     run: playbooks/ansible-build-python-tarball/run.yaml
-    nodeset: fedora-latest-1vcpu
+    nodeset: centos-8-1vcpu
     vars:
       release_python: python3
       bdist_wheel_xargs: "--universal"

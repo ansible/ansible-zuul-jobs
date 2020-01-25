@@ -1,6 +1,11 @@
 ---
 - hosts: all
   tasks:
+    - name: Run bindep role
+      include_role:
+        name: bindep
+
+    # NOTE(pabelanger): We should consider pushing this into bindep.txt file, as build dependency.
     - name: Ensure python3-wheel is installed
       become: true
       package:

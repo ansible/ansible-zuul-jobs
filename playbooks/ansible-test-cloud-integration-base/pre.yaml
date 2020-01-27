@@ -23,7 +23,7 @@
 
         - name: Move the cached files
           shell: |
-             mv /opt/cache/files/CentOS-8-x86_64-1905-boot.iso /srv/share/isos/centos.iso
+             mv /opt/cache/files/CentOS-8.1.1911-x86_64-boot.iso /srv/share/isos/centos.iso
              mv /opt/cache/files/Fedora-Workstation-Live-x86_64-31-1.9.iso /srv/share/isos/fedora.iso
           args:
             creates: /srv/share/isos/fedora.iso

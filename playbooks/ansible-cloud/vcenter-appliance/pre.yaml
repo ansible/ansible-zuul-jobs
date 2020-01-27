@@ -45,10 +45,3 @@
         name: vmware-ci-set-passwords
       vars:
         vmware_ci_set_passwords_secret_dir: '{{ zuul.executor.work_root }}'
-
-- hosts: appliance
-  gather_facts: false
-  tasks:
-    - name: Ensure the ESXi will reboot if they get a BlueScreenOfDeath
-      command: esxcfg-advcfg -s 1 /Misc/BlueScreenTimeout
-      when: inventory_hostname.startswith("esxi")

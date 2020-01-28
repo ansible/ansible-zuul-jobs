@@ -12,8 +12,8 @@
         tox_install_siblings: false
         zuul_work_dir: "{{ zuul.projects['github.com/ansible/ansible-zuul-jobs'].src_dir }}"
 
-
     - name: Restore the cache files for the NFS datastore
+      when: "'esxis' in groups"
       block:
         - name: Create the ISO directory
           file:
@@ -38,14 +38,11 @@
             group: '1000'
           become: true
 
-
-    - name: Prepare the NFS datastore
-      import_role:
-        name: vmware-ci-nfs-share
-      vars:
-        vmware_ci_nfs_share_allow_ips:
-          - "{{ hostvars['esxi1']['nodepool']['interface_ip'] }}"
-      when: "'esxi1' in hostvars"
+        - name: Prepare the NFS datastore
+          import_role:
+            name: vmware-ci-nfs-share
+          vars:
+            vmware_ci_nfs_share_allow_ips: "{{ groups['esxis'] | map('extract', hostvars, ['nodepool'])|map(attribute='interface_ip')|list }}"
 
     - name: Write the configuration for ansible-test
       import_role:

@@ -50,4 +50,9 @@
   gather_facts: false
   tasks:
     - import_role:
+        name: configure-swap
+      vars:
+        configure_swap_current_total: 0
+        configure_swap_size: 2000
+    - import_role:
         name: vmware-ci-vcenter-services

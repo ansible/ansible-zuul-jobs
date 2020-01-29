@@ -1281,3 +1281,20 @@
     unlabel-on-push:
       jobs:
         - noop
+
+- project-template:
+    name: publish-to-pypi
+    description: |
+      Publish an Ansible python project to the Python Package Index
+    check:
+      jobs:
+        - ansible-build-python-tarball
+    gate:
+      jobs:
+        - ansible-build-python-tarball
+    pre-release:
+      jobs:
+        - ansible-python-upload-pypi
+    release:
+      jobs:
+        - ansible-python-upload-pypi

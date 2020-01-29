@@ -1269,6 +1269,23 @@
         - release-ansible-collection-galaxy-dev
 
 - project-template:
+    name: publish-to-pypi
+    description: |
+      Publish a Python package to PyPI.
+    check:
+      jobs:
+        - ansible-build-python-tarball
+    gate:
+      jobs:
+        - ansible-build-python-tarball
+    pre-release:
+      jobs:
+        - release-ansible-python
+    release:
+      jobs:
+        - release-ansible-python
+
+- project-template:
     name: system-required
     description: |
       Jobs that *every* project in Ansible should have by default.

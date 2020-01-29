@@ -86,7 +86,6 @@
     nodeset: centos-8-1vcpu
     vars:
       release_python: python3
-      bdist_wheel_xargs: "--universal"
 
 - job:
     name: ansible-network-appliance-base

@@ -334,18 +334,23 @@
         - ansible-test-network-integration-iosxr-python27:
             branches:
               - devel
+            voting: false
         - ansible-test-network-integration-iosxr-python35:
             branches:
               - devel
+            voting: false
         - ansible-test-network-integration-iosxr-python36:
             branches:
               - devel
+            voting: false
         - ansible-test-network-integration-iosxr-python37:
             branches:
               - devel
+            voting: false
         - ansible-test-network-integration-iosxr-python38:
             branches:
               - devel
+            voting: false
         - ansible-test-network-integration-junos-vsrx-python27:
             branches:
               - devel

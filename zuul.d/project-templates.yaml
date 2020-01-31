@@ -1177,7 +1177,6 @@
               - ^lib/ansible/modules/cloud/vmware/.*
               - ^test/integration/targets/vcenter_.*
               - ^test/integration/targets/.*vmware_.*
-            voting: false
         - ansible-test-cloud-integration-vcenter_1esxi-python36:
             branches:
               - devel
@@ -1193,7 +1192,6 @@
               - ^lib/ansible/modules/cloud/vmware/.*
               - ^test/integration/targets/vcenter_.*
               - ^test/integration/targets/.*vmware_.*
-            voting: false
 
 - project-template:
     name: noop-jobs

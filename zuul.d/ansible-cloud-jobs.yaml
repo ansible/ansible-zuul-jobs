@@ -42,6 +42,18 @@
       ansible_test_integration_targets: zuul/vmware/vcenter_only/
 
 - job:
+    name: ansible-test-cloud-integration-vcenter_only-collection-python36
+    parent: ansible-test-cloud-integration-vcenter
+    dependencies:
+      - name: build-ansible-collection
+      - name: build-ansible-base
+    nodeset: vmware-vcsa-6.7.0-python36
+    vars:
+      ansible_test_python: 3.6
+      ansible_test_integration_targets: zuul/vmware/vcenter_only/
+      ansible_test_collections: true
+
+- job:
     name: ansible-test-cloud-integration-vcenter_1esxi-python36
     parent: ansible-test-cloud-integration-vcenter
     nodeset: vmware-vcsa_1esxi-6.7.0-python36

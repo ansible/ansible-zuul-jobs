@@ -298,6 +298,29 @@
         - build-ansible-base
 
 - project-template:
+    name: ansible-collections-community-vmware
+    check:
+      jobs:
+        - ansible-test-cloud-integration-vcenter_only-python36:
+            vars:
+              ansible_test_collections: true
+            voting: false
+        - ansible-test-cloud-integration-vcenter_1esxi-python36:
+            vars:
+              ansible_test_collections: true
+            voting: false
+        - ansible-test-cloud-integration-vcenter_2esxi-python36:
+            vars:
+              ansible_test_collections: true
+            voting: false
+        - build-ansible-collection
+        - build-ansible-base
+    gate:
+      queue: integrated
+      jobs:
+        - build-ansible-base
+
+- project-template:
     name: ansible-test-network-integration
     experimental:
       jobs:

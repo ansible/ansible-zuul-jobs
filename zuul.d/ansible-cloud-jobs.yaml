@@ -37,6 +37,11 @@
     name: ansible-test-cloud-integration-vcenter_only-python36
     parent: ansible-test-cloud-integration-vcenter
     nodeset: vmware-vcsa-6.7.0-python36
+    dependencies:
+      - name: build-ansible-collection
+        soft: true
+      - name: build-ansible-base
+        soft: true
     vars:
       ansible_test_python: 3.6
       ansible_test_integration_targets: zuul/vmware/vcenter_only/
@@ -45,6 +50,11 @@
     name: ansible-test-cloud-integration-vcenter_1esxi-python36
     parent: ansible-test-cloud-integration-vcenter
     nodeset: vmware-vcsa_1esxi-6.7.0-python36
+    dependencies:
+      - name: build-ansible-collection
+        soft: true
+      - name: build-ansible-base
+        soft: true
     vars:
       ansible_test_python: 3.6
       ansible_test_integration_targets: zuul/vmware/vcenter_1esxi/
@@ -55,6 +65,11 @@
     name: ansible-test-cloud-integration-vcenter_2esxi-python36
     parent: ansible-test-cloud-integration-vcenter
     nodeset: vmware-vcsa_2esxi-6.7.0-python36
+    dependencies:
+      - name: build-ansible-collection
+        soft: true
+      - name: build-ansible-base
+        soft: true
     vars:
       ansible_test_python: 3.6
       ansible_test_integration_targets: zuul/vmware/vcenter_2esxi/

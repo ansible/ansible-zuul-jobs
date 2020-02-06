@@ -69,7 +69,7 @@
           args:
             chdir: "{{ ansible_user_dir }}/downloads"
             executable: /bin/bash
-          shell: "source ~/venv/bin/activate; {{ ansible_user_dir }}/{{ zuul.projects['github.com/ansible/ansible'].src_dir }}/bin/ansible-galaxy collection install -p ~/.ansible/collection {{ item.url | basename }}"
+          shell: "source ~/venv/bin/activate; ansible-galaxy collection install -p ~/.ansible/collection {{ item.url | basename }}"
           with_items: "{{ zuul.artifacts }}"
           when: "'metadata' in item and 'type' in item.metadata and (item.metadata.type == 'ansible_collection')"
 

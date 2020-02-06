@@ -4,7 +4,9 @@
       - ansible-python-jobs
     check:
       jobs:
-        - ansible-cloud-vcenter-appliance:
+#        - ansible-cloud-vcenter-appliance:
+#            voting: false
+        - ansible-cloud-build-esxi-image:
             voting: false
         - ansible-network-eos-appliance:
             files:

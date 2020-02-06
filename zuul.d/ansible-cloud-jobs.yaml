@@ -5,6 +5,11 @@
     post-run: playbooks/ansible-cloud/appliance-base/post.yaml
 
 - job:
+    name: ansible-cloud-build-esxi-image
+    run: playbooks/ansible-cloud/build-esxi-image/run.yaml
+    nodeset: centos-8-1vcpu
+
+- job:
     name: ansible-cloud-vcenter-appliance
     parent: ansible-cloud-appliance-base
     pre-run: playbooks/ansible-cloud/vcenter-appliance/pre.yaml

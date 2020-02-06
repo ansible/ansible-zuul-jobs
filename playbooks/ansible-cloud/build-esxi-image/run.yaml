@@ -1,0 +1,21 @@
+---
+- hosts: centos-8
+  tasks:
+    - name: Install some dependencies
+      package:
+        name:
+          - virt-install
+          - genisoimage
+      become: true
+    - name: Fetch https://github.com/virt-lightning/esxi-cloud-images
+      git:
+        repo: https://github.com/virt-lightning/esxi-cloud-images
+        dest: "{{ zuul_work_dir }}/esxi-cloud-images"
+    - name: Download ESXi ISO image
+      get_url:
+        url: https://virt-lightning.org/vmware/VMware-VMvisor-Installer-6.7.0.update03-14320388.x86_64.iso
+        dest: "{{ zuul_work_dir }}/esxi.iso"
+    - name: Build an ansible collection
+      args:
+        chdir: "{{ zuul_work_dir }}/esxi-cloud-images"
+      shell: "./build.sh {{ zuul_work_dir }}/esxi.iso"

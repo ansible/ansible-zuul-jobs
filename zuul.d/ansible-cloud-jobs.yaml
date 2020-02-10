@@ -20,6 +20,11 @@
     name: ansible-test-cloud-integration-vcenter
     abstract: true
     parent: ansible-cloud-vcenter-appliance
+    dependencies:
+      - name: build-ansible-collection
+        soft: true
+      - name: build-ansible-base
+        soft: true
     pre-run:
       - playbooks/ansible-test-integration-base/pre.yaml
       - playbooks/ansible-test-cloud-integration-base/pre.yaml

@@ -94,6 +94,10 @@
         - name: Copy ansible.cfg to correct location
           shell: "cp {{ ansible_user_dir }}/{{ zuul.projects['github.com/ansible/ansible'].src_dir }}/test/integration/{{ ansible_test_command }}.cfg {{ _test_location }}/tests/integration/{{ ansible_test_command }}.cfg"
 
+        - name: Copy potential cloud provider configuration for ansible-test in the collection
+          shell: "cp -v {{ ansible_user_dir }}/{{ zuul.projects['github.com/ansible/ansible'].src_dir }}/test/integration/cloud-config-*.ini {{ _test_location }}/tests/integration/"
+          when: ansible_test_command == 'integration'
+
       when: ansible_test_collections | default(False)
 
     - name: Run the integration test suite

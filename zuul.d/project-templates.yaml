@@ -57,14 +57,14 @@
             voting: false
         - build-ansible-collection:
             required-projects:
-              - name: github.com/ansible-network/ansible_collections.ansible.netcommon
+              - name: github.com/ansible-collections/netcommon
         - build-ansible-base
     gate:
       queue: integrated
       jobs:
         - build-ansible-collection:
             required-projects:
-              - name: github.com/ansible-network/ansible_collections.ansible.netcommon
+              - name: github.com/ansible-collections/netcommon
         - build-ansible-base
 
 - project-template:
@@ -93,14 +93,14 @@
             voting: false
         - build-ansible-collection:
             required-projects:
-              - name: github.com/ansible-network/ansible_collections.ansible.netcommon
+              - name: github.com/ansible-collections/netcommon
         - build-ansible-base
     gate:
       queue: integrated
       jobs:
         - build-ansible-collection:
             required-projects:
-              - name: github.com/ansible-network/ansible_collections.ansible.netcommon
+              - name: github.com/ansible-collections/netcommon
         - build-ansible-base
 
 - project-template:
@@ -134,14 +134,14 @@
             voting: false
         - build-ansible-collection:
             required-projects:
-              - name: github.com/ansible-network/ansible_collections.ansible.netcommon
+              - name: github.com/ansible-collections/netcommon
         - build-ansible-base
     gate:
       queue: integrated
       jobs:
         - build-ansible-collection:
             required-projects:
-              - name: github.com/ansible-network/ansible_collections.ansible.netcommon
+              - name: github.com/ansible-collections/netcommon
         - build-ansible-base
 
 - project-template:
@@ -166,7 +166,7 @@
             voting: false
         - build-ansible-collection:
             required-projects:
-              - name: github.com/ansible-network/ansible_collections.ansible.netcommon
+              - name: github.com/ansible-collections/netcommon
               - name: github.com/ansible-network/ansible_collections.cisco.iosxr
               - name: github.com/ansible-network/ansible_collections.junipernetworks.junos
         - build-ansible-base
@@ -175,7 +175,7 @@
       jobs:
         - build-ansible-collection:
             required-projects:
-              - name: github.com/ansible-network/ansible_collections.ansible.netcommon
+              - name: github.com/ansible-collections/netcommon
               - name: github.com/ansible-network/ansible_collections.cisco.iosxr
               - name: github.com/ansible-network/ansible_collections.junipernetworks.junos
         - build-ansible-base
@@ -211,14 +211,14 @@
             voting: false
         - build-ansible-collection:
             required-projects:
-              - name: github.com/ansible-network/ansible_collections.ansible.netcommon
+              - name: github.com/ansible-collections/netcommon
         - build-ansible-base
     gate:
       queue: integrated
       jobs:
         - build-ansible-collection:
             required-projects:
-              - name: github.com/ansible-network/ansible_collections.ansible.netcommon
+              - name: github.com/ansible-collections/netcommon
         - build-ansible-base
 
 - project-template:
@@ -247,7 +247,7 @@
             voting: false
         - build-ansible-collection:
             required-projects:
-              - name: github.com/ansible-network/ansible_collections.ansible.netcommon
+              - name: github.com/ansible-collections/netcommon
               - name: github.com/ansible-network/ansible_collections.cisco.iosxr
               - name: github.com/ansible-network/ansible_collections.junipernetworks.junos
         - build-ansible-base
@@ -256,7 +256,7 @@
       jobs:
         - build-ansible-collection:
             required-projects:
-              - name: github.com/ansible-network/ansible_collections.ansible.netcommon
+              - name: github.com/ansible-collections/netcommon
               - name: github.com/ansible-network/ansible_collections.cisco.iosxr
               - name: github.com/ansible-network/ansible_collections.junipernetworks.junos
         - build-ansible-base
@@ -287,14 +287,14 @@
             voting: false
         - build-ansible-collection:
             required-projects:
-              - name: github.com/ansible-network/ansible_collections.ansible.netcommon
+              - name: github.com/ansible-collections/netcommon
         - build-ansible-base
     gate:
       queue: integrated
       jobs:
         - build-ansible-collection:
             required-projects:
-              - name: github.com/ansible-network/ansible_collections.ansible.netcommon
+              - name: github.com/ansible-collections/netcommon
         - build-ansible-base
 
 - project-template:

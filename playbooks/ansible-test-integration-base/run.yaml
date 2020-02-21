@@ -1,5 +1,7 @@
 ---
 - hosts: controller
+  vars:
+    __collections: ""
   tasks:
     - name: Setup location of project
       set_fact:
@@ -65,13 +67,17 @@
         - name: Install ara into virtuelenv
           shell: ~/venv/bin/pip install yq
 
+        - name: Create list of collections
+          set_fact:
+            __collections: "{{ __collections }} {{ item.url | basename }}"
+          with_items: "{{ zuul.artifacts }}"
+          when: "'metadata' in item and 'type' in item.metadata and (item.metadata.type == 'ansible_collection')"
+
         - name: Install require-project collection using ansible-galaxy
           args:
             chdir: "{{ ansible_user_dir }}/downloads"
             executable: /bin/bash
-          shell: "source ~/venv/bin/activate; ansible-galaxy collection install -p ~/.ansible/collection {{ item.url | basename }}"
-          with_items: "{{ zuul.artifacts }}"
-          when: "'metadata' in item and 'type' in item.metadata and (item.metadata.type == 'ansible_collection')"
+          shell: "source ~/venv/bin/activate; ansible-galaxy collection install -p ~/.ansible/collection {{ __collections }}"
 
         - name: Get collection namespace
           args:

@@ -29,3 +29,4 @@
         name: ansible-test-inventory
       vars:
         ansible_test_inventory_os: "{{ _network_os }}"
+        ansible_test_inventory_dest: ~/inventory

@@ -522,6 +522,11 @@
 - job:
     name: ansible-test-network-integration-openvswitch
     abstract: true
+    dependencies:
+      - name: build-ansible-collection
+        soft: true
+      - name: build-ansible-base
+        soft: true
     parent: ansible-network-openvswitch-appliance
     pre-run:
       - playbooks/ansible-test-integration-base/pre.yaml

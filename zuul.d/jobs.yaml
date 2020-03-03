@@ -217,6 +217,64 @@
     nodeset: vyos-1.1.8-python36
 
 - job:
+    name: ansible-test-network-integration-asa
+    abstract: true
+    dependencies:
+      - name: build-ansible-collection
+        soft: true
+      - name: build-ansible-base
+        soft: true
+    parent: ansible-network-asa-appliance
+    pre-run:
+      - playbooks/ansible-test-integration-base/pre.yaml
+      - playbooks/ansible-test-network-integration-base/pre.yaml
+    run: playbooks/ansible-test-integration-base/run.yaml
+    post-run:
+      - playbooks/ansible-test-network-integration-base/post.yaml
+      - playbooks/ansible-test-integration-base/post.yaml
+    required-projects:
+      - name: github.com/ansible/ansible
+    timeout: 9000
+    vars:
+      ansible_test_command: network-integration
+      ansible_test_integration_targets: "asa_.*"
+
+- job:
+    name: ansible-test-network-integration-asa-python27
+    parent: ansible-test-network-integration-asa
+    nodeset: asav9-12-3-python27
+    vars:
+      ansible_test_python: 2.7
+
+- job:
+    name: ansible-test-network-integration-asa-python35
+    parent: ansible-test-network-integration-asa
+    nodeset: asav9-12-3-python35
+    vars:
+      ansible_test_python: 3.5
+
+- job:
+    name: ansible-test-network-integration-asa-python36
+    parent: ansible-test-network-integration-asa
+    nodeset: asav9-12-3-python36
+    vars:
+      ansible_test_python: 3.6
+
+- job:
+    name: ansible-test-network-integration-asa-python37
+    parent: ansible-test-network-integration-asa
+    nodeset: asav9-12-3-python37
+    vars:
+      ansible_test_python: 3.7
+
+- job:
+    name: ansible-test-network-integration-asa-python38
+    parent: ansible-test-network-integration-asa
+    nodeset: asav9-12-3-python38
+    vars:
+      ansible_test_python: 3.8
+
+- job:
     name: ansible-test-network-integration-eos
     abstract: true
     dependencies:

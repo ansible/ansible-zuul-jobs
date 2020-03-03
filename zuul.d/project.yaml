@@ -6,6 +6,10 @@
       jobs:
         - ansible-cloud-vcenter-appliance:
             voting: false
+        - ansible-network-asa-appliance:
+            files:
+              - playbooks/ansible-network-appliance-base/.*
+              - playbooks/ansible-network-asa-appliance/.*
         - ansible-network-eos-appliance:
             files:
               - playbooks/ansible-network-appliance-base/.*
@@ -42,6 +46,10 @@
               - playbooks/ansible-network-vyos-appliance/.*
     gate:
       jobs:
+        - ansible-network-asa-appliance:
+            files:
+              - playbooks/ansible-network-appliance-base/.*
+              - playbooks/ansible-network-asa-appliance/.*
         - ansible-network-eos-appliance:
             files:
               - playbooks/ansible-network-appliance-base/.*

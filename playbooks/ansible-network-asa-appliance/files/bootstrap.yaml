@@ -1,0 +1,45 @@
+---
+# NOTE(pabelanger): This needs to move into proper zuul-job, however until we
+# can use vyos_config on zuul-executor, we need to run as nested.
+- hosts: appliance
+  gather_facts: false
+  vars:
+    ansible_become_pass: cisco
+    ansible_password: admin123
+    ansible_user: admin
+
+  tasks:
+    - name: lookup SSH public key
+      set_fact:
+        _ssh_key: "{{ lookup('file', '~/.ssh/id_rsa.pub') }}"
+
+    - name: Setup new user
+      become: true
+      become_method: enable
+      asa_config:
+        lines:
+          - username zuul nopassword privilege 15
+        save: true
+
+    - name: Add SSH public key
+      become: true
+      become_method: enable
+      asa_config:
+        lines:
+          - "ssh authentication publickey {{ _ssh_key.split()[1] }}"
+        parents: username zuul attributes
+        save: true
+
+- hosts: appliance
+  gather_facts: false
+  vars:
+    ansible_become_pass: cisco
+
+  tasks:
+    - name: Remove admin user
+      become: true
+      become_method: enable
+      asa_config:
+        lines:
+          - clear configure username admin
+        save: true

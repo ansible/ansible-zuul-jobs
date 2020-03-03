@@ -663,6 +663,27 @@
               - devel
     third-party-check:
       jobs:
+        - ansible-test-network-integration-asa-python27:
+            branches:
+              - devel
+            files:
+              - ^lib/ansible/cli/scripts/ansible_connection_cli_stub.py
+              - ^lib/ansible/modules/network/cli/.*
+              - ^lib/ansible/modules/network/asa/.*
+              - ^lib/ansible/module_utils/network/common/.*
+              - ^lib/ansible/module_utils/network/asa/.*
+              - ^lib/ansible/plugins/action/asa.py
+              - ^lib/ansible/plugins/action/net_.*
+              - ^lib/ansible/plugins/cliconf/asa.py
+              - ^lib/ansible/plugins/connection/httpapi.py
+              - ^lib/ansible/plugins/connection/local.py
+              - ^lib/ansible/plugins/connection/network_cli.py
+              - ^lib/ansible/plugins/httpapi/__init__.py
+              - ^lib/ansible/plugins/httpapi/asa.py
+              - ^lib/ansible/plugins/terminal/__init__.py
+              - ^lib/ansible/plugins/terminal/asa.py
+              - ^test/integration/targets/asa_.*
+              - ^test/integration/targets/prepare_asa_tests/.*
         - ansible-test-network-integration-eos-python27:
             branches:
               - devel

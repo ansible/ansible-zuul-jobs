@@ -21,3 +21,7 @@
 
 - name: Install python requirements
   shell: "{{ ansible_test_venv_path }}/bin/pip install -r {{ _test_location }}/requirements.txt -r {{ _test_location }}/test-requirements.txt"
+
+- name: Copy potential cloud provider configuration for ansible-test in the collection
+  shell: "cp -v {{ ansible_test_ansible_path }}/test/integration/cloud-config-*.ini {{ _test_location }}/tests/integration/"
+  when: ansible_test_test_command == 'integration'

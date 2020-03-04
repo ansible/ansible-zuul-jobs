@@ -25,7 +25,8 @@
       with_inventory_hostnames: appliance
 
     - name: Create inventory file
-      template:
-        src: "inventory-{{ _network_os }}.j2"
-        dest: ~/inventory
-        mode: 0644
+      import_role:
+        name: ansible-test-inventory
+      vars:
+        ansible_test_inventory_os: "{{ _network_os }}"
+        ansible_test_inventory_dest: ~/inventory

@@ -1,0 +1,6 @@
+---
+- name: Create inventory file
+  template:
+    src: "inventory-{{ ansible_test_inventory_os }}.j2"
+    dest: "{{ ansible_test_inventory_dest }}"
+    mode: 0644

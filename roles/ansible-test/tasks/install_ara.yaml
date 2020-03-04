@@ -1,7 +1,4 @@
 ---
-- name: Install ara into virtualenv
-  shell: "{{ ansible_test_venv_path }}/bin/pip install 'ara<1.0.0'"
-
 - name: Enable ARA callback plugin
   ini_file:
     path: "{{ _test_cfg_location }}"

@@ -105,6 +105,36 @@
 
 # Ansible network appliance nodesets
 - nodeset:
+    name: asav9-12-3-python27
+    nodes:
+      - name: ubuntu-bionic
+        label: ubuntu-bionic-1vcpu
+      - name: asav9-12-3
+        label: asav9-12-3
+    groups:
+      - name: appliance
+        nodes:
+          - asav9-12-3
+      - name: controller
+        nodes:
+          - ubuntu-bionic
+
+- nodeset:
+    name: asav9-12-3-python35
+    nodes:
+      - name: ubuntu-xenial
+        label: ubuntu-xenial-1vcpu
+      - name: asav9-12-3
+        label: asav9-12-3
+    groups:
+      - name: appliance
+        nodes:
+          - asav9-12-3
+      - name: controller
+        nodes:
+          - ubuntu-xenial
+
+- nodeset:
     name: asav9-12-3-python36
     nodes:
       - name: centos-8
@@ -118,6 +148,36 @@
       - name: controller
         nodes:
           - centos-8
+
+- nodeset:
+    name: asav9-12-3-python37
+    nodes:
+      - name: fedora-31
+        label: fedora-31-1vcpu
+      - name: asav9-12-3
+        label: asav9-12-3
+    groups:
+      - name: appliance
+        nodes:
+          - asav9-12-3
+      - name: controller
+        nodes:
+          - fedora-31
+
+- nodeset:
+    name: asav9-12-3-python38
+    nodes:
+      - name: ubuntu-bionic
+        label: ubuntu-bionic-1vcpu
+      - name: asav9-12-3
+        label: asav9-12-3
+    groups:
+      - name: appliance
+        nodes:
+          - asav9-12-3
+      - name: controller
+        nodes:
+          - ubuntu-bionic
 
 - nodeset:
     name: eos-4.20.10-python27

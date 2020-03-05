@@ -18,7 +18,12 @@
 
     - name: Setup base test_options
       set_fact:
-        _test_options: "--continue-on-error --diff --requirements"
+        _test_options: "--continue-on-error --diff"
+
+    - name: Enable --requirements
+      set_fact:
+        _test_options: "{{ _test_options }} --requirements"
+      when: not ansible_test_collections | default(False)
 
     - name: Enable --no-temp-workdir for test_options
       set_fact:
@@ -96,6 +101,9 @@
         - name: Setup location of project
           set_fact:
             _test_location: "~/.ansible/collection/ansible_collections/{{ _collection_namespace.stdout }}/{{ _collection_name.stdout }}"
+
+        - name: Install python requirements
+          shell: "~/venv/bin/pip install -r {{ _test_location }}/requirements.txt -r {{ _test_location }}/test-requirements.txt"
 
         - name: Copy ansible.cfg to correct location
           shell: "cp {{ ansible_user_dir }}/{{ zuul.projects['github.com/ansible/ansible'].src_dir }}/test/integration/{{ ansible_test_command }}.cfg {{ _test_location }}/tests/integration/{{ ansible_test_command }}.cfg"

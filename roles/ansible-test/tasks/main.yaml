@@ -21,8 +21,8 @@
   import_tasks: init_collection.yaml
   when: ansible_test_collections
 
-- name: Install ara
-  import_tasks: install_ara.yaml
+- name: Enable ara
+  import_tasks: enable_ara.yaml
   when: ansible_test_enable_ara
 
 - name: Run the integration test suite

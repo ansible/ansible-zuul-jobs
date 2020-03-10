@@ -1,0 +1,30 @@
+---
+- name: Setup download-artifact-fork role
+  include_role:
+    name: download-artifact-fork
+  vars:
+    download_artifact_directory: ~/downloads
+    download_artifact_type: "{{ deploy_artifacts_type }}"
+
+- name: Install the sdist artifacts
+  args:
+    chdir: "{{ ansible_user_dir }}/downloads"
+  shell: "{{ deploy_artifacts_venv_path }}/bin/pip install {{ item.url | basename }}"
+  with_items: "{{ zuul.artifacts }}"
+  when: "'metadata' in item and 'type' in item.metadata and (item.metadata.type == 'python_sdist')"
+
+- name: define __collections
+  set_fact:
+    __collections: ""
+
+- name: Create list of collections
+  set_fact:
+    __collections: "{{ __collections }} {{ item.url | basename }}"
+  with_items: "{{ zuul.artifacts }}"
+  when: "'metadata' in item and 'type' in item.metadata and (item.metadata.type == 'ansible_collection')"
+
+- name: Install require-project collection using ansible-galaxy
+  args:
+    chdir: "{{ ansible_user_dir }}/downloads"
+    executable: /bin/bash
+  shell: "source {{ deploy_artifacts_venv_path }}/bin/activate; ansible-galaxy collection install {{ __collections }}"

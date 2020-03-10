@@ -1,0 +1,27 @@
+---
+- import_tasks: install_yq.yaml
+- name: Get collection namespace
+  args:
+    chdir: "{{ ansible_test_location }}"
+    executable: /bin/bash
+  shell: "cat galaxy.yml | {{ ansible_test_venv_path }}/bin/yq -y .namespace | tail -n +1 | head -1"
+  register: _collection_namespace
+
+- name: Get collection name
+  args:
+    chdir: "{{ ansible_test_location }}"
+    executable: /bin/bash
+  shell: "cat galaxy.yml | {{ ansible_test_venv_path }}/bin/yq -y .name | tail -n +1 | head -1"
+  register: _collection_name
+
+- name: Setup location of project
+  set_fact:
+    _test_location: "{{ ansible_test_collection_dir }}/{{ _collection_namespace.stdout }}/{{ _collection_name.stdout }}"
+    _test_cfg_location: "{{ ansible_test_collection_dir }}/{{ _collection_namespace.stdout }}/{{ _collection_name.stdout }}/tests/integration/{{ ansible_test_test_command }}.cfg"
+
+- name: Install python requirements
+  shell: "{{ ansible_test_venv_path }}/bin/pip install -r {{ _test_location }}/requirements.txt -r {{ _test_location }}/test-requirements.txt"
+
+- name: Copy potential cloud provider configuration for ansible-test in the collection
+  shell: "cp -v {{ ansible_test_ansible_path }}/test/integration/cloud-config-*.ini {{ _test_location }}/tests/integration/"
+  when: ansible_test_test_command == 'integration'

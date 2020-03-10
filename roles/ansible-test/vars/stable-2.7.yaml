@@ -1,0 +1,2 @@
+---
+ansible_test_options: "--continue-on-error --diff"

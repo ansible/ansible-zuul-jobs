@@ -7,14 +7,14 @@
 
 - name: Enable --requirements
   set_fact:
-    _test_options: "{{ _test_options }} --requirements"
+    ansible_test_options: "{{ ansible_test_options }} --requirements"
   when: not ansible_test_collections
 
 - name: Prepare ansible-test parameters
   import_tasks: init_test_options.yaml
 
 - name: Single ansible mode
-  import_tasks: init_collection.yaml
+  import_tasks: init_single_mode.yaml
   when: not ansible_test_collections
 
 - name: Ansible with collections

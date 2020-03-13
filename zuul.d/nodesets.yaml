@@ -79,6 +79,27 @@
           - centos-8
 
 - nodeset:
+    name: vmware-vcsa_1esxi-6.7.0-python36_exp
+    nodes:
+      - name: centos-8
+        label: centos-8-1vcpu
+      - name: vcenter
+        label: vmware-vcsa-6.7.0
+      - name: esxi1
+        label: esxi-6.7.0_exp
+    groups:
+      - name: appliance
+        nodes:
+          - vcenter
+          - esxi1
+      - name: esxis
+        nodes:
+          - esxi1
+      - name: controller
+        nodes:
+          - centos-8
+
+- nodeset:
     name: vmware-vcsa_2esxi-6.7.0-python36
     nodes:
       - name: centos-8

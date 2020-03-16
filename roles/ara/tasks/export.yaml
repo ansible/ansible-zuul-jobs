@@ -1,0 +1,11 @@
+---
+- name: Ensure ara-report directory exists
+  file:
+    path: "{{ ara_export_dir }}"
+    state: directory
+- name: Generate ARA HTML output
+  shell: "{{ ara_venv_path }}/bin/ara generate html {{ ara_export_dir }}"
+  #  args:
+  #    chdir: "{{ ansible_user_dir }}/{{ zuul.projects['github.com/ansible/ansible-zuul-jobs'].src_dir }}"
+  environment:
+    ARA_PLAYBOOK_PER_PAGE: 50

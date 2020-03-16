@@ -22,7 +22,11 @@
   when: ansible_test_collections
 
 - name: Enable ara
-  import_tasks: enable_ara.yaml
+  import_role:
+    name: ara
+    tasks_from: enable
+  vars:
+    ara_cfg_path: "{{ _test_cfg_location }}"
   when: ansible_test_enable_ara
 
 - name: Run the integration test suite

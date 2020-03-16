@@ -1,0 +1,10 @@
+---
+- name: Create virtualenv for Ara
+  shell: "virtualenv --python python3 {{ ara_venv_path }}"
+
+- name: Install selinux into virtualenv
+  shell: "{{ ara_venv_path }}/bin/pip install selinux"
+  when: ansible_os_family == "RedHat"
+
+- name: Install ara into virtualenv
+  shell: '{{ ara_venv_path }}/bin/pip install "ara<1.0.0"'

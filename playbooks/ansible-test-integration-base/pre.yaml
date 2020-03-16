@@ -16,15 +16,19 @@
       set_fact:
         _virtualenv_options: "--python python{{ ansible_test_python }}"
 
+    - name: Prepare ara
+      import_role:
+        name: ara
+        tasks_from: prepare_venv
+      vars:
+        ara_venv_path: ~/venv_ara
+
     - name: Create virtualenv for ansible-test
       shell: "virtualenv {{ _virtualenv_options }} ~/venv"
 
     - name: Install selinux into virtualenv
       shell: ~/venv/bin/pip install selinux
       when: ansible_os_family == "RedHat"
-
-    - name: Install ara into virtualenv
-      shell: ~/venv/bin/pip install "ara<1.0.0"
 
     - name: Install ansible into virtualenv
       shell: "~/venv/bin/pip install {{ ansible_user_dir }}/{{ zuul.projects['github.com/ansible/ansible'].src_dir }}"

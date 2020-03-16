@@ -1,22 +1,17 @@
 ---
 - hosts: controller
+  vars:
+    log_dir: "{{ ansible_user_dir }}/zuul-output/logs/"
   tasks:
-    - name: Ensure ara-report directory exists
-      file:
-        path: "{{ ansible_user_dir }}/zuul-output/logs/controller/ara-report"
-        state: directory
-
-    - block:
-        - name: Generate ARA HTML output
-          shell: ".tox/venv/bin/ara generate html {{ ansible_user_dir }}/zuul-output/logs/controller/ara-report"
-          args:
-            chdir: "{{ ansible_user_dir }}/{{ zuul.projects['github.com/ansible/ansible-zuul-jobs'].src_dir }}"
-          environment:
-            ARA_PLAYBOOK_PER_PAGE: 50
-
+    - import_role:
+        name: ara
+        tasks_from: export
+      vars:
+        ara_venv_path: .tox/venv
+        ara_export_dir: "{{ log_dir }}/controller/ara-report"
       always:
         - name: Copy ARA sqlite database
-          shell: "cp {{ ansible_user_dir }}/.ara/ansible.sqlite {{ ansible_user_dir }}/zuul-output/logs/controller/ara-report"
+          shell: "cp {{ ansible_user_dir }}/.ara/ansible.sqlite {{ log_dir }}/controller/ara-report"
 
         # TODO: Migrate to fetch-zuul-logs when
         # https://review.openstack.org/#/c/583346/ is merged.
@@ -25,5 +20,5 @@
           synchronize:
             dest: "{{ zuul.executor.log_root }}/"
             mode: pull
-            src: "{{ ansible_user_dir }}/zuul-output/logs/"
+            src: "{{ log_dir }}"
             verify_host: true

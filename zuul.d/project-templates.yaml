@@ -84,23 +84,18 @@
         - ansible-test-network-integration-asa-python27:
             vars:
               ansible_test_collections: true
-            voting: false
         - ansible-test-network-integration-asa-python35:
             vars:
               ansible_test_collections: true
-            voting: false
         - ansible-test-network-integration-asa-python36:
             vars:
               ansible_test_collections: true
-            voting: false
         - ansible-test-network-integration-asa-python37:
             vars:
               ansible_test_collections: true
-            voting: false
         - ansible-test-network-integration-asa-python38:
             vars:
               ansible_test_collections: true
-            voting: false
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-collections/netcommon
@@ -108,6 +103,21 @@
     gate:
       queue: integrated
       jobs:
+        - ansible-test-network-integration-asa-python27:
+            vars:
+              ansible_test_collections: true
+        - ansible-test-network-integration-asa-python35:
+            vars:
+              ansible_test_collections: true
+        - ansible-test-network-integration-asa-python36:
+            vars:
+              ansible_test_collections: true
+        - ansible-test-network-integration-asa-python37:
+            vars:
+              ansible_test_collections: true
+        - ansible-test-network-integration-asa-python38:
+            vars:
+              ansible_test_collections: true
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-collections/netcommon

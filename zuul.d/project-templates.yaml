@@ -86,7 +86,7 @@
               ansible_test_collections: true
         - ansible-test-network-integration-asa-python35:
             vars:
-              ansible_test_collections: true
+              ansible_test_collections: false
         - ansible-test-network-integration-asa-python36:
             vars:
               ansible_test_collections: true
@@ -104,9 +104,6 @@
       queue: integrated
       jobs:
         - ansible-test-network-integration-asa-python27:
-            vars:
-              ansible_test_collections: true
-        - ansible-test-network-integration-asa-python35:
             vars:
               ansible_test_collections: true
         - ansible-test-network-integration-asa-python36:

@@ -664,9 +664,29 @@
       ansible_test_python: 2.7
 
 - job:
+    name: ansible-test-network-integration-vyos-python27-stable29
+    parent: ansible-test-network-integration-vyos
+    nodeset: vyos-1.1.8-python27
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.9
+    vars:
+      ansible_test_python: 2.7
+
+- job:
     name: ansible-test-network-integration-vyos-python35
     parent: ansible-test-network-integration-vyos
     nodeset: vyos-1.1.8-python35
+    vars:
+      ansible_test_python: 3.5
+
+- job:
+    name: ansible-test-network-integration-vyos-python35-stable29
+    parent: ansible-test-network-integration-vyos
+    nodeset: vyos-1.1.8-python35
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.9
     vars:
       ansible_test_python: 3.5
 
@@ -678,6 +698,16 @@
       ansible_test_python: 3.6
 
 - job:
+    name: ansible-test-network-integration-vyos-python36-stable29
+    parent: ansible-test-network-integration-vyos
+    nodeset: vyos-1.1.8-python36
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.9
+    vars:
+      ansible_test_python: 3.6
+
+- job:
     name: ansible-test-network-integration-vyos-python37
     parent: ansible-test-network-integration-vyos
     nodeset: vyos-1.1.8-python37
@@ -685,9 +715,29 @@
       ansible_test_python: 3.7
 
 - job:
+    name: ansible-test-network-integration-vyos-python37-stable29
+    parent: ansible-test-network-integration-vyos
+    nodeset: vyos-1.1.8-python37
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.9
+    vars:
+      ansible_test_python: 3.7
+
+- job:
     name: ansible-test-network-integration-vyos-python38
     parent: ansible-test-network-integration-vyos
     nodeset: vyos-1.1.8-python38
+    vars:
+      ansible_test_python: 3.8
+
+- job:
+    name: ansible-test-network-integration-vyos-python38-stable29
+    parent: ansible-test-network-integration-vyos
+    nodeset: vyos-1.1.8-python38
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.9
     vars:
       ansible_test_python: 3.8
 

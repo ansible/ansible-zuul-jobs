@@ -222,8 +222,6 @@
     dependencies:
       - name: build-ansible-collection
         soft: true
-      - name: build-ansible-base
-        soft: true
     parent: ansible-network-asa-appliance
     pre-run:
       - playbooks/ansible-test-integration-base/pre.yaml
@@ -279,8 +277,6 @@
     abstract: true
     dependencies:
       - name: build-ansible-collection
-        soft: true
-      - name: build-ansible-base
         soft: true
     parent: ansible-network-eos-appliance
     pre-run:
@@ -338,8 +334,6 @@
     dependencies:
       - name: build-ansible-collection
         soft: true
-      - name: build-ansible-base
-        soft: true
     parent: ansible-network-ios-appliance
     pre-run:
       - playbooks/ansible-test-integration-base/pre.yaml
@@ -395,8 +389,6 @@
     abstract: true
     dependencies:
       - name: build-ansible-collection
-        soft: true
-      - name: build-ansible-base
         soft: true
     parent: ansible-network-iosxr-appliance
     pre-run:
@@ -477,8 +469,6 @@
     abstract: true
     dependencies:
       - name: build-ansible-collection
-        soft: true
-      - name: build-ansible-base
         soft: true
     parent: ansible-network-junos-vsrx-appliance
     pre-run:
@@ -566,8 +556,6 @@
     dependencies:
       - name: build-ansible-collection
         soft: true
-      - name: build-ansible-base
-        soft: true
     parent: ansible-network-nxos-appliance
     pre-run:
       - playbooks/ansible-test-integration-base/pre.yaml
@@ -596,8 +584,6 @@
     abstract: true
     dependencies:
       - name: build-ansible-collection
-        soft: true
-      - name: build-ansible-base
         soft: true
     parent: ansible-network-openvswitch-appliance
     pre-run:
@@ -654,8 +640,6 @@
     abstract: true
     dependencies:
       - name: build-ansible-collection
-        soft: true
-      - name: build-ansible-base
         soft: true
     parent: ansible-network-vyos-appliance
     pre-run:

@@ -38,15 +38,31 @@
         - ansible-test-network-integration-eos-python27:
             vars:
               ansible_test_collections: true
+        - ansible-test-network-integration-eos-python27-stable29:
+            vars:
+              ansible_test_collections: true
+            voting: false
         - ansible-test-network-integration-eos-python35:
             vars:
               ansible_test_collections: true
+        - ansible-test-network-integration-eos-python35-stable29:
+            vars:
+              ansible_test_collections: true
+            voting: false
         - ansible-test-network-integration-eos-python36:
             vars:
               ansible_test_collections: true
+        - ansible-test-network-integration-eos-python36-stable29:
+            vars:
+              ansible_test_collections: true
+            voting: false
         - ansible-test-network-integration-eos-python37:
             vars:
               ansible_test_collections: true
+        - ansible-test-network-integration-eos-python37-stable29:
+            vars:
+              ansible_test_collections: true
+            voting: false
         - ansible-test-network-integration-eos-python38:
             vars:
               ansible_test_collections: true
@@ -124,15 +140,31 @@
         - ansible-test-network-integration-ios-python27:
             vars:
               ansible_test_collections: true
+        - ansible-test-network-integration-ios-python27-stable29:
+            vars:
+              ansible_test_collections: true
+            voting: false
         - ansible-test-network-integration-ios-python35:
             vars:
               ansible_test_collections: true
+        - ansible-test-network-integration-ios-python35-stable29:
+            vars:
+              ansible_test_collections: true
+            voting: false
         - ansible-test-network-integration-ios-python36:
             vars:
               ansible_test_collections: true
+        - ansible-test-network-integration-ios-python36-stable29:
+            vars:
+              ansible_test_collections: true
+            voting: false
         - ansible-test-network-integration-ios-python37:
             vars:
               ansible_test_collections: true
+        - ansible-test-network-integration-ios-python37-stable29:
+            vars:
+              ansible_test_collections: true
+            voting: false
         - ansible-test-network-integration-ios-python38:
             vars:
               ansible_test_collections: true
@@ -170,7 +202,17 @@
               ansible_test_collections: true
               ansible_test_integration_targets: "iosxr_.*"
             voting: false
+        - ansible-test-network-integration-iosxr-python27-stable29:
+            vars:
+              ansible_test_collections: true
+              ansible_test_integration_targets: "iosxr_.*"
+            voting: false
         - ansible-test-network-integration-iosxr-python35:
+            vars:
+              ansible_test_collections: true
+              ansible_test_integration_targets: "iosxr_.*"
+            voting: false
+        - ansible-test-network-integration-iosxr-python35-stable29:
             vars:
               ansible_test_collections: true
               ansible_test_integration_targets: "iosxr_.*"
@@ -180,7 +222,17 @@
               ansible_test_collections: true
               ansible_test_integration_targets: "iosxr_.*"
             voting: false
+        - ansible-test-network-integration-iosxr-python36-stable29:
+            vars:
+              ansible_test_collections: true
+              ansible_test_integration_targets: "iosxr_.*"
+            voting: false
         - ansible-test-network-integration-iosxr-python37:
+            vars:
+              ansible_test_collections: true
+              ansible_test_integration_targets: "iosxr_.*"
+            voting: false
+        - ansible-test-network-integration-iosxr-python37-stable29:
             vars:
               ansible_test_collections: true
               ansible_test_integration_targets: "iosxr_.*"
@@ -270,18 +322,38 @@
             vars:
               ansible_test_collections: true
               ansible_test_integration_targets: "junos_.*"
+        - ansible-test-network-integration-junos-vsrx-python27-stable29:
+            vars:
+              ansible_test_collections: true
+              ansible_test_integration_targets: "junos_.*"
+            voting: false
         - ansible-test-network-integration-junos-vsrx-python35:
             vars:
               ansible_test_collections: true
               ansible_test_integration_targets: "junos_.*"
+        - ansible-test-network-integration-junos-vsrx-python35-stable29:
+            vars:
+              ansible_test_collections: true
+              ansible_test_integration_targets: "junos_.*"
+            voting: false
         - ansible-test-network-integration-junos-vsrx-python36:
             vars:
               ansible_test_collections: true
               ansible_test_integration_targets: "junos_.*"
+        - ansible-test-network-integration-junos-vsrx-python36-stable29:
+            vars:
+              ansible_test_collections: true
+              ansible_test_integration_targets: "junos_.*"
+            voting: false
         - ansible-test-network-integration-junos-vsrx-python37:
             vars:
               ansible_test_collections: true
               ansible_test_integration_targets: "junos_.*"
+        - ansible-test-network-integration-junos-vsrx-python37-stable29:
+            vars:
+              ansible_test_collections: true
+              ansible_test_integration_targets: "junos_.*"
+            voting: false
         - ansible-test-network-integration-junos-vsrx-python38:
             vars:
               ansible_test_collections: true
@@ -371,15 +443,31 @@
         - ansible-test-network-integration-openvswitch-python27:
             vars:
               ansible_test_collections: true
+        - ansible-test-network-integration-openvswitch-python27-stable29:
+            vars:
+              ansible_test_collections: true
+            voting: false
         - ansible-test-network-integration-openvswitch-python35:
             vars:
               ansible_test_collections: true
+        - ansible-test-network-integration-openvswitch-python35-stable29:
+            vars:
+              ansible_test_collections: true
+            voting: false
         - ansible-test-network-integration-openvswitch-python36:
             vars:
               ansible_test_collections: true
+        - ansible-test-network-integration-openvswitch-python36-stable29:
+            vars:
+              ansible_test_collections: true
+            voting: false
         - ansible-test-network-integration-openvswitch-python37:
             vars:
               ansible_test_collections: true
+        - ansible-test-network-integration-openvswitch-python37-stable29:
+            vars:
+              ansible_test_collections: true
+            voting: false
         - ansible-test-network-integration-openvswitch-python38:
             vars:
               ansible_test_collections: true
@@ -443,10 +531,6 @@
         - ansible-test-network-integration-vyos-python38:
             vars:
               ansible_test_collections: true
-        - ansible-test-network-integration-vyos-python38-stable29:
-            vars:
-              ansible_test_collections: true
-            voting: false
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-collections/netcommon

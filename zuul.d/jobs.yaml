@@ -301,9 +301,29 @@
       ansible_test_python: 2.7
 
 - job:
+    name: ansible-test-network-integration-eos-python27-stable29
+    parent: ansible-test-network-integration-eos
+    nodeset: eos-4.20.10-python27
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.9
+    vars:
+      ansible_test_python: 2.7
+
+- job:
     name: ansible-test-network-integration-eos-python35
     parent: ansible-test-network-integration-eos
     nodeset: eos-4.20.10-python35
+    vars:
+      ansible_test_python: 3.5
+
+- job:
+    name: ansible-test-network-integration-eos-python35-stable29
+    parent: ansible-test-network-integration-eos
+    nodeset: eos-4.20.10-python35
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.9
     vars:
       ansible_test_python: 3.5
 
@@ -315,9 +335,29 @@
       ansible_test_python: 3.6
 
 - job:
+    name: ansible-test-network-integration-eos-python36-stable29
+    parent: ansible-test-network-integration-eos
+    nodeset: eos-4.20.10-python36
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.9
+    vars:
+      ansible_test_python: 3.6
+
+- job:
     name: ansible-test-network-integration-eos-python37
     parent: ansible-test-network-integration-eos
     nodeset: eos-4.20.10-python37
+    vars:
+      ansible_test_python: 3.7
+
+- job:
+    name: ansible-test-network-integration-eos-python37-stable29
+    parent: ansible-test-network-integration-eos
+    nodeset: eos-4.20.10-python37
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.9
     vars:
       ansible_test_python: 3.7
 
@@ -357,9 +397,29 @@
       ansible_test_python: 2.7
 
 - job:
+    name: ansible-test-network-integration-ios-python27-stable29
+    parent: ansible-test-network-integration-ios
+    nodeset: ios-15.6-2T-python27
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.9
+    vars:
+      ansible_test_python: 2.7
+
+- job:
     name: ansible-test-network-integration-ios-python35
     parent: ansible-test-network-integration-ios
     nodeset: ios-15.6-2T-python35
+    vars:
+      ansible_test_python: 3.5
+
+- job:
+    name: ansible-test-network-integration-ios-python35-stable29
+    parent: ansible-test-network-integration-ios
+    nodeset: ios-15.6-2T-python35
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.9
     vars:
       ansible_test_python: 3.5
 
@@ -371,9 +431,29 @@
       ansible_test_python: 3.6
 
 - job:
+    name: ansible-test-network-integration-ios-python36-stable29
+    parent: ansible-test-network-integration-ios
+    nodeset: ios-15.6-2T-python36
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.9
+    vars:
+      ansible_test_python: 3.6
+
+- job:
     name: ansible-test-network-integration-ios-python37
     parent: ansible-test-network-integration-ios
     nodeset: ios-15.6-2T-python37
+    vars:
+      ansible_test_python: 3.7
+
+- job:
+    name: ansible-test-network-integration-ios-python37-stable29
+    parent: ansible-test-network-integration-ios
+    nodeset: ios-15.6-2T-python37
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.9
     vars:
       ansible_test_python: 3.7
 
@@ -413,9 +493,29 @@
       ansible_test_python: 2.7
 
 - job:
+    name: ansible-test-network-integration-iosxr-python27-stable29
+    parent: ansible-test-network-integration-iosxr
+    nodeset: iosxr-6.1.3-python27
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.9
+    vars:
+      ansible_test_python: 2.7
+
+- job:
     name: ansible-test-network-integration-iosxr-python35
     parent: ansible-test-network-integration-iosxr
     nodeset: iosxr-6.1.3-python35
+    vars:
+      ansible_test_python: 3.5
+
+- job:
+    name: ansible-test-network-integration-iosxr-python35-stable29
+    parent: ansible-test-network-integration-iosxr
+    nodeset: iosxr-6.1.3-python35
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.9
     vars:
       ansible_test_python: 3.5
 
@@ -427,9 +527,29 @@
       ansible_test_python: 3.6
 
 - job:
+    name: ansible-test-network-integration-iosxr-python36-stable29
+    parent: ansible-test-network-integration-iosxr
+    nodeset: iosxr-6.1.3-python36
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.9
+    vars:
+      ansible_test_python: 3.6
+
+- job:
     name: ansible-test-network-integration-iosxr-python37
     parent: ansible-test-network-integration-iosxr
     nodeset: iosxr-6.1.3-python37
+    vars:
+      ansible_test_python: 3.7
+
+- job:
+    name: ansible-test-network-integration-iosxr-python37-stable29
+    parent: ansible-test-network-integration-iosxr
+    nodeset: iosxr-6.1.3-python37
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.9
     vars:
       ansible_test_python: 3.7
 
@@ -493,9 +613,29 @@
       ansible_test_python: 2.7
 
 - job:
+    name: ansible-test-network-integration-junos-vsrx-python27-stable29
+    parent: ansible-test-network-integration-junos-vsrx
+    nodeset: vsrx3-18.4R1-python27
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.9
+    vars:
+      ansible_test_python: 2.7
+
+- job:
     name: ansible-test-network-integration-junos-vsrx-python35
     parent: ansible-test-network-integration-junos-vsrx
     nodeset: vsrx3-18.4R1-python35
+    vars:
+      ansible_test_python: 3.5
+
+- job:
+    name: ansible-test-network-integration-junos-vsrx-python35-stable29
+    parent: ansible-test-network-integration-junos-vsrx
+    nodeset: vsrx3-18.4R1-python35
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.9
     vars:
       ansible_test_python: 3.5
 
@@ -507,9 +647,29 @@
       ansible_test_python: 3.6
 
 - job:
+    name: ansible-test-network-integration-junos-vsrx-python36-stable29
+    parent: ansible-test-network-integration-junos-vsrx
+    nodeset: vsrx3-18.4R1-python36
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.9
+    vars:
+      ansible_test_python: 3.6
+
+- job:
     name: ansible-test-network-integration-junos-vsrx-python37
     parent: ansible-test-network-integration-junos-vsrx
     nodeset: vsrx3-18.4R1-python37
+    vars:
+      ansible_test_python: 3.7
+
+- job:
+    name: ansible-test-network-integration-junos-vsrx-python37-stable29
+    parent: ansible-test-network-integration-junos-vsrx
+    nodeset: vsrx3-18.4R1-python37
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.9
     vars:
       ansible_test_python: 3.7
 
@@ -608,9 +768,29 @@
       ansible_test_python: 2.7
 
 - job:
+    name: ansible-test-network-integration-openvswitch-python27-stable29
+    parent: ansible-test-network-integration-openvswitch
+    nodeset: openvswitch-2.9.0-python27
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.9
+    vars:
+      ansible_test_python: 2.7
+
+- job:
     name: ansible-test-network-integration-openvswitch-python35
     parent: ansible-test-network-integration-openvswitch
     nodeset: openvswitch-2.9.0-python35
+    vars:
+      ansible_test_python: 3.5
+
+- job:
+    name: ansible-test-network-integration-openvswitch-python35-stable29
+    parent: ansible-test-network-integration-openvswitch
+    nodeset: openvswitch-2.9.0-python35
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.9
     vars:
       ansible_test_python: 3.5
 
@@ -622,9 +802,29 @@
       ansible_test_python: 3.6
 
 - job:
+    name: ansible-test-network-integration-openvswitch-python36-stable29
+    parent: ansible-test-network-integration-openvswitch
+    nodeset: openvswitch-2.9.0-python36
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.9
+    vars:
+      ansible_test_python: 3.6
+
+- job:
     name: ansible-test-network-integration-openvswitch-python37
     parent: ansible-test-network-integration-openvswitch
     nodeset: openvswitch-2.9.0-python37
+    vars:
+      ansible_test_python: 3.7
+
+- job:
+    name: ansible-test-network-integration-openvswitch-python37-stable29
+    parent: ansible-test-network-integration-openvswitch
+    nodeset: openvswitch-2.9.0-python37
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.9
     vars:
       ansible_test_python: 3.7
 
@@ -728,16 +928,6 @@
     name: ansible-test-network-integration-vyos-python38
     parent: ansible-test-network-integration-vyos
     nodeset: vyos-1.1.8-python38
-    vars:
-      ansible_test_python: 3.8
-
-- job:
-    name: ansible-test-network-integration-vyos-python38-stable29
-    parent: ansible-test-network-integration-vyos
-    nodeset: vyos-1.1.8-python38
-    required-projects:
-      - name: github.com/ansible/ansible
-        override-checkout: stable-2.9
     vars:
       ansible_test_python: 3.8
 

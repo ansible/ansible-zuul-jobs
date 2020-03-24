@@ -299,6 +299,7 @@
         - ansible-test-cloud-integration-vcenter_2esxi-python36:
             vars:
               ansible_test_collections: true
+        - ansible-tox-py37
         - build-ansible-collection
     gate:
       queue: integrated

@@ -103,6 +103,28 @@
         nodes:
           - centos-8
 
+# Vexxhost, experimental flavor
+- nodeset:
+    name: vmware-vcsa_1esxi-6.7.0-python36_vexxhost_experimental
+    nodes:
+      - name: centos-8
+        label: centos-8-1vcpu
+      - name: vcenter
+        label: vmware-vcsa-6.7.0
+      - name: esxi1
+        label: esxi-6.7.0_exp
+    groups:
+      - name: appliance
+        nodes:
+          - vcenter
+          - esxi1
+      - name: esxis
+        nodes:
+          - esxi1
+      - name: controller
+        nodes:
+          - centos-8
+
 # vcenter 7.0.0
 - nodeset:
     name: vmware-vcsa-7.0.0-python36

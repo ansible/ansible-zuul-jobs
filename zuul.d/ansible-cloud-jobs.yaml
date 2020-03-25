@@ -63,6 +63,17 @@
       ansible_test_python: 3.6
       ansible_test_integration_targets: zuul/vmware/vcenter_2esxi/
 
+# vcenter 6.7.0 on Vexxhost
+- job:
+    name: ansible-test-cloud-integration-vcenter_1esxi-python36_vexxhost_experimental
+    parent: ansible-test-cloud-integration-vcenter
+    nodeset: vmware-vcsa_1esxi-6.7.0-python36_vexxhost_experimental
+    vars:
+      ansible_test_python: 3.6
+      ansible_test_integration_targets: zuul/vmware/vcenter_1esxi/
+    # 5h
+    timeout: 10800
+
 # vcenter 7.0.0
 - job:
     name: ansible-test-cloud-integration-vcenter7_only-python36

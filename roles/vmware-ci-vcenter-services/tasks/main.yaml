@@ -1,12 +1,16 @@
 ---
+- command: rpm -q --qf '%{VERSION}' VMware-vcha
+  register: vcenter_version
+- debug:
+    msg: "vcenter version: {{ vcenter_version.stdout }}"
 - name: Stop the services that we want off
-  command: "service-control --stop {{ vmware_ci_vcsa_services_disabled| join(' ') }}"
+  command: "service-control --stop {{ vmware_ci_vcsa_services_disabled[vcenter_version.stdout]| join(' ') }}"
   become: true
 - name: copy a hack to be sure vpxd don't die suddently
   copy:
     content: |
       #!/bin/bash
-      while true; do service-control --start {{ vmware_ci_vcsa_services_enabled| join(' ') }} ; done
+      while true; do service-control --start {{ vmware_ci_vcsa_services_enabled[vcenter_version.stdout]| join(' ') }} ; done
     dest: /usr/local/bin/hack_restart_vpxd
     mode: '0755'
   become: true
@@ -14,7 +18,7 @@
   shell: nohup /usr/local/bin/hack_restart_vpxd </dev/null >/dev/null 2>&1 &
   become: true
 - name: Ensure all the required services are up and running
-  command: "service-control --status {{ vmware_ci_vcsa_services_enabled| join(' ') }}"
+  command: "service-control --status {{ vmware_ci_vcsa_services_enabled[vcenter_version.stdout]| join(' ') }}"
   retries: 30
   delay: 3
   become: true
@@ -25,7 +29,7 @@
     - "'Stopped' not in service_control_result.stdout"
 - debug: var=service_control_result.stdout
 - name: Ensure the others are down
-  command: "service-control --status {{ vmware_ci_vcsa_services_disabled| join(' ') }}"
+  command: "service-control --status {{ vmware_ci_vcsa_services_disabled[vcenter_version.stdout]| join(' ') }}"
   register: service_control_result
   become: true
   failed_when:

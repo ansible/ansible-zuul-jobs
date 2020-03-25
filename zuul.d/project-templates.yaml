@@ -313,6 +313,19 @@
             vars:
               ansible_test_collections: true
         - build-ansible-collection
+    periodic:
+      jobs:
+        - ansible-test-cloud-integration-vcenter7_only-python36:
+            vars:
+              ansible_test_collections: true
+        - ansible-test-cloud-integration-vcenter7_1esxi-python36:
+            vars:
+              ansible_test_collections: true
+        - ansible-test-cloud-integration-vcenter7_2esxi-python36:
+            vars:
+              ansible_test_collections: true
+        - ansible-tox-py37
+        - build-ansible-collection
 
 - project-template:
     name: ansible-collections-juniper-junos

@@ -103,6 +103,69 @@
         nodes:
           - centos-8
 
+# vcenter 7.0.0
+- nodeset:
+    name: vmware-vcsa-7.0.0-python36
+    nodes:
+      - name: centos-8
+        label: centos-8-1vcpu
+      - name: vcenter
+        label: vmware-vcsa-7.0.0
+    groups:
+      - name: appliance
+        nodes:
+          - vcenter
+      - name: controller
+        nodes:
+          - centos-8
+
+- nodeset:
+    name: vmware-vcsa_1esxi-7.0.0-python36
+    nodes:
+      - name: centos-8
+        label: centos-8-1vcpu
+      - name: vcenter
+        label: vmware-vcsa-7.0.0
+      - name: esxi1
+        label: esxi-6.7.0
+    groups:
+      - name: appliance
+        nodes:
+          - vcenter
+          - esxi1
+      - name: esxis
+        nodes:
+          - esxi1
+      - name: controller
+        nodes:
+          - centos-8
+
+- nodeset:
+    name: vmware-vcsa_2esxi-7.0.0-python36
+    nodes:
+      - name: centos-8
+        label: centos-8-1vcpu
+      - name: vcenter
+        label: vmware-vcsa-7.0.0
+      - name: esxi1
+        label: esxi-6.7.0
+      - name: esxi2
+        label: esxi-6.7.0
+    groups:
+      - name: appliance
+        nodes:
+          - vcenter
+          - esxi1
+          - esxi2
+      - name: esxis
+        nodes:
+          - esxi1
+          - esxi2
+      - name: controller
+        nodes:
+          - centos-8
+
+
 # Ansible network appliance nodesets
 - nodeset:
     name: asav9-12-3-python27

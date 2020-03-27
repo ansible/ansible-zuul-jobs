@@ -68,7 +68,7 @@
               ansible_test_collections: true
         - build-ansible-collection:
             required-projects:
-              - name: github.com/ansible-collections/netcommon
+              - name: github.com/ansible-collections/ansible.netcommon
     gate:
       queue: integrated
       jobs:
@@ -89,7 +89,7 @@
               ansible_test_collections: true
         - build-ansible-collection:
             required-projects:
-              - name: github.com/ansible-collections/netcommon
+              - name: github.com/ansible-collections/ansible.netcommon
 
 - project-template:
     name: ansible-collections-cisco-asa
@@ -113,7 +113,7 @@
               ansible_test_collections: true
         - build-ansible-collection:
             required-projects:
-              - name: github.com/ansible-collections/netcommon
+              - name: github.com/ansible-collections/ansible.netcommon
     gate:
       queue: integrated
       jobs:
@@ -131,7 +131,7 @@
               ansible_test_collections: true
         - build-ansible-collection:
             required-projects:
-              - name: github.com/ansible-collections/netcommon
+              - name: github.com/ansible-collections/ansible.netcommon
 
 - project-template:
     name: ansible-collections-cisco-ios
@@ -170,7 +170,7 @@
               ansible_test_collections: true
         - build-ansible-collection:
             required-projects:
-              - name: github.com/ansible-collections/netcommon
+              - name: github.com/ansible-collections/ansible.netcommon
     gate:
       queue: integrated
       jobs:
@@ -191,7 +191,7 @@
               ansible_test_collections: true
         - build-ansible-collection:
             required-projects:
-              - name: github.com/ansible-collections/netcommon
+              - name: github.com/ansible-collections/ansible.netcommon
 
 - project-template:
     name: ansible-collections-cisco-iosxr
@@ -244,13 +244,13 @@
             voting: false
         - build-ansible-collection:
             required-projects:
-              - name: github.com/ansible-collections/netcommon
+              - name: github.com/ansible-collections/ansible.netcommon
     gate:
       queue: integrated
       jobs:
         - build-ansible-collection:
             required-projects:
-              - name: github.com/ansible-collections/netcommon
+              - name: github.com/ansible-collections/ansible.netcommon
 
 - project-template:
     name: ansible-collections-cisco-iosxr-netconf
@@ -274,7 +274,7 @@
             voting: false
         - build-ansible-collection:
             required-projects:
-              - name: github.com/ansible-collections/netcommon
+              - name: github.com/ansible-collections/ansible.netcommon
               - name: github.com/ansible-collections/iosxr
               - name: github.com/ansible-collections/junos
     gate:
@@ -282,7 +282,7 @@
       jobs:
         - build-ansible-collection:
             required-projects:
-              - name: github.com/ansible-collections/netcommon
+              - name: github.com/ansible-collections/ansible.netcommon
               - name: github.com/ansible-collections/iosxr
               - name: github.com/ansible-collections/junos
 
@@ -378,7 +378,7 @@
               ansible_test_integration_targets: "junos_.*"
         - build-ansible-collection:
             required-projects:
-              - name: github.com/ansible-collections/netcommon
+              - name: github.com/ansible-collections/ansible.netcommon
     gate:
       queue: integrated
       jobs:
@@ -404,7 +404,7 @@
               ansible_test_integration_targets: "junos_.*"
         - build-ansible-collection:
             required-projects:
-              - name: github.com/ansible-collections/netcommon
+              - name: github.com/ansible-collections/ansible.netcommon
 
 - project-template:
     name: ansible-collections-juniper-junos-netconf
@@ -427,7 +427,7 @@
               ansible_test_collections: true
         - build-ansible-collection:
             required-projects:
-              - name: github.com/ansible-collections/netcommon
+              - name: github.com/ansible-collections/ansible.netcommon
               - name: github.com/ansible-collections/iosxr
               - name: github.com/ansible-collections/junos
     gate:
@@ -450,7 +450,7 @@
               ansible_test_collections: true
         - build-ansible-collection:
             required-projects:
-              - name: github.com/ansible-collections/netcommon
+              - name: github.com/ansible-collections/ansible.netcommon
               - name: github.com/ansible-collections/iosxr
               - name: github.com/ansible-collections/junos
 
@@ -491,7 +491,7 @@
               ansible_test_collections: true
         - build-ansible-collection:
             required-projects:
-              - name: github.com/ansible-collections/netcommon
+              - name: github.com/ansible-collections/ansible.netcommon
     gate:
       queue: integrated
       jobs:
@@ -512,7 +512,7 @@
               ansible_test_collections: true
         - build-ansible-collection:
             required-projects:
-              - name: github.com/ansible-collections/netcommon
+              - name: github.com/ansible-collections/ansible.netcommon
 
 - project-template:
     name: ansible-collections-vyos-vyos
@@ -551,7 +551,7 @@
               ansible_test_collections: true
         - build-ansible-collection:
             required-projects:
-              - name: github.com/ansible-collections/netcommon
+              - name: github.com/ansible-collections/ansible.netcommon
     gate:
       queue: integrated
       jobs:
@@ -572,7 +572,7 @@
               ansible_test_collections: true
         - build-ansible-collection:
             required-projects:
-              - name: github.com/ansible-collections/netcommon
+              - name: github.com/ansible-collections/ansible.netcommon
 
 - project-template:
     name: ansible-test-network-integration

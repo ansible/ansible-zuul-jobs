@@ -303,7 +303,7 @@
         - ansible-test-cloud-integration-vcenter_2esxi-python36:
             vars:
               ansible_test_collections: true
-        - ansible-tox-py37
+        - ansible-tox-linters
         - build-ansible-collection
     gate:
       queue: integrated
@@ -317,6 +317,7 @@
         - ansible-test-cloud-integration-vcenter_2esxi-python36:
             vars:
               ansible_test_collections: true
+        - ansible-tox-linters
         - build-ansible-collection
     periodic:
       jobs:
@@ -329,7 +330,7 @@
         - ansible-test-cloud-integration-vcenter7_2esxi-python36:
             vars:
               ansible_test_collections: true
-        - ansible-tox-py37
+        - ansible-tox-linters
         - build-ansible-collection
 
 - project-template:

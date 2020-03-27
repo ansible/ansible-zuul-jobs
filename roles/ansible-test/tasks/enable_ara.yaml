@@ -1,10 +1,14 @@
 ---
+- name: Get the Ara callback location
+  command: "{{ ansible_test_venv_path }}/bin/python -m ara.setup.callback_plugins"
+  register: _ara_callback_location
+
 - name: Enable ARA callback plugin
   ini_file:
     path: "{{ _test_cfg_location }}"
     section: defaults
     option: callback_plugins
-    value: "{{ ansible_test_venv_path }}/site-packages/ara/plugins/callbacks"
+    value: "{{ _ara_callback_location.stdout }}"
 
 - name: Enable persistent connection logging
   ini_file:

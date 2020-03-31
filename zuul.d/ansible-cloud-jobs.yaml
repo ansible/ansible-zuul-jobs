@@ -52,8 +52,28 @@
     vars:
       ansible_test_python: 3.6
       ansible_test_integration_targets: zuul/vmware/vcenter_1esxi/
-    # 5h
+      ansible_test_split_in: 3
     timeout: 10800
+
+- job:
+    name: ansible-test-cloud-integration-vcenter_1esxi-python36_1_of_3
+    parent: ansible-test-cloud-integration-vcenter_1esxi-python36
+    vars:
+      ansible_test_do_number: 1
+
+- job:
+    name: ansible-test-cloud-integration-vcenter_1esxi-python36_2_of_3
+    parent: ansible-test-cloud-integration-vcenter_1esxi-python36
+    vars:
+      ansible_test_split_in: 3
+      ansible_test_do_number: 2
+
+- job:
+    name: ansible-test-cloud-integration-vcenter_1esxi-python36_3_of_3
+    parent: ansible-test-cloud-integration-vcenter_1esxi-python36
+    vars:
+      ansible_test_split_in: 3
+      ansible_test_do_number: 2
 
 - job:
     name: ansible-test-cloud-integration-vcenter_2esxi-python36

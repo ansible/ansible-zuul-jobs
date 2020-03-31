@@ -18,3 +18,44 @@
     - name: Install docker
       include_role:
         name: install-docker
+
+    - name: Validate docker engine
+      # on purpose to verify that non-root user can call docker/podman
+      become: false
+      shell: |
+        set -eux
+        newgrp docker || true
+        docker version
+        docker info
+        docker ps
+
+    - name: Install podman (Debian)
+      when:
+        - ansible_os_family != "RedHat"
+      include_role:
+        name: install-podman
+
+    # TODO(ssbarnea): Migrate logic to install-podman (zuul-roles)
+    - name: Install podman (RedHat)
+      # Podman on centos-7 cannot run as non-root and kernel.unprivileged_userns_clone is missing from its kernel
+      # https://github.com/containers/libpod/issues/3207
+      when:
+        - ansible_os_family == "RedHat"
+        - not (ansible_distribution == "CentOS" and ansible_distribution_major_version == "7")
+      become: true
+      package:
+        name:
+          - podman
+          - conmon
+
+    - name: Validate podman engine
+      # on purpose to verify that non-root user can call docker/podman
+      when:
+        - not (ansible_distribution == "CentOS" and ansible_distribution_major_version == "7")
+      become: false
+      shell: |
+        set -eux
+        podman version
+        podman info
+        podman ps
+      changed_when: false

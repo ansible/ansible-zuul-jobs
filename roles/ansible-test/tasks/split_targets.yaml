@@ -1,0 +1,17 @@
+---
+- name: List the targets
+  args:
+    chdir: "{{ _test_location }}"
+    executable: /bin/bash
+  environment: "{{ ansible_test_environment | default({}) }}"
+  shell: "source {{ ansible_test_venv_path }}/bin/activate; {{ ansible_test_executable }} {{ ansible_test_test_command }} {{ ansible_test_options }} --python {{ ansible_test_python }} --list {{ ansible_test_integration_targets }} 2>&1|grep -v WARNING"
+  register: ansible_test_targets
+- set_fact:
+    number_entries: "{{ ansible_test_targets.stdout_lines|length }}"
+- set_fact:
+    _start_at: "{{ number_entries|int // ansible_test_split_in * (ansible_test_do_number -1)|int }}"
+    _end_at: "{{ (number_entries|int // ansible_test_split_in * (ansible_test_do_number |int)) }}"
+- debug:
+    msg: "Do roles: {{ ansible_test_targets.stdout_lines[_start_at|int:_end_at|int] }}"
+- set_fact:
+    _integration_targets: "{{ ansible_test_targets.stdout_lines[_start_at|int:_end_at|int]|join(' ') }}"

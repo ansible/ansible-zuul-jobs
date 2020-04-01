@@ -290,6 +290,9 @@
     name: ansible-collections-community-vmware
     check:
       jobs:
+        - ansible-test-cloud-integration-vcenter7_only-python36:
+            vars:
+              ansible_test_collections: true
         - ansible-test-cloud-integration-vcenter_only-python36:
             vars:
               ansible_test_collections: true

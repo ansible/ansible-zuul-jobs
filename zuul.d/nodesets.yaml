@@ -108,7 +108,8 @@
     name: vmware-vcsa_1esxi-6.7.0-python36_vexxhost_experimental
     nodes:
       - name: centos-8
-        label: centos-8-1vcpu
+        # label: centos-8-1vcpu
+        label: centos-8_v2-standard-1-iops
       - name: vcenter
         label: vmware-vcsa-6.7.0
       - name: esxi1

@@ -293,7 +293,13 @@
         - ansible-test-cloud-integration-vcenter_only-python36:
             vars:
               ansible_test_collections: true
-        - ansible-test-cloud-integration-vcenter_1esxi-python36:
+        - ansible-test-cloud-integration-vcenter_1esxi-python36_1_of_3:
+            vars:
+              ansible_test_collections: true
+        - ansible-test-cloud-integration-vcenter_1esxi-python36_2_of_3:
+            vars:
+              ansible_test_collections: true
+        - ansible-test-cloud-integration-vcenter_1esxi-python36_3_of_3:
             vars:
               ansible_test_collections: true
         - ansible-test-cloud-integration-vcenter_1esxi-python36_vexxhost_experimental:

@@ -25,9 +25,17 @@
   import_tasks: enable_ara.yaml
   when: ansible_test_enable_ara
 
+- name: Set the targets
+  set_fact:
+    _integration_targets: "{{ ansible_test_integration_targets }}"
+
+- name: Split targets
+  import_tasks: split_targets.yaml
+  when: ansible_test_split_in > 1
+
 - name: Run the integration test suite
   args:
     chdir: "{{ _test_location }}"
     executable: /bin/bash
   environment: "{{ ansible_test_environment | default({}) }}"
-  shell: "source {{ ansible_test_venv_path }}/bin/activate; {{ ansible_test_executable }} {{ ansible_test_test_command }} {{ ansible_test_options }} --python {{ ansible_test_python }} -vvvv {{ ansible_test_integration_targets }}"
+  shell: "source {{ ansible_test_venv_path }}/bin/activate; {{ ansible_test_executable }} {{ ansible_test_test_command }} {{ ansible_test_options }} --python {{ ansible_test_python }} -vvvv {{ _integration_targets }}"

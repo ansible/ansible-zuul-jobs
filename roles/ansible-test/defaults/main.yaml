@@ -11,3 +11,5 @@ ansible_test_venv_path: ~/venv
 ansible_test_inventory_path: ~/inventory
 ansible_test_collection_dir: ~/.ansible/collections/ansible_collections
 ansible_test_enable_ara: false
+ansible_test_split_in: 1
+ansible_test_do_number: 1

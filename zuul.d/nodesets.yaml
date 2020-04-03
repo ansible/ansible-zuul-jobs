@@ -43,6 +43,16 @@
 
 # Ansible cloud appliance nodesets
 - nodeset:
+    name: vmware-govcsim-python36
+    nodes:
+      - name: centos-8
+        label: centos-8-1vcpu
+    groups:
+      - name: controller
+        nodes:
+          - centos-8
+
+- nodeset:
     name: vmware-vcsa-6.7.0-python36
     nodes:
       - name: centos-8

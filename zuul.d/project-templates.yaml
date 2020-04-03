@@ -308,15 +308,6 @@
     gate:
       queue: integrated
       jobs:
-        - ansible-test-cloud-integration-vcenter_only-python36:
-            vars:
-              ansible_test_collections: true
-        - ansible-test-cloud-integration-vcenter_1esxi-python36:
-            vars:
-              ansible_test_collections: true
-        - ansible-test-cloud-integration-vcenter_2esxi-python36:
-            vars:
-              ansible_test_collections: true
         - ansible-tox-linters
         - build-ansible-collection
     periodic:

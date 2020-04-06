@@ -224,12 +224,12 @@
         soft: true
     parent: ansible-network-asa-appliance
     pre-run:
-      - playbooks/ansible-test-integration-base/pre.yaml
+      - playbooks/ansible-test-base/pre.yaml
       - playbooks/ansible-test-network-integration-base/pre.yaml
-    run: playbooks/ansible-test-integration-base/run.yaml
+    run: playbooks/ansible-test-base/run.yaml
     post-run:
       - playbooks/ansible-test-network-integration-base/post.yaml
-      - playbooks/ansible-test-integration-base/post.yaml
+      - playbooks/ansible-test-base/post.yaml
     required-projects:
       - name: github.com/ansible/ansible
     timeout: 9000
@@ -280,12 +280,12 @@
         soft: true
     parent: ansible-network-eos-appliance
     pre-run:
-      - playbooks/ansible-test-integration-base/pre.yaml
+      - playbooks/ansible-test-base/pre.yaml
       - playbooks/ansible-test-network-integration-base/pre.yaml
-    run: playbooks/ansible-test-integration-base/run.yaml
+    run: playbooks/ansible-test-base/run.yaml
     post-run:
       - playbooks/ansible-test-network-integration-base/post.yaml
-      - playbooks/ansible-test-integration-base/post.yaml
+      - playbooks/ansible-test-base/post.yaml
     required-projects:
       - name: github.com/ansible/ansible
     timeout: 9000
@@ -376,12 +376,12 @@
         soft: true
     parent: ansible-network-ios-appliance
     pre-run:
-      - playbooks/ansible-test-integration-base/pre.yaml
+      - playbooks/ansible-test-base/pre.yaml
       - playbooks/ansible-test-network-integration-base/pre.yaml
-    run: playbooks/ansible-test-integration-base/run.yaml
+    run: playbooks/ansible-test-base/run.yaml
     post-run:
       - playbooks/ansible-test-network-integration-base/post.yaml
-      - playbooks/ansible-test-integration-base/post.yaml
+      - playbooks/ansible-test-base/post.yaml
     required-projects:
       - name: github.com/ansible/ansible
     timeout: 9000
@@ -472,12 +472,12 @@
         soft: true
     parent: ansible-network-iosxr-appliance
     pre-run:
-      - playbooks/ansible-test-integration-base/pre.yaml
+      - playbooks/ansible-test-base/pre.yaml
       - playbooks/ansible-test-network-integration-base/pre.yaml
-    run: playbooks/ansible-test-integration-base/run.yaml
+    run: playbooks/ansible-test-base/run.yaml
     post-run:
       - playbooks/ansible-test-network-integration-base/post.yaml
-      - playbooks/ansible-test-integration-base/post.yaml
+      - playbooks/ansible-test-base/post.yaml
     required-projects:
       - name: github.com/ansible/ansible
     timeout: 9000
@@ -592,12 +592,12 @@
         soft: true
     parent: ansible-network-junos-vsrx-appliance
     pre-run:
-      - playbooks/ansible-test-integration-base/pre.yaml
+      - playbooks/ansible-test-base/pre.yaml
       - playbooks/ansible-test-network-integration-base/pre.yaml
-    run: playbooks/ansible-test-integration-base/run.yaml
+    run: playbooks/ansible-test-base/run.yaml
     post-run:
       - playbooks/ansible-test-network-integration-base/post.yaml
-      - playbooks/ansible-test-integration-base/post.yaml
+      - playbooks/ansible-test-base/post.yaml
     required-projects:
       - name: github.com/ansible/ansible
     timeout: 9000
@@ -718,12 +718,12 @@
         soft: true
     parent: ansible-network-nxos-appliance
     pre-run:
-      - playbooks/ansible-test-integration-base/pre.yaml
+      - playbooks/ansible-test-base/pre.yaml
       - playbooks/ansible-test-network-integration-base/pre.yaml
-    run: playbooks/ansible-test-integration-base/run.yaml
+    run: playbooks/ansible-test-base/run.yaml
     post-run:
       - playbooks/ansible-test-network-integration-base/post.yaml
-      - playbooks/ansible-test-integration-base/post.yaml
+      - playbooks/ansible-test-base/post.yaml
     required-projects:
       - name: github.com/ansible/ansible
     timeout: 10800
@@ -747,12 +747,12 @@
         soft: true
     parent: ansible-network-openvswitch-appliance
     pre-run:
-      - playbooks/ansible-test-integration-base/pre.yaml
+      - playbooks/ansible-test-base/pre.yaml
       - playbooks/ansible-test-network-integration-base/pre.yaml
-    run: playbooks/ansible-test-integration-base/run.yaml
+    run: playbooks/ansible-test-base/run.yaml
     post-run:
       - playbooks/ansible-test-network-integration-base/post.yaml
-      - playbooks/ansible-test-integration-base/post.yaml
+      - playbooks/ansible-test-base/post.yaml
     required-projects:
       - name: github.com/ansible/ansible
     timeout: 3600
@@ -843,12 +843,12 @@
         soft: true
     parent: ansible-network-vyos-appliance
     pre-run:
-      - playbooks/ansible-test-integration-base/pre.yaml
+      - playbooks/ansible-test-base/pre.yaml
       - playbooks/ansible-test-network-integration-base/pre.yaml
-    run: playbooks/ansible-test-integration-base/run.yaml
+    run: playbooks/ansible-test-base/run.yaml
     post-run:
       - playbooks/ansible-test-network-integration-base/post.yaml
-      - playbooks/ansible-test-integration-base/post.yaml
+      - playbooks/ansible-test-base/post.yaml
     required-projects:
       - name: github.com/ansible/ansible
     timeout: 7200

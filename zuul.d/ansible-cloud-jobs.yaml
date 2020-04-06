@@ -73,7 +73,7 @@
     parent: ansible-test-cloud-integration-vcenter_1esxi-python36
     vars:
       ansible_test_split_in: 3
-      ansible_test_do_number: 2
+      ansible_test_do_number: 3
 
 - job:
     name: ansible-test-cloud-integration-vcenter_2esxi-python36

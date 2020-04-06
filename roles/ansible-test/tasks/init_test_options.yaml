@@ -2,7 +2,7 @@
 - name: Setup --skip-tags for test_options
   set_fact:
     ansible_test_options: "{{ ansible_test_options }} --skip-tags {{ ansible_test_skip_tags }}"
-  when: ansible_test_skip_tags
+  when: ansible_test_skip_tags is defined
 
 - name: Enable --inventory for network-integration
   set_fact:

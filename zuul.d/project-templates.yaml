@@ -276,7 +276,7 @@
             required-projects:
               - name: github.com/ansible-collections/ansible.netcommon
               - name: github.com/ansible-collections/iosxr
-              - name: github.com/ansible-collections/junos
+              - name: github.com/ansible-collections/junipernetworks.junos
     gate:
       queue: integrated
       jobs:
@@ -284,7 +284,7 @@
             required-projects:
               - name: github.com/ansible-collections/ansible.netcommon
               - name: github.com/ansible-collections/iosxr
-              - name: github.com/ansible-collections/junos
+              - name: github.com/ansible-collections/junipernetworks.junos
 
 - project-template:
     name: ansible-collections-community-vmware
@@ -427,7 +427,7 @@
             required-projects:
               - name: github.com/ansible-collections/ansible.netcommon
               - name: github.com/ansible-collections/iosxr
-              - name: github.com/ansible-collections/junos
+              - name: github.com/ansible-collections/junipernetworks.junos
     gate:
       queue: integrated
       jobs:
@@ -450,7 +450,7 @@
             required-projects:
               - name: github.com/ansible-collections/ansible.netcommon
               - name: github.com/ansible-collections/iosxr
-              - name: github.com/ansible-collections/junos
+              - name: github.com/ansible-collections/junipernetworks.junos
 
 - project-template:
     name: ansible-collections-openvswitch-openvswitch

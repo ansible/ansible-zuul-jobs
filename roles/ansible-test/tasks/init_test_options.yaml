@@ -13,3 +13,13 @@
   set_fact:
     ansible_test_options: "{{ ansible_test_options }} --retry-on-error"
   when: ansible_test_retry_on_error
+
+- name: Enable --continue-on-error
+  set_fact:
+    ansible_test_options: "{{ ansible_test_options }} --continue-on-error"
+  when: ansible_test_continue_on_error
+
+- name: Enable --requirements
+  set_fact:
+    ansible_test_options: "{{ ansible_test_options }} --requirements"
+  when: not ansible_test_collections

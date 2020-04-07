@@ -1,8 +1,9 @@
 ---
 ansible_test_collections: false
 ansible_test_test_command: 'integration'
-ansible_test_skip_tags: false
+ansible_test_continue_on_error: true
 ansible_test_retry_on_error: false
+ansible_test_skip_tags: false
 ansible_test_location: "{{ ~/ansible-test | expanduser }}"
 # Default ansible-test options
 ansible_test_git_branch: 'devel'

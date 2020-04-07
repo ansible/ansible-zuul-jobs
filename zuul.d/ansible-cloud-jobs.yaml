@@ -35,6 +35,8 @@
       ansible_test_command: integration
       ansible_test_environment:
         VMWARE_TEST_PLATFORM: static
+      ansible_test_continue_on_error: false
+      ansible_test_retry_on_error: true
 
 # vcenter 6.7.0
 - job:

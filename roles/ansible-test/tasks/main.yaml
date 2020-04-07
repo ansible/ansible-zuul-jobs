@@ -5,11 +5,6 @@
     - '{{ ansible_test_git_branch }}.yaml'
     - default.yaml
 
-- name: Enable --requirements
-  set_fact:
-    ansible_test_options: "{{ ansible_test_options }} --requirements"
-  when: not ansible_test_collections
-
 - name: Prepare ansible-test parameters
   import_tasks: init_test_options.yaml
 

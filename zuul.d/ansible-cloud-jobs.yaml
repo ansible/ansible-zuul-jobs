@@ -16,12 +16,62 @@
       - name: github.com/ansible/ansible-zuul-jobs
     nodeset: vmware-vcsa-6.7.0-python36
 
+# govcsim
+
+- job:
+    name: ansible-test-cloud-integration-govcsim-python36
+    nodeset: vmware-govcsim-python36
+    dependencies:
+      - name: build-ansible-collection
+        soft: true
+    pre-run:
+      - playbooks/ansible-test-integration-base/pre.yaml
+      - playbooks/ansible-tox-molecule/pre.yaml
+    run: playbooks/ansible-test-integration-base/run.yaml
+    post-run: playbooks/ansible-test-integration-base/post.yaml
+    required-projects:
+      - name: github.com/ansible/ansible
+      - name: github.com/ansible/ansible-zuul-jobs
+    vars:
+      ansible_test_python: 3.6
+      ansible_test_integration_targets: zuul/vmware/govcsim/
+      ansible_test_command: integration
+      ansible_test_environment:
+        VMWARE_TEST_PLATFORM: govcsim
+      ansible_test_split_in: 3
+
+- job:
+    name: ansible-test-cloud-integration-govcsim-python36_1_of_3
+    parent: ansible-test-cloud-integration-govcsim-python36
+    vars:
+      ansible_test_do_number: 1
+
+- job:
+    name: ansible-test-cloud-integration-govcsim-python36_2_of_3
+    parent: ansible-test-cloud-integration-govcsim-python36
+    vars:
+      ansible_test_do_number: 2
+
+- job:
+    name: ansible-test-cloud-integration-govcsim-python36_3_of_3
+    parent: ansible-test-cloud-integration-govcsim-python36
+    vars:
+      ansible_test_do_number: 3
+
+# master
+
 - job:
     name: ansible-test-cloud-integration-vcenter
     abstract: true
     parent: ansible-cloud-vcenter-appliance
     dependencies:
       - name: build-ansible-collection
+        soft: true
+      - name: ansible-test-cloud-integration-govcsim-python36_1_of_3
+        soft: true
+      - name: ansible-test-cloud-integration-govcsim-python36_2_of_3
+        soft: true
+      - name: ansible-test-cloud-integration-govcsim-python36_3_of_3
         soft: true
     pre-run:
       - playbooks/ansible-test-integration-base/pre.yaml
@@ -39,6 +89,7 @@
       ansible_test_retry_on_error: true
 
 # vcenter 6.7.0
+
 - job:
     name: ansible-test-cloud-integration-vcenter_only-python36
     parent: ansible-test-cloud-integration-vcenter
@@ -67,14 +118,12 @@
     name: ansible-test-cloud-integration-vcenter_1esxi-python36_2_of_3
     parent: ansible-test-cloud-integration-vcenter_1esxi-python36
     vars:
-      ansible_test_split_in: 3
       ansible_test_do_number: 2
 
 - job:
     name: ansible-test-cloud-integration-vcenter_1esxi-python36_3_of_3
     parent: ansible-test-cloud-integration-vcenter_1esxi-python36
     vars:
-      ansible_test_split_in: 3
       ansible_test_do_number: 3
 
 - job:

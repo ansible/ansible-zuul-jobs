@@ -24,4 +24,5 @@
 
 - name: Copy potential cloud provider configuration for ansible-test in the collection
   shell: "cp -v {{ ansible_test_ansible_path }}/test/integration/cloud-config-*.ini {{ _test_location }}/tests/integration/"
+  ignore_errors: true
   when: ansible_test_test_command == 'integration'

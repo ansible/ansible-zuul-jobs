@@ -290,6 +290,15 @@
     name: ansible-collections-community-vmware
     check:
       jobs:
+        - ansible-test-cloud-integration-govcsim-python36_1_of_3:
+            vars:
+              ansible_test_collections: true
+        - ansible-test-cloud-integration-govcsim-python36_2_of_3:
+            vars:
+              ansible_test_collections: true
+        - ansible-test-cloud-integration-govcsim-python36_3_of_3:
+            vars:
+              ansible_test_collections: true
         - ansible-test-cloud-integration-vcenter_only-python36:
             vars:
               ansible_test_collections: true
@@ -310,6 +319,15 @@
     gate:
       queue: integrated
       jobs:
+        - ansible-test-cloud-integration-govcsim-python36_1_of_3:
+            vars:
+              ansible_test_collections: true
+        - ansible-test-cloud-integration-govcsim-python36_2_of_3:
+            vars:
+              ansible_test_collections: true
+        - ansible-test-cloud-integration-govcsim-python36_3_of_3:
+            vars:
+              ansible_test_collections: true
         - ansible-tox-linters
         - build-ansible-collection
     periodic:

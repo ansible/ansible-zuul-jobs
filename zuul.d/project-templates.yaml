@@ -275,7 +275,7 @@
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-collections/ansible.netcommon
-              - name: github.com/ansible-collections/iosxr
+              - name: github.com/ansible-collections/cisco.iosxr
               - name: github.com/ansible-collections/junipernetworks.junos
     gate:
       queue: integrated
@@ -283,7 +283,7 @@
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-collections/ansible.netcommon
-              - name: github.com/ansible-collections/iosxr
+              - name: github.com/ansible-collections/cisco.iosxr
               - name: github.com/ansible-collections/junipernetworks.junos
 
 - project-template:
@@ -444,7 +444,7 @@
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-collections/ansible.netcommon
-              - name: github.com/ansible-collections/iosxr
+              - name: github.com/ansible-collections/cisco.iosxr
               - name: github.com/ansible-collections/junipernetworks.junos
     gate:
       queue: integrated
@@ -467,7 +467,7 @@
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-collections/ansible.netcommon
-              - name: github.com/ansible-collections/iosxr
+              - name: github.com/ansible-collections/cisco.iosxr
               - name: github.com/ansible-collections/junipernetworks.junos
 
 - project-template:

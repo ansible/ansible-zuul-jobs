@@ -5,7 +5,7 @@ vmware_ci_nfs_share_owner_gid: '1000'
 vmware_ci_nfs_share_iso_files:
     fedora.iso:
         url: https://virt-lightning.org/fedora-open-vm-tools-livecd.iso
-        checksum: sha256:310cdd1aea7bc7cd630e8f80c40c7c48c95b479947714f9c915f21d65a4e782c
+        checksum: sha256:23b12a485e726c3a92c7be09003f58ba78ef623de63d9422b8c7327b072fa91a
     centos.iso:
         url: https://virt-lightning.org/fedora-open-vm-tools-livecd.iso
-        checksum: sha256:310cdd1aea7bc7cd630e8f80c40c7c48c95b479947714f9c915f21d65a4e782c
+        checksum: sha256:23b12a485e726c3a92c7be09003f58ba78ef623de63d9422b8c7327b072fa91a

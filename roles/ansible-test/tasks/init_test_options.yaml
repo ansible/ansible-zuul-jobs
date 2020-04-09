@@ -23,3 +23,8 @@
   set_fact:
     ansible_test_options: "{{ ansible_test_options }} --requirements"
   when: not ansible_test_collections
+
+- name: Disable options for unit tests
+  set_fact:
+    ansible_test_options: ""
+  when: ansible_test_test_command == 'units'

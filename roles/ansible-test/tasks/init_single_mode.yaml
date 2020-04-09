@@ -3,3 +3,4 @@
   set_fact:
     _test_location: "{{ ansible_test_location }}"
     _test_cfg_location: "{{ ansible_test_location }}/test/integration/{{ ansible_test_test_command }}.cfg"
+  when: ansible_test_test_command != 'units'

@@ -833,3 +833,13 @@
       - name: controller
         nodes:
           - ubuntu-bionic
+
+- nodeset:
+    name: controller-python38
+    nodes:
+      - name: ubuntu-bionic
+        label: ubuntu-bionic-1vcpu
+    groups:
+      - name: controller
+        nodes:
+          - ubuntu-bionic

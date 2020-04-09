@@ -784,6 +784,33 @@
       ansible_test_integration_targets: "openvswitch_.*"
 
 - job:
+    name: ansible-test-units-base
+    abstract: true
+    dependencies:
+      - name: build-ansible-collection
+        soft: true
+    pre-run:
+      - playbooks/ansible-test-base/pre.yaml
+    run: playbooks/ansible-test-base/run.yaml
+    required-projects:
+      - name: github.com/ansible/ansible
+    timeout: 3600
+    vars:
+      ansible_test_python: 3.8
+      ansible_test_command: units
+
+- job:
+    name: ansible-test-units-openvswitch
+    parent: ansible-test-units-base
+    nodeset: controller-python38
+    required-projects:
+      - name: github.com/ansible-collections/openvswitch.openvswitch
+    timeout: 3600
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/openvswitch.openvswitch
+      ansible_test_integration_targets: "tests/unit/modules/network/ovs/test_openvswitch_.*"
+
+- job:
     name: ansible-test-network-integration-openvswitch-python27
     parent: ansible-test-network-integration-openvswitch
     nodeset: openvswitch-2.9.0-python27

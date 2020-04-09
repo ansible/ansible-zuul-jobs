@@ -101,7 +101,7 @@
 - job:
     name: ansible-test-cloud-integration-vcenter_1esxi_with_nested-python36
     parent: ansible-test-cloud-integration-vcenter
-    nodeset: vmware-vcsa_1esxi-6.7.0-python36-without-nested
+    nodeset: vmware-vcsa_1esxi-6.7.0-python36-with-nested
     vars:
       ansible_test_python: 3.6
       ansible_test_integration_targets: zuul/vmware/vcenter_1esxi_with_nested/

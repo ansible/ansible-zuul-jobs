@@ -275,16 +275,26 @@
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-collections/ansible.netcommon
+              - name: github.com/ansible-collections/arista.eos
+              - name: github.com/ansible-collections/cisco.ios
               - name: github.com/ansible-collections/cisco.iosxr
+              - name: github.com/ansible-collections/cisco.nxos
               - name: github.com/ansible-collections/junipernetworks.junos
+              - name: github.com/ansible-collections/openvswitch.openvswitch
+              - name: github.com/ansible-collections/vyos.vyos
     gate:
       queue: integrated
       jobs:
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-collections/ansible.netcommon
+              - name: github.com/ansible-collections/arista.eos
+              - name: github.com/ansible-collections/cisco.ios
               - name: github.com/ansible-collections/cisco.iosxr
+              - name: github.com/ansible-collections/cisco.nxos
               - name: github.com/ansible-collections/junipernetworks.junos
+              - name: github.com/ansible-collections/openvswitch.openvswitch
+              - name: github.com/ansible-collections/vyos.vyos
 
 - project-template:
     name: ansible-collections-community-vmware

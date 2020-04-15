@@ -232,8 +232,10 @@
       - playbooks/ansible-test-base/post.yaml
     required-projects:
       - name: github.com/ansible/ansible
+      - name: github.com/ansible-collections/cisco.asa
     timeout: 9000
     vars:
+      ansible_collections_repo: github.com/ansible-collections/cisco.asa
       ansible_test_command: network-integration
       ansible_test_integration_targets: "asa_.*"
 
@@ -288,8 +290,10 @@
       - playbooks/ansible-test-base/post.yaml
     required-projects:
       - name: github.com/ansible/ansible
+      - name: github.com/ansible-collections/arista.eos
     timeout: 9000
     vars:
+      ansible_collections_repo: github.com/ansible-collections/arista.eos
       ansible_test_command: network-integration
       ansible_test_integration_targets: "eos_.*"
 
@@ -384,8 +388,10 @@
       - playbooks/ansible-test-base/post.yaml
     required-projects:
       - name: github.com/ansible/ansible
+      - name: github.com/ansible-collections/cisco.ios
     timeout: 9000
     vars:
+      ansible_collections_repo: github.com/ansible-collections/cisco.ios
       ansible_test_command: network-integration
       ansible_test_integration_targets: "ios_.*"
 
@@ -480,8 +486,10 @@
       - playbooks/ansible-test-base/post.yaml
     required-projects:
       - name: github.com/ansible/ansible
+      - name: github.com/ansible-collections/cisco.iosxr
     timeout: 9000
     vars:
+      ansible_collections_repo: github.com/ansible-collections/cisco.iosxr
       ansible_test_command: network-integration
       ansible_test_integration_targets: "iosxr_.* netconf_.*"
 
@@ -564,24 +572,28 @@
     name: ansible-test-network-integration-iosxr-netconf-python27
     parent: ansible-test-network-integration-iosxr-python27
     vars:
+      ansible_collections_repo: github.com/ansible-collections/ansible.netcommon
       ansible_test_integration_targets: "netconf_.*"
 
 - job:
     name: ansible-test-network-integration-iosxr-netconf-python35
     parent: ansible-test-network-integration-iosxr-python35
     vars:
+      ansible_collections_repo: github.com/ansible-collections/ansible.netcommon
       ansible_test_integration_targets: "netconf_.*"
 
 - job:
     name: ansible-test-network-integration-iosxr-netconf-python36
     parent: ansible-test-network-integration-iosxr-python36
     vars:
+      ansible_collections_repo: github.com/ansible-collections/ansible.netcommon
       ansible_test_integration_targets: "netconf_.*"
 
 - job:
     name: ansible-test-network-integration-iosxr-netconf-python37
     parent: ansible-test-network-integration-iosxr-python37
     vars:
+      ansible_collections_repo: github.com/ansible-collections/ansible.netcommon
       ansible_test_integration_targets: "netconf_.*"
 
 - job:
@@ -600,8 +612,10 @@
       - playbooks/ansible-test-base/post.yaml
     required-projects:
       - name: github.com/ansible/ansible
+      - name: github.com/ansible-collections/junipernetworks.junos
     timeout: 9000
     vars:
+      ansible_collections_repo: github.com/ansible-collections/junipernetworks.junos
       ansible_test_command: network-integration
       ansible_test_integration_targets: "junos_.* netconf_.*"
 
@@ -684,30 +698,35 @@
     name: ansible-test-network-integration-junos-vsrx-netconf-python27
     parent: ansible-test-network-integration-junos-vsrx-python27
     vars:
+      ansible_collections_repo: github.com/ansible-collections/ansible.netcommon
       ansible_test_integration_targets: "netconf_.*"
 
 - job:
     name: ansible-test-network-integration-junos-vsrx-netconf-python35
     parent: ansible-test-network-integration-junos-vsrx-python35
     vars:
+      ansible_collections_repo: github.com/ansible-collections/ansible.netcommon
       ansible_test_integration_targets: "netconf_.*"
 
 - job:
     name: ansible-test-network-integration-junos-vsrx-netconf-python36
     parent: ansible-test-network-integration-junos-vsrx-python36
     vars:
+      ansible_collections_repo: github.com/ansible-collections/ansible.netcommon
       ansible_test_integration_targets: "netconf_.*"
 
 - job:
     name: ansible-test-network-integration-junos-vsrx-netconf-python37
     parent: ansible-test-network-integration-junos-vsrx-python37
     vars:
+      ansible_collections_repo: github.com/ansible-collections/ansible.netcommon
       ansible_test_integration_targets: "netconf_.*"
 
 - job:
     name: ansible-test-network-integration-junos-vsrx-netconf-python38
     parent: ansible-test-network-integration-junos-vsrx-python38
     vars:
+      ansible_collections_repo: github.com/ansible-collections/ansible.netcommon
       ansible_test_integration_targets: "netconf_.*"
 
 - job:
@@ -726,8 +745,10 @@
       - playbooks/ansible-test-base/post.yaml
     required-projects:
       - name: github.com/ansible/ansible
+      - name: github.com/ansible-collections/cisco.nxos
     timeout: 10800
     vars:
+      ansible_collections_repo: github.com/ansible-collections/cisco.nxos
       ansible_test_command: network-integration
       ansible_test_integration_targets: "nxos_.*"
 
@@ -755,8 +776,10 @@
       - playbooks/ansible-test-base/post.yaml
     required-projects:
       - name: github.com/ansible/ansible
+      - name: github.com/ansible-collections/openvswitch.openvswitch
     timeout: 3600
     vars:
+      ansible_collections_repo: github.com/ansible-collections/openvswitch.openvswitch
       ansible_test_command: network-integration
       ansible_test_integration_targets: "openvswitch_.*"
 
@@ -851,8 +874,10 @@
       - playbooks/ansible-test-base/post.yaml
     required-projects:
       - name: github.com/ansible/ansible
+      - name: github.com/ansible-collections/vyos.vyos
     timeout: 7200
     vars:
+      ansible_collections_repo: github.com/ansible-collections/vyos.vyos
       ansible_test_command: network-integration
       ansible_test_integration_targets: "vyos_.*"
 

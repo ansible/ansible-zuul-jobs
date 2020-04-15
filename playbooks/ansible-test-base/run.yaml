@@ -10,7 +10,7 @@
         name: ansible-test
       vars:
         ansible_test_test_command: "{{ ansible_test_command }}"
-        ansible_test_location: "{{ ansible_user_dir }}/{{ zuul.project.src_dir }}"
+        ansible_test_location: "{{ ansible_user_dir }}/{{ zuul.projects[ansible_collections_repo].src_dir }}"
         ansible_test_git_branch: "{{ zuul.projects['github.com/ansible/ansible'].checkout }}"
         ansible_test_enable_ara: true
         ansible_test_ansible_path: "{{ ansible_user_dir }}/{{ zuul.projects['github.com/ansible/ansible'].src_dir }}"

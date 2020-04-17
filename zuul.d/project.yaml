@@ -44,6 +44,10 @@
             files:
               - playbooks/ansible-network-appliance-base/.*
               - playbooks/ansible-network-vyos-appliance/.*
+        - ansible-network-nxos-appliance:
+            files:
+              - playbooks/ansible-network-appliance-base/.*
+              - playbooks/ansible-network-nxos-appliance/.*
     gate:
       jobs:
         - ansible-network-asa-appliance:
@@ -74,3 +78,7 @@
             files:
               - playbooks/ansible-network-appliance-base/.*
               - playbooks/ansible-network-vyos-appliance/.*
+        - ansible-network-nxos-appliance:
+            files:
+              - playbooks/ansible-network-appliance-base/.*
+              - playbooks/ansible-network-nxos-appliance/.*

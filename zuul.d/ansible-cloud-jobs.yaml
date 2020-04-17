@@ -107,6 +107,7 @@
     parent: ansible-test-cloud-integration-vcenter
     nodeset: vmware-vcsa_1esxi-6.7.0-python36-with-nested
     vars:
+      ansible_test_python: 3.6
       ansible_test_integration_targets: zuul/vmware/vcenter_1esxi_with_nested/
     timeout: 10800
 
@@ -115,6 +116,7 @@
     parent: ansible-test-cloud-integration-vcenter
     nodeset: vmware-vcsa_1esxi-6.7.0-python36-without-nested
     vars:
+      ansible_test_python: 3.6
       ansible_test_integration_targets: zuul/vmware/vcenter_1esxi/
       ansible_test_split_in: 2
     timeout: 10800
@@ -136,19 +138,24 @@
     parent: ansible-test-cloud-integration-vcenter
     nodeset: vmware-vcsa_2esxi-6.7.0-python36-without-nested
     vars:
+      ansible_test_python: 3.6
       ansible_test_integration_targets: zuul/vmware/vcenter_2esxi/
 
 # vcenter 7.0.0
 - job:
     name: ansible-test-cloud-integration-vcenter7_only-python36
-    parent: ansible-test-cloud-integration-vcenter_only-python36
+    parent: ansible-test-cloud-integration-vcenter
     nodeset: vmware-vcsa-7.0.0-python36
+    vars:
+      ansible_test_python: 3.6
+      ansible_test_integration_targets: zuul/vmware/vcenter_only/
 
 - job:
     name: ansible-test-cloud-integration-vcenter7_1esxi_with_nested-python36
     parent: ansible-test-cloud-integration-vcenter
     nodeset: vmware-vcsa_1esxi-7.0.0-python36-with-nested
     vars:
+      ansible_test_python: 3.6
       ansible_test_integration_targets: zuul/vmware/vcenter_1esxi_with_nested/
     # 5h
     timeout: 10800
@@ -158,6 +165,7 @@
     parent: ansible-test-cloud-integration-vcenter
     nodeset: vmware-vcsa_1esxi-7.0.0-python36-without-nested
     vars:
+      ansible_test_python: 3.6
       ansible_test_integration_targets: zuul/vmware/vcenter_1esxi/
     # 5h
     timeout: 10800
@@ -167,4 +175,5 @@
     parent: ansible-test-cloud-integration-vcenter
     nodeset: vmware-vcsa_2esxi-7.0.0-python36-without-nested
     vars:
+      ansible_test_python: 3.6
       ansible_test_integration_targets: zuul/vmware/vcenter_2esxi/

@@ -134,6 +134,24 @@
               - name: github.com/ansible-collections/ansible.netcommon
 
 - project-template:
+    name: ansible-collections-cisco-nxos
+    check:
+      jobs:
+        - ansible-test-network-integration-nxos-cli-python36:
+            vars:
+              ansible_test_collections: true
+            voting: false
+        - build-ansible-collection:
+            required-projects:
+              - name: github.com/ansible-collections/ansible.netcommon
+    gate:
+      queue: integrated
+      jobs:
+        - build-ansible-collection:
+            required-projects:
+              - name: github.com/ansible-collections/ansible.netcommon
+
+- project-template:
     name: ansible-collections-cisco-ios
     check:
       jobs:

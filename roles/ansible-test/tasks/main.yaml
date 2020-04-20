@@ -28,7 +28,7 @@
   import_tasks: split_targets.yaml
   when: ansible_test_split_in > 1
 
-- name: Run the integration test suite
+- name: Run the test suite
   args:
     chdir: "{{ _test_location }}"
     executable: /bin/bash

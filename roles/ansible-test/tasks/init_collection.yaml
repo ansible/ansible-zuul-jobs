@@ -14,7 +14,7 @@
   shell: "cat galaxy.yml | {{ ansible_test_venv_path }}/bin/yq -y .name | tail -n +1 | head -1"
   register: _collection_name
 
-- name: Setup location of project
+- name: Setup location of project for integration tests
   set_fact:
     _test_location: "{{ ansible_test_collection_dir }}/{{ _collection_namespace.stdout }}/{{ _collection_name.stdout }}"
     _test_cfg_location: "{{ ansible_test_collection_dir }}/{{ _collection_namespace.stdout }}/{{ _collection_name.stdout }}/tests/integration/{{ ansible_test_test_command }}.cfg"

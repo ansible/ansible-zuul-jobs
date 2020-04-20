@@ -785,6 +785,7 @@
 
 - job:
     name: ansible-test-units-base
+    nodeset: controller-python38
     abstract: true
     dependencies:
       - name: build-ansible-collection
@@ -802,7 +803,6 @@
 - job:
     name: ansible-test-units-openvswitch
     parent: ansible-test-units-base
-    nodeset: controller-python38
     required-projects:
       - name: github.com/ansible-collections/openvswitch.openvswitch
     timeout: 3600

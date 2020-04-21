@@ -504,6 +504,16 @@
       ansible_test_integration_targets: "iosxr_.* netconf_.*"
 
 - job:
+    name: ansible-test-units-iosxr
+    parent: ansible-test-units-base
+    required-projects:
+      - name: github.com/ansible-collections/cisco.iosxr
+    timeout: 3600
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/cisco.iosxr
+      ansible_test_integration_targets: "tests/unit/modules/network/cisco/test_iosxr_.*"
+
+- job:
     name: ansible-test-network-integration-iosxr-python27
     parent: ansible-test-network-integration-iosxr
     nodeset: iosxr-6.1.3-python27

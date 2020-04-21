@@ -298,6 +298,16 @@
       ansible_test_integration_targets: "eos_.*"
 
 - job:
+    name: ansible-test-units-eos
+    parent: ansible-test-units-base
+    required-projects:
+      - name: github.com/ansible-collections/arista.eos
+    timeout: 3600
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/arista.eos
+      ansible_test_integration_targets: "tests/unit/modules/network/eos/test_eos.*"
+
+- job:
     name: ansible-test-network-integration-eos-python27
     parent: ansible-test-network-integration-eos
     nodeset: eos-4.20.10-python27

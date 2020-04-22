@@ -461,7 +461,7 @@
             vars:
               ansible_test_collections: true
               ansible_test_integration_targets: "junos_.*"
-        - - ansible-test-units-eos:
+        - ansible-test-units-junos:
             vars:
               ansible_test_collections: true
         - build-ansible-collection:

@@ -919,6 +919,16 @@
       ansible_test_integration_targets: "vyos_.*"
 
 - job:
+    name: ansible-test-units-vyos
+    parent: ansible-test-units-base
+    required-projects:
+      - name: github.com/ansible-collections/vyos.vyos
+    timeout: 3600
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/vyos.vyos
+      ansible_test_integration_targets: "tests/unit/modules/network/vyos/test_vyos.*"
+
+- job:
     name: ansible-test-network-integration-vyos-python27
     parent: ansible-test-network-integration-vyos
     nodeset: vyos-1.1.8-python27

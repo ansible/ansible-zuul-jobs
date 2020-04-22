@@ -406,6 +406,16 @@
       ansible_test_integration_targets: "ios_.*"
 
 - job:
+    name: ansible-test-units-ios
+    parent: ansible-test-units-base
+    required-projects:
+      - name: github.com/ansible-collections/cisco.ios
+    timeout: 3600
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/cisco.ios
+      ansible_test_integration_targets: "tests/unit/modules/network/ios/test_ios.*"
+
+- job:
     name: ansible-test-network-integration-ios-python27
     parent: ansible-test-network-integration-ios
     nodeset: ios-15.6-2T-python27

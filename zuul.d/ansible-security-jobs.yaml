@@ -20,4 +20,3 @@
       ansible_test_command: network-integration
       ansible_test_integration_targets: "qradar_.*"
     nodeset: centos-8-1vcpu
-

@@ -645,6 +645,20 @@
               - name: github.com/ansible-collections/ansible.netcommon
 
 - project-template:
+    name: ansible-collections-security-ibm-qradar
+    check:
+      jobs:
+        - ansible-security-integration-ibm-qradar:
+            vars:
+              ansible_test_collections: true
+    gate:
+      queue: integrated
+      jobs:
+        - ansible-security-integration-ibm-qradar:
+            vars:
+              ansible_test_collections: true
+
+- project-template:
     name: ansible-test-network-integration
     periodic:
       jobs:

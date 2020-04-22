@@ -511,7 +511,7 @@
     timeout: 3600
     vars:
       ansible_collections_repo: github.com/ansible-collections/cisco.iosxr
-      ansible_test_integration_targets: "tests/unit/modules/network/cisco/test_iosxr_.*"
+      ansible_test_integration_targets: "tests/unit/modules/network/iosxr/test_iosxr_.*"
 
 - job:
     name: ansible-test-network-integration-iosxr-python27

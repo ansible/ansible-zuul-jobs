@@ -630,6 +630,16 @@
       ansible_test_integration_targets: "junos_.* netconf_.*"
 
 - job:
+    name: ansible-test-units-junos
+    parent: ansible-test-units-base
+    required-projects:
+      - name: github.com/ansible-collections/junipernetworks.junos
+    timeout: 3600
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/junipernetworks.junos
+      ansible_test_integration_targets: "tests/unit/modules/network/junos/test_junos.*"
+
+- job:
     name: ansible-test-network-integration-junos-vsrx-python27
     parent: ansible-test-network-integration-junos-vsrx
     nodeset: vsrx3-18.4R1-python27

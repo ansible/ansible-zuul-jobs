@@ -432,6 +432,9 @@
             vars:
               ansible_test_collections: true
               ansible_test_integration_targets: "junos_.*"
+        - ansible-test-units-junos:
+            vars:
+              ansible_test_collections: true
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-collections/ansible.netcommon
@@ -458,6 +461,9 @@
             vars:
               ansible_test_collections: true
               ansible_test_integration_targets: "junos_.*"
+        - - ansible-test-units-eos:
+            vars:
+              ansible_test_collections: true
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-collections/ansible.netcommon

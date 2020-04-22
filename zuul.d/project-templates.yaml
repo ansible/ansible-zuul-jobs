@@ -147,12 +147,18 @@
             vars:
               ansible_test_collections: true
             voting: false
+        - ansible-test-units-nxos:
+            vars:
+              ansible_test_collections: true
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-collections/ansible.netcommon
     gate:
       queue: integrated
       jobs:
+        - ansible-test-units-nxos:
+            vars:
+              ansible_test_collections: true
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-collections/ansible.netcommon

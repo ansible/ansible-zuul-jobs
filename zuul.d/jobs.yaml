@@ -763,6 +763,16 @@
       ansible_test_integration_targets: "nxos_.*"
 
 - job:
+    name: ansible-test-units-nxos
+    parent: ansible-test-units-base
+    required-projects:
+      - name: github.com/ansible-collections/cisco.nxos
+    timeout: 3600
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/cisco.nxos
+      ansible_test_integration_targets: "tests/unit/modules/network/nxos/test_nxos_.*"
+
+- job:
     name: ansible-test-network-integration-nxos-cli-python36
     parent: ansible-test-network-integration-nxos
     nodeset: nxos-7.0.3-python36

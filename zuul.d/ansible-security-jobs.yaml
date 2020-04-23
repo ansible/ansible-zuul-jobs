@@ -1,3 +1,4 @@
+---
 - job:
     name: ansible-security-integration-ibm-qradar
     abstract: true

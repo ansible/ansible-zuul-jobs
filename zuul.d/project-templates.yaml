@@ -655,6 +655,7 @@
     gate:
       queue: integrated
       jobs:
+        - build-ansible-collection
         - ansible-security-integration-ibm-qradar:
             vars:
               ansible_test_collections: true

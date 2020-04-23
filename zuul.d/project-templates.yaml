@@ -648,6 +648,7 @@
     name: ansible-collections-security-ibm-qradar
     check:
       jobs:
+        - build-ansible-collection
         - ansible-security-integration-ibm-qradar:
             vars:
               ansible_test_collections: true

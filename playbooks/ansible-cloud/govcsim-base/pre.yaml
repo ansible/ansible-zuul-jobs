@@ -1,0 +1,13 @@
+---
+- hosts: controller
+  tasks:
+    - name: Install podman
+      package:
+        name: podman
+      become: true
+    - name: Add the /usr/bin/docker symlink
+      file:
+        src: /usr/bin/podman
+        dest: /usr/bin/docker
+        state: link
+      become: true

@@ -204,6 +204,9 @@
         - ansible-test-network-integration-ios-python38:
             vars:
               ansible_test_collections: true
+        - ansible-test-units-ios:
+            vars:
+              ansible_test_collections: true
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-collections/ansible.netcommon
@@ -223,6 +226,9 @@
             vars:
               ansible_test_collections: true
         - ansible-test-network-integration-ios-python38:
+            vars:
+              ansible_test_collections: true
+        - ansible-test-units-ios:
             vars:
               ansible_test_collections: true
         - build-ansible-collection:

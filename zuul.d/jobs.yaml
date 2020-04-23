@@ -240,6 +240,16 @@
       ansible_test_integration_targets: "asa_.*"
 
 - job:
+    name: ansible-test-units-asa
+    parent: ansible-test-units-base
+    required-projects:
+      - name: github.com/ansible-collections/cisco.asa
+    timeout: 3600
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/cisco.asa
+      ansible_test_integration_targets: "tests/unit/modules/network/asa/test_asa.*"
+
+- job:
     name: ansible-test-network-integration-asa-python27
     parent: ansible-test-network-integration-asa
     nodeset: asav9-12-3-python27

@@ -55,28 +55,24 @@
         - ansible-test-network-integration-eos-python27-stable29:
             vars:
               ansible_test_collections: true
-            voting: false
         - ansible-test-network-integration-eos-python35:
             vars:
               ansible_test_collections: true
         - ansible-test-network-integration-eos-python35-stable29:
             vars:
               ansible_test_collections: true
-            voting: false
         - ansible-test-network-integration-eos-python36:
             vars:
               ansible_test_collections: true
         - ansible-test-network-integration-eos-python36-stable29:
             vars:
               ansible_test_collections: true
-            voting: false
         - ansible-test-network-integration-eos-python37:
             vars:
               ansible_test_collections: true
         - ansible-test-network-integration-eos-python37-stable29:
             vars:
               ansible_test_collections: true
-            voting: false
         - ansible-test-network-integration-eos-python38:
             vars:
               ansible_test_collections: true
@@ -89,13 +85,25 @@
         - ansible-test-network-integration-eos-python27:
             vars:
               ansible_test_collections: true
+        - ansible-test-network-integration-eos-python27-stable29:
+            vars:
+              ansible_test_collections: true
         - ansible-test-network-integration-eos-python35:
+            vars:
+              ansible_test_collections: true
+        - ansible-test-network-integration-eos-python35-stable29:
             vars:
               ansible_test_collections: true
         - ansible-test-network-integration-eos-python36:
             vars:
               ansible_test_collections: true
+        - ansible-test-network-integration-eos-python36-stable29:
+            vars:
+              ansible_test_collections: true
         - ansible-test-network-integration-eos-python37:
+            vars:
+              ansible_test_collections: true
+        - ansible-test-network-integration-eos-python37-stable29:
             vars:
               ansible_test_collections: true
         - ansible-test-network-integration-eos-python38:

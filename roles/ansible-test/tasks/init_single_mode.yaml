@@ -1,6 +1,6 @@
 ---
 - name: Setup location of project
   set_fact:
-    _test_location: "{{ ansible_test_location }}"
-    _test_cfg_location: "{{ ansible_test_location }}/test/integration/{{ ansible_test_test_command }}.cfg"
+    _test_location: "{{ zuul.projects['github.com/ansible/ansible'].src_dir }}"
+    _test_cfg_location: "{{ zuul.projects['github.com/ansible/ansible'].src_dir }}/test/integration/{{ ansible_test_test_command }}.cfg"
   when: ansible_test_test_command != 'units'

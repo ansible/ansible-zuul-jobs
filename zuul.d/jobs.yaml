@@ -609,6 +609,16 @@
       ansible_test_python: 3.8
 
 - job:
+    name: ansible-test-units-netcommon
+    parent: ansible-test-units-base
+    required-projects:
+      - name: github.com/ansible-collections/ansible.netcommon
+    timeout: 3600
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/ansible.netcommon
+      ansible_test_integration_targets: "tests/unit/modules/network/cli/test_cli_.*"
+
+- job:
     name: ansible-test-network-integration-iosxr-netconf-python27
     parent: ansible-test-network-integration-iosxr-python27
     vars:

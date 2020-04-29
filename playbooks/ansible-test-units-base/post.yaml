@@ -1,12 +1,53 @@
 ---
 - hosts: controller
+  vars:
+    ansible_test_location: "{{ ansible_user_dir }}/{{ zuul.projects[ansible_collections_repo].src_dir }}"
+    ansible_coverage_report: "ansible-test coverage html"
+    ansible_test_venv_path: "~/venv"
+    ansible_test_collection_dir: "~/.ansible/collections/ansible_collections"
   tasks:
+    - name: Get collection namespace
+      args:
+        chdir: "{{ ansible_test_location }}"
+        executable: /bin/bash
+      shell: "cat galaxy.yml | {{ ansible_test_venv_path }}/bin/yq -y .namespace | tail -n +1 | head -1"
+      register: _collection_namespace
+
+    - name: Get collection name
+      args:
+        chdir: "{{ ansible_test_location }}"
+        executable: /bin/bash
+      shell: "cat galaxy.yml | {{ ansible_test_venv_path }}/bin/yq -y .name | tail -n +1 | head -1"
+      register: _collection_name
+
+    - name: Setup location of project for tests
+      set_fact:
+        test_location: "{{ ansible_test_collection_dir }}/{{ _collection_namespace.stdout }}/{{ _collection_name.stdout }}"
+
+    - name: Coverage report for unit tests
+      args:
+        chdir: "{{ test_location }}"
+        executable: /bin/bash
+      environment: "{{ ansible_test_environment | default({}) }}"
+      shell: "source {{ ansible_test_venv_path }}/bin/activate; {{ ansible_coverage_report }}"
+
+    - name: Ensure controller directory exists
+      file:
+        path: "{{ ansible_user_dir }}/zuul-output/logs/controller"
+        state: directory
+
+    - name: Create a symbolic link to the coverage directory
+      shell: "ln -s {{ test_location }}/tests/output {{ ansible_user_dir }}; cp -rf {{ ansible_user_dir}}/output {{ ansible_user_dir }}/zuul-output/logs/controller/"
+
+
     # TODO: Migrate to fetch-zuul-logs when
     # https://review.openstack.org/#/c/583346/ is merged.
+
     - name: Collect log output
-      no_log: true
       synchronize:
+        no_log: true
         dest: "{{ zuul.executor.log_root }}/"
         mode: pull
         src: "{{ ansible_user_dir }}/zuul-output/logs/"
         verify_host: true
+        copy_links: true

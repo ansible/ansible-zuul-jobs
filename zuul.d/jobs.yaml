@@ -75,6 +75,8 @@
     name: ansible-tox-py38
     parent: tox-py38
     nodeset: ubuntu-bionic-1vcpu
+    vars:
+      ansible_test_python: 3.8
 
 - job:
     name: ansible-build-python-tarball

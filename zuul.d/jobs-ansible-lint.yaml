@@ -4,6 +4,8 @@
 - job:
     name: ansible-lint-tox-docs
     parent: ansible-tox-docs
+    vars:
+      sphinx_build_dir: docs/docsite/_build
 
 - job:
     name: ansible-lint-tox-linters

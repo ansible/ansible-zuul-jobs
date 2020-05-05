@@ -464,13 +464,6 @@
               ansible_test_collections: true
         - ansible-tox-linters
         - build-ansible-collection
-    periodic-1hr:
-      jobs:
-        - ansible-test-cloud-integration-vcenter_1esxi_with_nested-python36:
-            vars:
-              ansible_test_collections: true
-        - ansible-tox-linters
-        - build-ansible-collection
 
 - project-template:
     name: ansible-collections-juniper-junos-units

@@ -20,7 +20,7 @@
 
 - job:
     name: ansible-test-cloud-integration-govcsim-python36
-    nodeset: vmware-govcsim-python36
+    nodeset: ubuntu-bionic-1vcpu-aws
     dependencies:
       - name: build-ansible-collection
         soft: true

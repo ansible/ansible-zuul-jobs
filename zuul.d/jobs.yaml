@@ -13,8 +13,7 @@
     description: |
       A job to validate no github workflow directory are found.
     run: playbooks/github-workflows/run.yaml
-    nodeset:
-      nodes: []
+    nodeset: ubuntu-bionic-1vcpu-aws
 
 - job:
     name: ansible-tox-docs

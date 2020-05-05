@@ -523,7 +523,7 @@
     name: nxos-7.0.3-python36
     nodes:
       - name: ubuntu-bionic
-        label: ubuntu-bionic-rdocloud
+        label: ubuntu-bionic-1vcpu
       - name: nxos-7.0.3
         label: nxos-7.0.3
     groups:

@@ -828,16 +828,22 @@
     check:
       jobs:
         - build-ansible-collection
-        - ansible-security-integration-ibm-qradar:
-            vars:
-              ansible_test_collections: true
     gate:
       queue: integrated
       jobs:
         - build-ansible-collection
-        - ansible-security-integration-ibm-qradar:
-            vars:
-              ansible_test_collections: true
+
+- project-template:
+    name: ansible-collections-security-splunk-es
+    check:
+      jobs:
+        - build-ansible-collection
+        - ansible-security-integration-splunk-es-python36
+    gate:
+      queue: integrated
+      jobs:
+        - build-ansible-collection
+        - ansible-security-integration-splunk-es-python36
 
 - project-template:
     name: ansible-test-network-integration

@@ -997,7 +997,7 @@
     required-projects:
       - name: github.com/ansible/ansible
       - name: github.com/ansible-collections/vyos.vyos
-    timeout: 7200
+    timeout: 9000
     vars:
       ansible_collections_repo: github.com/ansible-collections/vyos.vyos
       ansible_test_command: network-integration

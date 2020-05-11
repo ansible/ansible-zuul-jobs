@@ -11,6 +11,22 @@
     - "{{ ansible_os_family }}.yaml"
     - "default.yaml"
 
+- name: Ensure /etc/resolv.conf works before pulling packages
+  become: true
+  template:
+    dest: /etc/resolv.conf
+    owner: root
+    group: root
+    mode: 0644
+    src: resolv.conf.j2
+
+- name: Install the packages
+  become: true
+  package:
+    name: "{{ unbound_packages }}"
+    update_cache: true
+    state: present
+
 - name: Ensure Unbound conf.d directory exists
   become: true
   file:

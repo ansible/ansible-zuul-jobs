@@ -11,6 +11,11 @@
         _network_os: "{{ hostvars[groups['openvswitch'][0]]['ansible_network_os'] }}"
       when: '"openvswitch" in groups'
 
+    - name: Ensure tox
+      include_role:
+        name: ensure-tox
+      when: "'aws' in group_names"
+
     - name: Setup tox role
       include_role:
         name: tox

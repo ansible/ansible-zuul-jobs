@@ -17,7 +17,7 @@
 
     - name: Install docker
       include_role:
-        name: install-docker
+        name: ensure-docker
 
     - name: Validate docker engine
       # on purpose to verify that non-root user can call docker/podman
@@ -33,7 +33,7 @@
       when:
         - ansible_os_family != "RedHat"
       include_role:
-        name: install-podman
+        name: ensure-podman
 
     # TODO(ssbarnea): Migrate logic to install-podman (zuul-roles)
     - name: Install podman (RedHat)

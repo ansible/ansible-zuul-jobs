@@ -20,24 +20,6 @@
       tox_envlist: build-dists,metadata-validation
 
 - job:
-    name: ansible-lint-tox-py35-ansible28
-    parent: ansible-tox-py35
-    vars:
-      tox_envlist: py35-ansible28
-
-- job:
-    name: ansible-lint-tox-py35-ansible29
-    parent: ansible-tox-py35
-    vars:
-      tox_envlist: py35-ansible29
-
-- job:
-    name: ansible-lint-tox-py35-ansibledevel
-    parent: ansible-tox-py35
-    vars:
-      tox_envlist: py35-ansibledevel
-
-- job:
     name: ansible-lint-tox-py36-ansible28
     parent: ansible-tox-py36
     vars:

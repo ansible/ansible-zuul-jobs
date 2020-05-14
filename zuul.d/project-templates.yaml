@@ -190,25 +190,33 @@
         - ansible-test-network-integration-nxos-cli-python36_1_of_4:
             vars:
               ansible_test_collections: true
-            voting: false
         - ansible-test-network-integration-nxos-cli-python36_2_of_4:
             vars:
               ansible_test_collections: true
-            voting: false
         - ansible-test-network-integration-nxos-cli-python36_3_of_4:
             vars:
               ansible_test_collections: true
-            voting: false
         - ansible-test-network-integration-nxos-cli-python36_4_of_4:
             vars:
               ansible_test_collections: true
-            voting: false
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-collections/ansible.netcommon
     gate:
       queue: integrated
       jobs:
+        - ansible-test-network-integration-nxos-cli-python36_1_of_4:
+            vars:
+              ansible_test_collections: true
+        - ansible-test-network-integration-nxos-cli-python36_2_of_4:
+            vars:
+              ansible_test_collections: true
+        - ansible-test-network-integration-nxos-cli-python36_3_of_4:
+            vars:
+              ansible_test_collections: true
+        - ansible-test-network-integration-nxos-cli-python36_4_of_4:
+            vars:
+              ansible_test_collections: true
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-collections/ansible.netcommon

@@ -215,6 +215,18 @@
         - ansible-test-network-integration-nxos-cli-python36_4_of_4:
             vars:
               ansible_test_collections: true
+        - ansible-test-network-integration-nxos-cli-python36-stable29_1_of_4:
+            vars:
+              ansible_test_collections: true
+        - ansible-test-network-integration-nxos-cli-python36-stable29_2_of_4:
+            vars:
+              ansible_test_collections: true
+        - ansible-test-network-integration-nxos-cli-python36-stable29_3_of_4:
+            vars:
+              ansible_test_collections: true
+        - ansible-test-network-integration-nxos-cli-python36-stable29_4_of_4:
+            vars:
+              ansible_test_collections: true
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-collections/ansible.netcommon
@@ -231,6 +243,18 @@
             vars:
               ansible_test_collections: true
         - ansible-test-network-integration-nxos-cli-python36_4_of_4:
+            vars:
+              ansible_test_collections: true
+        - ansible-test-network-integration-nxos-cli-python36-stable29_1_of_4:
+            vars:
+              ansible_test_collections: true
+        - ansible-test-network-integration-nxos-cli-python36-stable29_2_of_4:
+            vars:
+              ansible_test_collections: true
+        - ansible-test-network-integration-nxos-cli-python36-stable29_3_of_4:
+            vars:
+              ansible_test_collections: true
+        - ansible-test-network-integration-nxos-cli-python36-stable29_4_of_4:
             vars:
               ansible_test_collections: true
         - build-ansible-collection:

@@ -4,6 +4,11 @@
     ansible_test_options: "{{ ansible_test_options }} --skip-tags {{ ansible_test_skip_tags }}"
   when: ansible_test_skip_tags is defined
 
+- name: Setup --tags for test_options
+  set_fact:
+    ansible_test_options: "{{ ansible_test_options }} --tags {{ ansible_test_tags }}"
+  when: ansible_test_tags is defined
+
 - name: Enable --inventory for network-integration
   set_fact:
     ansible_test_options: "{{ ansible_test_options }} --inventory {{ ansible_test_inventory_path }}"

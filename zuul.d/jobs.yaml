@@ -928,6 +928,7 @@
     pre-run:
       - playbooks/ansible-test-base/pre.yaml
     run: playbooks/ansible-test-base/run.yaml
+    post-run: playbooks/ansible-test-units-base/post.yaml
     required-projects:
       - name: github.com/ansible/ansible
     timeout: 3600

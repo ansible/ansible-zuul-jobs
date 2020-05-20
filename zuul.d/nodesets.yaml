@@ -843,3 +843,23 @@
       - name: controller
         nodes:
           - ubuntu-bionic
+
+# Ansible Security appliance nodesets
+- nodeset:
+    name: SplunkEnterprise-SES-8.0.0-python38
+    nodes:
+      - name: ubuntu-bionic
+        label: ubuntu-bionic-1vcpu-aws
+      - name: SplunkEnterprise-SES-8.0.0
+        label: SplunkEnterprise-SES-8.0.0
+    groups:
+      - name: appliance
+        nodes:
+          - SplunkEnterprise-SES-8.0.0
+      - name: controller
+        nodes:
+          - ubuntu-bionic
+      - name: aws
+        nodes:
+          - SplunkEnterprise-SES-8.0.0
+          - ubuntu-bionic

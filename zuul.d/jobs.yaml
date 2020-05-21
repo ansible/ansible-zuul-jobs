@@ -341,7 +341,7 @@
     required-projects:
       - name: github.com/ansible/ansible
       - name: github.com/ansible-collections/arista.eos
-    timeout: 9000
+    timeout: 10800
     vars:
       ansible_collections_repo: github.com/ansible-collections/arista.eos
       ansible_test_command: network-integration
@@ -449,7 +449,7 @@
     required-projects:
       - name: github.com/ansible/ansible
       - name: github.com/ansible-collections/cisco.ios
-    timeout: 9000
+    timeout: 10800
     vars:
       ansible_collections_repo: github.com/ansible-collections/cisco.ios
       ansible_test_command: network-integration
@@ -557,7 +557,7 @@
     required-projects:
       - name: github.com/ansible/ansible
       - name: github.com/ansible-collections/cisco.iosxr
-    timeout: 9000
+    timeout: 10800
     vars:
       ansible_collections_repo: github.com/ansible-collections/cisco.iosxr
       ansible_test_command: network-integration
@@ -703,7 +703,7 @@
     required-projects:
       - name: github.com/ansible/ansible
       - name: github.com/ansible-collections/junipernetworks.junos
-    timeout: 9000
+    timeout: 10800
     vars:
       ansible_collections_repo: github.com/ansible-collections/junipernetworks.junos
       ansible_test_command: network-integration
@@ -1038,7 +1038,7 @@
     required-projects:
       - name: github.com/ansible/ansible
       - name: github.com/ansible-collections/vyos.vyos
-    timeout: 9000
+    timeout: 10800
     vars:
       ansible_collections_repo: github.com/ansible-collections/vyos.vyos
       ansible_test_command: network-integration

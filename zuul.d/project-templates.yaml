@@ -396,19 +396,19 @@
     name: ansible-collections-cisco-iosxr-netconf
     check:
       jobs:
-        - ansible-test-network-integration-iosxr-netconf-python27:
+        - ansible-test-network-integration-ansible-netcommon-iosxr-netconf-python27:
             vars:
               ansible_test_collections: true
             voting: false
-        - ansible-test-network-integration-iosxr-netconf-python35:
+        - ansible-test-network-integration-ansible-netcommon-iosxr-netconf-python35:
             vars:
               ansible_test_collections: true
             voting: false
-        - ansible-test-network-integration-iosxr-netconf-python36:
+        - ansible-test-network-integration-ansible-netcommon-iosxr-netconf-python36:
             vars:
               ansible_test_collections: true
             voting: false
-        - ansible-test-network-integration-iosxr-netconf-python37:
+        - ansible-test-network-integration-ansible-netcommon-iosxr-netconf-python37:
             vars:
               ansible_test_collections: true
             voting: false
@@ -601,19 +601,19 @@
     name: ansible-collections-juniper-junos-netconf
     check:
       jobs:
-        - ansible-test-network-integration-junos-vsrx-netconf-python27:
+        - ansible-test-network-integration-ansible-netcommon-junos-vsrx-netconf-python27:
             vars:
               ansible_test_collections: true
-        - ansible-test-network-integration-junos-vsrx-netconf-python35:
+        - ansible-test-network-integration-ansible-netcommon-junos-vsrx-netconf-python35:
             vars:
               ansible_test_collections: true
-        - ansible-test-network-integration-junos-vsrx-netconf-python36:
+        - ansible-test-network-integration-ansible-netcommon-junos-vsrx-netconf-python36:
             vars:
               ansible_test_collections: true
-        - ansible-test-network-integration-junos-vsrx-netconf-python37:
+        - ansible-test-network-integration-ansible-netcommon-junos-vsrx-netconf-python37:
             vars:
               ansible_test_collections: true
-        - ansible-test-network-integration-junos-vsrx-netconf-python38:
+        - ansible-test-network-integration-ansible-netcommon-junos-vsrx-netconf-python38:
             vars:
               ansible_test_collections: true
         - build-ansible-collection:
@@ -624,19 +624,19 @@
     gate:
       queue: integrated
       jobs:
-        - ansible-test-network-integration-junos-vsrx-netconf-python27:
+        - ansible-test-network-integration-ansible-netcommon-junos-vsrx-netconf-python27:
             vars:
               ansible_test_collections: true
-        - ansible-test-network-integration-junos-vsrx-netconf-python35:
+        - ansible-test-network-integration-ansible-netcommon-junos-vsrx-netconf-python35:
             vars:
               ansible_test_collections: true
-        - ansible-test-network-integration-junos-vsrx-netconf-python36:
+        - ansible-test-network-integration-ansible-netcommon-junos-vsrx-netconf-python36:
             vars:
               ansible_test_collections: true
-        - ansible-test-network-integration-junos-vsrx-netconf-python37:
+        - ansible-test-network-integration-ansible-netcommon-junos-vsrx-netconf-python37:
             vars:
               ansible_test_collections: true
-        - ansible-test-network-integration-junos-vsrx-netconf-python38:
+        - ansible-test-network-integration-ansible-netcommon-junos-vsrx-netconf-python38:
             vars:
               ansible_test_collections: true
         - build-ansible-collection:

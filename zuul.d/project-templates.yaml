@@ -515,7 +515,11 @@
     name: ansible-collections-juniper-junos
     check:
       jobs:
-        - ansible-test-network-integration-junos-vsrx-netconf-python27:
+        - ansible-test-network-integration-junos-vsrx-netconf-python27_1_of_2:
+            vars:
+              ansible_test_collections: true
+              ansible_test_integration_targets: "junos_.*"
+        - ansible-test-network-integration-junos-vsrx-netconf-python27_2_of_2:
             vars:
               ansible_test_collections: true
               ansible_test_integration_targets: "junos_.*"
@@ -523,7 +527,11 @@
             vars:
               ansible_test_collections: true
               ansible_test_integration_targets: "junos_.*"
-        - ansible-test-network-integration-junos-vsrx-netconf-python27-stable29:
+        - ansible-test-network-integration-junos-vsrx-netconf-python27-stable29_1_of_2:
+            vars:
+              ansible_test_collections: true
+              ansible_test_integration_targets: "junos_.*"
+        - ansible-test-network-integration-junos-vsrx-netconf-python27-stable29_2_of_2:
             vars:
               ansible_test_collections: true
               ansible_test_integration_targets: "junos_.*"
@@ -531,7 +539,11 @@
             vars:
               ansible_test_collections: true
               ansible_test_integration_targets: "junos_.*"
-        - ansible-test-network-integration-junos-vsrx-netconf-python35:
+        - ansible-test-network-integration-junos-vsrx-netconf-python35_1_of_2:
+            vars:
+              ansible_test_collections: true
+              ansible_test_integration_targets: "junos_.*"
+        - ansible-test-network-integration-junos-vsrx-netconf-python35_2_of_2:
             vars:
               ansible_test_collections: true
               ansible_test_integration_targets: "junos_.*"
@@ -539,7 +551,11 @@
             vars:
               ansible_test_collections: true
               ansible_test_integration_targets: "junos_.*"
-        - ansible-test-network-integration-junos-vsrx-netconf-python35-stable29:
+        - ansible-test-network-integration-junos-vsrx-netconf-python35-stable29_1_of_2:
+            vars:
+              ansible_test_collections: true
+              ansible_test_integration_targets: "junos_.*"
+        - ansible-test-network-integration-junos-vsrx-netconf-python35-stable29_2_of_2:
             vars:
               ansible_test_collections: true
               ansible_test_integration_targets: "junos_.*"
@@ -547,7 +563,11 @@
             vars:
               ansible_test_collections: true
               ansible_test_integration_targets: "junos_.*"
-        - ansible-test-network-integration-junos-vsrx-netconf-python36:
+        - ansible-test-network-integration-junos-vsrx-netconf-python36_1_of_2:
+            vars:
+              ansible_test_collections: true
+              ansible_test_integration_targets: "junos_.*"
+        - ansible-test-network-integration-junos-vsrx-netconf-python36_2_of_2:
             vars:
               ansible_test_collections: true
               ansible_test_integration_targets: "junos_.*"
@@ -555,7 +575,11 @@
             vars:
               ansible_test_collections: true
               ansible_test_integration_targets: "junos_.*"
-        - ansible-test-network-integration-junos-vsrx-netconf-python36-stable29:
+        - ansible-test-network-integration-junos-vsrx-netconf-python36-stable29_1_of_2:
+            vars:
+              ansible_test_collections: true
+              ansible_test_integration_targets: "junos_.*"
+        - ansible-test-network-integration-junos-vsrx-netconf-python36-stable29_2_of_2:
             vars:
               ansible_test_collections: true
               ansible_test_integration_targets: "junos_.*"
@@ -563,7 +587,11 @@
             vars:
               ansible_test_collections: true
               ansible_test_integration_targets: "junos_.*"
-        - ansible-test-network-integration-junos-vsrx-netconf-python37:
+        - ansible-test-network-integration-junos-vsrx-netconf-python37_1_of_2:
+            vars:
+              ansible_test_collections: true
+              ansible_test_integration_targets: "junos_.*"
+        - ansible-test-network-integration-junos-vsrx-netconf-python37_2_of_2:
             vars:
               ansible_test_collections: true
               ansible_test_integration_targets: "junos_.*"
@@ -571,7 +599,11 @@
             vars:
               ansible_test_collections: true
               ansible_test_integration_targets: "junos_.*"
-        - ansible-test-network-integration-junos-vsrx-netconf-python37-stable29:
+        - ansible-test-network-integration-junos-vsrx-netconf-python37-stable29_1_of_2:
+            vars:
+              ansible_test_collections: true
+              ansible_test_integration_targets: "junos_.*"
+        - ansible-test-network-integration-junos-vsrx-netconf-python37-stable29_2_of_2:
             vars:
               ansible_test_collections: true
               ansible_test_integration_targets: "junos_.*"
@@ -579,7 +611,11 @@
             vars:
               ansible_test_collections: true
               ansible_test_integration_targets: "junos_.*"
-        - ansible-test-network-integration-junos-vsrx-netconf-python38:
+        - ansible-test-network-integration-junos-vsrx-netconf-python38_1_of_2:
+            vars:
+              ansible_test_collections: true
+              ansible_test_integration_targets: "junos_.*"
+        - ansible-test-network-integration-junos-vsrx-netconf-python38_2_of_2:
             vars:
               ansible_test_collections: true
               ansible_test_integration_targets: "junos_.*"
@@ -593,7 +629,11 @@
     gate:
       queue: integrated
       jobs:
-        - ansible-test-network-integration-junos-vsrx-netconf-python27:
+        - ansible-test-network-integration-junos-vsrx-netconf-python27_1_of_2:
+            vars:
+              ansible_test_collections: true
+              ansible_test_integration_targets: "junos_.*"
+        - ansible-test-network-integration-junos-vsrx-netconf-python27_2_of_2:
             vars:
               ansible_test_collections: true
               ansible_test_integration_targets: "junos_.*"
@@ -601,7 +641,11 @@
             vars:
               ansible_test_collections: true
               ansible_test_integration_targets: "junos_.*"
-        - ansible-test-network-integration-junos-vsrx-netconf-python27-stable29:
+        - ansible-test-network-integration-junos-vsrx-netconf-python27-stable29_1_of_2:
+            vars:
+              ansible_test_collections: true
+              ansible_test_integration_targets: "junos_.*"
+        - ansible-test-network-integration-junos-vsrx-netconf-python27-stable29_2_of_2:
             vars:
               ansible_test_collections: true
               ansible_test_integration_targets: "junos_.*"
@@ -609,7 +653,11 @@
             vars:
               ansible_test_collections: true
               ansible_test_integration_targets: "junos_.*"
-        - ansible-test-network-integration-junos-vsrx-netconf-python35:
+        - ansible-test-network-integration-junos-vsrx-netconf-python35_1_of_2:
+            vars:
+              ansible_test_collections: true
+              ansible_test_integration_targets: "junos_.*"
+        - ansible-test-network-integration-junos-vsrx-netconf-python35_2_of_2:
             vars:
               ansible_test_collections: true
               ansible_test_integration_targets: "junos_.*"
@@ -617,7 +665,11 @@
             vars:
               ansible_test_collections: true
               ansible_test_integration_targets: "junos_.*"
-        - ansible-test-network-integration-junos-vsrx-netconf-python35-stable29:
+        - ansible-test-network-integration-junos-vsrx-netconf-python35-stable29_1_of_2:
+            vars:
+              ansible_test_collections: true
+              ansible_test_integration_targets: "junos_.*"
+        - ansible-test-network-integration-junos-vsrx-netconf-python35-stable29_2_of_2:
             vars:
               ansible_test_collections: true
               ansible_test_integration_targets: "junos_.*"
@@ -625,7 +677,11 @@
             vars:
               ansible_test_collections: true
               ansible_test_integration_targets: "junos_.*"
-        - ansible-test-network-integration-junos-vsrx-netconf-python36:
+        - ansible-test-network-integration-junos-vsrx-netconf-python36_1_of_2:
+            vars:
+              ansible_test_collections: true
+              ansible_test_integration_targets: "junos_.*"
+        - ansible-test-network-integration-junos-vsrx-netconf-python36_2_of_2:
             vars:
               ansible_test_collections: true
               ansible_test_integration_targets: "junos_.*"
@@ -633,7 +689,11 @@
             vars:
               ansible_test_collections: true
               ansible_test_integration_targets: "junos_.*"
-        - ansible-test-network-integration-junos-vsrx-netconf-python36-stable29:
+        - ansible-test-network-integration-junos-vsrx-netconf-python36-stable29_1_of_2:
+            vars:
+              ansible_test_collections: true
+              ansible_test_integration_targets: "junos_.*"
+        - ansible-test-network-integration-junos-vsrx-netconf-python36-stable29_2_of_2:
             vars:
               ansible_test_collections: true
               ansible_test_integration_targets: "junos_.*"
@@ -641,7 +701,11 @@
             vars:
               ansible_test_collections: true
               ansible_test_integration_targets: "junos_.*"
-        - ansible-test-network-integration-junos-vsrx-netconf-python37:
+        - ansible-test-network-integration-junos-vsrx-netconf-python37_1_of_2:
+            vars:
+              ansible_test_collections: true
+              ansible_test_integration_targets: "junos_.*"
+        - ansible-test-network-integration-junos-vsrx-netconf-python37_2_of_2:
             vars:
               ansible_test_collections: true
               ansible_test_integration_targets: "junos_.*"
@@ -649,7 +713,11 @@
             vars:
               ansible_test_collections: true
               ansible_test_integration_targets: "junos_.*"
-        - ansible-test-network-integration-junos-vsrx-netconf-python37-stable29:
+        - ansible-test-network-integration-junos-vsrx-netconf-python37-stable29_1_of_2:
+            vars:
+              ansible_test_collections: true
+              ansible_test_integration_targets: "junos_.*"
+        - ansible-test-network-integration-junos-vsrx-netconf-python37-stable29_2_of_2:
             vars:
               ansible_test_collections: true
               ansible_test_integration_targets: "junos_.*"
@@ -657,7 +725,11 @@
             vars:
               ansible_test_collections: true
               ansible_test_integration_targets: "junos_.*"
-        - ansible-test-network-integration-junos-vsrx-netconf-python38:
+        - ansible-test-network-integration-junos-vsrx-netconf-python38_1_of_2:
+            vars:
+              ansible_test_collections: true
+              ansible_test_integration_targets: "junos_.*"
+        - ansible-test-network-integration-junos-vsrx-netconf-python38_2_of_2:
             vars:
               ansible_test_collections: true
               ansible_test_integration_targets: "junos_.*"
@@ -969,7 +1041,11 @@
             branches:
               - stable-2.9
               - stable-2.8
-        - ansible-test-network-integration-junos-vsrx-netconf-python27:
+        - ansible-test-network-integration-junos-vsrx-netconf-python27_1_of_2:
+            branches:
+              - stable-2.9
+              - stable-2.8
+        - ansible-test-network-integration-junos-vsrx-netconf-python27_2_of_2:
             branches:
               - stable-2.9
               - stable-2.8
@@ -977,7 +1053,11 @@
             branches:
               - stable-2.9
               - stable-2.8
-        - ansible-test-network-integration-junos-vsrx-netconf-python35:
+        - ansible-test-network-integration-junos-vsrx-netconf-python35_1_of_2:
+            branches:
+              - stable-2.9
+              - stable-2.8
+        - ansible-test-network-integration-junos-vsrx-netconf-python35_2_of_2:
             branches:
               - stable-2.9
               - stable-2.8
@@ -985,7 +1065,11 @@
             branches:
               - stable-2.9
               - stable-2.8
-        - ansible-test-network-integration-junos-vsrx-netconf-python36:
+        - ansible-test-network-integration-junos-vsrx-netconf-python36_1_of_2:
+            branches:
+              - stable-2.9
+              - stable-2.8
+        - ansible-test-network-integration-junos-vsrx-netconf-python36_2_of_2:
             branches:
               - stable-2.9
               - stable-2.8
@@ -993,7 +1077,11 @@
             branches:
               - stable-2.9
               - stable-2.8
-        - ansible-test-network-integration-junos-vsrx-netconf-python37:
+        - ansible-test-network-integration-junos-vsrx-netconf-python37_1_of_2:
+            branches:
+              - stable-2.9
+              - stable-2.8
+        - ansible-test-network-integration-junos-vsrx-netconf-python37_2_of_2:
             branches:
               - stable-2.9
               - stable-2.8
@@ -1295,7 +1383,31 @@
               - ^test/integration/targets/netconf_.*
               - ^test/integration/targets/prepare_iosxr_tests/.*
             voting: false
-        - ansible-test-network-integration-junos-vsrx-netconf-python27:
+        - ansible-test-network-integration-junos-vsrx-netconf-python27_1_of_2:
+            branches:
+              - stable-2.9
+              - stable-2.8
+            files:
+              - ^lib/ansible/cli/scripts/ansible_connection_cli_stub.py
+              - ^lib/ansible/modules/network/cli/.*
+              - ^lib/ansible/modules/network/junos/.*
+              - ^lib/ansible/modules/network/netconf/.*
+              - ^lib/ansible/module_utils/network/common/.*
+              - ^lib/ansible/module_utils/network/junos/.*
+              - ^lib/ansible/module_utils/network/netconf/.*
+              - ^lib/ansible/plugins/action/junos.py
+              - ^lib/ansible/plugins/action/net_.*
+              - ^lib/ansible/plugins/cliconf/junos.py
+              - ^lib/ansible/plugins/connection/local.py
+              - ^lib/ansible/plugins/connection/netconf.py
+              - ^lib/ansible/plugins/connection/network_cli.py
+              - ^lib/ansible/plugins/netconf/.*
+              - ^lib/ansible/plugins/terminal/__init__.py
+              - ^lib/ansible/plugins/terminal/junos.py
+              - ^test/integration/targets/junos_.*
+              - ^test/integration/targets/netconf_.*
+              - ^test/integration/targets/prepare_junos_tests/.*
+        - ansible-test-network-integration-junos-vsrx-netconf-python27_2_of_2:
             branches:
               - stable-2.9
               - stable-2.8
@@ -1343,7 +1455,7 @@
               - ^test/integration/targets/junos_.*
               - ^test/integration/targets/netconf_.*
               - ^test/integration/targets/prepare_junos_tests/.*
-        - ansible-test-network-integration-junos-vsrx-netconf-python35:
+        - ansible-test-network-integration-junos-vsrx-netconf-python35_1_of_2:
             branches:
               - stable-2.9
               - stable-2.8
@@ -1367,6 +1479,31 @@
               - ^test/integration/targets/junos_.*
               - ^test/integration/targets/netconf_.*
               - ^test/integration/targets/prepare_junos_tests/.*
+        - ansible-test-network-integration-junos-vsrx-netconf-python35_2_of_2:
+            branches:
+              - stable-2.9
+              - stable-2.8
+            files:
+              - ^lib/ansible/cli/scripts/ansible_connection_cli_stub.py
+              - ^lib/ansible/modules/network/cli/.*
+              - ^lib/ansible/modules/network/junos/.*
+              - ^lib/ansible/modules/network/netconf/.*
+              - ^lib/ansible/module_utils/network/common/.*
+              - ^lib/ansible/module_utils/network/junos/.*
+              - ^lib/ansible/module_utils/network/netconf/.*
+              - ^lib/ansible/plugins/action/junos.py
+              - ^lib/ansible/plugins/action/net_.*
+              - ^lib/ansible/plugins/cliconf/junos.py
+              - ^lib/ansible/plugins/connection/local.py
+              - ^lib/ansible/plugins/connection/netconf.py
+              - ^lib/ansible/plugins/connection/network_cli.py
+              - ^lib/ansible/plugins/netconf/.*
+              - ^lib/ansible/plugins/terminal/__init__.py
+              - ^lib/ansible/plugins/terminal/junos.py
+              - ^test/integration/targets/junos_.*
+              - ^test/integration/targets/netconf_.*
+              - ^test/integration/targets/prepare_junos_tests/.*
+
         - ansible-test-network-integration-junos-vsrx-cli-python35:
             branches:
               - stable-2.9
@@ -1391,7 +1528,31 @@
               - ^test/integration/targets/junos_.*
               - ^test/integration/targets/netconf_.*
               - ^test/integration/targets/prepare_junos_tests/.*
-        - ansible-test-network-integration-junos-vsrx-netconf-python36:
+        - ansible-test-network-integration-junos-vsrx-netconf-python36_1_of_2:
+            branches:
+              - stable-2.9
+              - stable-2.8
+            files:
+              - ^lib/ansible/cli/scripts/ansible_connection_cli_stub.py
+              - ^lib/ansible/modules/network/cli/.*
+              - ^lib/ansible/modules/network/junos/.*
+              - ^lib/ansible/modules/network/netconf/.*
+              - ^lib/ansible/module_utils/network/common/.*
+              - ^lib/ansible/module_utils/network/junos/.*
+              - ^lib/ansible/module_utils/network/netconf/.*
+              - ^lib/ansible/plugins/action/junos.py
+              - ^lib/ansible/plugins/action/net_.*
+              - ^lib/ansible/plugins/cliconf/junos.py
+              - ^lib/ansible/plugins/connection/local.py
+              - ^lib/ansible/plugins/connection/netconf.py
+              - ^lib/ansible/plugins/connection/network_cli.py
+              - ^lib/ansible/plugins/netconf/.*
+              - ^lib/ansible/plugins/terminal/__init__.py
+              - ^lib/ansible/plugins/terminal/junos.py
+              - ^test/integration/targets/junos_.*
+              - ^test/integration/targets/netconf_.*
+              - ^test/integration/targets/prepare_junos_tests/.*
+        - ansible-test-network-integration-junos-vsrx-netconf-python36_2_of_2:
             branches:
               - stable-2.9
               - stable-2.8
@@ -1439,7 +1600,31 @@
               - ^test/integration/targets/junos_.*
               - ^test/integration/targets/netconf_.*
               - ^test/integration/targets/prepare_junos_tests/.*
-        - ansible-test-network-integration-junos-vsrx-netconf-python37:
+        - ansible-test-network-integration-junos-vsrx-netconf-python37_1_of_2:
+            branches:
+              - stable-2.9
+              - stable-2.8
+            files:
+              - ^lib/ansible/cli/scripts/ansible_connection_cli_stub.py
+              - ^lib/ansible/modules/network/cli/.*
+              - ^lib/ansible/modules/network/junos/.*
+              - ^lib/ansible/modules/network/netconf/.*
+              - ^lib/ansible/module_utils/network/common/.*
+              - ^lib/ansible/module_utils/network/junos/.*
+              - ^lib/ansible/module_utils/network/netconf/.*
+              - ^lib/ansible/plugins/action/junos.py
+              - ^lib/ansible/plugins/action/net_.*
+              - ^lib/ansible/plugins/cliconf/junos.py
+              - ^lib/ansible/plugins/connection/local.py
+              - ^lib/ansible/plugins/connection/netconf.py
+              - ^lib/ansible/plugins/connection/network_cli.py
+              - ^lib/ansible/plugins/netconf/.*
+              - ^lib/ansible/plugins/terminal/__init__.py
+              - ^lib/ansible/plugins/terminal/junos.py
+              - ^test/integration/targets/junos_.*
+              - ^test/integration/targets/netconf_.*
+              - ^test/integration/targets/prepare_junos_tests/.*
+        - ansible-test-network-integration-junos-vsrx-netconf-python37_2_of_2:
             branches:
               - stable-2.9
               - stable-2.8

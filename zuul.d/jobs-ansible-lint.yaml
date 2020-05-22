@@ -35,7 +35,7 @@
     name: ansible-lint-tox-py36-ansibledevel
     parent: ansible-tox-py36
     vars:
-      tox_envlist: py37-ansibledevel
+      tox_envlist: py36-ansibledevel
 
 - job:
     name: ansible-lint-tox-py37-ansible28

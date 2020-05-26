@@ -1654,6 +1654,7 @@
       repository should use this directly.
     # Include a check queue so that initially every repo has a check queue
     # and we can report invalid zuul.yaml files.
+    merge-mode: squash-merge
     check:
       jobs:
         - github-workflows

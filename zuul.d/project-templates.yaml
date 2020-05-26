@@ -1008,10 +1008,12 @@
     check:
       jobs:
         - build-ansible-collection
+        - ansible-test-security-integration-qradar-python38
     gate:
       queue: integrated
       jobs:
         - build-ansible-collection
+        - ansible-test-security-integration-qradar-python38
 
 - project-template:
     name: ansible-collections-security-splunk-es

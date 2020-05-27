@@ -44,8 +44,8 @@
     # https://review.openstack.org/#/c/583346/ is merged.
 
     - name: Collect log output
+      no_log: true
       synchronize:
-        no_log: true
         dest: "{{ zuul.executor.log_root }}/"
         mode: pull
         src: "{{ ansible_user_dir }}/zuul-output/logs/"

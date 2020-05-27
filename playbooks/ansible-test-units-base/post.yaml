@@ -50,4 +50,3 @@
         mode: pull
         src: "{{ ansible_user_dir }}/zuul-output/logs/"
         verify_host: true
-        copy_links: true

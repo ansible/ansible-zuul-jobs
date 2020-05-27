@@ -36,8 +36,8 @@
         path: "{{ ansible_user_dir }}/zuul-output/logs/controller"
         state: directory
 
-    - name: Create a symbolic link to the coverage directory
-      shell: "ln -s {{ test_location }}/tests/output {{ ansible_user_dir }}; cp -rf {{ ansible_user_dir}}/output {{ ansible_user_dir }}/zuul-output/logs/controller/"
+    - name: Copy the coverage report
+      shell: "cp -rfa {{ test_location }}/tests/output/reports/coverage {{ ansible_user_dir }}/zuul-output/logs/controller/"
 
 
     # TODO: Migrate to fetch-zuul-logs when

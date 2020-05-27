@@ -309,31 +309,58 @@
     name: ansible-collections-cisco-ios
     check:
       jobs:
-        - ansible-test-network-integration-ios-python27:
+        - ansible-test-network-integration-ios-local-python27:
             vars:
               ansible_test_collections: true
-        - ansible-test-network-integration-ios-python27-stable29:
+        - ansible-test-network-integration-ios-network_cli-python27:
             vars:
               ansible_test_collections: true
-        - ansible-test-network-integration-ios-python35:
+        - ansible-test-network-integration-ios-local-python27-stable29:
             vars:
               ansible_test_collections: true
-        - ansible-test-network-integration-ios-python35-stable29:
+        - ansible-test-network-integration-ios-network_cli-python27-stable29:
             vars:
               ansible_test_collections: true
-        - ansible-test-network-integration-ios-python36:
+        - ansible-test-network-integration-ios-local-python35:
             vars:
               ansible_test_collections: true
-        - ansible-test-network-integration-ios-python36-stable29:
+        - ansible-test-network-integration-ios-network_cli-python35:
             vars:
               ansible_test_collections: true
-        - ansible-test-network-integration-ios-python37:
+        - ansible-test-network-integration-ios-local-python35-stable29:
             vars:
               ansible_test_collections: true
-        - ansible-test-network-integration-ios-python37-stable29:
+        - ansible-test-network-integration-ios-network_cli-python35-stable29:
             vars:
               ansible_test_collections: true
-        - ansible-test-network-integration-ios-python38:
+        - ansible-test-network-integration-ios-local-python36:
+            vars:
+              ansible_test_collections: true
+        - ansible-test-network-integration-ios-network_cli-python36:
+            vars:
+              ansible_test_collections: true
+        - ansible-test-network-integration-ios-local-python36-stable29:
+            vars:
+              ansible_test_collections: true
+        - ansible-test-network-integration-ios-network_cli-python36-stable29:
+            vars:
+              ansible_test_collections: true
+        - ansible-test-network-integration-ios-local-python37:
+            vars:
+              ansible_test_collections: true
+        - ansible-test-network-integration-ios-network_cli-python37:
+            vars:
+              ansible_test_collections: true
+        - ansible-test-network-integration-ios-local-python37-stable29:
+            vars:
+              ansible_test_collections: true
+        - ansible-test-network-integration-ios-network_cli-python37-stable29:
+            vars:
+              ansible_test_collections: true
+        - ansible-test-network-integration-ios-local-python38:
+            vars:
+              ansible_test_collections: true
+        - ansible-test-network-integration-ios-network_cli-python38:
             vars:
               ansible_test_collections: true
         - build-ansible-collection:
@@ -342,31 +369,58 @@
     gate:
       queue: integrated
       jobs:
-        - ansible-test-network-integration-ios-python27:
+        - ansible-test-network-integration-ios-local-python27:
             vars:
               ansible_test_collections: true
-        - ansible-test-network-integration-ios-python27-stable29:
+        - ansible-test-network-integration-ios-network_cli-python27:
             vars:
               ansible_test_collections: true
-        - ansible-test-network-integration-ios-python35:
+        - ansible-test-network-integration-ios-local-python27-stable29:
             vars:
               ansible_test_collections: true
-        - ansible-test-network-integration-ios-python35-stable29:
+        - ansible-test-network-integration-ios-network_cli-python27-stable29:
             vars:
               ansible_test_collections: true
-        - ansible-test-network-integration-ios-python36:
+        - ansible-test-network-integration-ios-local-python35:
             vars:
               ansible_test_collections: true
-        - ansible-test-network-integration-ios-python36-stable29:
+        - ansible-test-network-integration-ios-network_cli-python35:
             vars:
               ansible_test_collections: true
-        - ansible-test-network-integration-ios-python37:
+        - ansible-test-network-integration-ios-local-python35-stable29:
             vars:
               ansible_test_collections: true
-        - ansible-test-network-integration-ios-python37-stable29:
+        - ansible-test-network-integration-ios-network_cli-python35-stable29:
             vars:
               ansible_test_collections: true
-        - ansible-test-network-integration-ios-python38:
+        - ansible-test-network-integration-ios-local-python36:
+            vars:
+              ansible_test_collections: true
+        - ansible-test-network-integration-ios-network_cli-python36:
+            vars:
+              ansible_test_collections: true
+        - ansible-test-network-integration-ios-local-python36-stable29:
+            vars:
+              ansible_test_collections: true
+        - ansible-test-network-integration-ios-network_cli-python36-stable29:
+            vars:
+              ansible_test_collections: true
+        - ansible-test-network-integration-ios-local-python37:
+            vars:
+              ansible_test_collections: true
+        - ansible-test-network-integration-ios-network_cli-python37:
+            vars:
+              ansible_test_collections: true
+        - ansible-test-network-integration-ios-local-python37-stable29:
+            vars:
+              ansible_test_collections: true
+        - ansible-test-network-integration-ios-network_cli-python37-stable29:
+            vars:
+              ansible_test_collections: true
+        - ansible-test-network-integration-ios-local-python38:
+            vars:
+              ansible_test_collections: true
+        - ansible-test-network-integration-ios-network_cli-python38:
             vars:
               ansible_test_collections: true
         - build-ansible-collection:

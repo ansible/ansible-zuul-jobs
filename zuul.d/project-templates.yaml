@@ -575,7 +575,6 @@
         - ansible-tox-linters
         - build-ansible-collection
     gate:
-      queue: integrated
       jobs:
         - ansible-test-cloud-integration-govcsim-python36_1_of_3:
             vars:
@@ -1010,7 +1009,6 @@
         - build-ansible-collection
         - ansible-test-security-integration-qradar-python38
     gate:
-      queue: integrated
       jobs:
         - build-ansible-collection
         - ansible-test-security-integration-qradar-python38
@@ -1022,7 +1020,6 @@
         - build-ansible-collection
         - ansible-security-integration-splunk-es-python36
     gate:
-      queue: integrated
       jobs:
         - build-ansible-collection
         - ansible-security-integration-splunk-es-python36

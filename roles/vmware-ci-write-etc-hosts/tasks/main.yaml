@@ -22,6 +22,11 @@
     - name: set the correct ESXi hostname
       command: "esxcli system hostname set --fqdn={{ inventory_hostname }}.test"
       when: inventory_hostname.startswith("esxi")
+      # See: https://github.com/ansible-collections/vmware/issues/144
+      retries: 3
+      delay: 3
+      register: _esxcli_system_hostname_set
+      until: _esxcli_system_hostname_set is not failed
 
     - name: set the vCenter hostname
       command: "hostnamectl set-hostname {{ inventory_hostname }}.test"

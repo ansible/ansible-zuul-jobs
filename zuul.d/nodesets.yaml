@@ -846,6 +846,25 @@
 
 # Ansible Security appliance nodesets
 - nodeset:
+    name: QRadarCE-7.3.1-python38
+    nodes:
+      - name: ubuntu-bionic
+        label: ubuntu-bionic-1vcpu-aws
+      - name: QRadarCE-7.3.1
+        label: QRadarCE-7.3.1
+    groups:
+      - name: appliance
+        nodes:
+          - QRadarCE-7.3.1
+      - name: controller
+        nodes:
+          - ubuntu-bionic
+      - name: aws
+        nodes:
+          - QRadarCE-7.3.1
+          - ubuntu-bionic
+
+- nodeset:
     name: SplunkEnterprise-SES-8.0.0-python38
     nodes:
       - name: ubuntu-bionic

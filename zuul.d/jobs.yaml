@@ -1503,6 +1503,16 @@
     vars:
       ansible_test_python: 3.8
 
+- job:
+    name: ansible-test-units-frr
+    parent: ansible-test-units-base
+    required-projects:
+      - name: github.com/ansible-collections/frr.frr
+    timeout: 3600
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/frr.frr
+      ansible_test_integration_targets: "tests/unit/modules/network/frr/test_frr.*"
+
 # molecule- prefixed jobs match ansible- ones but also enable extra
 # virtualization services that are use by molecule, like docker, podman (TBD)
 # or libvirt (TBD).

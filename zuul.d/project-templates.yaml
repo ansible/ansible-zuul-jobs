@@ -989,6 +989,20 @@
               - name: github.com/ansible-collections/ansible.netcommon
 
 - project-template:
+    name: ansible-collections-frr-frr-units
+    check:
+      jobs:
+        - ansible-test-units-frr:
+            vars:
+              ansible_test_collections: true
+    gate:
+      queue: integrated
+      jobs:
+        - ansible-test-units-frr:
+            vars:
+              ansible_test_collections: true
+
+- project-template:
     name: ansible-collections-ansible-netcommon-units
     check:
       jobs:

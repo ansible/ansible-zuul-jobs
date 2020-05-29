@@ -924,31 +924,58 @@
     name: ansible-collections-vyos-vyos
     check:
       jobs:
-        - ansible-test-network-integration-vyos-python27:
+        - ansible-test-network-integration-vyos-local-python27:
             vars:
               ansible_test_collections: true
-        - ansible-test-network-integration-vyos-python27-stable29:
+        - ansible-test-network-integration-vyos-network_cli-python27:
             vars:
               ansible_test_collections: true
-        - ansible-test-network-integration-vyos-python35:
+        - ansible-test-network-integration-vyos-local-python27-stable29:
             vars:
               ansible_test_collections: true
-        - ansible-test-network-integration-vyos-python35-stable29:
+        - ansible-test-network-integration-vyos-network_cli-python27-stable29:
             vars:
               ansible_test_collections: true
-        - ansible-test-network-integration-vyos-python36:
+        - ansible-test-network-integration-vyos-local-python35:
             vars:
               ansible_test_collections: true
-        - ansible-test-network-integration-vyos-python36-stable29:
+        - ansible-test-network-integration-vyos-network_cli-python35:
             vars:
               ansible_test_collections: true
-        - ansible-test-network-integration-vyos-python37:
+        - ansible-test-network-integration-vyos-local-python35-stable29:
             vars:
               ansible_test_collections: true
-        - ansible-test-network-integration-vyos-python37-stable29:
+        - ansible-test-network-integration-vyos-network_cli-python35-stable29:
             vars:
               ansible_test_collections: true
-        - ansible-test-network-integration-vyos-python38:
+        - ansible-test-network-integration-vyos-local-python36:
+            vars:
+              ansible_test_collections: true
+        - ansible-test-network-integration-vyos-network_cli-python36:
+            vars:
+              ansible_test_collections: true
+        - ansible-test-network-integration-vyos-local-python36-stable29:
+            vars:
+              ansible_test_collections: true
+        - ansible-test-network-integration-vyos-network_cli-python36-stable29:
+            vars:
+              ansible_test_collections: true
+        - ansible-test-network-integration-vyos-local-python37:
+            vars:
+              ansible_test_collections: true
+        - ansible-test-network-integration-vyos-network_cli-python37:
+            vars:
+              ansible_test_collections: true
+        - ansible-test-network-integration-vyos-local-python37-stable29:
+            vars:
+              ansible_test_collections: true
+        - ansible-test-network-integration-vyos-network_cli-python37-stable29:
+            vars:
+              ansible_test_collections: true
+        - ansible-test-network-integration-vyos-local-python38:
+            vars:
+              ansible_test_collections: true
+        - ansible-test-network-integration-vyos-network_cli-python38:
             vars:
               ansible_test_collections: true
         - build-ansible-collection:
@@ -957,31 +984,58 @@
     gate:
       queue: integrated
       jobs:
-        - ansible-test-network-integration-vyos-python27:
+        - ansible-test-network-integration-vyos-local-python27:
             vars:
               ansible_test_collections: true
-        - ansible-test-network-integration-vyos-python27-stable29:
+        - ansible-test-network-integration-vyos-network_cli-python27:
             vars:
               ansible_test_collections: true
-        - ansible-test-network-integration-vyos-python35:
+        - ansible-test-network-integration-vyos-local-python27-stable29:
             vars:
               ansible_test_collections: true
-        - ansible-test-network-integration-vyos-python35-stable29:
+        - ansible-test-network-integration-vyos-network_cli-python27-stable29:
             vars:
               ansible_test_collections: true
-        - ansible-test-network-integration-vyos-python36:
+        - ansible-test-network-integration-vyos-local-python35:
             vars:
               ansible_test_collections: true
-        - ansible-test-network-integration-vyos-python36-stable29:
+        - ansible-test-network-integration-vyos-network_cli-python35:
             vars:
               ansible_test_collections: true
-        - ansible-test-network-integration-vyos-python37:
+        - ansible-test-network-integration-vyos-local-python35-stable29:
             vars:
               ansible_test_collections: true
-        - ansible-test-network-integration-vyos-python37-stable29:
+        - ansible-test-network-integration-vyos-network_cli-python35-stable29:
             vars:
               ansible_test_collections: true
-        - ansible-test-network-integration-vyos-python38:
+        - ansible-test-network-integration-vyos-local-python36:
+            vars:
+              ansible_test_collections: true
+        - ansible-test-network-integration-vyos-network_cli-python36:
+            vars:
+              ansible_test_collections: true
+        - ansible-test-network-integration-vyos-local-python36-stable29:
+            vars:
+              ansible_test_collections: true
+        - ansible-test-network-integration-vyos-network_cli-python36-stable29:
+            vars:
+              ansible_test_collections: true
+        - ansible-test-network-integration-vyos-local-python37:
+            vars:
+              ansible_test_collections: true
+        - ansible-test-network-integration-vyos-network_cli-python37:
+            vars:
+              ansible_test_collections: true
+        - ansible-test-network-integration-vyos-local-python37-stable29:
+            vars:
+              ansible_test_collections: true
+        - ansible-test-network-integration-vyos-network_cli-python37-stable29:
+            vars:
+              ansible_test_collections: true
+        - ansible-test-network-integration-vyos-local-python38:
+            vars:
+              ansible_test_collections: true
+        - ansible-test-network-integration-vyos-network_cli-python38:
             vars:
               ansible_test_collections: true
         - build-ansible-collection:

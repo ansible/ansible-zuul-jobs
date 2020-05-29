@@ -24,6 +24,9 @@
     - name: Create virtualenv for ansible-test
       shell: "virtualenv {{ _virtualenv_options }} ~/venv"
 
+    - name: Install pyyaml into virtualenv
+      shell: ~/venv/bin/pip install pyyaml --global-option=--with-libyaml
+
     - name: Install selinux into virtualenv
       shell: ~/venv/bin/pip install selinux
       when: ansible_os_family == "RedHat"

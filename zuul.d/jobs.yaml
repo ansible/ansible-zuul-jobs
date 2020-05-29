@@ -960,6 +960,7 @@
 - job:
     name: ansible-test-units-junos
     parent: ansible-test-units-base
+    voting: false
     required-projects:
       - name: github.com/ansible-collections/junipernetworks.junos
     timeout: 3600

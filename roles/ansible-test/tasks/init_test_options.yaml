@@ -28,3 +28,8 @@
   set_fact:
     ansible_test_options: "--coverage"
   when: ansible_test_test_command == 'units'
+
+- name: Enable coverage commands for unit tests
+  set_fact:
+    ansible_test_options: "--requirements"
+  when: ansible_test_test_command == 'sanity'

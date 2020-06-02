@@ -1,5 +1,6 @@
 ---
 ansible_test_collections: false
+ansible_test_integration_targets: ''
 ansible_test_test_command: 'integration'
 ansible_test_continue_on_error: true
 ansible_test_retry_on_error: false
@@ -11,6 +12,6 @@ ansible_test_python: default
 ansible_test_venv_path: ~/venv
 ansible_test_inventory_path: ~/inventory
 ansible_test_collection_dir: ~/.ansible/collections/ansible_collections
-ansible_test_enable_ara: false
+ansible_test_enable_ara: true
 ansible_test_split_in: 1
 ansible_test_do_number: 1

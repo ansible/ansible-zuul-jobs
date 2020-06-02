@@ -35,6 +35,8 @@
     name: ansible-collections-arista-eos-units
     check:
       jobs:
+        - ansible-test-sanity-eos:
+            voting: false
         - ansible-test-units-eos:
             vars:
               ansible_test_collections: true
@@ -171,6 +173,8 @@
     name: ansible-collections-cisco-asa-units
     check:
       jobs:
+        - ansible-test-sanity-asa:
+            voting: false
         - ansible-test-units-asa:
             vars:
               ansible_test_collections: true
@@ -243,6 +247,8 @@
     name: ansible-collections-cisco-nxos-units
     check:
       jobs:
+        - ansible-test-sanity-nxos:
+            voting: false
         - ansible-test-units-nxos:
             vars:
               ansible_test_collections: true
@@ -295,6 +301,8 @@
     name: ansible-collections-cisco-ios-units
     check:
       jobs:
+        - ansible-test-sanity-ios:
+            voting: false
         - ansible-test-units-ios:
             vars:
               ansible_test_collections: true
@@ -431,6 +439,8 @@
     name: ansible-collections-cisco-iosxr-units
     check:
       jobs:
+        - ansible-test-sanity-iosxr:
+            voting: false
         - ansible-test-units-iosxr:
             vars:
               ansible_test_collections: true
@@ -608,6 +618,8 @@
     name: ansible-collections-juniper-junos-units
     check:
       jobs:
+        - ansible-test-sanity-junos:
+            voting: false
         - ansible-test-units-junos:
             vars:
               ansible_test_collections: true
@@ -828,6 +840,8 @@
     name: ansible-collections-openvswitch-openvswitch-units
     check:
       jobs:
+        - ansible-test-sanity-openvswitch:
+            voting: false
         - ansible-test-units-openvswitch:
             vars:
               ansible_test_collections: true
@@ -910,6 +924,8 @@
     name: ansible-collections-vyos-vyos-units
     check:
       jobs:
+        - ansible-test-sanity-vyos:
+            voting: false
         - ansible-test-units-vyos:
             vars:
               ansible_test_collections: true
@@ -992,6 +1008,8 @@
     name: ansible-collections-frr-frr-units
     check:
       jobs:
+        - ansible-test-sanity-frr:
+            voting: false
         - ansible-test-units-frr:
             vars:
               ansible_test_collections: true
@@ -1006,6 +1024,8 @@
     name: ansible-collections-ansible-netcommon-units
     check:
       jobs:
+        - ansible-test-sanity-netcommon:
+            voting: false
         - ansible-test-units-netcommon:
             vars:
               ansible_test_collections: true

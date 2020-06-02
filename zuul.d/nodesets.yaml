@@ -835,6 +835,16 @@
           - ubuntu-bionic
 
 - nodeset:
+    name: controller-python36
+    nodes:
+      - name: centos-8
+        label: centos-8-1vcpu
+    groups:
+      - name: controller
+        nodes:
+          - centos-8
+
+- nodeset:
     name: controller-python38
     nodes:
       - name: ubuntu-bionic

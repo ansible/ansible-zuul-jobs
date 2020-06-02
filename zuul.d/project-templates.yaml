@@ -840,14 +840,14 @@
     name: ansible-collections-openvswitch-openvswitch-units
     check:
       jobs:
-        - ansible-test-sanity-openvswitch:
-            voting: false
+        - ansible-test-sanity-openvswitch
         - ansible-test-units-openvswitch:
             vars:
               ansible_test_collections: true
     gate:
       queue: integrated
       jobs:
+        - ansible-test-sanity-openvswitch
         - ansible-test-units-openvswitch:
             vars:
               ansible_test_collections: true

@@ -14,7 +14,7 @@
     - name: Set SSH interface IP for appliance
       set_fact:
         __ssh_ip: "{{ hostvars[item].ansible_host }}"
-      with_inventory_hostnames: appliance
+      with_inventory_hostnames: appliance:appliance-ssh
 
     - name: Wait 300 seconds for port tcp/22 on appliance
       wait_for:
@@ -24,7 +24,7 @@
 
     - name: Ensure remote SSH host keys are known
       shell: "ssh-keyscan -v {{hostvars[item].ansible_host }} >> ~/.ssh/known_hosts"
-      with_inventory_hostnames: appliance
+      with_inventory_hostnames: appliance:appliance-ssh
 
     - name: Create /etc/ansible folder
       become: true

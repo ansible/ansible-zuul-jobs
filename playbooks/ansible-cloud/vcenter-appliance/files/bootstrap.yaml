@@ -7,7 +7,6 @@
     authorized_keys_file:
       esxi1: /etc/ssh/keys-zuul/authorized_keys
       esxi2: /etc/ssh/keys-zuul/authorized_keys
-      vcenter: /home/zuul/.ssh/authorized_keys
   tasks:
 
     - name: lookup SSH public key

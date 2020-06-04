@@ -5,7 +5,10 @@
     check:
       jobs:
         - ansible-cloud-vcenter-appliance:
-            voting: false
+            files:
+              - playbooks/ansible-cloud/vcenter-appliance/.*
+              - playbooks/ansible-test-cloud-integration-base/.*
+              - roles/vmware.*
         - ansible-network-asa-appliance:
             files:
               - playbooks/ansible-network-appliance-base/.*
@@ -50,6 +53,11 @@
               - playbooks/ansible-network-appliance-base/.*
     gate:
       jobs:
+        - ansible-cloud-vcenter-appliance:
+            files:
+              - playbooks/ansible-cloud/vcenter-appliance/.*
+              - playbooks/ansible-test-cloud-integration-base/.*
+              - roles/vmware.*
         - ansible-network-asa-appliance:
             files:
               - playbooks/ansible-network-appliance-base/.*

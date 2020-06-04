@@ -51,6 +51,12 @@
             files:
               - playbooks/ansible-test-network-integration-base/files/bootstrap-qradar.yaml
               - playbooks/ansible-network-appliance-base/.*
+        - ansible-security-splunk-appliance:
+            files:
+              - playbooks/ansible-test-network-integration-base/files/bootstrap-splunk.yaml
+              - playbooks/ansible-network-appliance-base/.*
+              - roles/splunk.*
+
     gate:
       jobs:
         - ansible-cloud-vcenter-appliance:
@@ -89,3 +95,8 @@
         - ansible-security-qradar-appliance:
             files:
               - playbooks/ansible-network-appliance-base/.*
+        - ansible-security-splunk-appliance:
+            files:
+              - playbooks/ansible-test-network-integration-base/files/bootstrap-splunk.yaml
+              - playbooks/ansible-network-appliance-base/.*
+              - roles/splunk.*

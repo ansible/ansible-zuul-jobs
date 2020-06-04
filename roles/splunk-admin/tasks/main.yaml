@@ -1,0 +1,21 @@
+---
+- name: compute a new password
+  set_fact:
+    splunk_admin_password: "{{ lookup('password', '/dev/null length=15 chars=ascii_letters') }}"
+  when: not splunk_admin_password
+- name: Remove the old passwd file
+  file:
+    path: /opt/splunk/etc/passwd
+    state: absent
+  become: true
+- name: Write the user-seed.conf file
+  template:
+    src: user-seed.conf.j2
+    dest: /opt/splunk/etc/system/local/user-seed.conf
+  become: true
+  notify: restart splunk
+- name: Save the password
+  copy:
+    content: |
+      {{ splunk_admin_password }}
+    dest: /tmp/splunk_password.txt

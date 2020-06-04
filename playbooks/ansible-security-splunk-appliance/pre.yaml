@@ -1,0 +1,21 @@
+---
+- hosts: controller
+  tasks:
+    - name: Ensure tox
+      include_role:
+        name: ensure-tox
+
+    - name: Setup tox role
+      include_role:
+        name: tox
+      vars:
+        tox_extra_args: -vv -- ansible-playbook -v -c network_cli playbooks/ansible-security-splunk-appliance/files/bootstrap.yaml
+        tox_install_siblings: false
+        zuul_work_dir: "{{ zuul.projects['github.com/ansible/ansible-zuul-jobs'].src_dir }}"
+
+- hosts: appliance*
+  tasks:
+    - import_role:
+        name: splunk-admin
+      vars:
+        splunk_admin_password: zuulzuul56

@@ -88,6 +88,17 @@
       release_python: python3
 
 - job:
+    name: ansible-galaxy-importer
+    description: |
+      Build ansible collections and return artifacts to zuul
+    dependencies:
+      - name: build-ansible-collection
+    run: playbooks/ansible-galaxy-importer/run.yaml
+    required-projects:
+      - github.com/ansible-network/releases
+    nodeset: centos-8-1vcpu
+
+- job:
     name: ansible-test-sanity-base
     parent: unittests
     nodeset: controller-python36

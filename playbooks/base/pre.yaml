@@ -1,5 +1,5 @@
 ---
-- hosts: all:!appliance
+- hosts: all:!appliance*
   tasks:
     # NOTE(pabelanger): We run this role in its own play to ensure unbound is
     # restarted before proceeding with any other role. This is because we use
@@ -9,13 +9,13 @@
       include_role:
         name: configure-unbound
 
-- hosts: all:!appliance
+- hosts: all:!appliance*
   tasks:
     - name: Run validate-host role
       include_role:
         name: validate-host
 
-- hosts: all:!appliance
+- hosts: all:!appliance*
   tasks:
     - name: Run configure-swap role
       include_role:

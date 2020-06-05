@@ -1,13 +1,6 @@
 ---
 - hosts: controller
   tasks:
-    - name: Ensure virtualenv package is installed -- See https://review.opendev.org/#/c/727413/
-      package:
-        name: virtualenv
-        state: present
-      become: true
-      when: "'aws' in group_names"
-
     - name: Install binary dependencies
       include_role:
         name: bindep

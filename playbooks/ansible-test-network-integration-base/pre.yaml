@@ -9,11 +9,6 @@
         _network_os: "{{ hostvars[groups[_network_appliance_groups|first][0]]['ansible_network_os'] }}"
       when: _network_appliance_groups|length > 0
 
-    - name: Ensure tox
-      include_role:
-        name: ensure-tox
-      when: '"aws" in groups'
-
     - name: Setup tox role
       include_role:
         name: tox

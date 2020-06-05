@@ -14,24 +14,24 @@
     - name: Set SSH interface IP for appliance
       set_fact:
         __ssh_ip: "{{ hostvars[item].ansible_host }}"
-      with_inventory_hostnames: appliance:appliance-ssh:openvswitch
+      with_inventory_hostnames: appliance:appliance-ssh
 
     - name: Set SSH interface IP for IOSXR
       set_fact:
         __ssh_ip: "{{ hostvars[item].nodepool.private_ipv4 }}"
       when: hostvars[item].ansible_network_os in ['iosxr']
-      with_inventory_hostnames: appliance:appliance-ssh:openvswitch
+      with_inventory_hostnames: appliance:appliance-ssh
 
     - name: Set SSH interface port for appliance
       set_fact:
         __ssh_port: 22
-      with_inventory_hostnames: appliance:appliance-ssh:openvswitch
+      with_inventory_hostnames: appliance:appliance-ssh
 
     - name: Set SSH interface port for NXOS
       set_fact:
         __ssh_port: 8022
       when: hostvars[item].ansible_network_os in ['nxos']
-      with_inventory_hostnames: appliance:appliance-ssh:openvswitch
+      with_inventory_hostnames: appliance:appliance-ssh
 
     - name: Wait 300 seconds for SSH port on appliance
       wait_for:
@@ -63,7 +63,7 @@
       set_fact:
         __inventory_hostvars: "{{ hostvars | replace(hostvars[item]['ansible_host'], hostvars[item]['nodepool']['private_ipv4']) }}"
       when: hostvars[item].ansible_network_os in ['iosxr']
-      with_inventory_hostnames: appliance:appliance-ssh:openvswitch
+      with_inventory_hostnames: appliance:appliance-ssh
 
     - name: Run write-inventory-fork role
       include_role:

@@ -43,6 +43,15 @@
     vars:
       ansible_test_python: 3.6
 
+- job:
+    name: ansible-test-sanity-splunk
+    parent: ansible-test-sanity-base
+    required-projects:
+      - name: github.com/ansible-collections/splunk.es
+    timeout: 3600
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/splunk.es
+
 # QRadar
 - job:
     name: ansible-security-qradar-appliance
@@ -86,3 +95,12 @@
     parent: ansible-test-security-integration-qradar
     vars:
       ansible_test_python: 3.8
+
+- job:
+    name: ansible-test-sanity-qradar
+    parent: ansible-test-sanity-base
+    required-projects:
+      - name: github.com/ansible-collections/ibm.qradar
+    timeout: 3600
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/ibm.qradar

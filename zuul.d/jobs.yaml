@@ -1041,7 +1041,7 @@
       - name: github.com/ansible-collections/junipernetworks.junos
     timeout: 3600
     vars:
-      ansible_collections_repo: github.com/ansible-collections/junipernetwork.junos
+      ansible_collections_repo: github.com/ansible-collections/junipernetworks.junos
 
 - job:
     name: ansible-test-units-junos

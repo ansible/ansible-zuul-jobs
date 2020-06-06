@@ -60,7 +60,7 @@
       - name: vcenter
         label: vmware-vcsa-6.7.0
     groups:
-      - name: appliance
+      - name: appliance-ssh
         nodes:
           - vcenter
       - name: controller
@@ -77,9 +77,11 @@
       - name: esxi1
         label: esxi-6.7.0-with-nested
     groups:
-      - name: appliance
+      - name: appliance-ssh
         nodes:
           - vcenter
+      - name: appliance
+        nodes:
           - esxi1
       - name: esxis
         nodes:
@@ -98,9 +100,11 @@
       - name: esxi1
         label: esxi-6.7.0-without-nested
     groups:
-      - name: appliance
+      - name: appliance-ssh
         nodes:
           - vcenter
+      - name: appliance
+        nodes:
           - esxi1
       - name: esxis
         nodes:
@@ -121,9 +125,11 @@
       - name: esxi2
         label: esxi-6.7.0-without-nested
     groups:
-      - name: appliance
+      - name: appliance-ssh
         nodes:
           - vcenter
+      - name: appliance
+        nodes:
           - esxi1
           - esxi2
       - name: esxis
@@ -143,7 +149,7 @@
       - name: vcenter
         label: vmware-vcsa-7.0.0
     groups:
-      - name: appliance
+      - name: appliance-ssh
         nodes:
           - vcenter
       - name: controller
@@ -160,9 +166,11 @@
       - name: esxi1
         label: esxi-6.7.0-with-nested
     groups:
-      - name: appliance
+      - name: appliance-ssh
         nodes:
           - vcenter
+      - name: appliance
+        nodes:
           - esxi1
       - name: esxis
         nodes:
@@ -181,9 +189,11 @@
       - name: esxi1
         label: esxi-6.7.0-without-nested
     groups:
-      - name: appliance
+      - name: appliance-ssh
         nodes:
           - vcenter
+      - name: appliance
+        nodes:
           - esxi1
       - name: esxis
         nodes:
@@ -204,9 +214,11 @@
       - name: esxi2
         label: esxi-6.7.0-without-nested
     groups:
-      - name: appliance
+      - name: appliance-ssh
         nodes:
           - vcenter
+      - name: appliance
+        nodes:
           - esxi1
           - esxi2
       - name: esxis

@@ -38,7 +38,7 @@
           esxi2: "{{ 'esxi2' in hostvars and hostvars['esxi2']['nodepool']['interface_ip']}}"
           datastore: "{{ hostvars[groups['controller'][0]]['nodepool']['interface_ip']}}"
 
-- hosts: appliance
+- hosts: appliance:appliance-ssh
   gather_facts: false
   tasks:
     - import_role:

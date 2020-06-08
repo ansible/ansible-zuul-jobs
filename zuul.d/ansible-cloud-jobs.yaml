@@ -33,6 +33,7 @@
       - name: github.com/ansible/ansible
       - name: github.com/ansible/ansible-zuul-jobs
       - name: github.com/ansible-collections/vmware
+    timeout: 3600
     vars:
       ansible_collections_repo: github.com/ansible-collections/vmware
       ansible_test_python: 3.6

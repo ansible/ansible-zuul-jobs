@@ -19,6 +19,12 @@
     _test_location: "{{ ansible_test_collection_dir }}/{{ _collection_namespace.stdout }}/{{ _collection_name.stdout }}"
     _test_cfg_location: "{{ ansible_test_collection_dir }}/{{ _collection_namespace.stdout }}/{{ _collection_name.stdout }}/tests/integration/{{ ansible_test_test_command }}.cfg"
 
+- name: sanity test should be run from the git repository - https://github.com/ansible/ansible/issues/69953
+  shell: |
+    rm -r {{ _test_location }}
+    cp -r {{ ansible_test_location }} {{ _test_location }}
+  when: ansible_test_test_command == 'sanity'
+
 - name: Install python requirements
   shell: "{{ ansible_test_venv_path }}/bin/pip install -r {{ _test_location }}/requirements.txt -r {{ _test_location }}/test-requirements.txt"
 

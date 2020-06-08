@@ -21,6 +21,3 @@
     chdir: "{{ ansible_user_dir }}/downloads"
     executable: /bin/bash
   shell: "source {{ deploy_artifacts_venv_path }}/bin/activate; ansible-galaxy collection install {{ __collections }}"
-
-- name: Ensure the runme.sh scripts can be run -- https://github.com/ansible/ansible/issues/68564
-  command: find ~/.ansible/collections/ansible_collections -type f -name 'runme.sh' -exec chmod 0755 {} \;

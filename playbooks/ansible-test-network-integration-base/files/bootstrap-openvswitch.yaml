@@ -1,3 +1,3 @@
 ---
-- hosts: appliance*
+- hosts: openvswitch
   tasks: []

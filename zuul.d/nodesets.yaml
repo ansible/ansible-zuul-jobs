@@ -554,7 +554,7 @@
       - name: openvswitch-2.9.0
         label: ubuntu-bionic-1vcpu
     groups:
-      - name: appliance-ssh
+      - name: openvswitch
         nodes:
           - openvswitch-2.9.0
       - name: controller
@@ -569,7 +569,7 @@
       - name: openvswitch-2.9.0
         label: ubuntu-bionic-1vcpu
     groups:
-      - name: appliance-ssh
+      - name: openvswitch
         nodes:
           - openvswitch-2.9.0
       - name: controller
@@ -584,7 +584,7 @@
       - name: openvswitch-2.9.0
         label: ubuntu-bionic-1vcpu
     groups:
-      - name: appliance-ssh
+      - name: openvswitch
         nodes:
           - openvswitch-2.9.0
       - name: controller
@@ -599,7 +599,7 @@
       - name: openvswitch-2.9.0
         label: ubuntu-bionic-1vcpu
     groups:
-      - name: appliance-ssh
+      - name: openvswitch
         nodes:
           - openvswitch-2.9.0
       - name: controller
@@ -614,7 +614,7 @@
       - name: openvswitch-2.9.0
         label: ubuntu-bionic-1vcpu
     groups:
-      - name: appliance-ssh
+      - name: openvswitch
         nodes:
           - openvswitch-2.9.0
       - name: controller

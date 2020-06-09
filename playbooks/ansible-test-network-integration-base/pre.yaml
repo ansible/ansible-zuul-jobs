@@ -2,7 +2,7 @@
 - hosts: controller
   tasks:
     - set_fact:
-        _network_appliance_groups: "{{ groups.keys()|select('match', '^appliance')|list }}"
+        _network_appliance_groups: "{{ groups.keys()|select('match', '^(appliance|openvswitch)')|list }}"
 
     - name: Select proper ansible_network_os
       set_fact:

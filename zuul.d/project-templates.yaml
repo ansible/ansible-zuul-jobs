@@ -1702,6 +1702,26 @@
             branches: master
 
 - project-template:
+    name: publish-to-automation-hub
+    description: |
+      Publish an Ansible collection to Ansible Automation Hub
+    check:
+      jobs:
+        - build-ansible-collection
+    gate:
+      jobs:
+        - build-ansible-collection
+    post:
+      jobs:
+        - release-ansible-collection-automation-hub
+    pre-release:
+      jobs:
+        - release-ansible-collection-automation-hub
+    release:
+      jobs:
+        - release-ansible-collection-automation-hub
+
+- project-template:
     name: publish-to-galaxy
     description: |
       Publish an Ansible collection to Ansible Galaxy

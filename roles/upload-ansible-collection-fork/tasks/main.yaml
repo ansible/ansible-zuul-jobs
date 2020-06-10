@@ -11,7 +11,7 @@
       template:
         dest: "{{ _ansiblecfg_tmp.path }}"
         mode: 0600
-        src: ansible.cfg.j2
+        src: "{{ ansible_galaxy_type }}.cfg.j2"
 
     - name: Find tarballs to upload
       find:
@@ -19,7 +19,7 @@
         patterns: "*.tar.gz"
       register: found_tarballs
 
-    - name: Publish collection to Ansible Galaxy
+    - name: Publish collection to Ansible Galaxy / Automation Hub
       environment:
         ANSIBLE_CONFIG: "{{ _ansiblecfg_tmp.path }}"
       shell: "{{ ansible_galaxy_executable }} collection publish {{ item.path }}"

@@ -1,3 +1,4 @@
 ---
 ansible_galaxy_collection_path: "{{ zuul.executor.log_root }}/artifacts"
 ansible_galaxy_executable: ansible-galaxy
+ansible_galaxy_type: galaxy

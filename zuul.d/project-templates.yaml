@@ -584,6 +584,21 @@
         - ansible-test-cloud-integration-govcsim-python36_3_of_3:
             vars:
               ansible_test_collections: true
+        - ansible-test-cloud-integration-vcenter_only-python36:
+            vars:
+              ansible_test_collections: true
+        - ansible-test-cloud-integration-vcenter_1esxi_with_nested-python36:
+            vars:
+              ansible_test_collections: true
+        - ansible-test-cloud-integration-vcenter_1esxi_without_nested-python36_1_of_2:
+            vars:
+              ansible_test_collections: true
+        - ansible-test-cloud-integration-vcenter_1esxi_without_nested-python36_2_of_2:
+            vars:
+              ansible_test_collections: true
+        - ansible-test-cloud-integration-vcenter_2esxi_without_nested-python36:
+            vars:
+              ansible_test_collections: true
         - ansible-tox-linters
         - build-ansible-collection
     gate:

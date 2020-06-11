@@ -1717,6 +1717,9 @@
     gate:
       jobs:
         - build-ansible-collection
+    post:
+      jobs:
+        - release-ansible-collection-automation-hub
     pre-release:
       jobs:
         - release-ansible-collection-automation-hub

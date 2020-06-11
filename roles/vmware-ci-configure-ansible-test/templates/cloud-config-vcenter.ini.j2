@@ -1,4 +1,17 @@
 [DEFAULT]
+{% if vmware_ci_configure_ansible_test_with_vcsim %}
+vcenter_username: user
+vcenter_password: pass
+vcenter_hostname: localhost
+vcenter_port: 443
+vmware_user: user
+vmware_password: pass
+vmware_host: localhost
+vmware_port: 443
+vmware_validate_certs: false
+vcsim: true
+vcsim_with: systemd
+{% else %}
 vcenter_username: administrator@vsphere.local
 vcenter_password: {{ lookup('file', vmware_ci_set_passwords_secret_dir + '/vcenter/tmp/vcenter_password.txt') }}
 vcenter_hostname: vcenter.test
@@ -12,4 +25,5 @@ esxi1_password: {{ lookup('file', vmware_ci_set_passwords_secret_dir + '/vcenter
 esxi2_username: zuul
 esxi2_hostname: esxi2.test
 esxi2_password: {{ lookup('file', vmware_ci_set_passwords_secret_dir + '/vcenter/tmp/esxi_password_zuul.txt') }}
+{% endif %}
 {% endif %}

@@ -1,13 +1,22 @@
 ---
 - hosts: controller
   tasks:
-    - name: Install podman
+    - name: Install golang
       package:
-        name: podman
+        name: golang
       become: true
-    - name: Add the /usr/bin/docker symlink
-      file:
-        src: /usr/bin/podman
-        dest: /usr/bin/docker
-        state: link
+    - name: Fetch and build govcsim
+      command: go get -u github.com/vmware/govmomi/vcsim
+    - name: Expse vcsim in a directory from PATH
+      copy:
+        src: ~zuul/go/bin/vcsim
+        dest: /usr/local/bin/vcsim
+        remote_src: true
+        mode: '0755'
       become: true
+    - name: Write the configuration for ansible-test
+      import_role:
+        name: vmware-ci-configure-ansible-test
+      vars:
+        vmware_ci_configure_ansible_test_ansible_path: "{{ ansible_user_dir }}/{{ zuul.projects['github.com/ansible/ansible'].src_dir }}"
+        vmware_ci_configure_ansible_test_with_vcsim: true

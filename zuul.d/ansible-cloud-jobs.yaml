@@ -39,9 +39,9 @@
       ansible_test_python: 3.6
       ansible_test_integration_targets: zuul/vmware/govcsim/
       ansible_test_command: integration
-      ansible_test_environment:
-        VMWARE_TEST_PLATFORM: govcsim
       ansible_test_split_in: 3
+      ansible_test_environment:
+        VMWARE_TEST_PLATFORM: static
 
 - job:
     name: ansible-test-cloud-integration-govcsim-python36_1_of_3

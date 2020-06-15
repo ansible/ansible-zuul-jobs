@@ -2,6 +2,17 @@
 - setup:
     gather_subset: '!all'
 
+- when: ansible_hostname != inventory_hostname
+  block:
+    - name: set the correct ESXi hostname
+      command: "esxcli system hostname set --fqdn={{ inventory_hostname }}.test"
+      when: inventory_hostname.startswith("esxi")
+
+    - name: set the vCenter hostname
+      command: "hostnamectl set-hostname {{ inventory_hostname }}.test"
+      notify: reboot vcenter
+      when: inventory_hostname == 'vcenter'
+
 - copy:
     content: |
       127.0.0.1 localhost
@@ -16,21 +27,5 @@
   register: etc_hosts_result
   notify: reboot vcenter
   become: "{{ ansible_system != 'VMkernel' }}"
-
-- when: ansible_hostname != inventory_hostname
-  block:
-    - name: set the correct ESXi hostname
-      command: "esxcli system hostname set --fqdn={{ inventory_hostname }}.test"
-      when: inventory_hostname.startswith("esxi")
-      # See: https://github.com/ansible-collections/vmware/issues/144
-      retries: 3
-      delay: 3
-      register: _esxcli_system_hostname_set
-      until: _esxcli_system_hostname_set is not failed
-
-    - name: set the vCenter hostname
-      command: "hostnamectl set-hostname {{ inventory_hostname }}.test"
-      notify: reboot vcenter
-      when: inventory_hostname == 'vcenter'
 
 - meta: flush_handlers

@@ -1,6 +1,7 @@
 # This is a cross-platform list tracking distribution packages needed by tests;
 # see http://docs.openstack.org/infra/bindep/ for additional information.
 
+jq [test]
 gcc-c++ [test platform:rpm]
 libffi-dev [test platform:ubuntu-bionic]
 libssh-devel [test platform:rpm]

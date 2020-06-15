@@ -1,9 +1,3 @@
 ---
-- name: Install jq
-  become: true
-  package:
-    name: jq
-    state: present
-
 - name: Install yq into virtualenv
   shell: "{{ ansible_test_venv_path }}/bin/pip install yq"

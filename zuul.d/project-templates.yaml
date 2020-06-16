@@ -1032,14 +1032,14 @@
     name: ansible-collections-frr-frr-units
     check:
       jobs:
-        - ansible-test-sanity-frr:
-            voting: false
+        - ansible-test-sanity-frr
         - ansible-test-units-frr:
             vars:
               ansible_test_collections: true
     gate:
       queue: integrated
       jobs:
+        - ansible-test-sanity-frr
         - ansible-test-units-frr:
             vars:
               ansible_test_collections: true

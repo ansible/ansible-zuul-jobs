@@ -1710,9 +1710,11 @@
       Publish an Ansible collection to Ansible Galaxy
     check:
       jobs:
+        - ansible-galaxy-importer
         - build-ansible-collection
     gate:
       jobs:
+        - ansible-galaxy-importer
         - build-ansible-collection
     post:
       jobs:
@@ -1730,9 +1732,11 @@
       Publish an Ansible collection to Ansible Galaxy Dev
     check:
       jobs:
+        - ansible-galaxy-importer
         - build-ansible-collection
     gate:
       jobs:
+        - ansible-galaxy-importer
         - build-ansible-collection
     post:
       jobs:

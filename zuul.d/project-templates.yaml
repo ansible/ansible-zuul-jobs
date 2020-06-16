@@ -51,7 +51,6 @@
     name: ansible-collections-arista-eos
     check:
       jobs:
-        - ansible-galaxy-importer
         - ansible-test-network-integration-eos-httpapi-python27:
             vars:
               ansible_test_collections: true
@@ -112,7 +111,6 @@
     gate:
       queue: integrated
       jobs:
-        - ansible-galaxy-importer
         - ansible-test-network-integration-eos-httpapi-python27:
             vars:
               ansible_test_collections: true
@@ -191,7 +189,6 @@
     name: ansible-collections-cisco-asa
     check:
       jobs:
-        - ansible-galaxy-importer
         - ansible-test-network-integration-asa-python27:
             vars:
               ansible_test_collections: true
@@ -227,7 +224,6 @@
     gate:
       queue: integrated
       jobs:
-        - ansible-galaxy-importer
         - ansible-test-network-integration-asa-python27:
             vars:
               ansible_test_collections: true
@@ -273,7 +269,6 @@
     name: ansible-collections-cisco-nxos
     check:
       jobs:
-        - ansible-galaxy-importer
         - ansible-test-network-integration-nxos-cli-python36_1_of_4:
             vars:
               ansible_test_collections: true
@@ -292,7 +287,6 @@
     gate:
       queue: integrated
       jobs:
-        - ansible-galaxy-importer
         - ansible-test-network-integration-nxos-cli-python36_1_of_4:
             vars:
               ansible_test_collections: true
@@ -329,7 +323,6 @@
     name: ansible-collections-cisco-ios
     check:
       jobs:
-        - ansible-galaxy-importer
         - ansible-test-network-integration-ios-local-python27:
             vars:
               ansible_test_collections: true
@@ -390,7 +383,6 @@
     gate:
       queue: integrated
       jobs:
-        - ansible-galaxy-importer
         - ansible-test-network-integration-ios-local-python27:
             vars:
               ansible_test_collections: true
@@ -469,7 +461,6 @@
     name: ansible-collections-cisco-iosxr
     check:
       jobs:
-        - ansible-galaxy-importer
         - ansible-test-network-integration-iosxr-python27:
             vars:
               ansible_test_collections: true
@@ -521,7 +512,6 @@
     gate:
       queue: integrated
       jobs:
-        - ansible-galaxy-importer
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-collections/ansible.netcommon
@@ -574,7 +564,6 @@
     name: ansible-collections-community-vmware
     check:
       jobs:
-        - ansible-galaxy-importer
         - ansible-test-cloud-integration-govcsim-python36_1_of_3:
             vars:
               ansible_test_collections: true
@@ -603,7 +592,6 @@
         - build-ansible-collection
     gate:
       jobs:
-        - ansible-galaxy-importer
         - ansible-test-cloud-integration-govcsim-python36_1_of_3:
             vars:
               ansible_test_collections: true
@@ -652,7 +640,6 @@
     name: ansible-collections-juniper-junos
     check:
       jobs:
-        - ansible-galaxy-importer
         - ansible-test-network-integration-junos-vsrx-netconf-python27:
             vars:
               ansible_test_collections: true
@@ -731,7 +718,6 @@
     gate:
       queue: integrated
       jobs:
-        - ansible-galaxy-importer
         - ansible-test-network-integration-junos-vsrx-netconf-python27:
             vars:
               ansible_test_collections: true
@@ -876,7 +862,6 @@
     name: ansible-collections-openvswitch-openvswitch
     check:
       jobs:
-        - ansible-galaxy-importer
         - ansible-test-network-integration-openvswitch-python27:
             vars:
               ansible_test_collections: true
@@ -910,7 +895,6 @@
     gate:
       queue: integrated
       jobs:
-        - ansible-galaxy-importer
         - ansible-test-network-integration-openvswitch-python27:
             vars:
               ansible_test_collections: true
@@ -962,7 +946,6 @@
     name: ansible-collections-vyos-vyos
     check:
       jobs:
-        - ansible-galaxy-importer
         - ansible-test-network-integration-vyos-python27:
             vars:
               ansible_test_collections: true
@@ -996,7 +979,6 @@
     gate:
       queue: integrated
       jobs:
-        - ansible-galaxy-importer
         - ansible-test-network-integration-vyos-python27:
             vars:
               ansible_test_collections: true
@@ -1064,13 +1046,11 @@
     name: ansible-collections-security-ibm-qradar
     check:
       jobs:
-        - ansible-galaxy-importer
         - build-ansible-collection
         - ansible-test-security-integration-qradar-python38
         - ansible-test-sanity-qradar
     gate:
       jobs:
-        - ansible-galaxy-importer
         - build-ansible-collection
         - ansible-test-security-integration-qradar-python38
         - ansible-test-sanity-qradar
@@ -1079,13 +1059,11 @@
     name: ansible-collections-security-splunk-es
     check:
       jobs:
-        - ansible-galaxy-importer
         - build-ansible-collection
         - ansible-security-integration-splunk-es-python36
         - ansible-test-sanity-splunk
     gate:
       jobs:
-        - ansible-galaxy-importer
         - build-ansible-collection
         - ansible-security-integration-splunk-es-python36
         - ansible-test-sanity-splunk
@@ -1690,9 +1668,11 @@
       Publish an Ansible collection to Ansible Galaxy
     check:
       jobs:
+        - ansible-galaxy-importer
         - build-ansible-collection
     gate:
       jobs:
+        - ansible-galaxy-importer
         - build-ansible-collection
     post:
       jobs:

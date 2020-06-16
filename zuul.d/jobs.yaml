@@ -1012,6 +1012,15 @@
       ansible_test_integration_targets: "netconf_.*"
 
 - job:
+    name: ansible-test-sanity-posix
+    parent: ansible-test-sanity-base
+    required-projects:
+      - name: github.com/ansible-collections/ansible.posix
+    timeout: 3600
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/ansible.posix
+
+- job:
     name: ansible-test-network-integration-junos-vsrx
     abstract: true
     dependencies:

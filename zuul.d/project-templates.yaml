@@ -1043,6 +1043,15 @@
               ansible_test_collections: true
 
 - project-template:
+    name: ansible-collections-ansible-posix-units
+    check:
+      jobs:
+        - ansible-test-sanity-posix
+    gate:
+      jobs:
+        - ansible-test-sanity-posix
+
+- project-template:
     name: ansible-collections-security-ibm-qradar
     check:
       jobs:

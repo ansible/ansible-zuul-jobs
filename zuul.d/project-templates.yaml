@@ -1048,11 +1048,13 @@
         - build-ansible-collection
         - ansible-test-security-integration-qradar-python38
         - ansible-test-sanity-qradar
+        - ansible-test-sanity-qradar-stable29
     gate:
       jobs:
         - build-ansible-collection
         - ansible-test-security-integration-qradar-python38
         - ansible-test-sanity-qradar
+        - ansible-test-sanity-qradar-stable29
 
 - project-template:
     name: ansible-collections-security-splunk-es

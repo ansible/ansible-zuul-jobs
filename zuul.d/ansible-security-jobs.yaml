@@ -104,3 +104,10 @@
     timeout: 3600
     vars:
       ansible_collections_repo: github.com/ansible-collections/ibm.qradar
+
+- job:
+    name: ansible-test-sanity-qradar-stable29
+    parent: ansible-test-sanity-qradar
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.9

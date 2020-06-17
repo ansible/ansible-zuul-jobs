@@ -32,6 +32,34 @@
         - ansible-tox-py37
 
 - project-template:
+    name: ansible-collections-amazon-aws
+    check:
+      jobs:
+        - build-ansible-collection:
+            required-projects:
+              - name: github.com/ansible-collections/ansible.netcommon
+    gate:
+      jobs:
+        - build-ansible-collection:
+            required-projects:
+              - name: github.com/ansible-collections/ansible.netcommon
+
+- project-template:
+    name: ansible-collections-community-aws
+    check:
+      jobs:
+        - build-ansible-collection:
+            required-projects:
+              - name: github.com/ansible-collections/amazon.aws
+              - name: github.com/ansible-collections/ansible.netcommon
+    gate:
+      jobs:
+        - build-ansible-collection:
+            required-projects:
+              - name: github.com/ansible-collections/amazon.aws
+              - name: github.com/ansible-collections/ansible.netcommon
+
+- project-template:
     name: ansible-collections-arista-eos-units
     check:
       jobs:

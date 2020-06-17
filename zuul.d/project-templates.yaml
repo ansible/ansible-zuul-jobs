@@ -273,12 +273,12 @@
     name: ansible-collections-cisco-nxos-units
     check:
       jobs:
-        - ansible-test-sanity-nxos:
-            voting: false
+        - ansible-test-sanity-nxos
         - ansible-test-units-nxos
     gate:
       queue: integrated
       jobs:
+        - ansible-test-sanity-nxos
         - ansible-test-units-nxos
 
 - project-template:

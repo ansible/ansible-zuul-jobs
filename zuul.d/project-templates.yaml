@@ -1035,9 +1035,11 @@
     check:
       jobs:
         - ansible-test-sanity-posix
+        - ansible-test-units-posix
     gate:
       jobs:
         - ansible-test-sanity-posix
+        - ansible-test-units-posix
 
 - project-template:
     name: ansible-collections-security-ibm-qradar

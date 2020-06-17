@@ -1016,6 +1016,15 @@
       ansible_collections_repo: github.com/ansible-collections/ansible.posix
 
 - job:
+    name: ansible-test-units-posix
+    parent: ansible-test-units-base
+    required-projects:
+      - name: github.com/ansible-collections/ansible.posix
+    timeout: 3600
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/ansible.posix
+
+- job:
     name: ansible-test-network-integration-junos-vsrx
     abstract: true
     dependencies:

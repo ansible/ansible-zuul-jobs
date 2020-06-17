@@ -1075,9 +1075,15 @@
     check:
       jobs:
         - ansible-test-sanity-posix
+        - ansible-test-units-posix:
+            vars:
+              ansible_test_collections: true
     gate:
       jobs:
         - ansible-test-sanity-posix
+        - ansible-test-units-posix:
+            vars:
+              ansible_test_collections: true
 
 - project-template:
     name: ansible-collections-security-ibm-qradar

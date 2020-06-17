@@ -1093,6 +1093,19 @@
         - ansible-test-sanity-qradar
 
 - project-template:
+    name: ansible-collections-security-community-qradar
+    check:
+      jobs:
+        - build-ansible-collection
+        - ansible-test-security-integration-community-qradar-python38
+        - ansible-test-sanity-community-qradar
+    gate:
+      jobs:
+        - build-ansible-collection
+        - ansible-test-security-integration-community-qradar-python38
+        - ansible-test-sanity-community-qradar
+
+- project-template:
     name: ansible-collections-security-splunk-es
     check:
       jobs:

@@ -91,8 +91,37 @@
       ansible_test_collections: true
 
 - job:
+    name: ansible-test-security-integration-community-qradar
+    abstract: true
+    dependencies:
+      - name: build-ansible-collection
+        soft: true
+    parent: ansible-security-qradar-appliance
+    pre-run:
+      - playbooks/ansible-test-base/pre.yaml
+      - playbooks/ansible-test-network-integration-base/pre.yaml
+    run: playbooks/ansible-test-base/run.yaml
+    post-run:
+      - playbooks/ansible-test-network-integration-base/post.yaml
+      - playbooks/ansible-test-base/post.yaml
+    required-projects:
+      - name: github.com/ansible/ansible
+      - name: github.com/ansible-collections/community.qradar
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/community.qradar
+      ansible_test_command: network-integration
+      ansible_test_integration_targets: "qradar_.*"
+      ansible_test_collections: true
+
+- job:
     name: ansible-test-security-integration-qradar-python38
     parent: ansible-test-security-integration-qradar
+    vars:
+      ansible_test_python: 3.8
+
+- job:
+    name: ansible-test-security-integration-community-qradar-python38
+    parent: ansible-test-security-integration-community-qradar
     vars:
       ansible_test_python: 3.8
 
@@ -104,3 +133,12 @@
     timeout: 3600
     vars:
       ansible_collections_repo: github.com/ansible-collections/ibm.qradar
+
+- job:
+    name: ansible-test-sanity-community-qradar
+    parent: ansible-test-sanity-base
+    required-projects:
+      - name: github.com/ansible-collections/community.qradar
+    timeout: 3600
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/community.qradar

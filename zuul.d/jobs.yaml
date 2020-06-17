@@ -288,7 +288,6 @@
     timeout: 3600
     vars:
       ansible_collections_repo: github.com/ansible-collections/cisco.asa
-      ansible_test_integration_targets: "tests/unit/modules/network/asa/test_asa.*"
 
 - job:
     name: ansible-test-network-integration-asa-python27
@@ -405,7 +404,6 @@
     timeout: 3600
     vars:
       ansible_collections_repo: github.com/ansible-collections/arista.eos
-      ansible_test_integration_targets: "tests/unit/modules/network/eos/test_eos.*"
 
 - job:
     name: ansible-test-network-integration-eos-httpapi
@@ -646,7 +644,6 @@
     timeout: 3600
     vars:
       ansible_collections_repo: github.com/ansible-collections/cisco.ios
-      ansible_test_integration_targets: "tests/unit/modules/network/ios/test_ios.*"
 
 - job:
     name: ansible-test-network-integration-ios-local
@@ -887,7 +884,6 @@
     timeout: 3600
     vars:
       ansible_collections_repo: github.com/ansible-collections/cisco.iosxr
-      ansible_test_integration_targets: "tests/unit/modules/network/iosxr/test_iosxr_.*"
 
 - job:
     name: ansible-test-network-integration-iosxr-python27
@@ -981,7 +977,6 @@
     timeout: 3600
     vars:
       ansible_collections_repo: github.com/ansible-collections/ansible.netcommon
-      ansible_test_integration_targets: "tests/unit/modules/network/cli/test_cli_.*"
 
 - job:
     name: ansible-test-network-integration-ansible-netcommon-iosxr-netconf-python27
@@ -1060,7 +1055,6 @@
     timeout: 3600
     vars:
       ansible_collections_repo: github.com/ansible-collections/junipernetworks.junos
-      ansible_test_integration_targets: "tests/unit/modules/network/junos/test_junos.*"
 
 - job:
     name: ansible-test-network-integration-junos-vsrx-netconf
@@ -1338,7 +1332,6 @@
     timeout: 3600
     vars:
       ansible_collections_repo: github.com/ansible-collections/cisco.nxos
-      ansible_test_integration_targets: "tests/unit/modules/network/nxos/test_nxos_.*"
 
 - job:
     name: ansible-test-network-integration-nxos-cli-python36
@@ -1412,8 +1405,10 @@
       - name: github.com/ansible/ansible
     timeout: 3600
     vars:
-      ansible_test_python: 3.8
+      ansible_test_collections: true
       ansible_test_command: units
+      ansible_test_integration_targets: ""
+      ansible_test_python: 3.8
 
 - job:
     name: ansible-test-sanity-openvswitch
@@ -1432,7 +1427,6 @@
     timeout: 3600
     vars:
       ansible_collections_repo: github.com/ansible-collections/openvswitch.openvswitch
-      ansible_test_integration_targets: "tests/unit/modules/network/ovs/test_openvswitch_.*"
 
 - job:
     name: ansible-test-network-integration-openvswitch-python27
@@ -1549,7 +1543,6 @@
     timeout: 3600
     vars:
       ansible_collections_repo: github.com/ansible-collections/vyos.vyos
-      ansible_test_integration_targets: "tests/unit/modules/network/vyos/test_vyos.*"
 
 - job:
     name: ansible-test-network-integration-vyos-python27
@@ -1643,7 +1636,6 @@
     timeout: 3600
     vars:
       ansible_collections_repo: github.com/ansible-collections/frr.frr
-      ansible_test_integration_targets: "tests/unit/modules/network/frr/test_frr.*"
 
 # molecule- prefixed jobs match ansible- ones but also enable extra
 # virtualization services that are use by molecule, like docker, podman (TBD)

@@ -32,6 +32,15 @@
         - ansible-tox-py37
 
 - project-template:
+    name: ansible-collections-amazon-aws-units
+    check:
+      jobs:
+        - ansible-test-sanity-amazon-aws:
+            voting: false
+        - ansible-test-units-amazon-aws:
+            voting: false
+
+- project-template:
     name: ansible-collections-amazon-aws
     check:
       jobs:

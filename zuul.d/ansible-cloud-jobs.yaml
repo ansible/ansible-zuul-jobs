@@ -16,6 +16,24 @@
       - name: github.com/ansible/ansible-zuul-jobs
     nodeset: vmware-vcsa-6.7.0-python36
 
+- job:
+    name: ansible-test-sanity-amazon-aws
+    parent: ansible-test-sanity-base
+    required-projects:
+      - name: github.com/ansible-collections/amazon.aws
+    timeout: 3600
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/amazon.aws
+
+- job:
+    name: ansible-test-units-amazon-aws
+    parent: ansible-test-units-base
+    required-projects:
+      - name: github.com/ansible-collections/amazon.aws
+    timeout: 3600
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/amazon.aws
+
 # govcsim
 
 - job:

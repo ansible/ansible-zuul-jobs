@@ -18,6 +18,12 @@
         label: centos-8-1vcpu
 
 - nodeset:
+    name: centos-8-1vcpu-aws
+    nodes:
+      - name: centos-8
+        label: centos-8-1vcpu-aws
+
+- nodeset:
     name: fedora-latest-1vcpu
     nodes:
       - name: fedora-31
@@ -46,7 +52,7 @@
     name: vmware-govcsim-python36
     nodes:
       - name: centos-8
-        label: centos-8-1vcpu
+        label: centos-8-1vcpu-aws
     groups:
       - name: controller
         nodes:

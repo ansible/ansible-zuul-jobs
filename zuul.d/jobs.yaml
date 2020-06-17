@@ -19,17 +19,12 @@
 - job:
     name: ansible-tox-docs
     parent: tox-docs
-    nodeset: centos-8-1vcpu
+    nodeset: centos-8-1vcpu-aws
 
 - job:
     name: ansible-tox-linters
     parent: tox-linters
-    nodeset: centos-8-1vcpu
-
-- job:
-    name: ansible-tox-docs
-    parent: tox-docs
-    nodeset: centos-8-1vcpu
+    nodeset: centos-8-1vcpu-aws
 
 - job: &ansible-tox-molecule-base
     name: ansible-tox-molecule-base
@@ -96,7 +91,7 @@
     run: playbooks/ansible-galaxy-importer/run.yaml
     required-projects:
       - github.com/ansible-network/releases
-    nodeset: centos-8-1vcpu
+    nodeset: centos-8-1vcpu-aws
 
 - job:
     name: ansible-test-sanity-base

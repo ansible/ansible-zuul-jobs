@@ -65,15 +65,11 @@
       jobs:
         - ansible-test-sanity-eos:
             voting: false
-        - ansible-test-units-eos:
-            vars:
-              ansible_test_collections: true
+        - ansible-test-units-eos
     gate:
       queue: integrated
       jobs:
-        - ansible-test-units-eos:
-            vars:
-              ansible_test_collections: true
+        - ansible-test-units-eos
 
 - project-template:
     name: ansible-collections-arista-eos
@@ -203,15 +199,11 @@
       jobs:
         - ansible-test-sanity-asa:
             voting: false
-        - ansible-test-units-asa:
-            vars:
-              ansible_test_collections: true
+        - ansible-test-units-asa
     gate:
       queue: integrated
       jobs:
-        - ansible-test-units-asa:
-            vars:
-              ansible_test_collections: true
+        - ansible-test-units-asa
 
 - project-template:
     name: ansible-collections-cisco-asa
@@ -283,15 +275,11 @@
       jobs:
         - ansible-test-sanity-nxos:
             voting: false
-        - ansible-test-units-nxos:
-            vars:
-              ansible_test_collections: true
+        - ansible-test-units-nxos
     gate:
       queue: integrated
       jobs:
-        - ansible-test-units-nxos:
-            vars:
-              ansible_test_collections: true
+        - ansible-test-units-nxos
 
 - project-template:
     name: ansible-collections-cisco-nxos
@@ -337,15 +325,11 @@
       jobs:
         - ansible-test-sanity-ios:
             voting: false
-        - ansible-test-units-ios:
-            vars:
-              ansible_test_collections: true
+        - ansible-test-units-ios
     gate:
       queue: integrated
       jobs:
-        - ansible-test-units-ios:
-            vars:
-              ansible_test_collections: true
+        - ansible-test-units-ios
 
 - project-template:
     name: ansible-collections-cisco-ios
@@ -475,15 +459,11 @@
       jobs:
         - ansible-test-sanity-iosxr:
             voting: false
-        - ansible-test-units-iosxr:
-            vars:
-              ansible_test_collections: true
+        - ansible-test-units-iosxr
     gate:
       queue: integrated
       jobs:
-        - ansible-test-units-iosxr:
-            vars:
-              ansible_test_collections: true
+        - ansible-test-units-iosxr
 
 - project-template:
     name: ansible-collections-cisco-iosxr
@@ -654,15 +634,11 @@
       jobs:
         - ansible-test-sanity-junos:
             voting: false
-        - ansible-test-units-junos:
-            vars:
-              ansible_test_collections: true
+        - ansible-test-units-junos
     gate:
       queue: integrated
       jobs:
-        - ansible-test-units-junos:
-            vars:
-              ansible_test_collections: true
+        - ansible-test-units-junos
 
 - project-template:
     name: ansible-collections-juniper-junos
@@ -875,16 +851,12 @@
     check:
       jobs:
         - ansible-test-sanity-openvswitch
-        - ansible-test-units-openvswitch:
-            vars:
-              ansible_test_collections: true
+        - ansible-test-units-openvswitch
     gate:
       queue: integrated
       jobs:
         - ansible-test-sanity-openvswitch
-        - ansible-test-units-openvswitch:
-            vars:
-              ansible_test_collections: true
+        - ansible-test-units-openvswitch
 
 - project-template:
     name: ansible-collections-openvswitch-openvswitch
@@ -960,15 +932,11 @@
       jobs:
         - ansible-test-sanity-vyos:
             voting: false
-        - ansible-test-units-vyos:
-            vars:
-              ansible_test_collections: true
+        - ansible-test-units-vyos
     gate:
       queue: integrated
       jobs:
-        - ansible-test-units-vyos:
-            vars:
-              ansible_test_collections: true
+        - ansible-test-units-vyos
 
 - project-template:
     name: ansible-collections-vyos-vyos
@@ -1043,32 +1011,24 @@
     check:
       jobs:
         - ansible-test-sanity-frr
-        - ansible-test-units-frr:
-            vars:
-              ansible_test_collections: true
+        - ansible-test-units-frr
     gate:
       queue: integrated
       jobs:
         - ansible-test-sanity-frr
-        - ansible-test-units-frr:
-            vars:
-              ansible_test_collections: true
+        - ansible-test-units-frr
 
 - project-template:
     name: ansible-collections-ansible-netcommon-units
     check:
       jobs:
         - ansible-test-sanity-netcommon
-        - ansible-test-units-netcommon:
-            vars:
-              ansible_test_collections: true
+        - ansible-test-units-netcommon
     gate:
       queue: integrated
       jobs:
         - ansible-test-sanity-netcommon
-        - ansible-test-units-netcommon:
-            vars:
-              ansible_test_collections: true
+        - ansible-test-units-netcommon
 
 - project-template:
     name: ansible-collections-ansible-posix-units

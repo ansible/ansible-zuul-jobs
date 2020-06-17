@@ -63,12 +63,12 @@
     name: ansible-collections-arista-eos-units
     check:
       jobs:
-        - ansible-test-sanity-eos:
-            voting: false
+        - ansible-test-sanity-eos
         - ansible-test-units-eos
     gate:
       queue: integrated
       jobs:
+        - ansible-test-sanity-eos
         - ansible-test-units-eos
 
 - project-template:

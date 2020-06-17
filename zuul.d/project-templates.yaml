@@ -930,12 +930,12 @@
     name: ansible-collections-vyos-vyos-units
     check:
       jobs:
-        - ansible-test-sanity-vyos:
-            voting: false
+        - ansible-test-sanity-vyos
         - ansible-test-units-vyos
     gate:
       queue: integrated
       jobs:
+        - ansible-test-sanity-vyos
         - ansible-test-units-vyos
 
 - project-template:

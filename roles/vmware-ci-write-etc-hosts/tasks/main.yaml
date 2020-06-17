@@ -4,6 +4,13 @@
 
 - when: ansible_hostname != inventory_hostname
   block:
+    - name: Ensure esxcli can resolve the hostname
+      copy:
+        content: |
+          127.0.0.1 localhost {{ ansible_hostname }}
+        dest: /etc/hosts
+      when: inventory_hostname.startswith("esxi")
+
     - name: set the correct ESXi hostname
       command: "esxcli system hostname set --fqdn={{ inventory_hostname }}.test"
       when: inventory_hostname.startswith("esxi")
@@ -13,7 +20,8 @@
       notify: reboot vcenter
       when: inventory_hostname == 'vcenter'
 
-- copy:
+- name: Write the new /etc/hosts
+  copy:
     content: |
       127.0.0.1 localhost
       ::1 localhost
@@ -24,7 +32,6 @@
       {% endif %}
       {% endfor %}
     dest: /etc/hosts
-  register: etc_hosts_result
   notify: reboot vcenter
   become: "{{ ansible_system != 'VMkernel' }}"
 

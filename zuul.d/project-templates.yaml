@@ -632,12 +632,12 @@
     name: ansible-collections-juniper-junos-units
     check:
       jobs:
-        - ansible-test-sanity-junos:
-            voting: false
+        - ansible-test-sanity-junos
         - ansible-test-units-junos
     gate:
       queue: integrated
       jobs:
+        - ansible-test-sanity-junos
         - ansible-test-units-junos
 
 - project-template:

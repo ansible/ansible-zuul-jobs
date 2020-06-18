@@ -40,6 +40,7 @@
       ansible_test_integration_targets: zuul/vmware/govcsim/
       ansible_test_command: integration
       ansible_test_split_in: 3
+      ansible_test_collections: true
       ansible_test_environment:
         VMWARE_TEST_PLATFORM: static
 
@@ -92,6 +93,7 @@
         VMWARE_TEST_PLATFORM: static
       ansible_test_continue_on_error: false
       ansible_test_retry_on_error: true
+      ansible_test_collections: true
 
 # vcenter 6.7.0
 
@@ -178,3 +180,61 @@
     vars:
       ansible_test_python: 3.6
       ansible_test_integration_targets: zuul/vmware/vcenter_2esxi/
+
+# stable29
+- job:
+    name: ansible-test-cloud-integration-vcenter_only-python36-stable29
+    parent: ansible-test-cloud-integration-vcenter_only-python36
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.9
+
+- job:
+    name: ansible-test-cloud-integration-vcenter_1esxi_with_nested-python36-stable29
+    parent: ansible-test-cloud-integration-vcenter_1esxi_with_nested-python36
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.9
+
+- job:
+    name: ansible-test-cloud-integration-vcenter_1esxi_without_nested-python36-stable29
+    parent: ansible-test-cloud-integration-vcenter_1esxi-python36
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.9
+
+- job:
+    name: ansible-test-cloud-integration-vcenter_2esxi_without_nested-python36-stable29
+    parent: ansible-test-cloud-integration-vcenter_2esxi_without_nested-python36
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.9
+
+# stable210
+- job:
+    name: ansible-test-cloud-integration-vcenter_only-python36-stable210
+    parent: ansible-test-cloud-integration-vcenter_only-python36
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.10
+
+- job:
+    name: ansible-test-cloud-integration-vcenter_1esxi_with_nested-python36-stable210
+    parent: ansible-test-cloud-integration-vcenter_1esxi_with_nested-python36
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.10
+
+- job:
+    name: ansible-test-cloud-integration-vcenter_1esxi_without_nested-python36-stable210
+    parent: ansible-test-cloud-integration-vcenter_1esxi-python36
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.10
+
+- job:
+    name: ansible-test-cloud-integration-vcenter_2esxi_without_nested-python36-stable210
+    parent: ansible-test-cloud-integration-vcenter_2esxi_without_nested-python36
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.10

@@ -197,12 +197,12 @@
     name: ansible-collections-cisco-asa-units
     check:
       jobs:
-        - ansible-test-sanity-asa:
-            voting: false
+        - ansible-test-sanity-asa
         - ansible-test-units-asa
     gate:
       queue: integrated
       jobs:
+        - ansible-test-sanity-asa
         - ansible-test-units-asa
 
 - project-template:

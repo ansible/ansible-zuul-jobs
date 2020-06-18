@@ -30,7 +30,7 @@
 
     - name: Install ara into virtualenv
       shell: ~/venv/bin/pip install "ara<1.0.0"
-      when: ansible_test_command != 'sanity'
+      when: ansible_test_command in ['integration', 'network-integration']
 
     - name: Install ansible into virtualenv
       shell: "~/venv/bin/pip install {{ ansible_user_dir }}/{{ zuul.projects['github.com/ansible/ansible'].src_dir }}"

@@ -1401,7 +1401,7 @@
 - job:
     name: ansible-test-units-base
     parent: unittests
-    nodeset: controller-python38
+    nodeset: controller-python36
     abstract: true
     dependencies:
       - name: build-ansible-collection
@@ -1412,12 +1412,14 @@
     post-run: playbooks/ansible-test-units-base/post.yaml
     required-projects:
       - name: github.com/ansible/ansible
+        override-checkout: stable-2.10
     timeout: 3600
     vars:
       ansible_test_collections: true
       ansible_test_command: units
+      ansible_test_enable_ara: false
       ansible_test_integration_targets: ""
-      ansible_test_python: 3.8
+      ansible_test_python: 3.6
 
 - job:
     name: ansible-test-sanity-openvswitch

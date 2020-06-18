@@ -457,12 +457,12 @@
     name: ansible-collections-cisco-iosxr-units
     check:
       jobs:
-        - ansible-test-sanity-iosxr:
-            voting: false
+        - ansible-test-sanity-iosxr
         - ansible-test-units-iosxr
     gate:
       queue: integrated
       jobs:
+        - ansible-test-sanity-iosxr
         - ansible-test-units-iosxr
 
 - project-template:

@@ -865,10 +865,16 @@
         - ansible-test-network-integration-openvswitch-python27:
             vars:
               ansible_test_collections: true
+        - ansible-test-network-integration-openvswitch-python27-stable210:
+            vars:
+              ansible_test_collections: true
         - ansible-test-network-integration-openvswitch-python27-stable29:
             vars:
               ansible_test_collections: true
         - ansible-test-network-integration-openvswitch-python35:
+            vars:
+              ansible_test_collections: true
+        - ansible-test-network-integration-openvswitch-python35-stable210:
             vars:
               ansible_test_collections: true
         - ansible-test-network-integration-openvswitch-python35-stable29:
@@ -877,16 +883,25 @@
         - ansible-test-network-integration-openvswitch-python36:
             vars:
               ansible_test_collections: true
+        - ansible-test-network-integration-openvswitch-python36-stable210:
+            vars:
+              ansible_test_collections: true
         - ansible-test-network-integration-openvswitch-python36-stable29:
             vars:
               ansible_test_collections: true
         - ansible-test-network-integration-openvswitch-python37:
             vars:
               ansible_test_collections: true
+        - ansible-test-network-integration-openvswitch-python37-stable210:
+            vars:
+              ansible_test_collections: true
         - ansible-test-network-integration-openvswitch-python37-stable29:
             vars:
               ansible_test_collections: true
         - ansible-test-network-integration-openvswitch-python38:
+            vars:
+              ansible_test_collections: true
+        - ansible-test-network-integration-openvswitch-python38-stable210:
             vars:
               ansible_test_collections: true
         - build-ansible-collection:
@@ -898,10 +913,16 @@
         - ansible-test-network-integration-openvswitch-python27:
             vars:
               ansible_test_collections: true
+        - ansible-test-network-integration-openvswitch-python27-stable210:
+            vars:
+              ansible_test_collections: true
         - ansible-test-network-integration-openvswitch-python27-stable29:
             vars:
               ansible_test_collections: true
         - ansible-test-network-integration-openvswitch-python35:
+            vars:
+              ansible_test_collections: true
+        - ansible-test-network-integration-openvswitch-python35-stable210:
             vars:
               ansible_test_collections: true
         - ansible-test-network-integration-openvswitch-python35-stable29:
@@ -910,16 +931,25 @@
         - ansible-test-network-integration-openvswitch-python36:
             vars:
               ansible_test_collections: true
+        - ansible-test-network-integration-openvswitch-python36-stable210:
+            vars:
+              ansible_test_collections: true
         - ansible-test-network-integration-openvswitch-python36-stable29:
             vars:
               ansible_test_collections: true
         - ansible-test-network-integration-openvswitch-python37:
             vars:
               ansible_test_collections: true
+        - ansible-test-network-integration-openvswitch-python37-stable210:
+            vars:
+              ansible_test_collections: true
         - ansible-test-network-integration-openvswitch-python37-stable29:
             vars:
               ansible_test_collections: true
         - ansible-test-network-integration-openvswitch-python38:
+            vars:
+              ansible_test_collections: true
+        - ansible-test-network-integration-openvswitch-python38-stable210:
             vars:
               ansible_test_collections: true
         - build-ansible-collection:

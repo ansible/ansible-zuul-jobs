@@ -477,6 +477,27 @@
         - ansible-test-sanity-vmware
 
 - project-template:
+    name: ansible-collections-community-vmware-rest
+    check:
+      jobs:
+        - ansible-test-cloud-integration-vmware-rest-python36
+        - build-ansible-collection:
+            required-projects:
+              - name: github.com/ansible-collections/vmware
+        - ansible-tox-linters
+        - build-ansible-collection
+        - ansible-test-sanity-vmware
+    gate:
+      jobs:
+        - ansible-test-cloud-integration-vmware-rest-python36
+        - build-ansible-collection:
+            required-projects:
+              - name: github.com/ansible-collections/vmware
+        - ansible-tox-linters
+        - build-ansible-collection
+        - ansible-test-sanity-vmware
+
+- project-template:
     name: ansible-collections-community-asa
     check:
       jobs:

@@ -1,19 +1,20 @@
 ---
-- job:
-    name: ansible-cloud-appliance-base
-    pre-run: playbooks/ansible-cloud/appliance-base/pre.yaml
-    post-run: playbooks/ansible-cloud/appliance-base/post.yaml
-
+####################### vmware #####################
 - job:
     name: ansible-cloud-vcenter-appliance
-    parent: ansible-cloud-appliance-base
+    parent: ansible-network-appliance-base
     pre-run: playbooks/ansible-cloud/vcenter-appliance/pre.yaml
     run: playbooks/ansible-cloud/vcenter-appliance/run.yaml
+    required-projects:
+      - name: github.com/ansible/ansible-zuul-jobs
+    # NOTE: we set ansible_network_os with some generic
+    # value to pass the ansible-network playbooks
     host-vars:
       vcenter:
         ansible_python_interpreter: python
-    required-projects:
-      - name: github.com/ansible/ansible-zuul-jobs
+        ansible_network_os: vmware_rest
+      esxi1:
+        ansible_network_os: vmware_rest
     nodeset: vmware-vcsa-6.7.0-python36
 
 # govcsim
@@ -249,3 +250,53 @@
     required-projects:
       - name: github.com/ansible/ansible
         override-checkout: stable-2.10
+
+
+####################### vmware.vmware-rest #####################
+- job:
+    # NOTE: should be renamed to ansible-cloud-vmware-lab in
+    # the future because it's more than just one appliance
+    name: ansible-cloud-vmware-rest-appliance
+    parent: ansible-network-appliance-base
+    pre-run:
+      - playbooks/ansible-cloud/vcenter-appliance/pre.yaml
+    run: playbooks/ansible-cloud/vcenter-appliance/run.yaml
+    # NOTE: we set ansible_network_os with some generic
+    # value to pass the ansible-network playbooks
+    host-vars:
+      vcenter:
+        ansible_python_interpreter: python
+        ansible_network_os: vmware_rest
+      esxi1:
+        ansible_network_os: vmware_rest
+    nodeset: vmware-vcsa_1esxi-7.0.0-python36-without-nested
+
+- job:
+    name: ansible-test-cloud-integration-vmware-rest
+    parent: ansible-cloud-vmware-rest-appliance
+    abstract: true
+    dependencies:
+      - name: build-ansible-collection
+    pre-run:
+      - playbooks/ansible-test-base/pre.yaml
+      - playbooks/ansible-test-network-integration-base/pre.yaml
+      - playbooks/ansible-test-cloud-integration-base/pre.yaml
+    run: playbooks/ansible-test-base/run.yaml
+    post-run:
+      - playbooks/ansible-test-network-integration-base/post.yaml
+      - playbooks/ansible-test-base/post.yaml
+    required-projects:
+      - name: github.com/ansible/ansible
+      - name: github.com/ansible-collections/vmware
+      - name: github.com/ansible-collections/vmware_rest
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/vmware_rest
+      ansible_test_command: network-integration
+      ansible_test_integration_targets: "zuul/"
+      ansible_test_collections: true
+
+- job:
+    name: ansible-test-cloud-integration-vmware-rest-python36
+    parent: ansible-test-cloud-integration-vmware-rest
+    vars:
+      ansible_test_python: 3.6

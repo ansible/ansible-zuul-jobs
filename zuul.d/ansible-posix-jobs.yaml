@@ -1,0 +1,19 @@
+---
+- job:
+    name: ansible-test-integration-ansible-posix
+    dependencies:
+      - name: build-ansible-collection
+        soft: true
+    parent: unittests
+    pre-run: playbooks/ansible-test-base/pre.yaml
+    run: playbooks/ansible-test-base/run.yaml
+    post-run: playbooks/ansible-test-base/post.yaml
+    required-projects:
+      - name: github.com/ansible/ansible
+      - name: github.com/ansible-collections/ansible.posix
+    nodeset: controller-python36
+    vars:
+      ansible_test_python: 3.6
+      ansible_collections_repo: github.com/ansible-collections/ansible.posix
+      ansible_test_command: integration
+      ansible_test_integration_targets: "*"

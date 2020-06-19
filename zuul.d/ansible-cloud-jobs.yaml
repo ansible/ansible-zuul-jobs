@@ -62,6 +62,16 @@
     vars:
       ansible_test_do_number: 3
 
+# sanity
+- job:
+    name: ansible-test-sanity-vmware
+    parent: ansible-test-sanity-base
+    required-projects:
+      - name: github.com/ansible-collections/vmware
+    timeout: 3600
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/vmware
+
 # master
 
 - job:

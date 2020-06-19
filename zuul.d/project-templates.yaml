@@ -323,12 +323,12 @@
     name: ansible-collections-cisco-ios-units
     check:
       jobs:
-        - ansible-test-sanity-ios:
-            voting: false
+        - ansible-test-sanity-ios
         - ansible-test-units-ios
     gate:
       queue: integrated
       jobs:
+        - ansible-test-sanity-ios
         - ansible-test-units-ios
 
 - project-template:

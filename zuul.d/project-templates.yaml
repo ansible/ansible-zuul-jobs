@@ -534,6 +534,7 @@
         - ansible-test-cloud-integration-vcenter_2esxi_without_nested-python36
         - ansible-tox-linters
         - build-ansible-collection
+        - ansible-test-sanity-vmware
     gate:
       jobs:
         - ansible-test-cloud-integration-govcsim-python36_1_of_3
@@ -541,6 +542,7 @@
         - ansible-test-cloud-integration-govcsim-python36_3_of_3
         - ansible-tox-linters
         - build-ansible-collection
+        - ansible-test-sanity-vmware
 
 - project-template:
     name: ansible-collections-community-asa

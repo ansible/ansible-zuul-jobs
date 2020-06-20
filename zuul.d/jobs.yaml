@@ -1377,6 +1377,42 @@
       ansible_test_do_number: 4
 
 - job:
+    name: ansible-test-network-integration-nxos-cli-python36-stable29
+    parent: ansible-test-network-integration-nxos
+    nodeset: nxos-7.0.3-python36
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.9
+    vars:
+      ansible_test_python: 3.6
+      ansible_test_skip_tags: nxapi
+      ansible_test_split_in: 4
+
+- job:
+    name: ansible-test-network-integration-nxos-cli-python36-stable29_1_of_4
+    parent: ansible-test-network-integration-nxos-cli-python36-stable29
+    vars:
+      ansible_test_do_number: 1
+
+- job:
+    name: ansible-test-network-integration-nxos-cli-python36-stable29_2_of_4
+    parent: ansible-test-network-integration-nxos-cli-python36-stable29
+    vars:
+      ansible_test_do_number: 2
+
+- job:
+    name: ansible-test-network-integration-nxos-cli-python36-stable29_3_of_4
+    parent: ansible-test-network-integration-nxos-cli-python36-stable29
+    vars:
+      ansible_test_do_number: 3
+
+- job:
+    name: ansible-test-network-integration-nxos-cli-python36-stable29_4_of_4
+    parent: ansible-test-network-integration-nxos-cli-python36-stable29
+    vars:
+      ansible_test_do_number: 4
+
+- job:
     name: ansible-test-network-integration-openvswitch
     abstract: true
     dependencies:

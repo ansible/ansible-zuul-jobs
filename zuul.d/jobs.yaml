@@ -1804,3 +1804,9 @@
     parent: ansible-workshops-tox-integration
     vars:
       workshop_type: windows
+
+- job:
+    name: ansible-builder-projecttoml-and-setuppy-insync
+    parent: tox
+    vars:
+      tox_envlist: insync

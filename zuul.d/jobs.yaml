@@ -1810,3 +1810,4 @@
     parent: tox
     vars:
       tox_envlist: insync
+    nodeset: fedora-latest-1vcpu

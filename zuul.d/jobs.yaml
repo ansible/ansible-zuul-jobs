@@ -1623,6 +1623,15 @@
       ansible_test_integration_targets: "vyos_.*"
 
 - job:
+    name: ansible-test-sanity-symantec-epm
+    parent: ansible-test-sanity-base
+    required-projects:
+      - name: github.com/ansible-collections/symantec.epm
+    timeout: 3600
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/symantec.epm
+
+- job:
     name: ansible-test-sanity-vyos
     parent: ansible-test-sanity-base
     required-projects:

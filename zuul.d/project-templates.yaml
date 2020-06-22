@@ -1100,6 +1100,15 @@
         - ansible-test-sanity-splunk
 
 - project-template:
+    name: ansible-collections-symantec-epm-units
+    check:
+      jobs:
+        - ansible-test-sanity-symantec-epm
+    gate:
+      jobs:
+        - ansible-test-sanity-symantec-epm
+
+- project-template:
     name: ansible-test-network-integration
     periodic:
       jobs:

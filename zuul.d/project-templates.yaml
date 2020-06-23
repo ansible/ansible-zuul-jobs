@@ -631,6 +631,19 @@
         - build-ansible-collection
 
 - project-template:
+    name: ansible-collections-community-asa
+    check:
+      jobs:
+        - build-ansible-collection:
+            required-projects:
+              - name: github.com/ansible-collections/ansible.netcommon
+    gate:
+      jobs:
+        - build-ansible-collection:
+            required-projects:
+              - name: github.com/ansible-collections/ansible.netcommon
+
+- project-template:
     name: ansible-collections-community-asa-units
     check:
       jobs:

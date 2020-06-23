@@ -492,41 +492,124 @@
 - project-template:
     name: ansible-collections-cisco-iosxr
     check:
-      jobs: &ansible-collections-cisco-iosxr-jobs
-        - ansible-test-network-integration-iosxr-local-python27
-        - ansible-test-network-integration-iosxr-local-python27-stable210
-        - ansible-test-network-integration-iosxr-local-python27-stable29
-        - ansible-test-network-integration-iosxr-local-python35
-        - ansible-test-network-integration-iosxr-local-python35-stable210
-        - ansible-test-network-integration-iosxr-local-python35-stable29
-        - ansible-test-network-integration-iosxr-local-python36
-        - ansible-test-network-integration-iosxr-local-python36-stable210
-        - ansible-test-network-integration-iosxr-local-python36-stable29
-        - ansible-test-network-integration-iosxr-local-python37
-        - ansible-test-network-integration-iosxr-local-python37-stable210
-        - ansible-test-network-integration-iosxr-local-python37-stable29
-        - ansible-test-network-integration-iosxr-local-python38
-        - ansible-test-network-integration-iosxr-local-python38-stable210
-        - ansible-test-network-integration-iosxr-network_cli-python27
-        - ansible-test-network-integration-iosxr-network_cli-python27-stable210
-        - ansible-test-network-integration-iosxr-network_cli-python27-stable29
-        - ansible-test-network-integration-iosxr-network_cli-python35
-        - ansible-test-network-integration-iosxr-network_cli-python35-stable210
-        - ansible-test-network-integration-iosxr-network_cli-python35-stable29
-        - ansible-test-network-integration-iosxr-network_cli-python36
-        - ansible-test-network-integration-iosxr-network_cli-python36-stable210
-        - ansible-test-network-integration-iosxr-network_cli-python36-stable29
-        - ansible-test-network-integration-iosxr-network_cli-python37
-        - ansible-test-network-integration-iosxr-network_cli-python37-stable210
-        - ansible-test-network-integration-iosxr-network_cli-python37-stable29
-        - ansible-test-network-integration-iosxr-network_cli-python38
-        - ansible-test-network-integration-iosxr-network_cli-python38-stable210
+      jobs:
+        -  ansible-test-network-integration-iosxr-local-python27:
+            vars:
+              ansible_test_collections: true
+        - ansible-test-network-integration-iosxr-network_cli-python27:
+            vars:
+              ansible_test_collections: true
+        - ansible-test-network-integration-iosxr-local-python27-stable29:
+            vars:
+              ansible_test_collections: true
+        - ansible-test-network-integration-iosxr-network_cli-python27-stable29:
+            vars:
+              ansible_test_collections: true
+        - ansible-test-network-integration-iosxr-local-python35:
+            vars:
+              ansible_test_collections: true
+        - ansible-test-network-integration-iosxr-network_cli-python35:
+            vars:
+              ansible_test_collections: true
+        - ansible-test-network-integration-iosxr-local-python35-stable29:
+            vars:
+              ansible_test_collections: true
+        - ansible-test-network-integration-iosxr-network_cli-python35-stable29:
+            vars:
+              ansible_test_collections: true
+        - ansible-test-network-integration-iosxr-local-python36:
+            vars:
+              ansible_test_collections: true
+        - ansible-test-network-integration-iosxr-network_cli-python36:
+            vars:
+              ansible_test_collections: true
+        - ansible-test-network-integration-iosxr-local-python36-stable29:
+            vars:
+              ansible_test_collections: true
+        - ansible-test-network-integration-iosxr-network_cli-python36-stable29:
+            vars:
+              ansible_test_collections: true
+        - ansible-test-network-integration-iosxr-local-python37:
+            vars:
+              ansible_test_collections: true
+        - ansible-test-network-integration-iosxr-network_cli-python37:
+            vars:
+              ansible_test_collections: true
+        - ansible-test-network-integration-iosxr-local-python37-stable29:
+            vars:
+              ansible_test_collections: true
+        - ansible-test-network-integration-iosxr-network_cli-python37-stable29:
+            vars:
+              ansible_test_collections: true
+        - ansible-test-network-integration-iosxr-local-python38:
+            vars:
+              ansible_test_collections: true
+        - ansible-test-network-integration-iosxr-network_cli-python38:
+            vars:
+              ansible_test_collections: true
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-collections/ansible.netcommon
     gate:
       queue: integrated
-      jobs: *ansible-collections-cisco-iosxr-jobs
+      jobs:
+        - ansible-test-network-integration-iosxr-local-python27:
+            vars:
+              ansible_test_collections: true
+        - ansible-test-network-integration-iosxr-network_cli-python27:
+            vars:
+              ansible_test_collections: true
+        - ansible-test-network-integration-iosxr-local-python27-stable29:
+            vars:
+              ansible_test_collections: true
+        - ansible-test-network-integration-iosxr-network_cli-python27-stable29:
+            vars:
+              ansible_test_collections: true
+        - ansible-test-network-integration-iosxr-local-python35:
+            vars:
+              ansible_test_collections: true
+        - ansible-test-network-integration-iosxr-network_cli-python35:
+            vars:
+              ansible_test_collections: true
+        - ansible-test-network-integration-iosxr-local-python35-stable29:
+            vars:
+              ansible_test_collections: true
+        - ansible-test-network-integration-iosxr-network_cli-python35-stable29:
+            vars:
+              ansible_test_collections: true
+        - ansible-test-network-integration-iosxr-local-python36:
+            vars:
+              ansible_test_collections: true
+        - ansible-test-network-integration-iosxr-network_cli-python36:
+            vars:
+              ansible_test_collections: true
+        - ansible-test-network-integration-iosxr-local-python36-stable29:
+            vars:
+              ansible_test_collections: true
+        - ansible-test-network-integration-iosxr-network_cli-python36-stable29:
+            vars:
+              ansible_test_collections: true
+        - ansible-test-network-integration-iosxr-local-python37:
+            vars:
+              ansible_test_collections: true
+        - ansible-test-network-integration-iosxr-network_cli-python37:
+            vars:
+              ansible_test_collections: true
+        - ansible-test-network-integration-iosxr-local-python37-stable29:
+            vars:
+              ansible_test_collections: true
+        - ansible-test-network-integration-iosxr-network_cli-python37-stable29:
+            vars:
+              ansible_test_collections: true
+        - ansible-test-network-integration-iosxr-local-python38:
+            vars:
+              ansible_test_collections: true
+        - ansible-test-network-integration-iosxr-network_cli-python38:
+            vars:
+              ansible_test_collections: true
+        - build-ansible-collection:
+            required-projects:
+              - name: github.com/ansible-collections/ansible.netcommon
 
 - project-template:
     name: ansible-collections-cisco-iosxr-netconf

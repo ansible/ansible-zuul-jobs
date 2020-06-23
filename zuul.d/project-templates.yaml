@@ -631,6 +631,15 @@
         - build-ansible-collection
 
 - project-template:
+    name: ansible-collections-community-asa-units
+    check:
+      jobs:
+        - ansible-test-sanity-community-asa
+    gate:
+      jobs:
+        - ansible-test-sanity-community-asa
+
+- project-template:
     name: ansible-collections-juniper-junos-units
     check:
       jobs:

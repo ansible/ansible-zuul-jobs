@@ -1767,6 +1767,21 @@
         - release-ansible-collection-galaxy
 
 - project-template:
+    name: publish-to-galaxy-3pci
+    description: |
+      Publish an Ansible collection to Ansible Galaxy
+    third-party-check:
+      jobs:
+        - ansible-galaxy-importer
+        - build-ansible-collection
+    pre-release:
+      jobs:
+        - release-ansible-collection-galaxy
+    release:
+      jobs:
+        - release-ansible-collection-galaxy
+
+- project-template:
     name: publish-to-galaxy-dev
     description: |
       Publish an Ansible collection to Ansible Galaxy Dev

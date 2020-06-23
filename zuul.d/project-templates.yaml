@@ -493,7 +493,7 @@
     name: ansible-collections-cisco-iosxr
     check:
       jobs:
-        -  ansible-test-network-integration-iosxr-local-python27:
+        - ansible-test-network-integration-iosxr-local-python27:
             vars:
               ansible_test_collections: true
               ansible_test_integration_targets: "iosxr_.*"

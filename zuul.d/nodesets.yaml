@@ -15,7 +15,7 @@
     name: centos-8-1vcpu
     nodes:
       - name: centos-8
-        label: centos-8-1vcpu
+        label: centos-8-1vcpu-aws
 
 - nodeset:
     name: fedora-latest-1vcpu

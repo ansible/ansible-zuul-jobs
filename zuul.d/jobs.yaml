@@ -1489,6 +1489,7 @@
       - name: github.com/ansible/ansible
         override-checkout: stable-2.10
     vars:
+      ansible_test_collections: true
       ansible_test_python: 2.7
 
 - job:
@@ -1499,6 +1500,7 @@
       - name: github.com/ansible/ansible
         override-checkout: stable-2.9
     vars:
+      ansible_test_collections: true
       ansible_test_python: 2.7
 
 - job:
@@ -1516,6 +1518,7 @@
       - name: github.com/ansible/ansible
         override-checkout: stable-2.10
     vars:
+      ansible_test_collections: true
       ansible_test_python: 3.5
 
 - job:
@@ -1526,6 +1529,7 @@
       - name: github.com/ansible/ansible
         override-checkout: stable-2.9
     vars:
+      ansible_test_collections: true
       ansible_test_python: 3.5
 
 - job:
@@ -1543,6 +1547,7 @@
       - name: github.com/ansible/ansible
         override-checkout: stable-2.10
     vars:
+      ansible_test_collections: true
       ansible_test_python: 3.6
 
 - job:
@@ -1553,6 +1558,7 @@
       - name: github.com/ansible/ansible
         override-checkout: stable-2.9
     vars:
+      ansible_test_collections: true
       ansible_test_python: 3.6
 
 - job:
@@ -1570,6 +1576,7 @@
       - name: github.com/ansible/ansible
         override-checkout: stable-2.10
     vars:
+      ansible_test_collections: true
       ansible_test_python: 3.7
 
 - job:
@@ -1580,6 +1587,7 @@
       - name: github.com/ansible/ansible
         override-checkout: stable-2.9
     vars:
+      ansible_test_collections: true
       ansible_test_python: 3.7
 
 - job:
@@ -1597,6 +1605,7 @@
       - name: github.com/ansible/ansible
         override-checkout: stable-2.10
     vars:
+      ansible_test_collections: true
       ansible_test_python: 3.8
 
 - job:

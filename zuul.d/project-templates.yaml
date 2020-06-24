@@ -1596,12 +1596,10 @@
             branches: master
     pre-release:
       jobs:
-        - release-ansible-collection-galaxy:
-            branches: master
+        - release-ansible-collection-galaxy
     release:
       jobs:
-        - release-ansible-collection-galaxy:
-            branches: master
+        - release-ansible-collection-galaxy
 
 - project-template:
     name: publish-to-automation-hub

@@ -5,7 +5,7 @@
     name: ansible-lint-tox-docs
     parent: ansible-tox-docs
     vars:
-      sphinx_build_dir: docs/docsite/_build
+      sphinx_build_dir: .tox/docs_html
 
 - job:
     name: ansible-lint-tox-linters

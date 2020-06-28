@@ -123,6 +123,9 @@
     name: ansible-network-appliance-base
     pre-run: playbooks/ansible-network-appliance-base/pre.yaml
     post-run: playbooks/ansible-network-appliance-base/post.yaml
+    irrelevant-files:
+      - ^.*\.rst$
+      - ^docs/.*$
 
 - job:
     name: ansible-network-asa-appliance

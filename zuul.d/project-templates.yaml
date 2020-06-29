@@ -332,12 +332,12 @@
               ansible_test_collections: true
               ansible_test_integration_targets: "iosxr_.*"
             voting: false
-        - ansible-test-network-integration-iosxr-network_cli-python27_11:
+        - ansible-test-network-integration-iosxr-network_cli-python27-scenario01:
             vars:
               ansible_test_collections: true
               ansible_test_integration_targets: "iosxr_.*"
             voting: false
-        - ansible-test-network-integration-iosxr-network_cli-python27_22:
+        - ansible-test-network-integration-iosxr-network_cli-python27-scenario02:
             vars:
               ansible_test_collections: true
               ansible_test_integration_targets: "iosxr_.*"
@@ -347,12 +347,12 @@
               ansible_test_collections: true
               ansible_test_integration_targets: "iosxr_.*"
             voting: false
-        - ansible-test-network-integration-iosxr-network_cli-python27-stable29_11:
+        - ansible-test-network-integration-iosxr-network_cli-python27-stable29-scenario01:
             vars:
               ansible_test_collections: true
               ansible_test_integration_targets: "iosxr_.*"
             voting: false
-        - ansible-test-network-integration-iosxr-network_cli-python27-stable29_22:
+        - ansible-test-network-integration-iosxr-network_cli-python27-stable29-scenario02:
             vars:
               ansible_test_collections: true
               ansible_test_integration_targets: "iosxr_.*"
@@ -362,12 +362,12 @@
               ansible_test_collections: true
               ansible_test_integration_targets: "iosxr_.*"
             voting: false
-        - ansible-test-network-integration-iosxr-network_cli-python35_11:
+        - ansible-test-network-integration-iosxr-network_cli-python35-scenario01:
             vars:
               ansible_test_collections: true
               ansible_test_integration_targets: "iosxr_.*"
             voting: false
-        - ansible-test-network-integration-iosxr-network_cli-python35_22:
+        - ansible-test-network-integration-iosxr-network_cli-python35-scenario02:
             vars:
               ansible_test_collections: true
               ansible_test_integration_targets: "iosxr_.*"
@@ -377,12 +377,12 @@
               ansible_test_collections: true
               ansible_test_integration_targets: "iosxr_.*"
             voting: false
-        - ansible-test-network-integration-iosxr-network_cli-python35-stable29_11:
+        - ansible-test-network-integration-iosxr-network_cli-python35-stable29-scenario01:
             vars:
               ansible_test_collections: true
               ansible_test_integration_targets: "iosxr_.*"
             voting: false
-        - ansible-test-network-integration-iosxr-network_cli-python35-stable29_22:
+        - ansible-test-network-integration-iosxr-network_cli-python35-stable29-scenario02:
             vars:
               ansible_test_collections: true
               ansible_test_integration_targets: "iosxr_.*"
@@ -392,12 +392,12 @@
               ansible_test_collections: true
               ansible_test_integration_targets: "iosxr_.*"
             voting: false
-        - ansible-test-network-integration-iosxr-network_cli-python36_11:
+        - ansible-test-network-integration-iosxr-network_cli-python36-scenario01:
             vars:
               ansible_test_collections: true
               ansible_test_integration_targets: "iosxr_.*"
             voting: false
-        - ansible-test-network-integration-iosxr-network_cli-python36_22:
+        - ansible-test-network-integration-iosxr-network_cli-python36-scenario02:
             vars:
               ansible_test_collections: true
               ansible_test_integration_targets: "iosxr_.*"
@@ -407,12 +407,12 @@
               ansible_test_collections: true
               ansible_test_integration_targets: "iosxr_.*"
             voting: false
-        - ansible-test-network-integration-iosxr-network_cli-python36-stable29_11:
+        - ansible-test-network-integration-iosxr-network_cli-python36-stable29-scenario01:
             vars:
               ansible_test_collections: true
               ansible_test_integration_targets: "iosxr_.*"
             voting: false
-        - ansible-test-network-integration-iosxr-network_cli-python36-stable29_22:
+        - ansible-test-network-integration-iosxr-network_cli-python36-stable29-scenario02:
             vars:
               ansible_test_collections: true
               ansible_test_integration_targets: "iosxr_.*"
@@ -422,12 +422,12 @@
               ansible_test_collections: true
               ansible_test_integration_targets: "iosxr_.*"
             voting: false
-        - ansible-test-network-integration-iosxr-network_cli-python37_11:
+        - ansible-test-network-integration-iosxr-network_cli-python37-scenario01:
             vars:
               ansible_test_collections: true
               ansible_test_integration_targets: "iosxr_.*"
             voting: false
-        - ansible-test-network-integration-iosxr-network_cli-python37_22:
+        - ansible-test-network-integration-iosxr-network_cli-python37-scenario02:
             vars:
               ansible_test_collections: true
               ansible_test_integration_targets: "iosxr_.*"
@@ -437,12 +437,12 @@
               ansible_test_collections: true
               ansible_test_integration_targets: "iosxr_.*"
             voting: false
-        - ansible-test-network-integration-iosxr-network_cli-python37-stable29_11:
+        - ansible-test-network-integration-iosxr-network_cli-python37-stable29-scenario01:
             vars:
               ansible_test_collections: true
               ansible_test_integration_targets: "iosxr_.*"
             voting: false
-        - ansible-test-network-integration-iosxr-network_cli-python37-stable29_22:
+        - ansible-test-network-integration-iosxr-network_cli-python37-stable29-scenario02:
             vars:
               ansible_test_collections: true
               ansible_test_integration_targets: "iosxr_.*"
@@ -452,12 +452,12 @@
               ansible_test_collections: true
               ansible_test_integration_targets: "iosxr_.*"
             voting: false
-        - ansible-test-network-integration-iosxr-network_cli-python38_11:
+        - ansible-test-network-integration-iosxr-network_cli-python38-scenario01:
             vars:
               ansible_test_collections: true
               ansible_test_integration_targets: "iosxr_.*"
             voting: false
-        - ansible-test-network-integration-iosxr-network_cli-python38_22:
+        - ansible-test-network-integration-iosxr-network_cli-python38-scenario02:
             vars:
               ansible_test_collections: true
               ansible_test_integration_targets: "iosxr_.*"

@@ -18,7 +18,7 @@
 
     - name: Setup location of project for tests
       set_fact:
-        test_location: "{{ ansible_test_collection_dir }}/{{ galaxy_info.namespace }}/{{ galaxy_info.namespace }}"
+        test_location: "{{ ansible_test_collection_dir }}/{{ galaxy_info.namespace }}/{{ galaxy_info.name }}"
 
     - name: Coverage report for unit tests
       args:

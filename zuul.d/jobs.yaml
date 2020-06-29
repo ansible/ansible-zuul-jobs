@@ -1680,25 +1680,25 @@
       ansible_test_split_in: 4
 
 - job:
-    name: ansible-test-network-integration-nxos-cli-python36_1_of_4
+    name: ansible-test-network-integration-nxos-cli-python36_11
     parent: ansible-test-network-integration-nxos-cli-python36
     vars:
       ansible_test_do_number: 1
 
 - job:
-    name: ansible-test-network-integration-nxos-cli-python36_2_of_4
+    name: ansible-test-network-integration-nxos-cli-python36_22
     parent: ansible-test-network-integration-nxos-cli-python36
     vars:
       ansible_test_do_number: 2
 
 - job:
-    name: ansible-test-network-integration-nxos-cli-python36_3_of_4
+    name: ansible-test-network-integration-nxos-cli-python36_33
     parent: ansible-test-network-integration-nxos-cli-python36
     vars:
       ansible_test_do_number: 3
 
 - job:
-    name: ansible-test-network-integration-nxos-cli-python36_4_of_4
+    name: ansible-test-network-integration-nxos-cli-python36_44
     parent: ansible-test-network-integration-nxos-cli-python36
     vars:
       ansible_test_do_number: 4
@@ -1716,25 +1716,25 @@
       ansible_test_split_in: 4
 
 - job:
-    name: ansible-test-network-integration-nxos-cli-python36-stable29_1_of_4
+    name: ansible-test-network-integration-nxos-cli-python36-stable29_11
     parent: ansible-test-network-integration-nxos-cli-python36-stable29
     vars:
       ansible_test_do_number: 1
 
 - job:
-    name: ansible-test-network-integration-nxos-cli-python36-stable29_2_of_4
+    name: ansible-test-network-integration-nxos-cli-python36-stable29_22
     parent: ansible-test-network-integration-nxos-cli-python36-stable29
     vars:
       ansible_test_do_number: 2
 
 - job:
-    name: ansible-test-network-integration-nxos-cli-python36-stable29_3_of_4
+    name: ansible-test-network-integration-nxos-cli-python36-stable29_33
     parent: ansible-test-network-integration-nxos-cli-python36-stable29
     vars:
       ansible_test_do_number: 3
 
 - job:
-    name: ansible-test-network-integration-nxos-cli-python36-stable29_4_of_4
+    name: ansible-test-network-integration-nxos-cli-python36-stable29_44
     parent: ansible-test-network-integration-nxos-cli-python36-stable29
     vars:
       ansible_test_do_number: 4

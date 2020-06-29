@@ -1,10 +1,21 @@
 ---
 - hosts: controller
   tasks:
-    - name: Fetch and install the artifacts
-      import_role:
-        name: deploy-artifacts
-      when: ansible_test_collections | default(False)
+    - when: ansible_test_collections | default(False)
+      block:
+        - name: Fetch and install the artifacts
+          import_role:
+            name: deploy-artifacts
+        - name: Copy the galaxy.yml on the controller
+          fetch:
+            src: "{{ ansible_test_location }}/galaxy.yml"
+            dest: '{{ zuul.executor.work_root }}/tmp_fetch'
+          register: _fetch
+        - name: Load information from galaxy.yml
+          include_vars:
+            file: '{{ _fetch.dest }}'
+            name: galaxy_info
+
     - name: Run ansible-test
       import_role:
         name: ansible-test
@@ -13,3 +24,5 @@
         ansible_test_location: "{{ ansible_user_dir }}/{{ zuul.projects[ansible_collections_repo].src_dir }}"
         ansible_test_git_branch: "{{ zuul.projects['github.com/ansible/ansible'].checkout }}"
         ansible_test_ansible_path: "{{ ansible_user_dir }}/{{ zuul.projects['github.com/ansible/ansible'].src_dir }}"
+        ansible_test_collection_namespace: "{{ ansible_test_collections|ternary(galaxy_info.namespace, '') }}"
+        ansible_test_collection_name: "{{ ansible_test_collections|ternary(galaxy_info.name, '') }}"

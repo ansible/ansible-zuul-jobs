@@ -1069,7 +1069,7 @@
     vars:
       ansible_collections_repo: github.com/ansible-collections/cisco.iosxr
       ansible_test_command: network-integration
-      ansible_test_integration_targets: "iosxr_.* netconf_.*"
+      ansible_test_integration_targets: "iosxr_.*"
 
 - job:
     name: ansible-test-sanity-iosxr

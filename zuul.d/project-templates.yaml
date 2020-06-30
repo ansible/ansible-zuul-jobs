@@ -202,28 +202,28 @@
     name: ansible-collections-cisco-nxos
     check:
       jobs:
-        - ansible-test-network-integration-nxos-cli-python36_1_of_4:
+        - ansible-test-network-integration-nxos-cli-python36-scenario01:
             vars:
               ansible_test_collections: true
-        - ansible-test-network-integration-nxos-cli-python36_2_of_4:
+        - ansible-test-network-integration-nxos-cli-python36-scenario02:
             vars:
               ansible_test_collections: true
-        - ansible-test-network-integration-nxos-cli-python36_3_of_4:
+        - ansible-test-network-integration-nxos-cli-python36-scenario03:
             vars:
               ansible_test_collections: true
-        - ansible-test-network-integration-nxos-cli-python36_4_of_4:
+        - ansible-test-network-integration-nxos-cli-python36-scenario04:
             vars:
               ansible_test_collections: true
-        - ansible-test-network-integration-nxos-cli-python36-stable29_1_of_4:
+        - ansible-test-network-integration-nxos-cli-python36-stable29-scenario01:
             vars:
               ansible_test_collections: true
-        - ansible-test-network-integration-nxos-cli-python36-stable29_2_of_4:
+        - ansible-test-network-integration-nxos-cli-python36-stable29-scenario02:
             vars:
               ansible_test_collections: true
-        - ansible-test-network-integration-nxos-cli-python36-stable29_3_of_4:
+        - ansible-test-network-integration-nxos-cli-python36-stable29-scenario03:
             vars:
               ansible_test_collections: true
-        - ansible-test-network-integration-nxos-cli-python36-stable29_4_of_4:
+        - ansible-test-network-integration-nxos-cli-python36-stable29-scenario04:
             vars:
               ansible_test_collections: true
         - build-ansible-collection:
@@ -232,28 +232,28 @@
     gate:
       queue: integrated
       jobs:
-        - ansible-test-network-integration-nxos-cli-python36_1_of_4:
+        - ansible-test-network-integration-nxos-cli-python36-scenario01:
             vars:
               ansible_test_collections: true
-        - ansible-test-network-integration-nxos-cli-python36_2_of_4:
+        - ansible-test-network-integration-nxos-cli-python36-scenario02:
             vars:
               ansible_test_collections: true
-        - ansible-test-network-integration-nxos-cli-python36_3_of_4:
+        - ansible-test-network-integration-nxos-cli-python36-scenario03:
             vars:
               ansible_test_collections: true
-        - ansible-test-network-integration-nxos-cli-python36_4_of_4:
+        - ansible-test-network-integration-nxos-cli-python36-scenario04:
             vars:
               ansible_test_collections: true
-        - ansible-test-network-integration-nxos-cli-python36-stable29_1_of_4:
+        - ansible-test-network-integration-nxos-cli-python36-stable29-scenario01:
             vars:
               ansible_test_collections: true
-        - ansible-test-network-integration-nxos-cli-python36-stable29_2_of_4:
+        - ansible-test-network-integration-nxos-cli-python36-stable29-scenario02:
             vars:
               ansible_test_collections: true
-        - ansible-test-network-integration-nxos-cli-python36-stable29_3_of_4:
+        - ansible-test-network-integration-nxos-cli-python36-stable29-scenario03:
             vars:
               ansible_test_collections: true
-        - ansible-test-network-integration-nxos-cli-python36-stable29_4_of_4:
+        - ansible-test-network-integration-nxos-cli-python36-stable29-scenario04:
             vars:
               ansible_test_collections: true
         - build-ansible-collection:

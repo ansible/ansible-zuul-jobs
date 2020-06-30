@@ -1094,6 +1094,7 @@
     parent: ansible-test-network-integration-iosxr
     abstract: true
     vars:
+      ansible_test_collections: true
       ansible_test_skip_tags: network_cli
 
 - job:
@@ -1101,6 +1102,7 @@
     parent: ansible-test-network-integration-iosxr
     abstract: true
     vars:
+      ansible_test_collections: true
       ansible_test_skip_tags: local,netconf
 
 - job:
@@ -1135,6 +1137,40 @@
     parent: ansible-test-network-integration-iosxr-network_cli-python27
     vars:
       ansible_test_do_number: 2
+
+- job:
+    name: ansible-test-network-integration-iosxr-netconf-python27-stable210
+    parent: ansible-test-network-integration-iosxr-netconf
+    nodeset: iosxr-6.1.3-python27
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.10
+    vars:
+      ansible_test_python: 2.7
+
+- job:
+    name: ansible-test-network-integration-iosxr-network_cli-python27-stable210
+    parent: ansible-test-network-integration-iosxr-network_cli
+    nodeset: iosxr-6.1.3-python27
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.10
+    vars:
+      ansible_test_python: 2.7
+      ansible_test_split_in: 2
+
+- job:
+    name: ansible-test-network-integration-iosxr-network_cli-python27-stable210-scenario01
+    parent: ansible-test-network-integration-iosxr-network_cli-python27-stable210
+    vars:
+      ansible_test_do_number: 1
+
+- job:
+    name: ansible-test-network-integration-iosxr-network_cli-python27-stable210-scenario02
+    parent: ansible-test-network-integration-iosxr-network_cli-python27-stable210
+    vars:
+      ansible_test_do_number: 2
+
 
 - job:
     name: ansible-test-network-integration-iosxr-netconf-python27-stable29
@@ -1200,6 +1236,39 @@
 - job:
     name: ansible-test-network-integration-iosxr-network_cli-python35-scenario02
     parent: ansible-test-network-integration-iosxr-network_cli-python35
+    vars:
+      ansible_test_do_number: 2
+
+- job:
+    name: ansible-test-network-integration-iosxr-netconf-python35-stable210
+    parent: ansible-test-network-integration-iosxr-netconf
+    nodeset: iosxr-6.1.3-python35
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.10
+    vars:
+      ansible_test_python: 3.5
+
+- job:
+    name: ansible-test-network-integration-iosxr-network_cli-python35-stable210
+    parent: ansible-test-network-integration-iosxr-network_cli
+    nodeset: iosxr-6.1.3-python35
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.10
+    vars:
+      ansible_test_python: 3.5
+      ansible_test_split_in: 2
+
+- job:
+    name: ansible-test-network-integration-iosxr-network_cli-python35-stable210-scenario01
+    parent: ansible-test-network-integration-iosxr-network_cli-python35-stable210
+    vars:
+      ansible_test_do_number: 1
+
+- job:
+    name: ansible-test-network-integration-iosxr-network_cli-python35-stable210-scenario02
+    parent: ansible-test-network-integration-iosxr-network_cli-python35-stable210
     vars:
       ansible_test_do_number: 2
 
@@ -1271,6 +1340,39 @@
       ansible_test_do_number: 2
 
 - job:
+    name: ansible-test-network-integration-iosxr-netconf-python36-stable210
+    parent: ansible-test-network-integration-iosxr-netconf
+    nodeset: iosxr-6.1.3-python36
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.10
+    vars:
+      ansible_test_python: 3.6
+
+- job:
+    name: ansible-test-network-integration-iosxr-network_cli-python36-stable210
+    parent: ansible-test-network-integration-iosxr-network_cli
+    nodeset: iosxr-6.1.3-python36
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.10
+    vars:
+      ansible_test_python: 3.6
+      ansible_test_split_in: 2
+
+- job:
+    name: ansible-test-network-integration-iosxr-network_cli-python36-stable210-scenario01
+    parent: ansible-test-network-integration-iosxr-network_cli-python36-stable210
+    vars:
+      ansible_test_do_number: 1
+
+- job:
+    name: ansible-test-network-integration-iosxr-network_cli-python36-stable210-scenario02
+    parent: ansible-test-network-integration-iosxr-network_cli-python36-stable210
+    vars:
+      ansible_test_do_number: 2
+
+- job:
     name: ansible-test-network-integration-iosxr-netconf-python36-stable29
     parent: ansible-test-network-integration-iosxr-netconf
     nodeset: iosxr-6.1.3-python36
@@ -1334,6 +1436,39 @@
 - job:
     name: ansible-test-network-integration-iosxr-network_cli-python37-scenario02
     parent: ansible-test-network-integration-iosxr-network_cli-python37
+    vars:
+      ansible_test_do_number: 2
+
+- job:
+    name: ansible-test-network-integration-iosxr-netconf-python37-stable210
+    parent: ansible-test-network-integration-iosxr-netconf
+    nodeset: iosxr-6.1.3-python37
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.10
+    vars:
+      ansible_test_python: 3.7
+
+- job:
+    name: ansible-test-network-integration-iosxr-network_cli-python37-stable210
+    parent: ansible-test-network-integration-iosxr-network_cli
+    nodeset: iosxr-6.1.3-python37
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.10
+    vars:
+      ansible_test_python: 3.7
+      ansible_test_split_in: 2
+
+- job:
+    name: ansible-test-network-integration-iosxr-network_cli-python37-stable210-scenario01
+    parent: ansible-test-network-integration-iosxr-network_cli-python37-stable210
+    vars:
+      ansible_test_do_number: 1
+
+- job:
+    name: ansible-test-network-integration-iosxr-network_cli-python37-stable210-scenario02
+    parent: ansible-test-network-integration-iosxr-network_cli-python37-stable210
     vars:
       ansible_test_do_number: 2
 
@@ -1403,6 +1538,40 @@
     parent: ansible-test-network-integration-iosxr-network_cli-python38
     vars:
       ansible_test_do_number: 2
+
+- job:
+    name: ansible-test-network-integration-iosxr-netconf-python38-stable210
+    parent: ansible-test-network-integration-iosxr-netconf
+    nodeset: iosxr-6.1.3-python38
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.10
+    vars:
+      ansible_test_python: 3.8
+
+- job:
+    name: ansible-test-network-integration-iosxr-network_cli-python38-stable210
+    parent: ansible-test-network-integration-iosxr-network_cli
+    nodeset: iosxr-6.1.3-python38
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.10
+    vars:
+      ansible_test_python: 3.8
+      ansible_test_split_in: 2
+
+- job:
+    name: ansible-test-network-integration-iosxr-network_cli-python38-stable210-scenario01
+    parent: ansible-test-network-integration-iosxr-network_cli-python38-stable210
+    vars:
+      ansible_test_do_number: 1
+
+- job:
+    name: ansible-test-network-integration-iosxr-network_cli-python38-stable210-scenario02
+    parent: ansible-test-network-integration-iosxr-network_cli-python38-stable210
+    vars:
+      ansible_test_do_number: 2
+
 
 - job:
     name: ansible-test-sanity-netcommon

@@ -2499,3 +2499,22 @@
     vars:
       tox_envlist: insync
     nodeset: fedora-latest-1vcpu
+
+- job:
+    name: pulp-installer-vm
+    description: |
+      Run the pulp installer on a full blown VM
+    pre-run:
+      - playbooks/pulp/pre.yaml
+    run:
+      - playbooks/pulp/run.yaml
+
+- job:
+    name: pulp-installer-vm-centos7
+    parent: pulp-installer-vm
+    nodeset: centos-7-1vcpu
+
+- job:
+    name: pulp-installer-vm-centos8
+    parent: pulp-installer-vm
+    nodeset: centos-8-1vcpu

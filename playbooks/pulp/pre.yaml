@@ -1,0 +1,22 @@
+---
+- hosts: all
+  tasks:
+    - name: Ensure git is installed
+      package:
+        name: git
+      become: true
+
+    - name: Install pulp_installer requirements
+      command: ansible-galaxy install -r requirements.yml
+      args:
+        chdir: '{{ ansible_user_dir }}/{{ zuul.project.src_dir }}'
+
+    - name: Install chouseknecht.ansible_galaxy_config role
+      command: ansible-galaxy install chouseknecht.ansible_galaxy_config
+
+    - name: Lay local inventory
+      Copy:
+        dest: '{{ ansible_user_dir }}/{{ zuul.project.src_dir }}/inventory'
+        content: |
+          [all]
+          localhost ansible_connection=local

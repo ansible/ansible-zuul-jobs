@@ -1,0 +1,9 @@
+---
+- hosts: all
+  tasks:
+    - name: Run the installer
+      command: ansible-playbook -i inventory playbooks/example-use/playbook.yml
+      async: 600
+      poll: 30
+      args:
+        chdir: '{{ ansible_user_dir  }}/{{ zuul.project.src_dir }}'

@@ -500,7 +500,10 @@
               - name: github.com/ansible-collections/ansible.netcommon
     gate:
       queue: integrated
-      jobs: *ansible-collections-cisco-iosxr-jobs
+      jobs:
+        - build-ansible-collection:
+            required-projects:
+              - name: github.com/ansible-collections/ansible.netcommon
 
 - project-template:
     name: ansible-collections-cisco-iosxr-netconf

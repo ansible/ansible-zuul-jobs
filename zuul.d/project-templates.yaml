@@ -326,7 +326,7 @@
 - project-template:
     name: ansible-collections-cisco-iosxr
     check:
-      jobs: &ansible-collections-cisco-iosxr-jobs
+      jobs:
         - ansible-test-network-integration-iosxr-netconf-python27:
             vars:
               ansible_test_integration_targets: "iosxr_.*"

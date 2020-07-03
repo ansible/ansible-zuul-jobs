@@ -24,7 +24,7 @@
 - job:
     name: ansible-tox-linters
     parent: tox-linters
-    nodeset: centos-8-1vcpu
+    nodeset: fedora-latest-1vcpu
 
 - job:
     name: ansible-tox-docs

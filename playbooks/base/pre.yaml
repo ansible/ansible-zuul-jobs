@@ -18,6 +18,12 @@
 - hosts: all:!appliance*
   tasks:
     - name: Run configure-swap role
+      # configuring swap can fail for multiple reasons and should not be
+      # enabled unless requested
+      # https://bugs.launchpad.net/ubuntu/+source/util-linux/+bug/1788321
+      # https://unix.stackexchange.com/questions/294600/i-cant-enable-swap-space-on-centos-7
+      # https://bugzilla.redhat.com/show_bug.cgi?id=1129205
+      when: configure_wrap | default(false)
       include_role:
         name: configure-swap
 

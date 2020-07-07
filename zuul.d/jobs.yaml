@@ -1598,7 +1598,6 @@
     timeout: 3600
     vars:
       ansible_collections_repo: github.com/ansible-collections/ansible.netcommon
-      ansible_test_integration_targets: "tests/unit/modules/network/cli/test_cli_.*"
 
 - job:
     name: ansible-test-network-integration-ansible-netcommon-iosxr-netconf-python27

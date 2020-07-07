@@ -15,18 +15,9 @@
 # Note, we don't use a sparse device to avoid wedging when disk space
 # and memory are both unavailable.
 
-# Cannot fallocate on filesystems like XFS, so use slower dd
-- name: Create swap backing file for non-EXT fs
-  when: '"ext" not in root_filesystem'
+- name: Create swap backing file
   become: true
   command: dd if=/dev/zero of=/root/swapfile bs=1M count={{ swap_required }}
-  args:
-    creates: /root/swapfile
-
-- name: Create sparse swap backing file for EXT fs
-  when: '"ext" in root_filesystem'
-  become: true
-  command: fallocate -l {{ swap_required }}M /root/swapfile
   args:
     creates: /root/swapfile
 

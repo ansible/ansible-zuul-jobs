@@ -56,6 +56,14 @@
               - playbooks/ansible-test-network-integration-base/files/bootstrap-splunk.yaml
               - playbooks/ansible-network-appliance-base/.*
               - roles/splunk.*
+        # validates that molecule pre/post works, but uses linters env
+        - ansible-tox-molecule:
+            attempts: 1
+            nodeset: ubuntu-bionic-1vcpu
+            vars:
+              tox_envlist: linters
+            files:
+              - playbooks/ansible-tox-molecule/.*
 
     gate:
       jobs:

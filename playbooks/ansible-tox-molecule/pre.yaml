@@ -55,6 +55,7 @@
       become: false
       shell: |
         set -eux
+        mkdir -p ~/.local/share
         podman version
         podman info
         podman ps

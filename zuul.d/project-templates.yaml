@@ -807,47 +807,27 @@
 - project-template:
     name: ansible-collections-vyos-vyos-units
     check:
-      jobs:
+      jobs: &ansible-collections-vyos-vyos-units-jobs
         - ansible-test-sanity-vyos
-        - ansible-test-units-vyos
+        - ansible-test-units-vyos-python27
+        - ansible-test-units-vyos-python35
+        - ansible-test-units-vyos-python36
+        - ansible-test-units-vyos-python37
+        - ansible-test-units-vyos-python38
     gate:
       queue: integrated
-      jobs:
-        - ansible-test-sanity-vyos
-        - ansible-test-units-vyos
+      jobs: *ansible-collections-vyos-vyos-units-jobs
 
 - project-template:
     name: ansible-collections-vyos-vyos
     check:
       jobs: &ansible-collections-vyos-vyos-jobs
-        - ansible-test-network-integration-vyos-local-python27
-        - ansible-test-network-integration-vyos-local-python27-stable210
-        - ansible-test-network-integration-vyos-local-python27-stable29
-        - ansible-test-network-integration-vyos-local-python35
-        - ansible-test-network-integration-vyos-local-python35-stable210
-        - ansible-test-network-integration-vyos-local-python35-stable29
         - ansible-test-network-integration-vyos-local-python36
         - ansible-test-network-integration-vyos-local-python36-stable210
         - ansible-test-network-integration-vyos-local-python36-stable29
-        - ansible-test-network-integration-vyos-local-python37
-        - ansible-test-network-integration-vyos-local-python37-stable210
-        - ansible-test-network-integration-vyos-local-python37-stable29
-        - ansible-test-network-integration-vyos-local-python38
-        - ansible-test-network-integration-vyos-local-python38-stable210
-        - ansible-test-network-integration-vyos-network_cli-python27
-        - ansible-test-network-integration-vyos-network_cli-python27-stable210
-        - ansible-test-network-integration-vyos-network_cli-python27-stable29
-        - ansible-test-network-integration-vyos-network_cli-python35
-        - ansible-test-network-integration-vyos-network_cli-python35-stable210
-        - ansible-test-network-integration-vyos-network_cli-python35-stable29
         - ansible-test-network-integration-vyos-network_cli-python36
         - ansible-test-network-integration-vyos-network_cli-python36-stable210
         - ansible-test-network-integration-vyos-network_cli-python36-stable29
-        - ansible-test-network-integration-vyos-network_cli-python37
-        - ansible-test-network-integration-vyos-network_cli-python37-stable210
-        - ansible-test-network-integration-vyos-network_cli-python37-stable29
-        - ansible-test-network-integration-vyos-network_cli-python38
-        - ansible-test-network-integration-vyos-network_cli-python38-stable210
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-collections/ansible.netcommon

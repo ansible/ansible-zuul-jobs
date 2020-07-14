@@ -38,6 +38,13 @@
           esxi2: "{{ 'esxi2' in hostvars and hostvars['esxi2']['nodepool']['interface_ip']}}"
           datastore: "{{ hostvars[groups['controller'][0]]['nodepool']['interface_ip']}}"
 
+- hosts: esxis
+  gather_facts: false
+  tasks:
+    - name: Run start-zuul-console role on the ESXi nodes
+      include_role:
+        name: start-zuul-console
+
 - hosts: appliance:appliance-ssh
   gather_facts: false
   tasks:

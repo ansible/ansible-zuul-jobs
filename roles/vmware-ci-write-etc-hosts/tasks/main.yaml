@@ -4,17 +4,6 @@
 
 - when: ansible_hostname != inventory_hostname
   block:
-    - name: Gather some information to troubleshot the ESXi to troubleshoot issue 144
-      debug: var=hostvars
-      when: inventory_hostname.startswith("esxi")
-
-    - name: Ensure esxcli can resolve the hostname
-      copy:
-        content: |
-          127.0.0.1 localhost {{ ansible_facts.fqdn }} {{ ansible_hostname }}
-        dest: /etc/hosts
-      when: inventory_hostname.startswith("esxi")
-
     - name: set the correct ESXi hostname
       command: "esxcli system hostname set --fqdn={{ inventory_hostname }}.test"
       when: inventory_hostname.startswith("esxi")

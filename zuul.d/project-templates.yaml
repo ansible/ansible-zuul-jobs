@@ -777,43 +777,26 @@
 - project-template:
     name: ansible-collections-openvswitch-openvswitch-units
     check:
-      jobs:
+      jobs: &ansible-collections-openvswitch-openvswitch-units-jobs
         - ansible-test-sanity-openvswitch
-        - ansible-test-units-openvswitch
+        - ansible-test-units-openvswitch-python27
+        - ansible-test-units-openvswitch-python35
+        - ansible-test-units-openvswitch-python36
+        - ansible-test-units-openvswitch-python37
+        - ansible-test-units-openvswitch-python38
     gate:
       queue: integrated
-      jobs:
-        - ansible-test-sanity-openvswitch
-        - ansible-test-units-openvswitch
+      jobs: *ansible-collections-openvswitch-openvswitch-units-jobs
 
 - project-template:
     name: ansible-collections-openvswitch-openvswitch
     check:
       jobs: &ansible-collections-openvswitch-openvswitch-jobs
-        - ansible-test-network-integration-openvswitch-python27:
-            vars:
-              ansible_test_collections: true
-        - ansible-test-network-integration-openvswitch-python27-stable210
-        - ansible-test-network-integration-openvswitch-python27-stable29
-        - ansible-test-network-integration-openvswitch-python35:
-            vars:
-              ansible_test_collections: true
-        - ansible-test-network-integration-openvswitch-python35-stable210
-        - ansible-test-network-integration-openvswitch-python35-stable29
         - ansible-test-network-integration-openvswitch-python36:
             vars:
               ansible_test_collections: true
         - ansible-test-network-integration-openvswitch-python36-stable210
         - ansible-test-network-integration-openvswitch-python36-stable29
-        - ansible-test-network-integration-openvswitch-python37:
-            vars:
-              ansible_test_collections: true
-        - ansible-test-network-integration-openvswitch-python37-stable210
-        - ansible-test-network-integration-openvswitch-python37-stable29
-        - ansible-test-network-integration-openvswitch-python38:
-            vars:
-              ansible_test_collections: true
-        - ansible-test-network-integration-openvswitch-python38-stable210
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-collections/ansible.netcommon

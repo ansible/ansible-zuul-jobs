@@ -575,22 +575,6 @@
         - ansible-test-cloud-integration-govcsim-python36_3_of_3
         - ansible-tox-linters
         - build-ansible-collection
-    periodic:
-      jobs:
-        - ansible-test-cloud-integration-vcenter7_only-python36
-        - ansible-test-cloud-integration-vcenter7_1esxi_with_nested-python36
-        - ansible-test-cloud-integration-vcenter7_1esxi_without_nested-python36
-        - ansible-test-cloud-integration-vcenter7_2esxi_without_nested-python36
-        - ansible-test-cloud-integration-vcenter_only-python36-stable29
-        - ansible-test-cloud-integration-vcenter_1esxi_with_nested-python36-stable29
-        - ansible-test-cloud-integration-vcenter_1esxi_without_nested-python36-stable29
-        - ansible-test-cloud-integration-vcenter_2esxi_without_nested-python36-stable29
-        - ansible-test-cloud-integration-vcenter_only-python36-stable210
-        - ansible-test-cloud-integration-vcenter_1esxi_with_nested-python36-stable210
-        - ansible-test-cloud-integration-vcenter_1esxi_without_nested-python36-stable210
-        - ansible-test-cloud-integration-vcenter_2esxi_without_nested-python36-stable210
-        - ansible-tox-linters
-        - build-ansible-collection
 
 - project-template:
     name: ansible-collections-community-asa

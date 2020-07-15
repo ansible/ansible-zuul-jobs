@@ -1649,7 +1649,6 @@
     vars:
       ansible_test_do_number: 2
 
-
 - job:
     name: ansible-test-sanity-netcommon
     parent: ansible-test-sanity-base
@@ -1660,28 +1659,49 @@
       ansible_collections_repo: github.com/ansible-collections/ansible.netcommon
 
 - job:
-    name: ansible-test-units-netcommon
-    parent: ansible-test-units-base
+    name: ansible-test-units-netcommon-python27
+    parent: ansible-test-units-base-python27
     required-projects:
       - name: github.com/ansible-collections/ansible.netcommon
-    timeout: 3600
     vars:
       ansible_collections_repo: github.com/ansible-collections/ansible.netcommon
       ansible_test_integration_targets: '--exclude="tests/unit/plugins/connection/*"'
 
 - job:
-    name: ansible-test-network-integration-ansible-netcommon-iosxr-netconf-python27
-    parent: ansible-test-network-integration-iosxr-python27
+    name: ansible-test-units-netcommon-python35
+    parent: ansible-test-units-base-python35
+    required-projects:
+      - name: github.com/ansible-collections/ansible.netcommon
     vars:
       ansible_collections_repo: github.com/ansible-collections/ansible.netcommon
-      ansible_test_integration_targets: "netconf_.*"
+      ansible_test_integration_targets: '--exclude="tests/unit/plugins/connection/*"'
 
 - job:
-    name: ansible-test-network-integration-ansible-netcommon-iosxr-netconf-python35
-    parent: ansible-test-network-integration-iosxr-python35
+    name: ansible-test-units-netcommon-python36
+    parent: ansible-test-units-base-python36
+    required-projects:
+      - name: github.com/ansible-collections/ansible.netcommon
     vars:
       ansible_collections_repo: github.com/ansible-collections/ansible.netcommon
-      ansible_test_integration_targets: "netconf_.*"
+      ansible_test_integration_targets: '--exclude="tests/unit/plugins/connection/*"'
+
+- job:
+    name: ansible-test-units-netcommon-python37
+    parent: ansible-test-units-base-python37
+    required-projects:
+      - name: github.com/ansible-collections/ansible.netcommon
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/ansible.netcommon
+      ansible_test_integration_targets: '--exclude="tests/unit/plugins/connection/*"'
+
+- job:
+    name: ansible-test-units-netcommon-python38
+    parent: ansible-test-units-base-python38
+    required-projects:
+      - name: github.com/ansible-collections/ansible.netcommon
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/ansible.netcommon
+      ansible_test_integration_targets: '--exclude="tests/unit/plugins/connection/*"'
 
 - job:
     name: ansible-test-network-integration-ansible-netcommon-iosxr-netconf-python36
@@ -1691,8 +1711,8 @@
       ansible_test_integration_targets: "netconf_.*"
 
 - job:
-    name: ansible-test-network-integration-ansible-netcommon-iosxr-netconf-python37
-    parent: ansible-test-network-integration-iosxr-python37
+    name: ansible-test-network-integration-ansible-netcommon-junos-vsrx-netconf-python36
+    parent: ansible-test-network-integration-junos-vsrx-python36
     vars:
       ansible_collections_repo: github.com/ansible-collections/ansible.netcommon
       ansible_test_integration_targets: "netconf_.*"
@@ -1960,41 +1980,6 @@
       ansible_test_python: 3.8
 
 - job:
-    name: ansible-test-network-integration-ansible-netcommon-junos-vsrx-netconf-python27
-    parent: ansible-test-network-integration-junos-vsrx-python27
-    vars:
-      ansible_collections_repo: github.com/ansible-collections/ansible.netcommon
-      ansible_test_integration_targets: "netconf_.*"
-
-- job:
-    name: ansible-test-network-integration-ansible-netcommon-junos-vsrx-netconf-python35
-    parent: ansible-test-network-integration-junos-vsrx-python35
-    vars:
-      ansible_collections_repo: github.com/ansible-collections/ansible.netcommon
-      ansible_test_integration_targets: "netconf_.*"
-
-- job:
-    name: ansible-test-network-integration-ansible-netcommon-junos-vsrx-netconf-python36
-    parent: ansible-test-network-integration-junos-vsrx-python36
-    vars:
-      ansible_collections_repo: github.com/ansible-collections/ansible.netcommon
-      ansible_test_integration_targets: "netconf_.*"
-
-- job:
-    name: ansible-test-network-integration-ansible-netcommon-junos-vsrx-netconf-python37
-    parent: ansible-test-network-integration-junos-vsrx-python37
-    vars:
-      ansible_collections_repo: github.com/ansible-collections/ansible.netcommon
-      ansible_test_integration_targets: "netconf_.*"
-
-- job:
-    name: ansible-test-network-integration-ansible-netcommon-junos-vsrx-netconf-python38
-    parent: ansible-test-network-integration-junos-vsrx-python38
-    vars:
-      ansible_collections_repo: github.com/ansible-collections/ansible.netcommon
-      ansible_test_integration_targets: "netconf_.*"
-
-- job:
     name: ansible-test-network-integration-nxos
     abstract: true
     dependencies:
@@ -2134,6 +2119,7 @@
 - job:
     name: ansible-test-units-base
     parent: unittests
+    # NOTE(pabelanger): nodeset to be removed
     nodeset: controller-python38
     abstract: true
     dependencies:
@@ -2150,6 +2136,47 @@
       ansible_test_collections: true
       ansible_test_command: units
       ansible_test_integration_targets: ""
+      # NOTE(pabelanger): ansible_test_python to be removed
+      ansible_test_python: 3.8
+
+- job:
+    name: ansible-test-units-base-python27
+    parent: ansible-test-units-base
+    nodeset: controller-python27
+    abstract: true
+    vars:
+      ansible_test_python: 2.7
+
+- job:
+    name: ansible-test-units-base-python35
+    parent: ansible-test-units-base
+    nodeset: controller-python35
+    abstract: true
+    vars:
+      ansible_test_python: 3.5
+
+- job:
+    name: ansible-test-units-base-python36
+    parent: ansible-test-units-base
+    nodeset: controller-python36
+    abstract: true
+    vars:
+      ansible_test_python: 3.6
+
+- job:
+    name: ansible-test-units-base-python37
+    parent: ansible-test-units-base
+    nodeset: controller-python37
+    abstract: true
+    vars:
+      ansible_test_python: 3.7
+
+- job:
+    name: ansible-test-units-base-python38
+    parent: ansible-test-units-base
+    nodeset: controller-python38
+    abstract: true
+    vars:
       ansible_test_python: 3.8
 
 - job:

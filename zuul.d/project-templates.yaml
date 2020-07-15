@@ -557,6 +557,7 @@
 - project-template:
     name: ansible-collections-community-vmware
     check:
+      queue: integrated
       jobs:
         - ansible-test-cloud-integration-govcsim-python36_1_of_3
         - ansible-test-cloud-integration-govcsim-python36_2_of_3

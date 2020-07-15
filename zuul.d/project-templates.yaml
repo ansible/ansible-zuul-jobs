@@ -3,6 +3,8 @@
     name: integrated-queue
     description: |
       Group projects together into a shared (integrated) change queue.
+    check:
+      queue: integrated
     gate:
       queue: integrated
 

@@ -12,7 +12,7 @@
     - name: Generate version number for ansible collection
       args:
         chdir: "{{ ansible_user_dir }}/{{ zuul.project.src_dir }}"
-      shell: "{{ ansible_user_dir }}/{{ zuul.projects['github.com/ansible-network/releases'].src_dir }}/.tox/venv/bin/generate-ansible-collection"
+      shell: "{{ ansible_user_dir }}/{{ zuul.projects['github.com/ansible-network/releases'].src_dir }}/.tox/venv/bin/python -W ignore {{ ansible_user_dir }}/{{ zuul.projects['github.com/ansible-network/releases'].src_dir }}/.tox/venv/bin/generate-ansible-collection"
       register: _version
 
     - name: Fetch and install the artifacts

@@ -847,6 +847,26 @@
           - ubuntu-bionic
 
 - nodeset:
+    name: controller-python27
+    nodes:
+      - name: ubuntu-bionic
+        label: ubuntu-bionic-1vcpu
+    groups:
+      - name: controller
+        nodes:
+          - ubuntu-bionic
+
+- nodeset:
+    name: controller-python35
+    nodes:
+      - name: ubuntu-xenial
+        label: ubuntu-xenial-1vcpu
+    groups:
+      - name: controller
+        nodes:
+          - ubuntu-xenial
+
+- nodeset:
     name: controller-python36
     nodes:
       - name: centos-8
@@ -855,6 +875,16 @@
       - name: controller
         nodes:
           - centos-8
+
+- nodeset:
+    name: controller-python37
+    nodes:
+      - name: fedora-31
+        label: fedora-31-1vcpu
+    groups:
+      - name: controller
+        nodes:
+          - fedora-31
 
 - nodeset:
     name: controller-python38

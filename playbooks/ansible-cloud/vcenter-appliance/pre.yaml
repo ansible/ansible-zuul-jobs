@@ -56,3 +56,18 @@
         configure_swap_size: 2000
     - import_role:
         name: vmware-ci-vcenter-services
+
+- hosts: localhost
+  gather_facts: false
+  tasks:
+    - name: Ensure we can log in the vCenter properly
+      uri:
+        url: "https://{{ hostvars['vcenter']['nodepool']['interface_ip']}}/rest/com/vmware/cis/session"
+        method: POST
+        url_password: "{{ lookup('file', '{{ zuul.executor.work_root }}/vcenter/tmp/vcenter_password.txt') }}"
+        url_username: "administrator@vsphere.local"
+        validate_certs: false
+      register: _result
+      until: _result is success
+      retries: 100
+      delay: 5

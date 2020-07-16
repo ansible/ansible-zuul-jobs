@@ -64,52 +64,28 @@
 - project-template:
     name: ansible-collections-arista-eos-units
     check:
-      jobs:
+      jobs: &ansile-collections-arista-eos-units-jobs
         - ansible-test-sanity-eos
-        - ansible-test-units-eos
+        - ansible-test-units-eos-python27
+        - ansible-test-units-eos-python35
+        - ansible-test-units-eos-python36
+        - ansible-test-units-eos-python37
+        - ansible-test-units-eos-python38
     gate:
       queue: integrated
-      jobs:
-        - ansible-test-sanity-eos
-        - ansible-test-units-eos
+      jobs: *ansile-collections-arista-eos-units-jobs
 
 - project-template:
     name: ansible-collections-arista-eos
     check:
       jobs: &ansible-collections-arista-eos-jobs
-        - ansible-test-network-integration-eos-httpapi-python27
-        - ansible-test-network-integration-eos-httpapi-python27-stable210
-        - ansible-test-network-integration-eos-httpapi-python27-stable29
-        - ansible-test-network-integration-eos-httpapi-python35
-        - ansible-test-network-integration-eos-httpapi-python35-stable210
-        - ansible-test-network-integration-eos-httpapi-python35-stable29
         - ansible-test-network-integration-eos-httpapi-python36
         - ansible-test-network-integration-eos-httpapi-python36-stable210
         - ansible-test-network-integration-eos-httpapi-python36-stable29
-        - ansible-test-network-integration-eos-httpapi-python37
-        - ansible-test-network-integration-eos-httpapi-python37-stable210
-        - ansible-test-network-integration-eos-httpapi-python37-stable29
-        - ansible-test-network-integration-eos-httpapi-python38
-        - ansible-test-network-integration-eos-httpapi-python38-stable210
-        - ansible-test-network-integration-eos-network_cli-python27
-        - ansible-test-network-integration-eos-network_cli-python27-stable210-scenario01
-        - ansible-test-network-integration-eos-network_cli-python27-stable210-scenario02
-        - ansible-test-network-integration-eos-network_cli-python27-stable29
-        - ansible-test-network-integration-eos-network_cli-python35
-        - ansible-test-network-integration-eos-network_cli-python35-stable210-scenario01
-        - ansible-test-network-integration-eos-network_cli-python35-stable210-scenario02
-        - ansible-test-network-integration-eos-network_cli-python35-stable29
         - ansible-test-network-integration-eos-network_cli-python36
         - ansible-test-network-integration-eos-network_cli-python36-stable210-scenario01
         - ansible-test-network-integration-eos-network_cli-python36-stable210-scenario02
         - ansible-test-network-integration-eos-network_cli-python36-stable29
-        - ansible-test-network-integration-eos-network_cli-python37
-        - ansible-test-network-integration-eos-network_cli-python37-stable210-scenario01
-        - ansible-test-network-integration-eos-network_cli-python37-stable210-scenario02
-        - ansible-test-network-integration-eos-network_cli-python37-stable29
-        - ansible-test-network-integration-eos-network_cli-python38
-        - ansible-test-network-integration-eos-network_cli-python38-stable210-scenario01
-        - ansible-test-network-integration-eos-network_cli-python38-stable210-scenario02
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-collections/ansible.netcommon

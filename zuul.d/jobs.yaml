@@ -401,11 +401,42 @@
       ansible_collections_repo: github.com/ansible-collections/arista.eos
 
 - job:
-    name: ansible-test-units-eos
-    parent: ansible-test-units-base
+    name: ansible-test-units-eos-python27
+    parent: ansible-test-units-base-python27
     required-projects:
       - name: github.com/ansible-collections/arista.eos
-    timeout: 3600
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/arista.eos
+
+- job:
+    name: ansible-test-units-eos-python35
+    parent: ansible-test-units-base-python35
+    required-projects:
+      - name: github.com/ansible-collections/arista.eos
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/arista.eos
+
+- job:
+    name: ansible-test-units-eos-python36
+    parent: ansible-test-units-base-python36
+    required-projects:
+      - name: github.com/ansible-collections/arista.eos
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/arista.eos
+
+- job:
+    name: ansible-test-units-eos-python37
+    parent: ansible-test-units-base-python37
+    required-projects:
+      - name: github.com/ansible-collections/arista.eos
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/arista.eos
+
+- job:
+    name: ansible-test-units-eos-python38
+    parent: ansible-test-units-base-python38
+    required-projects:
+      - name: github.com/ansible-collections/arista.eos
     vars:
       ansible_collections_repo: github.com/ansible-collections/arista.eos
 
@@ -433,145 +464,9 @@
       ansible_test_python: 2.7
 
 - job:
-    name: ansible-test-network-integration-eos-httpapi-python27
-    parent: ansible-test-network-integration-eos-httpapi
-    nodeset: eos-4.20.10-python27
-    vars:
-      ansible_test_python: 2.7
-
-- job:
-    name: ansible-test-network-integration-eos-network_cli-python27
-    parent: ansible-test-network-integration-eos-network_cli
-    nodeset: eos-4.20.10-python27
-    vars:
-      ansible_test_python: 2.7
-
-- job:
-    name: ansible-test-network-integration-eos-httpapi-python27-stable210
-    parent: ansible-test-network-integration-eos-httpapi
-    nodeset: eos-4.20.10-python27
-    required-projects:
-      - name: github.com/ansible/ansible
-        override-checkout: stable-2.10
-    vars:
-      ansible_test_python: 2.7
-
-- job:
-    name: ansible-test-network-integration-eos-network_cli-python27-stable210
-    parent: ansible-test-network-integration-eos-network_cli
-    nodeset: eos-4.20.10-python27
-    required-projects:
-      - name: github.com/ansible/ansible
-        override-checkout: stable-2.10
-    vars:
-      ansible_test_python: 2.7
-      ansible_test_split_in: 2
-
-- job:
-    name: ansible-test-network-integration-eos-network_cli-python27-stable210-scenario01
-    parent: ansible-test-network-integration-eos-network_cli-python27-stable210
-    vars:
-      ansible_test_do_number: 1
-
-- job:
-    name: ansible-test-network-integration-eos-network_cli-python27-stable210-scenario02
-    parent: ansible-test-network-integration-eos-network_cli-python27-stable210
-    vars:
-      ansible_test_do_number: 2
-
-- job:
-    name: ansible-test-network-integration-eos-httpapi-python27-stable29
-    parent: ansible-test-network-integration-eos-httpapi
-    nodeset: eos-4.20.10-python27
-    required-projects:
-      - name: github.com/ansible/ansible
-        override-checkout: stable-2.9
-    vars:
-      ansible_test_python: 2.7
-
-- job:
-    name: ansible-test-network-integration-eos-network_cli-python27-stable29
-    parent: ansible-test-network-integration-eos-network_cli
-    nodeset: eos-4.20.10-python27
-    required-projects:
-      - name: github.com/ansible/ansible
-        override-checkout: stable-2.9
-    vars:
-      ansible_test_python: 2.7
-
-- job:
     name: ansible-test-network-integration-eos-python35
     parent: ansible-test-network-integration-eos
     nodeset: eos-4.20.10-python35
-    vars:
-      ansible_test_python: 3.5
-
-- job:
-    name: ansible-test-network-integration-eos-httpapi-python35
-    parent: ansible-test-network-integration-eos-httpapi
-    nodeset: eos-4.20.10-python35
-    vars:
-      ansible_test_python: 3.5
-
-- job:
-    name: ansible-test-network-integration-eos-network_cli-python35
-    parent: ansible-test-network-integration-eos-network_cli
-    nodeset: eos-4.20.10-python35
-    vars:
-      ansible_test_python: 3.5
-
-- job:
-    name: ansible-test-network-integration-eos-httpapi-python35-stable210
-    parent: ansible-test-network-integration-eos-httpapi
-    nodeset: eos-4.20.10-python35
-    required-projects:
-      - name: github.com/ansible/ansible
-        override-checkout: stable-2.10
-    vars:
-      ansible_test_python: 3.5
-
-- job:
-    name: ansible-test-network-integration-eos-network_cli-python35-stable210
-    parent: ansible-test-network-integration-eos-network_cli
-    nodeset: eos-4.20.10-python35
-    required-projects:
-      - name: github.com/ansible/ansible
-        override-checkout: stable-2.10
-    vars:
-      ansible_test_python: 3.5
-      ansible_test_split_in: 2
-
-
-- job:
-    name: ansible-test-network-integration-eos-network_cli-python35-stable210-scenario01
-    parent: ansible-test-network-integration-eos-network_cli-python35-stable210
-    vars:
-      ansible_test_do_number: 1
-
-- job:
-    name: ansible-test-network-integration-eos-network_cli-python35-stable210-scenario02
-    parent: ansible-test-network-integration-eos-network_cli-python35-stable210
-    vars:
-      ansible_test_do_number: 2
-
-
-- job:
-    name: ansible-test-network-integration-eos-httpapi-python35-stable29
-    parent: ansible-test-network-integration-eos-httpapi
-    nodeset: eos-4.20.10-python35
-    required-projects:
-      - name: github.com/ansible/ansible
-        override-checkout: stable-2.9
-    vars:
-      ansible_test_python: 3.5
-
-- job:
-    name: ansible-test-network-integration-eos-network_cli-python35-stable29
-    parent: ansible-test-network-integration-eos-network_cli
-    nodeset: eos-4.20.10-python35
-    required-projects:
-      - name: github.com/ansible/ansible
-        override-checkout: stable-2.9
     vars:
       ansible_test_python: 3.5
 
@@ -657,127 +552,11 @@
       ansible_test_python: 3.7
 
 - job:
-    name: ansible-test-network-integration-eos-httpapi-python37
-    parent: ansible-test-network-integration-eos-httpapi
-    nodeset: eos-4.20.10-python37
-    vars:
-      ansible_test_python: 3.7
-
-- job:
-    name: ansible-test-network-integration-eos-network_cli-python37
-    parent: ansible-test-network-integration-eos-network_cli
-    nodeset: eos-4.20.10-python37
-    vars:
-      ansible_test_python: 3.7
-
-- job:
-    name: ansible-test-network-integration-eos-httpapi-python37-stable210
-    parent: ansible-test-network-integration-eos-httpapi
-    nodeset: eos-4.20.10-python37
-    required-projects:
-      - name: github.com/ansible/ansible
-        override-checkout: stable-2.10
-    vars:
-      ansible_test_python: 3.7
-
-- job:
-    name: ansible-test-network-integration-eos-network_cli-python37-stable210
-    parent: ansible-test-network-integration-eos-network_cli
-    nodeset: eos-4.20.10-python37
-    required-projects:
-      - name: github.com/ansible/ansible
-        override-checkout: stable-2.10
-    vars:
-      ansible_test_python: 3.7
-      ansible_test_split_in: 2
-
-- job:
-    name: ansible-test-network-integration-eos-network_cli-python37-stable210-scenario01
-    parent: ansible-test-network-integration-eos-network_cli-python37-stable210
-    vars:
-      ansible_test_do_number: 1
-
-- job:
-    name: ansible-test-network-integration-eos-network_cli-python37-stable210-scenario02
-    parent: ansible-test-network-integration-eos-network_cli-python37-stable210
-    vars:
-      ansible_test_do_number: 2
-
-
-- job:
-    name: ansible-test-network-integration-eos-httpapi-python37-stable29
-    parent: ansible-test-network-integration-eos-httpapi
-    nodeset: eos-4.20.10-python37
-    required-projects:
-      - name: github.com/ansible/ansible
-        override-checkout: stable-2.9
-    vars:
-      ansible_test_python: 3.7
-
-- job:
-    name: ansible-test-network-integration-eos-network_cli-python37-stable29
-    parent: ansible-test-network-integration-eos-network_cli
-    nodeset: eos-4.20.10-python37
-    required-projects:
-      - name: github.com/ansible/ansible
-        override-checkout: stable-2.9
-    vars:
-      ansible_test_python: 3.7
-
-- job:
     name: ansible-test-network-integration-eos-python38
     parent: ansible-test-network-integration-eos
     nodeset: eos-4.20.10-python38
     vars:
       ansible_test_python: 3.8
-
-- job:
-    name: ansible-test-network-integration-eos-httpapi-python38
-    parent: ansible-test-network-integration-eos-httpapi
-    nodeset: eos-4.20.10-python38
-    vars:
-      ansible_test_python: 3.8
-
-- job:
-    name: ansible-test-network-integration-eos-network_cli-python38
-    parent: ansible-test-network-integration-eos-network_cli
-    nodeset: eos-4.20.10-python38
-    vars:
-      ansible_test_python: 3.8
-
-- job:
-    name: ansible-test-network-integration-eos-httpapi-python38-stable210
-    parent: ansible-test-network-integration-eos-httpapi
-    nodeset: eos-4.20.10-python38
-    required-projects:
-      - name: github.com/ansible/ansible
-        override-checkout: stable-2.10
-    vars:
-      ansible_test_python: 3.8
-
-- job:
-    name: ansible-test-network-integration-eos-network_cli-python38-stable210
-    parent: ansible-test-network-integration-eos-network_cli
-    nodeset: eos-4.20.10-python38
-    required-projects:
-      - name: github.com/ansible/ansible
-        override-checkout: stable-2.10
-    vars:
-      ansible_test_python: 3.8
-      ansible_test_split_in: 2
-
-- job:
-    name: ansible-test-network-integration-eos-network_cli-python38-stable210-scenario01
-    parent: ansible-test-network-integration-eos-network_cli-python38-stable210
-    vars:
-      ansible_test_do_number: 1
-
-- job:
-    name: ansible-test-network-integration-eos-network_cli-python38-stable210-scenario02
-    parent: ansible-test-network-integration-eos-network_cli-python38-stable210
-    vars:
-      ansible_test_do_number: 2
-
 
 - job:
     name: ansible-test-network-integration-ios

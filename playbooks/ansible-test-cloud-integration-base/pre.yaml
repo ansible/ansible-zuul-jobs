@@ -51,15 +51,3 @@
       vars:
         vmware_ci_configure_ansible_test_ansible_path: "{{ ansible_user_dir }}/{{ zuul.projects['github.com/ansible/ansible'].src_dir }}"
         vmware_ci_set_passwords_secret_dir: '{{ zuul.executor.work_root }}'
-
-    - name: wait for the vcenter service
-      uri:
-        url: "https://vcenter.test"
-        validate_certs: false
-        return_content: true
-      register: result
-      until:
-        - "result.status == 200"
-        - "'vmc-documentation-link' in result.content"
-      retries: 100
-      delay: 5

@@ -68,7 +68,8 @@
         url_password: "{{ lookup('file', '{{ zuul.executor.work_root }}/vcenter/tmp/vcenter_password.txt') }}"
         url_username: "administrator@vsphere.local"
         validate_certs: false
+        body_format: json
       register: _result
-      until: _result is success
+      until: _result is success and "value" in _result.json
       retries: 100
-      delay: 5
+      delay: 6

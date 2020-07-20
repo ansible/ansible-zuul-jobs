@@ -1910,10 +1910,12 @@
     post-run: playbooks/ansible-test-units-base/post.yaml
     required-projects:
       - name: github.com/ansible/ansible
+        override-checkout: stable-2.9
     timeout: 3600
     vars:
       ansible_test_collections: true
       ansible_test_command: units
+      ansible_test_enable_ara: false
       ansible_test_integration_targets: ""
       # NOTE(pabelanger): ansible_test_python to be removed
       ansible_test_python: 3.8

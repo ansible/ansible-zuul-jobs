@@ -16,7 +16,7 @@
       eos_config:
         lines:
           - ip name-server 1.1.1.1
-          - username zuul privilege 15 nopassword
+          - username zuul privilege 15 secret superSecretPass
           - "username zuul sshkey {{ _ssh_key.split()[0] }} {{ _ssh_key.split()[1] }}"
         save_when: always
 

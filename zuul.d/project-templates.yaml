@@ -96,78 +96,30 @@
 - project-template:
     name: ansible-collections-cisco-asa-units
     check:
-      jobs:
+      jobs: &ansible-collections-cisco-asa-units-jobs
         - ansible-test-sanity-asa
-        - ansible-test-units-asa
+        - ansible-test-units-asa-python27
+        - ansible-test-units-asa-python35
+        - ansible-test-units-asa-python36
+        - ansible-test-units-asa-python37
+        - ansible-test-units-asa-python38
     gate:
       queue: integrated
-      jobs:
-        - ansible-test-sanity-asa
-        - ansible-test-units-asa
+      jobs: *ansible-collections-cisco-asa-units-jobs
 
 - project-template:
     name: ansible-collections-cisco-asa
     check:
-      jobs:
-        - ansible-test-network-integration-asa-python27:
-            vars:
-              ansible_test_collections: true
-        - ansible-test-network-integration-asa-python27-stable29:
-            vars:
-              ansible_test_collections: true
-        - ansible-test-network-integration-asa-python35:
-            vars:
-              ansible_test_collections: true
-            voting: false
-        - ansible-test-network-integration-asa-python35-stable29:
-            vars:
-              ansible_test_collections: true
-            voting: false
-        - ansible-test-network-integration-asa-python36:
-            vars:
-              ansible_test_collections: true
-        - ansible-test-network-integration-asa-python36-stable29:
-            vars:
-              ansible_test_collections: true
-        - ansible-test-network-integration-asa-python37:
-            vars:
-              ansible_test_collections: true
-        - ansible-test-network-integration-asa-python37-stable29:
-            vars:
-              ansible_test_collections: true
-        - ansible-test-network-integration-asa-python38:
-            vars:
-              ansible_test_collections: true
+      jobs: &ansible-collections-cisco-asa-jobs
+        - ansible-test-network-integration-asa-python36
+        - ansible-test-network-integration-asa-python36-stable210
+        - ansible-test-network-integration-asa-python36-stable29
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-collections/ansible.netcommon
     gate:
       queue: integrated
-      jobs:
-        - ansible-test-network-integration-asa-python27:
-            vars:
-              ansible_test_collections: true
-        - ansible-test-network-integration-asa-python27-stable29:
-            vars:
-              ansible_test_collections: true
-        - ansible-test-network-integration-asa-python36:
-            vars:
-              ansible_test_collections: true
-        - ansible-test-network-integration-asa-python36-stable29:
-            vars:
-              ansible_test_collections: true
-        - ansible-test-network-integration-asa-python37:
-            vars:
-              ansible_test_collections: true
-        - ansible-test-network-integration-asa-python37-stable29:
-            vars:
-              ansible_test_collections: true
-        - ansible-test-network-integration-asa-python38:
-            vars:
-              ansible_test_collections: true
-        - build-ansible-collection:
-            required-projects:
-              - name: github.com/ansible-collections/ansible.netcommon
+      jobs: *ansible-collections-cisco-asa-jobs
 
 - project-template:
     name: ansible-collections-cisco-nxos-units

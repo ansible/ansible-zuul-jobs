@@ -270,6 +270,7 @@
       - README.md
     vars:
       ansible_collections_repo: github.com/ansible-collections/cisco.asa
+      ansible_test_collections: true
       ansible_test_command: network-integration
       ansible_test_integration_targets: "asa_.*"
 
@@ -283,52 +284,59 @@
       ansible_collections_repo: github.com/ansible-collections/cisco.asa
 
 - job:
-    name: ansible-test-units-asa
-    parent: ansible-test-units-base
+    name: ansible-test-units-asa-python27
+    parent: ansible-test-units-base-python27
     required-projects:
       - name: github.com/ansible-collections/cisco.asa
-    timeout: 3600
     vars:
       ansible_collections_repo: github.com/ansible-collections/cisco.asa
 
 - job:
-    name: ansible-test-network-integration-asa-python27
-    parent: ansible-test-network-integration-asa
-    nodeset: asav9-12-3-python27
-    vars:
-      ansible_test_python: 2.7
-
-- job:
-    name: ansible-test-network-integration-asa-python27-stable29
-    parent: ansible-test-network-integration-asa
-    nodeset: asav9-12-3-python27
+    name: ansible-test-units-asa-python35
+    parent: ansible-test-units-base-python35
     required-projects:
-      - name: github.com/ansible/ansible
-        override-checkout: stable-2.9
+      - name: github.com/ansible-collections/cisco.asa
     vars:
-      ansible_test_python: 2.7
+      ansible_collections_repo: github.com/ansible-collections/cisco.asa
 
 - job:
-    name: ansible-test-network-integration-asa-python35
-    parent: ansible-test-network-integration-asa
-    nodeset: asav9-12-3-python35
-    vars:
-      ansible_test_python: 3.5
-
-- job:
-    name: ansible-test-network-integration-asa-python35-stable29
-    parent: ansible-test-network-integration-asa
-    nodeset: asav9-12-3-python35
+    name: ansible-test-units-asa-python36
+    parent: ansible-test-units-base-python36
     required-projects:
-      - name: github.com/ansible/ansible
-        override-checkout: stable-2.9
+      - name: github.com/ansible-collections/cisco.asa
     vars:
-      ansible_test_python: 3.5
+      ansible_collections_repo: github.com/ansible-collections/cisco.asa
+
+- job:
+    name: ansible-test-units-asa-python37
+    parent: ansible-test-units-base-python37
+    required-projects:
+      - name: github.com/ansible-collections/cisco.asa
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/cisco.asa
+
+- job:
+    name: ansible-test-units-asa-python38
+    parent: ansible-test-units-base-python38
+    required-projects:
+      - name: github.com/ansible-collections/cisco.asa
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/cisco.asa
 
 - job:
     name: ansible-test-network-integration-asa-python36
     parent: ansible-test-network-integration-asa
     nodeset: asav9-12-3-python36
+    vars:
+      ansible_test_python: 3.6
+
+- job:
+    name: ansible-test-network-integration-asa-python36-stable210
+    parent: ansible-test-network-integration-asa
+    nodeset: asav9-12-3-python36
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.10
     vars:
       ansible_test_python: 3.6
 
@@ -341,30 +349,6 @@
         override-checkout: stable-2.9
     vars:
       ansible_test_python: 3.6
-
-- job:
-    name: ansible-test-network-integration-asa-python37
-    parent: ansible-test-network-integration-asa
-    nodeset: asav9-12-3-python37
-    vars:
-      ansible_test_python: 3.7
-
-- job:
-    name: ansible-test-network-integration-asa-python37-stable29
-    parent: ansible-test-network-integration-asa
-    nodeset: asav9-12-3-python37
-    required-projects:
-      - name: github.com/ansible/ansible
-        override-checkout: stable-2.9
-    vars:
-      ansible_test_python: 3.7
-
-- job:
-    name: ansible-test-network-integration-asa-python38
-    parent: ansible-test-network-integration-asa
-    nodeset: asav9-12-3-python38
-    vars:
-      ansible_test_python: 3.8
 
 - job:
     name: ansible-test-network-integration-eos

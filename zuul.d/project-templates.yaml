@@ -198,47 +198,27 @@
 - project-template:
     name: ansible-collections-cisco-ios-units
     check:
-      jobs:
+      jobs: &ansible-collections-cisco-ios-units-jobs
         - ansible-test-sanity-ios
-        - ansible-test-units-ios
+        - ansible-test-units-ios-python27
+        - ansible-test-units-ios-python35
+        - ansible-test-units-ios-python36
+        - ansible-test-units-ios-python37
+        - ansible-test-units-ios-python38
     gate:
       queue: integrated
-      jobs:
-        - ansible-test-sanity-ios
-        - ansible-test-units-ios
+      jobs: *ansible-collections-cisco-ios-units-jobs
 
 - project-template:
     name: ansible-collections-cisco-ios
     check:
       jobs: &ansible-collections-cisco-ios-jobs
-        - ansible-test-network-integration-ios-local-python27
-        - ansible-test-network-integration-ios-local-python27-stable210
-        - ansible-test-network-integration-ios-local-python27-stable29
-        - ansible-test-network-integration-ios-local-python35
-        - ansible-test-network-integration-ios-local-python35-stable210
-        - ansible-test-network-integration-ios-local-python35-stable29
         - ansible-test-network-integration-ios-local-python36
         - ansible-test-network-integration-ios-local-python36-stable210
         - ansible-test-network-integration-ios-local-python36-stable29
-        - ansible-test-network-integration-ios-local-python37
-        - ansible-test-network-integration-ios-local-python37-stable210
-        - ansible-test-network-integration-ios-local-python37-stable29
-        - ansible-test-network-integration-ios-local-python38
-        - ansible-test-network-integration-ios-local-python38-stable210
-        - ansible-test-network-integration-ios-network_cli-python27
-        - ansible-test-network-integration-ios-network_cli-python27-stable210
-        - ansible-test-network-integration-ios-network_cli-python27-stable29
-        - ansible-test-network-integration-ios-network_cli-python35
-        - ansible-test-network-integration-ios-network_cli-python35-stable210
-        - ansible-test-network-integration-ios-network_cli-python35-stable29
         - ansible-test-network-integration-ios-network_cli-python36
         - ansible-test-network-integration-ios-network_cli-python36-stable210
         - ansible-test-network-integration-ios-network_cli-python36-stable29
-        - ansible-test-network-integration-ios-network_cli-python37
-        - ansible-test-network-integration-ios-network_cli-python37-stable210
-        - ansible-test-network-integration-ios-network_cli-python37-stable29
-        - ansible-test-network-integration-ios-network_cli-python38
-        - ansible-test-network-integration-ios-network_cli-python38-stable210
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-collections/ansible.netcommon

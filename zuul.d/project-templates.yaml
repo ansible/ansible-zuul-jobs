@@ -740,7 +740,6 @@
             voting: false
         - ansible-test-network-integration-vyos-network_cli-python36
         - ansible-test-network-integration-vyos-network_cli-python36-stable210
-            
         - ansible-test-network-integration-vyos-network_cli-python36-stable29
         - build-ansible-collection:
             required-projects:

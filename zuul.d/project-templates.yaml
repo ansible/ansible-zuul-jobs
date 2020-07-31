@@ -731,18 +731,12 @@
 - project-template:
     name: ansible-collections-vyos-vyos
     check:
-      jobs: &ansible-collections-vyos-vyos-jobs
-        - ansible-test-network-integration-vyos-local-python36
-            vars:
-              ansible_test_collections: true
+      jobs:
+        - ansible-test-network-integration-vyos-local-python36:
             voting: false
-        - ansible-test-network-integration-vyos-local-python36-stable210
-            vars:
-              ansible_test_collections: true
+        - ansible-test-network-integration-vyos-local-python36-stable210:
             voting: false
-        - ansible-test-network-integration-vyos-local-python36-stable29
-            vars:
-              ansible_test_collections: true
+        - ansible-test-network-integration-vyos-local-python36-stable29:
             voting: false
         - ansible-test-network-integration-vyos-network_cli-python36
         - ansible-test-network-integration-vyos-network_cli-python36-stable210

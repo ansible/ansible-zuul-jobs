@@ -45,6 +45,7 @@
           vars:
             vmware_ci_nfs_share_allow_ips: "{{ groups['esxis'] | map('extract', hostvars, ['nodepool'])|map(attribute='interface_ip')|list }}"
 
+    # NOTE: We don't need that for vmware_rest
     - name: Write the configuration for ansible-test
       import_role:
         name: vmware-ci-configure-ansible-test

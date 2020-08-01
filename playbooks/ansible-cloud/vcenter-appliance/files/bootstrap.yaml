@@ -9,6 +9,11 @@
       esxi2: /etc/ssh/keys-zuul/authorized_keys
   tasks:
 
+    - name: Ensure remote SSH host keys are known
+      shell: "ssh-keyscan -v {{hostvars[item].ansible_host }} >> ~/.ssh/known_hosts"
+      with_inventory_hostnames: appliance
+      delegate_to: localhost
+
     - name: lookup SSH public key
       set_fact:
         _ssh_key: "{{ lookup('file', '~/.ssh/id_rsa.pub') }}"

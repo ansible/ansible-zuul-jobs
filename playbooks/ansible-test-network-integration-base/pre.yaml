@@ -29,3 +29,4 @@
       vars:
         ansible_test_inventory_os: "{{ _network_os }}"
         ansible_test_inventory_dest: ~/inventory
+        vmware_ci_set_passwords_secret_dir: '{{ zuul.executor.work_root }}'

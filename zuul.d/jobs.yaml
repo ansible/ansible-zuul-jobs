@@ -1368,11 +1368,42 @@
       ansible_collections_repo: github.com/ansible-collections/junipernetworks.junos
 
 - job:
-    name: ansible-test-units-junos
-    parent: ansible-test-units-base
+    name: ansible-test-units-junos-python27
+    parent: ansible-test-units-base-python27
     required-projects:
       - name: github.com/ansible-collections/junipernetworks.junos
-    timeout: 3600
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/junipernetworks.junos
+
+- job:
+    name: ansible-test-units-junos-python35
+    parent: ansible-test-units-base-python35
+    required-projects:
+      - name: github.com/ansible-collections/junipernetworks.junos
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/junipernetworks.junos
+
+- job:
+    name: ansible-test-units-junos-python36
+    parent: ansible-test-units-base-python36
+    required-projects:
+      - name: github.com/ansible-collections/junipernetworks.junos
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/junipernetworks.junos
+
+- job:
+    name: ansible-test-units-junos-python37
+    parent: ansible-test-units-base-python37
+    required-projects:
+      - name: github.com/ansible-collections/junipernetworks.junos
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/junipernetworks.junos
+
+- job:
+    name: ansible-test-units-junos-python38
+    parent: ansible-test-units-base-python38
+    required-projects:
+      - name: github.com/ansible-collections/junipernetworks.junos
     vars:
       ansible_collections_repo: github.com/ansible-collections/junipernetworks.junos
 
@@ -1400,77 +1431,9 @@
       ansible_test_python: 2.7
 
 - job:
-    name: ansible-test-network-integration-junos-vsrx-netconf-python27
-    parent: ansible-test-network-integration-junos-vsrx-netconf
-    nodeset: vsrx3-18.4R1-python27
-    vars:
-      ansible_test_python: 2.7
-
-- job:
-    name: ansible-test-network-integration-junos-vsrx-netconf-python27-stable29
-    parent: ansible-test-network-integration-junos-vsrx-netconf
-    nodeset: vsrx3-18.4R1-python27
-    required-projects:
-      - name: github.com/ansible/ansible
-        override-checkout: stable-2.9
-    vars:
-      ansible_test_python: 2.7
-
-- job:
-    name: ansible-test-network-integration-junos-vsrx-network_cli-python27
-    parent: ansible-test-network-integration-junos-vsrx-network_cli
-    nodeset: vsrx3-18.4R1-python27
-    vars:
-      ansible_test_python: 2.7
-
-- job:
-    name: ansible-test-network-integration-junos-vsrx-network_cli-python27-stable29
-    parent: ansible-test-network-integration-junos-vsrx-network_cli
-    nodeset: vsrx3-18.4R1-python27
-    required-projects:
-      - name: github.com/ansible/ansible
-        override-checkout: stable-2.9
-    vars:
-      ansible_test_python: 2.7
-
-- job:
     name: ansible-test-network-integration-junos-vsrx-python35
     parent: ansible-test-network-integration-junos-vsrx
     nodeset: vsrx3-18.4R1-python35
-    vars:
-      ansible_test_python: 3.5
-
-- job:
-    name: ansible-test-network-integration-junos-vsrx-netconf-python35
-    parent: ansible-test-network-integration-junos-vsrx-netconf
-    nodeset: vsrx3-18.4R1-python35
-    vars:
-      ansible_test_python: 3.5
-
-- job:
-    name: ansible-test-network-integration-junos-vsrx-netconf-python35-stable29
-    parent: ansible-test-network-integration-junos-vsrx-netconf
-    nodeset: vsrx3-18.4R1-python35
-    required-projects:
-      - name: github.com/ansible/ansible
-        override-checkout: stable-2.9
-    vars:
-      ansible_test_python: 3.5
-
-- job:
-    name: ansible-test-network-integration-junos-vsrx-network_cli-python35
-    parent: ansible-test-network-integration-junos-vsrx-network_cli
-    nodeset: vsrx3-18.4R1-python35
-    vars:
-      ansible_test_python: 3.5
-
-- job:
-    name: ansible-test-network-integration-junos-vsrx-network_cli-python35-stable29
-    parent: ansible-test-network-integration-junos-vsrx-network_cli
-    nodeset: vsrx3-18.4R1-python35
-    required-projects:
-      - name: github.com/ansible/ansible
-        override-checkout: stable-2.9
     vars:
       ansible_test_python: 3.5
 
@@ -1523,56 +1486,8 @@
       ansible_test_python: 3.7
 
 - job:
-    name: ansible-test-network-integration-junos-vsrx-netconf-python37
-    parent: ansible-test-network-integration-junos-vsrx-netconf
-    nodeset: vsrx3-18.4R1-python37
-    vars:
-      ansible_test_python: 3.7
-
-- job:
-    name: ansible-test-network-integration-junos-vsrx-netconf-python37-stable29
-    parent: ansible-test-network-integration-junos-vsrx-netconf
-    nodeset: vsrx3-18.4R1-python37
-    required-projects:
-      - name: github.com/ansible/ansible
-        override-checkout: stable-2.9
-    vars:
-      ansible_test_python: 3.7
-
-- job:
-    name: ansible-test-network-integration-junos-vsrx-network_cli-python37
-    parent: ansible-test-network-integration-junos-vsrx-network_cli
-    nodeset: vsrx3-18.4R1-python37
-    vars:
-      ansible_test_python: 3.7
-
-- job:
-    name: ansible-test-network-integration-junos-vsrx-network_cli-python37-stable29
-    parent: ansible-test-network-integration-junos-vsrx-network_cli
-    nodeset: vsrx3-18.4R1-python37
-    required-projects:
-      - name: github.com/ansible/ansible
-        override-checkout: stable-2.9
-    vars:
-      ansible_test_python: 3.7
-
-- job:
     name: ansible-test-network-integration-junos-vsrx-python38
     parent: ansible-test-network-integration-junos-vsrx
-    nodeset: vsrx3-18.4R1-python38
-    vars:
-      ansible_test_python: 3.8
-
-- job:
-    name: ansible-test-network-integration-junos-vsrx-netconf-python38
-    parent: ansible-test-network-integration-junos-vsrx-netconf
-    nodeset: vsrx3-18.4R1-python38
-    vars:
-      ansible_test_python: 3.8
-
-- job:
-    name: ansible-test-network-integration-junos-vsrx-network_cli-python38
-    parent: ansible-test-network-integration-junos-vsrx-network_cli
     nodeset: vsrx3-18.4R1-python38
     vars:
       ansible_test_python: 3.8

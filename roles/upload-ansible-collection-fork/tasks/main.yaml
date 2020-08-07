@@ -22,7 +22,7 @@
     - name: Publish collection to Ansible Galaxy / Automation Hub
       environment:
         ANSIBLE_CONFIG: "{{ _ansiblecfg_tmp.path }}"
-      shell: "{{ ansible_galaxy_executable }} collection publish {{ item.path }}"
+      shell: "{{ ansible_galaxy_executable }} -vvv collection publish {{ item.path }}"
       with_items: "{{ found_tarballs.files }}"
 
   always:

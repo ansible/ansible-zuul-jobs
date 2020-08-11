@@ -1144,6 +1144,16 @@
       ansible_test_python: 3.6
 
 - job:
+    name: ansible-test-network-integration-junos-vsrx-netconf-python36-stable210
+    parent: ansible-test-network-integration-junos-vsrx-netconf
+    nodeset: vsrx3-18.4R1-python36
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.10
+    vars:
+      ansible_test_python: 3.6
+
+- job:
     name: ansible-test-network-integration-junos-vsrx-netconf-python36-stable29
     parent: ansible-test-network-integration-junos-vsrx-netconf
     nodeset: vsrx3-18.4R1-python36
@@ -1157,6 +1167,16 @@
     name: ansible-test-network-integration-junos-vsrx-network_cli-python36
     parent: ansible-test-network-integration-junos-vsrx-network_cli
     nodeset: vsrx3-18.4R1-python36
+    vars:
+      ansible_test_python: 3.6
+
+- job:
+    name: ansible-test-network-integration-junos-vsrx-network_cli-python36-stable210
+    parent: ansible-test-network-integration-junos-vsrx-network_cli
+    nodeset: vsrx3-18.4R1-python36
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.10
     vars:
       ansible_test_python: 3.6
 

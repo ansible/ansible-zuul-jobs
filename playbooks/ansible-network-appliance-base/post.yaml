@@ -15,9 +15,7 @@
           environment:
             ARA_PLAYBOOK_PER_PAGE: 50
 
-
-        - name: Check shell output
-          debug:
+        - debug:
             msg: "{{ result.stdout }}"
 
 

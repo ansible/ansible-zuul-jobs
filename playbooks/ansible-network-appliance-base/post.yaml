@@ -18,7 +18,7 @@
 
         - name: Check shell output
           debug:
-            msg: {{ result.stdout }}
+            msg: "{{ result.stdout }}"
 
 
       always:

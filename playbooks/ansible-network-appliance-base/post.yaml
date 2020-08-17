@@ -9,7 +9,7 @@
     - block:
         - name: Generate ARA HTML output
           shell: ".tox/venv/bin/ara --debug generate html {{ ansible_user_dir }}/zuul-output/logs/controller/ara-report"
-          regsiter: result
+          register: result
           args:
             chdir: "{{ ansible_user_dir }}/{{ zuul.projects['github.com/ansible/ansible-zuul-jobs'].src_dir }}"
           environment:

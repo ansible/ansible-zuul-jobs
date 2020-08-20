@@ -353,9 +353,9 @@
         - ansible-test-cloud-integration-vmware-rest-python36
         - build-ansible-collection:
             required-projects:
+              - name: github.com/ansible-collections/cloud.common
               - name: github.com/ansible-collections/vmware
         - ansible-tox-linters
-        - build-ansible-collection
         - ansible-test-sanity-vmware
     gate:
       jobs:

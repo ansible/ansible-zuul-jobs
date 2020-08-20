@@ -298,7 +298,6 @@
       - playbooks/ansible-test-base/post.yaml
     required-projects:
       - name: github.com/ansible/ansible
-      - name: github.com/ansible-collections/vmware
       - name: github.com/ansible-collections/vmware_rest
     vars:
       ansible_collections_repo: github.com/ansible-collections/vmware_rest

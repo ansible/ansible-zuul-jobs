@@ -310,3 +310,17 @@
     parent: ansible-test-cloud-integration-vmware-rest
     vars:
       ansible_test_python: 3.6
+
+- job:
+    name: ansible-test-sanity-vmware-rest
+    parent: ansible-test-sanity-base
+    required-projects:
+      - name: github.com/ansible-collections/vmware_rest
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.10
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/vmware_rest
+      ansible_test_sanity_skiptests:
+        - future-import-boilerplate
+        - metaclass-boilerplate
+      ansible_test_enable_ara: false

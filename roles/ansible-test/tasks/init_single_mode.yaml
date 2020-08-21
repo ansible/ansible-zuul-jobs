@@ -3,4 +3,7 @@
   set_fact:
     _test_location: "{{ zuul.projects['github.com/ansible/ansible'].src_dir }}"
     _test_cfg_location: "{{ zuul.projects['github.com/ansible/ansible'].src_dir }}/test/integration/{{ ansible_test_test_command }}.cfg"
-  when: ansible_test_test_command != 'units'
+  when:
+    # TODO: we should not access zuul data structure from a role.
+    - zuul is defined
+    - ansible_test_test_command != 'units'

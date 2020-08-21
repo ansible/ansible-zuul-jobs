@@ -1,0 +1,23 @@
+---
+- name: Prepare the venv
+  command: python3 -m venv /root/venv
+  args:
+    creates: /root/venv
+- name: Create the directory of the fake collection
+  file:
+    path: "{{ item.path }}"
+    state: "{{ item.state }}"
+  with_items:
+    - path: /root/.ansible/collections/ansible_collections/foo/bar
+      state: directory
+    - path: /root/.ansible/collections/ansible_collections/foo/bar/requirements.txt
+      state: touch
+    - path: /root/.ansible/collections/ansible_collections/foo/bar/test-requirements.txt
+      state: touch
+- name: Prepare the fake-ansible-test command
+  copy:
+    dest: /root/fake-ansible-test
+    content: |
+      #!/bin/bash
+      echo $* > /tmp/ansible-test.log
+    mode: 755

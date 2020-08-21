@@ -9,17 +9,3 @@
     section: defaults
     option: callback_plugins
     value: "{{ _ara_callback_location.stdout }}"
-
-- name: Enable persistent connection logging
-  ini_file:
-    path: "{{ _test_cfg_location }}"
-    section: persistent_connection
-    option: log_messages
-    value: true
-
-- name: Set ansible log path
-  ini_file:
-    path: "{{ _test_cfg_location }}"
-    section: defaults
-    option: log_path
-    value: ~/ansible-debug.txt

@@ -542,6 +542,7 @@
     name: ansible-collections-ansible-netcommon-units
     check:
       jobs: &ansible-collections-ansible-netcommon-units-jobs
+        - ansible-changelog-fragment
         - ansible-test-sanity-netcommon
         - ansible-test-units-netcommon-python27
         - ansible-test-units-netcommon-python35

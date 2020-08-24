@@ -15,6 +15,7 @@
     check:
       jobs:
         - ansible-tox-linters
+        - ansible-changelog-fragment
     gate:
       jobs:
         - ansible-tox-linters

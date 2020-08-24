@@ -65,6 +65,7 @@
     name: ansible-collections-arista-eos-units
     check:
       jobs: &ansile-collections-arista-eos-units-jobs
+        - ansible-changelog-fragment
         - ansible-test-sanity-eos
         - ansible-test-units-eos-python27
         - ansible-test-units-eos-python35
@@ -97,6 +98,7 @@
     name: ansible-collections-cisco-asa-units
     check:
       jobs: &ansible-collections-cisco-asa-units-jobs
+        - ansible-changelog-fragment
         - ansible-test-sanity-asa
         - ansible-test-units-asa-python27
         - ansible-test-units-asa-python35
@@ -125,11 +127,13 @@
     name: ansible-collections-cisco-nxos-units
     check:
       jobs:
+        - ansible-changelog-fragment
         - ansible-test-sanity-nxos
         - ansible-test-units-nxos
     gate:
       queue: integrated
       jobs:
+        - ansible-changelog-fragment
         - ansible-test-sanity-nxos
         - ansible-test-units-nxos
 
@@ -199,6 +203,7 @@
     name: ansible-collections-cisco-ios-units
     check:
       jobs: &ansible-collections-cisco-ios-units-jobs
+        - ansible-changelog-fragment
         - ansible-test-sanity-ios
         - ansible-test-units-ios-python27
         - ansible-test-units-ios-python35
@@ -230,6 +235,7 @@
     name: ansible-collections-cisco-iosxr-units
     check:
       jobs: &ansible-collections-cisco-iosxr-units-jobs
+        - ansible-changelog-fragment
         - ansible-test-sanity-iosxr
         - ansible-test-units-iosxr-python27
         - ansible-test-units-iosxr-python35
@@ -394,6 +400,7 @@
     name: ansible-collections-juniper-junos-units
     check:
       jobs: &ansible-collections-juniper-junos-units-jobs
+        - ansible-changelog-fragment
         - ansible-test-sanity-junos
         - ansible-test-units-junos-python27
         - ansible-test-units-junos-python35
@@ -459,6 +466,7 @@
     name: ansible-collections-openvswitch-openvswitch-units
     check:
       jobs: &ansible-collections-openvswitch-openvswitch-units-jobs
+        - ansible-changelog-fragment
         - ansible-test-sanity-openvswitch
         - ansible-test-units-openvswitch-python27
         - ansible-test-units-openvswitch-python35

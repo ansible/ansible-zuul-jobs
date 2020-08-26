@@ -19,3 +19,4 @@ ansible_test_collection_dir: ~/.ansible/collections/ansible_collections
 ansible_test_enable_ara: true
 ansible_test_split_in: 1
 ansible_test_do_number: 1
+ansible_test_sanity_skiptests: []

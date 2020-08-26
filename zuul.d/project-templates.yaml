@@ -362,7 +362,7 @@
               - name: github.com/ansible-collections/cloud.common
               - name: github.com/ansible-collections/vmware
         - ansible-tox-linters
-        - ansible-test-sanity-vmware
+        - ansible-test-sanity-vmware-rest
     gate:
       jobs:
         - ansible-test-cloud-integration-vmware-rest-python36
@@ -372,7 +372,7 @@
               - name: github.com/ansible-collections/vmware
         - ansible-tox-linters
         - build-ansible-collection
-        - ansible-test-sanity-vmware
+        - ansible-test-sanity-vmware-rest
 
 - project-template:
     name: ansible-collections-community-asa

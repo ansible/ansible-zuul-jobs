@@ -16,6 +16,20 @@
   import_tasks: init_collection.yaml
   when: ansible_test_collections
 
+- name: Enable persistent connection logging
+  ini_file:
+    path: "{{ _test_cfg_location }}"
+    section: persistent_connection
+    option: log_messages
+    value: true
+
+- name: Set ansible log path
+  ini_file:
+    path: "{{ _test_cfg_location }}"
+    section: defaults
+    option: log_path
+    value: ~/ansible-debug.txt
+
 - name: Enable ara
   import_tasks: enable_ara.yaml
   when: ansible_test_enable_ara

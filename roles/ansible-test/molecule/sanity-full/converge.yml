@@ -1,0 +1,17 @@
+---
+- name: Converge
+  hosts: all
+  tasks:
+    - include_tasks: ../default/init_env.yml
+    - name: Include ansible-test
+      include_role:
+        name: ansible-test
+      vars:
+        ansible_test_collections: true
+        ansible_test_test_command: sanity
+        ansible_test_collection_namespace: foo
+        ansible_test_collection_name: bar
+        ansible_test_executable: /root/fake-ansible-test
+        ansible_test_sanity_skiptests:
+          - skip_1
+          - skip_2

@@ -1,0 +1,18 @@
+---
+- name: Verify
+  hosts: all
+  tasks:
+  - ini_file:
+      path: ~/.ansible/collections/ansible_collections/foo/bar/tests/integration/sanity.cfg
+      section: defaults
+      option: log_path
+      value: ~/ansible-debug.txt
+    register: _result
+  - assert:
+      that: not(_result is changed)
+  - name: check ansible-test output
+    command: cat /tmp/ansible-test.log
+    register: _result
+  - debug: var=_result
+  - assert:
+      that: _result.stdout == "sanity --requirements --python default -vvvv"

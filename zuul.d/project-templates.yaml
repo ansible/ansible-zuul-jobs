@@ -481,6 +481,11 @@
     name: ansible-collections-openvswitch-openvswitch
     check:
       jobs: &ansible-collections-openvswitch-openvswitch-jobs
+        - ansible-test-network-integration-openvswitch-python27:
+            vars:
+              ansible_test_collections: true
+        - ansible-test-network-integration-openvswitch-python27-stable210
+        - ansible-test-network-integration-openvswitch-python27-stable29
         - ansible-test-network-integration-openvswitch-python36:
             vars:
               ansible_test_collections: true

@@ -448,6 +448,73 @@
       ansible_test_python: 2.7
 
 - job:
+    name: ansible-test-network-integration-eos-httpapi-python27
+    parent: ansible-test-network-integration-eos-httpapi
+    nodeset: eos-4.20.10-python27
+    vars:
+      ansible_test_python: 2.7
+
+- job:
+    name: ansible-test-network-integration-eos-network_cli-python27
+    parent: ansible-test-network-integration-eos-network_cli
+    nodeset: eos-4.20.10-python27
+    vars:
+      ansible_test_python: 2.7
+
+- job:
+    name: ansible-test-network-integration-eos-httpapi-python27-stable210
+    parent: ansible-test-network-integration-eos-httpapi
+    nodeset: eos-4.20.10-python27
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.10
+    vars:
+      ansible_test_python: 2.7
+
+- job:
+    name: ansible-test-network-integration-eos-network_cli-python27-stable210
+    parent: ansible-test-network-integration-eos-network_cli
+    nodeset: eos-4.20.10-python27
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.10
+    vars:
+      ansible_test_python: 2.7
+      ansible_test_split_in: 2
+
+- job:
+    name: ansible-test-network-integration-eos-network_cli-python27-stable210-scenario01
+    parent: ansible-test-network-integration-eos-network_cli-python27-stable210
+    vars:
+      ansible_test_do_number: 1
+
+- job:
+    name: ansible-test-network-integration-eos-network_cli-python27-stable210-scenario02
+    parent: ansible-test-network-integration-eos-network_cli-python27-stable210
+    vars:
+      ansible_test_do_number: 2
+
+- job:
+    name: ansible-test-network-integration-eos-httpapi-python27-stable29
+    parent: ansible-test-network-integration-eos-httpapi
+    nodeset: eos-4.20.10-python27
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.9
+    vars:
+      ansible_test_python: 2.7
+
+- job:
+    name: ansible-test-network-integration-eos-network_cli-python27-stable29
+    parent: ansible-test-network-integration-eos-network_cli
+    nodeset: eos-4.20.10-python27
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.9
+    vars:
+      ansible_test_python: 2.7
+
+- job:
     name: ansible-test-network-integration-eos-python35
     parent: ansible-test-network-integration-eos
     nodeset: eos-4.20.10-python35

@@ -27,6 +27,37 @@
     update_cache: true
     state: present
 
+- when:
+  - ansible_distribution == "Fedora"
+  - ansible_distribution_major_version|int == 32
+  block:
+  - name: Enable updates
+    copy:
+      content: |
+        [updates]
+        name=Fedora $releasever - $basearch - Updates
+        failovermethod=priority
+        enabled=1
+        repo_gpgcheck=0
+        type=rpm
+        gpgcheck=1
+        metadata_expire=6h
+        gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-fedora-$releasever-$basearch
+        skip_if_unavailable=False
+        metalink = https://mirrors.fedoraproject.org/metalink?repo=updates-released-f$releasever&arch=$basearch
+      dest: /etc/yum.repos.d/fedora-updates.repo
+    become: true
+
+  - name: Workaround for https://github.com/ansible/ansible/issues/71528
+    command: dnf upgrade --enablerepo=updates --advisory=FEDORA-2020-2faf839786
+    become: true
+
+  - name: Remove the updates repo
+    file:
+      path: /etc/yum.repos.d/fedora-updates.repo
+      state: absent
+    become: true
+
 - name: Ensure Unbound conf.d directory exists
   become: true
   file:

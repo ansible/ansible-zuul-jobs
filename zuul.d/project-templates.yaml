@@ -367,7 +367,7 @@
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-collections/cloud.common
-              - name: github.com/ansible-collections/vmware
+              - name: github.com/ansible-collections/community.vmware
         - ansible-tox-linters
         - ansible-test-sanity-vmware-rest
     gate:
@@ -376,7 +376,7 @@
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-collections/cloud.common
-              - name: github.com/ansible-collections/vmware
+              - name: github.com/ansible-collections/community.vmware
         - ansible-tox-linters
         - build-ansible-collection
         - ansible-test-sanity-vmware-rest

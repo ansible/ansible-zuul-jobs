@@ -20,14 +20,14 @@
 - nodeset:
     name: fedora-latest-1vcpu
     nodes:
-      - name: fedora-31
-        label: fedora-31-1vcpu
+      - name: fedora-32
+        label: fedora-32-1vcpu
 
 - nodeset:
     name: fedora-latest-4vcpu
     nodes:
-      - name: fedora-31
-        label: fedora-31-4vcpu
+      - name: fedora-32
+        label: fedora-32-4vcpu
 
 - nodeset:
     name: ubuntu-bionic-1vcpu
@@ -879,12 +879,12 @@
 - nodeset:
     name: controller-python37
     nodes:
-      - name: fedora-31
-        label: fedora-31-1vcpu
+      - name: fedora-32
+        label: fedora-32-1vcpu
     groups:
       - name: controller
         nodes:
-          - fedora-31
+          - fedora-32
 
 - nodeset:
     name: controller-python38

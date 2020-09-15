@@ -1,4 +1,2 @@
 ---
 unbound_confd: /etc/unbound/unbound.conf.d
-unbound_packages:
-    - unbound

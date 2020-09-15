@@ -33,10 +33,10 @@
     required-projects:
       - name: github.com/ansible/ansible
       - name: github.com/ansible/ansible-zuul-jobs
-      - name: github.com/ansible-collections/vmware
+      - name: github.com/ansible-collections/community.vmware
     timeout: 3600
     vars:
-      ansible_collections_repo: github.com/ansible-collections/vmware
+      ansible_collections_repo: github.com/ansible-collections/community.vmware
       ansible_test_python: 3.6
       ansible_test_integration_targets: zuul/vmware/govcsim/
       ansible_test_command: integration
@@ -68,11 +68,11 @@
     name: ansible-test-sanity-vmware
     parent: ansible-test-sanity-base
     required-projects:
-      - name: github.com/ansible-collections/vmware
+      - name: github.com/ansible-collections/community.vmware
       - name: github.com/ansible/ansible
         override-checkout: stable-2.10
     vars:
-      ansible_collections_repo: github.com/ansible-collections/vmware
+      ansible_collections_repo: github.com/ansible-collections/community.vmware
 
 # master
 
@@ -96,10 +96,10 @@
     post-run: playbooks/ansible-test-base/post.yaml
     required-projects:
       - name: github.com/ansible/ansible
-      - name: github.com/ansible-collections/vmware
+      - name: github.com/ansible-collections/community.vmware
     timeout: 3600
     vars:
-      ansible_collections_repo: github.com/ansible-collections/vmware
+      ansible_collections_repo: github.com/ansible-collections/community.vmware
       ansible_test_command: integration
       ansible_test_environment:
         VMWARE_TEST_PLATFORM: static
@@ -298,9 +298,9 @@
       - playbooks/ansible-test-base/post.yaml
     required-projects:
       - name: github.com/ansible/ansible
-      - name: github.com/ansible-collections/vmware_rest
+      - name: github.com/ansible-collections/vmware.vmware_rest
     vars:
-      ansible_collections_repo: github.com/ansible-collections/vmware_rest
+      ansible_collections_repo: github.com/ansible-collections/vmware.vmware_rest
       ansible_test_command: network-integration
       ansible_test_integration_targets: "zuul/"
       ansible_test_collections: true
@@ -315,11 +315,11 @@
     name: ansible-test-sanity-vmware-rest
     parent: ansible-test-sanity-base
     required-projects:
-      - name: github.com/ansible-collections/vmware_rest
+      - name: github.com/ansible-collections/vmware.vmware_rest
       - name: github.com/ansible/ansible
         override-checkout: stable-2.10
     vars:
-      ansible_collections_repo: github.com/ansible-collections/vmware_rest
+      ansible_collections_repo: github.com/ansible-collections/vmware.vmware_rest
       ansible_test_sanity_skiptests:
         - future-import-boilerplate
         - metaclass-boilerplate

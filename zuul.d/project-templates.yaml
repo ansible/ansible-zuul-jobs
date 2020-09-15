@@ -589,6 +589,9 @@
     name: ansible-collections-ansible-posix-units
     check:
       jobs:
+        - ansible-test-integration-ansible-posix:
+            vars:
+              ansible_test_collections: true
         - ansible-test-sanity-posix
         - ansible-test-units-posix
     gate:

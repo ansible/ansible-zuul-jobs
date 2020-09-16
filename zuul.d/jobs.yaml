@@ -707,6 +707,60 @@
       ansible_test_python: 2.7
 
 - job:
+    name: ansible-test-network-integration-ios-local-python27
+    parent: ansible-test-network-integration-ios-local
+    nodeset: ios-15.6-2T-python27
+    vars:
+      ansible_test_python: 2.7
+
+- job:
+    name: ansible-test-network-integration-ios-network_cli-python27
+    parent: ansible-test-network-integration-ios-network_cli
+    nodeset: ios-15.6-2T-python27
+    vars:
+      ansible_test_python: 2.7
+
+- job:
+    name: ansible-test-network-integration-ios-local-python27-stable210
+    parent: ansible-test-network-integration-ios-local
+    nodeset: ios-15.6-2T-python27
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.10
+    vars:
+      ansible_test_python: 2.7
+
+- job:
+    name: ansible-test-network-integration-ios-network_cli-python27-stable210
+    parent: ansible-test-network-integration-ios-network_cli
+    nodeset: ios-15.6-2T-python27
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.10
+    vars:
+      ansible_test_python: 2.7
+
+- job:
+    name: ansible-test-network-integration-ios-local-python27-stable29
+    parent: ansible-test-network-integration-ios-local
+    nodeset: ios-15.6-2T-python27
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.9
+    vars:
+      ansible_test_python: 2.7
+
+- job:
+    name: ansible-test-network-integration-ios-network_cli-python27-stable29
+    parent: ansible-test-network-integration-ios-network_cli
+    nodeset: ios-15.6-2T-python27
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.9
+    vars:
+      ansible_test_python: 2.7
+
+- job:
     name: ansible-test-network-integration-ios-python35
     parent: ansible-test-network-integration-ios
     nodeset: ios-15.6-2T-python35

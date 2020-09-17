@@ -1,7 +1,7 @@
 ---
 - hosts: controller
   tasks:
-    - name: Install binary dependencies
+    - name: Install binary dependencies from ansible/ansible-zuul-jobs
       include_role:
         name: bindep
       vars:

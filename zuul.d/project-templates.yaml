@@ -120,6 +120,9 @@
     name: ansible-collections-cisco-asa
     check:
       jobs: &ansible-collections-cisco-asa-jobs
+        - ansible-test-network-integration-asa-python27
+        - ansible-test-network-integration-asa-python27-stable210
+        - ansible-test-network-integration-asa-python27-stable29
         - ansible-test-network-integration-asa-python36
         - ansible-test-network-integration-asa-python36-stable210
         - ansible-test-network-integration-asa-python36-stable29

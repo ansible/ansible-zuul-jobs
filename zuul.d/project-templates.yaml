@@ -605,6 +605,7 @@
               - name: github.com/ansible-collections/community.yang
               - name: github.com/ansible-collections/cisco.iosxr
               - name: github.com/ansible-collections/junipernetworks.junos
+              - name: github.com/ansible-collections/ansible.netcommon
     gate:
       queue: integrated
       jobs: *ansible-collections-juniper-junos-yang-jobs
@@ -621,6 +622,7 @@
               - name: github.com/ansible-collections/community.yang
               - name: github.com/ansible-collections/cisco.iosxr
               - name: github.com/ansible-collections/junipernetworks.junos
+              - name: github.com/ansible-collections/ansible.netcommon
     gate:
       queue: integrated
       jobs: *ansible-collections-cisco-iosxr-yang-jobs

@@ -4,6 +4,12 @@
     _test_location: "{{ ansible_test_collection_dir }}/{{ ansible_test_collection_namespace }}/{{ ansible_test_collection_name }}"
     _test_cfg_location: "{{ ansible_test_collection_dir }}/{{ ansible_test_collection_namespace }}/{{ ansible_test_collection_name }}/tests/integration/{{ ansible_test_test_command }}.cfg"
 
+- name: Install binary dependencies
+  include_role:
+    name: bindep
+  vars:
+    bindep_dir: "{{ _test_location }}/"
+
 - name: Install python requirements
   shell: "{{ ansible_test_venv_path }}/bin/pip install -r {{ _test_location }}/requirements.txt -r {{ _test_location }}/test-requirements.txt"
 

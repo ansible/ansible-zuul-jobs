@@ -751,6 +751,15 @@
         - ansible-test-sanity-symantec-epm
 
 - project-template:
+    name: ansible-collections-trendmicro-deepsec
+    check:
+      jobs:
+        - build-ansible-collection
+    gate:
+      jobs:
+        - build-ansible-collection
+
+- project-template:
     name: ansible-test-network-integration
     periodic:
       jobs:

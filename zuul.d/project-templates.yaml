@@ -693,6 +693,7 @@
         - ansible-test-network-integration-community-yang-iosxr-netconf-python36:
             vars:
               ansible_test_collections: true
+            voting: false
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-collections/community.yang

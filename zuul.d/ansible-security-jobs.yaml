@@ -45,7 +45,7 @@
 
 - job:
     name: ansible-test-sanity-splunk
-    parent: ansible-test-sanity-base
+    parent: ansible-test-sanity-base-29
     required-projects:
       - name: github.com/ansible-collections/splunk.es
     timeout: 3600
@@ -98,7 +98,7 @@
 
 - job:
     name: ansible-test-sanity-qradar
-    parent: ansible-test-sanity-base
+    parent: ansible-test-sanity-base-29
     required-projects:
       - name: github.com/ansible-collections/ibm.qradar
     timeout: 3600

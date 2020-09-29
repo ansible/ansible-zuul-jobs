@@ -5,16 +5,6 @@
     - name: Reset SSH connection for new group
       meta: reset_connection
 
-    # TODO(ssbarnea): remove hack once upstream patch merges:
-    # https://review.opendev.org/#/c/703053/
-    - name: Workaround for yum --nobest with docker-ce
-      when:
-        - ansible_distribution == "CentOS"
-        - ansible_distribution_major_version == "8"
-      become: true
-      yum:
-        name: https://download.docker.com/linux/centos/7/x86_64/stable/Packages/containerd.io-1.2.6-3.3.el7.x86_64.rpm
-
     - name: Install docker
       include_role:
         name: ensure-docker

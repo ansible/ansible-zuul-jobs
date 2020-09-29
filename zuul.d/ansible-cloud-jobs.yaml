@@ -66,7 +66,7 @@
 # sanity
 - job:
     name: ansible-test-sanity-vmware
-    parent: ansible-test-sanity-base
+    parent: ansible-test-sanity-base-29
     required-projects:
       - name: github.com/ansible-collections/community.vmware
       - name: github.com/ansible/ansible
@@ -313,7 +313,7 @@
 
 - job:
     name: ansible-test-sanity-vmware-rest
-    parent: ansible-test-sanity-base
+    parent: ansible-test-sanity-base-29
     required-projects:
       - name: github.com/ansible-collections/vmware.vmware_rest
       - name: github.com/ansible/ansible

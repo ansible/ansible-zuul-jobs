@@ -99,7 +99,7 @@
     nodeset: centos-8-1vcpu
 
 - job:
-    name: ansible-test-sanity-base
+    name: ansible-test-sanity-base-29
     parent: unittests
     nodeset: controller-python36
     abstract: true
@@ -112,6 +112,48 @@
     required-projects:
       - name: github.com/ansible/ansible
         override-checkout: stable-2.9
+    timeout: 3600
+    vars:
+      ansible_test_collections: true
+      ansible_test_command: sanity
+      ansible_test_enable_ara: false
+      ansible_test_python: 3.6
+
+- job:
+    name: ansible-test-sanity-base-210
+    parent: unittests
+    nodeset: controller-python36
+    abstract: true
+    dependencies:
+      - name: build-ansible-collection
+        soft: true
+    pre-run:
+      - playbooks/ansible-test-base/pre.yaml
+    run: playbooks/ansible-test-base/run.yaml
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.10
+    timeout: 3600
+    vars:
+      ansible_test_collections: true
+      ansible_test_command: sanity
+      ansible_test_enable_ara: false
+      ansible_test_python: 3.6
+
+- job:
+    name: ansible-test-sanity-base-devel
+    parent: unittests
+    nodeset: controller-python36
+    abstract: true
+    dependencies:
+      - name: build-ansible-collection
+        soft: true
+    pre-run:
+      - playbooks/ansible-test-base/pre.yaml
+    run: playbooks/ansible-test-base/run.yaml
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: devel
     timeout: 3600
     vars:
       ansible_test_collections: true
@@ -276,7 +318,7 @@
 
 - job:
     name: ansible-test-sanity-asa
-    parent: ansible-test-sanity-base
+    parent: ansible-test-sanity-base-29
     required-projects:
       - name: github.com/ansible-collections/cisco.asa
     timeout: 3600
@@ -404,7 +446,7 @@
 
 - job:
     name: ansible-test-sanity-eos
-    parent: ansible-test-sanity-base
+    parent: ansible-test-sanity-base-29
     required-projects:
       - name: github.com/ansible-collections/arista.eos
     timeout: 3600
@@ -663,7 +705,7 @@
 
 - job:
     name: ansible-test-sanity-ios
-    parent: ansible-test-sanity-base
+    parent: ansible-test-sanity-base-29
     required-projects:
       - name: github.com/ansible-collections/cisco.ios
     timeout: 3600
@@ -896,7 +938,7 @@
 
 - job:
     name: ansible-test-sanity-iosxr
-    parent: ansible-test-sanity-base
+    parent: ansible-test-sanity-base-29
     required-projects:
       - name: github.com/ansible-collections/cisco.iosxr
     timeout: 3600
@@ -1182,7 +1224,7 @@
 
 - job:
     name: ansible-test-sanity-netcommon
-    parent: ansible-test-sanity-base
+    parent: ansible-test-sanity-base-29
     required-projects:
       - name: github.com/ansible-collections/ansible.netcommon
     timeout: 3600
@@ -1250,7 +1292,7 @@
 
 - job:
     name: ansible-test-sanity-posix
-    parent: ansible-test-sanity-base
+    parent: ansible-test-sanity-base-29
     required-projects:
       - name: github.com/ansible-collections/ansible.posix
     timeout: 3600
@@ -1293,7 +1335,7 @@
 
 - job:
     name: ansible-test-sanity-junos
-    parent: ansible-test-sanity-base
+    parent: ansible-test-sanity-base-29
     required-projects:
       - name: github.com/ansible-collections/junipernetworks.junos
     timeout: 3600
@@ -1526,7 +1568,7 @@
 
 - job:
     name: ansible-test-sanity-nxos
-    parent: ansible-test-sanity-base
+    parent: ansible-test-sanity-base-29
     required-projects:
       - name: github.com/ansible-collections/cisco.nxos
     timeout: 3600
@@ -1703,7 +1745,7 @@
 
 - job:
     name: ansible-test-sanity-openvswitch
-    parent: ansible-test-sanity-base
+    parent: ansible-test-sanity-base-29
     required-projects:
       - name: github.com/ansible-collections/openvswitch.openvswitch
     timeout: 3600
@@ -1856,7 +1898,7 @@
 
 - job:
     name: ansible-test-sanity-symantec-epm
-    parent: ansible-test-sanity-base
+    parent: ansible-test-sanity-base-29
     required-projects:
       - name: github.com/ansible-collections/symantec.epm
     timeout: 3600
@@ -1865,7 +1907,7 @@
 
 - job:
     name: ansible-test-sanity-vyos
-    parent: ansible-test-sanity-base
+    parent: ansible-test-sanity-base-29
     required-projects:
       - name: github.com/ansible-collections/vyos.vyos
     timeout: 3600
@@ -2066,7 +2108,7 @@
 
 - job:
     name: ansible-test-sanity-frr
-    parent: ansible-test-sanity-base
+    parent: ansible-test-sanity-base-29
     required-projects:
       - name: github.com/ansible-collections/frr.frr
     timeout: 3600
@@ -2084,7 +2126,7 @@
 
 - job:
     name: ansible-test-sanity-yang
-    parent: ansible-test-sanity-base
+    parent: ansible-test-sanity-base-29
     required-projects:
       - name: github.com/ansible-collections/community.yang
     timeout: 3600

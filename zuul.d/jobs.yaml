@@ -1291,8 +1291,26 @@
       ansible_test_integration_targets: "netconf_.*"
 
 - job:
-    name: ansible-test-sanity-posix
+    name: ansible-test-sanity-posix-29
     parent: ansible-test-sanity-base-29
+    required-projects:
+      - name: github.com/ansible-collections/ansible.posix
+    timeout: 3600
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/ansible.posix
+
+- job:
+    name: ansible-test-sanity-posix-210
+    parent: ansible-test-sanity-base-210
+    required-projects:
+      - name: github.com/ansible-collections/ansible.posix
+    timeout: 3600
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/ansible.posix
+
+- job:
+    name: ansible-test-sanity-posix-devel
+    parent: ansible-test-sanity-base-devel
     required-projects:
       - name: github.com/ansible-collections/ansible.posix
     timeout: 3600

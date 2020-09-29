@@ -761,6 +761,14 @@
         - build-ansible-collection
 
 - project-template:
+    name: ansible-collections-trendmicro-deepsec-units
+    check:
+      jobs: &ansile-collections-trendmicro-deepsec-units-jobs
+        - ansible-changelog-fragment
+    gate:
+      jobs: *ansile-collections-trendmicro-deepsec-units-jobs
+
+- project-template:
     name: ansible-test-network-integration
     periodic:
       jobs:

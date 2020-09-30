@@ -28,13 +28,12 @@
       shell: ~/venv/bin/pip install selinux "setuptools<50.0.0"
       when: ansible_os_family == "RedHat"
 
-    # ara is installing ansible-2.10, when 2.9 is needed. Commenting to temporarily fix the issue.
-    # - name: Install ara into virtualenv
-    #   shell: ~/venv/bin/pip install "ara<1.0.0"
-    #   when: "'integration' in ansible_test_command"
-
     - name: Install ansible into virtualenv
       # TODO(pabelanger): Remove ANSIBLE_SKIP_CONFLICT_CHECK in the future.
       environment:
         ANSIBLE_SKIP_CONFLICT_CHECK: 1
       shell: "~/venv/bin/pip install {{ ansible_user_dir }}/{{ zuul.projects['github.com/ansible/ansible'].src_dir }}"
+
+    - name: Install ara into virtualenv
+      shell: ~/venv/bin/pip install "ara<1.0.0"
+      when: "'integration' in ansible_test_command"

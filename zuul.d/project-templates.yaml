@@ -223,6 +223,7 @@
         - ansible-test-units-ios-python38
     gate:
       queue: integrated
+      fail-fast: true
       jobs: *ansible-collections-cisco-ios-units-jobs
 
 - project-template:

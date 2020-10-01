@@ -212,6 +212,7 @@
 - project-template:
     name: ansible-collections-cisco-ios-units
     check:
+      fail-fast: true
       jobs: &ansible-collections-cisco-ios-units-jobs
         - ansible-changelog-fragment
         - ansible-test-sanity-ios
@@ -222,6 +223,7 @@
         - ansible-test-units-ios-python38
     gate:
       queue: integrated
+      fail-fast: true
       jobs: *ansible-collections-cisco-ios-units-jobs
 
 - project-template:

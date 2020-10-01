@@ -709,11 +709,15 @@
     name: ansible-collections-ansible-posix-units
     check:
       jobs:
-        - ansible-test-sanity-posix
+        - ansible-test-sanity-posix-29
+        - ansible-test-sanity-posix-210
+        - ansible-test-sanity-posix-devel
         - ansible-test-units-posix
     gate:
       jobs:
-        - ansible-test-sanity-posix
+        - ansible-test-sanity-posix-29
+        - ansible-test-sanity-posix-210
+        - ansible-test-sanity-posix-devel
         - ansible-test-units-posix
 
 - project-template:

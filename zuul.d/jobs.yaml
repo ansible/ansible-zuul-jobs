@@ -165,6 +165,8 @@
     name: ansible-network-appliance-base
     pre-run: playbooks/ansible-network-appliance-base/pre.yaml
     post-run: playbooks/ansible-network-appliance-base/post.yaml
+    vars:
+      ansible_test_network_cli_ssh_type: paramiko
 
 - job:
     name: ansible-network-asa-appliance

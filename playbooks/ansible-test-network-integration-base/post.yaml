@@ -6,5 +6,8 @@
         path: "{{ ansible_user_dir }}/zuul-output/logs/controller/"
         state: directory
 
-    - name: Copy appliance inventory file
+    - name: Copy controller ansible.cfg file
+      shell: "cp {{ ansible_user_dir }}/.ansible.cfg {{ ansible_user_dir }}/zuul-output/logs/controller/ansible.cfg"
+
+    - name: Copy controller inventory file
       shell: "cp {{ ansible_user_dir }}/inventory {{ ansible_user_dir }}/zuul-output/logs/controller/inventory"

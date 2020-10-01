@@ -23,6 +23,13 @@
     option: log_messages
     value: true
 
+- name: Set persistent ssh_type value
+  ini_file:
+    path: "{{ _test_cfg_location }}"
+    section: persistent_connection
+    option: ssh_type
+    value: "{{ ansible_test_network_cli_ssh_type }}"
+
 - name: Set ansible log path
   ini_file:
     path: "{{ _test_cfg_location }}"

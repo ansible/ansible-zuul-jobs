@@ -20,3 +20,4 @@ ansible_test_enable_ara: true
 ansible_test_split_in: 1
 ansible_test_do_number: 1
 ansible_test_sanity_skiptests: []
+ansible_test_network_cli_ssh_type: paramiko

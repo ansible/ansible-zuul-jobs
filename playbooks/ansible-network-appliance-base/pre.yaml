@@ -75,3 +75,8 @@
         write_inventory_dest: /etc/ansible/hosts
         write_inventory_exclude_hostvars:
           - ansible_connection
+
+    - name: Install pylibssh into virtualenv
+      shell: "~/venv/bin/pip install {{ ansible_user_dir }}/{{ zuul.projects['github.com/ansible/pylibssh'].src_dir }}"
+      when:
+        - ansible_test_network_cli_ssh_type is defined

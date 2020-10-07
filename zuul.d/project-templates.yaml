@@ -66,7 +66,8 @@
     check:
       jobs: &ansile-collections-arista-eos-units-jobs
         - ansible-changelog-fragment
-        - ansible-test-sanity-eos
+        - ansible-test-sanity-base-29:
+            timeout: 3600
         - ansible-test-units-eos-python27
         - ansible-test-units-eos-python35
         - ansible-test-units-eos-python36
@@ -215,7 +216,8 @@
       fail-fast: true
       jobs: &ansible-collections-cisco-ios-units-jobs
         - ansible-changelog-fragment
-        - ansible-test-sanity-ios
+        - ansible-test-sanity-base-29:
+            timeout: 3600
         - ansible-test-units-ios-python27
         - ansible-test-units-ios-python35
         - ansible-test-units-ios-python36
@@ -254,7 +256,8 @@
     check:
       jobs: &ansible-collections-cisco-iosxr-units-jobs
         - ansible-changelog-fragment
-        - ansible-test-sanity-iosxr
+        - ansible-test-sanity-base-29:
+            timeout: 3600
         - ansible-test-units-iosxr-python27
         - ansible-test-units-iosxr-python35
         - ansible-test-units-iosxr-python36
@@ -665,7 +668,8 @@
     check:
       jobs: &ansible-collections-ansible-netcommon-units-jobs
         - ansible-changelog-fragment
-        - ansible-test-sanity-netcommon
+        - ansible-test-sanity-base-29:
+            timeout: 3600
         - ansible-test-units-netcommon-python27
         - ansible-test-units-netcommon-python35
         - ansible-test-units-netcommon-python36
@@ -730,11 +734,13 @@
     name: ansible-collections-ansible-posix-units
     check:
       jobs:
-        - ansible-test-sanity-posix
+        - ansible-test-sanity-base-29:
+            timeout: 3600
         - ansible-test-units-posix
     gate:
       jobs:
-        - ansible-test-sanity-posix
+        - ansible-test-sanity-base-29:
+            timeout: 3600
         - ansible-test-units-posix
 
 - project-template:

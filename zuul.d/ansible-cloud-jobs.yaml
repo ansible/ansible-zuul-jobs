@@ -315,7 +315,6 @@
     required-projects:
       - name: github.com/ansible-collections/vmware.vmware_rest
     vars:
-      ansible_collections_repo: github.com/ansible-collections/vmware.vmware_rest
       ansible_test_sanity_skiptests:
         - future-import-boilerplate
         - metaclass-boilerplate

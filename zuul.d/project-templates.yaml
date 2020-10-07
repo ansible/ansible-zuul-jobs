@@ -212,7 +212,6 @@
 - project-template:
     name: ansible-collections-cisco-ios-units
     check:
-      fail-fast: true
       jobs: &ansible-collections-cisco-ios-units-jobs
         - ansible-changelog-fragment
         - ansible-test-sanity-ios

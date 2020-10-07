@@ -123,7 +123,6 @@
     name: ansible-test-sanity-base-210
     parent: unittests
     nodeset: controller-python36
-    abstract: true
     dependencies:
       - name: build-ansible-collection
         soft: true

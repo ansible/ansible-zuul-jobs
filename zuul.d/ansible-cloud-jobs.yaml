@@ -66,11 +66,9 @@
 # sanity
 - job:
     name: ansible-test-sanity-vmware
-    parent: ansible-test-sanity-base-29
+    parent: ansible-test-sanity-base-210
     required-projects:
       - name: github.com/ansible-collections/community.vmware
-      - name: github.com/ansible/ansible
-        override-checkout: stable-2.10
     vars:
       ansible_collections_repo: github.com/ansible-collections/community.vmware
 
@@ -313,14 +311,11 @@
 
 - job:
     name: ansible-test-sanity-vmware-rest
-    parent: ansible-test-sanity-base-29
+    parent: ansible-test-sanity-base-210
     required-projects:
       - name: github.com/ansible-collections/vmware.vmware_rest
-      - name: github.com/ansible/ansible
-        override-checkout: stable-2.10
     vars:
       ansible_collections_repo: github.com/ansible-collections/vmware.vmware_rest
       ansible_test_sanity_skiptests:
         - future-import-boilerplate
         - metaclass-boilerplate
-      ansible_test_enable_ara: false

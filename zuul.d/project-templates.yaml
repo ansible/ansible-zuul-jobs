@@ -594,7 +594,7 @@
 - project-template:
     name: ansible-collections-vyos-vyos
     check:
-      jobs:
+      jobs: &ansible-collections-vyos-vyos-jobs
         - ansible-test-network-integration-vyos-local-python27
         - ansible-test-network-integration-vyos-local-python27-stable210
         - ansible-test-network-integration-vyos-local-python27-stable29
@@ -615,19 +615,7 @@
               - name: github.com/ansible-collections/ansible.netcommon
     gate:
       queue: integrated
-      jobs:
-        - ansible-test-network-integration-vyos-network_cli-python27
-        - ansible-test-network-integration-vyos-network_cli-python27-stable210
-        - ansible-test-network-integration-vyos-network_cli-python27-stable29
-        - ansible-test-network-integration-vyos-network_cli-python36
-        - ansible-test-network-integration-vyos-network_cli-python36-stable210
-        - ansible-test-network-integration-vyos-network_cli-python36-stable29
-        - ansible-test-network-integration-vyos-network_cli-libssh-python36
-        - ansible-test-network-integration-vyos-network_cli-libssh-python36-stable210
-        - ansible-test-network-integration-vyos-network_cli-libssh-python36-stable29
-        - build-ansible-collection:
-            required-projects:
-              - name: github.com/ansible-collections/ansible.netcommon
+      jobs: *ansible-collections-vyos-vyos-jobs
 
 - project-template:
     name: ansible-collections-frr-frr-units

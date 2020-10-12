@@ -661,13 +661,9 @@
     check:
       jobs:
         - build-ansible-collection
-        - ansible-changelog-fragment
-        - ansible-tox-linters
     gate:
       jobs:
         - build-ansible-collection
-        - ansible-changelog-fragment
-        - ansible-tox-linters
 
 - project-template:
     name: ansible-collections-ansible-network-units

@@ -1332,6 +1332,8 @@
     timeout: 10800
     irrelevant-files:
       - README.md
+      - ^changelogs/.*$
+      - ^docs/.*$
     vars:
       ansible_collections_repo: github.com/ansible-collections/junipernetworks.junos
       ansible_test_command: network-integration
@@ -1677,6 +1679,8 @@
     timeout: 3600
     irrelevant-files:
       - README.md
+      - ^changelogs/.*$
+      - ^docs/.*$
     vars:
       ansible_collections_repo: github.com/ansible-collections/openvswitch.openvswitch
       ansible_test_command: network-integration
@@ -1895,6 +1899,8 @@
     timeout: 10800
     irrelevant-files:
       - README.md
+      - ^changelogs/.*$
+      - ^docs/.*$
     vars:
       ansible_collections_repo: github.com/ansible-collections/vyos.vyos
       ansible_test_command: network-integration

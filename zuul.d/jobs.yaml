@@ -308,8 +308,10 @@
       - name: github.com/ansible/ansible
       - name: github.com/ansible-collections/cisco.asa
     timeout: 9000
-    irrelevant-files:
+    irrelevant-files: &documentation-files
       - README.md
+      - ^changelogs/.*$
+      - ^docs/.*$
     vars:
       ansible_collections_repo: github.com/ansible-collections/cisco.asa
       ansible_test_collections: true
@@ -437,10 +439,7 @@
       - name: github.com/ansible/ansible
       - name: github.com/ansible-collections/arista.eos
     timeout: 10800
-    irrelevant-files:
-      - README.md
-      - ^changelogs/.*$
-      - ^docs/.*$
+    irrelevant-files: *documentation-files
     vars:
       ansible_collections_repo: github.com/ansible-collections/arista.eos
       ansible_test_command: network-integration
@@ -698,10 +697,7 @@
       - name: github.com/ansible/ansible
       - name: github.com/ansible-collections/cisco.ios
     timeout: 10800
-    irrelevant-files:
-      - README.md
-      - ^changelogs/.*$
-      - ^docs/.*$
+    irrelevant-files: *documentation-files
     vars:
       ansible_collections_repo: github.com/ansible-collections/cisco.ios
       ansible_test_command: network-integration
@@ -933,10 +929,7 @@
       - name: github.com/ansible/ansible
       - name: github.com/ansible-collections/cisco.iosxr
     timeout: 10800
-    irrelevant-files:
-      - README.md
-      - ^changelogs/.*$
-      - ^docs/.*$
+    irrelevant-files: *documentation-files
     vars:
       ansible_collections_repo: github.com/ansible-collections/cisco.iosxr
       ansible_test_command: network-integration
@@ -1332,10 +1325,7 @@
       - name: github.com/ansible/ansible
       - name: github.com/ansible-collections/junipernetworks.junos
     timeout: 10800
-    irrelevant-files:
-      - README.md
-      - ^changelogs/.*$
-      - ^docs/.*$
+    irrelevant-files: *documentation-files
     vars:
       ansible_collections_repo: github.com/ansible-collections/junipernetworks.junos
       ansible_test_command: network-integration
@@ -1567,8 +1557,7 @@
       - name: github.com/ansible/ansible
       - name: github.com/ansible-collections/cisco.nxos
     timeout: 10800
-    irrelevant-files:
-      - README.md
+    irrelevant-files: *documentation-files
     vars:
       ansible_collections_repo: github.com/ansible-collections/cisco.nxos
       ansible_test_command: network-integration
@@ -1679,10 +1668,7 @@
       - name: github.com/ansible/ansible
       - name: github.com/ansible-collections/openvswitch.openvswitch
     timeout: 3600
-    irrelevant-files:
-      - README.md
-      - ^changelogs/.*$
-      - ^docs/.*$
+    irrelevant-files: *documentation-files
     vars:
       ansible_collections_repo: github.com/ansible-collections/openvswitch.openvswitch
       ansible_test_command: network-integration
@@ -1899,10 +1885,7 @@
       - name: github.com/ansible/ansible
       - name: github.com/ansible-collections/vyos.vyos
     timeout: 10800
-    irrelevant-files:
-      - README.md
-      - ^changelogs/.*$
-      - ^docs/.*$
+    irrelevant-files: *documentation-files
     vars:
       ansible_collections_repo: github.com/ansible-collections/vyos.vyos
       ansible_test_command: network-integration

@@ -935,6 +935,8 @@
     timeout: 10800
     irrelevant-files:
       - README.md
+      - ^changelogs/.*$
+      - ^docs/.*$
     vars:
       ansible_collections_repo: github.com/ansible-collections/cisco.iosxr
       ansible_test_command: network-integration

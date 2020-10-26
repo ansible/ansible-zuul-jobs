@@ -388,11 +388,25 @@
         - build-ansible-collection
         - ansible-test-sanity-base-29
         - ansible-test-sanity-base-210
+        - ansible-test-cloud-integration-vmware-rest-python36:
+            required-projects:
+              - name: github.com/ansible-collections/vmware.vmware_rest
+        - build-ansible-collection:
+            required-projects:
+              - name: github.com/ansible-collections/community.vmware
+              - name: github.com/ansible-collections/vmware.vmware_rest
     gate:
       jobs:
         - build-ansible-collection
         - ansible-test-sanity-base-29
         - ansible-test-sanity-base-210
+        - ansible-test-cloud-integration-vmware-rest-python36:
+            required-projects:
+              - name: github.com/ansible-collections/vmware.vmware_rest
+        - build-ansible-collection:
+            required-projects:
+              - name: github.com/ansible-collections/community.vmware
+              - name: github.com/ansible-collections/vmware.vmware_rest
 
 - project-template:
     name: ansible-collections-community-vmware

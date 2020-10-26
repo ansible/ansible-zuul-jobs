@@ -319,15 +319,6 @@
       ansible_test_integration_targets: "asa_.*"
 
 - job:
-    name: ansible-test-sanity-asa
-    parent: ansible-test-sanity-base-29
-    required-projects:
-      - name: github.com/ansible-collections/cisco.asa
-    timeout: 3600
-    vars:
-      ansible_collections_repo: github.com/ansible-collections/cisco.asa
-
-- job:
     name: ansible-test-units-asa-python27
     parent: ansible-test-units-base-python27
     required-projects:
@@ -443,15 +434,6 @@
       ansible_collections_repo: github.com/ansible-collections/arista.eos
       ansible_test_command: network-integration
       ansible_test_integration_targets: "eos_.*"
-
-- job:
-    name: ansible-test-sanity-eos
-    parent: ansible-test-sanity-base-29
-    required-projects:
-      - name: github.com/ansible-collections/arista.eos
-    timeout: 3600
-    vars:
-      ansible_collections_repo: github.com/ansible-collections/arista.eos
 
 - job:
     name: ansible-test-units-eos-python27
@@ -702,15 +684,6 @@
       ansible_test_integration_targets: "ios_.*"
 
 - job:
-    name: ansible-test-sanity-ios
-    parent: ansible-test-sanity-base-29
-    required-projects:
-      - name: github.com/ansible-collections/cisco.ios
-    timeout: 3600
-    vars:
-      ansible_collections_repo: github.com/ansible-collections/cisco.ios
-
-- job:
     name: ansible-test-units-ios-python27
     parent: ansible-test-units-base-python27
     required-projects:
@@ -931,15 +904,6 @@
       ansible_collections_repo: github.com/ansible-collections/cisco.iosxr
       ansible_test_command: network-integration
       ansible_test_integration_targets: "iosxr_.* netconf_.*"
-
-- job:
-    name: ansible-test-sanity-iosxr
-    parent: ansible-test-sanity-base-29
-    required-projects:
-      - name: github.com/ansible-collections/cisco.iosxr
-    timeout: 3600
-    vars:
-      ansible_collections_repo: github.com/ansible-collections/cisco.iosxr
 
 - job:
     name: ansible-test-units-iosxr-python27
@@ -1219,15 +1183,6 @@
       ansible_test_python: 3.8
 
 - job:
-    name: ansible-test-sanity-netcommon
-    parent: ansible-test-sanity-base-29
-    required-projects:
-      - name: github.com/ansible-collections/ansible.netcommon
-    timeout: 3600
-    vars:
-      ansible_collections_repo: github.com/ansible-collections/ansible.netcommon
-
-- job:
     name: ansible-test-units-netcommon-python27
     parent: ansible-test-units-base-python27
     required-projects:
@@ -1285,15 +1240,6 @@
     vars:
       ansible_collections_repo: github.com/ansible-collections/ansible.netcommon
       ansible_test_integration_targets: "netconf_.*"
-
-- job:
-    name: ansible-test-sanity-posix
-    parent: ansible-test-sanity-base-29
-    required-projects:
-      - name: github.com/ansible-collections/ansible.posix
-    timeout: 3600
-    vars:
-      ansible_collections_repo: github.com/ansible-collections/ansible.posix
 
 - job:
     name: ansible-test-units-posix

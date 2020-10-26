@@ -38,3 +38,8 @@
       environment:
         ANSIBLE_SKIP_CONFLICT_CHECK: 1
       shell: "~/venv/bin/pip install {{ ansible_user_dir }}/{{ zuul.projects['github.com/ansible/ansible'].src_dir }}"
+
+    - name: Fetch and install the artifacts
+      import_role:
+        name: deploy-artifacts
+      when: ansible_test_collections | default(False)

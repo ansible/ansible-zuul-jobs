@@ -93,6 +93,7 @@
       Build ansible collections and return artifacts to zuul
     dependencies:
       - name: build-ansible-collection
+    pre-run: playbooks/ansible-galaxy-importer/pre.yaml
     run: playbooks/ansible-galaxy-importer/run.yaml
     required-projects:
       - github.com/ansible-network/releases

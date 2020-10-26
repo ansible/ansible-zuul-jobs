@@ -3,9 +3,6 @@
   tasks:
     - when: ansible_test_collections | default(False)
       block:
-        - name: Fetch and install the artifacts
-          import_role:
-            name: deploy-artifacts
         - name: Copy the galaxy.yml on the controller
           fetch:
             src: "{{ ansible_test_location }}/galaxy.yml"

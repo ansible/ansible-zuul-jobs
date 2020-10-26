@@ -30,6 +30,8 @@
   loop: "{{ _artifacts }}"
   loop_control:
     loop_var: artifact
+  register: _result
   retries: 5
+  until: _result.status == 200
   delay: 5
   when: "'metadata' in artifact and 'type' in artifact.metadata and (artifact.metadata.type == download_artifact_type or ((download_artifact_type | type_debug) == 'list' and artifact.metadata.type in download_artifact_type))"

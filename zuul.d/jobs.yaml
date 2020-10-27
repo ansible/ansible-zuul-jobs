@@ -857,12 +857,6 @@
       ansible_test_python: 3.6
 
 - job:
-    name: ansible-test-network-integration-ios-network_cli-libssh-python36
-    parent: ansible-test-network-integration-ios-network_cli-python36
-    vars:
-      ansible_test_network_cli_ssh_type: libssh
-
-- job:
     name: ansible-test-network-integration-ios-local-python36-stable210
     parent: ansible-test-network-integration-ios-local
     nodeset: ios-15.6-2T-python36
@@ -883,12 +877,6 @@
       ansible_test_python: 3.6
 
 - job:
-    name: ansible-test-network-integration-ios-network_cli-libssh-python36-stable210
-    parent: ansible-test-network-integration-ios-network_cli-python36-stable210
-    vars:
-      ansible_test_network_cli_ssh_type: libssh
-
-- job:
     name: ansible-test-network-integration-ios-local-python36-stable29
     parent: ansible-test-network-integration-ios-local
     nodeset: ios-15.6-2T-python36
@@ -907,12 +895,6 @@
         override-checkout: stable-2.9
     vars:
       ansible_test_python: 3.6
-
-- job:
-    name: ansible-test-network-integration-ios-network_cli-libssh-python36-stable29
-    parent: ansible-test-network-integration-ios-network_cli-python36-stable29
-    vars:
-      ansible_test_network_cli_ssh_type: libssh
 
 - job:
     name: ansible-test-network-integration-ios-python37

@@ -391,7 +391,7 @@
         - ansible-test-cloud-integration-vmware-rest-python36:
             required-projects:
               - name: github.com/ansible-collections/vmware.vmware_rest
-        - build-ansible-collection:
+        - build-ansible-collection-vmware-rest:
             required-projects:
               - name: github.com/ansible-collections/community.vmware
               - name: github.com/ansible-collections/vmware.vmware_rest
@@ -437,7 +437,7 @@
     check:
       jobs:
         - ansible-test-cloud-integration-vmware-rest-python36
-        - build-ansible-collection:
+        - build-ansible-collection-vmware-rest:
             required-projects:
               - name: github.com/ansible-collections/cloud.common
               - name: github.com/ansible-collections/community.vmware
@@ -446,7 +446,7 @@
     gate:
       jobs:
         - ansible-test-cloud-integration-vmware-rest-python36
-        - build-ansible-collection:
+        - build-ansible-collection-vmware-rest:
             required-projects:
               - name: github.com/ansible-collections/cloud.common
               - name: github.com/ansible-collections/community.vmware
@@ -459,17 +459,23 @@
     check:
       jobs:
         - ansible-test-cloud-integration-vmware-rest-python36
-        - build-ansible-collection:
+        - build-ansible-collection-vmware-rest:
             required-projects:
               - name: github.com/ansible-collections/cloud.common
               - name: github.com/ansible-collections/community.vmware
+              - name: github.com/ansible-collections/vmware.vmware_rest
+            vars:
+              refresh_vmware_rest: true
     gate:
       jobs:
         - ansible-test-cloud-integration-vmware-rest-python36
-        - build-ansible-collection:
+        - build-ansible-collection-vmware-rest:
             required-projects:
               - name: github.com/ansible-collections/cloud.common
               - name: github.com/ansible-collections/community.vmware
+              - name: github.com/ansible-collections/vmware.vmware_rest
+            vars:
+              refresh_vmware_rest: true
 
 - project-template:
     name: ansible-collections-community-asa

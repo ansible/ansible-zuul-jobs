@@ -1,0 +1,11 @@
+---
+- hosts: all
+  tasks:
+    - name: Refresh the vmware_rest modules
+      include_role:
+        name: tox
+      vars:
+        tox_envlist: refresh_modules,refresh_examples
+        tox_install_siblings: true
+        zuul_work_dir: "{{ zuul.projects['github.com/ansible-collections/vmware.vmware_rest'].src_dir }}"
+      when: refresh_vmware_rest

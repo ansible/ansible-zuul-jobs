@@ -103,6 +103,7 @@
     name: ansible-collections-ansible-utils-units
     check:
       jobs: &ansile-collections-ansible-utils-units-jobs
+        - build-ansible-collection
         - ansible-changelog-fragment
         - ansible-test-sanity-ansible-utils
         - ansible-test-units-ansible-utils-python27

@@ -166,10 +166,9 @@
     name: ansible-network-appliance-base
     pre-run: playbooks/ansible-network-appliance-base/pre.yaml
     post-run: playbooks/ansible-network-appliance-base/post.yaml
-    irrelevant-files:
-      - README.md
-      - ^changelogs/.*$
-      - ^docs/.*$
+    files:
+      - ^plugins/.*$
+      - ^tests/integration/.*$
 
 - job:
     name: ansible-network-asa-appliance

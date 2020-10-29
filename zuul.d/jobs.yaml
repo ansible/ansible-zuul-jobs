@@ -1978,6 +1978,13 @@
       ansible_test_network_cli_ssh_type: libssh
 
 - job:
+    name: ansible-test-network-integration-vyos-local-python36-stable210
+    parent: ansible-test-network-integration-vyos-local-python36
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.10
+
+- job:
     name: ansible-test-network-integration-vyos-network_cli-python36-stable210
     parent: ansible-test-network-integration-vyos-network_cli
     nodeset: vyos-1.1.8-python36
@@ -1992,6 +1999,13 @@
     parent: ansible-test-network-integration-vyos-network_cli-python36-stable210
     vars:
       ansible_test_network_cli_ssh_type: libssh
+
+- job:
+    name: ansible-test-network-integration-vyos-local-python36-stable29
+    parent: ansible-test-network-integration-vyos-local-python36
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.9
 
 - job:
     name: ansible-test-network-integration-vyos-network_cli-python36-stable29

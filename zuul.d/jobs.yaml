@@ -500,7 +500,7 @@
     abstract: true
     vars:
       ansible_test_collections: true
-      ansible_test_skip_tags: network_cli
+      ansible_test_skip_tags: local,network_cli
 
 - job:
     name: ansible-test-network-integration-eos-network_cli
@@ -944,7 +944,7 @@
     abstract: true
     vars:
       ansible_test_collections: true
-      ansible_test_skip_tags: network_cli
+      ansible_test_skip_tags: local,network_cli
 
 - job:
     name: ansible-test-network-integration-iosxr-network_cli
@@ -1347,7 +1347,7 @@
     abstract: true
     nodeset: vsrx3-18.4R1-python27
     vars:
-      ansible_test_skip_tags: netconf
+      ansible_test_skip_tags: local,netconf
 
 - job:
     name: ansible-test-network-integration-junos-vsrx-python27
@@ -1539,7 +1539,7 @@
     nodeset: nxos-7.0.3-python36
     vars:
       ansible_test_python: 3.6
-      ansible_test_skip_tags: nxapi
+      ansible_test_skip_tags: local,nxapi
       ansible_test_split_in: 4
 
 - job:
@@ -1575,7 +1575,7 @@
         override-checkout: stable-2.9
     vars:
       ansible_test_python: 3.6
-      ansible_test_skip_tags: nxapi
+      ansible_test_skip_tags: local,nxapi
       ansible_test_split_in: 4
 
 - job:

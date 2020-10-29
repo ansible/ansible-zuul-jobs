@@ -499,7 +499,7 @@
     abstract: true
     vars:
       ansible_test_collections: true
-      ansible_test_skip_tags: network_cli
+      ansible_test_skip_tags: local,network_cli
 
 - job:
     name: ansible-test-network-integration-eos-network_cli
@@ -751,14 +751,6 @@
       ansible_collections_repo: github.com/ansible-collections/cisco.ios
 
 - job:
-    name: ansible-test-network-integration-ios-local
-    parent: ansible-test-network-integration-ios
-    abstract: true
-    vars:
-      ansible_test_collections: true
-      ansible_test_skip_tags: network_cli
-
-- job:
     name: ansible-test-network-integration-ios-network_cli
     parent: ansible-test-network-integration-ios
     abstract: true
@@ -774,26 +766,9 @@
       ansible_test_python: 2.7
 
 - job:
-    name: ansible-test-network-integration-ios-local-python27
-    parent: ansible-test-network-integration-ios-local
-    nodeset: ios-15.6-2T-python27
-    vars:
-      ansible_test_python: 2.7
-
-- job:
     name: ansible-test-network-integration-ios-network_cli-python27
     parent: ansible-test-network-integration-ios-network_cli
     nodeset: ios-15.6-2T-python27
-    vars:
-      ansible_test_python: 2.7
-
-- job:
-    name: ansible-test-network-integration-ios-local-python27-stable210
-    parent: ansible-test-network-integration-ios-local
-    nodeset: ios-15.6-2T-python27
-    required-projects:
-      - name: github.com/ansible/ansible
-        override-checkout: stable-2.10
     vars:
       ansible_test_python: 2.7
 
@@ -804,16 +779,6 @@
     required-projects:
       - name: github.com/ansible/ansible
         override-checkout: stable-2.10
-    vars:
-      ansible_test_python: 2.7
-
-- job:
-    name: ansible-test-network-integration-ios-local-python27-stable29
-    parent: ansible-test-network-integration-ios-local
-    nodeset: ios-15.6-2T-python27
-    required-projects:
-      - name: github.com/ansible/ansible
-        override-checkout: stable-2.9
     vars:
       ansible_test_python: 2.7
 
@@ -842,13 +807,6 @@
       ansible_test_python: 3.6
 
 - job:
-    name: ansible-test-network-integration-ios-local-python36
-    parent: ansible-test-network-integration-ios-local
-    nodeset: ios-15.6-2T-python36
-    vars:
-      ansible_test_python: 3.6
-
-- job:
     name: ansible-test-network-integration-ios-network_cli-python36
     parent: ansible-test-network-integration-ios-network_cli
     nodeset: ios-15.6-2T-python36
@@ -860,16 +818,6 @@
     parent: ansible-test-network-integration-ios-network_cli-python36
     vars:
       ansible_test_network_cli_ssh_type: libssh
-
-- job:
-    name: ansible-test-network-integration-ios-local-python36-stable210
-    parent: ansible-test-network-integration-ios-local
-    nodeset: ios-15.6-2T-python36
-    required-projects:
-      - name: github.com/ansible/ansible
-        override-checkout: stable-2.10
-    vars:
-      ansible_test_python: 3.6
 
 - job:
     name: ansible-test-network-integration-ios-network_cli-python36-stable210
@@ -886,16 +834,6 @@
     parent: ansible-test-network-integration-ios-network_cli-python36-stable210
     vars:
       ansible_test_network_cli_ssh_type: libssh
-
-- job:
-    name: ansible-test-network-integration-ios-local-python36-stable29
-    parent: ansible-test-network-integration-ios-local
-    nodeset: ios-15.6-2T-python36
-    required-projects:
-      - name: github.com/ansible/ansible
-        override-checkout: stable-2.9
-    vars:
-      ansible_test_python: 3.6
 
 - job:
     name: ansible-test-network-integration-ios-network_cli-python36-stable29
@@ -1005,7 +943,7 @@
     abstract: true
     vars:
       ansible_test_collections: true
-      ansible_test_skip_tags: network_cli
+      ansible_test_skip_tags: local,network_cli
 
 - job:
     name: ansible-test-network-integration-iosxr-network_cli
@@ -1408,7 +1346,7 @@
     abstract: true
     nodeset: vsrx3-18.4R1-python27
     vars:
-      ansible_test_skip_tags: netconf
+      ansible_test_skip_tags: local,netconf
 
 - job:
     name: ansible-test-network-integration-junos-vsrx-python27
@@ -1600,7 +1538,7 @@
     nodeset: nxos-7.0.3-python36
     vars:
       ansible_test_python: 3.6
-      ansible_test_skip_tags: nxapi
+      ansible_test_skip_tags: local,nxapi
       ansible_test_split_in: 4
 
 - job:
@@ -1636,7 +1574,7 @@
         override-checkout: stable-2.9
     vars:
       ansible_test_python: 3.6
-      ansible_test_skip_tags: nxapi
+      ansible_test_skip_tags: local,nxapi
       ansible_test_split_in: 4
 
 - job:
@@ -1989,13 +1927,6 @@
     nodeset: vyos-1.1.8-python35
     vars:
       ansible_test_python: 3.5
-
-- job:
-    name: ansible-test-network-integration-vyos-local-python27
-    parent: ansible-test-network-integration-vyos-local
-    nodeset: vyos-1.1.8-python27
-    vars:
-      ansible_test_python: 2.7
 
 - job:
     name: ansible-test-network-integration-vyos-network_cli-python27

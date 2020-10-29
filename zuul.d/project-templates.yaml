@@ -103,8 +103,6 @@
     name: ansible-collections-ansible-utils-units
     check:
       jobs: &ansile-collections-ansible-utils-units-jobs
-        - build-ansible-collection
-        - ansible-changelog-fragment
         - ansible-test-sanity-ansible-utils
         - ansible-test-units-ansible-utils-python27
         - ansible-test-units-ansible-utils-python35
@@ -124,6 +122,7 @@
         - ansible-test-network-integration-ansible-utils-python36
         - ansible-test-network-integration-ansible-utils-python36-stable210
         - ansible-test-network-integration-ansible-utils-python36-stable29
+        - build-ansible-collection
 
     gate:
       queue: integrated

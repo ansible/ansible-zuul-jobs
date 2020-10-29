@@ -210,13 +210,8 @@
     name: ansible-collections-cisco-ios
     check:
       jobs: &ansible-collections-cisco-ios-jobs
-        - ansible-test-network-integration-ios-local-python27-stable210
-        - ansible-test-network-integration-ios-local-python27-stable29
         - ansible-test-network-integration-ios-network_cli-python27-stable210
         - ansible-test-network-integration-ios-network_cli-python27-stable29
-        - ansible-test-network-integration-ios-local-python36
-        - ansible-test-network-integration-ios-local-python36-stable210
-        - ansible-test-network-integration-ios-local-python36-stable29
         - ansible-test-network-integration-ios-network_cli-python36
         - ansible-test-network-integration-ios-network_cli-python36-stable210
         - ansible-test-network-integration-ios-network_cli-python36-stable29
@@ -597,13 +592,9 @@
     name: ansible-collections-vyos-vyos
     check:
       jobs: &ansible-collections-vyos-vyos-jobs
-        - ansible-test-network-integration-vyos-local-python27-stable210
-        - ansible-test-network-integration-vyos-local-python27-stable29
         - ansible-test-network-integration-vyos-network_cli-python27-stable210
         - ansible-test-network-integration-vyos-network_cli-python27-stable29
         - ansible-test-network-integration-vyos-local-python36
-        - ansible-test-network-integration-vyos-local-python36-stable210
-        - ansible-test-network-integration-vyos-local-python36-stable29
         - ansible-test-network-integration-vyos-network_cli-python36
         - ansible-test-network-integration-vyos-network_cli-python36-stable210
         - ansible-test-network-integration-vyos-network_cli-python36-stable29

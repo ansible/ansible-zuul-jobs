@@ -592,6 +592,8 @@
     name: ansible-collections-vyos-vyos
     check:
       jobs: &ansible-collections-vyos-vyos-jobs
+        - ansible-test-network-integration-vyos-local-python27-stable210
+        - ansible-test-network-integration-vyos-local-python27-stable29
         - ansible-test-network-integration-vyos-network_cli-python27-stable210
         - ansible-test-network-integration-vyos-network_cli-python27-stable29
         - ansible-test-network-integration-vyos-local-python36

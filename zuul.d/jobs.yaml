@@ -1900,6 +1900,14 @@
       ansible_collections_repo: github.com/ansible-collections/vyos.vyos
 
 - job:
+    name: ansible-test-network-integration-vyos-local
+    parent: ansible-test-network-integration-vyos
+    abstract: true
+    vars:
+      ansible_test_collections: true
+      ansible_test_skip_tags: network_cli
+
+- job:
     name: ansible-test-network-integration-vyos-network_cli
     parent: ansible-test-network-integration-vyos
     abstract: true
@@ -1929,12 +1937,32 @@
       ansible_test_python: 2.7
 
 - job:
+    name: ansible-test-network-integration-vyos-local-python27-stable210
+    parent: ansible-test-network-integration-vyos-local
+    nodeset: vyos-1.1.8-python27
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.10
+    vars:
+      ansible_test_python: 2.7
+
+- job:
     name: ansible-test-network-integration-vyos-network_cli-python27-stable210
     parent: ansible-test-network-integration-vyos-network_cli
     nodeset: vyos-1.1.8-python27
     required-projects:
       - name: github.com/ansible/ansible
         override-checkout: stable-2.10
+    vars:
+      ansible_test_python: 2.7
+
+- job:
+    name: ansible-test-network-integration-vyos-local-python27-stable29
+    parent: ansible-test-network-integration-vyos-local
+    nodeset: vyos-1.1.8-python27
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.9
     vars:
       ansible_test_python: 2.7
 
@@ -1957,12 +1985,10 @@
 
 - job:
     name: ansible-test-network-integration-vyos-local-python36
-    parent: ansible-test-network-integration-vyos
+    parent: ansible-test-network-integration-vyos-local
     nodeset: vyos-1.1.8-python36
     vars:
       ansible_test_python: 3.6
-      ansible_test_collections: true
-      ansible_test_skip_tags: network_cli
 
 - job:
     name: ansible-test-network-integration-vyos-network_cli-python36
@@ -1979,10 +2005,13 @@
 
 - job:
     name: ansible-test-network-integration-vyos-local-python36-stable210
-    parent: ansible-test-network-integration-vyos-local-python36
+    parent: ansible-test-network-integration-vyos-local
+    nodeset: vyos-1.1.8-python36
     required-projects:
       - name: github.com/ansible/ansible
         override-checkout: stable-2.10
+    vars:
+      ansible_test_python: 3.6
 
 - job:
     name: ansible-test-network-integration-vyos-network_cli-python36-stable210
@@ -2002,10 +2031,13 @@
 
 - job:
     name: ansible-test-network-integration-vyos-local-python36-stable29
-    parent: ansible-test-network-integration-vyos-local-python36
+    parent: ansible-test-network-integration-vyos-local
+    nodeset: vyos-1.1.8-python36
     required-projects:
       - name: github.com/ansible/ansible
         override-checkout: stable-2.9
+    vars:
+      ansible_test_python: 3.6
 
 - job:
     name: ansible-test-network-integration-vyos-network_cli-python36-stable29

@@ -1442,7 +1442,7 @@
 
 - job:
     name: ansible-test-network-integration-ansible-utils-python36-stable29
-    parent: ansible-test-network-integration-base-ansibe-utils
+    parent: ansible-test-network-integration-base-ansible-utils
     required-projects:
       - name: github.com/ansible/ansible
         override-checkout: stable-2.9

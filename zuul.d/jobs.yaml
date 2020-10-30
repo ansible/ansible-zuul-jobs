@@ -1261,6 +1261,55 @@
       ansible_collections_repo: github.com/ansible-collections/ansible.posix
 
 - job:
+    name: ansible-test-sanity-ansible-utils
+    parent: ansible-test-sanity-base-29
+    required-projects:
+      - name: github.com/ansible-collections/ansible.utils
+    timeout: 3600
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/ansible.utils
+
+- job:
+    name: ansible-test-units-ansible-utils-python27
+    parent: ansible-test-units-base-python27
+    required-projects:
+      - name: github.com/ansible-collections/ansible.utils
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/ansible.utils
+
+- job:
+    name: ansible-test-units-ansible-utils-python35
+    parent: ansible-test-units-base-python35
+    required-projects:
+      - name: github.com/ansible-collections/ansible.utils
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/ansible.utils
+
+- job:
+    name: ansible-test-units-ansible-utils-python36
+    parent: ansible-test-units-base-python27
+    required-projects:
+      - name: github.com/ansible-collections/ansible.utils
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/ansible.utils
+
+- job:
+    name: ansible-test-units-ansible-utils-python37
+    parent: ansible-test-units-base-python37
+    required-projects:
+      - name: github.com/ansible-collections/ansible.utils
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/ansible.utils
+
+- job:
+    name: ansible-test-units-ansible-utils-python38
+    parent: ansible-test-units-base-python38
+    required-projects:
+      - name: github.com/ansible-collections/ansible.utils
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/ansible.utils
+
+- job:
     name: ansible-test-network-integration-junos-vsrx
     abstract: true
     dependencies:

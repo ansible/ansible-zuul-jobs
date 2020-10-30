@@ -1342,7 +1342,7 @@
     timeout: 10800
     vars:
       ansible_collections_repo: github.com/ansible-collections/ansible.utils
-      ansible_test_command: network-integration
+      ansible_test_command: integration
 
 - job:
     name: ansible-test-sanity-ansible-utils

@@ -1324,27 +1324,6 @@
       ansible_collections_repo: github.com/ansible-collections/ansible.posix
 
 - job:
-    name: ansible-test-network-integration-base-ansible-utils
-    abstract: true
-    dependencies:
-      - name: build-ansible-collection
-        soft: true
-    pre-run:
-      - playbooks/ansible-test-base/pre.yaml
-      - playbooks/ansible-test-network-integration-base/pre.yaml
-    run: playbooks/ansible-test-base/run.yaml
-    post-run:
-      - playbooks/ansible-test-network-integration-base/post.yaml
-      - playbooks/ansible-test-base/post.yaml
-    required-projects:
-      - name: github.com/ansible/ansible
-      - name: github.com/ansible-collections/ansible.utils
-    timeout: 10800
-    vars:
-      ansible_collections_repo: github.com/ansible-collections/ansible.utils
-      ansible_test_command: integration
-
-- job:
     name: ansible-test-sanity-ansible-utils
     parent: ansible-test-sanity-base-29
     required-projects:
@@ -1392,62 +1371,6 @@
       - name: github.com/ansible-collections/ansible.utils
     vars:
       ansible_collections_repo: github.com/ansible-collections/ansible.utils
-
-- job:
-    name: ansible-test-network-integration-ansible-utils-python36
-    parent: ansible-test-network-integration-iosxr-python36
-    vars:
-      ansible_collections_repo: github.com/ansible-collections/ansible.utils
-      ansible_test_integration_targets: ""
-
-- job:
-    name: ansible-test-network-integration-ansible-utils
-    parent: ansible-test-network-integration-base-ansible-utils
-    abstract: true
-    vars:
-      ansible_test_collections: true
-
-- job:
-    name: ansible-test-network-integration-ansible-utils-python27-stable210
-    parent: ansible-test-network-integration-base-ansible-utils
-    required-projects:
-      - name: github.com/ansible/ansible
-        override-checkout: stable-2.10
-    vars:
-      ansible_test_python: 2.7
-
-- job:
-    name: ansible-test-network-integration-ansible-utils-python27-stable29
-    parent: ansible-test-network-integration-base-ansible-utils
-    required-projects:
-      - name: github.com/ansible/ansible
-        override-checkout: stable-2.9
-    vars:
-      ansible_test_python: 2.7
-
-- job:
-    name: ansible-test-network-integration-ansible-utils-python36
-    parent: ansible-test-network-integration-base-ansible-utils
-    vars:
-      ansible_test_python: 3.6
-
-- job:
-    name: ansible-test-network-integration-ansible-utils-python36-stable210
-    parent: ansible-test-network-integration-base-ansible-utils
-    required-projects:
-      - name: github.com/ansible/ansible
-        override-checkout: stable-2.10
-    vars:
-      ansible_test_python: 3.6
-
-- job:
-    name: ansible-test-network-integration-ansible-utils-python36-stable29
-    parent: ansible-test-network-integration-base-ansible-utils
-    required-projects:
-      - name: github.com/ansible/ansible
-        override-checkout: stable-2.9
-    vars:
-      ansible_test_python: 3.6
 
 - job:
     name: ansible-test-network-integration-junos-vsrx

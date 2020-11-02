@@ -100,17 +100,21 @@
       jobs: *ansible-collections-arista-eos-jobs
 
 - project-template:
+    name: ansible-collections-ansible-ansible-utils
+    check:
+      jobs: &ansible-collections-ansible-utils-jobs
+        - build-ansible-collection
+        - ansible-test-integration-ansible-utils-python36
+    gate:
+      queue: integrated
+      jobs: *ansible-collections-ansible-utils-jobs
+
+- project-template:
     name: ansible-collections-ansible-utils-units
     check:
       jobs: &ansile-collections-ansible-utils-units-jobs
         - build-ansible-collection
-        - ansible-changelog-fragment
         - ansible-test-sanity-ansible-utils
-        - ansible-test-units-ansible-utils-python27
-        - ansible-test-units-ansible-utils-python35
-        - ansible-test-units-ansible-utils-python36
-        - ansible-test-units-ansible-utils-python37
-        - ansible-test-units-ansible-utils-python38
     gate:
       queue: integrated
       jobs: *ansile-collections-ansible-utils-units-jobs

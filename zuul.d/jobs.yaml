@@ -422,6 +422,35 @@
       ansible_test_python: 3.6
 
 - job:
+    name: ansible-test-integration-base
+    abstract: true
+    dependencies:
+      - name: build-ansible-collection
+        soft: true
+    pre-run:
+      - playbooks/ansible-test-base/pre.yaml
+      - playbooks/ansible-test-integration-base/pre.yaml
+    run: playbooks/ansible-test-base/run.yaml
+    post-run:
+      - playbooks/ansible-test-integration-base/post.yaml
+    timeout: 10800
+    vars:
+      ansible_test_collections: true
+      ansible_test_command: integration
+      ansible_test_integration_targets: ""
+      ansible_collections_repo: "{{ zuul.project.canonical_name }}"
+
+- job:
+    name: ansible-test-integration-ansible-utils
+    abstract: true
+    parent: ansible-test-integration-base
+    required-projects:
+      - name: github.com/ansible/ansible
+      - name: github.com/ansible-collections/ansible.utils
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/ansible.utils
+
+- job:
     name: ansible-test-network-integration-eos
     abstract: true
     dependencies:
@@ -677,6 +706,14 @@
     nodeset: eos-4.20.10-python38
     vars:
       ansible_test_python: 3.8
+
+- job:
+    name: ansible-test-integration-ansible-utils-python36
+    parent: ansible-test-integration-ansible-utils
+    nodeset: controller-python36
+    vars:
+      ansible_test_collections: true
+      ansible_test_python: 3.6
 
 - job:
     name: ansible-test-network-integration-ios

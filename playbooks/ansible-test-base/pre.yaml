@@ -39,7 +39,12 @@
         ANSIBLE_SKIP_CONFLICT_CHECK: 1
       shell: "~/venv/bin/pip install {{ ansible_user_dir }}/{{ zuul.projects['github.com/ansible/ansible'].src_dir }}"
 
+    # NOTE(pabelanger): For integration jobs, install collections after our
+    # appliance is configured. This stops pre-merged code from failing
+    # to configure appliances.
     - name: Fetch and install the artifacts
       import_role:
         name: deploy-artifacts
-      when: ansible_test_collections | default(False)
+      when:
+        - ansible_test_collections | default(False)
+        - "'integration' not in ansible_test_command"

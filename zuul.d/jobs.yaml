@@ -713,7 +713,6 @@
     parent: ansible-test-integration-ansible-utils
     nodeset: controller-python36
     vars:
-      ansible_test_collections: true
       ansible_test_python: 3.6
 
 - job:

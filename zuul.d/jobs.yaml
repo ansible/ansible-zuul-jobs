@@ -709,9 +709,56 @@
       ansible_test_python: 3.8
 
 - job:
+    name: ansible-test-integration-ansible-utils-python27
+    parent: ansible-test-integration-ansible-utils
+    nodeset: controller-python27
+    vars:
+      ansible_test_python: 2.7
+
+- job:
+    name: ansible-test-integration-ansible-utils-python27-stable210
+    parent: ansible-test-integration-ansible-utils
+    nodeset: controller-python27
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.10
+    vars:
+      ansible_test_python: 2.7
+
+- job:
+    name: ansible-test-integration-ansible-utils-python27-stable29
+    parent: ansible-test-integration-ansible-utils
+    nodeset: controller-python27
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.9
+    vars:
+      ansible_test_python: 2.7
+
+- job:
     name: ansible-test-integration-ansible-utils-python36
     parent: ansible-test-integration-ansible-utils
     nodeset: controller-python36
+    vars:
+      ansible_test_python: 3.6
+
+- job:
+    name: ansible-test-integration-ansible-utils-python36-stable210
+    parent: ansible-test-integration-ansible-utils
+    nodeset: controller-python36
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.10
+    vars:
+      ansible_test_python: 3.6
+
+- job:
+    name: ansible-test-integration-ansible-utils-python36-stable29
+    parent: ansible-test-integration-ansible-utils
+    nodeset: controller-python36
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.9
     vars:
       ansible_test_python: 3.6
 

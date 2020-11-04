@@ -1,12 +1,6 @@
 ---
 - hosts: controller
   tasks:
-    - name: Install binary dependencies from ansible/ansible-zuul-jobs
-      include_role:
-        name: bindep
-      vars:
-        bindep_dir: "{{ zuul.projects['github.com/ansible/ansible-zuul-jobs'].src_dir }}"
-
     - name: Fetch and install the artifacts
       import_role:
         name: deploy-artifacts

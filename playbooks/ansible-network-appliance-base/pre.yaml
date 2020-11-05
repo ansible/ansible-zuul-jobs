@@ -41,6 +41,10 @@
 
     - name: Ensure remote SSH host keys are known
       shell: "ssh-keyscan -v -p {{ __ssh_port }} {{ __ssh_ip }} >> ~/.ssh/known_hosts"
+      register: _r
+      until: _r.rc == 0
+      retries: 3
+      delay: 30
 
     - name: Create /etc/ansible folder
       become: true

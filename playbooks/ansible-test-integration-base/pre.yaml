@@ -1,8 +1,0 @@
----
-- hosts: controller
-  tasks:
-    - name: Fetch and install the artifacts
-      import_role:
-        name: deploy-artifacts
-      when:
-        - ansible_test_collections | default(False)

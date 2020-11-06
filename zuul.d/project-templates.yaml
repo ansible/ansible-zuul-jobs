@@ -835,6 +835,7 @@
             branches:
               - stable-2.9
               - stable-2.8
+            voting: false
         - ansible-test-network-integration-iosxr-python27:
             branches:
               - stable-2.9
@@ -1065,6 +1066,7 @@
               - ^lib/ansible/plugins/terminal/ios.py
               - ^test/integration/targets/ios_.*
               - ^test/integration/targets/prepare_ios_tests/.*
+            voting: false
         - ansible-test-network-integration-iosxr-python27:
             branches:
               - stable-2.9

@@ -17,6 +17,23 @@
       nodes: []
 
 - job:
+    name: build-ansible-execution-environment
+    parent: ansible-buildset-registry-consumer
+    description: |
+      Build ansible execution-environment and return artifacts to zuul
+    dependencies:
+      - name: build-ansible-collection
+    pre-run: playbooks/build-ansible-execution-environment/pre.yaml
+    run: playbooks/build-ansible-execution-environment/run.yaml
+    post-run: playbooks/build-ansible-execution-environment/post.yaml
+    requires: ansible-runner-container-image
+    required-projects:
+      - github.com/ansible/ansible-builder
+    vars:
+      container_command: podman
+    nodeset: ubuntu-bionic-1vcpu
+
+- job:
     name: ansible-tox-docs
     parent: tox-docs
     nodeset: centos-8-1vcpu

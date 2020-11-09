@@ -1,0 +1,18 @@
+---
+- hosts: all
+  tasks:
+    - name: Setup download-artifact-fork role
+      include_role:
+        name: download-artifact-fork
+      vars:
+        download_artifact_directory: ~/downloads
+        download_artifact_type: ansible_collection
+
+    - name: Setup tox role
+      include_role:
+        name: tox
+      vars:
+        tox_envlist: venv
+        tox_extra_args: "-vv --notest"
+        tox_install_siblings: false
+        zuul_work_dir: "{{ zuul.projects['github.com/ansible/ansible-builder'].src_dir }}"

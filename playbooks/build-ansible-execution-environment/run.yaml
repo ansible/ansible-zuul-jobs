@@ -1,0 +1,6 @@
+- hosts: all
+  tasks:
+    - name: Run ansible-builder
+      args:
+        chdir: "{{ zuul.project.src_dir }}"
+      shell: "~/{{ zuul.projects['github.com/ansible/ansible-builder'].src_dir }}/.tox/venv/bin/ansible-builder build -vvv --tag quay.io/ansible-network/execution-environment:latest"

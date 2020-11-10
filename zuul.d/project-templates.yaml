@@ -774,6 +774,17 @@
         - ansible-test-sanity-splunk
 
 - project-template:
+    name: ansible-collections-security-trendmicro-deepsec-units
+    check:
+      jobs:
+        - build-ansible-collection
+        - ansible-test-sanity-trendmicro-deepsec
+    gate:
+      jobs:
+        - build-ansible-collection
+        - ansible-test-sanity-trendmicro-deepsec
+
+- project-template:
     name: ansible-collections-symantec-epm-units
     check:
       jobs:
@@ -781,23 +792,6 @@
     gate:
       jobs:
         - ansible-test-sanity-symantec-epm
-
-- project-template:
-    name: ansible-collections-trendmicro-deepsec
-    check:
-      jobs:
-        - build-ansible-collection
-    gate:
-      jobs:
-        - build-ansible-collection
-
-- project-template:
-    name: ansible-collections-trendmicro-deepsec-units
-    check:
-      jobs: &ansile-collections-trendmicro-deepsec-units-jobs
-        - ansible-changelog-fragment
-    gate:
-      jobs: *ansile-collections-trendmicro-deepsec-units-jobs
 
 - project-template:
     name: ansible-test-network-integration

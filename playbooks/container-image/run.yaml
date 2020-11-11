@@ -1,0 +1,12 @@
+---
+- hosts: all
+  tasks:
+    - name: Setup build-docker-image role
+      include_role:
+        name: build-docker-image
+
+    - name: Pause the job
+      zuul_return:
+        data:
+          zuul:
+            pause: true

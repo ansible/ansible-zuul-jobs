@@ -1,0 +1,16 @@
+---
+- job:
+    name: ansible-runner-build-container-image
+    parent: ansible-build-container-image
+    description: Build ansible-runner container image
+    pre-run: playbooks/ansible-runner-build-container-image/pre.yaml
+    timeout: 2700
+    provides: ansible-runner-container-image
+    vars:
+      docker_images:
+        - context: .
+          repository: quay.io/ansible/ansible-runner
+          tags:
+            # If zuul.tag is defined: [ '3', '3.19', '3.19.0' ].  Only works for 3-component tags.
+            # Otherwise: ['latest']
+            &imagetag "{{ zuul.tag is defined | ternary([zuul.get('tag', '').split('.')[0], '.'.join(zuul.get('tag', '').split('.')[:2]), zuul.get('tag', '')], ['devel']) }}"

@@ -1381,6 +1381,15 @@
               - ^test/integration/targets/prepare_vyos_tests/.*
 
 - project-template:
+    name: ansible-runner-container-image-jobs
+    check:
+      jobs:
+        - ansible-runner-build-container-image
+    gate:
+      jobs:
+        - ansible-runner-build-container-image
+
+- project-template:
     name: noop-jobs
     description: |
       This template runs no jobs, it is needed if a project does not use

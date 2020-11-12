@@ -1384,9 +1384,11 @@
     name: ansible-runner-container-image-jobs
     check:
       jobs:
+        - ansible-buildset-registry
         - ansible-runner-build-container-image
     gate:
       jobs:
+        - ansible-buildset-registry
         - ansible-runner-build-container-image
 
 - project-template:

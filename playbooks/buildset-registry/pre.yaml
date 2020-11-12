@@ -1,16 +1,14 @@
 ---
 - hosts: all
   tasks:
-    - name: Install docker
+    - name: Install container runtime
       include_role:
-        name: ensure-docker
+        name: "ensure-{{ (container_command == 'docker') | ternary('docker', 'podman') }}"
 
     - name: Run buildset registry (if not already running)
       when: buildset_registry is not defined
       include_role:
         name: run-buildset-registry
-      vars:
-        container_command: docker
 
     - name: Use buildset registry
       include_role:

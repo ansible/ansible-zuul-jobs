@@ -9,6 +9,7 @@
     vars:
       container_images:
         - context: .
+          registry: quay.io
           repository: quay.io/ansible/ansible-runner
           tags:
             # If zuul.tag is defined: [ '3', '3.19', '3.19.0' ].  Only works for 3-component tags.

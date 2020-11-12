@@ -1,16 +1,15 @@
 ---
 - hosts: all
   tasks:
-    - name: Setup tox role
-      include_role:
-        name: tox
-      vars:
-        tox_envlist: venv
-        tox_extra_args: -vv --notest
-        tox_install_siblings: false
+    # NOTE(pabelanger): We should consider pushing this into bindep.txt file, as build dependency.
+    - name: Ensure python3-wheel is installed
+      become: true
+      package:
+        name: python3-wheel
+        state: present
 
-    - name: Create dist files
-      args:
-        chdir: "{{ ansible_user_dir }}/{{ zuul.project.src_dir }}"
-        executable: /bin/bash
-      shell: source .tox/venv/bin/activate; make dist
+    - name: Run build-python-release role
+      include_role:
+        name: build-python-release
+      vars:
+        release_python: python3

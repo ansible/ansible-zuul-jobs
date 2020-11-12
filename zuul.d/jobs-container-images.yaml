@@ -17,6 +17,8 @@
     post-run: playbooks/buildset-registry/post.yaml
     requires: container-image
     nodeset: ubuntu-bionic-1vcpu
+    vars:
+      container_command: docker
 
 - job:
     name: ansible-build-container-image
@@ -28,5 +30,10 @@
       image build playbook.
     parent: ansible-buildset-registry
     run: playbooks/container-image/run.yaml
+    dependencies:
+      - name: ansible-buildset-registry
+        soft: true
     provides: container-image
     nodeset: ubuntu-bionic-1vcpu
+    vars:
+      container_command: podman

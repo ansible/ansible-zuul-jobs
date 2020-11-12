@@ -7,9 +7,10 @@
     timeout: 2700
     provides: ansible-runner-container-image
     vars:
+      docker_registry: quay.io
       docker_images:
         - context: .
-          repository: quay.io/ansible/ansible-runner
+          repository: ansible/ansible-runner
           tags:
             # If zuul.tag is defined: [ '3', '3.19', '3.19.0' ].  Only works for 3-component tags.
             # Otherwise: ['latest']

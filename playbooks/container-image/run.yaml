@@ -1,9 +1,9 @@
 ---
 - hosts: all
   tasks:
-    - name: Setup build-docker-image role
+    - name: Setup build-container-image role
       include_role:
-        name: build-docker-image
+        name: build-container-image
 
     - name: Pause the job
       zuul_return:

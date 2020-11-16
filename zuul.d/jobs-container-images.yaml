@@ -37,12 +37,3 @@
     nodeset: ubuntu-bionic-1vcpu
     vars:
       container_command: podman
-
-- job:
-    name: ansible-upload-container-image
-    parent: ansible-build-container-image
-    description: |
-      Build and upload a container image.
-    post-run: playbooks/container-image/upload.yaml
-    secrets:
-      - container_registry_credentials

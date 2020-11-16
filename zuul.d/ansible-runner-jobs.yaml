@@ -20,6 +20,7 @@
     name: ansible-runner-upload-container-image
     parent: ansible-upload-container-image
     description: Build ansible-runner container image and upload to quay.io
+    allowed-projects: github.com/ansible/ansible-runner
     pre-run: playbooks/ansible-runner-build-container-image/pre.yaml
     timeout: 2700
     provides: ansible-runner-container-image

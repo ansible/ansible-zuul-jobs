@@ -104,3 +104,50 @@
     timeout: 3600
     vars:
       ansible_collections_repo: github.com/ansible-collections/ibm.qradar
+
+# TrendMicro
+- job:
+    name: ansible-security-trendmicro-deepsec-appliance
+    parent: ansible-network-appliance-base
+    pre-run: playbooks/ansible-security-trendmicro-deepsec-appliance/pre.yaml
+    run: playbooks/ansible-security-trendmicro-deepsec-appliance/run.yaml
+    host-vars:
+      Trendmicro-DeepSecurity-20.0.198:
+        ansible_connection: network_cli
+        ansible_network_os: trendmicro.deepsec
+        ansible_python_interpreter: python
+    required-projects:
+      - name: github.com/ansible/ansible-zuul-jobs
+    nodeset: Trendmicro-DeepSecurity-20.0.198-python38
+
+- job:
+    name: ansible-test-security-integration-trendmicro-deepsec
+    abstract: true
+    dependencies:
+      - name: build-ansible-collection
+        soft: true
+    parent: ansible-security-trendmicro-deepsec-appliance
+    pre-run:
+      - playbooks/ansible-test-base/pre.yaml
+      - playbooks/ansible-test-network-integration-base/pre.yaml
+    run: playbooks/ansible-test-base/run.yaml
+    post-run:
+      - playbooks/ansible-test-network-integration-base/post.yaml
+      - playbooks/ansible-test-base/post.yaml
+    required-projects:
+      - name: github.com/ansible/ansible
+      - name: github.com/ansible-collections/trendmicro.deepsec
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/trendmicro.deepsec
+      ansible_test_command: network-integration
+      ansible_test_integration_targets: ""
+      ansible_test_collections: true
+
+- job:
+    name: ansible-test-sanity-trendmicro-deepsec
+    parent: ansible-test-sanity-base-29
+    required-projects:
+      - name: github.com/ansible-collections/trendmicro.deepsec
+    timeout: 3600
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/trendmicro.deepsec

@@ -934,3 +934,22 @@
         nodes:
           - SplunkEnterprise-SES-8.0.0
           - ubuntu-bionic
+
+- nodeset:
+    name: Trendmicro-DeepSecurity-20.0.198-python38
+    nodes:
+      - name: ubuntu-bionic
+        label: ubuntu-bionic-1vcpu-without-nested
+      - name: Trendmicro-DeepSecurity-20.0.198
+        label: Trendmicro-DeepSecurity-20.0.198
+    groups:
+      - name: appliance-ssh
+        nodes:
+          - Trendmicro-DeepSecurity-20.0.198
+      - name: controller
+        nodes:
+          - ubuntu-bionic
+      - name: aws
+        nodes:
+          - Trendmicro-DeepSecurity-20.0.198
+          - ubuntu-bionic

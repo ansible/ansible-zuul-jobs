@@ -4,3 +4,6 @@
     - name: Setup build-container-image role
       include_role:
         name: build-container-image
+
+    - name: Show local container images
+      command: "{{ container_command }} image ls"

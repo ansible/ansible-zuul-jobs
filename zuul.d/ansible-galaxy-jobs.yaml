@@ -1,0 +1,20 @@
+---
+- job:
+    name: ansible-galaxy-build-container-image
+    parent: ansible-build-container-image
+    description: Build ansible galaxy container image
+    timeout: 2700
+    provides: ansible-galaxy-container-image
+    required-projects:
+      - github.com/ansible/galaxy
+    vars: &ansible_galaxy_image_vars
+      zuul_work_dir: "{{ zuul.projects['github.com/ansible/galaxy'].src_dir }}"
+      container_images:
+        - context: .
+          container_filename: scripts/docker/dev/Dockerfile
+          registry: quay.io
+          repository: quay.io/ansible/galaxy
+          tags:
+            # If zuul.tag is defined: [ '3', '3.19', '3.19.0' ].  Only works for 3-component tags.
+            # Otherwise: ['latest']
+            &imagetag "{{ zuul.tag is defined | ternary([zuul.get('tag', '').split('.')[0], '.'.join(zuul.get('tag', '').split('.')[:2]), zuul.get('tag', '')], ['devel']) }}"

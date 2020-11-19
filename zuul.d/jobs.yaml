@@ -2315,7 +2315,7 @@
 # or libvirt (TBD).
 
 - job:
-    <<: *ansible-tox-molecule-base
+    # this one does not need any container services
     name: molecule-tox-linters
     parent: ansible-tox-linters
 

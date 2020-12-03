@@ -40,11 +40,13 @@
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-collections/ansible.netcommon
+              - name: github.com/ansible-collections/ansible.utils
     gate:
       jobs:
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-collections/ansible.netcommon
+              - name: github.com/ansible-collections/ansible.utils
 
 - project-template:
     name: ansible-collections-community-aws
@@ -54,12 +56,14 @@
             required-projects:
               - name: github.com/ansible-collections/amazon.aws
               - name: github.com/ansible-collections/ansible.netcommon
+              - name: github.com/ansible-collections/ansible.utils
     gate:
       jobs:
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-collections/amazon.aws
               - name: github.com/ansible-collections/ansible.netcommon
+              - name: github.com/ansible-collections/ansible.utils
 
 - project-template:
     name: ansible-collections-arista-eos-units
@@ -95,6 +99,7 @@
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-collections/ansible.netcommon
+              - name: github.com/ansible-collections/ansible.utils
     gate:
       queue: integrated
       jobs: *ansible-collections-arista-eos-jobs
@@ -156,6 +161,7 @@
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-collections/ansible.netcommon
+              - name: github.com/ansible-collections/ansible.utils
     gate:
       queue: integrated
       jobs: *ansible-collections-cisco-asa-jobs
@@ -229,12 +235,14 @@
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-collections/ansible.netcommon
+              - name: github.com/ansible-collections/ansible.utils
     gate:
       queue: integrated
       jobs:
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-collections/ansible.netcommon
+              - name: github.com/ansible-collections/ansible.utils
 
 - project-template:
     name: ansible-collections-cisco-ios-units
@@ -267,6 +275,7 @@
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-collections/ansible.netcommon
+              - name: github.com/ansible-collections/ansible.utils
     gate:
       queue: integrated
       jobs: *ansible-collections-cisco-ios-jobs
@@ -353,12 +362,14 @@
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-collections/ansible.netcommon
+              - name: github.com/ansible-collections/ansible.utils
     gate:
       queue: integrated
       jobs:
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-collections/ansible.netcommon
+              - name: github.com/ansible-collections/ansible.utils
 
 - project-template:
     name: ansible-collections-cisco-iosxr-netconf
@@ -371,6 +382,7 @@
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-collections/ansible.netcommon
+              - name: github.com/ansible-collections/ansible.utils
               - name: github.com/ansible-collections/arista.eos
               - name: github.com/ansible-collections/cisco.ios
               - name: github.com/ansible-collections/cisco.iosxr
@@ -384,6 +396,7 @@
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-collections/ansible.netcommon
+              - name: github.com/ansible-collections/ansible.utils
               - name: github.com/ansible-collections/arista.eos
               - name: github.com/ansible-collections/cisco.ios
               - name: github.com/ansible-collections/cisco.iosxr
@@ -489,11 +502,13 @@
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-collections/ansible.netcommon
+              - name: github.com/ansible-collections/ansible.utils
     gate:
       jobs:
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-collections/ansible.netcommon
+              - name: github.com/ansible-collections/ansible.utils
 
 - project-template:
     name: ansible-collections-community-asa-units
@@ -566,6 +581,7 @@
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-collections/ansible.netcommon
+              - name: github.com/ansible-collections/ansible.utils
     gate:
       queue: integrated
       jobs: *ansible-collections-juniper-junos-jobs
@@ -580,6 +596,7 @@
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-collections/ansible.netcommon
+              - name: github.com/ansible-collections/ansible.utils
               - name: github.com/ansible-collections/cisco.iosxr
               - name: github.com/ansible-collections/junipernetworks.junos
     gate:
@@ -615,6 +632,7 @@
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-collections/ansible.netcommon
+              - name: github.com/ansible-collections/ansible.utils
     gate:
       queue: integrated
       jobs: *ansible-collections-openvswitch-openvswitch-jobs
@@ -654,6 +672,7 @@
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-collections/ansible.netcommon
+              - name: github.com/ansible-collections/ansible.utils
     gate:
       queue: integrated
       jobs: *ansible-collections-vyos-vyos-jobs
@@ -713,6 +732,7 @@
               - name: github.com/ansible-collections/cisco.iosxr
               - name: github.com/ansible-collections/junipernetworks.junos
               - name: github.com/ansible-collections/ansible.netcommon
+              - name: github.com/ansible-collections/ansible.utils
     gate:
       queue: integrated
       jobs: *ansible-collections-juniper-junos-yang-jobs
@@ -731,6 +751,7 @@
               - name: github.com/ansible-collections/cisco.iosxr
               - name: github.com/ansible-collections/junipernetworks.junos
               - name: github.com/ansible-collections/ansible.netcommon
+              - name: github.com/ansible-collections/ansible.utils
     gate:
       queue: integrated
       jobs: *ansible-collections-cisco-iosxr-yang-jobs

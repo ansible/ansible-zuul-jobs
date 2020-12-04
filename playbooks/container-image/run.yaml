@@ -7,3 +7,11 @@
 
     - name: Show local container images
       command: "{{ container_command }} image ls"
+
+# If buildset_registry is defined, that means a parent job is running it;
+# only if it is not defined does it mean that we are running it.  If we
+# are running it, pause the job so that child jobs will automatically
+# use it.
+- hosts: localhost
+  roles:
+    - pause-buildset-registry

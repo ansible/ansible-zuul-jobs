@@ -190,6 +190,16 @@
     vars:
       ansible_test_python: 3.6
       ansible_test_integration_targets: zuul/vmware/vcenter_2esxi/
+    # NOTE: we set ansible_network_os with some generic
+    # value to pass the ansible-network playbooks
+    host-vars:
+      vcenter:
+        ansible_python_interpreter: python
+        ansible_network_os: vmware_rest
+      esxi1:
+        ansible_network_os: vmware_rest
+      esxi2:
+        ansible_network_os: vmware_rest
 
 # stable29
 - job:

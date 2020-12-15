@@ -9,6 +9,13 @@
       queue: integrated
 
 - project-template:
+    name: execution-environments-queue
+    description: |
+      Group projects together into a shared change queue for Execution Environments.
+    gate:
+      queue: execution-environments
+
+- project-template:
     name: ansible-python-jobs
     description: |
       A common set of python jobs to run.

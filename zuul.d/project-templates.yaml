@@ -1542,6 +1542,23 @@
         - release-ansible-python
 
 - project-template:
+    name: publish-to-pypi-poetry
+    description: |
+      Publish a Python package (using poetry) to PyPI.
+    check:
+      jobs:
+        - ansible-build-python-tarball-poetry
+    gate:
+      jobs:
+        - ansible-build-python-tarball-poetry
+    pre-release:
+      jobs:
+        - release-ansible-python-poetry
+    release:
+      jobs:
+        - release-ansible-python-poetry
+
+- project-template:
     name: system-required
     description: |
       Jobs that *every* project in Ansible should have by default.

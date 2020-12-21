@@ -83,9 +83,17 @@
     pre-run: playbooks/ansible-build-python-tarball/pre.yaml
     run: playbooks/ansible-build-python-tarball/run.yaml
     post-run: playbooks/ansible-build-python-tarball/post.yaml
+    required-projects:
+      - github.com/ansible-network/releases
     nodeset: centos-8-1vcpu
     vars:
       release_python: python3
+
+- job:
+    name: ansible-build-python-tarball-poetry
+    parent: ansible-build-python-tarball
+    vars:
+      release_poetry_project: true
 
 - job:
     name: ansible-galaxy-importer

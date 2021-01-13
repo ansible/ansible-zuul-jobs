@@ -653,12 +653,6 @@
     check:
       jobs: &ansible-collections-vyos-vyos-units-jobs
         - ansible-changelog-fragment
-        - ansible-test-sanity-vyos
-        - ansible-test-units-vyos-python27
-        - ansible-test-units-vyos-python35
-        - ansible-test-units-vyos-python36
-        - ansible-test-units-vyos-python37
-        - ansible-test-units-vyos-python38
     gate:
       queue: integrated
       jobs: *ansible-collections-vyos-vyos-units-jobs

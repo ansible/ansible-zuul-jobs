@@ -1407,6 +1407,23 @@
               - ^test/integration/targets/prepare_vyos_tests/.*
 
 - project-template:
+    name: network-ee-tests
+    description: |
+      This is a set of jobs, run from within a network execution environment
+      to validate network collections are working properly.
+    check:
+      jobs: &network-ee-test-jobs
+        - ansible-buildset-registry
+        - network-ee-build-container-image
+        - network-ee-sanity-tests
+        - network-ee-unit-tests
+        - network-ee-build-container-image-stable-2.9
+        - network-ee-sanity-tests-stable-2.9
+        - network-ee-unit-tests-stable-2.9
+    gate:
+      jobs: *network-ee-test-jobs
+
+- project-template:
     name: noop-jobs
     description: |
       This template runs no jobs, it is needed if a project does not use

@@ -12,7 +12,6 @@
     dependencies:
       - name: ansible-buildset-registry
         soft: true
-    provides: container-image
     nodeset: ubuntu-bionic-1vcpu
     vars:
       container_command: podman

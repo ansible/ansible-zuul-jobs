@@ -1,4 +1,5 @@
 ara<1.0.0
+alembic<1.5.0
 jxmlease
 ncclient
 yamllint

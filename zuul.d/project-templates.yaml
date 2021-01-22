@@ -77,12 +77,10 @@
     check:
       jobs: &ansile-collections-arista-eos-units-jobs
         - ansible-changelog-fragment
-        - ansible-test-sanity-eos
         - ansible-test-units-eos-python27
         - ansible-test-units-eos-python35
         - ansible-test-units-eos-python36
         - ansible-test-units-eos-python37
-        - ansible-test-units-eos-python38
     gate:
       queue: integrated
       jobs: *ansile-collections-arista-eos-units-jobs
@@ -1410,14 +1408,12 @@
     name: network-ee-tests
     description: |
       This is a set of jobs, run from within a network execution environment
-      to validate network collections are working properly.
+      to validate network collections are working properly. This depends on
+      network-ee-container-image-jobs project-template.
     check:
       jobs: &network-ee-test-jobs
-        - ansible-buildset-registry
-        - network-ee-build-container-image
         - network-ee-sanity-tests
         - network-ee-unit-tests
-        - network-ee-build-container-image-stable-2.9
         - network-ee-sanity-tests-stable-2.9
         - network-ee-unit-tests-stable-2.9
     gate:

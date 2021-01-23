@@ -30,6 +30,12 @@
         label: ubuntu-bionic-1vcpu
 
 - nodeset:
+    name: ubuntu-bionic-2vcpu
+    nodes:
+      - name: ubuntu-bionic
+        label: ubuntu-bionic-2vcpu
+
+- nodeset:
     name: ubuntu-bionic-4vcpu
     nodes:
       - name: ubuntu-bionic

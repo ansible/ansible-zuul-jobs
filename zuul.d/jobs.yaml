@@ -2432,4 +2432,4 @@
     run: playbooks/ansible-ee-tests-base/run.yaml
     vars:
       container_command: podman
-    nodeset: ubuntu-bionic-1vcpu
+    nodeset: ubuntu-bionic-2vcpu

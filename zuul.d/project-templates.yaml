@@ -1414,8 +1414,6 @@
       jobs: &network-ee-test-jobs
         - network-ee-sanity-tests
         - network-ee-unit-tests
-        - network-ee-sanity-tests-stable-2.9
-        - network-ee-unit-tests-stable-2.9
     gate:
       jobs: *network-ee-test-jobs
 

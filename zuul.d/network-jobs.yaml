@@ -18,16 +18,12 @@
 - job:
     name: network-ee-sanity-tests
     parent: network-ee-tests
-    requires:
-      - network-ee-sanity-tests-container-image
     vars:
       container_image_test: sanity
 
 - job:
     name: network-ee-unit-tests
     parent: network-ee-tests
-    requires:
-      - network-ee-unit-tests-container-image
     vars:
       container_image_test: unit
 
@@ -43,15 +39,11 @@
 - job:
     name: network-ee-sanity-tests-stable-2.9
     parent: network-ee-tests-stable-2.9
-    requires:
-      - network-ee-sanity-tests-stable-2.9-container-image
     vars:
       container_image_test: sanity
 
 - job:
     name: network-ee-unit-tests-stable-2.9
     parent: network-ee-tests-stable-2.9
-    requires:
-      - network-ee-unit-tests-stable-2.9-container-image
     vars:
       container_image_test: unit

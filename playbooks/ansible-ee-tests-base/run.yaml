@@ -12,4 +12,4 @@
       when: collection_name is not defined
 
     - name: Run test container
-      shell: "podman run -w /usr/share/ansible/collections/ansible_collections/{{ collection_namespace }}/{{ collection_name }} {{ container_image_name }}-{{ container_image_test }}-tests:{{ container_image_version }}"
+      shell: "podman run --pull=always -w /usr/share/ansible/collections/ansible_collections/{{ collection_namespace }}/{{ collection_name }} {{ container_image_name }}-{{ container_image_test }}-tests:{{ container_image_version }}"

@@ -2432,4 +2432,5 @@
     run: playbooks/ansible-ee-tests-base/run.yaml
     vars:
       container_command: podman
+      use_intermediate_registry: false
     nodeset: ubuntu-bionic-2vcpu

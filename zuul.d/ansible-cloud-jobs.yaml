@@ -183,6 +183,20 @@
     # 5h
     timeout: 10800
 
+
+- job:
+    name: ansible-test-cloud-integration-vcenter7_1esxi_without_nested-python36_1_of_2
+    parent: ansible-test-cloud-integration-vcenter7_1esxi_without_nested-python36
+    vars:
+      ansible_test_do_number: 1
+
+- job:
+    name: ansible-test-cloud-integration-vcenter7_1esxi_without_nested-python36_2_of_2
+    parent: ansible-test-cloud-integration-vcenter7_1esxi_without_nested-python36
+    vars:
+      ansible_test_do_number: 2
+
+
 - job:
     name: ansible-test-cloud-integration-vcenter7_2esxi_without_nested-python36
     parent: ansible-test-cloud-integration-vcenter

@@ -254,12 +254,10 @@
     check:
       jobs: &ansible-collections-cisco-ios-units-jobs
         - ansible-changelog-fragment
-        - ansible-test-sanity-ios
         - ansible-test-units-ios-python27
         - ansible-test-units-ios-python35
         - ansible-test-units-ios-python36
         - ansible-test-units-ios-python37
-        - ansible-test-units-ios-python38
     gate:
       queue: integrated
       fail-fast: true

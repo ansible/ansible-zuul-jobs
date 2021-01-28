@@ -129,13 +129,11 @@
     check:
       jobs: &ansile-collections-ansible-utils-units-jobs
         - ansible-changelog-fragment
-        - ansible-test-sanity-ansible-utils
         - ansible-test-sanity-base-210
         - ansible-test-units-ansible-utils-python27
         - ansible-test-units-ansible-utils-python35
         - ansible-test-units-ansible-utils-python36
         - ansible-test-units-ansible-utils-python37
-        - ansible-test-units-ansible-utils-python38
     gate:
       queue: integrated
       jobs: *ansile-collections-ansible-utils-units-jobs

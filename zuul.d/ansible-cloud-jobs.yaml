@@ -180,6 +180,7 @@
     vars:
       ansible_test_python: 3.6
       ansible_test_integration_targets: zuul/vmware/vcenter_1esxi/
+      ansible_test_split_in: 2
     # 5h
     timeout: 10800
 

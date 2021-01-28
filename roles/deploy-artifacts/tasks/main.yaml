@@ -21,3 +21,11 @@
     chdir: "{{ ansible_user_dir }}/downloads"
     executable: /bin/bash
   shell: "source {{ deploy_artifacts_venv_path }}/bin/activate; ansible-galaxy collection install {{ __collections }} --pre"
+  when: ansible_version.minor >= 10
+
+- name: Install require-project collection using ansible-galaxy
+  args:
+    chdir: "{{ ansible_user_dir }}/downloads"
+    executable: /bin/bash
+  shell: "source {{ deploy_artifacts_venv_path }}/bin/activate; ansible-galaxy collection install {{ __collections }}"
+  when: ansible_version.minor < 10

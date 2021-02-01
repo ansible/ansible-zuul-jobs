@@ -805,10 +805,12 @@
     check:
       jobs:
         - build-ansible-collection
+	- ansible-security-integration-trendmicro-deepsec-python36
         - ansible-test-sanity-trendmicro-deepsec
     gate:
       jobs:
         - build-ansible-collection
+	- ansible-security-integration-trendmicro-deepsec-python36
         - ansible-test-sanity-trendmicro-deepsec
 
 - project-template:

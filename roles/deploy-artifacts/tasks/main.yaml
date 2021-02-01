@@ -16,6 +16,13 @@
   with_items: "{{ zuul.artifacts }}"
   when: "'metadata' in item and 'type' in item.metadata and (item.metadata.type == 'ansible_collection')"
 
+- name: Check for installed collections
+  args:
+    chdir: "{{ ansible_user_dir }}/downloads"
+    executable: /bin/bash
+  shell: "source {{ deploy_artifacts_venv_path }}/bin/activate; ansible-galaxy collection list"
+  register: list_collections
+
 - name: Install require-project collection using ansible-galaxy
   args:
     chdir: "{{ ansible_user_dir }}/downloads"

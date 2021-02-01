@@ -154,6 +154,6 @@
 
 - job:
     name: ansible-security-integration-trendmicro-deepsec-python36
-    parent: ansible-security-integration-trendmicro-deepsec
+    parent: ansible-test-security-integration-trendmicro-deepsec
     vars:
       ansible_test_python: 3.6

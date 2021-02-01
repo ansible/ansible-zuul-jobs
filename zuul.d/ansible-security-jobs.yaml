@@ -151,3 +151,9 @@
     timeout: 3600
     vars:
       ansible_collections_repo: github.com/ansible-collections/trendmicro.deepsec
+
+- job:
+    name: ansible-security-integration-trendmicro-deepsec-python36
+    parent: ansible-test-security-integration-trendmicro-deepsec
+    vars:
+      ansible_test_python: 3.6

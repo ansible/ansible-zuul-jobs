@@ -803,13 +803,16 @@
 - project-template:
     name: ansible-collections-security-trendmicro-deepsec-units
     check:
-      jobs:
-        - build-ansible-collection
+      jobs: &ansible-collections-security-trendmicro-jobs
         - ansible-test-sanity-trendmicro-deepsec
+        - ansible-security-integration-trendmicro-deepsec-python36
+        - build-ansible-collection:
+            required-projects:
+              - name: github.com/ansible-collections/ansible.netcommon
+              - name: github.com/ansible-collections/ansible.utils
     gate:
-      jobs:
-        - build-ansible-collection
-        - ansible-test-sanity-trendmicro-deepsec
+      queue: integrated
+      jobs: *ansible-collections-security-trendmicro-jobs
 
 - project-template:
     name: ansible-collections-symantec-epm-units

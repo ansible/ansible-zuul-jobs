@@ -58,7 +58,7 @@
               - roles/splunk.*
         - ansible-security-trendmicro-deepsec-appliance:
             files:
-              - playbooks/ansible-test-network-integration-base/files/bootstrap-trendmicro.yaml
+              - playbooks/ansible-test-network-integration-base/files/bootstrap-trendmicro.deepsec.yaml
               - playbooks/ansible-network-appliance-base/.*
 
 

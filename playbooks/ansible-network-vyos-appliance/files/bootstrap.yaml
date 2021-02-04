@@ -9,8 +9,7 @@
   tasks:
     - name: lookup SSH public key
       set_fact:
-        _ssh_file: "~/.ssh/{{ zuul_ssh_key_dest }}.pub"
-        _ssh_key: "{{ lookup('file', _ssh_file) }}"
+        _ssh_key: "{{ lookup('file', '~/.ssh/id_ecdsa.pub') }}"
 
     - name: Setup new user
       vyos_config:

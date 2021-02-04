@@ -25,3 +25,16 @@
 
     - name: Ensure the PostgreSQL service is running
       service: name=postgresql state=started enabled=yes
+
+    - name: Install deep security services
+      become: true
+      package: name={{ item }} state=present
+      with_items:
+        - ds_agent
+        - dsm_s
+
+    - name: Ensure the DS services are running
+      service: name={{ item }} state=started enabled=yes
+      with_items:
+        - ds_agent
+        - dsm_s

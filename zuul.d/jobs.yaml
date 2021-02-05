@@ -428,6 +428,1786 @@
     <<: *ansible-tox-molecule-base
     name: molecule-tox-py38
     parent: ansible-tox-py38
+    name: ansible-test-network-integration-eos-network_cli-python27-stable210-scenario02
+    parent: ansible-test-network-integration-eos-network_cli-python27-stable210
+    vars:
+      ansible_test_do_number: 2
+
+- job:
+    name: ansible-test-network-integration-eos-httpapi-python27-stable29
+    parent: ansible-test-network-integration-eos-httpapi
+    nodeset: eos-4.20.10-python27
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.9
+    vars:
+      ansible_test_python: 2.7
+
+- job:
+    name: ansible-test-network-integration-eos-network_cli-python27-stable29
+    parent: ansible-test-network-integration-eos-network_cli
+    nodeset: eos-4.20.10-python27
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.9
+    vars:
+      ansible_test_python: 2.7
+
+- job:
+    name: ansible-test-network-integration-eos-python35
+    parent: ansible-test-network-integration-eos
+    nodeset: eos-4.20.10-python35
+    vars:
+      ansible_test_python: 3.5
+
+- job:
+    name: ansible-test-network-integration-eos-python36
+    parent: ansible-test-network-integration-eos
+    nodeset: eos-4.20.10-python36
+    vars:
+      ansible_test_python: 3.6
+
+- job:
+    name: ansible-test-network-integration-eos-httpapi-python36
+    parent: ansible-test-network-integration-eos-httpapi
+    nodeset: eos-4.20.10-python36
+    vars:
+      ansible_test_python: 3.6
+
+- job:
+    name: ansible-test-network-integration-eos-network_cli-python36
+    parent: ansible-test-network-integration-eos-network_cli
+    nodeset: eos-4.20.10-python36
+    vars:
+      ansible_test_python: 3.6
+      ansible_test_network_cli_ssh_type: libssh
+
+- job:
+    name: ansible-test-network-integration-eos-httpapi-python36-stable210
+    parent: ansible-test-network-integration-eos-httpapi
+    nodeset: eos-4.20.10-python36
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.10
+    vars:
+      ansible_test_python: 3.6
+
+- job:
+    name: ansible-test-network-integration-eos-network_cli-python36-stable210
+    parent: ansible-test-network-integration-eos-network_cli
+    nodeset: eos-4.20.10-python36
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.10
+    vars:
+      ansible_test_python: 3.6
+      ansible_test_split_in: 2
+
+- job:
+    name: ansible-test-network-integration-eos-network_cli-python36-stable210-scenario01
+    parent: ansible-test-network-integration-eos-network_cli-python36-stable210
+    vars:
+      ansible_test_do_number: 1
+
+- job:
+    name: ansible-test-network-integration-eos-network_cli-python36-stable210-scenario02
+    parent: ansible-test-network-integration-eos-network_cli-python36-stable210
+    vars:
+      ansible_test_do_number: 2
+
+- job:
+    name: ansible-test-network-integration-eos-httpapi-python36-stable29
+    parent: ansible-test-network-integration-eos-httpapi
+    nodeset: eos-4.20.10-python36
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.9
+    vars:
+      ansible_test_python: 3.6
+
+- job:
+    name: ansible-test-network-integration-eos-network_cli-python36-stable29
+    parent: ansible-test-network-integration-eos-network_cli
+    nodeset: eos-4.20.10-python36
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.9
+    vars:
+      ansible_test_python: 3.6
+
+- job:
+    name: ansible-test-network-integration-eos-python37
+    parent: ansible-test-network-integration-eos
+    nodeset: eos-4.20.10-python37
+    vars:
+      ansible_test_python: 3.7
+
+- job:
+    name: ansible-test-network-integration-eos-python38
+    parent: ansible-test-network-integration-eos
+    nodeset: eos-4.20.10-python38
+    vars:
+      ansible_test_python: 3.8
+
+- job:
+    name: ansible-test-integration-ansible-utils-python27
+    parent: ansible-test-integration-ansible-utils
+    nodeset: controller-python27
+    vars:
+      ansible_test_python: 2.7
+
+- job:
+    name: ansible-test-integration-ansible-utils-python27-stable210
+    parent: ansible-test-integration-ansible-utils
+    nodeset: controller-python27
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.10
+    vars:
+      ansible_test_python: 2.7
+
+- job:
+    name: ansible-test-integration-ansible-utils-python27-stable29
+    parent: ansible-test-integration-ansible-utils
+    nodeset: controller-python27
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.9
+    vars:
+      ansible_test_python: 2.7
+
+- job:
+    name: ansible-test-integration-ansible-utils-python36
+    parent: ansible-test-integration-ansible-utils
+    nodeset: controller-python36
+    vars:
+      ansible_test_python: 3.6
+
+- job:
+    name: ansible-test-integration-ansible-utils-python36-stable210
+    parent: ansible-test-integration-ansible-utils
+    nodeset: controller-python36
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.10
+    vars:
+      ansible_test_python: 3.6
+
+- job:
+    name: ansible-test-integration-ansible-utils-python36-stable29
+    parent: ansible-test-integration-ansible-utils
+    nodeset: controller-python36
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.9
+    vars:
+      ansible_test_python: 3.6
+
+- job:
+    name: ansible-test-network-integration-ios
+    abstract: true
+    dependencies:
+      - name: build-ansible-collection
+        soft: true
+    parent: ansible-network-ios-appliance
+    pre-run:
+      - playbooks/ansible-test-base/pre.yaml
+      - playbooks/ansible-test-network-integration-base/pre.yaml
+    run: playbooks/ansible-test-base/run.yaml
+    post-run:
+      - playbooks/ansible-test-network-integration-base/post.yaml
+      - playbooks/ansible-test-base/post.yaml
+    required-projects:
+      - name: github.com/ansible/ansible
+      - name: github.com/ansible-collections/cisco.ios
+    timeout: 10800
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/cisco.ios
+      ansible_test_command: network-integration
+      ansible_test_integration_targets: "ios_.*"
+
+- job:
+    name: ansible-test-sanity-ios
+    parent: ansible-test-sanity-base-29
+    required-projects:
+      - name: github.com/ansible-collections/cisco.ios
+    timeout: 3600
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/cisco.ios
+
+- job:
+    name: ansible-test-units-ios-python27
+    parent: ansible-test-units-base-python27
+    required-projects:
+      - name: github.com/ansible-collections/cisco.ios
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/cisco.ios
+
+- job:
+    name: ansible-test-units-ios-python35
+    parent: ansible-test-units-base-python35
+    required-projects:
+      - name: github.com/ansible-collections/cisco.ios
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/cisco.ios
+
+- job:
+    name: ansible-test-units-ios-python36
+    parent: ansible-test-units-base-python36
+    required-projects:
+      - name: github.com/ansible-collections/cisco.ios
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/cisco.ios
+
+- job:
+    name: ansible-test-units-ios-python37
+    parent: ansible-test-units-base-python37
+    required-projects:
+      - name: github.com/ansible-collections/cisco.ios
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/cisco.ios
+
+- job:
+    name: ansible-test-network-integration-ios-network_cli
+    parent: ansible-test-network-integration-ios
+    abstract: true
+    vars:
+      ansible_test_collections: true
+      ansible_test_skip_tags: local
+
+- job:
+    name: ansible-test-network-integration-ios-python27
+    parent: ansible-test-network-integration-ios
+    nodeset: ios-15.6-2T-python27
+    vars:
+      ansible_test_python: 2.7
+
+- job:
+    name: ansible-test-network-integration-ios-network_cli-python27
+    parent: ansible-test-network-integration-ios-network_cli
+    nodeset: ios-15.6-2T-python27
+    vars:
+      ansible_test_python: 2.7
+
+- job:
+    name: ansible-test-network-integration-ios-network_cli-python27-stable210
+    parent: ansible-test-network-integration-ios-network_cli
+    nodeset: ios-15.6-2T-python27
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.10
+    vars:
+      ansible_test_python: 2.7
+
+- job:
+    name: ansible-test-network-integration-ios-network_cli-python27-stable29
+    parent: ansible-test-network-integration-ios-network_cli
+    nodeset: ios-15.6-2T-python27
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.9
+    vars:
+      ansible_test_python: 2.7
+
+- job:
+    name: ansible-test-network-integration-ios-python35
+    parent: ansible-test-network-integration-ios
+    nodeset: ios-15.6-2T-python35
+    vars:
+      ansible_test_python: 3.5
+
+- job:
+    name: ansible-test-network-integration-ios-python36
+    parent: ansible-test-network-integration-ios
+    nodeset: ios-15.6-2T-python36
+    vars:
+      ansible_test_python: 3.6
+
+- job:
+    name: ansible-test-network-integration-ios-network_cli-python36
+    parent: ansible-test-network-integration-ios-network_cli
+    nodeset: ios-15.6-2T-python36
+    vars:
+      ansible_test_python: 3.6
+
+- job:
+    name: ansible-test-network-integration-ios-network_cli-libssh-python36
+    parent: ansible-test-network-integration-ios-network_cli-python36
+    vars:
+      ansible_test_network_cli_ssh_type: libssh
+
+- job:
+    name: ansible-test-network-integration-ios-network_cli-python36-stable210
+    parent: ansible-test-network-integration-ios-network_cli
+    nodeset: ios-15.6-2T-python36
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.10
+    vars:
+      ansible_test_python: 3.6
+
+- job:
+    name: ansible-test-network-integration-ios-network_cli-libssh-python36-stable210
+    parent: ansible-test-network-integration-ios-network_cli-python36-stable210
+    vars:
+      ansible_test_network_cli_ssh_type: libssh
+
+- job:
+    name: ansible-test-network-integration-ios-network_cli-python36-stable29
+    parent: ansible-test-network-integration-ios-network_cli
+    nodeset: ios-15.6-2T-python36
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.9
+    vars:
+      ansible_test_python: 3.6
+
+- job:
+    name: ansible-test-network-integration-ios-network_cli-libssh-python36-stable29
+    parent: ansible-test-network-integration-ios-network_cli-python36-stable29
+    vars:
+      ansible_test_network_cli_ssh_type: libssh
+
+- job:
+    name: ansible-test-network-integration-ios-python37
+    parent: ansible-test-network-integration-ios
+    nodeset: ios-15.6-2T-python37
+    vars:
+      ansible_test_python: 3.7
+
+- job:
+    name: ansible-test-network-integration-ios-python38
+    parent: ansible-test-network-integration-ios
+    nodeset: ios-15.6-2T-python38
+    vars:
+      ansible_test_python: 3.8
+
+- job:
+    name: ansible-test-network-integration-iosxr
+    abstract: true
+    dependencies:
+      - name: build-ansible-collection
+        soft: true
+    parent: ansible-network-iosxr-appliance
+    pre-run:
+      - playbooks/ansible-test-base/pre.yaml
+      - playbooks/ansible-test-network-integration-base/pre.yaml
+    run: playbooks/ansible-test-base/run.yaml
+    post-run:
+      - playbooks/ansible-test-network-integration-base/post.yaml
+      - playbooks/ansible-test-base/post.yaml
+    required-projects:
+      - name: github.com/ansible/ansible
+      - name: github.com/ansible-collections/cisco.iosxr
+    timeout: 10800
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/cisco.iosxr
+      ansible_test_command: network-integration
+      ansible_test_integration_targets: "iosxr_.* netconf_.*"
+
+- job:
+    name: ansible-test-sanity-iosxr
+    parent: ansible-test-sanity-base-29
+    required-projects:
+      - name: github.com/ansible-collections/cisco.iosxr
+    timeout: 3600
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/cisco.iosxr
+
+- job:
+    name: ansible-test-units-iosxr-python27
+    parent: ansible-test-units-base-python27
+    required-projects:
+      - name: github.com/ansible-collections/cisco.iosxr
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/cisco.iosxr
+
+- job:
+    name: ansible-test-units-iosxr-python35
+    parent: ansible-test-units-base-python35
+    required-projects:
+      - name: github.com/ansible-collections/cisco.iosxr
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/cisco.iosxr
+
+- job:
+    name: ansible-test-units-iosxr-python36
+    parent: ansible-test-units-base-python36
+    required-projects:
+      - name: github.com/ansible-collections/cisco.iosxr
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/cisco.iosxr
+
+- job:
+    name: ansible-test-units-iosxr-python37
+    parent: ansible-test-units-base-python37
+    required-projects:
+      - name: github.com/ansible-collections/cisco.iosxr
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/cisco.iosxr
+
+- job:
+    name: ansible-test-units-iosxr-python38
+    parent: ansible-test-units-base-python38
+    required-projects:
+      - name: github.com/ansible-collections/cisco.iosxr
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/cisco.iosxr
+
+- job:
+    name: ansible-test-network-integration-iosxr-netconf
+    parent: ansible-test-network-integration-iosxr
+    abstract: true
+    vars:
+      ansible_test_collections: true
+      ansible_test_skip_tags: local,network_cli
+
+- job:
+    name: ansible-test-network-integration-iosxr-network_cli
+    parent: ansible-test-network-integration-iosxr
+    abstract: true
+    vars:
+      ansible_test_collections: true
+      ansible_test_skip_tags: local,netconf
+
+- job:
+    name: ansible-test-network-integration-iosxr-python27
+    parent: ansible-test-network-integration-iosxr
+    nodeset: iosxr-6.1.3-python27
+    vars:
+      ansible_test_python: 2.7
+
+- job:
+    name: ansible-test-network-integration-iosxr-netconf-python27
+    parent: ansible-test-network-integration-iosxr-netconf
+    nodeset: iosxr-6.1.3-python27
+    vars:
+      ansible_test_python: 2.7
+
+- job:
+    name: ansible-test-network-integration-iosxr-network_cli-python27
+    parent: ansible-test-network-integration-iosxr-network_cli
+    nodeset: iosxr-6.1.3-python27
+    vars:
+      ansible_test_python: 2.7
+      ansible_test_split_in: 2
+
+- job:
+    name: ansible-test-network-integration-iosxr-network_cli-python27-scenario01
+    parent: ansible-test-network-integration-iosxr-network_cli-python27
+    vars:
+      ansible_test_do_number: 1
+
+- job:
+    name: ansible-test-network-integration-iosxr-network_cli-python27-scenario02
+    parent: ansible-test-network-integration-iosxr-network_cli-python27
+    vars:
+      ansible_test_do_number: 2
+
+- job:
+    name: ansible-test-network-integration-iosxr-netconf-python27-stable210
+    parent: ansible-test-network-integration-iosxr-netconf
+    nodeset: iosxr-6.1.3-python27
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.10
+    vars:
+      ansible_test_python: 2.7
+
+- job:
+    name: ansible-test-network-integration-iosxr-network_cli-python27-stable210
+    parent: ansible-test-network-integration-iosxr-network_cli
+    nodeset: iosxr-6.1.3-python27
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.10
+    vars:
+      ansible_test_python: 2.7
+      ansible_test_split_in: 2
+
+- job:
+    name: ansible-test-network-integration-iosxr-network_cli-python27-stable210-scenario01
+    parent: ansible-test-network-integration-iosxr-network_cli-python27-stable210
+    vars:
+      ansible_test_do_number: 1
+
+- job:
+    name: ansible-test-network-integration-iosxr-network_cli-python27-stable210-scenario02
+    parent: ansible-test-network-integration-iosxr-network_cli-python27-stable210
+    vars:
+      ansible_test_do_number: 2
+
+- job:
+    name: ansible-test-network-integration-iosxr-netconf-python27-stable29
+    parent: ansible-test-network-integration-iosxr-netconf
+    nodeset: iosxr-6.1.3-python27
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.9
+    vars:
+      ansible_test_python: 2.7
+
+- job:
+    name: ansible-test-network-integration-iosxr-network_cli-python27-stable29
+    parent: ansible-test-network-integration-iosxr-network_cli
+    nodeset: iosxr-6.1.3-python27
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.9
+    vars:
+      ansible_test_python: 2.7
+      ansible_test_split_in: 2
+
+- job:
+    name: ansible-test-network-integration-iosxr-network_cli-python27-stable29-scenario01
+    parent: ansible-test-network-integration-iosxr-network_cli-python27-stable29
+    vars:
+      ansible_test_do_number: 1
+
+- job:
+    name: ansible-test-network-integration-iosxr-network_cli-python27-stable29-scenario02
+    parent: ansible-test-network-integration-iosxr-network_cli-python27-stable29
+    vars:
+      ansible_test_do_number: 2
+
+- job:
+    name: ansible-test-network-integration-iosxr-python35
+    parent: ansible-test-network-integration-iosxr
+    nodeset: iosxr-6.1.3-python35
+    vars:
+      ansible_test_python: 3.5
+
+- job:
+    name: ansible-test-network-integration-iosxr-python36
+    parent: ansible-test-network-integration-iosxr
+    nodeset: iosxr-6.1.3-python36
+    vars:
+      ansible_test_python: 3.6
+
+- job:
+    name: ansible-test-network-integration-iosxr-netconf-python36
+    parent: ansible-test-network-integration-iosxr-netconf
+    nodeset: iosxr-6.1.3-python36
+    vars:
+      ansible_test_python: 3.6
+
+- job:
+    name: ansible-test-network-integration-iosxr-network_cli-python36
+    parent: ansible-test-network-integration-iosxr-network_cli
+    nodeset: iosxr-6.1.3-python36
+    vars:
+      ansible_test_python: 3.6
+      ansible_test_split_in: 2
+
+- job:
+    name: ansible-test-network-integration-iosxr-network_cli-python36-scenario01
+    parent: ansible-test-network-integration-iosxr-network_cli-python36
+    vars:
+      ansible_test_do_number: 1
+
+- job:
+    name: ansible-test-network-integration-iosxr-network_cli-python36-scenario02
+    parent: ansible-test-network-integration-iosxr-network_cli-python36
+    vars:
+      ansible_test_do_number: 2
+
+- job:
+    name: ansible-test-network-integration-iosxr-netconf-python36-stable210
+    parent: ansible-test-network-integration-iosxr-netconf
+    nodeset: iosxr-6.1.3-python36
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.10
+    vars:
+      ansible_test_python: 3.6
+
+- job:
+    name: ansible-test-network-integration-iosxr-network_cli-python36-stable210
+    parent: ansible-test-network-integration-iosxr-network_cli
+    nodeset: iosxr-6.1.3-python36
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.10
+    vars:
+      ansible_test_python: 3.6
+      ansible_test_split_in: 2
+
+- job:
+    name: ansible-test-network-integration-iosxr-network_cli-python36-stable210-scenario01
+    parent: ansible-test-network-integration-iosxr-network_cli-python36-stable210
+    vars:
+      ansible_test_do_number: 1
+
+- job:
+    name: ansible-test-network-integration-iosxr-network_cli-python36-stable210-scenario02
+    parent: ansible-test-network-integration-iosxr-network_cli-python36-stable210
+    vars:
+      ansible_test_do_number: 2
+
+- job:
+    name: ansible-test-network-integration-iosxr-netconf-python36-stable29
+    parent: ansible-test-network-integration-iosxr-netconf
+    nodeset: iosxr-6.1.3-python36
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.9
+    vars:
+      ansible_test_python: 3.6
+
+- job:
+    name: ansible-test-network-integration-iosxr-network_cli-python36-stable29
+    parent: ansible-test-network-integration-iosxr-network_cli
+    nodeset: iosxr-6.1.3-python36
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.9
+    vars:
+      ansible_test_python: 3.6
+      ansible_test_split_in: 2
+
+- job:
+    name: ansible-test-network-integration-iosxr-network_cli-python36-stable29-scenario01
+    parent: ansible-test-network-integration-iosxr-network_cli-python36-stable29
+    vars:
+      ansible_test_do_number: 1
+
+- job:
+    name: ansible-test-network-integration-iosxr-network_cli-python36-stable29-scenario02
+    parent: ansible-test-network-integration-iosxr-network_cli-python36-stable29
+    vars:
+      ansible_test_do_number: 2
+
+- job:
+    name: ansible-test-network-integration-iosxr-python37
+    parent: ansible-test-network-integration-iosxr
+    nodeset: iosxr-6.1.3-python37
+    vars:
+      ansible_test_python: 3.7
+
+- job:
+    name: ansible-test-network-integration-iosxr-python38
+    parent: ansible-test-network-integration-iosxr
+    nodeset: iosxr-6.1.3-python38
+    vars:
+      ansible_test_python: 3.8
+
+- job:
+    name: ansible-test-sanity-netcommon
+    parent: ansible-test-sanity-base-29
+    required-projects:
+      - name: github.com/ansible-collections/ansible.netcommon
+    timeout: 3600
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/ansible.netcommon
+
+- job:
+    name: ansible-test-units-netcommon-python27
+    parent: ansible-test-units-base-python27
+    required-projects:
+      - name: github.com/ansible-collections/ansible.netcommon
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/ansible.netcommon
+      ansible_test_integration_targets: '--exclude="tests/unit/plugins/connection/*"'
+
+- job:
+    name: ansible-test-units-netcommon-python35
+    parent: ansible-test-units-base-python35
+    required-projects:
+      - name: github.com/ansible-collections/ansible.netcommon
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/ansible.netcommon
+      ansible_test_integration_targets: '--exclude="tests/unit/plugins/connection/*"'
+
+- job:
+    name: ansible-test-units-netcommon-python36
+    parent: ansible-test-units-base-python36
+    required-projects:
+      - name: github.com/ansible-collections/ansible.netcommon
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/ansible.netcommon
+      ansible_test_integration_targets: '--exclude="tests/unit/plugins/connection/*"'
+
+- job:
+    name: ansible-test-units-netcommon-python37
+    parent: ansible-test-units-base-python37
+    required-projects:
+      - name: github.com/ansible-collections/ansible.netcommon
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/ansible.netcommon
+      ansible_test_integration_targets: '--exclude="tests/unit/plugins/connection/*"'
+
+- job:
+    name: ansible-test-units-netcommon-python38
+    parent: ansible-test-units-base-python38
+    required-projects:
+      - name: github.com/ansible-collections/ansible.netcommon
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/ansible.netcommon
+      ansible_test_integration_targets: '--exclude="tests/unit/plugins/connection/*"'
+
+- job:
+    name: ansible-test-network-integration-ansible-netcommon-iosxr-netconf-python36
+    parent: ansible-test-network-integration-iosxr-python36
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/ansible.netcommon
+      ansible_test_integration_targets: "netconf_.*"
+
+- job:
+    name: ansible-test-network-integration-ansible-netcommon-junos-vsrx-netconf-python36
+    parent: ansible-test-network-integration-junos-vsrx-python36
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/ansible.netcommon
+      ansible_test_integration_targets: "netconf_.*"
+
+- job:
+    name: ansible-test-sanity-posix
+    parent: ansible-test-sanity-base-29
+    required-projects:
+      - name: github.com/ansible-collections/ansible.posix
+    timeout: 3600
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/ansible.posix
+
+- job:
+    name: ansible-test-units-posix
+    parent: ansible-test-units-base
+    required-projects:
+      - name: github.com/ansible-collections/ansible.posix
+    timeout: 3600
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/ansible.posix
+
+- job:
+    name: ansible-test-sanity-ansible-utils
+    parent: ansible-test-sanity-base-29
+    required-projects:
+      - name: github.com/ansible-collections/ansible.utils
+    timeout: 3600
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/ansible.utils
+
+- job:
+    name: ansible-test-units-ansible-utils-python27
+    parent: ansible-test-units-base-python27
+    required-projects:
+      - name: github.com/ansible-collections/ansible.utils
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/ansible.utils
+
+- job:
+    name: ansible-test-units-ansible-utils-python35
+    parent: ansible-test-units-base-python35
+    required-projects:
+      - name: github.com/ansible-collections/ansible.utils
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/ansible.utils
+
+- job:
+    name: ansible-test-units-ansible-utils-python36
+    parent: ansible-test-units-base-python27
+    required-projects:
+      - name: github.com/ansible-collections/ansible.utils
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/ansible.utils
+
+- job:
+    name: ansible-test-units-ansible-utils-python37
+    parent: ansible-test-units-base-python37
+    required-projects:
+      - name: github.com/ansible-collections/ansible.utils
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/ansible.utils
+
+- job:
+    name: ansible-test-network-integration-junos-vsrx
+    abstract: true
+    dependencies:
+      - name: build-ansible-collection
+        soft: true
+    parent: ansible-network-junos-vsrx-appliance
+    pre-run:
+      - playbooks/ansible-test-base/pre.yaml
+      - playbooks/ansible-test-network-integration-base/pre.yaml
+    run: playbooks/ansible-test-base/run.yaml
+    post-run:
+      - playbooks/ansible-test-network-integration-base/post.yaml
+      - playbooks/ansible-test-base/post.yaml
+    required-projects:
+      - name: github.com/ansible/ansible
+      - name: github.com/ansible-collections/junipernetworks.junos
+    timeout: 10800
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/junipernetworks.junos
+      ansible_test_command: network-integration
+      ansible_test_integration_targets: "junos_.* netconf_.*"
+
+- job:
+    name: ansible-test-sanity-junos
+    parent: ansible-test-sanity-base-29
+    required-projects:
+      - name: github.com/ansible-collections/junipernetworks.junos
+    timeout: 3600
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/junipernetworks.junos
+
+- job:
+    name: ansible-test-units-junos-python27
+    parent: ansible-test-units-base-python27
+    required-projects:
+      - name: github.com/ansible-collections/junipernetworks.junos
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/junipernetworks.junos
+
+- job:
+    name: ansible-test-units-junos-python35
+    parent: ansible-test-units-base-python35
+    required-projects:
+      - name: github.com/ansible-collections/junipernetworks.junos
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/junipernetworks.junos
+
+- job:
+    name: ansible-test-units-junos-python36
+    parent: ansible-test-units-base-python36
+    required-projects:
+      - name: github.com/ansible-collections/junipernetworks.junos
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/junipernetworks.junos
+
+- job:
+    name: ansible-test-units-junos-python37
+    parent: ansible-test-units-base-python37
+    required-projects:
+      - name: github.com/ansible-collections/junipernetworks.junos
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/junipernetworks.junos
+
+- job:
+    name: ansible-test-units-junos-python38
+    parent: ansible-test-units-base-python38
+    required-projects:
+      - name: github.com/ansible-collections/junipernetworks.junos
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/junipernetworks.junos
+
+- job:
+    name: ansible-test-network-integration-junos-vsrx-netconf
+    parent: ansible-test-network-integration-junos-vsrx
+    abstract: true
+    nodeset: vsrx3-18.4R1-python27
+    vars:
+      ansible_test_skip_tags: local,network_cli
+
+- job:
+    name: ansible-test-network-integration-junos-vsrx-network_cli
+    parent: ansible-test-network-integration-junos-vsrx
+    abstract: true
+    nodeset: vsrx3-18.4R1-python27
+    vars:
+      ansible_test_skip_tags: local,netconf
+
+- job:
+    name: ansible-test-network-integration-junos-vsrx-python27
+    parent: ansible-test-network-integration-junos-vsrx
+    nodeset: vsrx3-18.4R1-python27
+    vars:
+      ansible_test_python: 2.7
+
+- job:
+    name: ansible-test-network-integration-junos-vsrx-netconf-python27
+    parent: ansible-test-network-integration-junos-vsrx-netconf
+    nodeset: vsrx3-18.4R1-python27
+    vars:
+      ansible_test_python: 2.7
+
+- job:
+    name: ansible-test-network-integration-junos-vsrx-netconf-python27-stable210
+    parent: ansible-test-network-integration-junos-vsrx-netconf
+    nodeset: vsrx3-18.4R1-python27
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.10
+    vars:
+      ansible_test_python: 2.7
+
+- job:
+    name: ansible-test-network-integration-junos-vsrx-netconf-python27-stable29
+    parent: ansible-test-network-integration-junos-vsrx-netconf
+    nodeset: vsrx3-18.4R1-python27
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.9
+    vars:
+      ansible_test_python: 2.7
+
+- job:
+    name: ansible-test-network-integration-junos-vsrx-network_cli-python27
+    parent: ansible-test-network-integration-junos-vsrx-network_cli
+    nodeset: vsrx3-18.4R1-python27
+    vars:
+      ansible_test_python: 2.7
+
+- job:
+    name: ansible-test-network-integration-junos-vsrx-network_cli-python27-stable210
+    parent: ansible-test-network-integration-junos-vsrx-network_cli
+    nodeset: vsrx3-18.4R1-python27
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.10
+    vars:
+      ansible_test_python: 2.7
+
+- job:
+    name: ansible-test-network-integration-junos-vsrx-network_cli-python27-stable29
+    parent: ansible-test-network-integration-junos-vsrx-network_cli
+    nodeset: vsrx3-18.4R1-python27
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.9
+    vars:
+      ansible_test_python: 2.7
+
+- job:
+    name: ansible-test-network-integration-junos-vsrx-python35
+    parent: ansible-test-network-integration-junos-vsrx
+    nodeset: vsrx3-18.4R1-python35
+    vars:
+      ansible_test_python: 3.5
+
+- job:
+    name: ansible-test-network-integration-junos-vsrx-python36
+    parent: ansible-test-network-integration-junos-vsrx
+    nodeset: vsrx3-18.4R1-python36
+    vars:
+      ansible_test_python: 3.6
+
+- job:
+    name: ansible-test-network-integration-junos-vsrx-netconf-python36
+    parent: ansible-test-network-integration-junos-vsrx-netconf
+    nodeset: vsrx3-18.4R1-python36
+    vars:
+      ansible_test_python: 3.6
+
+- job:
+    name: ansible-test-network-integration-junos-vsrx-netconf-python36-stable210
+    parent: ansible-test-network-integration-junos-vsrx-netconf
+    nodeset: vsrx3-18.4R1-python36
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.10
+    vars:
+      ansible_test_python: 3.6
+
+- job:
+    name: ansible-test-network-integration-junos-vsrx-netconf-python36-stable29
+    parent: ansible-test-network-integration-junos-vsrx-netconf
+    nodeset: vsrx3-18.4R1-python36
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.9
+    vars:
+      ansible_test_python: 3.6
+
+- job:
+    name: ansible-test-network-integration-junos-vsrx-network_cli-python36
+    parent: ansible-test-network-integration-junos-vsrx-network_cli
+    nodeset: vsrx3-18.4R1-python36
+    vars:
+      ansible_test_python: 3.6
+
+- job:
+    name: ansible-test-network-integration-junos-vsrx-network_cli-python36-stable210
+    parent: ansible-test-network-integration-junos-vsrx-network_cli
+    nodeset: vsrx3-18.4R1-python36
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.10
+    vars:
+      ansible_test_python: 3.6
+
+- job:
+    name: ansible-test-network-integration-junos-vsrx-network_cli-python36-stable29
+    parent: ansible-test-network-integration-junos-vsrx-network_cli
+    nodeset: vsrx3-18.4R1-python36
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.9
+    vars:
+      ansible_test_python: 3.6
+
+- job:
+    name: ansible-test-network-integration-junos-vsrx-python37
+    parent: ansible-test-network-integration-junos-vsrx
+    nodeset: vsrx3-18.4R1-python37
+    vars:
+      ansible_test_python: 3.7
+
+- job:
+    name: ansible-test-network-integration-junos-vsrx-python38
+    parent: ansible-test-network-integration-junos-vsrx
+    nodeset: vsrx3-18.4R1-python38
+    vars:
+      ansible_test_python: 3.8
+
+- job:
+    name: ansible-test-network-integration-nxos
+    abstract: true
+    dependencies:
+      - name: build-ansible-collection
+        soft: true
+    parent: ansible-network-nxos-appliance
+    pre-run:
+      - playbooks/ansible-test-base/pre.yaml
+      - playbooks/ansible-test-network-integration-base/pre.yaml
+    run: playbooks/ansible-test-base/run.yaml
+    post-run:
+      - playbooks/ansible-test-network-integration-base/post.yaml
+      - playbooks/ansible-test-base/post.yaml
+    required-projects:
+      - name: github.com/ansible/ansible
+      - name: github.com/ansible-collections/cisco.nxos
+    timeout: 10800
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/cisco.nxos
+      ansible_test_command: network-integration
+      ansible_test_integration_targets: "nxos_.*"
+
+- job:
+    name: ansible-test-sanity-nxos
+    parent: ansible-test-sanity-base-29
+    required-projects:
+      - name: github.com/ansible-collections/cisco.nxos
+    timeout: 3600
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/cisco.nxos
+
+- job:
+    name: ansible-test-units-nxos
+    parent: ansible-test-units-base
+    required-projects:
+      - name: github.com/ansible-collections/cisco.nxos
+    timeout: 3600
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/cisco.nxos
+
+- job:
+    name: ansible-test-network-integration-nxos-cli-python36
+    parent: ansible-test-network-integration-nxos
+    nodeset: nxos-7.0.3-python36
+    vars:
+      ansible_test_python: 3.6
+      ansible_test_skip_tags: local,nxapi
+      ansible_test_split_in: 4
+
+- job:
+    name: ansible-test-network-integration-nxos-cli-python36-scenario01
+    parent: ansible-test-network-integration-nxos-cli-python36
+    vars:
+      ansible_test_do_number: 1
+
+- job:
+    name: ansible-test-network-integration-nxos-cli-python36-scenario02
+    parent: ansible-test-network-integration-nxos-cli-python36
+    vars:
+      ansible_test_do_number: 2
+
+- job:
+    name: ansible-test-network-integration-nxos-cli-python36-scenario03
+    parent: ansible-test-network-integration-nxos-cli-python36
+    vars:
+      ansible_test_do_number: 3
+
+- job:
+    name: ansible-test-network-integration-nxos-cli-python36-scenario04
+    parent: ansible-test-network-integration-nxos-cli-python36
+    vars:
+      ansible_test_do_number: 4
+
+- job:
+    name: ansible-test-network-integration-nxos-cli-python36-stable210
+    parent: ansible-test-network-integration-nxos
+    nodeset: nxos-7.0.3-python36
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.10
+    vars:
+      ansible_test_python: 3.6
+      ansible_test_skip_tags: local,nxapi
+      ansible_test_split_in: 4
+
+- job:
+    name: ansible-test-network-integration-nxos-cli-python36-stable210-scenario01
+    parent: ansible-test-network-integration-nxos-cli-python36-stable210
+    vars:
+      ansible_test_do_number: 1
+
+- job:
+    name: ansible-test-network-integration-nxos-cli-python36-stable210-scenario02
+    parent: ansible-test-network-integration-nxos-cli-python36-stable210
+    vars:
+      ansible_test_do_number: 2
+
+- job:
+    name: ansible-test-network-integration-nxos-cli-python36-stable210-scenario03
+    parent: ansible-test-network-integration-nxos-cli-python36-stable210
+    vars:
+      ansible_test_do_number: 3
+
+- job:
+    name: ansible-test-network-integration-nxos-cli-python36-stable210-scenario04
+    parent: ansible-test-network-integration-nxos-cli-python36-stable210
+    vars:
+      ansible_test_do_number: 4
+
+- job:
+    name: ansible-test-network-integration-nxos-cli-python36-stable29
+    parent: ansible-test-network-integration-nxos
+    nodeset: nxos-7.0.3-python36
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.9
+    vars:
+      ansible_test_python: 3.6
+      ansible_test_skip_tags: local,nxapi
+      ansible_test_split_in: 4
+
+- job:
+    name: ansible-test-network-integration-nxos-cli-python36-stable29-scenario01
+    parent: ansible-test-network-integration-nxos-cli-python36-stable29
+    vars:
+      ansible_test_do_number: 1
+
+- job:
+    name: ansible-test-network-integration-nxos-cli-python36-stable29-scenario02
+    parent: ansible-test-network-integration-nxos-cli-python36-stable29
+    vars:
+      ansible_test_do_number: 2
+
+- job:
+    name: ansible-test-network-integration-nxos-cli-python36-stable29-scenario03
+    parent: ansible-test-network-integration-nxos-cli-python36-stable29
+    vars:
+      ansible_test_do_number: 3
+
+- job:
+    name: ansible-test-network-integration-nxos-cli-python36-stable29-scenario04
+    parent: ansible-test-network-integration-nxos-cli-python36-stable29
+    vars:
+      ansible_test_do_number: 4
+
+- job:
+    name: ansible-test-network-integration-openvswitch
+    abstract: true
+    dependencies:
+      - name: build-ansible-collection
+        soft: true
+    parent: ansible-network-openvswitch-appliance
+    pre-run:
+      - playbooks/ansible-test-base/pre.yaml
+      - playbooks/ansible-test-network-integration-base/pre.yaml
+    run: playbooks/ansible-test-base/run.yaml
+    post-run:
+      - playbooks/ansible-test-network-integration-base/post.yaml
+      - playbooks/ansible-test-base/post.yaml
+    required-projects:
+      - name: github.com/ansible/ansible
+      - name: github.com/ansible-collections/openvswitch.openvswitch
+    timeout: 3600
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/openvswitch.openvswitch
+      ansible_test_command: network-integration
+      ansible_test_integration_targets: "openvswitch_.*"
+
+- job:
+    name: ansible-test-units-base
+    parent: unittests
+    # NOTE(pabelanger): nodeset to be removed
+    nodeset: controller-python38
+    abstract: true
+    dependencies:
+      - name: build-ansible-collection
+        soft: true
+    pre-run:
+      - playbooks/ansible-test-base/pre.yaml
+    run: playbooks/ansible-test-base/run.yaml
+    post-run: playbooks/ansible-test-units-base/post.yaml
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.9
+    timeout: 3600
+    vars:
+      ansible_test_collections: true
+      ansible_test_command: units
+      ansible_test_enable_ara: false
+      ansible_test_integration_targets: ""
+      # NOTE(pabelanger): ansible_test_python to be removed
+      ansible_test_python: 3.8
+
+- job:
+    name: ansible-test-units-base-python27
+    parent: ansible-test-units-base
+    nodeset: controller-python27
+    abstract: true
+    vars:
+      ansible_test_python: 2.7
+
+- job:
+    name: ansible-test-units-base-python35
+    parent: ansible-test-units-base
+    nodeset: controller-python35
+    abstract: true
+    vars:
+      ansible_test_python: 3.5
+
+- job:
+    name: ansible-test-units-base-python36
+    parent: ansible-test-units-base
+    nodeset: controller-python36
+    abstract: true
+    vars:
+      ansible_test_python: 3.6
+
+- job:
+    name: ansible-test-units-base-python37
+    parent: ansible-test-units-base
+    nodeset: controller-python37
+    abstract: true
+    vars:
+      ansible_test_python: 3.7
+
+- job:
+    name: ansible-test-units-base-python38
+    parent: ansible-test-units-base
+    nodeset: controller-python38
+    abstract: true
+    vars:
+      ansible_test_python: 3.8
+
+- job:
+    name: ansible-test-sanity-openvswitch
+    parent: ansible-test-sanity-base-29
+    required-projects:
+      - name: github.com/ansible-collections/openvswitch.openvswitch
+    timeout: 3600
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/openvswitch.openvswitch
+
+- job:
+    name: ansible-test-units-openvswitch-python27
+    parent: ansible-test-units-base-python27
+    required-projects:
+      - name: github.com/ansible-collections/openvswitch.openvswitch
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/openvswitch.openvswitch
+
+- job:
+    name: ansible-test-units-openvswitch-python35
+    parent: ansible-test-units-base-python35
+    required-projects:
+      - name: github.com/ansible-collections/openvswitch.openvswitch
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/openvswitch.openvswitch
+
+- job:
+    name: ansible-test-units-openvswitch-python36
+    parent: ansible-test-units-base-python36
+    required-projects:
+      - name: github.com/ansible-collections/openvswitch.openvswitch
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/openvswitch.openvswitch
+
+- job:
+    name: ansible-test-units-openvswitch-python37
+    parent: ansible-test-units-base-python37
+    required-projects:
+      - name: github.com/ansible-collections/openvswitch.openvswitch
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/openvswitch.openvswitch
+
+- job:
+    name: ansible-test-units-openvswitch-python38
+    parent: ansible-test-units-base-python38
+    required-projects:
+      - name: github.com/ansible-collections/openvswitch.openvswitch
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/openvswitch.openvswitch
+
+- job:
+    name: ansible-test-network-integration-openvswitch-python27
+    parent: ansible-test-network-integration-openvswitch
+    nodeset: openvswitch-2.9.0-python27
+    vars:
+      ansible_test_python: 2.7
+
+- job:
+    name: ansible-test-network-integration-openvswitch-python27-stable210
+    parent: ansible-test-network-integration-openvswitch
+    nodeset: openvswitch-2.9.0-python27
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.10
+    vars:
+      ansible_test_collections: true
+      ansible_test_python: 2.7
+
+- job:
+    name: ansible-test-network-integration-openvswitch-python27-stable29
+    parent: ansible-test-network-integration-openvswitch
+    nodeset: openvswitch-2.9.0-python27
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.9
+    vars:
+      ansible_test_collections: true
+      ansible_test_python: 2.7
+
+- job:
+    name: ansible-test-network-integration-openvswitch-python35
+    parent: ansible-test-network-integration-openvswitch
+    nodeset: openvswitch-2.9.0-python35
+    vars:
+      ansible_test_python: 3.5
+
+- job:
+    name: ansible-test-network-integration-openvswitch-python36
+    parent: ansible-test-network-integration-openvswitch
+    nodeset: openvswitch-2.9.0-python36
+    vars:
+      ansible_test_python: 3.6
+
+- job:
+    name: ansible-test-network-integration-openvswitch-python36-stable210
+    parent: ansible-test-network-integration-openvswitch
+    nodeset: openvswitch-2.9.0-python36
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.10
+    vars:
+      ansible_test_collections: true
+      ansible_test_python: 3.6
+
+- job:
+    name: ansible-test-network-integration-openvswitch-python36-stable29
+    parent: ansible-test-network-integration-openvswitch
+    nodeset: openvswitch-2.9.0-python36
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.9
+    vars:
+      ansible_test_collections: true
+      ansible_test_python: 3.6
+
+- job:
+    name: ansible-test-network-integration-openvswitch-python37
+    parent: ansible-test-network-integration-openvswitch
+    nodeset: openvswitch-2.9.0-python37
+    vars:
+      ansible_test_python: 3.7
+
+- job:
+    name: ansible-test-network-integration-openvswitch-python38
+    parent: ansible-test-network-integration-openvswitch
+    nodeset: openvswitch-2.9.0-python38
+    vars:
+      ansible_test_python: 3.8
+
+- job:
+    name: ansible-test-network-integration-vyos
+    abstract: true
+    dependencies:
+      - name: build-ansible-collection
+        soft: true
+    parent: ansible-network-vyos-appliance
+    pre-run:
+      - playbooks/ansible-test-base/pre.yaml
+      - playbooks/ansible-test-network-integration-base/pre.yaml
+    run: playbooks/ansible-test-base/run.yaml
+    post-run:
+      - playbooks/ansible-test-network-integration-base/post.yaml
+      - playbooks/ansible-test-base/post.yaml
+    required-projects:
+      - name: github.com/ansible/ansible
+      - name: github.com/ansible-collections/vyos.vyos
+    timeout: 10800
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/vyos.vyos
+      ansible_test_command: network-integration
+      ansible_test_integration_targets: "vyos_.*"
+
+- job:
+    name: ansible-test-sanity-symantec-epm
+    parent: ansible-test-sanity-base-29
+    required-projects:
+      - name: github.com/ansible-collections/symantec.epm
+    timeout: 3600
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/symantec.epm
+
+- job:
+    name: ansible-test-sanity-vyos
+    parent: ansible-test-sanity-base-29
+    required-projects:
+      - name: github.com/ansible-collections/vyos.vyos
+    timeout: 3600
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/vyos.vyos
+
+- job:
+    name: ansible-test-units-vyos-python27
+    parent: ansible-test-units-base-python27
+    required-projects:
+      - name: github.com/ansible-collections/vyos.vyos
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/vyos.vyos
+
+- job:
+    name: ansible-test-units-vyos-python35
+    parent: ansible-test-units-base-python35
+    required-projects:
+      - name: github.com/ansible-collections/vyos.vyos
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/vyos.vyos
+
+- job:
+    name: ansible-test-units-vyos-python36
+    parent: ansible-test-units-base-python36
+    required-projects:
+      - name: github.com/ansible-collections/vyos.vyos
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/vyos.vyos
+
+- job:
+    name: ansible-test-units-vyos-python37
+    parent: ansible-test-units-base-python37
+    required-projects:
+      - name: github.com/ansible-collections/vyos.vyos
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/vyos.vyos
+
+- job:
+    name: ansible-test-units-vyos-python38
+    parent: ansible-test-units-base-python38
+    required-projects:
+      - name: github.com/ansible-collections/vyos.vyos
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/vyos.vyos
+
+- job:
+    name: ansible-test-network-integration-vyos-local
+    parent: ansible-test-network-integration-vyos
+    abstract: true
+    vars:
+      ansible_test_collections: true
+      ansible_test_skip_tags: network_cli
+
+- job:
+    name: ansible-test-network-integration-vyos-network_cli
+    parent: ansible-test-network-integration-vyos
+    abstract: true
+    vars:
+      ansible_test_collections: true
+      ansible_test_skip_tags: local
+
+- job:
+    name: ansible-test-network-integration-vyos-python27
+    parent: ansible-test-network-integration-vyos
+    nodeset: vyos-1.1.8-python27
+    vars:
+      ansible_test_python: 2.7
+
+- job:
+    name: ansible-test-network-integration-vyos-python35
+    parent: ansible-test-network-integration-vyos
+    nodeset: vyos-1.1.8-python35
+    vars:
+      ansible_test_python: 3.5
+
+- job:
+    name: ansible-test-network-integration-vyos-network_cli-python27
+    parent: ansible-test-network-integration-vyos-network_cli
+    nodeset: vyos-1.1.8-python27
+    vars:
+      ansible_test_python: 2.7
+
+- job:
+    name: ansible-test-network-integration-vyos-local-python27-stable210
+    parent: ansible-test-network-integration-vyos-local
+    nodeset: vyos-1.1.8-python27
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.10
+    vars:
+      ansible_test_python: 2.7
+
+- job:
+    name: ansible-test-network-integration-vyos-network_cli-python27-stable210
+    parent: ansible-test-network-integration-vyos-network_cli
+    nodeset: vyos-1.1.8-python27
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.10
+    vars:
+      ansible_test_python: 2.7
+
+- job:
+    name: ansible-test-network-integration-vyos-local-python27-stable29
+    parent: ansible-test-network-integration-vyos-local
+    nodeset: vyos-1.1.8-python27
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.9
+    vars:
+      ansible_test_python: 2.7
+
+- job:
+    name: ansible-test-network-integration-vyos-network_cli-python27-stable29
+    parent: ansible-test-network-integration-vyos-network_cli
+    nodeset: vyos-1.1.8-python27
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.9
+    vars:
+      ansible_test_python: 2.7
+
+- job:
+    name: ansible-test-network-integration-vyos-python36
+    parent: ansible-test-network-integration-vyos
+    nodeset: vyos-1.1.8-python36
+    vars:
+      ansible_test_python: 3.6
+
+- job:
+    name: ansible-test-network-integration-vyos-local-python36
+    parent: ansible-test-network-integration-vyos-local
+    nodeset: vyos-1.1.8-python36
+    vars:
+      ansible_test_python: 3.6
+
+- job:
+    name: ansible-test-network-integration-vyos-network_cli-python36
+    parent: ansible-test-network-integration-vyos-network_cli
+    nodeset: vyos-1.1.8-python36
+    vars:
+      ansible_test_python: 3.6
+
+- job:
+    name: ansible-test-network-integration-vyos-network_cli-libssh-python36
+    parent: ansible-test-network-integration-vyos-network_cli-python36
+    vars:
+      ansible_test_network_cli_ssh_type: libssh
+
+- job:
+    name: ansible-test-network-integration-vyos-local-python36-stable210
+    parent: ansible-test-network-integration-vyos-local
+    nodeset: vyos-1.1.8-python36
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.10
+    vars:
+      ansible_test_python: 3.6
+
+- job:
+    name: ansible-test-network-integration-vyos-network_cli-python36-stable210
+    parent: ansible-test-network-integration-vyos-network_cli
+    nodeset: vyos-1.1.8-python36
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.10
+    vars:
+      ansible_test_python: 3.6
+
+- job:
+    name: ansible-test-network-integration-vyos-network_cli-libssh-python36-stable210
+    parent: ansible-test-network-integration-vyos-network_cli-python36-stable210
+    vars:
+      ansible_test_network_cli_ssh_type: libssh
+
+- job:
+    name: ansible-test-network-integration-vyos-local-python36-stable29
+    parent: ansible-test-network-integration-vyos-local
+    nodeset: vyos-1.1.8-python36
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.9
+    vars:
+      ansible_test_python: 3.6
+
+- job:
+    name: ansible-test-network-integration-vyos-network_cli-python36-stable29
+    parent: ansible-test-network-integration-vyos-network_cli
+    nodeset: vyos-1.1.8-python36
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.9
+    vars:
+      ansible_test_python: 3.6
+
+- job:
+    name: ansible-test-network-integration-vyos-network_cli-libssh-python36-stable29
+    parent: ansible-test-network-integration-vyos-network_cli-python36-stable29
+    vars:
+      ansible_test_network_cli_ssh_type: libssh
+
+- job:
+    name: ansible-test-network-integration-vyos-python37
+    parent: ansible-test-network-integration-vyos
+    nodeset: vyos-1.1.8-python37
+    vars:
+      ansible_test_python: 3.7
+
+- job:
+    name: ansible-test-sanity-frr
+    parent: ansible-test-sanity-base-29
+    required-projects:
+      - name: github.com/ansible-collections/frr.frr
+    timeout: 3600
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/frr.frr
+
+- job:
+    name: ansible-test-units-frr
+    parent: ansible-test-units-base
+    required-projects:
+      - name: github.com/ansible-collections/frr.frr
+    timeout: 3600
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/frr.frr
+
+- job:
+    name: ansible-test-sanity-yang
+    parent: ansible-test-sanity-base-29
+    required-projects:
+      - name: github.com/ansible-collections/community.yang
+    timeout: 3600
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/community.yang
+
+- job:
+    name: ansible-test-units-yang-python27
+    parent: ansible-test-units-base-python27
+    required-projects:
+      - name: github.com/ansible-collections/community.yang
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/community.yang
+
+- job:
+    name: ansible-test-units-yang-python35
+    parent: ansible-test-units-base-python35
+    required-projects:
+      - name: github.com/ansible-collections/community.yang
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/community.yang
+
+- job:
+    name: ansible-test-units-yang-python36
+    parent: ansible-test-units-base-python36
+    required-projects:
+      - name: github.com/ansible-collections/community.yang
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/community.yang
+
+- job:
+    name: ansible-test-units-yang-python37
+    parent: ansible-test-units-base-python37
+    required-projects:
+      - name: github.com/ansible-collections/community.yang
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/community.yang
+
+- job:
+    name: ansible-test-units-yang-python38
+    parent: ansible-test-units-base-python38
+    required-projects:
+      - name: github.com/ansible-collections/community.yang
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/community.yang
+
+- job:
+    name: ansible-test-network-integration-community-yang-iosxr-netconf-python36
+    parent: ansible-test-network-integration-iosxr-python36
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/community.yang
+      ansible_test_integration_targets: ""
+
+- job:
+    name: ansible-test-network-integration-community-yang-junos-vsrx-netconf-python36
+    parent: ansible-test-network-integration-junos-vsrx-python36
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/community.yang
+      ansible_test_integration_targets: ""
+
+# molecule- prefixed jobs match ansible- ones but also enable extra
+# virtualization services that are use by molecule, like docker, podman (TBD)
+# or libvirt (TBD).
+
+- job:
+    # this one does not need any container services
+    name: molecule-tox-linters
+    parent: ansible-tox-linters
+
+- job:
+    <<: *ansible-tox-molecule-base
+    name: molecule-tox-docs
+    parent: ansible-tox-docs
+
+- job:
+    <<: *ansible-tox-molecule-base
+    name: molecule-tox-py27
+    parent: ansible-tox-py27
+
+- job:
+    <<: *ansible-tox-molecule-base
+    name: molecule-tox-py35
+    parent: ansible-tox-py35
+
+- job:
+    <<: *ansible-tox-molecule-base
+    name: molecule-tox-py36
+    parent: ansible-tox-py36
+
+- job:
+    <<: *ansible-tox-molecule-base
+    name: molecule-tox-py37
+    parent: ansible-tox-py37
+
+- job:
+    <<: *ansible-tox-molecule-base
+    name: molecule-tox-py38
+    parent: ansible-tox-py38
+
+
+# Ansible Workshops jobs
+#
+- job:
+    name: workshops-tox-integration-f5
+    parent: ansible-workshops-tox-integration
+    vars:
+      workshop_type: f5
+
+- job:
+    name: workshops-tox-integration-networking
+    parent: ansible-workshops-tox-integration
+    vars:
+      workshop_type: networking
+
+- job:
+    name: workshops-tox-integration-rhel
+    parent: ansible-workshops-tox-integration
+    vars:
+      workshop_type: rhel
+
+- job:
+    name: workshops-tox-integration-security
+    parent: ansible-workshops-tox-integration
+    vars:
+      workshop_type: security
+
+- job:
+    name: workshops-tox-integration-windows
+    parent: ansible-workshops-tox-integration
+    vars:
+      workshop_type: windows
+>>>>>>>  enabled libssh on ansible-test-network-integration-eos-network_cli-python36
 
 - job:
     name: ansible-builder-projecttoml-and-setuppy-insync

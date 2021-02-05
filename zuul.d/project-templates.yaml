@@ -101,6 +101,10 @@
         - ansible-test-network-integration-eos-network_cli-python36-stable210-scenario01
         - ansible-test-network-integration-eos-network_cli-python36-stable210-scenario02
         - ansible-test-network-integration-eos-network_cli-python36-stable29
+        - ansible-test-network-integration-eos-network_cli-libssh-python36
+        - ansible-test-network-integration-eos-network_cli-libssh-python36-stable210-scenario01
+        - ansible-test-network-integration-eos-network_cli-libssh-python36-stable210-scenario02
+        - ansible-test-network-integration-eos-network_cli-libssh-python36-stable29
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-collections/ansible.netcommon

@@ -4,7 +4,7 @@
   connection: local
   tasks: []
 
-- hosts: appliance
+- hosts: appliance*
   gather_facts: false
   connection: network_cli
   tasks:

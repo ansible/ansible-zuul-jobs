@@ -3,3 +3,20 @@
   gather_facts: false
   connection: local
   tasks: []
+
+- hosts: appliance
+  gather_facts: false
+  connection: network_cli
+  tasks:
+    - name: Install PostgreSQL
+      become: true
+      package: name={{ item }} state=present
+      with_items:
+        - postgresql
+        - postgresql-contrib
+        - libpq-dev
+        - python-psycopg2
+
+    - name: Ensure the PostgreSQL service is running
+      service: name=postgresql state=started enabled=yes
+

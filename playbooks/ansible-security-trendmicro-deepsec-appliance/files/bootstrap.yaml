@@ -6,7 +6,7 @@
 
 - hosts: appliance*
   gather_facts: false
-  connection: network_cli
+  connection: ssh
   tasks:
     - name: Install PostgreSQL
       become: true

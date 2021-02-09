@@ -29,7 +29,6 @@
     ansible_test_options: "--coverage"
   when: ansible_test_test_command == 'units'
 
-
 - when: ansible_test_test_command == 'sanity'
   block:
     - name: Enable coverage commands for unit tests
@@ -44,4 +43,11 @@
 - name: Setup --python option
   set_fact:
     ansible_test_options: "{{ ansible_test_options }} --python {{ ansible_test_python }}"
-  when: ansible_test_python
+  when:
+    - ansible_test_python
+    - not ansible_test_docker
+
+- name: Setup --docker option
+  set_fact:
+    ansible_test_options: "{{ ansible_test_options }} --docker"
+  when: ansible_test_docker

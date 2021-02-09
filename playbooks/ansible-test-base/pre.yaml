@@ -6,6 +6,12 @@
         path: "{{ ansible_user_dir }}/zuul-output/logs/controller"
         state: directory
 
+    - name: Run ensure-docker role
+      include_role:
+        name: ensure-docker
+      when:
+        - ansible_test_docker | default(False)
+
     - name: Add python38 support if needed
       block:
         - name: Ensure python3.8 is present

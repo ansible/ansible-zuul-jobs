@@ -129,6 +129,9 @@
     check:
       jobs: &ansile-collections-ansible-utils-units-jobs
         - ansible-changelog-fragment
+        - ansible-test-sanity-docker
+        - ansible-test-sanity-docker-stable-2.9
+        - ansible-test-sanity-docker-stable-2.10
         - ansible-test-units-ansible-utils-python27
         - ansible-test-units-ansible-utils-python35
         - ansible-test-units-ansible-utils-python36

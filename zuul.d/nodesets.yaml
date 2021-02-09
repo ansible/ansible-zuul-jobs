@@ -942,20 +942,20 @@
           - ubuntu-bionic
 
 - nodeset:
-    name: Trendmicro-DeepSecurity-20.0.198-python38
+    name: Trendmicro-DeepSecurity-12.5.855-python38
     nodes:
       - name: ubuntu-bionic
         label: ubuntu-bionic-1vcpu-without-nested
-      - name: Trendmicro-DeepSecurity-20.0.198
-        label: Trendmicro-DeepSecurity-20.0.198
+      - name: Trendmicro-DeepSecurity-12.5.855
+        label: Trendmicro-DeepSecurity-12.5.855
     groups:
       - name: appliance-ssh
         nodes:
-          - Trendmicro-DeepSecurity-20.0.198
+          - Trendmicro-DeepSecurity-12.5.855
       - name: controller
         nodes:
           - ubuntu-bionic
       - name: aws
         nodes:
-          - Trendmicro-DeepSecurity-20.0.198
+          - Trendmicro-DeepSecurity-12.5.855
           - ubuntu-bionic

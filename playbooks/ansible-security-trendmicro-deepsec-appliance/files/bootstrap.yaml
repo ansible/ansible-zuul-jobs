@@ -10,11 +10,14 @@
   tasks:
     - name: Install PostgreSQL
       become: true
-      package: name={{ item }} state=present
-      with_items:
-        - postgresql
-        - postgresql-contrib
-        - python-psycopg2
+      state: latest
+      package:
+        name:
+          - postgresql
+          - postgresql-server
+          - postgresql-devel
+          - postgresql-contrib
+          - python-psycopg2
 
-    - name: Ensure the PostgreSQL service is running
-      service: name=postgresql state=started enabled=yes
+    #- name: Ensure the PostgreSQL service is running
+    #  service: name=postgresql state=started enabled=yes

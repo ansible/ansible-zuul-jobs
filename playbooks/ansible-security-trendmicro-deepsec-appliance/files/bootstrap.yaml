@@ -10,8 +10,8 @@
   tasks:
     - name: Install PostgreSQL
       become: true
-      state: latest
       package:
+        state: latest
         name:
           - postgresql
           - postgresql-server

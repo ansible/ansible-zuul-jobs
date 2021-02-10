@@ -2437,6 +2437,12 @@
       workshop_type: windows
 
 - job:
+    name: workshops-tox-integration-smart-mgmt
+    parent: ansible-workshops-tox-integration
+    vars:
+      workshop_type: smart_mgmt
+
+- job:
     name: ansible-builder-projecttoml-and-setuppy-insync
     parent: tox
     vars:

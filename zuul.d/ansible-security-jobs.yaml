@@ -43,15 +43,6 @@
     vars:
       ansible_test_python: 3.6
 
-- job:
-    name: ansible-test-sanity-splunk
-    parent: ansible-test-sanity-base-29
-    required-projects:
-      - name: github.com/ansible-collections/splunk.es
-    timeout: 3600
-    vars:
-      ansible_collections_repo: github.com/ansible-collections/splunk.es
-
 # QRadar
 - job:
     name: ansible-security-qradar-appliance
@@ -96,15 +87,6 @@
     vars:
       ansible_test_python: 3.8
 
-- job:
-    name: ansible-test-sanity-qradar
-    parent: ansible-test-sanity-base-29
-    required-projects:
-      - name: github.com/ansible-collections/ibm.qradar
-    timeout: 3600
-    vars:
-      ansible_collections_repo: github.com/ansible-collections/ibm.qradar
-
 # TrendMicro
 - job:
     name: ansible-security-trendmicro-deepsec-appliance
@@ -142,12 +124,3 @@
       ansible_test_command: network-integration
       ansible_test_integration_targets: ""
       ansible_test_collections: true
-
-- job:
-    name: ansible-test-sanity-trendmicro-deepsec
-    parent: ansible-test-sanity-base-29
-    required-projects:
-      - name: github.com/ansible-collections/trendmicro.deepsec
-    timeout: 3600
-    vars:
-      ansible_collections_repo: github.com/ansible-collections/trendmicro.deepsec

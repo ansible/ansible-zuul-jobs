@@ -1,9 +1,0 @@
----
-- job:
-    name: ansible-test-sanity-community-asa
-    parent: ansible-test-sanity-base-29
-    required-projects:
-      - name: github.com/ansible-collections/community.asa
-    timeout: 3600
-    vars:
-      ansible_collections_repo: github.com/ansible-collections/community.asa

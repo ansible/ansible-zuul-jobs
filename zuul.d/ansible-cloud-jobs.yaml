@@ -301,7 +301,7 @@
     parent: ansible-cloud-vmware-rest-appliance
     abstract: true
     dependencies:
-      - name: build-ansible-collection
+      - name: build-ansible-collection-vmware-rest
     pre-run:
       - playbooks/ansible-test-base/pre.yaml
       - playbooks/ansible-test-network-integration-base/pre.yaml
@@ -324,3 +324,10 @@
     parent: ansible-test-cloud-integration-vmware-rest
     vars:
       ansible_test_python: 3.6
+- job:
+    name: build-ansible-collection-vmware-rest
+    parent: build-ansible-collection
+    pre-run:
+      - playbooks/ansible-cloud/build-ansible-collection-vmware-rest/pre.yaml
+    vars:
+      refresh_vmware_rest: false

@@ -2445,14 +2445,15 @@
 
 - job:
     name: ansible-runner-tox-ansible27
-    parent: tox
+    parent: ansible-tox-py27
+    branches: devel
     vars:
       tox_envlist: ansible27
-    nodeset: fedora-latest-1vcpu
 
 - job:
     name: ansible-runner-tox-ansible28
     parent: tox
+    branches: devel
     vars:
       tox_envlist: ansible28
     nodeset: fedora-latest-1vcpu
@@ -2460,6 +2461,7 @@
 - job:
     name: ansible-runner-tox-ansible29
     parent: tox
+    branches: devel
     vars:
       tox_envlist: ansible29
     nodeset: fedora-latest-1vcpu
@@ -2467,6 +2469,7 @@
 - job:
     name: ansible-runner-tox-ansible-base
     parent: tox
+    branches: devel
     vars:
       tox_envlist: ansible-base
     nodeset: fedora-latest-1vcpu

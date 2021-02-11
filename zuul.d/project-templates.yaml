@@ -145,7 +145,9 @@
     check:
       jobs: &ansible-collections-cisco-asa-units-jobs
         - ansible-changelog-fragment
-        - ansible-test-sanity-asa
+        - ansible-test-sanity-docker
+        - ansible-test-sanity-docker-stable-2.9
+        - ansible-test-sanity-docker-stable-2.10
         - ansible-test-units-asa-python27
         - ansible-test-units-asa-python35
         - ansible-test-units-asa-python36
@@ -175,16 +177,15 @@
 - project-template:
     name: ansible-collections-cisco-nxos-units
     check:
-      jobs:
+      jobs: &ansible-collections-cisco-nxos-units-jobs
         - ansible-changelog-fragment
-        - ansible-test-sanity-nxos
+        - ansible-test-sanity-docker
+        - ansible-test-sanity-docker-stable-2.9
+        - ansible-test-sanity-docker-stable-2.10
         - ansible-test-units-nxos
     gate:
       queue: integrated
-      jobs:
-        - ansible-changelog-fragment
-        - ansible-test-sanity-nxos
-        - ansible-test-units-nxos
+      jobs: *ansible-collections-cisco-nxos-units-jobs
 
 - project-template:
     name: ansible-collections-cisco-nxos
@@ -289,7 +290,9 @@
     check:
       jobs: &ansible-collections-cisco-iosxr-units-jobs
         - ansible-changelog-fragment
-        - ansible-test-sanity-iosxr
+        - ansible-test-sanity-docker
+        - ansible-test-sanity-docker-stable-2.9
+        - ansible-test-sanity-docker-stable-2.10
         - ansible-test-units-iosxr-python27
         - ansible-test-units-iosxr-python35
         - ansible-test-units-iosxr-python36
@@ -412,10 +415,10 @@
 - project-template:
     name: ansible-collections-cloud-common
     check:
-      jobs:
-        - build-ansible-collection
-        - ansible-test-sanity-base-29
-        - ansible-test-sanity-base-210
+      jobs: &ansible-collections-cloud-common-jobs
+        - ansible-test-sanity-docker
+        - ansible-test-sanity-docker-stable-2.9
+        - ansible-test-sanity-docker-stable-2.10
         - ansible-test-cloud-integration-vmware-rest-python36:
             required-projects:
               - name: github.com/ansible-collections/vmware.vmware_rest
@@ -424,17 +427,7 @@
               - name: github.com/ansible-collections/community.vmware
               - name: github.com/ansible-collections/vmware.vmware_rest
     gate:
-      jobs:
-        - build-ansible-collection
-        - ansible-test-sanity-base-29
-        - ansible-test-sanity-base-210
-        - ansible-test-cloud-integration-vmware-rest-python36:
-            required-projects:
-              - name: github.com/ansible-collections/vmware.vmware_rest
-        - build-ansible-collection:
-            required-projects:
-              - name: github.com/ansible-collections/community.vmware
-              - name: github.com/ansible-collections/vmware.vmware_rest
+      jobs: *ansible-collections-cloud-common-jobs
 
 - project-template:
     name: ansible-collections-community-vmware
@@ -450,7 +443,9 @@
         - ansible-test-cloud-integration-vcenter7_2esxi_without_nested-python36
         - ansible-tox-linters
         - build-ansible-collection
-        - ansible-test-sanity-base-210
+        - ansible-test-sanity-docker
+        - ansible-test-sanity-docker-stable-2.9
+        - ansible-test-sanity-docker-stable-2.10
     gate:
       jobs:
         - ansible-test-cloud-integration-govcsim-python36_1_of_3
@@ -458,34 +453,31 @@
         - ansible-test-cloud-integration-govcsim-python36_3_of_3
         - ansible-tox-linters
         - build-ansible-collection
-        - ansible-test-sanity-base-210
+        - ansible-test-sanity-docker
+        - ansible-test-sanity-docker-stable-2.9
+        - ansible-test-sanity-docker-stable-2.10
     periodic:
       jobs:
         - ansible-test-cloud-integration-vcenter_only-python36
         - ansible-test-cloud-integration-vcenter_1esxi_with_nested-python36
         - ansible-test-cloud-integration-vcenter_1esxi_without_nested-python36_1_of_2
         - ansible-test-cloud-integration-vcenter_1esxi_without_nested-python36_2_of_2
+
 - project-template:
     name: ansible-collections-community-vmware-rest
     check:
-      jobs:
+      jobs: &ansible-collections-community-vmware-rest-jobs
         - ansible-test-cloud-integration-vmware-rest-python36
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-collections/cloud.common
               - name: github.com/ansible-collections/community.vmware
         - ansible-tox-linters
-        - ansible-test-sanity-base-210
+        - ansible-test-sanity-docker
+        - ansible-test-sanity-docker-stable-2.9
+        - ansible-test-sanity-docker-stable-2.10
     gate:
-      jobs:
-        - ansible-test-cloud-integration-vmware-rest-python36
-        - build-ansible-collection:
-            required-projects:
-              - name: github.com/ansible-collections/cloud.common
-              - name: github.com/ansible-collections/community.vmware
-        - ansible-tox-linters
-        - build-ansible-collection
-        - ansible-test-sanity-base-210
+      jobs: *ansible-collections-community-vmware-rest-jobs
 
 - project-template:
     name: ansible-collections-community-vmware-rest-code-generator
@@ -522,18 +514,21 @@
 - project-template:
     name: ansible-collections-community-asa-units
     check:
-      jobs:
-        - ansible-test-sanity-community-asa
+      jobs: &ansible-collections-community-asa-units-jobs
+        - ansible-test-sanity-docker
+        - ansible-test-sanity-docker-stable-2.9
+        - ansible-test-sanity-docker-stable-2.10
     gate:
-      jobs:
-        - ansible-test-sanity-community-asa
+      jobs: *ansible-collections-community-asa-units-jobs
 
 - project-template:
     name: ansible-collections-juniper-junos-units
     check:
       jobs: &ansible-collections-juniper-junos-units-jobs
         - ansible-changelog-fragment
-        - ansible-test-sanity-junos
+        - ansible-test-sanity-docker
+        - ansible-test-sanity-docker-stable-2.9
+        - ansible-test-sanity-docker-stable-2.10
         - ansible-test-units-junos-python27
         - ansible-test-units-junos-python35
         - ansible-test-units-junos-python36
@@ -617,7 +612,9 @@
     check:
       jobs: &ansible-collections-openvswitch-openvswitch-units-jobs
         - ansible-changelog-fragment
-        - ansible-test-sanity-openvswitch
+        - ansible-test-sanity-docker
+        - ansible-test-sanity-docker-stable-2.9
+        - ansible-test-sanity-docker-stable-2.10
         - ansible-test-units-openvswitch-python27
         - ansible-test-units-openvswitch-python35
         - ansible-test-units-openvswitch-python36
@@ -651,7 +648,9 @@
     check:
       jobs: &ansible-collections-vyos-vyos-units-jobs
         - ansible-changelog-fragment
-        - ansible-test-sanity-vyos
+        - ansible-test-sanity-docker
+        - ansible-test-sanity-docker-stable-2.9
+        - ansible-test-sanity-docker-stable-2.10
         - ansible-test-units-vyos-python27
         - ansible-test-units-vyos-python35
         - ansible-test-units-vyos-python36
@@ -689,21 +688,23 @@
 - project-template:
     name: ansible-collections-frr-frr-units
     check:
-      jobs:
-        - ansible-test-sanity-frr
+      jobs: &ansible-collections-ffr-ffr-units-jobs
+        - ansible-test-sanity-docker
+        - ansible-test-sanity-docker-stable-2.9
+        - ansible-test-sanity-docker-stable-2.10
         - ansible-test-units-frr
     gate:
       queue: integrated
-      jobs:
-        - ansible-test-sanity-frr
-        - ansible-test-units-frr
+      jobs: *ansible-collections-ffr-ffr-units-jobs
 
 - project-template:
     name: ansible-collections-ansible-netcommon-units
     check:
       jobs: &ansible-collections-ansible-netcommon-units-jobs
         - ansible-changelog-fragment
-        - ansible-test-sanity-netcommon
+        - ansible-test-sanity-docker
+        - ansible-test-sanity-docker-stable-2.9
+        - ansible-test-sanity-docker-stable-2.10
         - ansible-test-units-netcommon-python27
         - ansible-test-units-netcommon-python35
         - ansible-test-units-netcommon-python36
@@ -718,7 +719,9 @@
     check:
       jobs: &ansible-collections-community-yang-units-jobs
         - ansible-changelog-fragment
-        - ansible-test-sanity-yang
+        - ansible-test-sanity-docker
+        - ansible-test-sanity-docker-stable-2.9
+        - ansible-test-sanity-docker-stable-2.10
         - ansible-test-units-yang-python27
         - ansible-test-units-yang-python35
         - ansible-test-units-yang-python36
@@ -769,45 +772,45 @@
 - project-template:
     name: ansible-collections-ansible-posix-units
     check:
-      jobs:
-        - ansible-test-sanity-posix
+      jobs: &ansible-collections-ansible-posix-units-jobs
+        - ansible-test-sanity-docker
+        - ansible-test-sanity-docker-stable-2.9
+        - ansible-test-sanity-docker-stable-2.10
         - ansible-test-units-posix
     gate:
-      jobs:
-        - ansible-test-sanity-posix
-        - ansible-test-units-posix
+      jobs: *ansible-collections-ansible-posix-units-jobs
 
 - project-template:
     name: ansible-collections-security-ibm-qradar
     check:
-      jobs:
+      jobs: &ansible-collections-security-ibm-qradar-jobs
         - build-ansible-collection
         - ansible-test-security-integration-qradar-python38
-        - ansible-test-sanity-qradar
+        - ansible-test-sanity-docker
+        - ansible-test-sanity-docker-stable-2.9
+        - ansible-test-sanity-docker-stable-2.10
     gate:
-      jobs:
-        - build-ansible-collection
-        - ansible-test-security-integration-qradar-python38
-        - ansible-test-sanity-qradar
+      jobs: *ansible-collections-security-ibm-qradar-jobs
 
 - project-template:
     name: ansible-collections-security-splunk-es
     check:
-      jobs:
+      jobs: &ansible-collections-security-splunk-es-jobs
         - build-ansible-collection
         - ansible-security-integration-splunk-es-python36
-        - ansible-test-sanity-splunk
+        - ansible-test-sanity-docker
+        - ansible-test-sanity-docker-stable-2.9
+        - ansible-test-sanity-docker-stable-2.10
     gate:
-      jobs:
-        - build-ansible-collection
-        - ansible-security-integration-splunk-es-python36
-        - ansible-test-sanity-splunk
+      jobs: *ansible-collections-security-splunk-es-jobs
 
 - project-template:
     name: ansible-collections-security-trendmicro-deepsec-units
     check:
       jobs: &ansible-collections-security-trendmicro-jobs
-        - ansible-test-sanity-trendmicro-deepsec
+        - ansible-test-sanity-docker
+        - ansible-test-sanity-docker-stable-2.9
+        - ansible-test-sanity-docker-stable-2.10
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-collections/ansible.netcommon
@@ -819,11 +822,12 @@
 - project-template:
     name: ansible-collections-symantec-epm-units
     check:
-      jobs:
-        - ansible-test-sanity-symantec-epm
+      jobs: &ansible-collections-symantec-epm-units-jobs
+        - ansible-test-sanity-docker
+        - ansible-test-sanity-docker-stable-2.9
+        - ansible-test-sanity-docker-stable-2.10
     gate:
-      jobs:
-        - ansible-test-sanity-symantec-epm
+      jobs: *ansible-collections-symantec-epm-units-jobs
 
 - project-template:
     name: ansible-test-network-integration

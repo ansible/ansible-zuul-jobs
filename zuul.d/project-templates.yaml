@@ -77,6 +77,9 @@
     check:
       jobs: &ansile-collections-arista-eos-units-jobs
         - ansible-changelog-fragment
+        - ansible-test-sanity-docker
+        - ansible-test-sanity-docker-stable-2.9
+        - ansible-test-sanity-docker-stable-2.10
         - ansible-test-units-eos-python27
         - ansible-test-units-eos-python35
         - ansible-test-units-eos-python36
@@ -256,6 +259,9 @@
     check:
       jobs: &ansible-collections-cisco-ios-units-jobs
         - ansible-changelog-fragment
+        - ansible-test-sanity-docker
+        - ansible-test-sanity-docker-stable-2.9
+        - ansible-test-sanity-docker-stable-2.10
         - ansible-test-units-ios-python27
         - ansible-test-units-ios-python35
         - ansible-test-units-ios-python36

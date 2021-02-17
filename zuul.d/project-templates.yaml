@@ -9,6 +9,15 @@
       queue: integrated
 
 - project-template:
+    name: integrated-vmware-queue
+    description: |
+      Group projects together into a shared (integrated-vmware) change queue.
+    check:
+      queue: integrated-vmware
+    gate:
+      queue: integrated-vmware
+
+- project-template:
     name: execution-environments-queue
     description: |
       Group projects together into a shared change queue for Execution Environments.

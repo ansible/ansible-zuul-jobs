@@ -466,12 +466,6 @@
         - ansible-test-sanity-docker
         - ansible-test-sanity-docker-stable-2.9
         - ansible-test-sanity-docker-stable-2.10
-    periodic:
-      jobs:
-        - ansible-test-cloud-integration-vcenter_only-python36
-        - ansible-test-cloud-integration-vcenter_1esxi_with_nested-python36
-        - ansible-test-cloud-integration-vcenter_1esxi_without_nested-python36_1_of_2
-        - ansible-test-cloud-integration-vcenter_1esxi_without_nested-python36_2_of_2
 
 - project-template:
     name: ansible-collections-community-vmware-rest

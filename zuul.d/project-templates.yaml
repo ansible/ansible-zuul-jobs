@@ -451,6 +451,11 @@
         - ansible-test-cloud-integration-govcsim-python36_1_of_3
         - ansible-test-cloud-integration-govcsim-python36_2_of_3
         - ansible-test-cloud-integration-govcsim-python36_3_of_3
+        - ansible-test-cloud-integration-vcenter7_only-python36
+        - ansible-test-cloud-integration-vcenter7_1esxi_with_nested-python36
+        - ansible-test-cloud-integration-vcenter7_1esxi_without_nested-python36_1_of_2
+        - ansible-test-cloud-integration-vcenter7_1esxi_without_nested-python36_2_of_2
+        - ansible-test-cloud-integration-vcenter7_2esxi_without_nested-python36
         - ansible-tox-linters
         - build-ansible-collection
         - ansible-test-sanity-docker

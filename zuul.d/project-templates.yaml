@@ -461,6 +461,10 @@
         - ansible-test-sanity-docker
         - ansible-test-sanity-docker-stable-2.9
         - ansible-test-sanity-docker-stable-2.10
+        - ansible-test-units-community-vmware-python27
+        - ansible-test-units-community-vmware-python36
+        - ansible-test-units-community-vmware-python37
+        - ansible-test-units-community-vmware-python38
     gate:
       jobs:
         - ansible-test-cloud-integration-govcsim-python36_1_of_3
@@ -471,7 +475,10 @@
         - ansible-test-sanity-docker
         - ansible-test-sanity-docker-stable-2.9
         - ansible-test-sanity-docker-stable-2.10
-
+        - ansible-test-units-community-vmware-python27
+        - ansible-test-units-community-vmware-python36
+        - ansible-test-units-community-vmware-python37
+        - ansible-test-units-community-vmware-python38
 - project-template:
     name: ansible-collections-community-vmware-rest
     check:

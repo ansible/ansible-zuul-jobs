@@ -1,0 +1,11 @@
+[default]
+{% set json_content = lookup('file', ansible_test_provider_passwords_secret_dir + '/aws_session.json')|from_json -%}
+aws_access_key: {{ json_content|json_query('aws.credentials.access_key') }}
+aws_secret_key: {{ json_content|json_query('aws.credentials.secret_key') }}
+security_token: {{ json_content|json_query('aws.credentials.session_token') }}
+aws_region: us-east-1
+ec2_access_key: {% raw %}{{ aws_access_key }}{% endraw %}
+
+ec2_secret_key: {% raw %}{{ aws_secret_key }}{% endraw %}
+
+ec2_region: {% raw %}{{ aws_region }}{% endraw %}

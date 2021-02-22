@@ -300,3 +300,40 @@
       - name: github.com/ansible-collections/community.vmware
     vars:
       ansible_collections_repo: github.com/ansible-collections/community.vmware
+
+
+### AWS
+- job:
+    name: ansible-test-cloud-integration-aws-py36
+    parent: ansible-core-ci-aws-session
+    nodeset: controller-python36
+    dependencies:
+      - name: build-ansible-collection
+    pre-run:
+      - playbooks/ansible-test-base/pre.yaml
+      - playbooks/ansible-cloud/aws/pre.yaml
+    run: playbooks/ansible-test-base/run.yaml
+    # TODO: disabled for now, required for Ara
+    # post-run: playbooks/ansible-test-base/post.yaml
+    required-projects:
+      - name: github.com/ansible/ansible
+    timeout: 3600
+    vars:
+      ansible_test_collections: true
+      ansible_collections_repo: "{{ zuul.project.canonical_name }}"
+      ansible_test_command: integration
+      ansible_test_enable_ara: false
+      ansible_test_python: 3.6
+      ansible_test_changed: true
+
+- job:
+    name: ansible-test-units-community-aws-python38
+    parent: ansible-test-units-base-python38
+    vars:
+      ansible_collections_repo: "{{ zuul.project.canonical_name }}"
+
+- job:
+    name: ansible-test-units-amazon-aws-python38
+    parent: ansible-test-units-base-python38
+    vars:
+      ansible_collections_repo: "{{ zuul.project.canonical_name }}"

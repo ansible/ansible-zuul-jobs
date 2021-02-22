@@ -53,33 +53,57 @@
     name: ansible-collections-amazon-aws
     check:
       jobs:
+        - ansible-test-sanity-docker
+        - ansible-test-sanity-docker-stable-2.9
+        - ansible-test-sanity-docker-stable-2.10
+        - ansible-test-units-amazon-aws-python38
         - build-ansible-collection:
             required-projects:
-              - name: github.com/ansible-collections/ansible.netcommon
               - name: github.com/ansible-collections/ansible.utils
+              - name: github.com/ansible-collections/community.general
+        - ansible-test-cloud-integration-aws-py36:
+            voting: false
     gate:
       jobs:
+        - ansible-test-sanity-docker
+        - ansible-test-sanity-docker-stable-2.9
+        - ansible-test-sanity-docker-stable-2.10
+        - ansible-test-units-amazon-aws-python38
         - build-ansible-collection:
             required-projects:
-              - name: github.com/ansible-collections/ansible.netcommon
               - name: github.com/ansible-collections/ansible.utils
+              - name: github.com/ansible-collections/community.general
+        - ansible-test-cloud-integration-aws-py36:
+            voting: false
 
 - project-template:
     name: ansible-collections-community-aws
     check:
       jobs:
+        - ansible-test-sanity-docker
+        - ansible-test-sanity-docker-stable-2.9
+        - ansible-test-sanity-docker-stable-2.10
+        - ansible-test-units-community-aws-python38
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-collections/amazon.aws
-              - name: github.com/ansible-collections/ansible.netcommon
               - name: github.com/ansible-collections/ansible.utils
+              - name: github.com/ansible-collections/community.general
+        - ansible-test-cloud-integration-aws-py36:
+            voting: false
     gate:
       jobs:
+        - ansible-test-sanity-docker
+        - ansible-test-sanity-docker-stable-2.9
+        - ansible-test-sanity-docker-stable-2.10
+        - ansible-test-units-community-aws-python38
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-collections/amazon.aws
-              - name: github.com/ansible-collections/ansible.netcommon
               - name: github.com/ansible-collections/ansible.utils
+              - name: github.com/ansible-collections/community.general
+        - ansible-test-cloud-integration-aws-py36:
+            voting: false
 
 - project-template:
     name: ansible-collections-arista-eos-units

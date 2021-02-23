@@ -907,7 +907,7 @@
     name: QRadarCE-7.3.1-python38
     nodes:
       - name: ubuntu-bionic
-        label: ubuntu-bionic-1vcpu-without-nested
+        label: ubuntu-bionic-1vcpu
       - name: QRadarCE-7.3.1
         label: QRadarCE-7.3.1
     groups:
@@ -926,7 +926,7 @@
     name: SplunkEnterprise-SES-8.0.0-python38
     nodes:
       - name: ubuntu-bionic
-        label: ubuntu-bionic-1vcpu-without-nested
+        label: ubuntu-bionic-1vcpu
       - name: SplunkEnterprise-SES-8.0.0
         label: SplunkEnterprise-SES-8.0.0
     groups:
@@ -945,7 +945,7 @@
     name: Trendmicro-DeepSecurity-20.0.198-python38
     nodes:
       - name: ubuntu-bionic
-        label: ubuntu-bionic-1vcpu-without-nested
+        label: ubuntu-bionic-1vcpu
       - name: Trendmicro-DeepSecurity-20.0.198
         label: Trendmicro-DeepSecurity-20.0.198
     groups:

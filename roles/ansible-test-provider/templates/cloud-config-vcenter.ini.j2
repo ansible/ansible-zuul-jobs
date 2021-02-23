@@ -1,5 +1,5 @@
 [DEFAULT]
-{% if vmware_ci_configure_ansible_test_with_vcsim %}
+{% if ansible_test_provider_test_with_vcsim %}
 vcenter_username: user
 vcenter_password: pass
 vcenter_hostname: localhost
@@ -13,17 +13,17 @@ vcsim: true
 vcsim_with: systemd
 {% else %}
 vcenter_username: administrator@vsphere.local
-vcenter_password: {{ lookup('file', vmware_ci_set_passwords_secret_dir + '/vcenter/tmp/vcenter_password.txt') }}
+vcenter_password: {{ lookup('file', ansible_test_provider_passwords_secret_dir + '/vcenter/tmp/vcenter_password.txt') }}
 vcenter_hostname: vcenter.test
 vmware_validate_certs: false
 {% if 'esxi1' in hostvars %}
 esxi1_username: zuul
 esxi1_hostname: esxi1.test
-esxi1_password: {{ lookup('file', vmware_ci_set_passwords_secret_dir + '/vcenter/tmp/esxi_password_zuul.txt') }}
+esxi1_password: {{ lookup('file', ansible_test_provider_passwords_secret_dir + '/vcenter/tmp/esxi_password_zuul.txt') }}
 {% endif %}
 {% if 'esxi2' in hostvars %}
 esxi2_username: zuul
 esxi2_hostname: esxi2.test
-esxi2_password: {{ lookup('file', vmware_ci_set_passwords_secret_dir + '/vcenter/tmp/esxi_password_zuul.txt') }}
+esxi2_password: {{ lookup('file', ansible_test_provider_passwords_secret_dir + '/vcenter/tmp/esxi_password_zuul.txt') }}
 {% endif %}
 {% endif %}

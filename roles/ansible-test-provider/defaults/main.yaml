@@ -1,0 +1,4 @@
+---
+ansible_test_provider_passwords_secret_dir: /tmp
+# vcenter specific
+ansible_test_provider_test_with_vcsim: false

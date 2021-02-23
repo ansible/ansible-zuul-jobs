@@ -16,7 +16,8 @@
       become: true
     - name: Write the configuration for ansible-test
       import_role:
-        name: vmware-ci-configure-ansible-test
+        name: ansible-test-provider
       vars:
-        vmware_ci_configure_ansible_test_ansible_path: "{{ ansible_user_dir }}/{{ zuul.projects['github.com/ansible/ansible'].src_dir }}"
-        vmware_ci_configure_ansible_test_with_vcsim: true
+        ansible_test_provider_name: vcenter
+        ansible_test_provider_root_dir: "{{ ansible_user_dir }}/{{ zuul.projects['github.com/ansible/ansible'].src_dir }}"
+        ansible_test_provider_test_with_vcsim: true

@@ -1,6 +1,0 @@
----
-- name: Save the password in the vcenter configuration file (ansible-test)
-  template:
-    src: cloud-config-vcenter.ini.j2
-    dest: "{{ vmware_ci_configure_ansible_test_ansible_path }}/test/integration/cloud-config-vcenter.ini"
-    mode: 0644

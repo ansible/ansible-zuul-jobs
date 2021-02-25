@@ -65,15 +65,16 @@
             files:
               - roles/vmware.*
               - roles/ansible-test*
-              - playbooks/ansible-cloud/vcenter-appliance/.*
+              - playbooks/ansible-cloud/.*
         - ansible-test-units-openvswitch-python38:
             files:
               - roles/ansible-test*
         - ansible-test-cloud-integration-vcenter7_only-python36:
+            match-on-config-updates: false
             files:
               - roles/vmware.*
               - roles/ansible-test*
-              - playbooks/ansible-cloud/vcenter-appliance/.*
+              - playbooks/ansible-cloud/.*
             vars:
               ansible_test_integration_targets: vmware_vcenter_settings
         - ansible-test-network-integration-openvswitch-python35:
@@ -125,7 +126,6 @@
             files:
               - playbooks/ansible-network-appliance-base/.*
         ## ansible-test* roles
-        ## ansible-test* roles
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-collections/openvswitch.openvswitch
@@ -135,15 +135,16 @@
             files:
               - roles/vmware.*
               - roles/ansible-test*
-              - playbooks/ansible-cloud/vcenter-appliance/.*
+              - playbooks/ansible-cloud/.*
         - ansible-test-units-openvswitch-python38:
             files:
               - roles/ansible-test*
         - ansible-test-cloud-integration-vcenter7_only-python36:
+            match-on-config-updates: false
             files:
               - roles/vmware.*
               - roles/ansible-test*
-              - playbooks/ansible-cloud/vcenter-appliance/.*
+              - playbooks/ansible-cloud/.*
             vars:
               ansible_test_integration_targets: vmware_vcenter_settings
         - ansible-test-network-integration-openvswitch-python35:

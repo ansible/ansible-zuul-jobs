@@ -1,4 +1,0 @@
----
-- hosts: appliance
-  gather_facts: false
-  tasks: []

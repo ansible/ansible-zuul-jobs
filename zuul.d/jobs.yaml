@@ -317,6 +317,7 @@
       - playbooks/ansible-test-base/post.yaml
     required-projects:
       - name: github.com/ansible/ansible
+      - name: github.com/ansible/pylibssh
       - name: github.com/ansible-collections/cisco.asa
     timeout: 9000
     vars:
@@ -444,6 +445,7 @@
     parent: ansible-test-integration-base
     required-projects:
       - name: github.com/ansible/ansible
+      - name: github.com/ansible/pylibssh
       - name: github.com/ansible-collections/ansible.utils
     vars:
       ansible_collections_repo: github.com/ansible-collections/ansible.utils
@@ -464,6 +466,7 @@
       - playbooks/ansible-test-base/post.yaml
     required-projects:
       - name: github.com/ansible/ansible
+      - name: github.com/ansible/pylibssh
       - name: github.com/ansible-collections/arista.eos
     timeout: 10800
     vars:
@@ -766,6 +769,7 @@
       - playbooks/ansible-test-base/post.yaml
     required-projects:
       - name: github.com/ansible/ansible
+      - name: github.com/ansible/pylibssh
       - name: github.com/ansible-collections/cisco.ios
     timeout: 10800
     vars:
@@ -936,6 +940,7 @@
       - playbooks/ansible-test-base/post.yaml
     required-projects:
       - name: github.com/ansible/ansible
+      - name: github.com/ansible/pylibssh
       - name: github.com/ansible-collections/cisco.iosxr
     timeout: 10800
     vars:
@@ -1336,6 +1341,7 @@
       - playbooks/ansible-test-base/post.yaml
     required-projects:
       - name: github.com/ansible/ansible
+      - name: github.com/ansible/pylibssh
       - name: github.com/ansible-collections/junipernetworks.junos
     timeout: 10800
     vars:
@@ -1558,6 +1564,7 @@
       - playbooks/ansible-test-base/post.yaml
     required-projects:
       - name: github.com/ansible/ansible
+      - name: github.com/ansible/pylibssh
       - name: github.com/ansible-collections/cisco.nxos
     timeout: 10800
     vars:
@@ -1695,6 +1702,7 @@
       - playbooks/ansible-test-base/post.yaml
     required-projects:
       - name: github.com/ansible/ansible
+      - name: github.com/ansible/pylibssh
       - name: github.com/ansible-collections/openvswitch.openvswitch
     timeout: 3600
     vars:
@@ -1902,6 +1910,7 @@
       - playbooks/ansible-test-base/post.yaml
     required-projects:
       - name: github.com/ansible/ansible
+      - name: github.com/ansible/pylibssh
       - name: github.com/ansible-collections/vyos.vyos
     timeout: 10800
     vars:

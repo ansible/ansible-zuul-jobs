@@ -26,11 +26,6 @@
     parent: tox-linters
     nodeset: centos-8-1vcpu
 
-- job:
-    name: ansible-tox-docs
-    parent: tox-docs
-    nodeset: centos-8-1vcpu
-
 - job: &ansible-tox-molecule-base
     name: ansible-tox-molecule-base
     # Stub job used to define only properties specific to molecule jobs,

@@ -15,7 +15,7 @@
         ansible_network_os: vmware_rest
       esxi1:
         ansible_network_os: vmware_rest
-    nodeset: vmware-vcsa-6.7.0-python36
+    nodeset: vmware-vcsa-7.0.0-python36
 
 # govcsim
 
@@ -96,64 +96,6 @@
       ansible_test_retry_on_error: true
       ansible_test_collections: true
 
-# vcenter 6.7.0
-
-- job:
-    name: ansible-test-cloud-integration-vcenter_only-python36
-    parent: ansible-test-cloud-integration-vcenter
-    nodeset: vmware-vcsa-6.7.0-python36
-    vars:
-      ansible_test_python: 3.6
-      ansible_test_integration_targets: zuul/vmware/vcenter_only/
-
-- job:
-    name: ansible-test-cloud-integration-vcenter_1esxi_with_nested-python36
-    parent: ansible-test-cloud-integration-vcenter
-    nodeset: vmware-vcsa_1esxi-6.7.0-python36-with-nested
-    vars:
-      ansible_test_python: 3.6
-      ansible_test_integration_targets: zuul/vmware/vcenter_1esxi_with_nested/
-    timeout: 10800
-
-- job:
-    name: ansible-test-cloud-integration-vcenter_1esxi-python36
-    parent: ansible-test-cloud-integration-vcenter
-    nodeset: vmware-vcsa_1esxi-6.7.0-python36-without-nested
-    vars:
-      ansible_test_python: 3.6
-      ansible_test_integration_targets: zuul/vmware/vcenter_1esxi/
-      ansible_test_split_in: 2
-    timeout: 10800
-
-- job:
-    name: ansible-test-cloud-integration-vcenter_1esxi_without_nested-python36_1_of_2
-    parent: ansible-test-cloud-integration-vcenter_1esxi-python36
-    vars:
-      ansible_test_do_number: 1
-
-- job:
-    name: ansible-test-cloud-integration-vcenter_1esxi_without_nested-python36_2_of_2
-    parent: ansible-test-cloud-integration-vcenter_1esxi-python36
-    vars:
-      ansible_test_do_number: 2
-
-- job:
-    name: ansible-test-cloud-integration-vcenter_2esxi_without_nested-python36
-    parent: ansible-test-cloud-integration-vcenter
-    nodeset: vmware-vcsa_2esxi-6.7.0-python36-without-nested
-    vars:
-      ansible_test_python: 3.6
-      ansible_test_integration_targets: zuul/vmware/vcenter_2esxi/
-    # NOTE: we set ansible_network_os with some generic
-    # value to pass the ansible-network playbooks
-    host-vars:
-      vcenter:
-        ansible_network_os: vmware_rest
-      esxi1:
-        ansible_network_os: vmware_rest
-      esxi2:
-        ansible_network_os: vmware_rest
-
 # vcenter 7.0.0
 - job:
     name: ansible-test-cloud-integration-vcenter7_only-python36
@@ -218,58 +160,58 @@
 
 # stable29
 - job:
-    name: ansible-test-cloud-integration-vcenter_only-python36-stable29
-    parent: ansible-test-cloud-integration-vcenter_only-python36
+    name: ansible-test-cloud-integration-vcenter7_only-python36-stable29
+    parent: ansible-test-cloud-integration-vcenter7_only-python36
     required-projects:
       - name: github.com/ansible/ansible
         override-checkout: stable-2.9
 
 - job:
-    name: ansible-test-cloud-integration-vcenter_1esxi_with_nested-python36-stable29
-    parent: ansible-test-cloud-integration-vcenter_1esxi_with_nested-python36
+    name: ansible-test-cloud-integration-vcenter7_1esxi_with_nested-python36-stable29
+    parent: ansible-test-cloud-integration-vcenter7_1esxi_with_nested-python36
     required-projects:
       - name: github.com/ansible/ansible
         override-checkout: stable-2.9
 
 - job:
-    name: ansible-test-cloud-integration-vcenter_1esxi_without_nested-python36-stable29
-    parent: ansible-test-cloud-integration-vcenter_1esxi-python36
+    name: ansible-test-cloud-integration-vcenter7_1esxi_without_nested-python36-stable29
+    parent: ansible-test-cloud-integration-vcenter7_1esxi_without_nested-python36
     required-projects:
       - name: github.com/ansible/ansible
         override-checkout: stable-2.9
 
 - job:
-    name: ansible-test-cloud-integration-vcenter_2esxi_without_nested-python36-stable29
-    parent: ansible-test-cloud-integration-vcenter_2esxi_without_nested-python36
+    name: ansible-test-cloud-integration-vcenter7_2esxi_without_nested-python36-stable29
+    parent: ansible-test-cloud-integration-vcenter7_2esxi_without_nested-python36
     required-projects:
       - name: github.com/ansible/ansible
         override-checkout: stable-2.9
 
 # stable210
 - job:
-    name: ansible-test-cloud-integration-vcenter_only-python36-stable210
-    parent: ansible-test-cloud-integration-vcenter_only-python36
+    name: ansible-test-cloud-integration-vcenter7_only-python36-stable210
+    parent: ansible-test-cloud-integration-vcenter7_only-python36
     required-projects:
       - name: github.com/ansible/ansible
         override-checkout: stable-2.10
 
 - job:
-    name: ansible-test-cloud-integration-vcenter_1esxi_with_nested-python36-stable210
-    parent: ansible-test-cloud-integration-vcenter_1esxi_with_nested-python36
+    name: ansible-test-cloud-integration-vcenter7_1esxi_with_nested-python36-stable210
+    parent: ansible-test-cloud-integration-vcenter7_1esxi_with_nested-python36
     required-projects:
       - name: github.com/ansible/ansible
         override-checkout: stable-2.10
 
 - job:
-    name: ansible-test-cloud-integration-vcenter_1esxi_without_nested-python36-stable210
-    parent: ansible-test-cloud-integration-vcenter_1esxi-python36
+    name: ansible-test-cloud-integration-vcenter7_1esxi_without_nested-python36-stable210
+    parent: ansible-test-cloud-integration-vcenter7_1esxi_without_nested-python36
     required-projects:
       - name: github.com/ansible/ansible
         override-checkout: stable-2.10
 
 - job:
-    name: ansible-test-cloud-integration-vcenter_2esxi_without_nested-python36-stable210
-    parent: ansible-test-cloud-integration-vcenter_2esxi_without_nested-python36
+    name: ansible-test-cloud-integration-vcenter7_2esxi_without_nested-python36-stable210
+    parent: ansible-test-cloud-integration-vcenter7_2esxi_without_nested-python36
     required-projects:
       - name: github.com/ansible/ansible
         override-checkout: stable-2.10

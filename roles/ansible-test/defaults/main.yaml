@@ -22,5 +22,3 @@ ansible_test_split_in: 1
 ansible_test_do_number: 1
 ansible_test_sanity_skiptests: []
 ansible_test_network_cli_ssh_type: paramiko
-ansible_test_changed: false
-ansible_test_base_branch: main

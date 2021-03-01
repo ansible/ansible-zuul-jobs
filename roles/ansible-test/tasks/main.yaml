@@ -41,11 +41,6 @@
 #  import_tasks: enable_ara.yaml
 #  when: ansible_test_enable_ara
 
-
-- name: Identiy the targets associated with the changed files
-  import_tasks: ansible_test_changed.yaml
-  when: ansible_test_changed|bool
-
 - name: Set the targets
   set_fact:
     _integration_targets: "{{ ansible_test_integration_targets }}"
@@ -54,15 +49,9 @@
   import_tasks: split_targets.yaml
   when: ansible_test_split_in > 1
 
-- debug:
-    msg: "About to run: {{ ansible_test_executable }} {{ ansible_test_test_command }} {{ ansible_test_options }} -vvvv {{ _integration_targets }}"
-
 - name: Run the test suite
   args:
     chdir: "{{ _test_location }}"
     executable: /bin/bash
   environment: "{{ ansible_test_environment | default({}) }}"
   shell: "source {{ ansible_test_venv_path }}/bin/activate; {{ ansible_test_executable }} {{ ansible_test_test_command }} {{ ansible_test_options }} -vvvv {{ _integration_targets }}"
-  when:
-    - ansible_test_changed|bool == False
-    - (ansible_test_changed|bool and _integration_targets|length > 0)

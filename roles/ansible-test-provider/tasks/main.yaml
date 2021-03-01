@@ -1,0 +1,6 @@
+---
+- name: Config the provider for ansible-test
+  template:
+    src: "cloud-config-{{ ansible_test_provider_name }}.ini.j2"
+    dest: "{{ ansible_test_provider_root_dir }}/test/integration/cloud-config-{{ ansible_test_provider_name }}.ini"
+    mode: 0644

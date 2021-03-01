@@ -1,3 +1,0 @@
----
-vmware_ci_configure_ansible_test_with_vcsim: false
-vmware_ci_set_passwords_secret_dir: /tmp

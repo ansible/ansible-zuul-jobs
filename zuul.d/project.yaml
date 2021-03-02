@@ -4,11 +4,6 @@
       - ansible-python-jobs
     check:
       jobs:
-        - ansible-cloud-vcenter-appliance:
-            files:
-              - playbooks/ansible-cloud/vcenter-appliance/.*
-              - playbooks/ansible-test-cloud-integration-base/.*
-              - roles/vmware.*
         - ansible-network-asa-appliance:
             files:
               - playbooks/ansible-network-appliance-base/.*
@@ -60,7 +55,32 @@
             files:
               - playbooks/ansible-test-network-integration-base/files/bootstrap-trendmicro.deepsec.yaml
               - playbooks/ansible-network-appliance-base/.*
-
+        ## ansible-test* roles
+        - build-ansible-collection:
+            required-projects:
+              - name: github.com/ansible-collections/openvswitch.openvswitch
+              - name: github.com/ansible-collections/amazon.aws
+              - name: github.com/ansible-collections/ansible.netcommon
+              - name: github.com/ansible-collections/community.vmware
+            files:
+              - roles/vmware.*
+              - roles/ansible-test*
+              - playbooks/ansible-cloud/vcenter-appliance/.*
+        - ansible-test-units-openvswitch-python38:
+            files:
+              - roles/ansible-test*
+        - ansible-test-cloud-integration-vcenter7_only-python36:
+            files:
+              - roles/vmware.*
+              - roles/ansible-test*
+              - playbooks/ansible-cloud/vcenter-appliance/.*
+            vars:
+              ansible_test_integration_targets: vmware_vcenter_settings
+        - ansible-test-network-integration-openvswitch-python35:
+            files:
+              - roles/ansible-test*
+            vars:
+              ansible_test_collections: true
 
     gate:
       jobs:
@@ -108,3 +128,30 @@
         - ansible-security-trendmicro-deepsec-appliance:
             files:
               - playbooks/ansible-network-appliance-base/.*
+        ## ansible-test* roles
+        ## ansible-test* roles
+        - build-ansible-collection:
+            required-projects:
+              - name: github.com/ansible-collections/openvswitch.openvswitch
+              - name: github.com/ansible-collections/amazon.aws
+              - name: github.com/ansible-collections/ansible.netcommon
+              - name: github.com/ansible-collections/community.vmware
+            files:
+              - roles/vmware.*
+              - roles/ansible-test*
+              - playbooks/ansible-cloud/vcenter-appliance/.*
+        - ansible-test-units-openvswitch-python38:
+            files:
+              - roles/ansible-test*
+        - ansible-test-cloud-integration-vcenter7_only-python36:
+            files:
+              - roles/vmware.*
+              - roles/ansible-test*
+              - playbooks/ansible-cloud/vcenter-appliance/.*
+            vars:
+              ansible_test_integration_targets: vmware_vcenter_settings
+        - ansible-test-network-integration-openvswitch-python35:
+            files:
+              - roles/ansible-test*
+            vars:
+              ansible_test_collections: true

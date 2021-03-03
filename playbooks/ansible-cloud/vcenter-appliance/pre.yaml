@@ -73,3 +73,47 @@
       until: _result is success and "value" in _result.json
       retries: 100
       delay: 6
+
+- hosts: controller
+  gather_facts: false
+  tasks:
+    - name: Restore the cache files for the NFS datastore
+      when: "'esxis' in groups"
+      block:
+        - name: Create the ISO directory
+          file:
+            path: /srv/share/isos
+            state: directory
+          become: true
+
+        - name: Move the cached files
+          shell: |
+             test -f /opt/cache/files/fedora-open-vm-tools-livecd.iso && cp -l /opt/cache/files/fedora-open-vm-tools-livecd.iso /srv/share/isos/centos.iso
+             test -f /opt/cache/files/fedora-open-vm-tools-livecd.iso && cp -l /opt/cache/files/fedora-open-vm-tools-livecd.iso /srv/share/isos/fedora.iso
+          args:
+            creates: /srv/share/isos/fedora.iso
+          become: true
+
+        - name: Adjust the ownership
+          file:
+            path: /srv/share/isos
+            state: directory
+            recurse: true
+            owner: '1000'
+            group: '1000'
+          become: true
+
+        - name: Prepare the NFS datastore
+          import_role:
+            name: vmware-ci-nfs-share
+          vars:
+            vmware_ci_nfs_share_allow_ips: "{{ groups['esxis'] | map('extract', hostvars, ['nodepool'])|map(attribute='interface_ip')|list }}"
+
+    # NOTE: We don't need that for vmware_rest
+    - name: Write the configuration for ansible-test
+      import_role:
+        name: ansible-test-provider
+      vars:
+        ansible_test_provider_name: vcenter
+        ansible_test_provider_root_dir: "{{ ansible_user_dir }}/{{ zuul.projects['github.com/ansible/ansible'].src_dir }}"
+        ansible_test_provider_passwords_secret_dir: '{{ zuul.executor.work_root }}'

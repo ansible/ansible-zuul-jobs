@@ -82,6 +82,16 @@
               - name: github.com/ansible-collections/ansible.utils
 
 - project-template:
+    name: ansible-collections-community-aws-units
+    check:
+      jobs: &ansible-collections-community-aws-units
+        - ansible-test-sanity-docker
+        - ansible-test-sanity-docker-stable-2.9
+        - ansible-test-sanity-docker-stable-2.10
+    gate:
+      jobs: *ansible-collections-community-aws-units
+
+- project-template:
     name: ansible-collections-arista-eos-units
     check:
       jobs: &ansile-collections-arista-eos-units-jobs

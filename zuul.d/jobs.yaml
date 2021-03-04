@@ -971,45 +971,6 @@
     name: molecule-tox-py38
     parent: ansible-tox-py38
 
-
-# Ansible Workshops jobs
-#
-- job:
-    name: workshops-tox-integration-f5
-    parent: ansible-workshops-tox-integration
-    vars:
-      workshop_type: f5
-
-- job:
-    name: workshops-tox-integration-networking
-    parent: ansible-workshops-tox-integration
-    vars:
-      workshop_type: networking
-
-- job:
-    name: workshops-tox-integration-rhel
-    parent: ansible-workshops-tox-integration
-    vars:
-      workshop_type: rhel
-
-- job:
-    name: workshops-tox-integration-security
-    parent: ansible-workshops-tox-integration
-    vars:
-      workshop_type: security
-
-- job:
-    name: workshops-tox-integration-windows
-    parent: ansible-workshops-tox-integration
-    vars:
-      workshop_type: windows
-
-- job:
-    name: workshops-tox-integration-smart-mgmt
-    parent: ansible-workshops-tox-integration
-    vars:
-      workshop_type: smart_mgmt
-
 - job:
     name: ansible-builder-projecttoml-and-setuppy-insync
     parent: tox

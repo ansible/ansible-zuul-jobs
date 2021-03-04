@@ -77,6 +77,7 @@
             vars:
               ansible_test_integration_targets: vmware_vcenter_settings
         - ansible-test-network-integration-openvswitch-python35:
+            match-on-config-updates: false
             files:
               - roles/ansible-test*
             vars:
@@ -146,6 +147,7 @@
             vars:
               ansible_test_integration_targets: vmware_vcenter_settings
         - ansible-test-network-integration-openvswitch-python35:
+            match-on-config-updates: false
             files:
               - roles/ansible-test*
             vars:

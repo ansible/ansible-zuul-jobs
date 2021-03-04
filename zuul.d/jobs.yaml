@@ -173,18 +173,6 @@
       - ^tests/integration/.*$
 
 - job:
-    name: ansible-network-openvswitch-appliance
-    parent: ansible-network-appliance-base
-    pre-run: playbooks/ansible-network-openvswitch-appliance/pre.yaml
-    run: playbooks/ansible-network-openvswitch-appliance/run.yaml
-    host-vars:
-      openvswitch-2.9.0:
-        ansible_network_os: openvswitch
-    required-projects:
-      - name: github.com/ansible/ansible-zuul-jobs
-    nodeset: openvswitch-2.9.0-python36
-
-- job:
     name: ansible-network-vyos-appliance
     parent: ansible-network-appliance-base
     pre-run: playbooks/ansible-network-vyos-appliance/pre.yaml
@@ -286,29 +274,6 @@
       ansible_collections_repo: github.com/ansible-collections/ansible.posix
 
 - job:
-    name: ansible-test-network-integration-openvswitch
-    abstract: true
-    dependencies:
-      - name: build-ansible-collection
-        soft: true
-    parent: ansible-network-openvswitch-appliance
-    pre-run:
-      - playbooks/ansible-test-base/pre.yaml
-      - playbooks/ansible-test-network-integration-base/pre.yaml
-    run: playbooks/ansible-test-base/run.yaml
-    post-run:
-      - playbooks/ansible-test-network-integration-base/post.yaml
-      - playbooks/ansible-test-base/post.yaml
-    required-projects:
-      - name: github.com/ansible/ansible
-      - name: github.com/ansible-collections/openvswitch.openvswitch
-    timeout: 3600
-    vars:
-      ansible_collections_repo: github.com/ansible-collections/openvswitch.openvswitch
-      ansible_test_command: network-integration
-      ansible_test_integration_targets: "openvswitch_.*"
-
-- job:
     name: ansible-test-units-base
     parent: unittests
     # NOTE(pabelanger): nodeset to be removed
@@ -370,125 +335,6 @@
     parent: ansible-test-units-base
     nodeset: controller-python38
     abstract: true
-    vars:
-      ansible_test_python: 3.8
-
-- job:
-    name: ansible-test-units-openvswitch-python27
-    parent: ansible-test-units-base-python27
-    required-projects:
-      - name: github.com/ansible-collections/openvswitch.openvswitch
-    vars:
-      ansible_collections_repo: github.com/ansible-collections/openvswitch.openvswitch
-
-- job:
-    name: ansible-test-units-openvswitch-python35
-    parent: ansible-test-units-base-python35
-    required-projects:
-      - name: github.com/ansible-collections/openvswitch.openvswitch
-    vars:
-      ansible_collections_repo: github.com/ansible-collections/openvswitch.openvswitch
-
-- job:
-    name: ansible-test-units-openvswitch-python36
-    parent: ansible-test-units-base-python36
-    required-projects:
-      - name: github.com/ansible-collections/openvswitch.openvswitch
-    vars:
-      ansible_collections_repo: github.com/ansible-collections/openvswitch.openvswitch
-
-- job:
-    name: ansible-test-units-openvswitch-python37
-    parent: ansible-test-units-base-python37
-    required-projects:
-      - name: github.com/ansible-collections/openvswitch.openvswitch
-    vars:
-      ansible_collections_repo: github.com/ansible-collections/openvswitch.openvswitch
-
-- job:
-    name: ansible-test-units-openvswitch-python38
-    parent: ansible-test-units-base-python38
-    required-projects:
-      - name: github.com/ansible-collections/openvswitch.openvswitch
-    vars:
-      ansible_collections_repo: github.com/ansible-collections/openvswitch.openvswitch
-
-- job:
-    name: ansible-test-network-integration-openvswitch-python27
-    parent: ansible-test-network-integration-openvswitch
-    nodeset: openvswitch-2.9.0-python27
-    vars:
-      ansible_test_python: 2.7
-
-- job:
-    name: ansible-test-network-integration-openvswitch-python27-stable210
-    parent: ansible-test-network-integration-openvswitch
-    nodeset: openvswitch-2.9.0-python27
-    required-projects:
-      - name: github.com/ansible/ansible
-        override-checkout: stable-2.10
-    vars:
-      ansible_test_collections: true
-      ansible_test_python: 2.7
-
-- job:
-    name: ansible-test-network-integration-openvswitch-python27-stable29
-    parent: ansible-test-network-integration-openvswitch
-    nodeset: openvswitch-2.9.0-python27
-    required-projects:
-      - name: github.com/ansible/ansible
-        override-checkout: stable-2.9
-    vars:
-      ansible_test_collections: true
-      ansible_test_python: 2.7
-
-- job:
-    name: ansible-test-network-integration-openvswitch-python35
-    parent: ansible-test-network-integration-openvswitch
-    nodeset: openvswitch-2.9.0-python35
-    vars:
-      ansible_test_python: 3.5
-
-- job:
-    name: ansible-test-network-integration-openvswitch-python36
-    parent: ansible-test-network-integration-openvswitch
-    nodeset: openvswitch-2.9.0-python36
-    vars:
-      ansible_test_python: 3.6
-
-- job:
-    name: ansible-test-network-integration-openvswitch-python36-stable210
-    parent: ansible-test-network-integration-openvswitch
-    nodeset: openvswitch-2.9.0-python36
-    required-projects:
-      - name: github.com/ansible/ansible
-        override-checkout: stable-2.10
-    vars:
-      ansible_test_collections: true
-      ansible_test_python: 3.6
-
-- job:
-    name: ansible-test-network-integration-openvswitch-python36-stable29
-    parent: ansible-test-network-integration-openvswitch
-    nodeset: openvswitch-2.9.0-python36
-    required-projects:
-      - name: github.com/ansible/ansible
-        override-checkout: stable-2.9
-    vars:
-      ansible_test_collections: true
-      ansible_test_python: 3.6
-
-- job:
-    name: ansible-test-network-integration-openvswitch-python37
-    parent: ansible-test-network-integration-openvswitch
-    nodeset: openvswitch-2.9.0-python37
-    vars:
-      ansible_test_python: 3.7
-
-- job:
-    name: ansible-test-network-integration-openvswitch-python38
-    parent: ansible-test-network-integration-openvswitch
-    nodeset: openvswitch-2.9.0-python38
     vars:
       ansible_test_python: 3.8
 

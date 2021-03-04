@@ -238,7 +238,6 @@
       - name: github.com/ansible-collections/ansible.netcommon
     vars:
       ansible_collections_repo: github.com/ansible-collections/ansible.netcommon
-      ansible_test_integration_targets: '--exclude="tests/unit/plugins/connection/*"'
 
 - job:
     name: ansible-test-units-netcommon-python35
@@ -247,7 +246,6 @@
       - name: github.com/ansible-collections/ansible.netcommon
     vars:
       ansible_collections_repo: github.com/ansible-collections/ansible.netcommon
-      ansible_test_integration_targets: '--exclude="tests/unit/plugins/connection/*"'
 
 - job:
     name: ansible-test-units-netcommon-python36
@@ -256,7 +254,6 @@
       - name: github.com/ansible-collections/ansible.netcommon
     vars:
       ansible_collections_repo: github.com/ansible-collections/ansible.netcommon
-      ansible_test_integration_targets: '--exclude="tests/unit/plugins/connection/*"'
 
 - job:
     name: ansible-test-units-netcommon-python37
@@ -265,7 +262,6 @@
       - name: github.com/ansible-collections/ansible.netcommon
     vars:
       ansible_collections_repo: github.com/ansible-collections/ansible.netcommon
-      ansible_test_integration_targets: '--exclude="tests/unit/plugins/connection/*"'
 
 - job:
     name: ansible-test-units-netcommon-python38
@@ -274,7 +270,6 @@
       - name: github.com/ansible-collections/ansible.netcommon
     vars:
       ansible_collections_repo: github.com/ansible-collections/ansible.netcommon
-      ansible_test_integration_targets: '--exclude="tests/unit/plugins/connection/*"'
 
 - job:
     name: ansible-test-network-integration-ansible-netcommon-iosxr-netconf-python36

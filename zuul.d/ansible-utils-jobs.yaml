@@ -1,0 +1,98 @@
+---
+# ansible-collections/ansible.utils jobs
+
+- job:
+    name: ansible-test-integration-ansible-utils
+    abstract: true
+    parent: ansible-test-integration-base
+    required-projects:
+      - name: github.com/ansible/ansible
+      - name: github.com/ansible-collections/ansible.utils
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/ansible.utils
+
+- job:
+    name: ansible-test-integration-ansible-utils-python27
+    parent: ansible-test-integration-ansible-utils
+    nodeset: controller-python27
+    vars:
+      ansible_test_python: 2.7
+
+- job:
+    name: ansible-test-integration-ansible-utils-python27-stable210
+    parent: ansible-test-integration-ansible-utils
+    nodeset: controller-python27
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.10
+    vars:
+      ansible_test_python: 2.7
+
+- job:
+    name: ansible-test-integration-ansible-utils-python27-stable29
+    parent: ansible-test-integration-ansible-utils
+    nodeset: controller-python27
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.9
+    vars:
+      ansible_test_python: 2.7
+
+- job:
+    name: ansible-test-integration-ansible-utils-python36
+    parent: ansible-test-integration-ansible-utils
+    nodeset: controller-python36
+    vars:
+      ansible_test_python: 3.6
+
+- job:
+    name: ansible-test-integration-ansible-utils-python36-stable210
+    parent: ansible-test-integration-ansible-utils
+    nodeset: controller-python36
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.10
+    vars:
+      ansible_test_python: 3.6
+
+- job:
+    name: ansible-test-integration-ansible-utils-python36-stable29
+    parent: ansible-test-integration-ansible-utils
+    nodeset: controller-python36
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.9
+    vars:
+      ansible_test_python: 3.6
+
+- job:
+    name: ansible-test-units-ansible-utils-python27
+    parent: ansible-test-units-base-python27
+    required-projects:
+      - name: github.com/ansible-collections/ansible.utils
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/ansible.utils
+
+- job:
+    name: ansible-test-units-ansible-utils-python35
+    parent: ansible-test-units-base-python35
+    required-projects:
+      - name: github.com/ansible-collections/ansible.utils
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/ansible.utils
+
+- job:
+    name: ansible-test-units-ansible-utils-python36
+    parent: ansible-test-units-base-python27
+    required-projects:
+      - name: github.com/ansible-collections/ansible.utils
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/ansible.utils
+
+- job:
+    name: ansible-test-units-ansible-utils-python37
+    parent: ansible-test-units-base-python37
+    required-projects:
+      - name: github.com/ansible-collections/ansible.utils
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/ansible.utils

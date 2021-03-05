@@ -2207,7 +2207,6 @@
     parent: ansible-workshops-tox-integration
     vars:
       workshop_type: windows
->>>>>>>  enabled libssh on ansible-test-network-integration-eos-network_cli-python36
 
 - job:
     name: ansible-builder-projecttoml-and-setuppy-insync

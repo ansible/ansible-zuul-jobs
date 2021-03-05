@@ -1,0 +1,15 @@
+---
+- hosts: controller
+  tasks:
+    - name: Fetch the aws_session file from the controller
+      fetch:
+        flat: true
+        src: "/tmp/aws_session.json"
+        dest: '{{ zuul.executor.work_root }}/'
+    - import_role:
+        name: ansible-test-provider
+      vars:
+        ansible_test_provider_name: aws
+        # The location of a copy of ansible-2.10
+        ansible_test_provider_root_dir: "{{ ansible_user_dir }}/{{ zuul.projects['github.com/ansible/ansible'].src_dir }}"
+        ansible_test_provider_passwords_secret_dir: '{{ zuul.executor.work_root }}'

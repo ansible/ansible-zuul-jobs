@@ -1,12 +1,15 @@
 ---
 - job:
     name: base
-    parent: base-minimal
+    parent: base-minimal-test
     abstract: true
     ansible-version: 2.9
     description: |
       The base job for the Ansible installation of Zuul.
     pre-run: playbooks/base/pre.yaml
+    vars:
+      zuul_ssh_key_algorithm: ecdsa
+      zuul_ssh_key_size: 521
 
 - job:
     name: github-workflows

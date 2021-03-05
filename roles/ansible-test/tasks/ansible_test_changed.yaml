@@ -5,7 +5,8 @@
     executable: /bin/bash
   shell: |
     for i in $(git diff origin/main --name-only|egrep '^plugins/.*.py'|xargs -r basename -s .py); do
-      test -f tests/integration/targets/${i}/aliases && echo ${i}
+      test -f tests/integration/targets/${i}/aliases || continue
+      echo ${i}
     done
   register: _result
 - set_fact:

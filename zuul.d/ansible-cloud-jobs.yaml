@@ -24,7 +24,6 @@
     nodeset: vmware-govcsim-python36
     dependencies:
       - name: build-ansible-collection
-        soft: true
     pre-run:
       - playbooks/ansible-test-base/pre.yaml
       - playbooks/ansible-cloud/govcsim-base/pre.yaml
@@ -71,7 +70,6 @@
     parent: ansible-cloud-vcenter-appliance
     dependencies:
       - name: build-ansible-collection
-        soft: true
       - name: ansible-test-cloud-integration-govcsim-python36_1_of_3
         soft: true
       - name: ansible-test-cloud-integration-govcsim-python36_2_of_3
@@ -80,7 +78,6 @@
         soft: true
     pre-run:
       - playbooks/ansible-test-base/pre.yaml
-      - playbooks/ansible-test-cloud-integration-base/pre.yaml
     run: playbooks/ansible-test-base/run.yaml
     post-run: playbooks/ansible-test-base/post.yaml
     required-projects:
@@ -247,7 +244,6 @@
     pre-run:
       - playbooks/ansible-test-base/pre.yaml
       - playbooks/ansible-test-network-integration-base/pre.yaml
-      - playbooks/ansible-test-cloud-integration-base/pre.yaml
     run: playbooks/ansible-test-base/run.yaml
     post-run:
       - playbooks/ansible-test-network-integration-base/post.yaml

@@ -812,6 +812,7 @@
     name: ansible-collections-ansible-posix-units
     check:
       jobs: &ansible-collections-ansible-posix-units-jobs
+        - ansible-changelog-fragment
         - ansible-test-sanity-docker
         - ansible-test-sanity-docker-stable-2.9
         - ansible-test-sanity-docker-stable-2.10

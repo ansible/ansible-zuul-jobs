@@ -55,8 +55,6 @@
       vars:
         configure_swap_current_total: 0
         configure_swap_size: 2000
-    - import_role:
-        name: vmware-ci-vcenter-services
 
 - hosts: localhost
   gather_facts: false

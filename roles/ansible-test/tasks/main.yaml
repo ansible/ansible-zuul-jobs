@@ -55,7 +55,7 @@
   when: ansible_test_split_in > 1
 
 - debug:
-    msg: "About to run: {{ ansible_test_executable }} {{ ansible_test_test_command }} {{ ansible_test_options }} -vvvv {{ _integration_targets }}"
+    msg: "About to run: {{ ansible_test_executable }} {{ ansible_test_test_command }} {{ ansible_test_options }} {{ ansible_test_verbosity }} {{ _integration_targets }}"
 
 - name: Run the test suite
   args:

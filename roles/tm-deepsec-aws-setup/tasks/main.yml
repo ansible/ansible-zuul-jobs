@@ -2,15 +2,14 @@
 # tasks file for tm_silent_setup
 
 - name: Ensure bash, OpenSSl, and libssl are the latest versions
-  yum: name={{ item }} update_cache=true state=latest
-  with_items: "{{ pre_package }}"
+  yum:
+    name: "{{ pre_package }}"
+    update_cache: true
   tags: packages
 
 - name: Install psycopg2 python package for postgres
   pip:
-    name: "{{ item }}"
-  with_items: "{{ pip_package }}"
-  #become_user: ec2-user
+    name: "{{ pip_package }}"
 
 - name: Change psycopg2 dir permission to 0755
   file:
@@ -35,7 +34,7 @@
   yum:
     name: "{{ item }}"
     state: present
-  with_items: "{{ postgres_rpm }}"
+  with_items: "{{ postgresql_rpm }}"
 
 - name: Create postgres data cluster
   command: /usr/pgsql-11/bin/postgresql-11-setup initdb
@@ -84,3 +83,14 @@
   service:
     name: postgresql-11
     state: restarted
+
+- name: add silent properties config to dsm directory
+  template:
+    src: silent-install-tm.conf.j2
+    dest: /opt/trend/packages/dsm/default
+
+- name: Run the silent properties file via TM AWS manager script
+  shell:
+    cmd: ./ManagerAWS.sh -q -varfile silent-install-tm.conf.j2
+    chdir: /opt/trend/packages/dsm/default
+  become: true

@@ -1,4 +1,4 @@
 ---
 # handlers file for tm_silent_setup
 - name: restart postgresql
-  service: name=postgresql state=restarted
+  service: name=postgresql-11 state=restarted

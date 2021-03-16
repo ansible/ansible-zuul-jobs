@@ -15,7 +15,7 @@
   file:
     path: "{{ item }}"
     mode: u=rwX,g=rX,o=rX
-    recurse: yes
+    recurse: true
   with_items: "{{ dir_permission }}"
 
 - name: Remove the postgresql package
@@ -48,7 +48,7 @@
   postgresql_db:
     name: dsm
   become_user: postgres
-  become: yes
+  become: true
 
 - name: create postgres User
   postgresql_user:
@@ -58,7 +58,7 @@
     db: dsm
     role_attr_flags: SUPERUSER,CREATEDB,CREATEROLE,LOGIN
   become_user: postgres
-  become: yes
+  become: true
 
 - name: Ensure local security method is changed to md5
   ansible.builtin.lineinfile:

@@ -39,6 +39,13 @@
         port: "{{ __ssh_port }}"
         search_regex: SSH
 
+    - name: setup public key for iosxr and ios with older fedora version
+      command:
+        - update-crypto-policies --set LEGACY
+        - service sshd restart
+      when: ansible_distribution == 'Fedora'
+
+
     - name: Ensure remote SSH host keys are known
       shell: "ssh-keyscan -v -p {{ __ssh_port }} {{ __ssh_ip }} >> ~/.ssh/known_hosts"
       register: r

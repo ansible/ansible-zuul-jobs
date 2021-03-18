@@ -125,7 +125,6 @@
         - ansible-security-trendmicro-deepsec-appliance:
             files:
               - playbooks/ansible-network-appliance-base/.*
-              - roles/tm.*
         ## ansible-test* roles
         - build-ansible-collection:
             required-projects:

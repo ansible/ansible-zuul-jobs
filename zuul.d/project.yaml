@@ -4,6 +4,7 @@
       - ansible-python-jobs
     check:
       jobs:
+        - ansible-test-security-integration-trendmicro-deepsec
         - ansible-network-asa-appliance:
             files:
               - playbooks/ansible-network-appliance-base/.*

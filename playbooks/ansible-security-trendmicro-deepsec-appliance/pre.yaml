@@ -17,7 +17,7 @@
     - name: Setup TM instance silently
       become: true
       include_role:
-        name: tm_silent_setup
+        name: tm-deepsec-aws-setup
 
     - name: Ensure the PostgreSQL and TM agent and TM service is running
       service: "{{ name=item state=started enabled=yes }}"

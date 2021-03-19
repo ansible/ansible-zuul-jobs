@@ -14,14 +14,16 @@
         tox_install_siblings: false
         zuul_work_dir: "{{ zuul.projects['github.com/ansible/ansible-zuul-jobs'].src_dir }}"
 
-    - name: Install PostgreSQL
+    - name: Setup TM instance silently
       become: true
-      package: name={{ item }} state=present
-      with_items:
-        - postgresql
-        - postgresql-contrib
-        - libpq-dev
-        - python-psycopg2
+      include_role:
+        name: tm-deepsec-aws-setup
 
-    - name: Ensure the PostgreSQL service is running
-      service: name=postgresql state=started enabled=yes
+    - name: Ensure the PostgreSQL and TM agent and TM service is running
+      service: "{{ name=item state=started enabled=yes }}"
+      with_items: "{{ verify_services }}"
+      vars:
+        verify_services:
+          - postgresql-11
+          - ds_agent
+          - dsm_s

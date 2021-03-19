@@ -847,17 +847,18 @@
 - project-template:
     name: ansible-collections-security-trendmicro-deepsec-units
     check:
-      jobs: &ansible-collections-security-trendmicro-jobs
+      jobs: &ansible-collections-security-trendmicro-deepsec-jobs
+        - build-ansible-collection
+        - ansible-test-security-integration-trendmicro-deepsec-python38
         - ansible-test-sanity-docker
         - ansible-test-sanity-docker-stable-2.9
         - ansible-test-sanity-docker-stable-2.10
-        - build-ansible-collection:
-            required-projects:
-              - name: github.com/ansible-collections/ansible.netcommon
-              - name: github.com/ansible-collections/ansible.utils
+        # - build-ansible-collection:
+        #    required-projects:
+        #      - name: github.com/ansible-collections/ansible.netcommon
+        #      - name: github.com/ansible-collections/ansible.utils
     gate:
-      queue: integrated
-      jobs: *ansible-collections-security-trendmicro-jobs
+      jobs: *ansible-collections-security-trendmicro-deepsec-jobs
 
 - project-template:
     name: ansible-collections-symantec-epm-units

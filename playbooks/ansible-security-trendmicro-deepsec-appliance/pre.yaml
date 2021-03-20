@@ -15,7 +15,6 @@
         zuul_work_dir: "{{ zuul.projects['github.com/ansible/ansible-zuul-jobs'].src_dir }}"
 
     - name: Setup TM instance silently
-      become: true
       include_role:
         name: tm-deepsec-aws-setup
 

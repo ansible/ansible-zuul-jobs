@@ -2,7 +2,7 @@
 # tasks file for tm_silent_setup
 
 - name: Ensure bash, OpenSSl, and libssl are the latest versions
-  yum:
+  apt:
     name: "{{ pre_package }}"
     update_cache: true
   tags: packages
@@ -19,9 +19,9 @@
   with_items: "{{ dir_permission }}"
 
 - name: Remove the postgresql package
-  yum:
+  apt:
     name: "{{ item }}"
-    state: present
+    state: absent
   with_items: "{{ uninstall_postgres }}"
 
 - name: Remove pgsql directory
@@ -31,7 +31,7 @@
   with_items: "{{ remove_dir }}"
 
 - name: Install postgres 11 libs rpm from a remote file
-  yum:
+  apt:
     name: "{{ item }}"
     state: present
   with_items: "{{ postgresql_rpm }}"

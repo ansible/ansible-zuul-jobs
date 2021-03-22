@@ -28,7 +28,7 @@
         command: "ssh admin@{{ hostvars[item].nodepool.private_ipv4 }}"
         responses:
           'Are you sure you want to continue connecting': "yes"
-          'password:': admin
+          'password:': admin123
           'RP/0/0/CPU0:ios#': exit
         timeout: 60
       with_inventory_hostnames: appliance
@@ -43,7 +43,7 @@
       expect:
         command: "sftp admin@{{ hostvars[item].nodepool.private_ipv4 }}"
         responses:
-          'password:': admin
+          'password:': admin123
           'sftp>':
             - put id_rsa.pub.b64
             - exit
@@ -55,7 +55,7 @@
   connection: network_cli
   vars:
     ansible_password: admin
-    ansible_user: admin
+    ansible_user: admin123
   tasks:
     - name: Add SSH public key to zuul user
       iosxr_command:

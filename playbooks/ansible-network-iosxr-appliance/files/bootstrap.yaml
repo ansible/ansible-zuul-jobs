@@ -28,8 +28,8 @@
         command: "ssh admin@{{ hostvars[item].nodepool.private_ipv4 }}"
         responses:
           'Are you sure you want to continue connecting': "yes"
-          'password:': admin123
-          'RP/0/0/CPU0:ios#': exit
+          '(?i)password:': admin123
+          'RP/0/0/CPU0:.*#': exit
         timeout: 60
       with_inventory_hostnames: appliance
 

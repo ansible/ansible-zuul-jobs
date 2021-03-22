@@ -43,7 +43,7 @@
       expect:
         command: "sftp admin@{{ hostvars[item].nodepool.private_ipv4 }}"
         responses:
-          'password:': admin123
+          '(?i)password:': admin123
           'sftp>':
             - put id_rsa.pub.b64
             - exit

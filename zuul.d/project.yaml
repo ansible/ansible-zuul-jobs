@@ -51,11 +51,11 @@
               - playbooks/ansible-test-network-integration-base/files/bootstrap-splunk.yaml
               - playbooks/ansible-network-appliance-base/.*
               - roles/splunk.*
-        - ansible-security-integration-trendmicro-deepsec-python38
         - ansible-security-trendmicro-deepsec-appliance:
             files:
-              - playbooks/ansible-test-network-integration-base/files/bootstrap-trendmicro.deepsec.yaml
+              - playbooks/ansible-test-network-integration-base/files/bootstrap-trendmicro.deepsec.deepsec.yaml
               - playbooks/ansible-network-appliance-base/.*
+              - roles/trendmicro.*
         ## ansible-test* roles
         - build-ansible-collection:
             required-projects:

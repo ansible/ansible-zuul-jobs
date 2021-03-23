@@ -122,7 +122,7 @@
     vars:
       ansible_collections_repo: github.com/ansible-collections/trendmicro.deepsec
       ansible_test_command: network-integration
-      ansible_test_integration_targets: "deepsec_*"
+      ansible_test_integration_targets: "deepsec_.*"
       ansible_test_collections: true
 
 - job:

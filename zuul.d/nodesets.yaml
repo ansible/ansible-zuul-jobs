@@ -949,7 +949,7 @@
       - name: Trendmicro-DeepSecurity-20.0.344
         label: Trendmicro-DeepSecurity-20.0.344
     groups:
-      - name: appliance-ssh
+      - name: appliance
         nodes:
           - Trendmicro-DeepSecurity-20.0.344
       - name: controller

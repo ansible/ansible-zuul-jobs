@@ -50,6 +50,15 @@
         - ansible-tox-py37
 
 - project-template:
+    name: ansible-navigator-jobs
+    check:
+      jobs:
+        - ansible-tox-linters
+    gate:
+      jobs:
+        - ansible-tox-linters
+
+- project-template:
     name: ansible-collections-amazon-aws
     check:
       jobs:

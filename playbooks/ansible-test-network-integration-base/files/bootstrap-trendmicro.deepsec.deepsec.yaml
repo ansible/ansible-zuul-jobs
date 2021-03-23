@@ -1,5 +1,5 @@
 ---
-- hosts: appliance
+- hosts: appliance*
   gather_facts: false
   tasks:
     - name: Setup TM instance silently

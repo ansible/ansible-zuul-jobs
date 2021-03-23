@@ -175,7 +175,7 @@
     run: playbooks/ansible-test-base/run.yaml
     required-projects:
       - name: github.com/ansible/ansible
-        override-checkout: stable-2.11
+        override-checkout: devel
     timeout: 3600
     vars:
       ansible_test_collections: true

@@ -900,6 +900,18 @@
       jobs: *ansible-collections-servicenow-itsm-units-jobs
 
 - project-template:
+    name: ansible-collections-security-symantec-epm
+    check:
+      jobs: &ansible-collections-security-symantec-epm-jobs
+        - build-ansible-collection
+        - ansible-test-security-integration-symantec-epm-python38
+        - ansible-test-sanity-docker
+        - ansible-test-sanity-docker-stable-2.9
+        - ansible-test-sanity-docker-stable-2.10
+    gate:
+      jobs: *ansible-collections-security-symantec-epm-jobs
+
+- project-template:
     name: ansible-collections-symantec-epm-units
     check:
       jobs: &ansible-collections-symantec-epm-units-jobs

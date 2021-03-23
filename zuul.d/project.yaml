@@ -56,6 +56,10 @@
               - playbooks/ansible-test-network-integration-base/files/bootstrap-trendmicro.deepsec.deepsec.yaml
               - playbooks/ansible-network-appliance-base/.*
               - roles/trendmicro.*
+        - ansible-security-symantec-epm-appliance:
+            files:
+              - playbooks/ansible-test-network-integration-base/files/bootstrap-symantec-epm.yaml
+              - playbooks/ansible-network-appliance-base/.*
         ## ansible-test* roles
         - build-ansible-collection:
             required-projects:

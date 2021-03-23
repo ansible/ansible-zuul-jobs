@@ -4,7 +4,7 @@
   connection: local
   tasks:
     - name: Setup TM instance silently
-      include_role:
+      import_role:
         name: tm-deepsec-aws-setup
 
     - name: Ensure the PostgreSQL and TM agent and TM service is running

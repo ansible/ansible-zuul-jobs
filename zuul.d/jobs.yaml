@@ -165,6 +165,27 @@
       ansible_test_python: 3.6
 
 - job:
+    name: ansible-test-sanity-docker-stable-2.11
+    parent: unittests
+    nodeset: controller-python36
+    dependencies:
+      - name: build-ansible-collection
+        soft: true
+    pre-run: playbooks/ansible-test-base/pre.yaml
+    run: playbooks/ansible-test-base/run.yaml
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.11
+    timeout: 3600
+    vars:
+      ansible_test_collections: true
+      ansible_collections_repo: "{{ zuul.project.canonical_name }}"
+      ansible_test_command: sanity
+      ansible_test_docker: true
+      ansible_test_enable_ara: false
+      ansible_test_python: 3.6
+
+- job:
     name: ansible-network-appliance-base
     pre-run: playbooks/ansible-network-appliance-base/pre.yaml
     post-run: playbooks/ansible-network-appliance-base/post.yaml

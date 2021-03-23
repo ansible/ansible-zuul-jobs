@@ -24,13 +24,11 @@
 
     - set_fact:
         _iosxr_password: "admin"
-       when: item not in ["iosxr-7.0.2"]
-       with_inventory_hostnames: appliance
 
     - set_fact:
         _iosxr_password: "admin123"
-       when: item in ["iosxr-7.0.2"]
-       with_inventory_hostnames: appliance
+      when: item in ["iosxr-7.0.2"]
+      with_inventory_hostnames: appliance
 
 
     # - name: Remove ssh key entry

@@ -26,7 +26,7 @@
       shell: "ssh-keygen -R {{ hostvars[item].nodepool.private_ipv4 }}"
       args:
         executable: /bin/bash
-      when: item not in ["iosxr-7.0.2"]
+      when: item in ["iosxr-7.0.2"]
       with_inventory_hostnames: appliance
 
     # NOTE(pabelanger): This is a huge hack to deal with the fact there is no

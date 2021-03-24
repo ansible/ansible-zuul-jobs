@@ -1461,9 +1461,11 @@
         - network-ee-sanity-tests
         - network-ee-sanity-tests-stable-2.9
         - network-ee-sanity-tests-stable-2.10
+        - network-ee-sanity-tests-stable-2.11
         - network-ee-unit-tests
         - network-ee-unit-tests-stable-2.9
         - network-ee-unit-tests-stable-2.10
+        - network-ee-unit-tests-stable-2.11
     gate:
       jobs: *network-ee-test-jobs
 

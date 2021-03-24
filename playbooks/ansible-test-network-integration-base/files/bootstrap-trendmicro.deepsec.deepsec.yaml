@@ -15,3 +15,4 @@
         - postgresql-11
         - ds_agent
         - dsm_s
+      become: true

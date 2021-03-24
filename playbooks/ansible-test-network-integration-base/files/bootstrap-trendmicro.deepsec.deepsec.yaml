@@ -6,12 +6,12 @@
       include_role:
         name: tm-deepsec-aws-setup
 
-- name: Ensure the PostgreSQL and TM agent and TM service is running
-  service:
-    name: "{{ item }}"
-    state: started
-    enabled: true
-  with_items:
-    - postgresql-11
-    - ds_agent
-    - dsm_s
+    - name: Ensure the PostgreSQL and TM agent and TM service is running
+      service:
+        name: "{{ item }}"
+        state: started
+        enabled: true
+      with_items:
+        - postgresql-11
+        - ds_agent
+        - dsm_s

@@ -1,4 +1,3 @@
 ---
 ansible_test_executable: "ansible-test"
 ansible_test_options: "--diff --no-temp-workdir"
-ansible_test_verbosity: "-vvvv"

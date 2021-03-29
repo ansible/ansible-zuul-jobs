@@ -40,6 +40,10 @@
         ansible_test_options: "{{ ansible_test_options }} --skip-test {{ ansible_test_sanity_skiptests|join(' --skip-test ') }} "
       when: ansible_test_sanity_skiptests|length > 0
 
+    - name: Reduce verbosity
+      set_fact:
+        ansible_test_verbosity: "-v"
+
 - name: Setup --python option
   set_fact:
     ansible_test_options: "{{ ansible_test_options }} --python {{ ansible_test_python }}"

@@ -504,6 +504,10 @@
         - ansible-test-units-community-vmware-python36
         - ansible-test-units-community-vmware-python37
         - ansible-test-units-community-vmware-python38
+        - ansible-test-cloud-integration-vcenter7_only-python36-stable210
+        - ansible-test-cloud-integration-vcenter7_1esxi_with_nested-python36-stable210
+        - ansible-test-cloud-integration-vcenter7_1esxi_without_nested-python36-stable210
+        - ansible-test-cloud-integration-vcenter7_2esxi_without_nested-python36-stable210
     gate:
       jobs:
         - ansible-test-cloud-integration-govcsim-python36_1_of_3

@@ -49,26 +49,31 @@
 - job:
     name: ansible-tox-py27
     parent: tox-py27
+    timeout: 3600
     nodeset: centos-7-1vcpu
 
 - job:
     name: ansible-tox-py35
     parent: tox-py35
+    timeout: 3600
     nodeset: ubuntu-xenial-1vcpu
 
 - job:
     name: ansible-tox-py36
     parent: tox-py36
+    timeout: 3600
     nodeset: centos-8-1vcpu
 
 - job:
     name: ansible-tox-py37
     parent: tox-py37
+    timeout: 3600
     nodeset: fedora-latest-1vcpu
 
 - job:
     name: ansible-tox-py38
     parent: tox-py38
+    timeout: 3600
     nodeset: ubuntu-bionic-1vcpu
 
 - job:
@@ -155,6 +160,28 @@
     required-projects:
       - name: github.com/ansible/ansible
         override-checkout: stable-2.10
+    timeout: 3600
+    vars:
+      ansible_test_collections: true
+      ansible_collections_repo: "{{ zuul.project.canonical_name }}"
+      ansible_test_command: sanity
+      ansible_test_docker: true
+      ansible_test_enable_ara: false
+      ansible_test_python: 3.6
+
+- job:
+    name: ansible-test-sanity-docker-stable-2.11
+    parent: unittests
+    nodeset: controller-python36
+    dependencies:
+      - name: build-ansible-collection
+        soft: true
+    pre-run: playbooks/ansible-test-base/pre.yaml
+    run: playbooks/ansible-test-base/run.yaml
+    required-projects:
+      - name: github.com/ansible/ansible
+        # NOTE (amhatre): Switch to stable-2.11 once branch is created.
+        override-checkout: devel
     timeout: 3600
     vars:
       ansible_test_collections: true

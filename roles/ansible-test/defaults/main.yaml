@@ -13,7 +13,7 @@ ansible_test_location: "{{ ~/ansible-test | expanduser }}"
 ansible_test_docker: false
 # Default ansible-test options
 ansible_test_git_branch: 'devel'
-ansible_test_python:
+ansible_test_python: "{{ ansible_python_version.split('.')[:2]|join('.') }}"
 ansible_test_venv_path: ~/venv
 ansible_test_inventory_path: ~/inventory
 ansible_test_collection_dir: ~/.ansible/collections/ansible_collections
@@ -24,3 +24,4 @@ ansible_test_sanity_skiptests: []
 ansible_test_network_cli_ssh_type: paramiko
 ansible_test_changed: false
 ansible_test_base_branch: main
+ansible_test_verbosity: "-vvvv"

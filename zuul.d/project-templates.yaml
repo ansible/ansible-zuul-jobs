@@ -113,6 +113,7 @@
         - ansible-test-sanity-docker
         - ansible-test-sanity-docker-stable-2.9
         - ansible-test-sanity-docker-stable-2.10
+        - ansible-test-sanity-docker-stable-2.11
         - ansible-test-units-eos-python27
         - ansible-test-units-eos-python35
         - ansible-test-units-eos-python36
@@ -697,6 +698,7 @@
         - ansible-test-sanity-docker
         - ansible-test-sanity-docker-stable-2.9
         - ansible-test-sanity-docker-stable-2.10
+        - ansible-test-sanity-docker-stable-2.11
         - ansible-test-units-vyos-python27
         - ansible-test-units-vyos-python35
         - ansible-test-units-vyos-python36

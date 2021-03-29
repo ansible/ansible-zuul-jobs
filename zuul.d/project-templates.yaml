@@ -53,10 +53,10 @@
     name: ansible-navigator-jobs
     check:
       jobs:
-        - ansible-tox-linters
+        - ansible-lint-tox-py38-ansibledevel
     gate:
       jobs:
-        - ansible-tox-linters
+        - ansible-lint-tox-py38-ansibledevel
 
 - project-template:
     name: ansible-collections-amazon-aws

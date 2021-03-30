@@ -52,11 +52,10 @@
 - project-template:
     name: ansible-navigator-jobs
     check:
-      jobs:
+      jobs: &ansible-navigator-jobs
         - ansible-tox-linters
     gate:
-      jobs:
-        - ansible-tox-linters
+      jobs: *ansible-navigator-jobs
 
 - project-template:
     name: ansible-collections-amazon-aws

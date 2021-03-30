@@ -50,6 +50,14 @@
         - ansible-tox-py37
 
 - project-template:
+    name: ansible-navigator-jobs
+    check:
+      jobs: &ansible-navigator-jobs
+        - ansible-tox-linters
+    gate:
+      jobs: *ansible-navigator-jobs
+
+- project-template:
     name: ansible-collections-amazon-aws
     check:
       jobs:
@@ -1470,9 +1478,11 @@
         - network-ee-sanity-tests
         - network-ee-sanity-tests-stable-2.9
         - network-ee-sanity-tests-stable-2.10
+        - network-ee-sanity-tests-stable-2.11
         - network-ee-unit-tests
         - network-ee-unit-tests-stable-2.9
         - network-ee-unit-tests-stable-2.10
+        - network-ee-unit-tests-stable-2.11
     gate:
       jobs: *network-ee-test-jobs
 

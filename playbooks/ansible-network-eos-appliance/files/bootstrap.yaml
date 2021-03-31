@@ -11,13 +11,6 @@
       set_fact:
         _ssh_key: "{{ lookup('file', '~/.ssh/id_rsa.pub') }}"
 
-    - name: lookup SSH public key (FIPS).
-      set_fact:
-        _ssh_key: "{{ lookup('file', '~/.ssh/id_ecdsa.pub') }}"
-      when:
-        - hostvars[item].ansible_connection == "libssh"
-      with_inventory_hostnames: appliance
-
     - name: Setup new user
       become: true
       eos_config:

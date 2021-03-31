@@ -54,6 +54,7 @@
     check:
       jobs: &ansible-navigator-jobs
         - ansible-tox-linters
+        - ansible-tox-py38
         - ansible-navigator-tox-smoke
     gate:
       jobs: *ansible-navigator-jobs

@@ -15,7 +15,8 @@
       set_fact:
         _ssh_key: "{{ lookup('file', '~/.ssh/id_ecdsa.pub') }}"
       when:
-        - ansible_test_network_cli_ssh_type == "libssh"
+        - "{{ hostvars[item].ansible_connection }}" == "libssh"
+      with_inventory_hostnames: appliance
 
     - name: Setup new user
       become: true

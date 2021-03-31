@@ -1,0 +1,7 @@
+---
+- job:
+    name: ansible-navigator-tox-smoke
+    parent: tox
+    vars:
+      tox_envlist: smoke
+    nodeset: centos-8-1vcpu

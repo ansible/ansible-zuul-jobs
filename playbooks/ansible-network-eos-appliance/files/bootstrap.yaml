@@ -15,7 +15,7 @@
       set_fact:
         _ssh_key: "{{ lookup('file', '~/.ssh/id_ecdsa.pub') }}"
       when:
-        - "{{ hostvars[item].ansible_connection }}" == "libssh"
+        - hostvars[item].ansible_connection == "libssh"
       with_inventory_hostnames: appliance
 
     - name: Setup new user

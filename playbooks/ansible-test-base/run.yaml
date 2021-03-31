@@ -12,31 +12,13 @@
           include_vars:
             file: '{{ _fetch.dest }}'
             name: galaxy_info
-
+    
     - name: Enable FIPS mode
-      become: true
-      shell: fips-mode-setup --enable
-
-    - name: Update /etc/default/grub
-      become: true
-      shell: sed -ie 's|GRUB_CMDLINE_LINUX_DEFAULT=\"\(.*\)\"|GRUB_CMDLINE_LINUX_DEFAULT=\"\1 fips=1\"|' /etc/default/grub
-
-    - name: Rebuild grub.cfg file
-      become: true
-      shell: grub2-mkconfig -o /boot/grub2/grub.cfg
-
-    - name: Reboot server for FIPS mode
-      become: true
-      reboot:
-        reboot_timeout: 1800
-
-    - name: Run start-zuul-console role
-      include_role:
-        name: start-zuul-console
-
-    - name: Ensure FIPS mode is enabled
-      become: true
-      shell: fips-mode-setup --check
+      when:
+        - ansible_distribution == "CentOS"
+        - ansible_test_network_cli_ssh_type == "libssh"
+      incude_role:
+        name: enable-fips-mode
 
     - name: Run ansible-test
       import_role:

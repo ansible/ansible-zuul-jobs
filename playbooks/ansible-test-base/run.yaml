@@ -12,7 +12,7 @@
           include_vars:
             file: '{{ _fetch.dest }}'
             name: galaxy_info
-    
+
     - name: Enable FIPS mode
       when:
         - ansible_distribution == "CentOS"

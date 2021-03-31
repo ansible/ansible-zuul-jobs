@@ -4,10 +4,5 @@
     parent: tox
     vars:
       tox_install_siblings: false
-      tox_envlist:
-        - py38
-        - type
-        - report
-        - clean
-        - smoke
+      tox_envlist: py38, type, report, clean, smoke
     nodeset: centos-8-1vcpu

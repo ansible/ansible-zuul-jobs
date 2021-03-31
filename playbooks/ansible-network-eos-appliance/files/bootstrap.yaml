@@ -15,7 +15,6 @@
       set_fact:
         _ssh_key: "{{ lookup('file', '~/.ssh/id_ecdsa.pub') }}"
       when:
-        - ansible_distribution == "CentOS"
         - ansible_test_network_cli_ssh_type == "libssh"
 
     - name: Setup new user

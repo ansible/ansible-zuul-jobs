@@ -17,7 +17,7 @@
       when:
         - ansible_distribution == "CentOS"
         - ansible_test_network_cli_ssh_type == "libssh"
-      incude_role:
+      include_role:
         name: enable-fips-mode
 
     - name: Run ansible-test

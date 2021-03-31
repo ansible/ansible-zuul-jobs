@@ -1,8 +1,15 @@
 ---
 - job:
     name: ansible-navigator-tox-py38
+    parent: ansible-tox-py38
+    vars:
+      tox_install_siblings: false
+      tox_envlist: py38, type, report, clean
+
+- job:
+    name: ansible-navigator-tox-smoke
     parent: tox
     vars:
       tox_install_siblings: false
-      tox_envlist: py38, type, report, clean, smoke
+      tox_envlist: smoke
     nodeset: centos-8-1vcpu

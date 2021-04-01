@@ -138,13 +138,13 @@
     pre-run: playbooks/ansible-security-symantec-epm-appliance/pre.yaml
     run: playbooks/ansible-security-symantec-epm-appliance/run.yaml
     host-vars:
-      SEP-14-MP1:
+      Symantec-Endpoint-Protection-SEP-14-MP1:
         ansible_connection: network_cli
         ansible_network_os: symantec.epm.epm
         ansible_python_interpreter: python
     required-projects:
       - name: github.com/ansible/ansible-zuul-jobs
-    nodeset: SEP-14-MP1-python38
+    nodeset: Symantec-Endpoint-Protection-SEP-14-MP1-python38
 
 - job:
     name: ansible-test-security-integration-symantec-epm

@@ -960,20 +960,20 @@
           - ubuntu-bionic
 
 - nodeset:
-    name: SEP-14-MP1-python38
+    name: Symantec-Endpoint-Protection-SEP-14-MP1-python38
     nodes:
       - name: ubuntu-bionic
         label: ubuntu-bionic-1vcpu
-      - name: SEP-14-MP1
-        label: SEP-14-MP1
+      - name: Symantec-Endpoint-Protection-SEP-14-MP1
+        label: Symantec-Endpoint-Protection-SEP-14-MP1
     groups:
       - name: appliance
         nodes:
-          - SEP-14-MP1
+          - Symantec-Endpoint-Protection-SEP-14-MP1
       - name: controller
         nodes:
           - ubuntu-bionic
       - name: aws
         nodes:
-          - SEP-14-MP1
+          - Symantec-Endpoint-Protection-SEP-14-MP1
           - ubuntu-bionic

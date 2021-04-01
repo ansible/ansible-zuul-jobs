@@ -4,10 +4,6 @@
       - ansible-python-jobs
     check:
       jobs:
-        - ansible-network-asa-appliance:
-            files:
-              - playbooks/ansible-network-appliance-base/.*
-              - playbooks/ansible-network-asa-appliance/.*
         - ansible-network-eos-appliance:
             files:
               - playbooks/ansible-network-appliance-base/.*
@@ -65,50 +61,18 @@
               # - name: github.com/ansible-collections/community.vmware
             files:
               # - roles/vmware.*
+              - name: github.com/ansible-collections/community.vmware
+            files:
+              - roles/vmware.*
               - roles/ansible-test*
               - playbooks/ansible-cloud/.*
 
     gate:
       jobs:
-        - ansible-network-asa-appliance:
-            files:
-              - playbooks/ansible-network-appliance-base/.*
-              - playbooks/ansible-network-asa-appliance/.*
         - ansible-network-eos-appliance:
             files:
               - playbooks/ansible-network-appliance-base/.*
               - playbooks/ansible-network-eos-appliance/.*
-        - ansible-network-ios-appliance:
-            files:
-              - playbooks/ansible-network-appliance-base/.*
-              - playbooks/ansible-network-ios-appliance/.*
-        - ansible-network-iosxr-appliance:
-            files:
-              - playbooks/ansible-network-appliance-base/.*
-              - playbooks/ansible-network-iosxr-appliance/.*
-        - ansible-network-junos-vsrx-appliance:
-            files:
-              - playbooks/ansible-network-appliance-base/.*
-              - playbooks/ansible-network-junos-appliance/.*
-        - ansible-network-openvswitch-appliance:
-            files:
-              - playbooks/ansible-network-appliance-base/.*
-              - playbooks/ansible-network-openvswitch-appliance/.*
-        - ansible-network-vyos-appliance:
-            files:
-              - playbooks/ansible-network-appliance-base/.*
-              - playbooks/ansible-network-vyos-appliance/.*
-        - ansible-security-qradar-appliance:
-            files:
-              - playbooks/ansible-network-appliance-base/.*
-        - ansible-security-splunk-appliance:
-            files:
-              - playbooks/ansible-test-network-integration-base/files/bootstrap-splunk.yaml
-              - playbooks/ansible-network-appliance-base/.*
-              - roles/splunk.*
-        - ansible-security-trendmicro-deepsec-appliance:
-            files:
-              - playbooks/ansible-network-appliance-base/.*
         ## ansible-test* roles
         - build-ansible-collection:
             required-projects:
@@ -120,20 +84,3 @@
               - roles/vmware.*
               - roles/ansible-test*
               - playbooks/ansible-cloud/.*
-        - ansible-test-units-openvswitch-python38:
-            files:
-              - roles/ansible-test*
-        - ansible-test-cloud-integration-vcenter7_only-python36:
-            match-on-config-updates: false
-            files:
-              - roles/vmware.*
-              - roles/ansible-test*
-              - playbooks/ansible-cloud/.*
-            vars:
-              ansible_test_integration_targets: vmware_vcenter_settings
-        - ansible-test-network-integration-openvswitch-python35:
-            match-on-config-updates: false
-            files:
-              - roles/ansible-test*
-            vars:
-              ansible_test_collections: true

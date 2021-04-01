@@ -903,12 +903,16 @@
     name: ansible-collections-security-symantec-epm
     check:
       jobs: &ansible-collections-security-symantec-epm-jobs
-        - build-ansible-collection
-        - ansible-test-security-integration-symantec-epm-python38
+        - ansible-security-integration-symantec-epm-python38
         - ansible-test-sanity-docker
         - ansible-test-sanity-docker-stable-2.9
         - ansible-test-sanity-docker-stable-2.10
+        - build-ansible-collection:
+            required-projects:
+              - name: github.com/ansible-collections/ansible.netcommon
+              - name: github.com/ansible-collections/ansible.utils
     gate:
+      queue: integrated
       jobs: *ansible-collections-security-symantec-epm-jobs
 
 - project-template:

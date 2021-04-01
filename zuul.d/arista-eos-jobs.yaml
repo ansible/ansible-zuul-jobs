@@ -6,9 +6,6 @@
     parent: ansible-network-appliance-base
     pre-run: playbooks/ansible-network-eos-appliance/pre.yaml
     run: playbooks/ansible-network-eos-appliance/run.yaml
-    vars:
-      zuul_ssh_key_algorithm: ecdsa
-      zuul_ssh_key_size: 521
     host-vars:
       eos-4.20.10:
         ansible_connection: network_cli

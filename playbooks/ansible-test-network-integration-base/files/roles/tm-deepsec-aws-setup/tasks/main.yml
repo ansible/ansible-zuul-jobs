@@ -107,4 +107,3 @@
   shell:
     cmd: ./ManagerAWS.sh -q -varfile silent-install-tm.conf.j2
     chdir: /opt/trend/packages/dsm/default
-  become: true

@@ -41,13 +41,11 @@
       Runs unit tests for an Ansible Python project under the CPython
       version 3 releases.
     check:
-      jobs:
+      jobs: &ansible-python3-jobs
         - ansible-tox-py36
         - ansible-tox-py37
     gate:
-      jobs:
-        - ansible-tox-py36
-        - ansible-tox-py37
+      jobs: *ansible-python3-jobs
 
 - project-template:
     name: ansible-navigator-jobs
@@ -62,7 +60,7 @@
 - project-template:
     name: ansible-collections-amazon-aws
     check:
-      jobs:
+      jobs: &ansible-collections-amazon-aws-jobs
         - ansible-test-sanity-docker
         - ansible-test-sanity-docker-stable-2.9
         - ansible-test-sanity-docker-stable-2.10
@@ -74,22 +72,12 @@
         - ansible-test-cloud-integration-aws-py36:
             voting: false
     gate:
-      jobs:
-        - ansible-test-sanity-docker
-        - ansible-test-sanity-docker-stable-2.9
-        - ansible-test-sanity-docker-stable-2.10
-        - ansible-test-units-amazon-aws-python38
-        - build-ansible-collection:
-            required-projects:
-              - name: github.com/ansible-collections/ansible.utils
-              - name: github.com/ansible-collections/community.general
-        - ansible-test-cloud-integration-aws-py36:
-            voting: false
+      jobs: *ansible-collections-amazon-aws-jobs
 
 - project-template:
     name: ansible-collections-community-aws
     check:
-      jobs:
+      jobs: &ansible-collections-community-aws-jobs
         - ansible-test-sanity-docker
         - ansible-test-sanity-docker-stable-2.9
         - ansible-test-sanity-docker-stable-2.10
@@ -102,23 +90,12 @@
         - ansible-test-cloud-integration-aws-py36:
             voting: false
     gate:
-      jobs:
-        - ansible-test-sanity-docker
-        - ansible-test-sanity-docker-stable-2.9
-        - ansible-test-sanity-docker-stable-2.10
-        - ansible-test-units-community-aws-python38
-        - build-ansible-collection:
-            required-projects:
-              - name: github.com/ansible-collections/amazon.aws
-              - name: github.com/ansible-collections/ansible.utils
-              - name: github.com/ansible-collections/community.general
-        - ansible-test-cloud-integration-aws-py36:
-            voting: false
+      jobs: *ansible-collections-community-aws-jobs
 
 - project-template:
     name: ansible-collections-arista-eos-units
     check:
-      jobs: &ansile-collections-arista-eos-units-jobs
+      jobs: &ansible-collections-arista-eos-units-jobs
         - ansible-changelog-fragment
         - ansible-test-sanity-docker
         - ansible-test-sanity-docker-stable-2.9
@@ -130,7 +107,7 @@
         - ansible-test-units-eos-python37
     gate:
       queue: integrated
-      jobs: *ansile-collections-arista-eos-units-jobs
+      jobs: *ansible-collections-arista-eos-units-jobs
 
 - project-template:
     name: ansible-collections-arista-eos
@@ -178,7 +155,7 @@
 - project-template:
     name: ansible-collections-ansible-utils-units
     check:
-      jobs: &ansile-collections-ansible-utils-units-jobs
+      jobs: &ansible-collections-ansible-utils-units-jobs
         - ansible-changelog-fragment
         - ansible-test-sanity-docker
         - ansible-test-sanity-docker-stable-2.9
@@ -190,7 +167,7 @@
         - ansible-test-units-ansible-utils-python37
     gate:
       queue: integrated
-      jobs: *ansile-collections-ansible-utils-units-jobs
+      jobs: *ansible-collections-ansible-utils-units-jobs
 
 - project-template:
     name: ansible-collections-cisco-asa-units
@@ -522,6 +499,7 @@
         - ansible-test-units-community-vmware-python36
         - ansible-test-units-community-vmware-python37
         - ansible-test-units-community-vmware-python38
+
 - project-template:
     name: ansible-collections-community-vmware-rest
     check:
@@ -541,34 +519,25 @@
 - project-template:
     name: ansible-collections-community-vmware-rest-code-generator
     check:
-      jobs:
+      jobs: &ansible-collections-community-vmware-rest-code-generator-jobs
         - ansible-test-cloud-integration-vmware-rest-python36
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-collections/cloud.common
               - name: github.com/ansible-collections/community.vmware
     gate:
-      jobs:
-        - ansible-test-cloud-integration-vmware-rest-python36
-        - build-ansible-collection:
-            required-projects:
-              - name: github.com/ansible-collections/cloud.common
-              - name: github.com/ansible-collections/community.vmware
+      jobs: *ansible-collections-community-vmware-rest-code-generator-jobs
 
 - project-template:
     name: ansible-collections-community-asa
     check:
-      jobs:
+      jobs: &ansible-collections-community-asa-jobs
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-collections/ansible.netcommon
               - name: github.com/ansible-collections/ansible.utils
     gate:
-      jobs:
-        - build-ansible-collection:
-            required-projects:
-              - name: github.com/ansible-collections/ansible.netcommon
-              - name: github.com/ansible-collections/ansible.utils
+      jobs: *ansible-collections-community-asa-jobs
 
 - project-template:
     name: ansible-collections-community-asa-units

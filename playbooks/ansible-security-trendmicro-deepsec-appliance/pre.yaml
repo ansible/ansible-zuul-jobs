@@ -13,15 +13,3 @@
         tox_extra_args: -vv -- ansible-playbook -v -c network_cli playbooks/ansible-security-trendmicro-deepsec-appliance/files/bootstrap.yaml
         tox_install_siblings: false
         zuul_work_dir: "{{ zuul.projects['github.com/ansible/ansible-zuul-jobs'].src_dir }}"
-
-    - name: Install PostgreSQL
-      become: true
-      package: name={{ item }} state=present
-      with_items:
-        - postgresql
-        - postgresql-contrib
-        - libpq-dev
-        - python-psycopg2
-
-    - name: Ensure the PostgreSQL service is running
-      service: name=postgresql state=started enabled=yes

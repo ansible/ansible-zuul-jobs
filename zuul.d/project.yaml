@@ -53,36 +53,20 @@
               - roles/splunk.*
         - ansible-security-trendmicro-deepsec-appliance:
             files:
-              - playbooks/ansible-test-network-integration-base/files/bootstrap-trendmicro.deepsec.yaml
+              - playbooks/ansible-test-network-integration-base/files/bootstrap-trendmicro.deepsec.deepsec.yaml
               - playbooks/ansible-network-appliance-base/.*
+              - roles/trendmicro.*
         ## ansible-test* roles
         - build-ansible-collection:
             required-projects:
-              - name: github.com/ansible-collections/openvswitch.openvswitch
+              # - name: github.com/ansible-collections/openvswitch.openvswitch
               - name: github.com/ansible-collections/amazon.aws
               - name: github.com/ansible-collections/ansible.netcommon
-              - name: github.com/ansible-collections/community.vmware
+              # - name: github.com/ansible-collections/community.vmware
             files:
-              - roles/vmware.*
+              # - roles/vmware.*
               - roles/ansible-test*
               - playbooks/ansible-cloud/.*
-        - ansible-test-units-openvswitch-python38:
-            files:
-              - roles/ansible-test*
-        - ansible-test-cloud-integration-vcenter7_only-python36:
-            match-on-config-updates: false
-            files:
-              - roles/vmware.*
-              - roles/ansible-test*
-              - playbooks/ansible-cloud/.*
-            vars:
-              ansible_test_integration_targets: vmware_vcenter_settings
-        - ansible-test-network-integration-openvswitch-python35:
-            match-on-config-updates: false
-            files:
-              - roles/ansible-test*
-            vars:
-              ansible_test_collections: true
 
     gate:
       jobs:

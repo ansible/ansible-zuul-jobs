@@ -1,0 +1,6 @@
+# vars file for tm_silent_setup
+---
+postgresql_rpm:
+  - http://download.postgresql.org/pub/repos/yum/11/redhat/rhel-7-x86_64/postgresql11-libs-11.10-1PGDG.rhel7.x86_64.rpm
+  - http://download.postgresql.org/pub/repos/yum/11/redhat/rhel-7-x86_64/postgresql11-11.10-1PGDG.rhel7.x86_64.rpm
+  - http://download.postgresql.org/pub/repos/yum/11/redhat/rhel-7-x86_64/postgresql11-server-11.10-1PGDG.rhel7.x86_64.rpm

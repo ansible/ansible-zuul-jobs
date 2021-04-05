@@ -94,16 +94,16 @@
     pre-run: playbooks/ansible-security-trendmicro-deepsec-appliance/pre.yaml
     run: playbooks/ansible-security-trendmicro-deepsec-appliance/run.yaml
     host-vars:
-      Trendmicro-DeepSecurity-20.0.198:
+      Trendmicro-DeepSecurity-20.0.344:
         ansible_connection: network_cli
-        ansible_network_os: trendmicro.deepsec
+        ansible_network_os: trendmicro.deepsec.deepsec
         ansible_python_interpreter: python
     required-projects:
       - name: github.com/ansible/ansible-zuul-jobs
-    nodeset: Trendmicro-DeepSecurity-20.0.198-python38
+    nodeset: Trendmicro-DeepSecurity-20.0.344-python38
 
 - job:
-    name: ansible-test-security-integration-trendmicro-deepsec
+    name: ansible-security-integration-trendmicro-deepsec
     abstract: true
     dependencies:
       - name: build-ansible-collection
@@ -122,5 +122,11 @@
     vars:
       ansible_collections_repo: github.com/ansible-collections/trendmicro.deepsec
       ansible_test_command: network-integration
-      ansible_test_integration_targets: ""
+      ansible_test_integration_targets: "deepsec_.*"
       ansible_test_collections: true
+
+- job:
+    name: ansible-security-integration-trendmicro-deepsec-python38
+    parent: ansible-security-integration-trendmicro-deepsec
+    vars:
+      ansible_test_python: 3.8

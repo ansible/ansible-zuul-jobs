@@ -1,0 +1,109 @@
+---
+# tasks file for tm_silent_setup
+
+- name: Ensure bash, OpenSSl, and libssl are the latest versions
+  become: true
+  yum:
+    name: "{{ pre_package }}"
+    update_cache: true
+  tags: packages
+
+- name: Install psycopg2 python package for postgres
+  become: true
+  pip:
+    name: "{{ pip_package }}"
+
+- name: Change psycopg2 dir permission to 0755
+  become: true
+  file:
+    path: "{{ item }}"
+    mode: u=rwX,g=rX,o=rX
+    recurse: true
+  with_items: "{{ dir_permission }}"
+
+- name: Remove the postgresql package
+  become: true
+  yum:
+    name: "{{ item }}"
+    state: absent
+  with_items: "{{ uninstall_postgres }}"
+
+- name: Remove pgsql directory
+  become: true
+  file:
+    path: "{{ item }}"
+    state: absent
+  with_items: "{{ remove_dir }}"
+
+- name: Install postgres 11 libs rpm from a remote file
+  become: true
+  yum:
+    name: "{{ item }}"
+    state: present
+  with_items: "{{ postgresql_rpm }}"
+
+- name: Create postgres data cluster
+  become: true
+  command: /usr/pgsql-11/bin/postgresql-11-setup initdb
+
+- name: Start postgres service
+  become: true
+  service:
+    name: postgresql-11
+    state: started
+
+- name: create postgres DB
+  postgresql_db:
+    name: dsm
+  become_user: postgres
+  become: true
+
+- name: create postgres User
+  postgresql_user:
+    name: ansible
+    password: ansible
+    priv: "CONNECT,ALL"
+    db: dsm
+    role_attr_flags: SUPERUSER,CREATEDB,CREATEROLE,LOGIN
+  become_user: postgres
+  become: true
+
+- name: Ensure local security method is changed to md5
+  become: true
+  ansible.builtin.lineinfile:
+    path: /var/lib/pgsql/11/data/pg_hba.conf
+    regexp: '^local*\s*\S+\s*\S+\s*peer'
+    state: absent
+
+- name: Ensure local security method is changed to md5
+  become: true
+  ansible.builtin.lineinfile:
+    path: /var/lib/pgsql/11/data/pg_hba.conf
+    regexp: '^host*\s*\S+\s*\S+\s*(?:[0-9]{1,3}\.){3}[0-9]{1,3}/[0-9]{1,2}'
+    state: absent
+
+- name: add new configuration to "pg_hba.conf"
+  become: true
+  blockinfile:
+    dest: /var/lib/pgsql/11/data/pg_hba.conf
+    block: |
+      local   all             all                                     md5
+      host    all             all             127.0.0.1/32            md5
+
+- name: Restart postgres service
+  become: true
+  service:
+    name: postgresql-11
+    state: restarted
+
+- name: add silent properties config to dsm directory
+  become: true
+  template:
+    src: silent-install-tm.conf.j2
+    dest: /opt/trend/packages/dsm/default
+
+- name: Run the silent properties file via TM AWS manager script
+  become: true
+  shell:
+    cmd: ./ManagerAWS.sh -q -varfile silent-install-tm.conf.j2
+    chdir: /opt/trend/packages/dsm/default

@@ -884,6 +884,18 @@
       jobs: *ansible-collections-security-trendmicro-deepsec-jobs
 
 - project-template:
+    name: ansible-collections-servicenow-itsm-units
+    check:
+      jobs: &ansible-collections-servicenow-itsm-units-jobs
+        - build-ansible-collection
+        - ansible-test-sanity-docker
+        - ansible-test-sanity-docker-stable-2.9
+        - ansible-test-sanity-docker-stable-2.10
+        - ansible-test-sanity-docker-stable-2.11
+    gate:
+      jobs: *ansible-collections-servicenow-itsm-units-jobs
+
+- project-template:
     name: ansible-collections-symantec-epm-units
     check:
       jobs: &ansible-collections-symantec-epm-units-jobs

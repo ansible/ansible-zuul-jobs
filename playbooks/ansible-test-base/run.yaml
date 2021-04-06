@@ -17,6 +17,7 @@
       when:
         - ansible_distribution == "CentOS"
         - hostvars[item].ansible_network_os in ['eos']
+      with_inventory_hostnames: appliance
       include_role:
         name: enable-fips-mode
 

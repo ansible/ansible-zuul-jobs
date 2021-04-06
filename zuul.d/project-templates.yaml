@@ -892,6 +892,10 @@
         - ansible-test-sanity-docker-stable-2.9
         - ansible-test-sanity-docker-stable-2.10
         - ansible-test-sanity-docker-stable-2.11
+        - ansible-test-units-servicenow-itsm-python27
+        - ansible-test-units-servicenow-itsm-python36
+        - ansible-test-units-servicenow-itsm-python37
+        - ansible-test-units-servicenow-itsm-python38
     gate:
       jobs: *ansible-collections-servicenow-itsm-units-jobs
 

@@ -1,20 +1,8 @@
 ---
 - hosts: appliance
+  gather_facts: false
   connection: network_cli
   tasks:
-    - name: lookup SSH public key (FIPS)
-      set_fact:
-        _ssh_key: "{{ lookup('file', '~/.ssh/id_ecdsa.pub') }}"
-      when: "'libssh' in zuul.job"
-
-    - name: Setup zuul ssh key (FIPS)
-      become: true
-      eos_config:
-        lines:
-          - "username zuul sshkey {{ _ssh_key.split()[0] }} {{ _ssh_key.split()[1] }}"
-        save_when: always
-      when: "'libssh' in zuul.job"
-
     - name: Setup eAPI password for zuul user
       become: true
       become_method: enable

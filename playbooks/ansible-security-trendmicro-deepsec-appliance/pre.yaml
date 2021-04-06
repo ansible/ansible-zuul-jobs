@@ -1,4 +1,11 @@
 ---
+- hosts: appliance*
+  gather_facts: false
+  tasks:
+    - name: Setup TM instance silently
+      include_role:
+        name: tm-deepsec-aws-setup
+
 - hosts: controller
   tasks:
     - name: Ensure tox

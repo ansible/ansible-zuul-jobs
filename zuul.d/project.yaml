@@ -61,28 +61,8 @@
               # - name: github.com/ansible-collections/community.vmware
             files:
               # - roles/vmware.*
-              - name: github.com/ansible-collections/community.vmware
-            files:
-              - roles/vmware.*
               - roles/ansible-test*
               - playbooks/ansible-cloud/.*
-        - ansible-test-units-openvswitch-python38:
-            files:
-              - roles/ansible-test*
-        - ansible-test-cloud-integration-vcenter7_only-python36:
-            match-on-config-updates: false
-            files:
-              - roles/vmware.*
-              - roles/ansible-test*
-              - playbooks/ansible-cloud/.*
-            vars:
-              ansible_test_integration_targets: vmware_vcenter_settings
-        - ansible-test-network-integration-openvswitch-python35:
-            match-on-config-updates: false
-            files:
-              - roles/ansible-test*
-            vars:
-              ansible_test_collections: true
 
     gate:
       jobs:
@@ -90,6 +70,7 @@
             files:
               - playbooks/ansible-network-appliance-base/.*
               - playbooks/ansible-network-asa-appliance/.*
+            voting: false
         - ansible-network-eos-appliance:
             files:
               - playbooks/ansible-network-appliance-base/.*

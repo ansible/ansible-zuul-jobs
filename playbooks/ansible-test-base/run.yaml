@@ -18,7 +18,6 @@
         - ansible_distribution == "CentOS"
         - ansible_test_network_cli_ssh_type == "libssh"
         - hostvars[item].ansible_network_os in ['eos']
-        - "'stable29' not in zuul.job and 'stable210' not in zuul.job"
       with_inventory_hostnames: appliance
       include_role:
         name: enable-fips-mode

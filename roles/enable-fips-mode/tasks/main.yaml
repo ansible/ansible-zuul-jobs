@@ -23,3 +23,7 @@
 - name: Ensure FIPS mode is enabled
   become: true
   shell: fips-mode-setup --check
+  register: _result
+
+- assert:
+    that: _result.stdout == "FIPS mode is enabled."

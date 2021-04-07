@@ -16,6 +16,7 @@
     - name: Enable FIPS mode
       when:
         - ansible_distribution == "CentOS"
+        - ansible_test_network_cli_ssh_type == "libssh"
         - hostvars[item].ansible_network_os in ['eos']
       with_inventory_hostnames: appliance
       include_role:

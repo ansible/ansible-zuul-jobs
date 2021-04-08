@@ -30,14 +30,8 @@
 - hosts: vcenter
   gather_facts: false
   tasks:
-    - shell: |
-        cloudvm-ram-size -C 1000 vmware-sps
-        cloudvm-ram-size -C 3000 vmware-vpxd
-        cloudvm-ram-size -C 1024 vmware-stsd
-        cloudvm-ram-size -C 1 vsphere-ui
-        systemctl stop vsphere-ui
-        systemctl disable vsphere-ui
-      become: true
+    - import_role:
+        name: vmware-ci-memory-configuration
 
 - hosts: all
   gather_facts: false

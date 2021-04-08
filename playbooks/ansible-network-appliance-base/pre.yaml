@@ -39,6 +39,9 @@
         port: "{{ __ssh_port }}"
         search_regex: SSH
 
+    - debug:
+        msg: "ssh ip: {{ __ssh_ip }}"
+
     - name: Ensure remote SSH host keys are known
       shell: "ssh-keyscan -v -p {{ __ssh_port }} {{ __ssh_ip }} >> ~/.ssh/known_hosts"
       register: r

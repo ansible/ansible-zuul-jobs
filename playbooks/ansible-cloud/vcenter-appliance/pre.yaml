@@ -42,6 +42,8 @@
 - hosts: all
   gather_facts: false
   tasks:
+    - pause:
+        minutes: 46
     - import_role:
         name: vmware-ci-write-etc-hosts
       vars:

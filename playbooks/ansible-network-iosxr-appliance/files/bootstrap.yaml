@@ -81,8 +81,6 @@
     - name: Add SSH public key to zuul user
       iosxr_command:
         commands: "admin crypto key import authentication rsa username zuul disk0:/id_rsa.pub.b64"
-      when: item not in ["iosxr-7.0.2"]
-      with_inventory_hostnames: appliance
 
 - hosts: appliance
   gather_facts: false
@@ -94,5 +92,3 @@
       iosxr_user:
         name: admin
         state: absent
-      when: item not in ["iosxr-7.0.2"]
-      with_inventory_hostnames: appliance

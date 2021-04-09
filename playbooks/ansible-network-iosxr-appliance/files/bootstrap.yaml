@@ -40,7 +40,6 @@
         executable: /bin/bash
       with_inventory_hostnames: appliance
 
-
     # NOTE(pabelanger): This is a huge hack to deal with the fact there is no
     # default gateway seutp.
     - name: Ensure we can SSH into the appliance
@@ -68,6 +67,7 @@
             - put id_rsa.pub.b64
             - exit
         timeout: 60
+      with_inventory_hostnames: appliance
 
 - hosts: appliance
   gather_facts: false

@@ -95,7 +95,6 @@
     run: playbooks/ansible-security-trendmicro-deepsec-appliance/run.yaml
     host-vars:
       Trendmicro-DeepSecurity-20.0.344:
-        ansible_connection: network_cli
         ansible_network_os: trendmicro.deepsec.deepsec
         ansible_python_interpreter: python
     required-projects:

@@ -6,9 +6,8 @@ Trendmicro-DeepSecurity-20.0.344 ansible_host={{ hostvars['Trendmicro-DeepSecuri
 
 [deepsec:vars]
 ansible_network_os=trendmicro.deepsec.deepsec
-ansible_user=ec2-user
-ansible_httpapi_password=zuulzuul56
 ansible_httpapi_port=443
 ansible_httpapi_use_ssl=true
 ansible_httpapi_validate_certs=false
 ansible_connection=httpapi
+ansible_httpapi_session_key={'api-secret-key': '{{ lookup('file', '{{ zuul.executor.work_root }}/Trendmicro-DeepSecurity-20.0.344/tmp/deepsec_api_key.txt') }}', 'api-version': 'v1'}

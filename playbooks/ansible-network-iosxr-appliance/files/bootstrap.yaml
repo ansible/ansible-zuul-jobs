@@ -89,3 +89,5 @@
       iosxr_user:
         name: admin
         state: absent
+      when: item not in ["iosxr-7.0.2"]
+      with_inventory_hostnames: appliance

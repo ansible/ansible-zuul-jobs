@@ -1536,10 +1536,6 @@
       jobs:
         - ansible-galaxy-importer
         - build-ansible-collection
-    post:
-      jobs:
-        - release-ansible-collection-galaxy:
-            branches: master
     pre-release:
       jobs:
         - release-ansible-collection-galaxy
@@ -1581,9 +1577,6 @@
       jobs:
         - ansible-galaxy-importer
         - build-ansible-collection
-    post:
-      jobs:
-        - release-ansible-collection-galaxy
     pre-release:
       jobs:
         - release-ansible-collection-galaxy
@@ -1618,9 +1611,6 @@
       jobs:
         - ansible-galaxy-importer
         - build-ansible-collection
-    post:
-      jobs:
-        - release-ansible-collection-galaxy-dev
     post-release:
       jobs:
         - release-ansible-collection-galaxy-dev

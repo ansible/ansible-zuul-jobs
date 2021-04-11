@@ -59,15 +59,17 @@
         ## ansible-test* roles
         - build-ansible-collection:
             required-projects:
-              # - name: github.com/ansible-collections/openvswitch.openvswitch
+              - name: github.com/ansible-collections/openvswitch.openvswitch
               - name: github.com/ansible-collections/amazon.aws
               - name: github.com/ansible-collections/ansible.netcommon
-              # - name: github.com/ansible-collections/community.vmware
+              - name: github.com/ansible-collections/community.vmware
             files:
               # - roles/vmware.*
               - roles/ansible-test*
               - playbooks/ansible-cloud/.*
-
+        - ansible-test-cloud-integration-vcenter7_only-python36:
+            vars:
+              ansible_test_integration_targets: vmware_vcenter_settings
     gate:
       jobs:
         - ansible-network-asa-appliance:

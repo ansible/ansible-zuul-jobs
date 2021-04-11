@@ -9,23 +9,23 @@
           zuul: "{{ lookup('password', '/dev/null length=15 chars=ascii_letters,digits,hexdigits') }}56"
       no_log: true
 
-- hosts: controller
-  tasks:
-    - name: Ensure sshpass is present
-      become: true
-      package:
-        enablerepo: epel
-        name: sshpass
-        state: present
-
-    - name: Setup tox role
-      include_role:
-        name: tox
-      vars:
-        tox_envlist: venv
-        tox_extra_args: -- ansible-playbook -v playbooks/ansible-cloud/vcenter-appliance/files/bootstrap.yaml
-        tox_install_siblings: false
-        zuul_work_dir: "{{ zuul.projects['github.com/ansible/ansible-zuul-jobs'].src_dir }}"
+#- hosts: controller
+#  tasks:
+#    - name: Ensure sshpass is present
+#      become: true
+#      package:
+#        enablerepo: epel
+#        name: sshpass
+#        state: present
+#
+#    - name: Setup tox role
+#      include_role:
+#        name: tox
+#      vars:
+#        tox_envlist: venv
+#        tox_extra_args: -- ansible-playbook -v playbooks/ansible-cloud/vcenter-appliance/files/bootstrap.yaml
+#        tox_install_siblings: false
+#        zuul_work_dir: "{{ zuul.projects['github.com/ansible/ansible-zuul-jobs'].src_dir }}"
 
 - hosts: vcenter
   gather_facts: false

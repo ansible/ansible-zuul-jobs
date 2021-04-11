@@ -14,13 +14,16 @@
       with_inventory_hostnames: appliance
       delegate_to: localhost
 
-    - name: lookup SSH public key
-      set_fact:
-        _ssh_key: "{{ lookup('file', '~/.ssh/id_rsa.pub') }}"
-
-    - name: Setup zuul user
+    - name: Setup zuul user (RSA)
       authorized_key:
-        key: "{{ _ssh_key }}"
+        key: "{{ lookup('file', '~/.ssh/id_rsa.pub') }}"
+        state: present
+        user: zuul
+        path: "{{ authorized_keys_file[inventory_hostname] }}"
+
+    - name: Setup zuul user (ECDSA)
+      authorized_key:
+        key: "{{ lookup('file', '~/.ssh/id_ecdsa.pub') }}"
         state: present
         user: zuul
         path: "{{ authorized_keys_file[inventory_hostname] }}"

@@ -763,6 +763,7 @@
         - ansible-test-sanity-docker
         - ansible-test-sanity-docker-stable-2.9
         - ansible-test-sanity-docker-stable-2.10
+        - ansible-test-sanity-docker-stable-2.11
         - ansible-test-units-netcommon-python27
         - ansible-test-units-netcommon-python35
         - ansible-test-units-netcommon-python36

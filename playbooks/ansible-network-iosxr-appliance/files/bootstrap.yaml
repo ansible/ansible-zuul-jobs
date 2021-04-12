@@ -70,7 +70,7 @@
   connection: network_cli
   vars:
     ansible_password: admin
-    ansible_user:  "{{ _iosxr_password }}"
+    ansible_user: admin123
   tasks:
     - name: Add SSH public key to zuul user
       iosxr_command:

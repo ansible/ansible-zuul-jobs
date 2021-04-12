@@ -50,7 +50,7 @@
 
     # TODO(pabelanger): Figure out why iosxr_user is broken.
     - name: Generate base64 SSH public key
-      shell: "cut -d' ' -f2 ~/.ssh/id_rsa.pub | base64 -d >| id_rsa.pub.b64"
+      shell: "cut -d' ' -f2 ~/.ssh/id_ecdsa.pub | base64 -d >| id_ecdsa.pub.b64"
       args:
         executable: /bin/bash
 
@@ -58,25 +58,11 @@
       expect:
         command: "sftp admin@{{ hostvars[item].nodepool.private_ipv4 }}"
         responses:
-          '(?i)password:': admin
+          '(?i)password:': "{{ _iosxr_password }}"
           'sftp>':
-            - put id_rsa.pub.b64
+            - put id_ecdsa.pub.b64 /disk0:/
             - exit
         timeout: 60
-      when: item not in ["iosxr-7.0.2"]
-      with_inventory_hostnames: appliance
-
-- hosts: appliance
-  gather_facts: false
-  connection: network_cli
-  vars:
-    ansible_password: admin
-    ansible_user: admin
-  tasks:
-    - name: Add SSH public key to zuul user
-      iosxr_command:
-        commands: "admin crypto key import authentication rsa username zuul disk0:/id_rsa.pub.b64"
-      when: item not in ["iosxr-7.0.2"]
       with_inventory_hostnames: appliance
 
 - hosts: appliance

@@ -835,6 +835,7 @@
         - ansible-test-sanity-docker
         - ansible-test-sanity-docker-stable-2.9
         - ansible-test-sanity-docker-stable-2.10
+        - ansible-test-sanity-docker-stable-2.11
         - ansible-test-units-posix
     gate:
       jobs: *ansible-collections-ansible-posix-units-jobs

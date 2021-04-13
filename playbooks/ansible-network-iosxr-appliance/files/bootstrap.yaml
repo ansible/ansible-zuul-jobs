@@ -72,6 +72,12 @@
     ansible_password: admin123
     ansible_user: admin
   tasks:
+    - name: Add groups to zuul user
+      iosxr_config:
+        lines:
+          - username zuul group sysadmin
+          - username zuul group netadmin
+
     - name: Add SSH public key to zuul user
       iosxr_command:
         commands: "crypto key import authentication rsa username zuul disk0:/id_rsa.pub.b64"

@@ -75,8 +75,8 @@
     - name: Add groups to zuul user
       iosxr_config:
         lines:
-          - username zuul group sysadmin
-          - username zuul group netadmin
+          - username zuul group root-lr
+          - username zuul group cisco-support
 
     - name: Add SSH public key to zuul user
       iosxr_command:

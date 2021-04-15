@@ -115,7 +115,7 @@
     name: ansible-collections-arista-eos-units
     check:
       jobs: &ansile-collections-arista-eos-units-jobs
-        - ansible-changelog-fragment
+        - ansible-changelog-fragment_2
         - ansible-test-sanity-docker
         - ansible-test-sanity-docker-stable-2.9
         - ansible-test-sanity-docker-stable-2.10
@@ -175,7 +175,7 @@
     name: ansible-collections-ansible-utils-units
     check:
       jobs: &ansile-collections-ansible-utils-units-jobs
-        - ansible-changelog-fragment
+        - ansible-changelog-fragment_2
         - ansible-test-sanity-docker
         - ansible-test-sanity-docker-stable-2.9
         - ansible-test-sanity-docker-stable-2.10
@@ -192,7 +192,7 @@
     name: ansible-collections-cisco-asa-units
     check:
       jobs: &ansible-collections-cisco-asa-units-jobs
-        - ansible-changelog-fragment
+        - ansible-changelog-fragment_2
         - ansible-test-sanity-docker
         - ansible-test-sanity-docker-stable-2.9
         - ansible-test-sanity-docker-stable-2.10
@@ -227,7 +227,7 @@
     name: ansible-collections-cisco-nxos-units
     check:
       jobs: &ansible-collections-cisco-nxos-units-jobs
-        - ansible-changelog-fragment
+        - ansible-changelog-fragment_2
         - ansible-test-sanity-docker
         - ansible-test-sanity-docker-stable-2.9
         - ansible-test-sanity-docker-stable-2.10
@@ -305,7 +305,7 @@
     name: ansible-collections-cisco-ios-units
     check:
       jobs: &ansible-collections-cisco-ios-units-jobs
-        - ansible-changelog-fragment
+        - ansible-changelog-fragment_2
         - ansible-test-sanity-docker
         - ansible-test-sanity-docker-stable-2.9
         - ansible-test-sanity-docker-stable-2.10
@@ -343,7 +343,7 @@
     name: ansible-collections-cisco-iosxr-units
     check:
       jobs: &ansible-collections-cisco-iosxr-units-jobs
-        - ansible-changelog-fragment
+        - ansible-changelog-fragment_2
         - ansible-test-sanity-docker
         - ansible-test-sanity-docker-stable-2.9
         - ansible-test-sanity-docker-stable-2.10
@@ -580,7 +580,7 @@
     name: ansible-collections-juniper-junos-units
     check:
       jobs: &ansible-collections-juniper-junos-units-jobs
-        - ansible-changelog-fragment
+        - ansible-changelog-fragment_2
         - ansible-test-sanity-docker
         - ansible-test-sanity-docker-stable-2.9
         - ansible-test-sanity-docker-stable-2.10
@@ -667,7 +667,7 @@
     name: ansible-collections-openvswitch-openvswitch-units
     check:
       jobs: &ansible-collections-openvswitch-openvswitch-units-jobs
-        - ansible-changelog-fragment
+        - ansible-changelog-fragment_2
         - ansible-test-sanity-docker
         - ansible-test-sanity-docker-stable-2.9
         - ansible-test-sanity-docker-stable-2.10
@@ -704,7 +704,7 @@
     name: ansible-collections-vyos-vyos-units
     check:
       jobs: &ansible-collections-vyos-vyos-units-jobs
-        - ansible-changelog-fragment
+        - ansible-changelog-fragment_2
         - ansible-test-sanity-docker
         - ansible-test-sanity-docker-stable-2.9
         - ansible-test-sanity-docker-stable-2.10
@@ -759,7 +759,7 @@
     name: ansible-collections-ansible-netcommon-units
     check:
       jobs: &ansible-collections-ansible-netcommon-units-jobs
-        - ansible-changelog-fragment
+        - ansible-changelog-fragment_2
         - ansible-test-sanity-docker
         - ansible-test-sanity-docker-stable-2.9
         - ansible-test-sanity-docker-stable-2.10
@@ -777,7 +777,7 @@
     name: ansible-collections-community-yang-units
     check:
       jobs: &ansible-collections-community-yang-units-jobs
-        - ansible-changelog-fragment
+        - ansible-changelog-fragment_2
         - ansible-test-sanity-docker
         - ansible-test-sanity-docker-stable-2.9
         - ansible-test-sanity-docker-stable-2.10
@@ -832,7 +832,7 @@
     name: ansible-collections-ansible-posix-units
     check:
       jobs: &ansible-collections-ansible-posix-units-jobs
-        - ansible-changelog-fragment
+        - ansible-changelog-fragment_2
         - ansible-test-sanity-docker
         - ansible-test-sanity-docker-stable-2.9
         - ansible-test-sanity-docker-stable-2.10

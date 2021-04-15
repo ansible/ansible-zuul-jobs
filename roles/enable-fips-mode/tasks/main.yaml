@@ -1,0 +1,29 @@
+---
+- name: Enable FIPS mode
+  become: true
+  shell: fips-mode-setup --enable
+
+- name: Update /etc/default/grub
+  become: true
+  shell: sed -ie 's|GRUB_CMDLINE_LINUX_DEFAULT=\"\(.*\)\"|GRUB_CMDLINE_LINUX_DEFAULT=\"\1 fips=1\"|' /etc/default/grub
+
+- name: Rebuild grub.cfg file
+  become: true
+  shell: grub2-mkconfig -o /boot/grub2/grub.cfg
+
+- name: Reboot server for FIPS mode
+  become: true
+  reboot:
+    reboot_timeout: 1800
+
+- name: Run start-zuul-console role
+  include_role:
+    name: start-zuul-console
+
+- name: Ensure FIPS mode is enabled
+  become: true
+  shell: fips-mode-setup --check
+  register: _result
+
+- assert:
+    that: _result.stdout == "FIPS mode is enabled."

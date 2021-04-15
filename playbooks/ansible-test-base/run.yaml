@@ -13,6 +13,15 @@
             file: '{{ _fetch.dest }}'
             name: galaxy_info
 
+    - name: Enable FIPS mode
+      when:
+        - ansible_distribution == "CentOS"
+        - ansible_test_network_cli_ssh_type == "libssh"
+        - ansible_test_fips_mode | default(False)
+      with_inventory_hostnames: appliance
+      include_role:
+        name: enable-fips-mode
+
     - name: Run ansible-test
       import_role:
         name: ansible-test

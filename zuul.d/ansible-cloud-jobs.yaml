@@ -239,7 +239,7 @@
 # possible to wedge the provider.  For now, only run 1 job at a time.
 - semaphore:
     name: ansible-test-cloud-integration-vmware-rest
-    max: 1
+    max: 2
 
 - job:
     name: ansible-test-cloud-integration-vmware-rest

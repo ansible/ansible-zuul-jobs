@@ -235,6 +235,12 @@
         ansible_network_os: vmware_rest
     nodeset: vmware-vcsa_1esxi-7.0.2-python36-with-nested
 
+# NOTE(pabelanger): Due to low memory capacity in vexxhost, it is
+# possible to wedge the provider.  For now, only run 1 job at a time.
+- semaphore:
+    name: ansible-test-cloud-integration-vmware-rest
+    max: 1
+
 - job:
     name: ansible-test-cloud-integration-vmware-rest
     parent: ansible-cloud-vmware-rest-appliance
@@ -256,6 +262,7 @@
       ansible_test_command: network-integration
       ansible_test_integration_targets: "zuul/"
       ansible_test_collections: true
+    semaphore: ansible-test-cloud-integration-vmware-rest
 
 - job:
     name: ansible-test-cloud-integration-vmware-rest-python36

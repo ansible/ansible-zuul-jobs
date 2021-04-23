@@ -70,6 +70,7 @@
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-collections/ansible.utils
+              - name: github.com/ansible-collections/community.aws
               - name: github.com/ansible-collections/community.general
         - ansible-test-cloud-integration-aws-py36
     gate:
@@ -81,6 +82,7 @@
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-collections/ansible.utils
+              - name: github.com/ansible-collections/community.aws
               - name: github.com/ansible-collections/community.general
         - ansible-test-cloud-integration-aws-py36
 

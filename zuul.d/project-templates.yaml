@@ -84,8 +84,9 @@
               - name: github.com/ansible-collections/ansible.utils
               - name: github.com/ansible-collections/community.aws
               - name: github.com/ansible-collections/community.general
-        - ansible-test-cloud-integration-aws-py36
-
+        - ansible-test-cloud-integration-aws-py36:
+            vars:
+              ansible_test_changed: false
 - project-template:
     name: ansible-collections-community-aws
     check:
@@ -111,8 +112,9 @@
               - name: github.com/ansible-collections/amazon.aws
               - name: github.com/ansible-collections/ansible.utils
               - name: github.com/ansible-collections/community.general
-        - ansible-test-cloud-integration-aws-py36
-
+        - ansible-test-cloud-integration-aws-py36:
+            vars:
+              ansible_test_changed: false
 - project-template:
     name: ansible-collections-arista-eos-units
     check:

@@ -315,14 +315,14 @@
     # post-run: playbooks/ansible-test-base/post.yaml
     required-projects:
       - name: github.com/ansible/ansible
-    timeout: 3600
+    timeout: 10800
     vars:
       ansible_test_collections: true
       ansible_collections_repo: "{{ zuul.project.canonical_name }}"
       ansible_test_command: integration
       ansible_test_enable_ara: false
       ansible_test_python: 3.6
-      ansible_test_changed: true
+      ansible_test_changed: false
       ansible_test_split_in: 3
 
 - job:

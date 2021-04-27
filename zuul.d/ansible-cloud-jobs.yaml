@@ -1,5 +1,13 @@
 ---
 ####################### vmware #####################
+# NOTE(pabelanger): Due to low memory capacity in vexxhost, it is
+# possible to wedge the provider.  For now, only run 4 job at a time.
+# We will have acces to a new region shortly, which would allow us
+# to remove this.
+- semaphore:
+    name: ansible-cloud-vcenter-appliance
+    max: 4
+
 - job:
     name: ansible-cloud-vcenter-appliance
     parent: ansible-network-appliance-base
@@ -16,6 +24,7 @@
       esxi1:
         ansible_network_os: vmware_rest
     nodeset: vmware-vcsa-7.0.2-python36
+    semaphore: ansible-cloud-vcenter-appliance
 
 # govcsim
 

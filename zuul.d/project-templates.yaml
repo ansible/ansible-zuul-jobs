@@ -776,6 +776,28 @@
       jobs: *ansible-collections-ansible-netcommon-units-jobs
 
 - project-template:
+    name: ansible-collections-ansible-network-units
+    check:
+      jobs: &ansible-collections-ansible-network-units-jobs
+        - ansible-changelog-fragment
+        - build-ansible-collection:
+            required-projects:
+              - name: github.com/ansible-collections/ansible.netcommon
+              - name: github.com/ansible-collections/ansible.network
+              - name: github.com/ansible-collections/ansible.utils
+              - name: github.com/ansible-collections/arista.eos
+              - name: github.com/ansible-collections/cisco.ios
+              - name: github.com/ansible-collections/cisco.iosxr
+              - name: github.com/ansible-collections/cisco.nxos
+              - name: github.com/ansible-collections/frr.frr
+              - name: github.com/ansible-collections/junipernetworks.junos
+              - name: github.com/ansible-collections/openvswitch.openvswitch
+              - name: github.com/ansible-collections/vyos.vyos
+    gate:
+      queue: integrated
+      jobs: *ansible-collections-ansible-network-units-jobs
+
+- project-template:
     name: ansible-collections-community-yang-units
     check:
       jobs: &ansible-collections-community-yang-units-jobs

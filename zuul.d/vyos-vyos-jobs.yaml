@@ -37,6 +37,7 @@
       ansible_collections_repo: github.com/ansible-collections/vyos.vyos
       ansible_test_command: network-integration
       ansible_test_integration_targets: "vyos_.*"
+      ansible_test_fips_mode: true
 
 - job:
     name: ansible-test-units-vyos-python27

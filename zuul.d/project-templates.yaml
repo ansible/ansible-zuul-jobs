@@ -120,7 +120,6 @@
         - ansible-changelog-fragment
         - ansible-test-sanity-docker
         - ansible-test-sanity-docker-stable-2.9
-        - ansible-test-sanity-docker-stable-2.10
         - ansible-test-sanity-docker-stable-2.11
         - ansible-test-units-eos-python27
         - ansible-test-units-eos-python35
@@ -134,21 +133,21 @@
     name: ansible-collections-arista-eos
     check:
       jobs: &ansible-collections-arista-eos-jobs
-        - ansible-test-network-integration-eos-httpapi-python27-stable210
+        - ansible-test-network-integration-eos-httpapi-python27-stable211
         - ansible-test-network-integration-eos-httpapi-python27-stable29
-        - ansible-test-network-integration-eos-network_cli-python27-stable210-scenario01
-        - ansible-test-network-integration-eos-network_cli-python27-stable210-scenario02
+        - ansible-test-network-integration-eos-network_cli-python27-stable211-scenario01
+        - ansible-test-network-integration-eos-network_cli-python27-stable211-scenario02
         - ansible-test-network-integration-eos-network_cli-python27-stable29
         - ansible-test-network-integration-eos-httpapi-python36
-        - ansible-test-network-integration-eos-httpapi-python36-stable210
+        - ansible-test-network-integration-eos-httpapi-python36-stable211
         - ansible-test-network-integration-eos-httpapi-python36-stable29
         - ansible-test-network-integration-eos-network_cli-python36
-        - ansible-test-network-integration-eos-network_cli-python36-stable210-scenario01
-        - ansible-test-network-integration-eos-network_cli-python36-stable210-scenario02
+        - ansible-test-network-integration-eos-network_cli-python36-stable211-scenario01
+        - ansible-test-network-integration-eos-network_cli-python36-stable211-scenario02
         - ansible-test-network-integration-eos-network_cli-python36-stable29
         - ansible-test-network-integration-eos-network_cli-libssh-python36
-        - ansible-test-network-integration-eos-network_cli-libssh-python36-stable210-scenario01
-        - ansible-test-network-integration-eos-network_cli-libssh-python36-stable210-scenario02
+        - ansible-test-network-integration-eos-network_cli-libssh-python36-stable211-scenario01
+        - ansible-test-network-integration-eos-network_cli-libssh-python36-stable211-scenario02
         - ansible-test-network-integration-eos-network_cli-libssh-python36-stable29
         - build-ansible-collection:
             required-projects:

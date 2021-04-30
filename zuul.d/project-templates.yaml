@@ -875,6 +875,7 @@
         - ansible-test-sanity-docker
         - ansible-test-sanity-docker-stable-2.9
         - ansible-test-sanity-docker-stable-2.10
+        - ansible-test-sanity-docker-stable-2.11
     gate:
       jobs: *ansible-collections-security-ibm-qradar-jobs
 
@@ -887,6 +888,7 @@
         - ansible-test-sanity-docker
         - ansible-test-sanity-docker-stable-2.9
         - ansible-test-sanity-docker-stable-2.10
+        - ansible-test-sanity-docker-stable-2.11
     gate:
       jobs: *ansible-collections-security-splunk-es-jobs
 

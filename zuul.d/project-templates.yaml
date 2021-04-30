@@ -872,6 +872,7 @@
     check:
       jobs: &ansible-collections-security-ibm-qradar-jobs
         - build-ansible-collection
+        - ansible-changelog-fragment
         - ansible-test-security-integration-qradar-python38
         - ansible-test-sanity-docker
         - ansible-test-sanity-docker-stable-2.9
@@ -885,6 +886,7 @@
     check:
       jobs: &ansible-collections-security-splunk-es-jobs
         - build-ansible-collection
+        - ansible-changelog-fragment
         - ansible-security-integration-splunk-es-python36
         - ansible-test-sanity-docker
         - ansible-test-sanity-docker-stable-2.9

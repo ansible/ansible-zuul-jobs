@@ -340,3 +340,11 @@
     parent: ansible-test-units-base-python38
     vars:
       ansible_collections_repo: "{{ zuul.project.canonical_name }}"
+
+
+### Cloud Common
+- job:
+    name: ansible-test-units-cloud-common-python38
+    parent: ansible-test-units-base-python38
+    vars:
+      ansible_collections_repo: "{{ zuul.project.canonical_name }}"

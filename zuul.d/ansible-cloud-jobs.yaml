@@ -70,12 +70,6 @@
     parent: ansible-cloud-vcenter-appliance
     dependencies:
       - name: build-ansible-collection
-      - name: ansible-test-cloud-integration-govcsim-python36_1_of_3
-        soft: true
-      - name: ansible-test-cloud-integration-govcsim-python36_2_of_3
-        soft: true
-      - name: ansible-test-cloud-integration-govcsim-python36_3_of_3
-        soft: true
     pre-run:
       - playbooks/ansible-test-base/pre.yaml
     run: playbooks/ansible-test-base/run.yaml

@@ -17,13 +17,13 @@ vcenter_password: {{ lookup('file', ansible_test_provider_passwords_secret_dir +
 vcenter_hostname: vcenter.test
 vmware_validate_certs: false
 {% if 'esxi1' in hostvars %}
-esxi1_username: zuul
+esxi1_username: root
 esxi1_hostname: esxi1.test
-esxi1_password: {{ lookup('file', ansible_test_provider_passwords_secret_dir + '/vcenter/tmp/esxi_password_zuul.txt') }}
+esxi1_password: {{ lookup('file', ansible_test_provider_passwords_secret_dir + '/vcenter/tmp/esxi_password_root.txt') }}
 {% endif %}
 {% if 'esxi2' in hostvars %}
-esxi2_username: zuul
+esxi2_username: root
 esxi2_hostname: esxi2.test
-esxi2_password: {{ lookup('file', ansible_test_provider_passwords_secret_dir + '/vcenter/tmp/esxi_password_zuul.txt') }}
+esxi2_password: {{ lookup('file', ansible_test_provider_passwords_secret_dir + '/vcenter/tmp/esxi_password_root.txt') }}
 {% endif %}
 {% endif %}

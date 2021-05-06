@@ -116,7 +116,7 @@
       ansible_test_python: 2.7
 
 - job:
-    name: ansible-test-network-integration-vyos-local-python27-stable210
+    name: ansible-test-network-integration-vyos-local-python27-stable211
     parent: ansible-test-network-integration-vyos-local
     nodeset: vyos-1.1.8-python27
     required-projects:
@@ -126,7 +126,7 @@
       ansible_test_python: 2.7
 
 - job:
-    name: ansible-test-network-integration-vyos-network_cli-python27-stable210
+    name: ansible-test-network-integration-vyos-network_cli-python27-stable211
     parent: ansible-test-network-integration-vyos-network_cli
     nodeset: vyos-1.1.8-python27
     required-projects:
@@ -183,7 +183,7 @@
       ansible_test_network_cli_ssh_type: libssh
 
 - job:
-    name: ansible-test-network-integration-vyos-local-python36-stable210
+    name: ansible-test-network-integration-vyos-local-python36-stable211
     parent: ansible-test-network-integration-vyos-local
     nodeset: vyos-1.1.8-python36
     required-projects:
@@ -193,7 +193,7 @@
       ansible_test_python: 3.6
 
 - job:
-    name: ansible-test-network-integration-vyos-network_cli-python36-stable210
+    name: ansible-test-network-integration-vyos-network_cli-python36-stable211
     parent: ansible-test-network-integration-vyos-network_cli
     nodeset: vyos-1.1.8-python36
     required-projects:
@@ -203,8 +203,8 @@
       ansible_test_python: 3.6
 
 - job:
-    name: ansible-test-network-integration-vyos-network_cli-libssh-python36-stable210
-    parent: ansible-test-network-integration-vyos-network_cli-python36-stable210
+    name: ansible-test-network-integration-vyos-network_cli-libssh-python36-stable211
+    parent: ansible-test-network-integration-vyos-network_cli-python36-stable211
     vars:
       ansible_test_network_cli_ssh_type: libssh
 

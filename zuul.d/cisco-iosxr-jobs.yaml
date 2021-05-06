@@ -84,7 +84,7 @@
     abstract: true
     vars:
       ansible_test_collections: true
-      ansible_test_skip_tags: local,network_cli
+      ansible_test_skip_tags: local,network_cli,deprecated,iosxr_nonvoting
 
 - job:
     name: ansible-test-network-integration-iosxr-network_cli
@@ -92,7 +92,15 @@
     abstract: true
     vars:
       ansible_test_collections: true
-      ansible_test_skip_tags: local,netconf
+      ansible_test_skip_tags: local,netconf,deprecated,iosxr_nonvoting
+
+- job:
+    name: ansible-test-network-integration-iosxr-non-voting
+    parent: ansible-test-network-integration-iosxr
+    abstract: true
+    vars:
+      ansible_test_collections: true
+      ansible_test_skip_tags: local,netconf,network_cli,deprecated
 
 - job:
     name: ansible-test-network-integration-iosxr-python27
@@ -314,3 +322,13 @@
     nodeset: iosxr-6.1.3-python38
     vars:
       ansible_test_python: 3.8
+
+- job:
+    name: ansible-test-network-integration-iosxr-non-voting-temp
+    parent: ansible-test-network-integration-iosxr-non-voting
+    nodeset: iosxr-7.0.2-python36
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.11
+    vars:
+      ansible_test_python: 3.6

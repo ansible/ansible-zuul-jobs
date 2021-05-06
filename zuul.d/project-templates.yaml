@@ -367,10 +367,6 @@
     name: ansible-collections-cisco-iosxr
     check:
       jobs:
-        - ansible-test-network-integration-iosxr-non-voting:
-            vars:
-              ansible_test_integration_targets: "iosxr_.*"
-            voting: false
         - ansible-test-network-integration-iosxr-non-voting-temp:
             vars:
               ansible_test_integration_targets: "iosxr_.*"

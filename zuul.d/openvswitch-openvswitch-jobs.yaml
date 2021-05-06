@@ -84,12 +84,12 @@
       ansible_test_python: 2.7
 
 - job:
-    name: ansible-test-network-integration-openvswitch-python27-stable210
+    name: ansible-test-network-integration-openvswitch-python27-stable211
     parent: ansible-test-network-integration-openvswitch
     nodeset: openvswitch-2.9.0-python27
     required-projects:
       - name: github.com/ansible/ansible
-        override-checkout: stable-2.10
+        override-checkout: stable-2.11
     vars:
       ansible_test_collections: true
       ansible_test_python: 2.7
@@ -120,12 +120,12 @@
       ansible_test_python: 3.6
 
 - job:
-    name: ansible-test-network-integration-openvswitch-python36-stable210
+    name: ansible-test-network-integration-openvswitch-python36-stable211
     parent: ansible-test-network-integration-openvswitch
     nodeset: openvswitch-2.9.0-python36
     required-projects:
       - name: github.com/ansible/ansible
-        override-checkout: stable-2.10
+        override-checkout: stable-2.11
     vars:
       ansible_test_collections: true
       ansible_test_python: 3.6

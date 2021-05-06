@@ -332,7 +332,7 @@
         - ansible-test-network-integration-ios-network_cli-python27-stable211
         - ansible-test-network-integration-ios-network_cli-python27-stable29
         - ansible-test-network-integration-ios-network_cli-python36
-        - ansible-test-network-integration-ios-network_cli-python36-stable210
+        - ansible-test-network-integration-ios-network_cli-python36-stable211
         - ansible-test-network-integration-ios-network_cli-python36-stable29
         - ansible-test-network-integration-ios-network_cli-libssh-python36
         - ansible-test-network-integration-ios-network_cli-libssh-python36-stable211

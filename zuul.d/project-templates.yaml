@@ -699,6 +699,11 @@
               ansible_test_collections: true
         - ansible-test-network-integration-openvswitch-python36-stable211
         - ansible-test-network-integration-openvswitch-python36-stable29
+        - ansible-test-network-integration-openvswitch-python38:
+            vars:
+              ansible_test_collections: true
+        - ansible-test-network-integration-openvswitch-python38-stable211
+        - ansible-test-network-integration-openvswitch-python38-stable29
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-collections/ansible.netcommon
@@ -1010,7 +1015,7 @@
         - ansible-test-network-integration-openvswitch-python36:
             branches:
               - stable-2.9
-        - ansible-test-network-integration-openvswitch-python37:
+        - ansible-test-network-integration-openvswitch-python38:
             branches:
               - stable-2.9
         - ansible-test-network-integration-vyos-python27:
@@ -1398,7 +1403,7 @@
               - ^lib/ansible/module_utils/network/common/.*
               - ^test/integration/targets/openvswitch_.*
               - ^test/integration/targets/prepare_ovs_tests/.*
-        - ansible-test-network-integration-openvswitch-python37:
+        - ansible-test-network-integration-openvswitch-python38:
             branches:
               - stable-2.9
             files:

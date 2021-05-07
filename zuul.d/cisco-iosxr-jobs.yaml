@@ -224,6 +224,20 @@
       ansible_test_split_in: 2
 
 - job:
+    name: ansible-test-network-integration-iosxr-network_cli-libssh-python36-scenario01
+    parent: ansible-test-network-integration-iosxr-network_cli-python36
+    vars:
+      ansible_test_network_cli_ssh_type: libssh
+      ansible_test_do_number: 1
+
+- job:
+    name: ansible-test-network-integration-iosxr-network_cli-libssh-python36-scenario02
+    parent: ansible-test-network-integration-iosxr-network_cli-python36
+    vars:
+      ansible_test_network_cli_ssh_type: libssh
+      ansible_test_do_number: 2
+
+- job:
     name: ansible-test-network-integration-iosxr-network_cli-python36-scenario01
     parent: ansible-test-network-integration-iosxr-network_cli-python36
     vars:
@@ -269,6 +283,20 @@
       ansible_test_do_number: 2
 
 - job:
+    name: ansible-test-network-integration-iosxr-network_cli-libssh-python36-stable211-scenario01
+    parent: ansible-test-network-integration-iosxr-network_cli-python36-stable211
+    vars:
+      ansible_test_network_cli_ssh_type: libssh
+      ansible_test_do_number: 1
+
+- job:
+    name: ansible-test-network-integration-iosxr-network_cli-libssh-python36-stable211-scenario02
+    parent: ansible-test-network-integration-iosxr-network_cli-python36-stable29
+    vars:
+      ansible_test_network_cli_ssh_type: libssh
+      ansible_test_do_number: 2
+
+- job:
     name: ansible-test-network-integration-iosxr-netconf-python36-stable29
     parent: ansible-test-network-integration-iosxr-netconf
     nodeset: iosxr-6.1.3-python36
@@ -299,6 +327,20 @@
     name: ansible-test-network-integration-iosxr-network_cli-python36-stable29-scenario02
     parent: ansible-test-network-integration-iosxr-network_cli-python36-stable29
     vars:
+      ansible_test_do_number: 2
+
+- job:
+    name: ansible-test-network-integration-iosxr-network_cli-libssh-python36-stable29-scenario01
+    parent: ansible-test-network-integration-iosxr-network_cli-python36-stable29
+    vars:
+      ansible_test_network_cli_ssh_type: libssh
+      ansible_test_do_number: 1
+
+- job:
+    name: ansible-test-network-integration-iosxr-network_cli-libssh-python36-stable29-scenario02
+    parent: ansible-test-network-integration-iosxr-network_cli-python36-stable29
+    vars:
+      ansible_test_network_cli_ssh_type: libssh
       ansible_test_do_number: 2
 
 - job:

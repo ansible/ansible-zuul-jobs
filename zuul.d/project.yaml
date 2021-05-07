@@ -120,9 +120,6 @@
               - roles/vmware.*
               - roles/ansible-test*
               - playbooks/ansible-cloud/.*
-        - ansible-test-units-openvswitch-python38:
-            files:
-              - roles/ansible-test*
         - ansible-test-cloud-integration-vcenter7_only-python36:
             match-on-config-updates: false
             files:

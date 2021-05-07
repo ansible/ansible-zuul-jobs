@@ -683,7 +683,6 @@
         - ansible-test-units-openvswitch-python35
         - ansible-test-units-openvswitch-python36
         - ansible-test-units-openvswitch-python37
-        - ansible-test-units-openvswitch-python38
     gate:
       queue: integrated
       jobs: *ansible-collections-openvswitch-openvswitch-units-jobs

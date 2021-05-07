@@ -1015,7 +1015,7 @@
         - ansible-test-network-integration-openvswitch-python36:
             branches:
               - stable-2.9
-        - ansible-test-network-integration-openvswitch-python37:
+        - ansible-test-network-integration-openvswitch-python38:
             branches:
               - stable-2.9
         - ansible-test-network-integration-vyos-python27:
@@ -1403,7 +1403,7 @@
               - ^lib/ansible/module_utils/network/common/.*
               - ^test/integration/targets/openvswitch_.*
               - ^test/integration/targets/prepare_ovs_tests/.*
-        - ansible-test-network-integration-openvswitch-python37:
+        - ansible-test-network-integration-openvswitch-python38:
             branches:
               - stable-2.9
             files:

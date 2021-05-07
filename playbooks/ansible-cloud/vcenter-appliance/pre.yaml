@@ -30,6 +30,12 @@
 - hosts: vcenter
   gather_facts: false
   tasks:
+    - name: Enable TCP timestamp
+      sysctl:
+        name: net.ipv4.tcp_timestamps
+        value: 1
+        state: present
+      become: true
     - import_role:
         name: vmware-ci-memory-configuration
 

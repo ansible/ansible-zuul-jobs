@@ -84,7 +84,7 @@
     abstract: true
     vars:
       ansible_test_collections: true
-      ansible_test_skip_tags: local,network_cli,deprecated,iosxr_nonvoting
+      ansible_test_skip_tags: local,network_cli,iosxr_nonvoting
 
 - job:
     name: ansible-test-network-integration-iosxr-network_cli
@@ -92,7 +92,7 @@
     abstract: true
     vars:
       ansible_test_collections: true
-      ansible_test_skip_tags: local,netconf,deprecated,iosxr_nonvoting
+      ansible_test_skip_tags: local,netconf,iosxr_nonvoting
 
 - job:
     name: ansible-test-network-integration-iosxr-non-voting
@@ -100,7 +100,7 @@
     abstract: true
     vars:
       ansible_test_collections: true
-      ansible_test_skip_tags: local,netconf,network_cli,deprecated
+      ansible_test_skip_tags: local,netconf,network_cli
 
 - job:
     name: ansible-test-network-integration-iosxr-python27

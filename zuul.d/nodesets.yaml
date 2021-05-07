@@ -82,7 +82,7 @@
       - name: vcenter
         label: vmware-vcsa-7.0.0
       - name: esxi1
-        label: esxi-6.7.0-with-nested
+        label: esxi-6.7.0-with-nested_exp
     groups:
       - name: appliance-ssh
         nodes:
@@ -170,7 +170,7 @@
       - name: vcenter
         label: vmware-vcsa-7.0.2
       - name: esxi1
-        label: esxi-6.7.0-with-nested
+        label: esxi-6.7.0-with-nested_exp
     groups:
       - name: appliance-ssh
         nodes:
@@ -193,7 +193,7 @@
       - name: vcenter
         label: vmware-vcsa-7.0.2
       - name: esxi1
-        label: esxi-6.7.0-with-nested
+        label: esxi-6.7.0-with-nested_exp
     groups:
       - name: appliance-ssh
         nodes:
@@ -216,9 +216,9 @@
       - name: vcenter
         label: vmware-vcsa-7.0.2
       - name: esxi1
-        label: esxi-6.7.0-with-nested
+        label: esxi-6.7.0-with-nested_exp
       - name: esxi2
-        label: esxi-6.7.0-with-nested
+        label: esxi-6.7.0-with-nested_exp
     groups:
       - name: appliance-ssh
         nodes:

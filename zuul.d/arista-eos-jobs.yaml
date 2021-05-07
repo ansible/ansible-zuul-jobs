@@ -72,14 +72,6 @@
       ansible_collections_repo: github.com/ansible-collections/arista.eos
 
 - job:
-    name: ansible-test-units-eos-python38
-    parent: ansible-test-units-base-python38
-    required-projects:
-      - name: github.com/ansible-collections/arista.eos
-    vars:
-      ansible_collections_repo: github.com/ansible-collections/arista.eos
-
-- job:
     name: ansible-test-network-integration-eos-httpapi
     parent: ansible-test-network-integration-eos
     abstract: true

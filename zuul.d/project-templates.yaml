@@ -207,7 +207,6 @@
         - ansible-test-units-asa-python35
         - ansible-test-units-asa-python36
         - ansible-test-units-asa-python37
-        - ansible-test-units-asa-python38
     gate:
       queue: integrated
       jobs: *ansible-collections-cisco-asa-units-jobs
@@ -238,10 +237,13 @@
         - ansible-test-sanity-docker-stable-2.9
         - ansible-test-sanity-docker-stable-2.10
         - ansible-test-sanity-docker-stable-2.11
+<<<<<<< HEAD
         - ansible-test-units-nxos-python27
         - ansible-test-units-nxos-python35
         - ansible-test-units-nxos-python36
         - ansible-test-units-nxos-python37
+=======
+>>>>>>> Remove python38 unit tests
     gate:
       queue: integrated
       jobs: *ansible-collections-cisco-nxos-units-jobs
@@ -361,7 +363,6 @@
         - ansible-test-units-iosxr-python35
         - ansible-test-units-iosxr-python36
         - ansible-test-units-iosxr-python37
-        - ansible-test-units-iosxr-python38
     gate:
       queue: integrated
       jobs: *ansible-collections-cisco-iosxr-units-jobs
@@ -599,7 +600,6 @@
         - ansible-test-units-junos-python35
         - ansible-test-units-junos-python36
         - ansible-test-units-junos-python37
-        - ansible-test-units-junos-python38
     gate:
       queue: integrated
       jobs: *ansible-collections-juniper-junos-units-jobs
@@ -727,7 +727,6 @@
         - ansible-test-units-vyos-python35
         - ansible-test-units-vyos-python36
         - ansible-test-units-vyos-python37
-        - ansible-test-units-vyos-python38
     gate:
       queue: integrated
       jobs: *ansible-collections-vyos-vyos-units-jobs
@@ -765,10 +764,13 @@
         - ansible-test-sanity-docker-stable-2.9
         - ansible-test-sanity-docker-stable-2.10
         - ansible-test-sanity-docker-stable-2.11
+<<<<<<< HEAD
         - ansible-test-units-frr-python27
         - ansible-test-units-frr-python35
         - ansible-test-units-frr-python36
         - ansible-test-units-frr-python37
+=======
+>>>>>>> Remove python38 unit tests
     gate:
       queue: integrated
       jobs: *ansible-collections-ffr-ffr-units-jobs
@@ -786,7 +788,6 @@
         - ansible-test-units-netcommon-python35
         - ansible-test-units-netcommon-python36
         - ansible-test-units-netcommon-python37
-        - ansible-test-units-netcommon-python38
     gate:
       queue: integrated
       jobs: *ansible-collections-ansible-netcommon-units-jobs

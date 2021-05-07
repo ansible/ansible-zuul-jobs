@@ -85,14 +85,6 @@
       ansible_collections_repo: github.com/ansible-collections/junipernetworks.junos
 
 - job:
-    name: ansible-test-units-junos-python38
-    parent: ansible-test-units-base-python38
-    required-projects:
-      - name: github.com/ansible-collections/junipernetworks.junos
-    vars:
-      ansible_collections_repo: github.com/ansible-collections/junipernetworks.junos
-
-- job:
     name: ansible-test-network-integration-junos-vsrx-netconf
     parent: ansible-test-network-integration-junos-vsrx
     abstract: true

@@ -69,6 +69,14 @@
       ansible_collections_repo: github.com/ansible-collections/openvswitch.openvswitch
 
 - job:
+    name: ansible-test-units-openvswitch-python38
+    parent: ansible-test-units-base-python38
+    required-projects:
+      - name: github.com/ansible-collections/openvswitch.openvswitch
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/openvswitch.openvswitch
+
+- job:
     name: ansible-test-network-integration-openvswitch-python27
     parent: ansible-test-network-integration-openvswitch
     nodeset: openvswitch-2.9.0-python27

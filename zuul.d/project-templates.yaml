@@ -73,7 +73,9 @@
               - name: github.com/ansible-collections/ansible.utils
               - name: github.com/ansible-collections/community.aws
               - name: github.com/ansible-collections/community.general
-        - ansible-test-cloud-integration-aws-py36
+        - ansible-test-cloud-integration-aws-py36:
+            vars:
+              ansible_test_changed: false
     gate:
       jobs:
         - ansible-test-sanity-docker
@@ -102,7 +104,9 @@
               - name: github.com/ansible-collections/amazon.aws
               - name: github.com/ansible-collections/ansible.utils
               - name: github.com/ansible-collections/community.general
-        - ansible-test-cloud-integration-aws-py36
+        - ansible-test-cloud-integration-aws-py36:
+            vars:
+              ansible_test_changed: false
     gate:
       jobs:
         - ansible-test-sanity-docker

@@ -121,7 +121,7 @@
     nodeset: vyos-1.1.8-python27
     required-projects:
       - name: github.com/ansible/ansible
-        override-checkout: stable-2.10
+        override-checkout: stable-2.11
     vars:
       ansible_test_python: 2.7
 
@@ -131,7 +131,7 @@
     nodeset: vyos-1.1.8-python27
     required-projects:
       - name: github.com/ansible/ansible
-        override-checkout: stable-2.10
+        override-checkout: stable-2.11
     vars:
       ansible_test_python: 2.7
 
@@ -188,7 +188,7 @@
     nodeset: vyos-1.1.8-python36
     required-projects:
       - name: github.com/ansible/ansible
-        override-checkout: stable-2.10
+        override-checkout: stable-2.11
     vars:
       ansible_test_python: 3.6
 
@@ -198,7 +198,7 @@
     nodeset: vyos-1.1.8-python36
     required-projects:
       - name: github.com/ansible/ansible
-        override-checkout: stable-2.10
+        override-checkout: stable-2.11
     vars:
       ansible_test_python: 3.6
 

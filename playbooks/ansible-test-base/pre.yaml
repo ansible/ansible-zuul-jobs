@@ -23,6 +23,14 @@
         - ansible_os_family == "Debian"
         - ansible_test_python is version('3.8', '==')
 
+    - name: Ensure the right Python is available on Fedora
+      become: true
+      package:
+        name: "python{{ ansible_test_python }}"
+        state: present
+      when:
+        - ansible_distribution == "Fedora"
+
     # NOTE(pabelanger): fedora-32 jobs, currently python3.7 only have
     # selinux bindings for python3.8. For now, disable selinux.
     - name: Disable selinux for python3.7 jobs

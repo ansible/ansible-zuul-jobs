@@ -142,15 +142,30 @@
       ansible_test_python: 3.6
 
 - job:
-    name: ansible-test-network-integration-openvswitch-python37
-    parent: ansible-test-network-integration-openvswitch
-    nodeset: openvswitch-2.9.0-python37
-    vars:
-      ansible_test_python: 3.7
-
-- job:
     name: ansible-test-network-integration-openvswitch-python38
     parent: ansible-test-network-integration-openvswitch
     nodeset: openvswitch-2.9.0-python38
     vars:
+      ansible_test_python: 3.8
+
+- job:
+    name: ansible-test-network-integration-openvswitch-python38-stable211
+    parent: ansible-test-network-integration-openvswitch
+    nodeset: openvswitch-2.9.0-python38
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.11
+    vars:
+      ansible_test_collections: true
+      ansible_test_python: 3.8
+
+- job:
+    name: ansible-test-network-integration-openvswitch-python38-stable29
+    parent: ansible-test-network-integration-openvswitch
+    nodeset: openvswitch-2.9.0-python38
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.9
+    vars:
+      ansible_test_collections: true
       ansible_test_python: 3.8

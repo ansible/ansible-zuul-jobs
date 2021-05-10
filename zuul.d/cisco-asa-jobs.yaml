@@ -72,14 +72,6 @@
       ansible_collections_repo: github.com/ansible-collections/cisco.asa
 
 - job:
-    name: ansible-test-units-asa-python38
-    parent: ansible-test-units-base-python38
-    required-projects:
-      - name: github.com/ansible-collections/cisco.asa
-    vars:
-      ansible_collections_repo: github.com/ansible-collections/cisco.asa
-
-- job:
     name: ansible-test-network-integration-asa-python27
     parent: ansible-test-network-integration-asa
     nodeset: asav9-12-3-python27

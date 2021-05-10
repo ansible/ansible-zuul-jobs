@@ -250,14 +250,6 @@
       ansible_collections_repo: github.com/ansible-collections/ansible.netcommon
 
 - job:
-    name: ansible-test-units-netcommon-python38
-    parent: ansible-test-units-base-python38
-    required-projects:
-      - name: github.com/ansible-collections/ansible.netcommon
-    vars:
-      ansible_collections_repo: github.com/ansible-collections/ansible.netcommon
-
-- job:
     name: ansible-test-network-integration-ansible-netcommon-iosxr-netconf-python36
     parent: ansible-test-network-integration-iosxr-python36
     vars:

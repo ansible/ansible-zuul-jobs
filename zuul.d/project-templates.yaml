@@ -207,7 +207,6 @@
         - ansible-test-units-asa-python35
         - ansible-test-units-asa-python36
         - ansible-test-units-asa-python37
-        - ansible-test-units-asa-python38
     gate:
       queue: integrated
       jobs: *ansible-collections-cisco-asa-units-jobs
@@ -361,7 +360,6 @@
         - ansible-test-units-iosxr-python35
         - ansible-test-units-iosxr-python36
         - ansible-test-units-iosxr-python37
-        - ansible-test-units-iosxr-python38
     gate:
       queue: integrated
       jobs: *ansible-collections-cisco-iosxr-units-jobs
@@ -599,7 +597,6 @@
         - ansible-test-units-junos-python35
         - ansible-test-units-junos-python36
         - ansible-test-units-junos-python37
-        - ansible-test-units-junos-python38
     gate:
       queue: integrated
       jobs: *ansible-collections-juniper-junos-units-jobs
@@ -727,7 +724,6 @@
         - ansible-test-units-vyos-python35
         - ansible-test-units-vyos-python36
         - ansible-test-units-vyos-python37
-        - ansible-test-units-vyos-python38
     gate:
       queue: integrated
       jobs: *ansible-collections-vyos-vyos-units-jobs
@@ -786,7 +782,6 @@
         - ansible-test-units-netcommon-python35
         - ansible-test-units-netcommon-python36
         - ansible-test-units-netcommon-python37
-        - ansible-test-units-netcommon-python38
     gate:
       queue: integrated
       jobs: *ansible-collections-ansible-netcommon-units-jobs

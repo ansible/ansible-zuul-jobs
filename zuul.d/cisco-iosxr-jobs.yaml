@@ -231,7 +231,7 @@
 
 - job:
     name: ansible-test-network-integration-iosxr-network_cli-libssh-python36-scenario02
-    parent:ansible-test-network-integration-iosxr-network_cli-python36-scenario02
+    parent: ansible-test-network-integration-iosxr-network_cli-python36-scenario02
     vars:
       ansible_test_network_cli_ssh_type: libssh
 

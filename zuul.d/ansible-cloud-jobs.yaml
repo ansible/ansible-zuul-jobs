@@ -344,7 +344,7 @@
 
 - job:
     name: ansible-test-sanity-aws-ansible-2.9-python36
-    parent:  unittests
+    parent: unittests
     nodeset: controller-python36
     dependencies:
       - name: build-ansible-collection
@@ -365,7 +365,7 @@
 
 - job:
     name: ansible-test-sanity-aws-ansible-2.11-python36
-    parent:  unittests
+    parent: unittests
     nodeset: controller-python36
     dependencies:
       - name: build-ansible-collection
@@ -386,7 +386,7 @@
 
 - job:
     name: ansible-test-sanity-aws-ansible-devel-python36
-    parent:  unittests
+    parent: unittests
     nodeset: controller-python36
     dependencies:
       - name: build-ansible-collection
@@ -406,7 +406,7 @@
 
 - job:
     name: ansible-test-sanity-aws-ansible-2.9-python37
-    parent:  unittests
+    parent: unittests
     nodeset: controller-python36
     dependencies:
       - name: build-ansible-collection
@@ -427,7 +427,7 @@
 
 - job:
     name: ansible-test-sanity-aws-ansible-2.11-python37
-    parent:  unittests
+    parent: unittests
     nodeset: controller-python36
     dependencies:
       - name: build-ansible-collection
@@ -448,7 +448,7 @@
 
 - job:
     name: ansible-test-sanity-aws-ansible-devel-python37
-    parent:  unittests
+    parent: unittests
     nodeset: controller-python36
     dependencies:
       - name: build-ansible-collection
@@ -468,7 +468,7 @@
 
 - job:
     name: ansible-test-sanity-aws-ansible-2.9-python38
-    parent:  unittests
+    parent: unittests
     nodeset: controller-python36
     dependencies:
       - name: build-ansible-collection
@@ -489,7 +489,7 @@
 
 - job:
     name: ansible-test-sanity-aws-ansible-2.11-python38
-    parent:  unittests
+    parent: unittests
     nodeset: controller-python36
     dependencies:
       - name: build-ansible-collection
@@ -510,7 +510,7 @@
 
 - job:
     name: ansible-test-sanity-aws-ansible-devel-python38
-    parent:  unittests
+    parent: unittests
     nodeset: controller-python36
     dependencies:
       - name: build-ansible-collection

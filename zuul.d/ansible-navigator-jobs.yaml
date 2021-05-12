@@ -5,10 +5,11 @@
     vars:
       tox_install_siblings: false
       tox_envlist: py38,type,report,clean
+    nodeset: ubuntu-bionic-4vcpu
 
 - job:
     name: ansible-navigator-tox-smoke
     parent: tox
     vars:
       tox_envlist: smoke
-    nodeset: centos-8-1vcpu
+    nodeset: ubuntu-bionic-4vcpu

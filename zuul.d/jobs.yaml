@@ -438,6 +438,16 @@
     nodeset: fedora-latest-1vcpu
 
 - job:
+    name: ansible-navigator-tests-base
+    parent: ansible-buildset-registry-consumer
+    abstract: true
+    required-projects:
+      - github.com/ansible/ansible-navigator
+    vars:
+      container_command: podman
+    nodeset: ubuntu-bionic-2vcpu
+
+- job:
     name: ansible-ee-tests-base
     parent: ansible-buildset-registry-consumer
     abstract: true

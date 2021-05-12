@@ -7,6 +7,16 @@
       container_image_name: quay.io/ansible/network-ee
 
 - job:
+    name: network-ee-integration-tests
+    parent: ansible-navigator-tests-base
+    abstract: true
+    dependencies:
+      - network-ee-build-container-image
+    vars:
+      container_image_name: quay.io/ansible/network-ee
+      container_image_version: latest
+
+- job:
     name: network-ee-tests
     parent: network-ee-tests-base
     abstract: true
@@ -14,6 +24,12 @@
       - network-ee-build-container-image
     vars:
       container_image_version: latest
+
+- job:
+    name: network-ee-integration-base
+    parent: network-ee-tests
+    pre-run: playbooks/network-ee-integration-base/pre.yaml
+    run: playbooks/network-ee-integration-base/run.yaml
 
 - job:
     name: network-ee-sanity-tests

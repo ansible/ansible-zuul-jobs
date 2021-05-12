@@ -51,6 +51,7 @@
       ansible_collections_repo: github.com/ansible-collections/junipernetworks.junos
       ansible_test_command: network-integration
       ansible_test_integration_targets: "junos_.* netconf_.*"
+      ansible_test_fips_mode: true
 
 - job:
     name: ansible-test-units-junos-python27

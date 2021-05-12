@@ -175,14 +175,6 @@
     check:
       jobs: &ansile-collections-arista-eos-units-jobs
         - ansible-changelog-fragment
-        - ansible-test-sanity-docker
-        - ansible-test-sanity-docker-stable-2.9
-        - ansible-test-sanity-docker-stable-2.10
-        - ansible-test-sanity-docker-stable-2.11
-        - ansible-test-units-eos-python27
-        - ansible-test-units-eos-python35
-        - ansible-test-units-eos-python36
-        - ansible-test-units-eos-python37
     gate:
       queue: integrated
       jobs: *ansile-collections-arista-eos-units-jobs
@@ -191,22 +183,7 @@
     name: ansible-collections-arista-eos
     check:
       jobs: &ansible-collections-arista-eos-jobs
-        - ansible-test-network-integration-eos-httpapi-python27-stable211
-        - ansible-test-network-integration-eos-httpapi-python27-stable29
-        - ansible-test-network-integration-eos-network_cli-python27-stable211-scenario01
-        - ansible-test-network-integration-eos-network_cli-python27-stable211-scenario02
-        - ansible-test-network-integration-eos-network_cli-python27-stable29
-        - ansible-test-network-integration-eos-httpapi-python36
-        - ansible-test-network-integration-eos-httpapi-python36-stable211
-        - ansible-test-network-integration-eos-httpapi-python36-stable29
         - ansible-test-network-integration-eos-network_cli-python36
-        - ansible-test-network-integration-eos-network_cli-python36-stable211-scenario01
-        - ansible-test-network-integration-eos-network_cli-python36-stable211-scenario02
-        - ansible-test-network-integration-eos-network_cli-python36-stable29
-        - ansible-test-network-integration-eos-network_cli-libssh-python36
-        - ansible-test-network-integration-eos-network_cli-libssh-python36-stable211-scenario01
-        - ansible-test-network-integration-eos-network_cli-libssh-python36-stable211-scenario02
-        - ansible-test-network-integration-eos-network_cli-libssh-python36-stable29
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-collections/ansible.netcommon
@@ -1568,14 +1545,7 @@
       network-ee-container-image-jobs project-template.
     check:
       jobs: &network-ee-test-jobs
-        - network-ee-sanity-tests
-        - network-ee-sanity-tests-stable-2.9
-        - network-ee-sanity-tests-stable-2.10
-        - network-ee-sanity-tests-stable-2.11
         - network-ee-unit-tests
-        - network-ee-unit-tests-stable-2.9
-        - network-ee-unit-tests-stable-2.10
-        - network-ee-unit-tests-stable-2.11
     gate:
       jobs: *network-ee-test-jobs
 

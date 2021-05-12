@@ -1,0 +1,18 @@
+---
+- hosts: controller
+  tasks:
+    - name: Add python38 support if needed
+      block:
+        - name: Ensure python3.8 is present
+          become: true
+          package:
+            name: python3.8-dev
+            state: present
+      when:
+        - ansible_os_family == "Debian"
+
+    - name: Create virtualenv for ansible-navigator
+      shell: virtualenv --python python3.8 ~/venv
+
+    - name: Install ansible-navigator into virtualenv
+      shell: "~/venv/bin/pip install {{ ansible_user_dir }}/{{ zuul.projects['github.com/ansible/ansible-navigator'].src_dir }}"

@@ -84,7 +84,7 @@
     abstract: true
     vars:
       ansible_test_collections: true
-      ansible_test_skip_tags: local,network_cli,iosxr_nonvoting
+      ansible_test_skip_tags: local,network_cli
 
 - job:
     name: ansible-test-network-integration-iosxr-network_cli
@@ -92,7 +92,7 @@
     abstract: true
     vars:
       ansible_test_collections: true
-      ansible_test_skip_tags: local,netconf,iosxr_nonvoting
+      ansible_test_skip_tags: local,netconf
 
 - job:
     name: ansible-test-network-integration-iosxr-python27

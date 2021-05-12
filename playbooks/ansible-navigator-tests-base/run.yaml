@@ -1,0 +1,19 @@
+---
+- hosts: controller
+  tasks:
+    - name: config
+      shell: mkdir -p ~/.config/ansible-navigator
+
+    - name: copy
+      shell: cp  ~/.ansible.cfg ~/.config/ansible-navigator/ansible.cfg
+
+    - name: podman
+      shell: podman pull quay.io/ansible/network-ee:latest
+
+    - name: Run integration tests
+      args:
+        chdir: ~/.config/ansible-navigator
+        executable: /bin/bash
+      environment:
+        TERM: xterm
+      shell: "source ~/venv/bin/activate; ANSIBLE_CONFIG=ansible.cfg ansible-runner playbook --container-image quay.io/ansible/network-ee:latest -i ~/inventory ~/src/github.com/ansible-collections/arista.eos/tests/integration/site.yaml -vvvv"

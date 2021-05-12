@@ -85,14 +85,6 @@
       ansible_collections_repo: github.com/ansible-collections/junipernetworks.junos
 
 - job:
-    name: ansible-test-units-junos-python38
-    parent: ansible-test-units-base-python38
-    required-projects:
-      - name: github.com/ansible-collections/junipernetworks.junos
-    vars:
-      ansible_collections_repo: github.com/ansible-collections/junipernetworks.junos
-
-- job:
     name: ansible-test-network-integration-junos-vsrx-netconf
     parent: ansible-test-network-integration-junos-vsrx
     abstract: true
@@ -123,12 +115,12 @@
       ansible_test_python: 2.7
 
 - job:
-    name: ansible-test-network-integration-junos-vsrx-netconf-python27-stable210
+    name: ansible-test-network-integration-junos-vsrx-netconf-python27-stable211
     parent: ansible-test-network-integration-junos-vsrx-netconf
     nodeset: vsrx3-18.4R1-python27
     required-projects:
       - name: github.com/ansible/ansible
-        override-checkout: stable-2.10
+        override-checkout: stable-2.11
     vars:
       ansible_test_python: 2.7
 
@@ -150,12 +142,12 @@
       ansible_test_python: 2.7
 
 - job:
-    name: ansible-test-network-integration-junos-vsrx-network_cli-python27-stable210
+    name: ansible-test-network-integration-junos-vsrx-network_cli-python27-stable211
     parent: ansible-test-network-integration-junos-vsrx-network_cli
     nodeset: vsrx3-18.4R1-python27
     required-projects:
       - name: github.com/ansible/ansible
-        override-checkout: stable-2.10
+        override-checkout: stable-2.11
     vars:
       ansible_test_python: 2.7
 
@@ -191,12 +183,12 @@
       ansible_test_python: 3.6
 
 - job:
-    name: ansible-test-network-integration-junos-vsrx-netconf-python36-stable210
+    name: ansible-test-network-integration-junos-vsrx-netconf-python36-stable211
     parent: ansible-test-network-integration-junos-vsrx-netconf
     nodeset: vsrx3-18.4R1-python36
     required-projects:
       - name: github.com/ansible/ansible
-        override-checkout: stable-2.10
+        override-checkout: stable-2.11
     vars:
       ansible_test_python: 3.6
 
@@ -218,12 +210,12 @@
       ansible_test_python: 3.6
 
 - job:
-    name: ansible-test-network-integration-junos-vsrx-network_cli-python36-stable210
+    name: ansible-test-network-integration-junos-vsrx-network_cli-python36-stable211
     parent: ansible-test-network-integration-junos-vsrx-network_cli
     nodeset: vsrx3-18.4R1-python36
     required-projects:
       - name: github.com/ansible/ansible
-        override-checkout: stable-2.10
+        override-checkout: stable-2.11
     vars:
       ansible_test_python: 3.6
 

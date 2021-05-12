@@ -250,14 +250,6 @@
       ansible_collections_repo: github.com/ansible-collections/ansible.netcommon
 
 - job:
-    name: ansible-test-units-netcommon-python38
-    parent: ansible-test-units-base-python38
-    required-projects:
-      - name: github.com/ansible-collections/ansible.netcommon
-    vars:
-      ansible_collections_repo: github.com/ansible-collections/ansible.netcommon
-
-- job:
     name: ansible-test-network-integration-ansible-netcommon-iosxr-netconf-python36
     parent: ansible-test-network-integration-iosxr-python36
     vars:
@@ -344,15 +336,6 @@
     abstract: true
     vars:
       ansible_test_python: 3.8
-
-- job:
-    name: ansible-test-units-frr
-    parent: ansible-test-units-base
-    required-projects:
-      - name: github.com/ansible-collections/frr.frr
-    timeout: 3600
-    vars:
-      ansible_collections_repo: github.com/ansible-collections/frr.frr
 
 - job:
     name: ansible-test-units-yang-python27

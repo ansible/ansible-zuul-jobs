@@ -1,0 +1,5 @@
+---
+- hosts: controller
+  tasks:
+    - name: Copy ansible-debug.txt file
+      shell: "cp {{ ansible_user_dir }}/ansible-debug.txt {{ ansible_user_dir }}/zuul-output/logs/controller"

@@ -1,0 +1,28 @@
+---
+- hosts: controller
+  tasks:
+    - name: upgrade tox
+      become: true
+      shell: pip3 install -U tox
+
+    - name: Setup tox role
+      include_role:
+        name: tox
+      vars:
+        tox_envlist: venv
+        tox_extra_args: -vv --notest
+        zuul_work_dir: "{{ zuul.projects['github.com/ansible/ansible-navigator'].src_dir }}"
+
+    - name: config
+      shell: mkdir -p ~/.config/ansible-navigator
+
+    - name: copy
+      shell: cp  ~/.ansible.cfg ~/.config/ansible-navigator/ansible.cfg
+
+    - name: Run integration tests
+      args:
+        chdir: ~/.config/ansible-navigator
+        executable: /bin/bash
+      environment:
+        TERM: xterm
+      shell: "source ~/{{ zuul.projects['github.com/ansible/ansible-navigator'].src_dir }}/.tox/venv/bin/activate; ANSIBLE_CONFIG=ansible.cfg ansible-navigator run --eei quay.io/ansible/network-ee:latest ~/src/github.com/ansible-collections/arista.eos/tests/integration/site.yaml -i ~/inventory --mode=stdout -v"

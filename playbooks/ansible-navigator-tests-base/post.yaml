@@ -1,0 +1,14 @@
+---
+- hosts: controller
+  tasks:
+    - name: Copy ansible.cfg
+      shell: "cp ~/{{ zuul.projects['github.com/ansible/network-ee'].src_dir }}/tests/integration/ansible.cfg {{ ansible_user_dir }}/zuul-output/logs/controller"
+
+    - name: Copy ansible-navigator.yaml
+      shell: "cp ~/{{ zuul.projects['github.com/ansible/network-ee'].src_dir }}/tests/integration/ansible-navigator.yaml {{ ansible_user_dir }}/zuul-output/logs/controller"
+
+    - name: Copy ansible-navigator logs
+      shell: "cp -a ~/{{ zuul.projects['github.com/ansible/network-ee'].src_dir }}/tests/integration/logs {{ ansible_user_dir }}/zuul-output/logs/controller"
+
+    - name: Copy appliance inventory
+      shell: "cp ~/{{ zuul.projects['github.com/ansible/network-ee'].src_dir }}/tests/integration/inventories/hosts.yaml {{ ansible_user_dir }}/zuul-output/logs/controller"

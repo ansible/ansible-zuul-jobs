@@ -1,0 +1,28 @@
+---
+- hosts: controller
+  vars:
+    _hosts_dict: {}
+  tasks:
+    # Update ansible-navigator.cfg with per job settings
+    - name: Read ansible-navigator.cfg file
+      slurp:
+        path: "{{ zuul.projects['github.com/ansible/network-ee'].src_dir }}/tests/integration/ansible-navigator.yaml"
+      register: _navigator
+
+    - name: Load navigator data into fact
+      set_fact:
+        _navigator_data: "{{ _navigator['content'] | b64decode | from_yaml }}"
+
+    - name: Patch navigator data for testing
+      set_fact:
+        _navigator_data: "{{ _navigator_data | combine(newdata, recursive=True) }}"
+      vars:
+        newdata:
+          ansible-navigator:
+            execution-environment:
+              image: "zr01.sjc1.vexxhost.zuul.ansible.com:5000/{{ container_image_name}}:{{ zuul.build }}_{{ container_image_version }}"
+
+    - name: Write ansible-navigator.cfg file
+      copy:
+        content: "{{ _navigator_data | to_nice_yaml(indent=2, explicit_start=True) }}"
+        dest: "{{ zuul.projects['github.com/ansible/network-ee'].src_dir }}/tests/integration/ansible-navigator.yaml"

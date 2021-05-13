@@ -7,6 +7,7 @@
     description: |
       The base job for the Ansible installation of Zuul.
     pre-run: playbooks/base/pre.yaml
+    post-run: playbooks/base/post.yaml
 
 - job:
     name: github-workflows

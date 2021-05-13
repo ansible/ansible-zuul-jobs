@@ -5,14 +5,3 @@
       file:
         path: "{{ ansible_user_dir }}/zuul-output/logs/controller/ara-report"
         state: directory
-
-
-    # TODO: Migrate to fetch-zuul-logs when
-    # https://review.openstack.org/#/c/583346/ is merged.
-    - name: Collect log output
-      no_log: true
-      synchronize:
-        dest: "{{ zuul.executor.log_root }}/"
-        mode: pull
-        src: "{{ ansible_user_dir }}/zuul-output/logs/"
-        verify_host: true

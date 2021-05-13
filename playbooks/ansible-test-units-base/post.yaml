@@ -34,15 +34,3 @@
 
     - name: Copy the coverage report
       shell: "cp -rfa {{ test_location }}/tests/output/reports/coverage {{ ansible_user_dir }}/zuul-output/logs/controller/"
-
-
-    # TODO: Migrate to fetch-zuul-logs when
-    # https://review.openstack.org/#/c/583346/ is merged.
-
-    - name: Collect log output
-      no_log: true
-      synchronize:
-        dest: "{{ zuul.executor.log_root }}/"
-        mode: pull
-        src: "{{ ansible_user_dir }}/zuul-output/logs/"
-        verify_host: true

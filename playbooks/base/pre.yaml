@@ -24,3 +24,8 @@
     - name: Run configure-mirrors-fork role
       include_role:
         name: configure-mirrors-fork
+
+    - name: Ensure zuul-output folder exists
+      file:
+        path: "{{ ansible_user_dir }}/zuul-output/logs/"
+        state: directory

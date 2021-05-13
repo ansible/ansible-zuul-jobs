@@ -38,6 +38,9 @@
       become: true
     - import_role:
         name: vmware-ci-memory-configuration
+    - name: Update the VCSA packages
+      command: tdnf update -y
+      become: true
 
 - hosts: all
   gather_facts: false

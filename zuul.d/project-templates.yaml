@@ -220,6 +220,9 @@
         - ansible-test-network-integration-asa-python36
         - ansible-test-network-integration-asa-python36-stable211
         - ansible-test-network-integration-asa-python36-stable29
+        - ansible-test-network-integration-asa-libssh-python36
+        - ansible-test-network-integration-asa-libssh-python36-stable211
+        - ansible-test-network-integration-asa-libssh-python36-stable29
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-collections/ansible.netcommon

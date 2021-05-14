@@ -256,6 +256,7 @@
       ansible_test_command: network-integration
       ansible_test_integration_targets: "zuul/"
       ansible_test_collections: true
+    timeout: 3600
     semaphore: ansible-test-cloud-integration-vmware-rest
 
 - job:

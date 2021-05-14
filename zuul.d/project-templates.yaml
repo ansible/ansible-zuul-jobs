@@ -536,10 +536,8 @@
     name: ansible-collections-cloud-common
     check:
       jobs: &ansible-collections-cloud-common-jobs
-        - ansible-test-sanity-docker
         - ansible-test-sanity-docker-stable-2.9
         - ansible-test-sanity-docker-stable-2.10
-        - ansible-test-units-cloud-common-python38
         - ansible-test-cloud-integration-vmware-rest-python36:
             required-projects:
               - name: github.com/ansible-collections/vmware.vmware_rest
@@ -547,6 +545,22 @@
             required-projects:
               - name: github.com/ansible-collections/community.vmware
               - name: github.com/ansible-collections/vmware.vmware_rest
+        - network-ee-sanity-tests:
+            voting: false
+        - network-ee-sanity-tests-stable-2.9:
+            voting: false
+        - network-ee-sanity-tests-stable-2.10:
+            voting: false
+        - network-ee-sanity-tests-stable-2.11:
+            voting: false
+        - network-ee-unit-tests:
+            voting: false
+        - network-ee-unit-tests-stable-2.9:
+            voting: false
+        - network-ee-unit-tests-stable-2.10:
+            voting: false
+        - network-ee-unit-tests-stable-2.11:
+            voting: false
     gate:
       jobs: *ansible-collections-cloud-common-jobs
 

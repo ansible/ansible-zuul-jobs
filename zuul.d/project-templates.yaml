@@ -538,6 +538,7 @@
       jobs: &ansible-collections-cloud-common-jobs
         - ansible-test-sanity-docker-stable-2.9
         - ansible-test-sanity-docker-stable-2.10
+        - ansible-test-sanity-docker-stable-2.11
         - ansible-test-cloud-integration-vmware-rest-python36:
             required-projects:
               - name: github.com/ansible-collections/vmware.vmware_rest
@@ -576,6 +577,7 @@
         - ansible-test-sanity-docker
         - ansible-test-sanity-docker-stable-2.9
         - ansible-test-sanity-docker-stable-2.10
+        - ansible-test-sanity-docker-stable-2.11
         - ansible-test-units-community-vmware-python27
         - ansible-test-units-community-vmware-python36
         - ansible-test-units-community-vmware-python37
@@ -594,6 +596,7 @@
         - ansible-test-sanity-docker
         - ansible-test-sanity-docker-stable-2.9
         - ansible-test-sanity-docker-stable-2.10
+        - ansible-test-sanity-docker-stable-2.11
         - ansible-test-units-community-vmware-python27
         - ansible-test-units-community-vmware-python36
         - ansible-test-units-community-vmware-python37
@@ -611,6 +614,7 @@
         - ansible-test-sanity-docker
         - ansible-test-sanity-docker-stable-2.9
         - ansible-test-sanity-docker-stable-2.10
+        - ansible-test-sanity-docker-stable-2.11
     gate:
       jobs: *ansible-collections-community-vmware-rest-jobs
 

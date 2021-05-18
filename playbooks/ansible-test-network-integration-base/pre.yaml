@@ -25,8 +25,8 @@
         zuul_work_dir: "{{ zuul.projects['github.com/ansible/ansible-zuul-jobs'].src_dir }}"
 
     - name: Ensure remote NETCONF SSH host keys are known
-      shell: "ssh-keyscan -v -t rsa -p 830 {{ hostvars[item].ansible_host }} >> ~/.ssh/known_hosts"
-      when: hostvars[item].ansible_network_os in ['junos'] and ansible_test_network_cli_ssh_type not in ['libssh']
+      shell: "ssh-keyscan -v -t ecdsa -p 830 {{ hostvars[item].ansible_host }} >> ~/.ssh/known_hosts"
+      when: hostvars[item].ansible_network_os in ['junos']
       with_inventory_hostnames: appliance
 
     - name: Create inventory file

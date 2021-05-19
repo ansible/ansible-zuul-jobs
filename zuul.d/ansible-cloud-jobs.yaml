@@ -323,6 +323,7 @@
       ansible_test_python: 3.6
       ansible_test_changed: true
 
+#### units
 - job:
     name: ansible-test-units-community-aws-python38
     parent: ansible-test-units-base-python38
@@ -335,195 +336,96 @@
     vars:
       ansible_collections_repo: "{{ zuul.project.canonical_name }}"
 
+#### sanity
+- job:
+    name: ansible-test-sanity-aws-ansible
+    parent: unittests
+    nodeset: controller-python36
+    dependencies:
+      - name: build-ansible-collection
+        soft: true
+    pre-run: playbooks/ansible-test-base/pre.yaml
+    run: playbooks/ansible-test-base/run.yaml
+    required-projects:
+      - name: github.com/ansible/ansible
+    timeout: 3600
+    vars:
+      ansible_test_collections: true
+      ansible_collections_repo: "{{ zuul.project.canonical_name }}"
+      ansible_test_command: sanity
+      ansible_test_docker: true
+      ansible_test_enable_ara: false
+      ansible_test_python: 3.6
+
+- job:
+    name: ansible-test-sanity-aws-ansible-2.9-python36
+    parent: ansible-test-sanity-aws-ansible
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.9
+
+- job:
+    name: ansible-test-sanity-aws-ansible-2.11-python36
+    parent: ansible-test-sanity-aws-ansible
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.11
+
+- job:
+    name: ansible-test-sanity-aws-ansible-devel-python36
+    parent: ansible-test-sanity-aws-ansible
+
+- job:
+    name: ansible-test-sanity-aws-ansible-2.9-python37
+    parent: ansible-test-sanity-aws-ansible
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.9
+    vars:
+      ansible_test_python: 3.7
+
+- job:
+    name: ansible-test-sanity-aws-ansible-2.11-python37
+    parent: ansible-test-sanity-aws-ansible
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.11
+    vars:
+      ansible_test_python: 3.7
+
+- job:
+    name: ansible-test-sanity-aws-ansible-devel-python37
+    parent: ansible-test-sanity-aws-ansible
+    vars:
+      ansible_test_python: 3.7
+
+- job:
+    name: ansible-test-sanity-aws-ansible-2.9-python38
+    parent: ansible-test-sanity-aws-ansible
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.9
+    vars:
+      ansible_test_python: 3.8
+
+- job:
+    name: ansible-test-sanity-aws-ansible-2.11-python38
+    parent: ansible-test-sanity-aws-ansible
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.11
+    vars:
+      ansible_test_python: 3.8
+
+- job:
+    name: ansible-test-sanity-aws-ansible-devel-python38
+    parent: ansible-test-sanity-aws-ansible
+    vars:
+      ansible_test_python: 3.8
+
 ### Cloud Common
 - job:
     name: ansible-test-units-cloud-common-python38
     parent: ansible-test-units-base-python38
     vars:
       ansible_collections_repo: "{{ zuul.project.canonical_name }}"
-
-- job:
-    name: ansible-test-sanity-aws-ansible-2.9-python36
-    parent: unittests
-    nodeset: controller-python36
-    dependencies:
-      - name: build-ansible-collection
-        soft: true
-    pre-run: playbooks/ansible-test-base/pre.yaml
-    run: playbooks/ansible-test-base/run.yaml
-    required-projects:
-      - name: github.com/ansible/ansible
-        override-checkout: stable-2.9
-    timeout: 3600
-    vars:
-      ansible_test_collections: true
-      ansible_collections_repo: "{{ zuul.project.canonical_name }}"
-      ansible_test_command: sanity
-      ansible_test_docker: true
-      ansible_test_enable_ara: false
-      ansible_test_python: 3.6
-
-- job:
-    name: ansible-test-sanity-aws-ansible-2.11-python36
-    parent: unittests
-    nodeset: controller-python36
-    dependencies:
-      - name: build-ansible-collection
-        soft: true
-    pre-run: playbooks/ansible-test-base/pre.yaml
-    run: playbooks/ansible-test-base/run.yaml
-    required-projects:
-      - name: github.com/ansible/ansible
-        override-checkout: stable-2.11
-    timeout: 3600
-    vars:
-      ansible_test_collections: true
-      ansible_collections_repo: "{{ zuul.project.canonical_name }}"
-      ansible_test_command: sanity
-      ansible_test_docker: true
-      ansible_test_enable_ara: false
-      ansible_test_python: 3.6
-
-- job:
-    name: ansible-test-sanity-aws-ansible-devel-python36
-    parent: unittests
-    nodeset: controller-python36
-    dependencies:
-      - name: build-ansible-collection
-        soft: true
-    pre-run: playbooks/ansible-test-base/pre.yaml
-    run: playbooks/ansible-test-base/run.yaml
-    required-projects:
-      - name: github.com/ansible/ansible
-    timeout: 3600
-    vars:
-      ansible_test_collections: true
-      ansible_collections_repo: "{{ zuul.project.canonical_name }}"
-      ansible_test_command: sanity
-      ansible_test_docker: true
-      ansible_test_enable_ara: false
-      ansible_test_python: 3.6
-
-- job:
-    name: ansible-test-sanity-aws-ansible-2.9-python37
-    parent: unittests
-    nodeset: controller-python36
-    dependencies:
-      - name: build-ansible-collection
-        soft: true
-    pre-run: playbooks/ansible-test-base/pre.yaml
-    run: playbooks/ansible-test-base/run.yaml
-    required-projects:
-      - name: github.com/ansible/ansible
-        override-checkout: stable-2.9
-    timeout: 3600
-    vars:
-      ansible_test_collections: true
-      ansible_collections_repo: "{{ zuul.project.canonical_name }}"
-      ansible_test_command: sanity
-      ansible_test_docker: true
-      ansible_test_enable_ara: false
-      ansible_test_python: 3.7
-
-- job:
-    name: ansible-test-sanity-aws-ansible-2.11-python37
-    parent: unittests
-    nodeset: controller-python36
-    dependencies:
-      - name: build-ansible-collection
-        soft: true
-    pre-run: playbooks/ansible-test-base/pre.yaml
-    run: playbooks/ansible-test-base/run.yaml
-    required-projects:
-      - name: github.com/ansible/ansible
-        override-checkout: stable-2.11
-    timeout: 3600
-    vars:
-      ansible_test_collections: true
-      ansible_collections_repo: "{{ zuul.project.canonical_name }}"
-      ansible_test_command: sanity
-      ansible_test_docker: true
-      ansible_test_enable_ara: false
-      ansible_test_python: 3.7
-
-- job:
-    name: ansible-test-sanity-aws-ansible-devel-python37
-    parent: unittests
-    nodeset: controller-python36
-    dependencies:
-      - name: build-ansible-collection
-        soft: true
-    pre-run: playbooks/ansible-test-base/pre.yaml
-    run: playbooks/ansible-test-base/run.yaml
-    required-projects:
-      - name: github.com/ansible/ansible
-    timeout: 3600
-    vars:
-      ansible_test_collections: true
-      ansible_collections_repo: "{{ zuul.project.canonical_name }}"
-      ansible_test_command: sanity
-      ansible_test_docker: true
-      ansible_test_enable_ara: false
-      ansible_test_python: 3.7
-
-- job:
-    name: ansible-test-sanity-aws-ansible-2.9-python38
-    parent: unittests
-    nodeset: controller-python36
-    dependencies:
-      - name: build-ansible-collection
-        soft: true
-    pre-run: playbooks/ansible-test-base/pre.yaml
-    run: playbooks/ansible-test-base/run.yaml
-    required-projects:
-      - name: github.com/ansible/ansible
-        override-checkout: stable-2.9
-    timeout: 3600
-    vars:
-      ansible_test_collections: true
-      ansible_collections_repo: "{{ zuul.project.canonical_name }}"
-      ansible_test_command: sanity
-      ansible_test_docker: true
-      ansible_test_enable_ara: false
-      ansible_test_python: 3.8
-
-- job:
-    name: ansible-test-sanity-aws-ansible-2.11-python38
-    parent: unittests
-    nodeset: controller-python36
-    dependencies:
-      - name: build-ansible-collection
-        soft: true
-    pre-run: playbooks/ansible-test-base/pre.yaml
-    run: playbooks/ansible-test-base/run.yaml
-    required-projects:
-      - name: github.com/ansible/ansible
-        override-checkout: stable-2.11
-    timeout: 3600
-    vars:
-      ansible_test_collections: true
-      ansible_collections_repo: "{{ zuul.project.canonical_name }}"
-      ansible_test_command: sanity
-      ansible_test_docker: true
-      ansible_test_enable_ara: false
-      ansible_test_python: 3.8
-
-- job:
-    name: ansible-test-sanity-aws-ansible-devel-python38
-    parent: unittests
-    nodeset: controller-python36
-    dependencies:
-      - name: build-ansible-collection
-        soft: true
-    pre-run: playbooks/ansible-test-base/pre.yaml
-    run: playbooks/ansible-test-base/run.yaml
-    required-projects:
-      - name: github.com/ansible/ansible
-    timeout: 3600
-    vars:
-      ansible_test_collections: true
-      ansible_collections_repo: "{{ zuul.project.canonical_name }}"
-      ansible_test_command: sanity
-      ansible_test_docker: true
-      ansible_test_enable_ara: false
-      ansible_test_python: 3.8

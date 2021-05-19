@@ -55,11 +55,11 @@
       when: ansible_os_family == "RedHat"
 
     - name: Install ara into virtualenv
-        shell: ~/venv/bin/pip install "ara<1.0.0"
+      shell: ~/venv/bin/pip install "ara<1.0.0"
       when: "'integration' in ansible_test_command"
     
     - name: Uninstall ara installed ansible(s)
-        shell: pip uninstall -y ansible ansible-core
+      shell: pip uninstall -y ansible ansible-core
       when: "'integration' in ansible_test_command"
 
     - name: Install ansible into virtualenv

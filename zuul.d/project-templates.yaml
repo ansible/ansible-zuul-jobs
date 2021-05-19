@@ -534,13 +534,7 @@
 
 - project-template:
     name: ansible-collections-community-kubernetes
-    check:
-      jobs:
-        - build-ansible-collection:
-            required-projects:
-              - name: github.com/ansible-collections/cloud.common
-              - name: github.com/ansible-collections/kubernetes.core
-    gate:
+    third-party-check:
       jobs:
         - build-ansible-collection:
             required-projects:

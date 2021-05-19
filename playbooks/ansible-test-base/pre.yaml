@@ -59,7 +59,7 @@
       when: "'integration' in ansible_test_command"
     
     - name: Uninstall ara installed ansible(s)
-        shell: pip uninstall ansible ansible-core
+        shell: pip uninstall -y ansible ansible-core
       when: "'integration' in ansible_test_command"
 
     - name: Install ansible into virtualenv

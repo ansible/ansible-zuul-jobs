@@ -533,6 +533,21 @@
               - name: github.com/ansible-collections/vyos.vyos
 
 - project-template:
+    name: ansible-collections-community-kubernetes
+    check:
+      jobs:
+        - build-ansible-collection:
+            required-projects:
+              - name: github.com/ansible-collections/cloud.common
+              - name: github.com/ansible-collections/kubernetes.core
+    gate:
+      jobs:
+        - build-ansible-collection:
+            required-projects:
+              - name: github.com/ansible-collections/cloud.common
+              - name: github.com/ansible-collections/kubernetes.core
+
+- project-template:
     name: ansible-collections-cloud-common
     check:
       jobs: &ansible-collections-cloud-common-jobs

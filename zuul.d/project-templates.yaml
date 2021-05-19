@@ -542,6 +542,14 @@
               - name: github.com/ansible-collections/kubernetes.core
 
 - project-template:
+    name: ansible-collections-community-okd
+    third-party-check:
+      jobs:
+        - build-ansible-collection:
+            required-projects:
+              - name: github.com/ansible-collections/kubernetes.core
+                override-checkout: stable-2.9
+- project-template:
     name: ansible-collections-cloud-common
     check:
       jobs: &ansible-collections-cloud-common-jobs

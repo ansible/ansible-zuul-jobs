@@ -4,7 +4,7 @@
     chdir: "{{ ansible_test_location }}"
     executable: /bin/bash
   shell: |
-    for i in $(git diff {{ zuul.branch }} --name-only|egrep '^plugins/.*.py'|xargs -r basename -s .py) $(git diff {{ zuul.branch }} --name-only|sed -n 's#tests/integration/targets/\(.*\)/.*#\1#p'); do
+    for i in $(git diff origin/{{ zuul.branch }} --name-only|egrep '^plugins/.*.py'|xargs -r basename -s .py) $(git diff origin/{{ zuul.branch }} --name-only|sed -n 's#tests/integration/targets/\(.*\)/.*#\1#p'); do
       test -f tests/integration/targets/${i}/aliases || continue
       echo ${i}
     done

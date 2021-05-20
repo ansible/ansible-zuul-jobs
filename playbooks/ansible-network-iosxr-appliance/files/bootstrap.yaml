@@ -35,6 +35,10 @@
       args:
         executable: /bin/bash
       with_inventory_hostnames: appliance
+    
+    - name: wait for 30 sec
+      wait_for:
+        timeout: 30
 
     # NOTE(pabelanger): This is a huge hack to deal with the fact there is no
     # default gateway seutp.

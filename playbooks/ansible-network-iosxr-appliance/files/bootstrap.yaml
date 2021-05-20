@@ -35,7 +35,7 @@
       args:
         executable: /bin/bash
       with_inventory_hostnames: appliance
-    
+
     - name: wait for 30 sec
       wait_for:
         timeout: 30

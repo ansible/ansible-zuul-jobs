@@ -1,0 +1,12 @@
+---
+- import_tasks: prepare_venv.yaml
+- name: Generate version number for ansible collection
+  args:
+    chdir: "{{ ansible_galaxy_importer_collection_dir }}"
+  shell: "{{ ansible_galaxy_importer_releases_dir }}/.tox/venv/bin/python -W ignore {{ ansible_galaxy_importer_releases_dir }}/.tox/venv/bin/generate-ansible-collection"
+  register: _version
+
+- name: Confirm collection can be imported into galaxy
+  args:
+    chdir: "{{ ansible_galaxy_importer_releases_dir }}"
+  shell: "source .tox/venv/bin/activate; ./tools/validate-collection.sh {{ ansible_user_dir }}/downloads/{{ _version.stdout }}"

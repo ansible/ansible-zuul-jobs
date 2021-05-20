@@ -1,0 +1,5 @@
+---
+# Absolute path pointing on a local copy of releases.git
+ansible_galaxy_importer_releases_dir: "{{ ansible_user_dir }}/{{ zuul.projects['github.com/ansible-network/releases'].src_dir }}"
+# Absolute path pointing on a copy of the collection to test
+ansible_galaxy_importer_collection_dir: "{{ ansible_user_dir }}/{{ zuul.project.src_dir }}"

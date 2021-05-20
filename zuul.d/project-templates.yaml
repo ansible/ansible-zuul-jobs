@@ -103,6 +103,8 @@
               - name: github.com/ansible-collections/ansible.utils
               - name: github.com/ansible-collections/community.general
         - ansible-test-cloud-integration-aws-py36
+        - ansible-galaxy-importer:
+            voting: false
     gate:
       jobs:
         - ansible-test-sanity-docker
@@ -116,6 +118,8 @@
               - name: github.com/ansible-collections/ansible.utils
               - name: github.com/ansible-collections/community.general
         - ansible-test-cloud-integration-aws-py36
+        - ansible-galaxy-importer:
+            voting: false
 
 - project-template:
     name: ansible-collections-arista-eos-units
@@ -549,6 +553,8 @@
             required-projects:
               - name: github.com/ansible-collections/kubernetes.core
                 override-checkout: stable-1.2
+        - ansible-galaxy-importer:
+            voting: false
 
 - project-template:
     name: ansible-collections-cloud-common

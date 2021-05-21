@@ -58,22 +58,6 @@
       args:
         executable: /bin/bash
 
-    # - name: Transfer SSH public key to appliance
-    #  expect:
-    #    command: "sftp admin@{{ hostvars[item].nodepool.private_ipv4 }}"
-    #    responses:
-    #      '(?i)password:': "{{ _iosxr_password }}"
-    #      'sftp>':
-    #        - put id_rsa.pub.b64 /disk0:/
-    #        - exit
-    #    timeout: 60
-    #  with_inventory_hostnames: appliance
-#- name: Put the file on disk0
-#  net_put:
-#    src: id_rsa.pub.b64
-#    protocol: sftp
-#    dest : /disk0:/
-
 - hosts: appliance
   gather_facts: false
   connection: network_cli
@@ -81,6 +65,12 @@
     ansible_password: admin123
     ansible_user: admin
   tasks:
+    - name: Put the file on disk0
+      net_put:
+        src: id_rsa.pub.b64
+        protocol: sftp
+        dest : /disk0:/
+
     - name: Add groups to zuul user
       iosxr_config:
         lines:
@@ -90,6 +80,10 @@
     - name: Add SSH public key to zuul user
       iosxr_command:
         commands: "crypto key import authentication rsa username zuul disk0:/id_rsa.pub.b64"
+    
+    - name: Example using fail and when together
+      fail:
+        msg: test
 
 - hosts: appliance
   gather_facts: false

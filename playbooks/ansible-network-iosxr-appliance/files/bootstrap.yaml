@@ -87,9 +87,9 @@
           - username zuul group root-lr
           - username zuul group cisco-support
 
-    - name: Add SSH public key to zuul user
-      iosxr_command:
-        commands: "crypto key import authentication rsa username zuul disk0:/id_rsa.pub.b64"
+    #- name: Add SSH public key to zuul user
+    #  iosxr_command:
+    #    commands: "crypto key import authentication rsa username zuul disk0:/id_rsa.pub.b64"
 
 - hosts: appliance
   gather_facts: false

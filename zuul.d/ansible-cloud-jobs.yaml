@@ -339,7 +339,7 @@
 #### sanity
 - job:
     name: ansible-test-sanity-aws-ansible
-    parent: unittests
+    parent: ansible-test-sanity-docker
     nodeset: controller-python36
     dependencies:
       - name: build-ansible-collection
@@ -353,7 +353,6 @@
       ansible_test_collections: true
       ansible_collections_repo: "{{ zuul.project.canonical_name }}"
       ansible_test_command: sanity
-      ansible_test_docker: true
       ansible_test_enable_ara: false
       ansible_test_python: 3.6
 

@@ -36,9 +36,9 @@
     #    executable: /bin/bash
     #  with_inventory_hostnames: appliance
 
-    - name: wait for 300 sec
+    - name: wait for 120 sec
       wait_for:
-        timeout: 300
+        timeout: 120
 
     # NOTE(pabelanger): This is a huge hack to deal with the fact there is no
     # default gateway seutp.
@@ -87,9 +87,9 @@
           - username zuul group root-lr
           - username zuul group cisco-support
 
-    #- name: Add SSH public key to zuul user
-    #  iosxr_command:
-    #    commands: "crypto key import authentication rsa username zuul disk0:/id_rsa.pub.b64"
+    - name: Add SSH public key to zuul user
+      iosxr_command:
+        commands: "crypto key import authentication rsa username zuul disk0:/id_rsa.pub.b64"
 
 - hosts: appliance
   gather_facts: false

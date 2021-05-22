@@ -42,6 +42,7 @@
       until: r.rc == 0
       retries: 10
       delay: 60
+      with_inventory_hostnames: appliance
 
     # NOTE(pabelanger): This is a huge hack to deal with the fact there is no
     # default gateway seutp.

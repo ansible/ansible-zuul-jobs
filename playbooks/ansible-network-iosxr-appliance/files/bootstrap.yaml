@@ -35,7 +35,7 @@
       args:
         executable: /bin/bash
       with_inventory_hostnames: appliance
-    
+
     - name: Ensure Newly generated remote SSH host keys are known
       shell: "ssh-keyscan -v -p 22 {{ hostvars[item].nodepool.private_ipv4 }} >> ~/.ssh/known_hosts"
       register: r

@@ -36,11 +36,12 @@
         executable: /bin/bash
       with_inventory_hostnames: appliance
 
-    - name: Wait 300 seconds for SSH port on appliance
+    - name: Wait 300 seconds
       wait_for:
         host: "{{ hostvars[item].nodepool.private_ipv4 }}"
         port: 22
         search_regex: SSH
+      with_inventory_hostnames: appliance
 
     # NOTE(pabelanger): This is a huge hack to deal with the fact there is no
     # default gateway seutp.

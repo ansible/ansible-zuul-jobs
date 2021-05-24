@@ -36,20 +36,9 @@
         executable: /bin/bash
       with_inventory_hostnames: appliance
 
-    - name: Wait 300 seconds
+    - name: Wait 300 seconds for slow iosxr booting process
       wait_for:
-        host: "{{ hostvars[item].nodepool.private_ipv4 }}"
-        port: 22
-        search_regex: SSH
-      with_inventory_hostnames: appliance
-    
-    - name: Ensure remote SSH host keys are known
-      shell: "ssh-keyscan -v -p 22 {{ hostvars[item].nodepool.private_ipv4 }} >> /home/zuul/.ssh/known_hosts"
-      register: r
-      until: r.rc == 0
-      retries: 10
-      delay: 60
-      with_inventory_hostnames: appliance
+        timeout: 300
 
     # NOTE(pabelanger): This is a huge hack to deal with the fact there is no
     # default gateway seutp.

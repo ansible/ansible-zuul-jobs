@@ -27,6 +27,7 @@
   uri:
     url: "{{ artifact.url }}"
     dest: "{{ download_artifact_directory }}"
+    force: yes
   loop: "{{ _artifacts }}"
   loop_control:
     loop_var: artifact

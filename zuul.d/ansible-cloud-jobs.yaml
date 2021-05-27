@@ -345,8 +345,6 @@
     dependencies:
       - name: build-ansible-collection
         soft: true
-    pre-run: playbooks/ansible-test-base/pre.yaml
-    run: playbooks/ansible-test-base/run.yaml
     required-projects:
       - name: github.com/ansible/ansible
     timeout: 3600

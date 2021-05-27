@@ -376,30 +376,6 @@
     parent: ansible-test-sanity-aws-ansible
 
 - job:
-    name: ansible-test-sanity-aws-ansible-2.9-python37
-    parent: ansible-test-sanity-aws-ansible
-    required-projects:
-      - name: github.com/ansible/ansible
-        override-checkout: stable-2.9
-    vars:
-      ansible_test_python: 3.7
-
-- job:
-    name: ansible-test-sanity-aws-ansible-2.11-python37
-    parent: ansible-test-sanity-aws-ansible
-    required-projects:
-      - name: github.com/ansible/ansible
-        override-checkout: stable-2.11
-    vars:
-      ansible_test_python: 3.7
-
-- job:
-    name: ansible-test-sanity-aws-ansible-devel-python37
-    parent: ansible-test-sanity-aws-ansible
-    vars:
-      ansible_test_python: 3.7
-
-- job:
     name: ansible-test-sanity-aws-ansible-2.9-python38
     parent: ansible-test-sanity-aws-ansible
     required-projects:

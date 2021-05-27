@@ -429,3 +429,4 @@
     parent: ansible-test-units-base-python38
     vars:
       ansible_collections_repo: "{{ zuul.project.canonical_name }}"
+      ansible_test_collections: false

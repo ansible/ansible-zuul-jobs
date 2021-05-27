@@ -374,28 +374,25 @@
     parent: ansible-test-sanity-aws-ansible
 
 - job:
-    name: ansible-test-sanity-aws-ansible-2.9-python38
+    name: ansible-test-sanity-aws-ansible-devel-python38
     parent: ansible-test-sanity-aws-ansible
+    nodeset: controller-python38
+    vars:
+      ansible_test_python: 3.8
+
+- job:
+    name: ansible-test-sanity-aws-ansible-2.9-python38
+    parent: ansible-test-sanity-aws-ansible-devel-python38
     required-projects:
       - name: github.com/ansible/ansible
         override-checkout: stable-2.9
-    vars:
-      ansible_test_python: 3.8
 
 - job:
     name: ansible-test-sanity-aws-ansible-2.11-python38
-    parent: ansible-test-sanity-aws-ansible
+    parent: ansible-test-sanity-aws-ansible-devel-python38
     required-projects:
       - name: github.com/ansible/ansible
         override-checkout: stable-2.11
-    vars:
-      ansible_test_python: 3.8
-
-- job:
-    name: ansible-test-sanity-aws-ansible-devel-python38
-    parent: ansible-test-sanity-aws-ansible
-    vars:
-      ansible_test_python: 3.8
 
 ### Cloud Common
 - job:

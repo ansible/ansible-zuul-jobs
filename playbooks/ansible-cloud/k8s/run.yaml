@@ -1,0 +1,10 @@
+---
+- hosts: controller
+  vars:
+    kubernetes_src_dir: "{{ ansible_user_dir }}/{{ zuul.projects['github.com/ansible-collections/kubernetes.core'].src_dir }}"
+    ansible_test_venv_path: "~/venv"
+  tasks:
+    - name: change directory to kubernetes.core source path
+      ansible.builtin.command:
+        chdir: "{{ kubernetes_src_dir }}"
+        cmd: "source {{ ansible_test_venv_path }}/bin/activate; make test-molecule"

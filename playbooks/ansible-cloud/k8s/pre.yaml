@@ -1,0 +1,14 @@
+---
+- hosts: controller
+  tasks:
+    - name: Install python packages required for molecule testing
+      pip:
+        name:
+          - ansible
+          - molecule<3.3.0
+          - yamllint
+          - kubernetes
+          - flake8
+          - jsonpatch
+    - import_role:
+        name: setup-kind

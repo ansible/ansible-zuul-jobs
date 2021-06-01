@@ -1,0 +1,46 @@
+---
+- name: Get kubectl version
+  ansible.builtin.uri:
+    url: "{{ kubectl_url_version }}"
+    return_content: yes
+  register: kubectl_version
+
+- debug:
+    msg: "Using kubectl version {{ kubectl_version.content }}"
+
+- name: Download kubectl
+  ansible.builtin.get_url:
+    url: '{{ "https://storage.googleapis.com/kubernetes-release/release/" ~ kubectl_version.content ~ "/bin/linux/amd64/kubectl" }}'
+    dest: '{{ kubectl_path }}'
+  become: yes
+
+- name: Download kind cli
+  ansible.builtin.get_url:
+    url: '{{ kind_url }}'
+    dest: '{{ kind_path }}'
+  become: yes
+
+- name: Make tool executable
+  ansible.builtin.file:
+    path: '{{ item }}'
+    mode: '0755'
+  become: yes
+  with_items:
+    - '{{ kubectl_path }}'
+    - '{{ kind_path }}'
+
+- name: Install required package
+  package:
+    name: '{{ item }}'
+    state: present
+  become: true
+  with_items:
+    - '{{ kind_required_packages }}'
+
+- name: Create kind cluster configuration
+  ansible.builtin.template:
+    src: "cluster_config.j2"
+    dest: '{{ kind_cluster_config }}'
+
+- name: Create cluster
+  ansible.builtin.command: "sudo {{ kind_path }} create cluster --config  {{ kind_cluster_config }}"

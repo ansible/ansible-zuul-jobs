@@ -400,3 +400,13 @@
     parent: ansible-test-units-base-python38
     vars:
       ansible_collections_repo: "{{ zuul.project.canonical_name }}"
+
+- job:
+    name: molecule-test-kubernetes-core
+    pre-run:
+      - playbooks/ansible-test-base/pre.yaml
+      - playbooks/ansible-cloud/k8s/pre.yaml
+    run: playbooks/ansible-cloud/k8s/run.yaml
+    required-projects:
+      - name: github.com/ansible/ansible
+      - name: github.com/ansible-collections/kubernetes.core

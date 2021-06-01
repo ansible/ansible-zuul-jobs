@@ -576,6 +576,7 @@
             required-projects:
               - name: github.com/ansible-collections/community.vmware
               - name: github.com/ansible-collections/vmware.vmware_rest
+        - molecule-test-kubernetes-core
     gate:
       jobs: *ansible-collections-cloud-common-jobs
 

@@ -1,10 +1,14 @@
 ---
 - hosts: controller
   vars:
-    kubernetes_src_dir: "{{ ansible_user_dir }}/{{ zuul.projects['github.com/ansible-collections/kubernetes.core'].src_dir }}"
-    ansible_test_venv_path: "~/venv"
+    # kubernetes_src_dir: "{{ ansible_user_dir }}/{{ zuul.projects['github.com/ansible-collections/kubernetes.core'].src_dir }}"
+    ansible_zuul_src_dir: "{{ ansible_user_dir }}/{{ zuul.projects['github.com/ansible/ansible-zuul-jobs'].src_dir }}"
   tasks:
+    - name: run simple test
+      shell: "source {{ ansible_test_venv_path }}/bin/activate; ansible-playbook playbooks/ansible-cloud/k8s/test_k8s.yaml -v"
+      args:
+        chdir: "{{ ansible_zuul_src_dir }}"
     - name: change directory to kubernetes.core source path
-      ansible.builtin.command:
-        chdir: "{{ kubernetes_src_dir }}"
-        cmd: "source {{ ansible_test_venv_path }}/bin/activate; make test-molecule"
+      shell: "source {{ ansible_test_venv_path }}/bin/activate; make test-molecule"
+      args:
+        chdir: ~/.ansible/collections/ansible_collections/kubernetes/core

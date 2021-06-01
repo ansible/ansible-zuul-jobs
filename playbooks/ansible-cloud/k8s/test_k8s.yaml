@@ -1,0 +1,31 @@
+---
+- hosts: localhost
+  connection: local
+  gather_facts: false
+
+  collections:
+    - kubernetes.core
+
+  tasks:
+    - name: Verify cluster is working.
+      k8s_info:
+        namespace: kube-system
+        kind: Pod
+      register: pod_list
+      no_log: true
+
+    - name: Verify cluster has more than 5 pods running.
+      assert:
+        that: (pod_list.resources | count) > 5
+
+    - name: Get package deployed
+      kubernetes.core.helm_info:
+        name: test
+        release_namespace: monitoring
+      ignore_errors: true
+
+    - name: Get package deployed
+      helm_info:
+        name: test
+        release_namespace: monitoring
+      ignore_errors: true

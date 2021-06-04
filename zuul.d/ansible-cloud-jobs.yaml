@@ -410,6 +410,6 @@
       - name: github.com/ansible/ansible
       - name: github.com/ansible-collections/kubernetes.core
     timeout: 5400
-    nodeset: controller-python37
+    nodeset: centos-7-4vcpu
     vars:
       ansible_test_venv_path: "~/venv"

@@ -323,6 +323,25 @@
       ansible_test_enable_ara: false
       ansible_test_python: 3.6
       ansible_test_changed: true
+      ansible_test_split_in: 3
+
+- job:
+    name: ansible-test-cloud-integration-aws-py36_1_of_3
+    parent: ansible-test-cloud-integration-aws-py36
+    vars:
+      ansible_test_do_number: 1
+
+- job:
+    name: ansible-test-cloud-integration-aws-py36_2_of_3
+    parent: ansible-test-cloud-integration-aws-py36
+    vars:
+      ansible_test_do_number: 2
+
+- job:
+    name: ansible-test-cloud-integration-aws-py36_3_of_3
+    parent: ansible-test-cloud-integration-aws-py36
+    vars:
+      ansible_test_do_number: 3
 
 #### units
 - job:

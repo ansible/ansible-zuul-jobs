@@ -1,6 +1,7 @@
 ---
 vmware_ci_nfs_share_allowed_ips: []
 vmware_ci_nfs_share_owner_uid: '1000'
+vmware_ci_nfs_share_content_library_uid: '1006'
 vmware_ci_nfs_share_owner_gid: '1000'
 vmware_ci_nfs_share_iso_files:
     fedora.iso:

@@ -276,6 +276,81 @@
           - ubuntu-bionic
 
 - nodeset:
+    name: eos-4.26.1-python27
+    nodes:
+      - name: ubuntu-bionic
+        label: ubuntu-bionic-1vcpu
+      - name: eos-4.26.1
+        label: eos-4.26.1
+    groups:
+      - name: appliance
+        nodes:
+          - eos-4.26.1
+      - name: controller
+        nodes:
+          - ubuntu-bionic
+
+- nodeset:
+    name: eos-4.26.1-python35
+    nodes:
+      - name: ubuntu-xenial
+        label: ubuntu-xenial-1vcpu
+      - name: eos-4.26.1
+        label: eos-4.26.1
+    groups:
+      - name: appliance
+        nodes:
+          - eos-4.26.1
+      - name: controller
+        nodes:
+          - ubuntu-xenial
+
+- nodeset:
+    name: eos-4.26.1-python36
+    nodes:
+      - name: centos-8
+        label: centos-8-1vcpu
+      - name: eos-4.26.1
+        label: eos-4.26.1
+    groups:
+      - name: appliance
+        nodes:
+          - eos-4.26.1
+      - name: controller
+        nodes:
+          - centos-8
+
+- nodeset:
+    name: eos-4.26.1-python37
+    nodes:
+      - name: fedora-32
+        label: fedora-32-1vcpu
+      - name: eos-4.26.1
+        label: eos-4.26.1
+    groups:
+      - name: appliance
+        nodes:
+          - eos-4.26.1
+      - name: controller
+        nodes:
+          - fedora-32
+
+- nodeset:
+    name: eos-4.26.1-python38
+    nodes:
+      - name: ubuntu-bionic
+        label: ubuntu-bionic-1vcpu
+      - name: eos-4.26.1
+        label: eos-4.26.1
+    groups:
+      - name: appliance
+        nodes:
+          - eos-4.26.1
+      - name: controller
+        nodes:
+          - ubuntu-bionic
+
+- nodeset:
     name: ios-15.6-2T-python27
     nodes:
       - name: ubuntu-bionic

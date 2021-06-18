@@ -75,9 +75,10 @@
               - name: github.com/ansible-collections/ansible.utils
               - name: github.com/ansible-collections/community.aws
               - name: github.com/ansible-collections/community.general
-        - ansible-test-cloud-integration-aws-py36_1_of_3
-        - ansible-test-cloud-integration-aws-py36_2_of_3
-        - ansible-test-cloud-integration-aws-py36_3_of_3
+        - ansible-test-cloud-integration-aws-py36_1_of_4
+        - ansible-test-cloud-integration-aws-py36_2_of_4
+        - ansible-test-cloud-integration-aws-py36_3_of_4
+        - ansible-test-cloud-integration-aws-py36_4_of_4
     gate:
       jobs:
         - ansible-test-sanity-aws-ansible-2.9-python36
@@ -92,9 +93,10 @@
               - name: github.com/ansible-collections/ansible.utils
               - name: github.com/ansible-collections/community.aws
               - name: github.com/ansible-collections/community.general
-        - ansible-test-cloud-integration-aws-py36_1_of_3
-        - ansible-test-cloud-integration-aws-py36_2_of_3
-        - ansible-test-cloud-integration-aws-py36_3_of_3
+        - ansible-test-cloud-integration-aws-py36_1_of_4
+        - ansible-test-cloud-integration-aws-py36_2_of_4
+        - ansible-test-cloud-integration-aws-py36_3_of_4
+        - ansible-test-cloud-integration-aws-py36_4_of_4
 
 - project-template:
     name: ansible-collections-community-aws
@@ -110,9 +112,10 @@
               - name: github.com/ansible-collections/amazon.aws
               - name: github.com/ansible-collections/ansible.utils
               - name: github.com/ansible-collections/community.general
-        - ansible-test-cloud-integration-aws-py36_1_of_3
-        - ansible-test-cloud-integration-aws-py36_2_of_3
-        - ansible-test-cloud-integration-aws-py36_3_of_3
+        - ansible-test-cloud-integration-aws-py36_1_of_4
+        - ansible-test-cloud-integration-aws-py36_2_of_4
+        - ansible-test-cloud-integration-aws-py36_3_of_4
+        - ansible-test-cloud-integration-aws-py36_4_of_4
         - ansible-galaxy-importer:
             voting: false
     gate:
@@ -127,9 +130,10 @@
               - name: github.com/ansible-collections/amazon.aws
               - name: github.com/ansible-collections/ansible.utils
               - name: github.com/ansible-collections/community.general
-        - ansible-test-cloud-integration-aws-py36_1_of_3
-        - ansible-test-cloud-integration-aws-py36_2_of_3
-        - ansible-test-cloud-integration-aws-py36_3_of_3
+        - ansible-test-cloud-integration-aws-py36_1_of_4
+        - ansible-test-cloud-integration-aws-py36_2_of_4
+        - ansible-test-cloud-integration-aws-py36_3_of_4
+        - ansible-test-cloud-integration-aws-py36_4_of_4
         - ansible-galaxy-importer:
             voting: false
 

@@ -918,6 +918,24 @@
       jobs: *ansible-collections-ansible-network-units-jobs
 
 - project-template:
+    name: ansible-collections-ansible-security
+    check:
+      jobs: &ansible-collections-ansible-security-jobs
+        - ansible-changelog-fragment
+        - build-ansible-collection:
+            required-projects:
+              - name: github.com/ansible-collections/ansible.netcommon
+              - name: github.com/ansible-collections/ansible.security
+              - name: github.com/ansible-collections/ansible.utils
+              - name: github.com/ansible-collections/cisco.asa
+              - name: github.com/ansible-collections/ibm.qradar
+              - name: github.com/ansible-collections/splunk.es
+              - name: github.com/ansible-collections/trendmicro.deepsec
+    gate:
+      queue: integrated
+      jobs: *ansible-collections-ansible-security-jobs
+
+- project-template:
     name: ansible-collections-community-yang-units
     check:
       jobs: &ansible-collections-community-yang-units-jobs

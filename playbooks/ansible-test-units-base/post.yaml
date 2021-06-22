@@ -38,4 +38,3 @@
     # Testing for arsita.eos
     - name: Upload coverage report to codecov
       shell: "codecov -t 525cdc52-7429-4ece-8cbe-4780613a3a56"
-

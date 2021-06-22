@@ -34,3 +34,8 @@
 
     - name: Copy the coverage report
       shell: "cp -rfa {{ test_location }}/tests/output/reports/coverage {{ ansible_user_dir }}/zuul-output/logs/controller/"
+
+    # Testing for ansible.utils
+    - name: Upload coverage report to codecov
+      shell: "codecov -t 9ddda62e-74e3-4073-a297-da3a4a6c1033"
+

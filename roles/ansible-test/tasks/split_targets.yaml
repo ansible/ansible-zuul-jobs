@@ -6,6 +6,7 @@
   environment: "{{ ansible_test_environment | default({}) }}"
   shell: "source {{ ansible_test_venv_path }}/bin/activate; {{ ansible_test_executable }} {{ ansible_test_test_command }} {{ ansible_test_options }} --list {{ ansible_test_integration_targets }} 2>&1|grep -v WARNING"
   register: ansible_test_targets
+  failed_when: ansible_test_targets.rc not in [0, 1]
 - set_fact:
     number_entries: "{{ ansible_test_targets.stdout_lines|length }}"
 - set_fact:

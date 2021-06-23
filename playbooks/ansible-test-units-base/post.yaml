@@ -37,4 +37,8 @@
 
     # Testing for arsita.eos
     - name: Upload coverage report to codecov
+      args:
+        chdir: "{{ test_location }}"
+        executable: /bin/bash
+      environment: "{{ ansible_test_environment | default({}) }}"
       shell: "codecov -t 525cdc52-7429-4ece-8cbe-4780613a3a56"

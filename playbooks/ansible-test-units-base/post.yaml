@@ -41,4 +41,4 @@
         chdir: "{{ test_location }}"
         executable: /bin/bash
       environment: "{{ ansible_test_environment | default({}) }}"
-      shell: "codecov -t 525cdc52-7429-4ece-8cbe-4780613a3a56"
+      shell: "source {{ ansible_test_venv_path }}/bin/activate; codecov -t 525cdc52-7429-4ece-8cbe-4780613a3a56"

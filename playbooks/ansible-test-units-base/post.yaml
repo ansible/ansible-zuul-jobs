@@ -37,9 +37,21 @@
       shell: "cp -rfa {{ test_location }}/tests/output/reports/coverage {{ ansible_user_dir }}/zuul-output/logs/controller/"
 
     # Testing for arsita.eos
+    - name: Coverage report in xml to be uloaded to codecov for unit tests
+      args:
+        chdir: "{{ test_location }}"
+        executable: /bin/bash
+      environment: "{{ ansible_test_environment | default({}) }}"
+      shell: "source {{ ansible_test_venv_path }}/bin/activate; {{ ansible_coverage_xml }}"
+      register: coverage_output
+
     - name: Upload coverage report to codecov
       args:
         chdir: "{{ test_location }}"
         executable: /bin/bash
       environment: "{{ ansible_test_environment | default({}) }}"
-      shell: "source {{ ansible_test_venv_path }}/bin/activate; {{ ansible_coverage_xml }}; codecov -t 525cdc52-7429-4ece-8cbe-4780613a3a56"
+      shell: "source {{ ansible_test_venv_path }}/bin/activate; codecov -t 525cdc52-7429-4ece-8cbe-4780613a3a56"
+      register: codecov_output
+
+    - debug:
+        msg: "Output: {{ codecov_output }} {{ coverage_output }}" 

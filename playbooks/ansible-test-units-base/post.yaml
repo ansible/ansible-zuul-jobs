@@ -54,4 +54,4 @@
       register: codecov_output
 
     - debug:
-        msg: "Output: {{ codecov_output }} {{ coverage_output }}" 
+        msg: "Output: {{ codecov_output }} {{ coverage_output }}"

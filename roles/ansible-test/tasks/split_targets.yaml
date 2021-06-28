@@ -14,7 +14,7 @@
 - set_fact:
     _start_at: "{{ (_iter_by|int * ansible_test_do_number|int) - _iter_by|int }}"
 - set_fact:
-    _end_at: "{{ _start_at|int + _iter_by|int }}"
+    _end_at: "{{ _start_at|int + _iter_by|int - 1 if ansible_test_do_number|int != ansible_test_split_in else number_entries - 1 }}"
 # Slow tests tend to be closely related.  Hash the names to produce a repeatable
 # list that avoids bringing those tests all into one group
 - set_fact:

@@ -315,7 +315,7 @@
     # post-run: playbooks/ansible-test-base/post.yaml
     required-projects:
       - name: github.com/ansible/ansible
-    timeout: 3600
+    timeout: 10800
     vars:
       ansible_test_collections: true
       ansible_collections_repo: "{{ zuul.project.canonical_name }}"

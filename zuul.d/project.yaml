@@ -17,6 +17,7 @@
               - playbooks/ansible-network-appliance-base/.*
               - playbooks/ansible-network-ios-appliance/.*
         - ansible-network-iosxr-appliance:
+            voting: false
             files:
               - playbooks/ansible-network-appliance-base/.*
               - playbooks/ansible-network-iosxr-appliance/.*
@@ -82,10 +83,6 @@
             files:
               - playbooks/ansible-network-appliance-base/.*
               - playbooks/ansible-network-ios-appliance/.*
-        - ansible-network-iosxr-appliance:
-            files:
-              - playbooks/ansible-network-appliance-base/.*
-              - playbooks/ansible-network-iosxr-appliance/.*
         - ansible-network-junos-vsrx-appliance:
             files:
               - playbooks/ansible-network-appliance-base/.*

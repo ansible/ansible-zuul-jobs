@@ -12,7 +12,14 @@
 - set_fact:
     _start_at: "{{ number_entries|int // ansible_test_split_in * (ansible_test_do_number -1)|int }}"
     _end_at: "{{ (number_entries|int // ansible_test_split_in * (ansible_test_do_number |int)) }}"
-- debug:
-    msg: "Do roles: {{ ansible_test_targets.stdout_lines[_start_at|int:_end_at|int] }}"
+# Slow tests tend to be closely related.  Hash the names to produce a repeatable
+# list that avoids bringing those tests all into one group
 - set_fact:
-    _integration_targets: "{{ ansible_test_targets.stdout_lines[_start_at|int:_end_at|int]|join(' ') }}"
+    _hashed_targets: "{{ ( _hashed_targets | default([])) + [ { 'name': item, 'hash': (item | hash('md5')) } ] }}"
+  loop: '{{ ansible_test_targets.stdout_lines }}'
+- set_fact:
+    sorted_test_targets: "{{ _hashed_targets | sort(attribute='hash') | map(attribute='name') | list }}"
+- set_fact:
+    _integration_targets: "{{ sorted_test_targets[_start_at|int:_end_at|int]|sort|join(' ') }}"
+- debug:
+    msg: "Do roles: {{ _integration_targets }}"

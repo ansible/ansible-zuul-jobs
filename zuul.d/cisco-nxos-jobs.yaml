@@ -8,9 +8,7 @@
     run: playbooks/ansible-network-nxos-appliance/run.yaml
     host-vars:
       nxos-7.0.3:
-        ansible_connection: network_cli
         ansible_network_os: nxos
-        ansible_python_interpreter: python
     required-projects:
       - name: github.com/ansible/ansible-zuul-jobs
     nodeset: nxos-7.0.3-python36

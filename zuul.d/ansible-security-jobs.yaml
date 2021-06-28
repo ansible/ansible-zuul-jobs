@@ -7,7 +7,6 @@
     run: playbooks/ansible-security-splunk-appliance/run.yaml
     host-vars:
       SplunkEnterprise-SES-8.0.0:
-        ansible_connection: network_cli
         ansible_network_os: splunk
         ansible_python_interpreter: python
     required-projects:
@@ -63,7 +62,6 @@
     run: playbooks/ansible-security-qradar-appliance/run.yaml
     host-vars:
       QRadarCE-7.3.1:
-        ansible_connection: network_cli
         ansible_network_os: qradar
         ansible_python_interpreter: python
     required-projects:

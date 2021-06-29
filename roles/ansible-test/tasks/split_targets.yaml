@@ -8,12 +8,14 @@
   register: ansible_test_targets
   failed_when: ansible_test_targets.rc not in [0, 1]
 - set_fact:
-    number_entries: "{{ ansible_test_targets.stdout_lines|length }}"
+    number_entries: "{{ ansible_test_targets.stdout_lines|length|unique }}"
 # Slow tests tend to be closely related.  Hash the names to produce a repeatable
 # list that avoids bringing those tests all into one group
 - set_fact:
-    _hashed_targets: "{{ ( _hashed_targets | default([])) + [ { 'name': item, 'hash': (item | hash('md5')) } ] }}"
-  loop: '{{ ansible_test_targets.stdout_lines }}'
+    _hashed_targets: []
+- set_fact:
+    _hashed_targets: "{{ ( _hashed_targets + [ { 'name': item, 'hash': (item | hash('md5')) } ] }}"
+  loop: '{{ ansible_test_targets.stdout_lines|unique }}'
 - set_fact:
     sorted_test_targets: "{{ _hashed_targets | sort(attribute='hash') | map(attribute='name') | list }}"
 # Distribute test targets evenly between workers

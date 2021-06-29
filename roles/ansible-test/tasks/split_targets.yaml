@@ -9,12 +9,6 @@
   failed_when: ansible_test_targets.rc not in [0, 1]
 - set_fact:
     number_entries: "{{ ansible_test_targets.stdout_lines|length }}"
-- set_fact:
-    _iter_by: "{{ (number_entries|int / ansible_test_split_in)|round(0, 'ceil')|int }}"
-- set_fact:
-    _start_at: "{{ (_iter_by|int * ansible_test_do_number|int) - _iter_by|int }}"
-- set_fact:
-    _end_at: "{{ _start_at|int + _iter_by|int - 1 if ansible_test_do_number|int != ansible_test_split_in else number_entries|int - 1 }}"
 # Slow tests tend to be closely related.  Hash the names to produce a repeatable
 # list that avoids bringing those tests all into one group
 - set_fact:
@@ -22,7 +16,12 @@
   loop: '{{ ansible_test_targets.stdout_lines }}'
 - set_fact:
     sorted_test_targets: "{{ _hashed_targets | sort(attribute='hash') | map(attribute='name') | list }}"
+# Distribute test targets evenly between workers
 - set_fact:
-    _integration_targets: "{{ sorted_test_targets[_start_at|int:_end_at|int]|sort|join(' ') }}"
+    targets_to_test: "{{ targets_to_test | default([]) + [ sorted_test_targets[item] ] }}"
+  when: item % ansible_test_split_in == ansible_test_do_number|int - 1
+  loop: "{{ range(0,number_entries|int)|list }}"
+- set_fact:
+    _integration_targets: "{{ targets_to_test | join(' ') }}"
 - debug:
-    msg: "Do roles: {{ _integration_targets }}"
+    msg: "Do roles: '{{ _integration_targets }}'"

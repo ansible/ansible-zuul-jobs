@@ -10,4 +10,4 @@
     done
   register: _result
 - set_fact:
-    ansible_test_integration_targets: "{{ _result.stdout_lines|join(' ') }}"
+    ansible_test_integration_targets: "{{ _result.stdout_lines|unique|join(' ') }}"

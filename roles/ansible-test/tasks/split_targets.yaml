@@ -22,6 +22,6 @@
   when: item % ansible_test_split_in == ansible_test_do_number|int - 1
   loop: "{{ range(0,number_entries|int)|list }}"
 - set_fact:
-    _integration_targets: "{{ targets_to_test | join(' ') }}"
+    _integration_targets: "{{ targets_to_test | default([]) | join(' ') }}"
 - debug:
     msg: "Do roles: '{{ _integration_targets }}'"

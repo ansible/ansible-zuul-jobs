@@ -8,7 +8,7 @@
   register: ansible_test_targets
   failed_when: ansible_test_targets.rc not in [0, 1]
 - set_fact:
-    number_entries: "{{ ansible_test_targets.stdout_lines|length|unique }}"
+    number_entries: "{{ ansible_test_targets.stdout_lines|unique|length }}"
 # Slow tests tend to be closely related.  Hash the names to produce a repeatable
 # list that avoids bringing those tests all into one group
 - set_fact:

@@ -299,11 +299,29 @@
 
 ### AWS
 - job:
+    name: ansible-test-splitter
+    run: playbooks/ansible-test-splitter/run.yaml
+    nodeset: controller-python36
+    required-projects:
+      - name: github.com/ansible/ansible
+    timeout: 1000
+    vars:
+      ansible_collections_repo: "{{ zuul.project.canonical_name }}"
+      ansible_test_location: "{{ ansible_user_dir }}/{{ zuul.projects[zuul.project.canonical_name].src_dir }}"
+      ansible_test_splitter__test_changed: true
+      ansible_test_splitter__children_prefix: ansible-test-cloud-integration-aws-py36_
+
+- semaphore:
+    name: ansible-test-cloud-integration-aws
+    max: 6
+
+- job:
     name: ansible-test-cloud-integration-aws-py36
     parent: ansible-core-ci-aws-session
     nodeset: controller-python36
     dependencies:
       - name: build-ansible-collection
+      - name: ansible-test-splitter
     pre-run:
       - playbooks/ansible-test-base/pre.yaml
       - playbooks/ansible-cloud/aws/pre.yaml
@@ -319,45 +337,68 @@
       ansible_test_command: integration
       ansible_test_enable_ara: false
       ansible_test_python: 3.6
-      ansible_test_changed: true
-      ansible_test_split_in: 6
+      ansible_test_retry_on_error: true
+    semaphore: ansible-test-cloud-integration-aws
 
 - job:
-    name: ansible-test-cloud-integration-aws-py36_1_of_6
+    name: ansible-test-cloud-integration-aws-py36_0
     parent: ansible-test-cloud-integration-aws-py36
     vars:
-      ansible_test_do_number: 1
+      ansible_test_integration_targets: "{{ child.targets_to_test[0]|join(' ') }}"
 
 - job:
-    name: ansible-test-cloud-integration-aws-py36_2_of_6
+    name: ansible-test-cloud-integration-aws-py36_1
     parent: ansible-test-cloud-integration-aws-py36
     vars:
-      ansible_test_do_number: 2
+      ansible_test_integration_targets: "{{ child.targets_to_test[1]|join(' ') }}"
 
 - job:
-    name: ansible-test-cloud-integration-aws-py36_3_of_6
+    name: ansible-test-cloud-integration-aws-py36_2
     parent: ansible-test-cloud-integration-aws-py36
     vars:
-      ansible_test_do_number: 3
+      ansible_test_integration_targets: "{{ child.targets_to_test[2]|join(' ') }}"
 
 - job:
-    name: ansible-test-cloud-integration-aws-py36_4_of_6
+    name: ansible-test-cloud-integration-aws-py36_3
     parent: ansible-test-cloud-integration-aws-py36
     vars:
-      ansible_test_do_number: 4
+      ansible_test_integration_targets: "{{ child.targets_to_test[3]|join(' ') }}"
 
 - job:
-    name: ansible-test-cloud-integration-aws-py36_5_of_6
+    name: ansible-test-cloud-integration-aws-py36_4
     parent: ansible-test-cloud-integration-aws-py36
     vars:
-      ansible_test_do_number: 5
+      ansible_test_integration_targets: "{{ child.targets_to_test[4]|join(' ') }}"
 
 - job:
-    name: ansible-test-cloud-integration-aws-py36_6_of_6
+    name: ansible-test-cloud-integration-aws-py36_5
     parent: ansible-test-cloud-integration-aws-py36
     vars:
-      ansible_test_do_number: 6
+      ansible_test_integration_targets: "{{ child.targets_to_test[5]|join(' ') }}"
 
+- job:
+    name: ansible-test-cloud-integration-aws-py36_6
+    parent: ansible-test-cloud-integration-aws-py36
+    vars:
+      ansible_test_integration_targets: "{{ child.targets_to_test[6]|join(' ') }}"
+
+- job:
+    name: ansible-test-cloud-integration-aws-py36_7
+    parent: ansible-test-cloud-integration-aws-py36
+    vars:
+      ansible_test_integration_targets: "{{ child.targets_to_test[7]|join(' ') }}"
+
+- job:
+    name: ansible-test-cloud-integration-aws-py36_8
+    parent: ansible-test-cloud-integration-aws-py36
+    vars:
+      ansible_test_integration_targets: "{{ child.targets_to_test[8]|join(' ') }}"
+
+- job:
+    name: ansible-test-cloud-integration-aws-py36_9
+    parent: ansible-test-cloud-integration-aws-py36
+    vars:
+      ansible_test_integration_targets: "{{ child.targets_to_test[9]|join(' ') }}"
 #### units
 - job:
     name: ansible-test-units-community-aws-python38

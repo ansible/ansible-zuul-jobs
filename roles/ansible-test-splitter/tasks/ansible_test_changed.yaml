@@ -1,0 +1,13 @@
+---
+- copy:
+    src: test_changed.py
+    dest: /tmp/test_changed.py
+    mode: '0700'
+
+- name: Identify the changed targets
+  command: python3 /tmp/test_changed.py "{{ zuul.branch }}"
+  args:
+    chdir: "{{ ansible_test_location }}"
+  register: _result
+- set_fact:
+    ansible_test_splitter__changed_targets: "{{ _result.stdout }}"

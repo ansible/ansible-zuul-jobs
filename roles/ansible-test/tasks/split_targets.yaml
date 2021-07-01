@@ -11,16 +11,11 @@
   failed_when: ansible_test_targets.rc not in [0, 1]
 - set_fact:
     number_entries: "{{ ansible_test_targets.stdout_lines|length }}"
-# Slow tests tend to be closely related.  Hash the names to produce a repeatable
-# list that avoids bringing those tests all into one group
 - set_fact:
-    _hashed_targets: "{{ _hashed_targets + [ { 'name': item, 'hash': (item | hash('md5')) } ] }}"
-  loop: '{{ ansible_test_targets.stdout_lines }}'
-- set_fact:
-    sorted_test_targets: "{{ _hashed_targets | sort(attribute='hash') | map(attribute='name') | list }}"
+    sorted_test_targets: "{{  ansible_test_targets.stdout_lines | sort() | list }}"
 # Distribute test targets evenly between workers
 - set_fact:
-    targets_to_test: "{{ targets_to_test | default([]) + [ sorted_test_targets[item] ] }}"
+    targets_to_test: "{{ targets_to_test | default([]) + [ ansible_test_targets.stdout_lines[item] ] }}"
   when: item % ansible_test_split_in == ansible_test_do_number|int - 1
   loop: "{{ range(0,number_entries|int)|list }}"
 - set_fact:

@@ -8,7 +8,6 @@
     run: playbooks/ansible-network-eos-appliance/run.yaml
     host-vars:
       eos-4.26.1:
-        ansible_connection: network_cli
         ansible_network_os: eos
     required-projects:
       - name: github.com/ansible/ansible-zuul-jobs

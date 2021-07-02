@@ -36,9 +36,6 @@
         executable: /bin/bash
       with_inventory_hostnames: appliance
 
-    - name: Wait 300 seconds for slow iosxr booting process
-      wait_for:
-        timeout: 300
 
     # NOTE(pabelanger): This is a huge hack to deal with the fact there is no
     # default gateway seutp.
@@ -49,7 +46,7 @@
           'Are you sure you want to continue connecting': "yes"
           '(?i)password:': "{{ _iosxr_password }}"
           'RP/0/0/CPU0:.*#': exit
-        timeout: 60
+        timeout: 360
       with_inventory_hostnames: appliance
 
     # TODO(pabelanger): Figure out why iosxr_user is broken.

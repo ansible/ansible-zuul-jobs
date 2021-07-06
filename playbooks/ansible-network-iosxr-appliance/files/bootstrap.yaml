@@ -41,6 +41,7 @@
         host: "{{ hostvars[item].nodepool.private_ipv4 }}"
         port: 22
         search_regex: SSH
+      with_inventory_hostnames: appliance
         
     # NOTE(pabelanger): This is a huge hack to deal with the fact there is no
     # default gateway seutp.

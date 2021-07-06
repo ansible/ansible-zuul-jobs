@@ -44,7 +44,7 @@
       with_inventory_hostnames: appliance
 
     - name: Ensure remote SSH host keys are known
-      shell: "ssh-keyscan -v -p 22 {{ __ssh_ip }} >> ~/.ssh/known_hosts"
+      shell: "ssh-keyscan -v -p 22 {{ hostvars[item].nodepool.private_ipv4 }} >> ~/.ssh/known_hosts"
       register: r
       until: r.rc == 0
       retries: 10

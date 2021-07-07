@@ -961,6 +961,8 @@
     name: ansible-collections-security-trendmicro-deepsec-units
     check:
       jobs: &ansible-collections-security-trendmicro-deepsec-jobs
+        - build-ansible-collection
+        - ansible-changelog-fragment
         - ansible-security-integration-trendmicro-deepsec-python27
         - ansible-security-integration-trendmicro-deepsec-python36
         - ansible-security-integration-trendmicro-deepsec-python38

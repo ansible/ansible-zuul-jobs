@@ -301,7 +301,7 @@
 - job:
     name: ansible-test-splitter
     run: playbooks/ansible-test-splitter/run.yaml
-    nodeset: controller-python36
+    nodeset: controller-python36-f34
     required-projects:
       - name: github.com/ansible/ansible
     timeout: 1000
@@ -318,7 +318,7 @@
 - job:
     name: ansible-test-cloud-integration-aws-py36
     parent: ansible-core-ci-aws-session
-    nodeset: controller-python36
+    nodeset: controller-python36-f34
     dependencies:
       - name: build-ansible-collection
       - name: ansible-test-splitter
@@ -416,7 +416,7 @@
 - job:
     name: ansible-test-sanity-aws-ansible
     parent: ansible-test-sanity-docker
-    nodeset: controller-python36
+    nodeset: controller-python36-f34
     dependencies:
       - name: build-ansible-collection
         soft: true

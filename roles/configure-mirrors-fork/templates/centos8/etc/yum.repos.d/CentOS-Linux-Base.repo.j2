@@ -1,6 +1,6 @@
 # {{ ansible_managed }}
-[BaseOS]
-name=CentOS-$releasever - Base
+[baseos]
+name=CentOS Linux $releasever - BaseOS
 baseurl={{ package_mirror }}/$releasever/BaseOS/$basearch/os/
 gpgcheck=1
 enabled=1

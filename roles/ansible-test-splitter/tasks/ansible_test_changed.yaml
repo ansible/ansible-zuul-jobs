@@ -10,4 +10,4 @@
     chdir: "{{ ansible_test_location }}"
   register: _result
 - set_fact:
-    ansible_test_splitter__changed_targets: "{{ _result.stdout }}"
+    ansible_test_splitter__changed_targets_to_test: "{{ _result.stdout }}"

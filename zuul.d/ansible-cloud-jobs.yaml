@@ -123,84 +123,48 @@
       esxi2:
         ansible_network_os: vmware_rest
 
-# stable29
+# stable211
 - job:
-    name: ansible-test-cloud-integration-vcenter7_only-python36-stable29
+    name: ansible-test-cloud-integration-vcenter7_only-python36-stable211
     parent: ansible-test-cloud-integration-vcenter7_only-python36
     required-projects:
       - name: github.com/ansible/ansible
-        override-checkout: stable-2.9
+        override-checkout: stable-2.11
 
 - job:
-    name: ansible-test-cloud-integration-vcenter7_1esxi-python36-stable29
+    name: ansible-test-cloud-integration-vcenter7_1esxi-python36-stable211
     parent: ansible-test-cloud-integration-vcenter7_1esxi-python36
     required-projects:
       - name: github.com/ansible/ansible
-        override-checkout: stable-2.9
+        override-checkout: stable-2.11
 
 - job:
-    name: ansible-test-cloud-integration-vcenter7_1esxi-python36-stable29
+    name: ansible-test-cloud-integration-vcenter7_1esxi-python36-stable211_1_of_2
     parent: ansible-test-cloud-integration-vcenter7_1esxi-python36
     required-projects:
       - name: github.com/ansible/ansible
-        override-checkout: stable-2.9
-
-- job:
-    name: ansible-test-cloud-integration-vcenter7_2esxi-python36-stable29
-    parent: ansible-test-cloud-integration-vcenter7_2esxi-python36
-    required-projects:
-      - name: github.com/ansible/ansible
-        override-checkout: stable-2.9
-
-# stable210
-- job:
-    name: ansible-test-cloud-integration-vcenter7_only-python36-stable210
-    parent: ansible-test-cloud-integration-vcenter7_only-python36
-    required-projects:
-      - name: github.com/ansible/ansible
-        override-checkout: stable-2.10
-
-- job:
-    name: ansible-test-cloud-integration-vcenter7_1esxi-python36-stable210
-    parent: ansible-test-cloud-integration-vcenter7_1esxi-python36
-    required-projects:
-      - name: github.com/ansible/ansible
-        override-checkout: stable-2.10
-
-- job:
-    name: ansible-test-cloud-integration-vcenter7_1esxi-python36-stable210
-    parent: ansible-test-cloud-integration-vcenter7_1esxi-python36
-    required-projects:
-      - name: github.com/ansible/ansible
-        override-checkout: stable-2.10
-
-- job:
-    name: ansible-test-cloud-integration-vcenter7_1esxi-python36-stable210_1_of_2
-    parent: ansible-test-cloud-integration-vcenter7_1esxi-python36
-    required-projects:
-      - name: github.com/ansible/ansible
-        override-checkout: stable-2.10
+        override-checkout: stable-2.11
     vars:
       ansible_test_split_in: 2
       ansible_test_do_number: 1
 
 - job:
-    name: ansible-test-cloud-integration-vcenter7_1esxi-python36-stable210_2_of_2
+    name: ansible-test-cloud-integration-vcenter7_1esxi-python36-stable211_2_of_2
     parent: ansible-test-cloud-integration-vcenter7_1esxi-python36
     required-projects:
       - name: github.com/ansible/ansible
-        override-checkout: stable-2.10
+        override-checkout: stable-2.11
     vars:
       ansible_test_split_in: 2
       ansible_test_do_number: 2
 
 
 - job:
-    name: ansible-test-cloud-integration-vcenter7_2esxi-python36-stable210
+    name: ansible-test-cloud-integration-vcenter7_2esxi-python36-stable211
     parent: ansible-test-cloud-integration-vcenter7_2esxi-python36
     required-projects:
       - name: github.com/ansible/ansible
-        override-checkout: stable-2.10
+        override-checkout: stable-2.11
 
 
 ####################### vmware.vmware-rest #####################

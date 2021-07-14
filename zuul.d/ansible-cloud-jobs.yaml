@@ -305,7 +305,6 @@
     vars:
       ansible_collections_repo: "{{ zuul.project.canonical_name }}"
       ansible_test_location: "{{ ansible_user_dir }}/{{ zuul.projects[zuul.project.canonical_name].src_dir }}"
-      ansible_test_splitter__test_changed: true
       ansible_test_splitter__children_prefix: ansible-test-cloud-integration-aws-py36_
 
 - semaphore:

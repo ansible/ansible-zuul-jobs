@@ -5,7 +5,7 @@
     dest: '{{ kind_path }}'
   become: true
 
-- name: Install Kubeclt
+- name: Install Kubectl
   ansible.builtin.get_url:
     url: '{{ "https://dl.k8s.io/release/" + kubectl_release + "/bin/linux/amd64/kubectl" }}'
     dest: '{{ kubectl_path }}'

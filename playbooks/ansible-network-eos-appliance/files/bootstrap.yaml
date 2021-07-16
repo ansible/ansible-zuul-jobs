@@ -6,6 +6,7 @@
   vars:
     ansible_password: admin
     ansible_user: admin
+    enable_password: admin
   tasks:
     - name: lookup SSH public key
       set_fact:

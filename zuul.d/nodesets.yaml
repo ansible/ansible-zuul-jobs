@@ -77,8 +77,8 @@
 - nodeset:
     name: vmware-vcsa_1esxi-7.0.2-python36
     nodes:
-      - name: fedora-34
-        label: fedora-34-1vcpu
+      - name: centos-8
+        label: centos-8-1vcpu
       - name: vcenter
         label: vmware-vcsa-7.0.2
       - name: esxi1
@@ -95,7 +95,7 @@
           - esxi1
       - name: controller
         nodes:
-          - fedora-34
+          - centos-8
 
 - nodeset:
     name: vmware-vcsa_2esxi-7.0.2-python36

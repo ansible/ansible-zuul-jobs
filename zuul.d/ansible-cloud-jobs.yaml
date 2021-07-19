@@ -145,8 +145,7 @@
       - name: github.com/ansible/ansible
         override-checkout: stable-2.11
     vars:
-      ansible_test_split_in: 2
-      ansible_test_do_number: 1
+      ansible_test_integration_targets: vmware_guest vmware_guest_disk_info vmware_guest_instant_clone vmware_guest_network vmware_guest_powerstate vmware_guest_screenshot vmware_guest_tools_wait
 
 - job:
     name: ansible-test-cloud-integration-vcenter7_1esxi-python36-stable211_2_of_2
@@ -155,8 +154,7 @@
       - name: github.com/ansible/ansible
         override-checkout: stable-2.11
     vars:
-      ansible_test_split_in: 2
-      ansible_test_do_number: 2
+      ansible_test_integration_targets: vmware_guest vmware_guest_disk_info vmware_guest_instant_clone vmware_guest_network vmware_guest_powerstate vmware_guest_screenshot vmware_guest_tools_wait
 
 
 - job:

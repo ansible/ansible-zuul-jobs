@@ -82,7 +82,7 @@
       - name: vcenter
         label: vmware-vcsa-7.0.2
       - name: esxi1
-        label: esxi-7.0.2
+        label: esxi-6.7.0-with-nested
     groups:
       - name: appliance-ssh
         nodes:

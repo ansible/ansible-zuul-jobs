@@ -712,6 +712,7 @@
     name: ansible-collections-kubernetes-core-units
     check:
       jobs: &ansible-collections-kubernetes-core-units-jobs
+        - build-ansible-collection
         - ansible-test-sanity-docker
         - ansible-test-sanity-docker-stable-2.9
         - ansible-test-sanity-docker-stable-2.10

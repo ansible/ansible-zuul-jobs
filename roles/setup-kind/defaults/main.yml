@@ -1,0 +1,8 @@
+---
+executable_dir: "/tmp/"
+
+kind_release: "v0.11.0"
+kind_path: '{{ executable_dir + "kind" }}'
+
+kubectl_release: "v0.11.0"
+kubectl_path: '{{ executable_dir + "kubectl" }}'

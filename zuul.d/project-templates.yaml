@@ -192,7 +192,7 @@
     check:
       jobs: &ansible-collections-arista-eos-jobs
         - ansible-test-network-integration-eos-httpapi-python27-stable211:
-            voting: false 
+            voting: false
         - ansible-test-network-integration-eos-httpapi-python27-stable29:
             voting: false
         - ansible-test-network-integration-eos-network_cli-python27-stable211-scenario01:

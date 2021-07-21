@@ -191,37 +191,37 @@
     name: ansible-collections-arista-eos
     check:
       jobs: &ansible-collections-arista-eos-jobs
-        - ansible-test-network-integration-eos-httpapi-python27-stable211
+        - ansible-test-network-integration-eos-httpapi-python27-stable211:
             voting: false 
-        - ansible-test-network-integration-eos-httpapi-python27-stable29
+        - ansible-test-network-integration-eos-httpapi-python27-stable29:
             voting: false
-        - ansible-test-network-integration-eos-network_cli-python27-stable211-scenario01
+        - ansible-test-network-integration-eos-network_cli-python27-stable211-scenario01:
             voting: false
-        - ansible-test-network-integration-eos-network_cli-python27-stable211-scenario02
+        - ansible-test-network-integration-eos-network_cli-python27-stable211-scenario02:
             voting: false
-        - ansible-test-network-integration-eos-network_cli-python27-stable29
+        - ansible-test-network-integration-eos-network_cli-python27-stable29:
             voting: false
-        - ansible-test-network-integration-eos-httpapi-python36
+        - ansible-test-network-integration-eos-httpapi-python36:
             voting: false
-        - ansible-test-network-integration-eos-httpapi-python36-stable211
+        - ansible-test-network-integration-eos-httpapi-python36-stable211:
             voting: false
-        - ansible-test-network-integration-eos-httpapi-python36-stable29
+        - ansible-test-network-integration-eos-httpapi-python36-stable29:
             voting: false
-        - ansible-test-network-integration-eos-network_cli-python36
+        - ansible-test-network-integration-eos-network_cli-python36:
             voting: false
-        - ansible-test-network-integration-eos-network_cli-python36-stable211-scenario01
+        - ansible-test-network-integration-eos-network_cli-python36-stable211-scenario01:
             voting: false
-        - ansible-test-network-integration-eos-network_cli-python36-stable211-scenario02
+        - ansible-test-network-integration-eos-network_cli-python36-stable211-scenario02:
             voting: false
-        - ansible-test-network-integration-eos-network_cli-python36-stable29
+        - ansible-test-network-integration-eos-network_cli-python36-stable29:
             voting: false
-        - ansible-test-network-integration-eos-network_cli-libssh-python36
+        - ansible-test-network-integration-eos-network_cli-libssh-python36:
             voting: false
-        - ansible-test-network-integration-eos-network_cli-libssh-python36-stable211-scenario01
+        - ansible-test-network-integration-eos-network_cli-libssh-python36-stable211-scenario01:
             voting: false
-        - ansible-test-network-integration-eos-network_cli-libssh-python36-stable211-scenario02
+        - ansible-test-network-integration-eos-network_cli-libssh-python36-stable211-scenario02:
             voting: false
-        - ansible-test-network-integration-eos-network_cli-libssh-python36-stable29
+        - ansible-test-network-integration-eos-network_cli-libssh-python36-stable29:
             voting: false
         - build-ansible-collection:
             required-projects:

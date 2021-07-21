@@ -8,9 +8,7 @@
     run: playbooks/ansible-network-iosxr-appliance/run.yaml
     host-vars:
       iosxr-7.0.2:
-        ansible_connection: network_cli
         ansible_network_os: iosxr
-        ansible_python_interpreter: python
     required-projects:
       - name: github.com/ansible/ansible-zuul-jobs
     nodeset: iosxr-7.0.2-python36

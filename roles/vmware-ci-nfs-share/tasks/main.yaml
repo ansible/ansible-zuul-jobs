@@ -10,6 +10,14 @@
     - /srv/share/isos
   become: true
 
+- name: Prepare the content-library share
+  file:
+    path: /srv/share/content-library
+    state: directory
+    owner: '{{ vmware_ci_nfs_share_content_library_uid }}'
+    group: '{{ vmware_ci_nfs_share_owner_gid }}'
+  become: true
+
 - name: Download ISO
   get_url:
     url: '{{ item.value.url }}'

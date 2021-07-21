@@ -1,6 +1,7 @@
 ---
 vmware_ci_nfs_share_allowed_ips: []
 vmware_ci_nfs_share_owner_uid: '1000'
+vmware_ci_nfs_share_content_library_uid: '1006'
 vmware_ci_nfs_share_owner_gid: '1000'
 vmware_ci_nfs_share_iso_files:
     fedora.iso:
@@ -9,3 +10,7 @@ vmware_ci_nfs_share_iso_files:
     centos.iso:
         url: https://virt-lightning.org/fedora-open-vm-tools-livecd.iso
         checksum: sha256:23b12a485e726c3a92c7be09003f58ba78ef623de63d9422b8c7327b072fa91a
+    # ISO image built using https://github.com/goneri/build-freebsd-open-vm-tools-iso
+    freebsd13.iso:
+        url: https://virt-lightning.org/freebsd13.iso
+        checksum: sha256:14389af0728a0e6ffd8b7da1467e932fbf4531105475c05cc1d9f2d2ba9f3f86

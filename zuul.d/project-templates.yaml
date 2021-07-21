@@ -73,9 +73,21 @@
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-collections/ansible.utils
+              - name: github.com/ansible-collections/ansible.netcommon
               - name: github.com/ansible-collections/community.aws
               - name: github.com/ansible-collections/community.general
-        - ansible-test-cloud-integration-aws-py36
+        - ansible-test-splitter
+        - ansible-test-cloud-integration-aws-py36_0
+        - ansible-test-cloud-integration-aws-py36_1
+        - ansible-test-cloud-integration-aws-py36_2
+        - ansible-test-cloud-integration-aws-py36_3
+        - ansible-test-cloud-integration-aws-py36_4
+        - ansible-test-cloud-integration-aws-py36_5
+        - ansible-test-cloud-integration-aws-py36_6
+        - ansible-test-cloud-integration-aws-py36_7
+        - ansible-test-cloud-integration-aws-py36_8
+        - ansible-test-cloud-integration-aws-py36_9
+
     gate:
       jobs:
         - ansible-test-sanity-aws-ansible-2.9-python36
@@ -88,9 +100,20 @@
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-collections/ansible.utils
+              - name: github.com/ansible-collections/ansible.netcommon
               - name: github.com/ansible-collections/community.aws
               - name: github.com/ansible-collections/community.general
-        - ansible-test-cloud-integration-aws-py36
+        - ansible-test-splitter
+        - ansible-test-cloud-integration-aws-py36_0
+        - ansible-test-cloud-integration-aws-py36_1
+        - ansible-test-cloud-integration-aws-py36_2
+        - ansible-test-cloud-integration-aws-py36_3
+        - ansible-test-cloud-integration-aws-py36_4
+        - ansible-test-cloud-integration-aws-py36_5
+        - ansible-test-cloud-integration-aws-py36_6
+        - ansible-test-cloud-integration-aws-py36_7
+        - ansible-test-cloud-integration-aws-py36_8
+        - ansible-test-cloud-integration-aws-py36_9
 
 - project-template:
     name: ansible-collections-community-aws
@@ -104,9 +127,20 @@
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-collections/amazon.aws
+              - name: github.com/ansible-collections/ansible.netcommon
               - name: github.com/ansible-collections/ansible.utils
               - name: github.com/ansible-collections/community.general
-        - ansible-test-cloud-integration-aws-py36
+        - ansible-test-splitter
+        - ansible-test-cloud-integration-aws-py36_0
+        - ansible-test-cloud-integration-aws-py36_1
+        - ansible-test-cloud-integration-aws-py36_2
+        - ansible-test-cloud-integration-aws-py36_3
+        - ansible-test-cloud-integration-aws-py36_4
+        - ansible-test-cloud-integration-aws-py36_5
+        - ansible-test-cloud-integration-aws-py36_6
+        - ansible-test-cloud-integration-aws-py36_7
+        - ansible-test-cloud-integration-aws-py36_8
+        - ansible-test-cloud-integration-aws-py36_9
         - ansible-galaxy-importer:
             voting: false
     gate:
@@ -119,9 +153,20 @@
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-collections/amazon.aws
+              - name: github.com/ansible-collections/ansible.netcommon
               - name: github.com/ansible-collections/ansible.utils
               - name: github.com/ansible-collections/community.general
-        - ansible-test-cloud-integration-aws-py36
+        - ansible-test-splitter
+        - ansible-test-cloud-integration-aws-py36_0
+        - ansible-test-cloud-integration-aws-py36_1
+        - ansible-test-cloud-integration-aws-py36_2
+        - ansible-test-cloud-integration-aws-py36_3
+        - ansible-test-cloud-integration-aws-py36_4
+        - ansible-test-cloud-integration-aws-py36_5
+        - ansible-test-cloud-integration-aws-py36_6
+        - ansible-test-cloud-integration-aws-py36_7
+        - ansible-test-cloud-integration-aws-py36_8
+        - ansible-test-cloud-integration-aws-py36_9
         - ansible-galaxy-importer:
             voting: false
 
@@ -379,76 +424,6 @@
     name: ansible-collections-cisco-iosxr
     check:
       jobs:
-        - ansible-test-network-integration-iosxr-netconf-python27-stable211:
-            vars:
-              ansible_test_integration_targets: "iosxr_.*"
-        - ansible-test-network-integration-iosxr-netconf-python27-stable29:
-            vars:
-              ansible_test_integration_targets: "iosxr_.*"
-        - ansible-test-network-integration-iosxr-network_cli-python27-stable211-scenario01:
-            vars:
-              ansible_test_integration_targets: "iosxr_.*"
-        - ansible-test-network-integration-iosxr-network_cli-python27-stable211-scenario02:
-            vars:
-              ansible_test_integration_targets: "iosxr_.*"
-        - ansible-test-network-integration-iosxr-network_cli-python27-stable29-scenario01:
-            vars:
-              ansible_test_integration_targets: "iosxr_.*"
-        - ansible-test-network-integration-iosxr-network_cli-python27-stable29-scenario02:
-            vars:
-              ansible_test_integration_targets: "iosxr_.*"
-        - ansible-test-network-integration-iosxr-netconf-python36:
-            vars:
-              ansible_test_integration_targets: "iosxr_.*"
-        - ansible-test-network-integration-iosxr-netconf-python36-stable211:
-            vars:
-              ansible_test_integration_targets: "iosxr_.*"
-        - ansible-test-network-integration-iosxr-netconf-python36-stable29:
-            vars:
-              ansible_test_integration_targets: "iosxr_.*"
-        - ansible-test-network-integration-iosxr-network_cli-python36-scenario01:
-            vars:
-              ansible_test_integration_targets: "iosxr_.*"
-        - ansible-test-network-integration-iosxr-network_cli-python36-scenario02:
-            vars:
-              ansible_test_integration_targets: "iosxr_.*"
-        - ansible-test-network-integration-iosxr-network_cli-python36-stable211-scenario01:
-            vars:
-              ansible_test_integration_targets: "iosxr_.*"
-        - ansible-test-network-integration-iosxr-network_cli-python36-stable211-scenario02:
-            vars:
-              ansible_test_integration_targets: "iosxr_.*"
-        - ansible-test-network-integration-iosxr-network_cli-python36-stable29-scenario01:
-            vars:
-              ansible_test_integration_targets: "iosxr_.*"
-        - ansible-test-network-integration-iosxr-network_cli-python36-stable29-scenario02:
-            vars:
-              ansible_test_integration_targets: "iosxr_.*"
-            voting: false
-        - ansible-test-network-integration-iosxr-network_cli-libssh-python36-scenario01:
-            vars:
-              ansible_test_integration_targets: "iosxr_.*"
-            voting: false
-        - ansible-test-network-integration-iosxr-network_cli-libssh-python36-scenario02:
-            vars:
-              ansible_test_integration_targets: "iosxr_.*"
-            voting: false
-        - ansible-test-network-integration-iosxr-network_cli-libssh-python36-stable211-scenario01:
-            vars:
-              ansible_test_integration_targets: "iosxr_.*"
-            voting: false
-        - ansible-test-network-integration-iosxr-network_cli-libssh-python36-stable211-scenario02:
-            vars:
-              ansible_test_integration_targets: "iosxr_.*"
-            voting: false
-        - ansible-test-network-integration-iosxr-network_cli-libssh-python36-stable29-scenario01:
-            vars:
-              ansible_test_integration_targets: "iosxr_.*"
-            voting: false
-        - ansible-test-network-integration-iosxr-network_cli-libssh-python36-stable29-scenario02:
-            vars:
-              ansible_test_integration_targets: "iosxr_.*"
-            voting: false
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-collections/ansible.netcommon
@@ -456,51 +431,6 @@
     gate:
       queue: integrated
       jobs:
-        - ansible-test-network-integration-iosxr-netconf-python27-stable211:
-            vars:
-              ansible_test_integration_targets: "iosxr_.*"
-        - ansible-test-network-integration-iosxr-netconf-python27-stable29:
-            vars:
-              ansible_test_integration_targets: "iosxr_.*"
-        - ansible-test-network-integration-iosxr-network_cli-python27-stable211-scenario01:
-            vars:
-              ansible_test_integration_targets: "iosxr_.*"
-        - ansible-test-network-integration-iosxr-network_cli-python27-stable211-scenario02:
-            vars:
-              ansible_test_integration_targets: "iosxr_.*"
-        - ansible-test-network-integration-iosxr-network_cli-python27-stable29-scenario01:
-            vars:
-              ansible_test_integration_targets: "iosxr_.*"
-        - ansible-test-network-integration-iosxr-network_cli-python27-stable29-scenario02:
-            vars:
-              ansible_test_integration_targets: "iosxr_.*"
-        - ansible-test-network-integration-iosxr-netconf-python36:
-            vars:
-              ansible_test_integration_targets: "iosxr_.*"
-        - ansible-test-network-integration-iosxr-netconf-python36-stable211:
-            vars:
-              ansible_test_integration_targets: "iosxr_.*"
-        - ansible-test-network-integration-iosxr-netconf-python36-stable29:
-            vars:
-              ansible_test_integration_targets: "iosxr_.*"
-        - ansible-test-network-integration-iosxr-network_cli-python36-scenario01:
-            vars:
-              ansible_test_integration_targets: "iosxr_.*"
-        - ansible-test-network-integration-iosxr-network_cli-python36-scenario02:
-            vars:
-              ansible_test_integration_targets: "iosxr_.*"
-        - ansible-test-network-integration-iosxr-network_cli-python36-stable211-scenario01:
-            vars:
-              ansible_test_integration_targets: "iosxr_.*"
-        - ansible-test-network-integration-iosxr-network_cli-python36-stable211-scenario02:
-            vars:
-              ansible_test_integration_targets: "iosxr_.*"
-        - ansible-test-network-integration-iosxr-network_cli-python36-stable29-scenario01:
-            vars:
-              ansible_test_integration_targets: "iosxr_.*"
-        - ansible-test-network-integration-iosxr-network_cli-python36-stable29-scenario02:
-            vars:
-              ansible_test_integration_targets: "iosxr_.*"
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-collections/ansible.netcommon
@@ -584,9 +514,12 @@
     name: ansible-collections-community-vmware
     check:
       jobs:
-        - ansible-test-cloud-integration-govcsim-python36_1_of_3
-        - ansible-test-cloud-integration-govcsim-python36_2_of_3
-        - ansible-test-cloud-integration-govcsim-python36_3_of_3
+        - ansible-test-cloud-integration-govcsim-python36_1_of_3:
+            voting: false
+        - ansible-test-cloud-integration-govcsim-python36_2_of_3:
+            voting: false
+        - ansible-test-cloud-integration-govcsim-python36_3_of_3:
+            voting: false
         - ansible-tox-linters
         - build-ansible-collection
         - ansible-test-sanity-docker
@@ -597,15 +530,18 @@
         - ansible-test-units-community-vmware-python36
         - ansible-test-units-community-vmware-python37
         - ansible-test-units-community-vmware-python38
-        - ansible-test-cloud-integration-vcenter7_only-python36-stable210
-        - ansible-test-cloud-integration-vcenter7_1esxi_with_nested-python36-stable210
-        - ansible-test-cloud-integration-vcenter7_1esxi_without_nested-python36-stable210
-        - ansible-test-cloud-integration-vcenter7_2esxi_without_nested-python36-stable210
+        - ansible-test-cloud-integration-vcenter7_only-python36-stable211
+        - ansible-test-cloud-integration-vcenter7_2esxi-python36-stable211
+        - ansible-test-cloud-integration-vcenter7_1esxi-python36-stable211_1_of_2
+        - ansible-test-cloud-integration-vcenter7_1esxi-python36-stable211_2_of_2
     gate:
       jobs:
-        - ansible-test-cloud-integration-govcsim-python36_1_of_3
-        - ansible-test-cloud-integration-govcsim-python36_2_of_3
-        - ansible-test-cloud-integration-govcsim-python36_3_of_3
+        - ansible-test-cloud-integration-govcsim-python36_1_of_3:
+            voting: false
+        - ansible-test-cloud-integration-govcsim-python36_2_of_3:
+            voting: false
+        - ansible-test-cloud-integration-govcsim-python36_3_of_3:
+            voting: false
         - ansible-tox-linters
         - build-ansible-collection
         - ansible-test-sanity-docker
@@ -774,6 +710,19 @@
       jobs: *ansible-collections-juniper-junos-netconf-jobs
 
 - project-template:
+    name: ansible-collections-kubernetes-core-units
+    check:
+      jobs: &ansible-collections-kubernetes-core-units-jobs
+        - build-ansible-collection
+        - ansible-test-sanity-docker
+        - ansible-test-sanity-docker-stable-2.9
+        - ansible-test-sanity-docker-stable-2.10
+        - ansible-test-sanity-docker-stable-2.11
+        - ansible-test-units-kubernetes-core-python37
+    gate:
+      jobs: *ansible-collections-kubernetes-core-units-jobs
+
+- project-template:
     name: ansible-collections-openvswitch-openvswitch-units
     check:
       jobs: &ansible-collections-openvswitch-openvswitch-units-jobs
@@ -912,6 +861,24 @@
       jobs: *ansible-collections-ansible-network-units-jobs
 
 - project-template:
+    name: ansible-collections-ansible-security
+    check:
+      jobs: &ansible-collections-ansible-security-jobs
+        - ansible-changelog-fragment
+        - build-ansible-collection:
+            required-projects:
+              - name: github.com/ansible-collections/ansible.netcommon
+              - name: github.com/ansible-collections/ansible.security
+              - name: github.com/ansible-collections/ansible.utils
+              - name: github.com/ansible-collections/cisco.asa
+              - name: github.com/ansible-collections/ibm.qradar
+              - name: github.com/ansible-collections/splunk.es
+              - name: github.com/ansible-collections/trendmicro.deepsec
+    gate:
+      queue: integrated
+      jobs: *ansible-collections-ansible-security-jobs
+
+- project-template:
     name: ansible-collections-community-yang-units
     check:
       jobs: &ansible-collections-community-yang-units-jobs
@@ -1015,6 +982,8 @@
     name: ansible-collections-security-trendmicro-deepsec-units
     check:
       jobs: &ansible-collections-security-trendmicro-deepsec-jobs
+        - build-ansible-collection
+        - ansible-changelog-fragment
         - ansible-security-integration-trendmicro-deepsec-python27
         - ansible-security-integration-trendmicro-deepsec-python36
         - ansible-security-integration-trendmicro-deepsec-python38
@@ -1133,7 +1102,7 @@
         - ansible-test-network-integration-vyos-python37:
             branches:
               - stable-2.9
-    third-party-check:
+    third-party-check-silent:
       jobs:
         - ansible-test-network-integration-eos-python27:
             branches:

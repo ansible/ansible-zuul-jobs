@@ -20,8 +20,8 @@
 - nodeset:
     name: fedora-latest-1vcpu
     nodes:
-      - name: fedora-32
-        label: fedora-32-1vcpu
+      - name: fedora-34
+        label: fedora-34-1vcpu
 
 - nodeset:
     name: ubuntu-bionic-1vcpu
@@ -51,107 +51,19 @@
 - nodeset:
     name: vmware-govcsim-python36
     nodes:
-      - name: centos-8
-        label: centos-8-1vcpu
+      - name: fedora-34
+        label: fedora-34-1vcpu
     groups:
       - name: controller
         nodes:
-          - centos-8
+          - fedora-34
 
-# vcenter 7.0.0
-- nodeset:
-    name: vmware-vcsa-7.0.0-python36
-    nodes:
-      - name: centos-8
-        label: centos-8-1vcpu
-      - name: vcenter
-        label: vmware-vcsa-7.0.0
-    groups:
-      - name: appliance-ssh
-        nodes:
-          - vcenter
-      - name: controller
-        nodes:
-          - centos-8
-
-- nodeset:
-    name: vmware-vcsa_1esxi-7.0.0-python36-with-nested
-    nodes:
-      - name: centos-8
-        label: centos-8-1vcpu
-      - name: vcenter
-        label: vmware-vcsa-7.0.0
-      - name: esxi1
-        label: esxi-6.7.0-with-nested
-    groups:
-      - name: appliance-ssh
-        nodes:
-          - vcenter
-      - name: appliance
-        nodes:
-          - esxi1
-      - name: esxis
-        nodes:
-          - esxi1
-      - name: controller
-        nodes:
-          - centos-8
-
-- nodeset:
-    name: vmware-vcsa_1esxi-7.0.0-python36-without-nested
-    nodes:
-      - name: centos-8
-        label: centos-8-1vcpu
-      - name: vcenter
-        label: vmware-vcsa-7.0.0
-      - name: esxi1
-        label: esxi-6.7.0-without-nested
-    groups:
-      - name: appliance-ssh
-        nodes:
-          - vcenter
-      - name: appliance
-        nodes:
-          - esxi1
-      - name: esxis
-        nodes:
-          - esxi1
-      - name: controller
-        nodes:
-          - centos-8
-
-- nodeset:
-    name: vmware-vcsa_2esxi-7.0.0-python36-without-nested
-    nodes:
-      - name: centos-8
-        label: centos-8-1vcpu
-      - name: vcenter
-        label: vmware-vcsa-7.0.0
-      - name: esxi1
-        label: esxi-6.7.0-without-nested
-      - name: esxi2
-        label: esxi-6.7.0-without-nested
-    groups:
-      - name: appliance-ssh
-        nodes:
-          - vcenter
-      - name: appliance
-        nodes:
-          - esxi1
-          - esxi2
-      - name: esxis
-        nodes:
-          - esxi1
-          - esxi2
-      - name: controller
-        nodes:
-          - centos-8
 # vcenter 7.0.2
 - nodeset:
     name: vmware-vcsa-7.0.2-python36
     nodes:
-      - name: centos-8
-        label: centos-8-1vcpu
+      - name: fedora-34
+        label: fedora-34-1vcpu
       - name: vcenter
         label: vmware-vcsa-7.0.2
     groups:
@@ -160,40 +72,17 @@
           - vcenter
       - name: controller
         nodes:
-          - centos-8
+          - fedora-34
 
 - nodeset:
-    name: vmware-vcsa_1esxi-7.0.2-python36-with-nested
+    name: vmware-vcsa_1esxi-7.0.2-python36
     nodes:
-      - name: centos-8
-        label: centos-8-1vcpu
+      - name: fedora-34
+        label: fedora-34-1vcpu
       - name: vcenter
         label: vmware-vcsa-7.0.2
       - name: esxi1
-        label: esxi-6.7.0-with-nested
-    groups:
-      - name: appliance-ssh
-        nodes:
-          - vcenter
-      - name: appliance
-        nodes:
-          - esxi1
-      - name: esxis
-        nodes:
-          - esxi1
-      - name: controller
-        nodes:
-          - centos-8
-
-- nodeset:
-    name: vmware-vcsa_1esxi-7.0.2-python36-without-nested
-    nodes:
-      - name: centos-8
-        label: centos-8-1vcpu
-      - name: vcenter
-        label: vmware-vcsa-7.0.2
-      - name: esxi1
-        label: esxi-6.7.0-with-nested
+        label: esxi-6.7.0
     groups:
       - name: appliance-ssh
         nodes:
@@ -206,19 +95,19 @@
           - esxi1
       - name: controller
         nodes:
-          - centos-8
+          - fedora-34
 
 - nodeset:
-    name: vmware-vcsa_2esxi-7.0.2-python36-with-nested
+    name: vmware-vcsa_2esxi-7.0.2-python36
     nodes:
-      - name: centos-8
-        label: centos-8-1vcpu
+      - name: fedora-34
+        label: fedora-34-1vcpu
       - name: vcenter
         label: vmware-vcsa-7.0.2
       - name: esxi1
-        label: esxi-6.7.0-with-nested
+        label: esxi-7.0.2
       - name: esxi2
-        label: esxi-6.7.0-with-nested
+        label: esxi-7.0.2
     groups:
       - name: appliance-ssh
         nodes:
@@ -233,7 +122,7 @@
           - esxi2
       - name: controller
         nodes:
-          - centos-8
+          - fedora-34
 
 # Ansible network appliance nodesets
 - nodeset:
@@ -973,6 +862,16 @@
       - name: controller
         nodes:
           - ubuntu-bionic
+
+- nodeset:
+    name: controller-python36-f34
+    nodes:
+      - name: fedora-34
+        label: fedora-34-1vcpu
+    groups:
+      - name: controller
+        nodes:
+          - fedora-34
 
 # Ansible Security appliance nodesets
 - nodeset:

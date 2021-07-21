@@ -1,0 +1,18 @@
+---
+- copy:
+    src: split_targets.py
+    dest: /tmp/split_targets.py
+    mode: '0700'
+
+- name: Split the workload
+  command: python3 /tmp/split_targets.py "{{ ansible_test_splitter__children_prefix }}" "{{ ansible_test_splitter__targets_to_test|default('') }}"
+  args:
+    chdir: "{{ ansible_test_location }}"
+  register: _result
+- debug: var=_result
+- set_fact:
+    for_zuul_return: '{{ _result.stdout | from_json }}'
+- debug: var=for_zuul_return
+- name: Register the result
+  zuul_return:
+    data: "{{ for_zuul_return.data }}"

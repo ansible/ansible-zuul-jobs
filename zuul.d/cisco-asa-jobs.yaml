@@ -8,9 +8,7 @@
     run: playbooks/ansible-network-asa-appliance/run.yaml
     host-vars:
       asav9-12-3:
-        ansible_connection: network_cli
         ansible_network_os: asa
-        ansible_python_interpreter: python
     required-projects:
       - name: github.com/ansible/ansible-zuul-jobs
     nodeset: asav9-12-3-python36

@@ -1,18 +1,12 @@
 ---
 - hosts: controller
   tasks:
-    - name: Install golang
-      package:
-        name: golang
-      become: true
-    - name: Fetch and build govcsim
-      command: go get -u github.com/vmware/govmomi/vcsim
-    - name: Expse vcsim in a directory from PATH
-      copy:
-        src: ~zuul/go/bin/vcsim
-        dest: /usr/local/bin/vcsim
-        remote_src: true
-        mode: '0755'
+    - name: Fetch govcsim
+      get_url:
+        url: https://github.com/vmware/govmomi/releases/latest/download/vcsim_Linux_x86_64.tar.gz
+        dest: "{{ ansible_user_dir }}"
+    - name: Expose vcsim in a directory from PATH
+      command: "tar xfz {{ ansible_user_dir }}/vcsim_Linux_x86_64.tar.gz -C /usr/local/bin vcsim"
       become: true
     - name: Write the configuration for ansible-test
       import_role:

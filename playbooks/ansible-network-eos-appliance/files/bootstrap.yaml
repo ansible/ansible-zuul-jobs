@@ -23,6 +23,9 @@
 
 - hosts: appliance
   gather_facts: false
+  vars:
+    ansible_password: admin
+    ansible_user: admin
   tasks:
     - name: Remove admin user
       become: true

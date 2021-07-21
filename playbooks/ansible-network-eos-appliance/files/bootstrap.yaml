@@ -19,5 +19,6 @@
           - ip name-server 1.1.1.1
           - username zuul privilege 15 nopassword
           - "username zuul sshkey {{ _ssh_key.split()[0] }} {{ _ssh_key.split()[1] }}"
+          - aaa authentication policy local allow-nopassword-remote-login
         match: none
         save_when: always

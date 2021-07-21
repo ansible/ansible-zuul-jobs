@@ -376,7 +376,7 @@
 - job:
     name: ansible-test-sanity-aws-ansible
     parent: ansible-test-sanity-docker
-    nodeset: controller-python36-f34
+    nodeset: controller-python36
     dependencies:
       - name: build-ansible-collection
         soft: true

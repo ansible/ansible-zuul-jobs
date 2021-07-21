@@ -1,49 +1,24 @@
 ---
 - hosts: all
   tasks:
-    - name: Ensure docker is running
+    - name: Ensure tox
       include_role:
-        name: ensure-docker
+        name: ensure-tox
 
-    - name: Create python virtual env
-      command: python3 -m venv '{{ ansible_test_venv_path }}'
-      args:
-        creates: '{{ ansible_test_venv_path }}'
+    - name: Setup tox role
+      include_role:
+        name: tox
+      vars:
+        tox_envlist: venv
+        tox_extra_args: -vv --notest
+        tox_install_siblings: false
+        zuul_work_dir: "{{ zuul.projects['github.com/ansible-collections/kubernetes.core'].src_dir }}"
 
-    - name: create collection directory
-      ansible.builtin.file:
-        path: '{{ item }}'
-        state: directory
-      with_items:
-        - ~/.ansible/collections/ansible_collections/kubernetes
-        - ~/.ansible/collections/ansible_collections/cloud
-
-    - name: Install collections using symlink
-      ansible.builtin.file:
-        state: link
-        path: '{{ item.dest }}'
-        src: '{{ ansible_user_dir }}/{{ zuul.projects[item.src].src_dir }}'
-      with_items:
-        - src: github.com/ansible-collections/kubernetes.core
-          dest: ~/.ansible/collections/ansible_collections/kubernetes/core
-        - src: github.com/ansible-collections/cloud.common
-          dest: ~/.ansible/collections/ansible_collections/cloud/common
-
-    - name: Install ansible into virtualenv
-      shell: "source {{ ansible_test_venv_path }}/bin/activate; pip install {{ ansible_user_dir }}/{{ zuul.projects['github.com/ansible/ansible'].src_dir }}"
-      environment:
-        ANSIBLE_SKIP_CONFLICT_CHECK: 1
-
-    - name: Install molecule and collection dependencies
-      pip:
-        name:
-          - "molecule<3.3.0"
-          - yamllint
-          - kubernetes
-          - flake8
-          - jsonpatch
-        virtualenv: '{{ ansible_test_venv_path }}'
-        virtualenv_python: python3
+    - name: Fetch and install the artifacts
+      import_role:
+        name: deploy-artifacts
+      vars:
+        deploy_artifacts_venv_path: "{{ ansible_user_dir }}/{{ zuul.projects['github.com/ansible-collections/kubernetes.core'].src_dir }}/.tox/venv"
 
     - name: Install kubernetes cluster
       include_role:

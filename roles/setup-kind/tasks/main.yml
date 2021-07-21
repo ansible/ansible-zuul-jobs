@@ -1,13 +1,13 @@
 ---
 - name: Install Kind
   ansible.builtin.get_url:
-    url: '{{ "https://kind.sigs.k8s.io/dl/" + kind_release + "/kind-linux-amd64" }}'
+    url: "https://kind.sigs.k8s.io/dl/{{ kind_release }}/kind-linux-amd64"
     dest: '{{ kind_path }}'
   become: true
 
 - name: Install Kubectl
   ansible.builtin.get_url:
-    url: '{{ "https://dl.k8s.io/release/" + kubectl_release + "/bin/linux/amd64/kubectl" }}'
+    url: "https://dl.k8s.io/release/{{ kubectl_release }}/bin/linux/amd64/kubectl"
     dest: '{{ kubectl_path }}'
   become: true
 

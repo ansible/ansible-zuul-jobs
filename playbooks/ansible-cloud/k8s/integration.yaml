@@ -1,0 +1,9 @@
+---
+- hosts: all
+  vars:
+    ansible_zuul_src_dir: "{{ ansible_user_dir }}/{{ zuul.projects['github.com/ansible/ansible-zuul-jobs'].src_dir }}"
+  tasks:
+    - name: Integration tests
+      shell: "source {{ ansible_test_venv_path }}/bin/activate; make test-integration"
+      args:
+        chdir: ~/.ansible/collections/ansible_collections/kubernetes/core

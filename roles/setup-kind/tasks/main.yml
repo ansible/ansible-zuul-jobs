@@ -1,0 +1,24 @@
+---
+- name: Install Kind
+  ansible.builtin.get_url:
+    url: '{{ "https://kind.sigs.k8s.io/dl/" + kind_release + "/kind-linux-amd64" }}'
+    dest: '{{ kind_path }}'
+  become: true
+
+- name: Install Kubectl
+  ansible.builtin.get_url:
+    url: '{{ "https://dl.k8s.io/release/" + kubectl_release + "/bin/linux/amd64/kubectl" }}'
+    dest: '{{ kubectl_path }}'
+  become: true
+
+- name: Make Kind as executable
+  ansible.builtin.file:
+    path: '{{ item }}'
+    mode: '0755'
+  become: true
+  with_items:
+    - "{{ kind_path }}"
+    - "{{ kubectl_path }}"
+
+- name: Create cluster
+  shell: "{{ kind_path }} create cluster"

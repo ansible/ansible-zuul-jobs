@@ -1,38 +1,51 @@
 ---
 # ansible/workshop jobs
 #
+# NOTE(pabelanger): Due to ratelimit issues from AWS only run two
+# jobs at a time.  This likely can be removed once workshops jobs
+# are refactored a little.
+- semaphore:
+    name: workshops-tox-integration-jobs
+    max: 2
+
 - job:
     name: workshops-tox-integration-f5
     parent: ansible-workshops-tox-integration
     vars:
       workshop_type: f5
+    semaphore: workshops-tox-integration-jobs
 
 - job:
     name: workshops-tox-integration-networking
     parent: ansible-workshops-tox-integration
     vars:
       workshop_type: networking
+    semaphore: workshops-tox-integration-jobs
 
 - job:
     name: workshops-tox-integration-rhel
     parent: ansible-workshops-tox-integration
     vars:
       workshop_type: rhel
+    semaphore: workshops-tox-integration-jobs
 
 - job:
     name: workshops-tox-integration-security
     parent: ansible-workshops-tox-integration
     vars:
       workshop_type: security
+    semaphore: workshops-tox-integration-jobs
 
 - job:
     name: workshops-tox-integration-windows
     parent: ansible-workshops-tox-integration
     vars:
       workshop_type: windows
+    semaphore: workshops-tox-integration-jobs
 
 - job:
     name: workshops-tox-integration-smart-mgmt
     parent: ansible-workshops-tox-integration
     vars:
       workshop_type: smart_mgmt
+    semaphore: workshops-tox-integration-jobs

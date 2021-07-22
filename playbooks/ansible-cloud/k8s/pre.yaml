@@ -9,13 +9,12 @@
       include_role:
         name: ensure-docker
 
-    # tox -e sanity -vv -- 3.7
     - name: Setup tox role
       include_role:
         name: tox
       vars:
-        tox_envlist: sanity
-        tox_extra_args: 3.7 -vv
+        tox_envlist: linters
+        tox_extra_args: -vv
         tox_install_siblings: false
         zuul_work_dir: "{{ zuul.projects['github.com/ansible-collections/kubernetes.core'].src_dir }}"
 

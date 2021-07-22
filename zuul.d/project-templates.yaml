@@ -76,6 +76,17 @@
               - name: github.com/ansible-collections/ansible.netcommon
               - name: github.com/ansible-collections/community.aws
               - name: github.com/ansible-collections/community.general
+        - ansible-test-splitter
+        - ansible-test-cloud-integration-aws-py36_0
+        - ansible-test-cloud-integration-aws-py36_1
+        - ansible-test-cloud-integration-aws-py36_2
+        - ansible-test-cloud-integration-aws-py36_3
+        - ansible-test-cloud-integration-aws-py36_4
+        - ansible-test-cloud-integration-aws-py36_5
+        - ansible-test-cloud-integration-aws-py36_6
+        - ansible-test-cloud-integration-aws-py36_7
+        - ansible-test-cloud-integration-aws-py36_8
+        - ansible-test-cloud-integration-aws-py36_9
 
     gate:
       jobs:
@@ -92,6 +103,17 @@
               - name: github.com/ansible-collections/ansible.netcommon
               - name: github.com/ansible-collections/community.aws
               - name: github.com/ansible-collections/community.general
+        - ansible-test-splitter
+        - ansible-test-cloud-integration-aws-py36_0
+        - ansible-test-cloud-integration-aws-py36_1
+        - ansible-test-cloud-integration-aws-py36_2
+        - ansible-test-cloud-integration-aws-py36_3
+        - ansible-test-cloud-integration-aws-py36_4
+        - ansible-test-cloud-integration-aws-py36_5
+        - ansible-test-cloud-integration-aws-py36_6
+        - ansible-test-cloud-integration-aws-py36_7
+        - ansible-test-cloud-integration-aws-py36_8
+        - ansible-test-cloud-integration-aws-py36_9
 
 - project-template:
     name: ansible-collections-community-aws

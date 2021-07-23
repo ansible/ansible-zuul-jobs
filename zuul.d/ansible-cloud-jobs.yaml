@@ -492,7 +492,7 @@
       - name: github.com/ansible/ansible
       - name: github.com/ansible-collections/kubernetes.core
     timeout: 5400
-    nodeset: centos-7-1vcpu
+    nodeset: controller-python36
     vars:
       ansible_kubernetes_cluster_required: false
       ansible_tox_envlist: linters

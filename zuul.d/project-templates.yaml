@@ -709,7 +709,7 @@
       jobs: *ansible-collections-juniper-junos-netconf-jobs
 
 - project-template:
-    name: ansible-collections-kubernetes-core
+    name: ansible-collections-kubernetes-core-units
     check:
       jobs: &ansible-collections-kubernetes-core-units-jobs
         - build-ansible-collection
@@ -718,8 +718,8 @@
         - ansible-test-sanity-docker-stable-2.10
         - ansible-test-sanity-docker-stable-2.11
         - ansible-test-units-kubernetes-core-python37
-        # - ansible-test-integration-kubernetes-core
-        # - ansible-test-molecule-kubernetes-core
+        - ansible-test-integration-kubernetes-core
+        - ansible-test-molecule-kubernetes-core
         - ansible-test-lint-kubernetes-core
     gate:
       jobs: *ansible-collections-kubernetes-core-units-jobs

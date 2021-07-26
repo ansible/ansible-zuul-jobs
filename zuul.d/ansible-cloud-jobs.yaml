@@ -458,7 +458,7 @@
     nodeset: ubuntu-bionic-4vcpu
     vars:
       ansible_tox_envlist: integration
-      tox_extra_args: ansible-test integration --docker -v --color --retry-on-error --python 3.6 --continue-on-error --diff --coverage
+      ansible_tox_extra_args: 3.6
 
 - job:
     name: ansible-test-molecule-kubernetes-core

@@ -1,0 +1,10 @@
+---
+- hosts: all
+  tasks:
+    - name: Ensure cloud.common directory exists
+      stat:
+        path: ~/.ansible/collections/ansible_collections/cloud/common
+      register: result_stat
+
+    - debug:
+        msg: "{{ result_stat }}"

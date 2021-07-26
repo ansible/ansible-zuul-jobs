@@ -15,13 +15,13 @@
         _virtualenv_options: "--python python{{ ansible_test_python }}"
 
     - name: Create virtualenv for ansible-test
-      shell: "virtualenv {{ _virtualenv_options }} ~/venv"
+      shell: "virtualenv {{ _virtualenv_options }} {{ ansible_test_venv_path }}"
 
     - name: Install selinux into virtualenv
-      shell: ~/venv/bin/pip install selinux "setuptools<50.0.0"
+      shell: '{{ ansible_test_venv_path }}/bin/pip install selinux "setuptools<50.0.0"'
 
     - name: Upgrade pip
-      shell: ~/venv/bin/pip install --upgrade pip
+      shell: "{{ ansible_test_venv_path }}/bin/pip install --upgrade pip"
 
     - name: Install SELinux Python bindings using yum
       yum:
@@ -32,7 +32,7 @@
     - name: Install ansible into virtualenv
       environment:
         ANSIBLE_SKIP_CONFLICT_CHECK: 1
-      shell: "~/venv/bin/pip install {{ ansible_user_dir }}/{{ zuul.projects['github.com/ansible/ansible'].src_dir }} 'jinja2<3.0.0'"
+      shell: "{{ ansible_test_venv_path }}/bin/pip install {{ ansible_user_dir }}/{{ zuul.projects['github.com/ansible/ansible'].src_dir }} 'jinja2<3.0.0'"
 
     - name: Fetch and install the artifacts
       import_role:

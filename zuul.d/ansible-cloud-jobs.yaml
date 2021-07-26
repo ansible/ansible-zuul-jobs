@@ -451,18 +451,14 @@
       - name: build-ansible-collection
     pre-run:
       - playbooks/ansible-cloud/k8s/pre.yaml
-    run: playbooks/ansible-cloud/k8s/run.yaml
+    run: playbooks/ansible-cloud/k8s/tox.yaml
     required-projects:
-      - name: github.com/ansible/ansible
       - name: github.com/ansible-collections/kubernetes.core
     timeout: 5400
-    nodeset: centos-7-4vcpu
+    nodeset: ubuntu-bionic-4vcpu
     vars:
-      ansible_collections_repo: github.com/ansible-collections/kubernetes.core
-      ansible_test_python: 3.6
-      ansible_test_command: integration
-      ansible_test_collections: true
-      ansible_test_venv_path: "~/venv"
+      ansible_tox_envlist: integration
+      tox_extra_args: ansible-test integration --docker -v --color --retry-on-error --python 3.6 --continue-on-error --diff --coverage
 
 - job:
     name: ansible-test-molecule-kubernetes-core

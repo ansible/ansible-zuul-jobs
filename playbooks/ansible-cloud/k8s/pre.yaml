@@ -19,6 +19,8 @@
         name: libselinux-python3
         state: present
       become: true
+      when:
+        - ansible_os_family == "RedHat"
 
     - name: Install Kubernetes cluster
       include_role:

@@ -12,4 +12,4 @@
         tox_envlist: "{{ ansible_tox_envlist }}"
         tox_extra_args: "{{ ansible_tox_extra_args | default('-vv') }}"
         tox_install_siblings: false
-        zuul_work_dir: "{{ zuul.projects['github.com/ansible-collections/kubernetes.core'].src_dir }}"
+        zuul_work_dir: "{{ ansible_tox_zuul_work_dir | default(zuul.projects['github.com/ansible-collections/kubernetes.core'].src_dir) }}"

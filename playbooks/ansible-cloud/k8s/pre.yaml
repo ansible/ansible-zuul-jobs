@@ -22,8 +22,14 @@
       when:
         - ansible_os_family == "RedHat"
 
+    - name: Fetch and install the artifacts
+      import_role:
+        name: deploy-artifacts
+      when:
+        - ansible_test_kubernetes_with_cluster | default(True)
+
     - name: Install Kubernetes cluster
       include_role:
         name: setup-kind
       when:
-        - ansible_kubernetes_cluster_required | default(True)
+        - ansible_test_kubernetes_with_cluster | default(True)

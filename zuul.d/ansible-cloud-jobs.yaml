@@ -459,6 +459,7 @@
     vars:
       ansible_tox_envlist: integration
       ansible_tox_extra_args: 3.6
+      ansible_tox_zuul_work_dir: "~/.ansible/collections/ansible_collections/kubernetes/core"
 
 - job:
     name: ansible-test-molecule-kubernetes-core
@@ -473,11 +474,10 @@
     timeout: 5400
     nodeset: centos-7-4vcpu
     vars:
-      ansible_collections_repo: github.com/ansible-collections/kubernetes.core
+      ansible_tox_envlist: molecule
       ansible_test_python: 3.6
-      ansible_test_command: integration
-      ansible_test_collections: true
-      ansible_test_venv_path: "~/venv"
+      ansible_test_command: molecule
+      ansible_tox_zuul_work_dir: "~/.ansible/collections/ansible_collections/kubernetes/core"
 
 - job:
     name: ansible-test-lint-kubernetes-core
@@ -490,5 +490,5 @@
     timeout: 5400
     nodeset: controller-python36
     vars:
-      ansible_kubernetes_cluster_required: false
+      ansible_test_kubernetes_with_cluster: false
       ansible_tox_envlist: linters

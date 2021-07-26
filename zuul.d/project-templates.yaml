@@ -1606,3 +1606,19 @@
     unlabel-on-push:
       jobs:
         - noop
+- project-template:
+    name: ansible-collections-ansible-network-resource_manager-cisco-ios
+    check:
+      jobs: &ansible-collections-ansible-network-cisco-ios-jobs
+        - ansible-test-network-integration-ansible-network-resource_manager-ios-python36:
+            vars:
+              ansible_test_collections: true
+        - build-ansible-collection:
+            required-projects:
+              - name: github.com/ansible-collections/ansible.network
+              - name: github.com/ansible-collections/cisco.ios
+              - name: github.com/ansible-collections/ansible.netcommon
+              - name: github.com/ansible-collections/ansible.utils
+    gate:
+      queue: integrated
+      jobs: *ansible-collections-ansible-network-cisco-ios-jobs

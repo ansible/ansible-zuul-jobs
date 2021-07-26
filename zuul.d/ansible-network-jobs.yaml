@@ -1,0 +1,9 @@
+---
+# ansible-collections/ansible.network.resource_manager jobs
+
+- job:
+    name: ansible-test-network-integration-ansible-network-resource_manager-ios-python36
+    parent: ansible-test-network-integration-ios-python36
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/ansible.network
+      ansible_test_integration_targets: ""

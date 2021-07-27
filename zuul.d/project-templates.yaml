@@ -720,6 +720,7 @@
         - ansible-test-sanity-docker-stable-2.11
         - ansible-test-units-kubernetes-core-python37
         - ansible-test-integration-kubernetes-core
+        - ansible-test-molecule-kubernetes-core
     gate:
       jobs: *ansible-collections-kubernetes-core-units-jobs
 

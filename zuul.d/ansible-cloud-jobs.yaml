@@ -442,9 +442,8 @@
       - name: build-ansible-collection
     pre-run:
       - playbooks/ansible-cloud/k8s/pre.yaml
-      - playbooks/ansible-cloud/common/pre.yaml
     run:
-      - playbooks/ansible-cloud/k8s/run.yaml
+      - playbooks/ansible-cloud/k8s/molecule.yaml
     required-projects:
       - name: github.com/ansible/ansible
         override-checkout: stable-2.9

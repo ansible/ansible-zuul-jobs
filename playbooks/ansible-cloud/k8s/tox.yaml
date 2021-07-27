@@ -1,0 +1,23 @@
+---
+- hosts: all
+  tasks:
+    - name: Setup ensure-tox role
+      include_role:
+        name: ensure-tox
+
+    - name: Install SELinux Python bindings using yum
+      yum:
+        name: libselinux-python3
+        state: present
+      become: true
+      when:
+        - ansible_os_family == "RedHat"
+
+    - name: Run test using tox
+      include_role:
+        name: tox
+      vars:
+        tox_envlist: "{{ ansible_tox_envlist }}"
+        tox_extra_args: "{{ ansible_tox_extra_args | default('-vv') }}"
+        tox_install_siblings: false
+        zuul_work_dir: "{{ ansible_tox_zuul_work_dir | default(zuul.projects['github.com/ansible-collections/kubernetes.core'].src_dir) }}"

@@ -63,7 +63,7 @@
     name: ansible-collections-amazon-aws
     check:
       queue: integrated-aws
-      jobs: &ansile-collections-amazon-aws-jobs
+      jobs: &ansible-collections-amazon-aws-jobs
         - ansible-test-sanity-aws-ansible-python36
         - ansible-test-sanity-aws-ansible-2.9-python36
         - ansible-test-sanity-aws-ansible-2.11-python36
@@ -74,7 +74,9 @@
               - name: github.com/ansible-collections/ansible.netcommon
               - name: github.com/ansible-collections/community.aws
               - name: github.com/ansible-collections/community.general
-        - ansible-test-splitter
+        - ansible-test-splitter:
+            vars:
+              ansible_test_splitter__test_changed: true
         - ansible-test-cloud-integration-aws-py36_0
         - ansible-test-cloud-integration-aws-py36_1
         - ansible-test-cloud-integration-aws-py36_2
@@ -83,13 +85,13 @@
         - ansible-test-cloud-integration-aws-py36_5
     gate:
       queue: integrated-aws
-      jobs: *ansile-collections-amazon-aws-jobs
+      jobs: *ansible-collections-amazon-aws-jobs
 
 - project-template:
     name: ansible-collections-community-aws
     check:
       queue: integrated-aws
-      jobs: &ansile-collections-community-aws-jobs
+      jobs: &ansible-collections-community-aws-jobs
         - ansible-test-sanity-docker
         - ansible-test-sanity-docker-stable-2.9
         - ansible-test-sanity-docker-stable-2.10
@@ -101,7 +103,9 @@
               - name: github.com/ansible-collections/ansible.netcommon
               - name: github.com/ansible-collections/ansible.utils
               - name: github.com/ansible-collections/community.general
-        - ansible-test-splitter
+        - ansible-test-splitter:
+            vars:
+              ansible_test_splitter__test_changed: true
         - ansible-test-cloud-integration-aws-py36_0
         - ansible-test-cloud-integration-aws-py36_1
         - ansible-test-cloud-integration-aws-py36_2
@@ -112,7 +116,7 @@
             voting: false
     gate:
       queue: integrated-aws
-      jobs: *ansile-collections-community-aws-jobs
+      jobs: *ansible-collections-community-aws-jobs
 
 - project-template:
     name: ansible-collections-arista-eos-units

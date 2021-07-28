@@ -3,15 +3,16 @@
 from pathlib import PosixPath
 import sys
 import json
+import subprocess
 
 job_prefix = sys.argv[1]
+print(sys.argv[2])
 if len(sys.argv) == 3:
     targets_from_cli = sys.argv[2].split(" ")
 else:
     targets_from_cli = []
 # NOTE(pabelanger): Hardcode this to 6 because that is the semaphore in zuul.
 jobs = [f"{job_prefix}{i}" for i in range(6)]
-total_jobs = 10
 slow_targets = []
 regular_targets = []
 
@@ -43,7 +44,6 @@ for x in range(remaining_jobs):
     batch = regular_targets[x::remaining_jobs]
     if batch:
         batches.append(batch)
-
 
 result = {
     "data": {

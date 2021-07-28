@@ -4,6 +4,10 @@
     dest: /tmp/split_targets.py
     mode: '0700'
 
+- name: sigh
+  debug:
+    msg: "{{ _result|default('') }}"
+
 - name: Split the workload
   command: python3 /tmp/split_targets.py "{{ ansible_test_splitter__children_prefix }}" "{{ ansible_test_splitter__targets_to_test|default('') }}"
   args:

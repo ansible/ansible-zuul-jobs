@@ -1,8 +1,12 @@
 ---
 - hosts: all
   tasks:
+    - name: You are here
+      debug:
+        msg: '{{ ansible_test_splitter__test_changed }}'
+
     - name: Run ansible-test-splitter
-      import_role:
+      include_role:
         name: ansible-test-splitter
       vars:
         ansible_test_test_command: "{{ ansible_test_command }}"

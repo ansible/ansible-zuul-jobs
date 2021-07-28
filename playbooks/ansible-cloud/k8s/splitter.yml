@@ -1,0 +1,6 @@
+---
+- hosts: controller
+  tasks:
+    - name: Run molecule-test-splitter
+      import_role:
+        name: molecule-test-splitter

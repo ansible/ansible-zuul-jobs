@@ -1,9 +1,30 @@
 ---
 - hosts: all
-  vars:
-    ansible_zuul_src_dir: "{{ ansible_user_dir }}/{{ zuul.projects['github.com/ansible/ansible-zuul-jobs'].src_dir }}"
   tasks:
-    - name: Test using Molecule
-      shell: "source {{ ansible_test_venv_path }}/bin/activate; make test-molecule"
-      args:
-        chdir: ~/.ansible/collections/ansible_collections/kubernetes/core
+    - name: Ensure Kubernetes cluster
+      include_role:
+        name: setup-kind
+
+    - set_fact:
+        virtualenv_path: "~/venv"
+
+    - name: Create virtualenv used to install collection
+      shell: "virtualenv {{ virtualenv_path }}"
+
+    - name: Upgrade pip
+      shell: "{{ virtualenv_path }}/bin/pip install --upgrade pip"
+
+    - name: Install Ansible into virtualenv
+      environment:
+        ANSIBLE_SKIP_CONFLICT_CHECK: 1
+      shell: "{{ virtualenv_path }}/bin/pip install ansible 'jinja2<3.0.0'"
+
+    - name: Fetch and install the artifacts
+      import_role:
+        name: deploy-artifacts
+
+    - name: Run molecule tests using tox
+      include_role:
+        name: tox
+      vars:
+        tox_install_siblings: false

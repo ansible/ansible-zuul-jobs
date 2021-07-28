@@ -506,6 +506,8 @@
             required-projects:
               - name: github.com/ansible-collections/community.vmware
               - name: github.com/ansible-collections/vmware.vmware_rest
+              - name: github.com/ansible-collections/kubernetes.core
+        - ansible-test-molecule-kubernetes-core-cloud-common
     gate:
       jobs: *ansible-collections-cloud-common-jobs
 
@@ -711,7 +713,7 @@
 - project-template:
     name: ansible-collections-kubernetes-core-units
     check:
-      jobs: &ansible-collections-kubernetes-core-units-jobs
+      jobs:
         - build-ansible-collection
         - ansible-test-sanity-docker
         - ansible-test-sanity-docker-stable-2.9
@@ -719,10 +721,51 @@
         - ansible-test-sanity-docker-stable-2.11
         - ansible-test-units-kubernetes-core-python37
         - ansible-test-integration-kubernetes-core
-        - ansible-test-molecule-kubernetes-core
         - ansible-tox-linters
+        - molecule-test-splitter
+        - ansible-test-molecule-kubernetes-core-29_0
+        - ansible-test-molecule-kubernetes-core-29_1
+        - ansible-test-molecule-kubernetes-core-29_2
+        - ansible-test-molecule-kubernetes-core-29_3
+        - ansible-test-molecule-kubernetes-core-29_4
+        - ansible-test-molecule-kubernetes-core-210_0
+        - ansible-test-molecule-kubernetes-core-210_1
+        - ansible-test-molecule-kubernetes-core-210_2
+        - ansible-test-molecule-kubernetes-core-210_3
+        - ansible-test-molecule-kubernetes-core-210_4
+        - ansible-test-molecule-kubernetes-core-devel_0
+        - ansible-test-molecule-kubernetes-core-devel_1
+        - ansible-test-molecule-kubernetes-core-devel_2
+        - ansible-test-molecule-kubernetes-core-devel_3
+        - ansible-test-molecule-kubernetes-core-devel_4
     gate:
-      jobs: *ansible-collections-kubernetes-core-units-jobs
+      jobs:
+        - build-ansible-collection
+        - ansible-test-sanity-docker
+        - ansible-test-sanity-docker-stable-2.9
+        - ansible-test-sanity-docker-stable-2.10
+        - ansible-test-sanity-docker-stable-2.11
+        - ansible-test-units-kubernetes-core-python37
+        - ansible-test-integration-kubernetes-core
+        - ansible-tox-linters
+        - molecule-test-splitter:
+            vars:
+              molecule_test_splitter__test_changed: false
+        - ansible-test-molecule-kubernetes-core-29_0
+        - ansible-test-molecule-kubernetes-core-29_1
+        - ansible-test-molecule-kubernetes-core-29_2
+        - ansible-test-molecule-kubernetes-core-29_3
+        - ansible-test-molecule-kubernetes-core-29_4
+        - ansible-test-molecule-kubernetes-core-210_0
+        - ansible-test-molecule-kubernetes-core-210_1
+        - ansible-test-molecule-kubernetes-core-210_2
+        - ansible-test-molecule-kubernetes-core-210_3
+        - ansible-test-molecule-kubernetes-core-210_4
+        - ansible-test-molecule-kubernetes-core-devel_0
+        - ansible-test-molecule-kubernetes-core-devel_1
+        - ansible-test-molecule-kubernetes-core-devel_2
+        - ansible-test-molecule-kubernetes-core-devel_3
+        - ansible-test-molecule-kubernetes-core-devel_4
 
 - project-template:
     name: ansible-collections-openvswitch-openvswitch-units

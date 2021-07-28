@@ -1,0 +1,4 @@
+---
+molecule_test_splitter__venv: "{{ ansible_user_dir }}/molecule_venv"
+molecule_test_splitter__test_changed: false
+molecule_test_splitter__job_prefix: please_adjust_this

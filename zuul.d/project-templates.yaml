@@ -506,6 +506,7 @@
             required-projects:
               - name: github.com/ansible-collections/community.vmware
               - name: github.com/ansible-collections/vmware.vmware_rest
+              - name: github.com/ansible-collections/kubernetes.core
     gate:
       jobs: *ansible-collections-cloud-common-jobs
 
@@ -718,9 +719,8 @@
         - ansible-test-sanity-docker-stable-2.10
         - ansible-test-sanity-docker-stable-2.11
         - ansible-test-units-kubernetes-core-python37
-        - ansible-test-integration-kubernetes-core
-        - ansible-test-molecule-kubernetes-core
         - ansible-tox-linters
+        - ansible-test-molecule-kubernetes-core
     gate:
       jobs: *ansible-collections-kubernetes-core-units-jobs
 

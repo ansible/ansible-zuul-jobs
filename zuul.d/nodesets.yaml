@@ -24,6 +24,12 @@
         label: centos-8-stream-1vcpu
 
 - nodeset:
+    name: centos-8-stream-2vcpu
+    nodes:
+      - name: centos-8-stream
+        label: centos-8-stream-2vcpu
+
+- nodeset:
     name: fedora-latest-1vcpu
     nodes:
       - name: fedora-34
@@ -1011,3 +1017,19 @@
         nodes:
           - Trendmicro-DeepSecurity-20.0.344
           - ubuntu-bionic
+
+# Ansible Kubernetes appliance nodesets
+- nodeset:
+    name: kind-centos
+    nodes:
+      - name: fedora-34
+        label: fedora-34-1vcpu
+      - name: kubernetes
+        label: ubuntu-bionic-2vcpu
+    groups:
+      - name: appliance-ssh
+        nodes:
+          - kubernetes
+      - name: controller
+        nodes:
+          - fedora-34

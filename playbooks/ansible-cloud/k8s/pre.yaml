@@ -1,14 +1,77 @@
 ---
-- hosts: all
+- hosts: appliance-ssh
+  gather_facts: false
+  tasks:
+    - name: Run ensure-docker role
+      import_role:
+        name: ensure-docker
+
+    - name: Install Kubernetes cluster
+      import_role:
+        name: setup-kind
+      vars:
+        kind_host_public_ip: "{{ hostvars['kubernetes']['nodepool']['interface_ip']}}"
+
+    - set_fact:
+        k8sadmin: "k8s-cluster-admin"
+        k8sadmin_namespace: "kube-system"
+        k8sadmin_view: "k8s-cluster-view"
+        k8sadmin_secret_reader: "k8s-secret-reader"
+
+    - name: create service account
+      command: "kubectl create serviceaccount {{ k8sadmin }} -n {{ k8sadmin_namespace }}"
+      become: true
+
+    - name: cluster role binding (cluster admin)
+      command: "kubectl create clusterrolebinding {{ k8sadmin }} --clusterrole=cluster-admin --serviceaccount={{ k8sadmin_namespace }}:{{ k8sadmin }}"
+      become: true
+
+    - name: cluster role binding (view)
+      command: "kubectl create clusterrolebinding {{ k8sadmin_view }} --clusterrole view --user {{ k8sadmin }}"
+      become: true
+
+    - name: cluster role secreat reader
+      command: "kubectl create clusterrolebinding {{ k8sadmin_secret_reader }} --clusterrole secret-reader --user {{ k8sadmin }}"
+      become: true
+
+    - name: Read service account details
+      command: "kubectl -n {{ k8sadmin_namespace }} get serviceaccount/{{ k8sadmin }} -o jsonpath='{.secrets[0].name}'"
+      become: true
+      register: _result
+
+    - name: Get Api token for admin service account
+      command: "kubectl -n {{ k8sadmin_namespace }} get secret {{ _result.stdout }} -o jsonpath='{.data.token}'"
+      become: true
+      register: _result
+
+    - name: define api key
+      set_fact:
+        k8s_api_token: "{{ _result.stdout | b64decode }}"
+      no_log: true
+
+    - debug: var=k8s_api_token
+
+    - name: copy api key into controller
+      copy:
+        dest: /tmp/kubeconfig_api.token
+        content: "{{ k8s_api_token }}"
+
+    - name: Fetch api token on local host
+      ansible.builtin.fetch:
+        src: /tmp/kubeconfig_api.token
+        dest: /tmp/
+        flat: true
+
+- hosts: controller
   tasks:
     - name: Ensure controller directory exists
       file:
         path: "{{ ansible_user_dir }}/zuul-output/logs/controller"
         state: directory
 
-    - name: Run ensure-docker role
+    - name: Ensure tox is present
       include_role:
-        name: ensure-docker
+        name: ensure-tox
 
     - name: Setup base virtualenv_options
       set_fact:
@@ -27,25 +90,10 @@
       become: true
 
     - name: Install Ansible into virtualenv
+      shell: "{{ ansible_test_venv_path }}/bin/pip install {{ ansible_user_dir }}/{{ zuul.projects['github.com/ansible/ansible'].src_dir }} 'jinja2<3.0.0'"
       environment:
         ANSIBLE_SKIP_CONFLICT_CHECK: 1
-      shell: "{{ ansible_test_venv_path }}/bin/pip install {{ ansible_user_dir }}/{{ zuul.projects['github.com/ansible/ansible'].src_dir }} 'jinja2<3.0.0'"
 
     - name: Fetch and install the artifacts
       import_role:
         name: deploy-artifacts
-
-    - name: Install molecule and collection dependencies
-      pip:
-        name:
-          - "molecule<3.3.0"
-          - yamllint
-          - kubernetes
-          - flake8
-          - jsonpatch
-        virtualenv: '{{ ansible_test_venv_path }}'
-        virtualenv_python: python3
-
-    - name: Install Kubernetes cluster
-      include_role:
-        name: setup-kind

@@ -1,0 +1,52 @@
+---
+- hosts: controller
+  tasks:
+    - name: Copy api token from localhost
+      copy:
+        src: /tmp/kubeconfig_api.token
+        dest: /tmp/
+        flat: true
+
+    - set_fact:
+        kubectl_executable: "/tmp/kubectl"
+        kubectl_release: "{{ ansible_kubectl_release | default('v1.18.0') }}"
+        kubeconfig_api_token: "{{ lookup('file', '/tmp/kubeconfig_api.token') }}"
+        kubernetes_host_public_ip: "{{ hostvars['kubernetes']['nodepool']['interface_ip']}}"
+
+    - name: Configure access to kubernetes cluster
+      block:
+        - name: Install Kubectl
+          ansible.builtin.get_url:
+            url: "https://dl.k8s.io/release/{{ kubectl_release }}/bin/linux/amd64/kubectl"
+            dest: '{{ kubectl_executable }}'
+
+        - name: Make Kubectl as executable
+          ansible.builtin.file:
+            path: '{{ kubectl_executable }}'
+            mode: '0755'
+
+        - name: Set cluster
+          command: "{{ kubectl_executable }} config set-cluster kind --server={{ kind_host_public_ip }} --insecure-skip-tls-verify"
+
+        - name: Add the service account into kubeconfig
+          command: "{{ kubectl_executable }} config set-credentials {{ k8sadmin }} --token={{ lookup('file', '/tmp/api_token.txt' )}}"
+
+        - name: Set context
+          command: "{{ kubectl_executable }} config set-context molecule-testing --cluster=kind --user={{ k8sadmin }}"
+
+        - name: Use context
+          command: "{{ kubectl_executable }} use-context molecule-testing"
+
+        - name: Display configuration
+          command: "{{ kubectl_executable }} config view"
+          register: _result
+
+        - debug: var=_result
+
+    - name: Run molecule tests on tox
+      include_role:
+        name: tox
+      vars:
+        tox_extra_args: "-vv"
+        zuul_work_dir: "~/.ansible/collections/ansible_collections/kubernetes/core"
+        tox_install_siblings: false

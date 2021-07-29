@@ -1737,6 +1737,9 @@
     gate:
       jobs:
         - github-workflows
+    lgtm:
+      jobs:
+        - noop
     merge-check:
       jobs:
         - noop

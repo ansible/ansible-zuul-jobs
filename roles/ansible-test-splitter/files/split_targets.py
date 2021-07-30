@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 
 from pathlib import PosixPath
-import random
 import sys
 import json
 
@@ -35,8 +34,6 @@ for target in targets.glob("*"):
         batches.append([target.name])
     else:
         regular_targets.append(target.name)
-
-random.shuffle(regular_targets)
 
 slow_jobs = len(batches)
 remaining_jobs = total_jobs - slow_jobs

@@ -11,7 +11,7 @@ if len(sys.argv) == 3:
 else:
     targets_from_cli = []
 jobs = [f"{job_prefix}{i}" for i in range(10)]
-targets_per_job = 20
+total_jobs = 10
 slow_targets = []
 regular_targets = []
 
@@ -38,13 +38,13 @@ for target in targets.glob("*"):
 
 random.shuffle(regular_targets)
 
-splitted_targets = len(regular_targets) % targets_per_job
+slow_jobs = len(batches)
+remaining_jobs = total_jobs - slow_jobs
 
-splitted_targets = []
-while regular_targets:
-    batches.append(
-        [regular_targets.pop() for i in range(targets_per_job) if regular_targets]
-    )
+for x in range(remaining_jobs):
+    batch = regular_targets[x::remaining_jobs]
+    if batch:
+        batches.append(batch)
 
 
 result = {

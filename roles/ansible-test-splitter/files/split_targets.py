@@ -1,16 +1,38 @@
 #!/usr/bin/env python3
 
 from pathlib import PosixPath
-import sys
+import getopt
 import json
+import sys
 
-job_prefix = sys.argv[1]
-if len(sys.argv) == 3:
-    targets_from_cli = sys.argv[2].split(" ")
+try:
+    opts, args = getopt.getopt(sys.argv[1:],"ht:j:p:")
+except getopt.GetoptError:
+    print('split_targets.py -t <targets> -j <total_jobs> -p <job_prefix>')
+    sys.exit(2)
+
+targets = ""
+job_prefix = "job"
+job_count = 10
+
+for opt, arg in opts:
+    if opt == '-h':
+        print('split_targets.py -t <targets> -j <total_jobs> -p <job_prefix>')
+        sys.exit(0)
+    if opt == '-p':
+        job_prefix = arg
+    if opt == '-t':
+        targets_from_cli = arg
+    if opt == '-j':
+        job_count = int(arg)
+
+if targets:
+    targets_from_cli = targets.split(" ")
 else:
     targets_from_cli = []
-jobs = [f"{job_prefix}{i}" for i in range(10)]
-total_jobs = 10
+
+jobs = [f"{job_prefix}{i}" for i in range(job_count)]
+total_jobs = job_count
 slow_targets = []
 regular_targets = []
 

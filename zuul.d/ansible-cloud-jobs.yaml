@@ -359,6 +359,7 @@
     parent: ansible-test-cloud-integration-aws-py36
     vars:
       ansible_test_integration_targets: "{{ child.targets_to_test[9]|join(' ') }}"
+
 #### units
 - job:
     name: ansible-test-units-community-aws-python38

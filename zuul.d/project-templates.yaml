@@ -76,7 +76,9 @@
               - name: github.com/ansible-collections/ansible.netcommon
               - name: github.com/ansible-collections/community.aws
               - name: github.com/ansible-collections/community.general
-        - ansible-test-splitter
+        - ansible-test-splitter:
+            vars:
+              ansible_test_splitter__children_count: 10
         - ansible-test-cloud-integration-aws-py36_0
         - ansible-test-cloud-integration-aws-py36_1
         - ansible-test-cloud-integration-aws-py36_2
@@ -103,7 +105,9 @@
               - name: github.com/ansible-collections/ansible.netcommon
               - name: github.com/ansible-collections/community.aws
               - name: github.com/ansible-collections/community.general
-        - ansible-test-splitter
+        - ansible-test-splitter:
+            vars:
+              ansible_test_splitter__children_count: 10
         - ansible-test-cloud-integration-aws-py36_0
         - ansible-test-cloud-integration-aws-py36_1
         - ansible-test-cloud-integration-aws-py36_2
@@ -130,7 +134,9 @@
               - name: github.com/ansible-collections/ansible.netcommon
               - name: github.com/ansible-collections/ansible.utils
               - name: github.com/ansible-collections/community.general
-        - ansible-test-splitter
+        - ansible-test-splitter:
+            vars:
+              ansible_test_splitter__children_count: 10
         - ansible-test-cloud-integration-aws-py36_0
         - ansible-test-cloud-integration-aws-py36_1
         - ansible-test-cloud-integration-aws-py36_2
@@ -156,7 +162,9 @@
               - name: github.com/ansible-collections/ansible.netcommon
               - name: github.com/ansible-collections/ansible.utils
               - name: github.com/ansible-collections/community.general
-        - ansible-test-splitter
+        - ansible-test-splitter:
+            vars:
+              ansible_test_splitter__children_count: 10
         - ansible-test-cloud-integration-aws-py36_0
         - ansible-test-cloud-integration-aws-py36_1
         - ansible-test-cloud-integration-aws-py36_2

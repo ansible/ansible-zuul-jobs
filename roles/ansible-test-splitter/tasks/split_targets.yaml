@@ -9,7 +9,7 @@
     python3 /tmp/split_targets.py
     -p "{{ ansible_test_splitter__children_prefix }}"
     -t "{{ ansible_test_splitter__targets_to_test|default('') }}"
-    -j 10
+    -j "{{ ansible_test_splitter__children_count }}"
   args:
     chdir: "{{ ansible_test_location }}"
   register: _result

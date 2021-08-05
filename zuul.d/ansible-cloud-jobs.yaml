@@ -405,11 +405,10 @@
       - name: github.com/ansible/ansible
       - name: github.com/ansible-collections/kubernetes.core
     timeout: 5400
-    nodeset: centos-7-4vcpu
+    nodeset: centos-8-stream
     vars:
       ansible_collections_repo: github.com/ansible-collections/kubernetes.core
       ansible_test_python: 3.6
-      ansible_test_command: integration
       ansible_test_collections: true
       ansible_test_venv_path: "~/venv"
 
@@ -424,10 +423,9 @@
       - name: github.com/ansible/ansible
       - name: github.com/ansible-collections/kubernetes.core
     timeout: 5400
-    nodeset: centos-7-4vcpu
+    nodeset: centos-8-stream
     vars:
       ansible_collections_repo: github.com/ansible-collections/kubernetes.core
-      ansible_test_python: 3.6
-      ansible_test_command: integration
       ansible_test_collections: true
+      ansible_test_python: 3.6
       ansible_test_venv_path: "~/venv"

@@ -22,7 +22,8 @@
 
     - name: Install SELinux Python bindings using yum
       yum:
-        name: libselinux-python3
+        name:
+          - libselinux-python3
         state: present
       become: true
 

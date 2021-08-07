@@ -8,6 +8,7 @@
       The base job for the Ansible installation of Zuul.
     pre-run: playbooks/base/pre.yaml
     post-run: playbooks/base/post.yaml
+    nodeset: centos-8-stream-1vcpu
 
 - job:
     name: github-workflows
@@ -25,7 +26,7 @@
 - job:
     name: ansible-tox-linters
     parent: tox-linters
-    nodeset: centos-8-1vcpu
+    nodeset: centos-8-stream-1vcpu
 
 - job: &ansible-tox-molecule-base
     name: ansible-tox-molecule-base

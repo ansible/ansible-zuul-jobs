@@ -49,7 +49,6 @@
     ansible_test_options: "{{ ansible_test_options }} --python {{ ansible_test_python }}"
   when:
     - ansible_test_python
-    - not ansible_test_docker
 
 - name: Setup --docker option
   set_fact:

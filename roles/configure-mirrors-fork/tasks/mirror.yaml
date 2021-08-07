@@ -12,6 +12,7 @@
   include: "{{ item }}"
   static: false
   with_first_found:
+    - "mirror/{{ ansible_lsb.id }}-{{ ansible_lsb.major_release }}.yaml"
     - "mirror/{{ ansible_distribution }}-{{ ansible_distribution_major_version }}.yaml"
     - "mirror/{{ ansible_distribution }}.yaml"
     - "mirror/{{ ansible_os_family }}.yaml"

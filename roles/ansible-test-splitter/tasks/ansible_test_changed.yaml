@@ -11,8 +11,4 @@
   register: _result
 
 - set_fact:
-    ansible_test_splitter__changed_targets_to_test: "{{ _result.stdout }}"
-
-- name: DEBUGGIER
-  debug:
-    msg: '{{ ansible_test_splitter__changed_targets_to_test }}'
+    ansible_test_splitter__targets_to_test: "{{ _result.stdout }}"

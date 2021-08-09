@@ -1,6 +1,4 @@
 ---
-- debug:
-    msg: "Identify the targets associated with the changed files"
 - name: Identify the targets associated with the changed files
   include_tasks: ansible_test_changed.yaml
   when: ansible_test_splitter__test_changed|bool

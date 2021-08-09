@@ -389,6 +389,9 @@
       ansible_test_command: sanity
       ansible_test_enable_ara: false
       ansible_test_python: 3.6
+      ansible_test_sanity_skiptests:
+        - 'future-import-boilerplate'
+        - 'metaclass-boilerplate'
 
 - job:
     name: ansible-test-sanity-aws-ansible-2.9-python36

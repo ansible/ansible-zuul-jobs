@@ -2,7 +2,7 @@
 - hosts: all
   tasks:
     - name: Run ansible-test-splitter
-      import_role:
+      include_role:
         name: ansible-test-splitter
       vars:
         ansible_test_test_command: "{{ ansible_test_command }}"

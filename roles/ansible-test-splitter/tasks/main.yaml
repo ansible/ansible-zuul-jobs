@@ -1,11 +1,11 @@
 ---
 - name: Identify the targets associated with the changed files
-  import_tasks: ansible_test_changed.yaml
+  include_tasks: ansible_test_changed.yaml
   when: ansible_test_splitter__test_changed|bool
 
 - name: Build a list of all the targets
-  import_tasks: list_all.yaml
+  include_tasks: list_all.yaml
   when: not(ansible_test_splitter__test_changed|bool)
 
 - name: Split targets
-  import_tasks: split_targets.yaml
+  include_tasks: split_targets.yaml

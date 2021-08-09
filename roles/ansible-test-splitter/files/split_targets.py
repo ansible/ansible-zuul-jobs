@@ -57,7 +57,7 @@ for target in targets.glob("*"):
     else:
         regular_targets.append(target.name)
 
-
+batches.sort()
 regular_targets.sort()
 slow_jobs = len(batches)
 remaining_jobs = total_jobs - slow_jobs
@@ -66,7 +66,6 @@ for x in range(remaining_jobs):
     batch = regular_targets[x::remaining_jobs]
     if batch:
         batches.append(batch)
-
 
 result = {
     "data": {

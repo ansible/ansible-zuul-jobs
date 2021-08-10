@@ -45,6 +45,6 @@
 
     - debug: var=for_zuul_return
 
-    # - name: Register the result
-    #   zuul_return:
-    #     data: "{{ for_zuul_return.data }}"
+    - name: Register the result
+      zuul_return:
+        data: "{{ for_zuul_return.data }}"

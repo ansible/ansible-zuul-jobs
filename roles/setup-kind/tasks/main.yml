@@ -20,5 +20,10 @@
     - "{{ kind_path }}"
     - "{{ kubectl_path }}"
 
+- name: Create kind configuration file
+  ansible.builtin.template:
+    src: kind-config.j2
+    dest: /tmp/k8s_cluster_config.yaml
+
 - name: Create cluster
-  shell: "{{ kind_path }} create cluster"
+  shell: "{{ kind_path }} create cluster --config /tmp/k8s_cluster_config.yaml"

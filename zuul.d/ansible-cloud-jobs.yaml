@@ -450,6 +450,7 @@
 
 - job:
     name: ansible-test-molecule-kubernetes-core
+    parent: ansible-network-appliance-base
     dependencies:
       - name: build-ansible-collection
     pre-run:

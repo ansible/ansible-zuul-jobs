@@ -1,43 +1,13 @@
 ---
-# - hosts: controller
-#   tasks:
-#     - name: Ensure controller directory exists
-#       file:
-#         path: "{{ ansible_user_dir }}/zuul-output/logs/controller"
-#         state: directory
-
-#     - name: Ensure tox is present
-#       include_role:
-#         name: ensure-tox
-
-#     - name: Setup base virtualenv_options
-#       set_fact:
-#         _virtualenv_options: "--python python{{ ansible_test_python }}"
-
-#     - name: Create virtualenv for ansible-test
-#       shell: "virtualenv {{ _virtualenv_options }} {{ ansible_test_venv_path }}"
-
-#     - name: Upgrade pip
-#       shell: "{{ ansible_test_venv_path }}/bin/pip install --upgrade pip"
-
-#     - name: Install SELinux Python bindings using yum
-#       yum:
-#         name: libselinux-python3
-#         state: present
-#       become: true
-
-#     - name: Install Ansible into virtualenv
-#       shell: "{{ ansible_test_venv_path }}/bin/pip install {{ ansible_user_dir }}/{{ zuul.projects['github.com/ansible/ansible'].src_dir }} 'jinja2<3.0.0'"
-#       environment:
-#         ANSIBLE_SKIP_CONFLICT_CHECK: 1
-
-#     - name: Fetch and install the artifacts
-#       import_role:
-#         name: deploy-artifacts
-
 - hosts: appliance
   gather_facts: false
   tasks:
+    - name: Ensure sshpass is present
+      become: true
+      package:
+        enablerepo: epel
+        name: sshpass
+        state: present
     - name: Run ensure-docker role
       include_role:
         name: ensure-docker
@@ -45,3 +15,39 @@
     - name: Install Kubernetes cluster
       include_role:
         name: setup-kind
+
+- hosts: controller
+  tasks:
+    - name: Ensure controller directory exists
+      file:
+        path: "{{ ansible_user_dir }}/zuul-output/logs/controller"
+        state: directory
+
+    - name: Ensure tox is present
+      include_role:
+        name: ensure-tox
+
+    - name: Setup base virtualenv_options
+      set_fact:
+        _virtualenv_options: "--python python{{ ansible_test_python }}"
+
+    - name: Create virtualenv for ansible-test
+      shell: "virtualenv {{ _virtualenv_options }} {{ ansible_test_venv_path }}"
+
+    - name: Upgrade pip
+      shell: "{{ ansible_test_venv_path }}/bin/pip install --upgrade pip"
+
+    - name: Install SELinux Python bindings using yum
+      yum:
+        name: libselinux-python3
+        state: present
+      become: true
+
+    - name: Install Ansible into virtualenv
+      shell: "{{ ansible_test_venv_path }}/bin/pip install {{ ansible_user_dir }}/{{ zuul.projects['github.com/ansible/ansible'].src_dir }} 'jinja2<3.0.0'"
+      environment:
+        ANSIBLE_SKIP_CONFLICT_CHECK: 1
+
+    - name: Fetch and install the artifacts
+      import_role:
+        name: deploy-artifacts

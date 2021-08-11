@@ -458,7 +458,7 @@
     required-projects:
       - name: github.com/ansible/ansible
     timeout: 5400
-    nodeset: kind-centos8
+    nodeset: kind-centos
     vars:
       ansible_collections_repo: github.com/ansible-collections/kubernetes.core
       ansible_test_python: 3.6

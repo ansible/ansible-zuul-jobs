@@ -1020,16 +1020,16 @@
 
 # Ansible Kubernetes appliance nodesets
 - nodeset:
-    name: kind-centos8
+    name: kind-centos
     nodes:
       - name: fedora-34
         label: fedora-34-1vcpu
-      - name: centos-8-stream
-        label: centos-8-stream-2vcpu
+      - name: centos-7
+        label: centos-7-4vcpu
     groups:
       - name: appliance
         nodes:
-          - centos-8-stream
+          - centos-7
       - name: controller
         nodes:
           - fedora-34

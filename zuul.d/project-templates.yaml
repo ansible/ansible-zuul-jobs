@@ -62,6 +62,7 @@
 - project-template:
     name: ansible-collections-amazon-aws
     check:
+      queue: integrated-aws
       jobs:
         - ansible-test-sanity-aws-ansible-2.9-python36
         - ansible-test-sanity-aws-ansible-2.9-python38
@@ -89,6 +90,7 @@
         - ansible-test-cloud-integration-aws-py36_9
 
     gate:
+      queue: integrated-aws
       jobs:
         - ansible-test-sanity-aws-ansible-2.9-python36
         - ansible-test-sanity-aws-ansible-2.9-python38
@@ -118,6 +120,7 @@
 - project-template:
     name: ansible-collections-community-aws
     check:
+      queue: integrated-aws
       jobs:
         - ansible-test-sanity-docker
         - ansible-test-sanity-docker-stable-2.9
@@ -144,6 +147,7 @@
         - ansible-galaxy-importer:
             voting: false
     gate:
+      queue: integrated-aws
       jobs:
         - ansible-test-sanity-docker
         - ansible-test-sanity-docker-stable-2.9

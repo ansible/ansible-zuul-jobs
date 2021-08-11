@@ -719,7 +719,6 @@
         - ansible-test-sanity-docker-stable-2.10
         - ansible-test-sanity-docker-stable-2.11
         - ansible-test-units-kubernetes-core-python37
-        - ansible-test-integration-kubernetes-core
         - ansible-tox-linters
         - ansible-test-molecule-kubernetes-core
     gate:

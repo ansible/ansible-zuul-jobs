@@ -1,14 +1,14 @@
 ---
-- hosts: all
+- hosts: controller
   tasks:
     - name: Ensure controller directory exists
       file:
         path: "{{ ansible_user_dir }}/zuul-output/logs/controller"
         state: directory
 
-    - name: Run ensure-docker role
+    - name: Ensure tox is present
       include_role:
-        name: ensure-docker
+        name: ensure-tox
 
     - name: Setup base virtualenv_options
       set_fact:
@@ -27,24 +27,20 @@
       become: true
 
     - name: Install Ansible into virtualenv
+      shell: "{{ ansible_test_venv_path }}/bin/pip install {{ ansible_user_dir }}/{{ zuul.projects['github.com/ansible/ansible'].src_dir }} 'jinja2<3.0.0'"
       environment:
         ANSIBLE_SKIP_CONFLICT_CHECK: 1
-      shell: "{{ ansible_test_venv_path }}/bin/pip install {{ ansible_user_dir }}/{{ zuul.projects['github.com/ansible/ansible'].src_dir }} 'jinja2<3.0.0'"
 
     - name: Fetch and install the artifacts
       import_role:
         name: deploy-artifacts
 
-    - name: Install molecule and collection dependencies
-      pip:
-        name:
-          - "molecule<3.3.0"
-          - yamllint
-          - kubernetes
-          - flake8
-          - jsonpatch
-        virtualenv: '{{ ansible_test_venv_path }}'
-        virtualenv_python: python3
+- hosts: appliance
+  gather_facts: false
+  tasks:
+    - name: Run ensure-docker role
+      include_role:
+        name: ensure-docker
 
     - name: Install Kubernetes cluster
       include_role:

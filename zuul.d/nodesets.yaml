@@ -1017,3 +1017,20 @@
         nodes:
           - Trendmicro-DeepSecurity-20.0.344
           - ubuntu-bionic
+
+# Ansible Kubernetes appliance nodesets
+- nodeset:
+    name: kind-centos8
+    nodes:
+      nodes:
+        - name: fedora-34
+          label: fedora-34-1vcpu
+        - name: centos-8-stream
+          label: centos-8-stream-2vcpu
+    groups:
+      - name: appliance
+        nodes:
+          - centos-8-stream
+      - name: controller
+        nodes:
+          - fedora-34

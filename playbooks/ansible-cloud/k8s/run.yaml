@@ -1,0 +1,10 @@
+---
+- hosts: controller
+  collections:
+    - Kubernetes.core
+  tasks:
+    - name: cluster information
+      k8s_cluster_info:
+      register: _cluster_info
+
+    - debug: var=_cluster_info

@@ -449,7 +449,7 @@
       ansible_collections_repo: github.com/ansible-collections/kubernetes.core
 
 - job:
-    name: ansible-test-integration-kubernetes-core
+    name: ansible-test-molecule-kubernetes-core
     dependencies:
       - name: build-ansible-collection
     pre-run:

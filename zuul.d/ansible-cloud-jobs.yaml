@@ -450,10 +450,10 @@
 
 - job:
     name: ansible-test-molecule-kubernetes-core
-    parent: ansible-network-appliance-base
     dependencies:
       - name: build-ansible-collection
     pre-run:
+      - playbooks/ansible-network-appliance-base/pre.yaml
       - playbooks/ansible-cloud/k8s/pre.yaml
     run: playbooks/ansible-cloud/k8s/run.yaml
     required-projects:

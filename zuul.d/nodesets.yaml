@@ -30,12 +30,6 @@
         label: fedora-34-1vcpu
 
 - nodeset:
-    name: fedora-latest-4vcpu
-    nodes:
-      - name: fedora-34
-        label: fedora-34-4vcpu
-
-- nodeset:
     name: ubuntu-bionic-1vcpu
     nodes:
       - name: ubuntu-bionic

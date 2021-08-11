@@ -1,5 +1,5 @@
 ---
-- hosts: appliance
+- hosts: appliance-ssh
   gather_facts: false
   tasks:
     - name: Ensure sshpass is present

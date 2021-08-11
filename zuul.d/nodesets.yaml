@@ -1027,7 +1027,7 @@
       - name: centos-7
         label: centos-7-4vcpu
     groups:
-      - name: appliance
+      - name: appliance-ssh
         nodes:
           - centos-7
       - name: controller

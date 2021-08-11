@@ -25,6 +25,8 @@
 
     - name: Debug list tox environment
       command: tox -a
+      args:
+        chdir: ~/.ansible/collections/ansible_collections/kubernetes/core
       register: _result
 
     - debug: var=_result

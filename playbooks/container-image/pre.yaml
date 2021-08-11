@@ -1,0 +1,6 @@
+---
+- hosts: all
+  tasks:
+    - name: Install container runtime
+      include_role:
+        name: "ensure-{{ (container_command == 'docker') | ternary('docker', 'podman') }}"

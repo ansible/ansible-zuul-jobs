@@ -1,13 +1,13 @@
 ---
 - job:
-    name: ansible-build-container-image
+    name: ansible-build-container-image-base
     description: |
       This is a parent for an image build job which expects a
       buildset registry to be running and pulls images from the
       intermediate registry into it.  It mostly exists so that
       the intermediate registry secret need not be supplied to the
       image build playbook.
-    parent: ansible-buildset-registry
+    pre-run: playbooks/container-image/pre.yaml
     run: playbooks/container-image/run.yaml
     dependencies:
       - name: ansible-buildset-registry
@@ -16,3 +16,17 @@
     vars:
       container_command: podman
       ensure_podman_validate: true
+
+- job:
+    name: ansible-build-container-image
+    description: |
+      This is a parent for an image build job which runs a
+      buildset registry to be running and pulls images from the
+      intermediate registry into it.  It mostly exists so that
+      the intermediate registry secret need not be supplied to the
+      image build playbook.
+    parent: ansible-buildset-registry
+
+- job:
+    name: ansible-build-container-image
+    parent: ansible-build-container-image-base

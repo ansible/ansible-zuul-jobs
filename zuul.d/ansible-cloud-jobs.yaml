@@ -460,6 +460,13 @@
       - name: github.com/ansible/ansible
     timeout: 5400
     nodeset: kind-centos
+    # NOTE: we set ansible_network_os with some generic
+    # value to pass the ansible-network playbooks
+    host-vars:
+      fedora-34:
+        ansible_network_os: kubernetes_core
+      centos-7:
+        ansible_network_os: kubernetes_core
     vars:
       ansible_collections_repo: github.com/ansible-collections/kubernetes.core
       ansible_test_python: 3.6

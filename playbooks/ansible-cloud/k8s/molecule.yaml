@@ -23,13 +23,9 @@
       import_role:
         name: deploy-artifacts
 
-    - name: Debug list tox environment
-      command: tox -a
-      args:
-        chdir: ~/.ansible/collections/ansible_collections/kubernetes/core
-      register: _result
-
-    - debug: var=_result
+    - name: Run ensure-tox role
+      include_role:
+        name: ensure-tox
 
     - name: Run molecule tests using tox
       include_role:

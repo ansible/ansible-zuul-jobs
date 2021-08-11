@@ -487,7 +487,7 @@
       tox_envlist: molecule-devel
       zuul_work_dir: "~/.ansible/collections/ansible_collections/kubernetes/core"
       tox_extra_args: "-vv -- -- -v"
-    nodeset: centos-7-4vcpu
+    nodeset: centos-8-stream-2vcpu
 
 - job:
     name: ansible-test-molecule-kubernetes-core-devel_0
@@ -503,7 +503,7 @@
       tox_envlist: molecule-devel
       zuul_work_dir: "~/.ansible/collections/ansible_collections/kubernetes/core"
       tox_extra_args: "-vv -- -- -v --tags {{ child.tags_to_test[0] }}"
-    nodeset: centos-7-4vcpu
+    nodeset: centos-8-stream-2vcpu
 
 - job:
     name: ansible-test-molecule-kubernetes-core-devel_1

@@ -38,10 +38,6 @@
 - hosts: appliance
   gather_facts: false
   tasks:
-    - name: Run ensure-docker role
-      include_role:
-        name: ensure-docker
-
     - name: Install Kubernetes cluster
       include_role:
         name: setup-kind

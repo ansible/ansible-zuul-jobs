@@ -23,6 +23,12 @@
       import_role:
         name: deploy-artifacts
 
+    - name: Debug list tox environment
+      command: tox -a
+      register: _result
+
+    - debug: var=_result
+
     - name: Run molecule tests using tox
       include_role:
         name: tox

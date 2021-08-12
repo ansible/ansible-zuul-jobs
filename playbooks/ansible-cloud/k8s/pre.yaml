@@ -35,16 +35,20 @@
       become: true
 
     - name: Read service account details
-      command: "kubectl -n {{ k8sadmin_namespace }} get serviceaccount/{{ k8sadmin }} -o jsonpath='{.secrets[0].name}')"
+      command: "kubectl -n {{ k8sadmin_namespace }} get serviceaccount/{{ k8sadmin }} -o jsonpath='{.secrets[0].name}'"
       become: true
       register: _result
 
     - name: Get Api token for admin service account
-      command: "kubectl -n {{ k8sadmin_namespace }} get secret {{ _result.stdout }} -o jsonpath='{.data.token}' | base64 --decode"
+      command: "kubectl -n {{ k8sadmin_namespace }} get secret {{ _result.stdout }} -o jsonpath='{.data.token}'"
       become: true
       register: _result
 
-    - debug: var=_result
+    - name: define api key
+      set_fact:
+        k8s_api_token: "{{ _result.stdout | b64decode }}"
+
+    - debug: var=k8s_api_token
 
 - hosts: controller
   tasks:

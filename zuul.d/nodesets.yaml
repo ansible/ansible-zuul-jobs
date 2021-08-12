@@ -1024,12 +1024,12 @@
     nodes:
       - name: fedora-34
         label: fedora-34-1vcpu
-      - name: centos-7
-        label: centos-7-4vcpu
+      - name: ubuntu-bionic
+        label: ubuntu-bionic-2vcpu
     groups:
       - name: appliance-ssh
         nodes:
-          - centos-7
+          - ubuntu-bionic
       - name: controller
         nodes:
           - fedora-34

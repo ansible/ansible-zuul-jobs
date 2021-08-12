@@ -1,0 +1,50 @@
+---
+- name: Install required package on virtualenv
+  pip:
+    name:
+      - yamllint
+
+- name: Identify the molecule tags associated with the changed files
+  block:
+    - copy:
+        src: list_tags.py
+        dest: /tmp/list_tags.py
+        mode: '0700'
+
+    - name: Identify the changed tags
+      command: python /tmp/list_tags.py  "{{ ansible_test_location }}/molecule/default/converge.yml"
+      register: _result
+
+    - debug: var=_result
+
+    - name: Print test_changed.py failed message if any
+      fail:
+        msg: "test_changed.py failed with: {{ _result.stderr }}"
+      when: _result.rc != 0
+
+    - set_fact:
+        molecule_test_splitter__tags: "{{ _result.stdout }}"
+
+- name: Split targets
+  block:
+    - copy:
+        src: distribute_tags.py
+        dest: /tmp/distribute_tags.py
+        mode: '0700'
+
+    - name: Split the workload
+      command: python /tmp/distribute_tags.py -t "{{ molecule_test_splitter__tags }}" --job-prefix "{{ molecule_test_splitter__job_prefix }}"
+      args:
+        chdir: "{{ ansible_test_location }}"
+      register: _result
+
+    - debug: var=_result
+
+    - set_fact:
+        for_zuul_return: '{{ _result.stdout | from_json }}'
+
+    - debug: var=for_zuul_return
+
+    - name: Register the result
+      zuul_return:
+        data: "{{ for_zuul_return.data }}"

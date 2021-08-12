@@ -468,6 +468,7 @@
       kubernetes:
         ansible_network_os: kubernetes_core
     vars:
+      tox_envlist: molecule-devel
       ansible_collections_repo: github.com/ansible-collections/kubernetes.core
       ansible_test_python: 3.6
       ansible_test_venv_path: "~/venv"

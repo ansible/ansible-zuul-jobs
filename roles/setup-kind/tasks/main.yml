@@ -11,7 +11,7 @@
     dest: '{{ kubectl_path }}'
   become: true
 
-- name: Make Kind as executable
+- name: Make tools as executable
   ansible.builtin.file:
     path: '{{ item }}'
     mode: '0755'

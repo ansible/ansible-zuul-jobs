@@ -50,6 +50,12 @@
 
     - debug: var=k8s_api_token
 
+    - name: copy api key into controller
+      copy:
+        dest: /tmp/kubeconfig_api.token
+        content: "{{ k8s_api_token }}"
+      delegate_to: controller
+
 - hosts: controller
   tasks:
     - name: Ensure controller directory exists

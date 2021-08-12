@@ -1,0 +1,10 @@
+---
+- hosts: controller
+  tasks:
+    - name: Run molecule tests on tox
+      include_role:
+        name: tox
+      vars:
+        tox_extra_args: "-vv"
+        zuul_work_dir: "~/.ansible/collections/ansible_collections/kubernetes/core"
+        tox_install_siblings: false

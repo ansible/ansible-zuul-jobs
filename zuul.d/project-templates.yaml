@@ -724,6 +724,8 @@
         - ansible-test-units-kubernetes-core-python37
         - ansible-test-integration-kubernetes-core
         - ansible-test-molecule-kubernetes-core
+        - ansible-test-molecule-kubernetes-core-29
+        - ansible-test-molecule-kubernetes-core-210
         - ansible-tox-linters
     gate:
       jobs: *ansible-collections-kubernetes-core-units-jobs

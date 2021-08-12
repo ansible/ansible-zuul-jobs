@@ -951,3 +951,18 @@
         nodes:
           - Trendmicro-DeepSecurity-20.0.344
           - ubuntu-bionic
+
+- nodeset:
+    name: Kubernetes-Molecule.1.0.0
+    nodes:
+      - name: ansible
+        label: fedora-34-1vcpu
+      - name: kubernetes
+        label: ubuntu-bionic-2vcpu
+    groups:
+      - name: appliance-ssh
+        nodes:
+          - kubernetes
+      - name: controller
+        nodes:
+          - ansible

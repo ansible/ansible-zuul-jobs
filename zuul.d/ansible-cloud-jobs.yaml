@@ -472,16 +472,34 @@
     dependencies:
       - name: build-ansible-collection
     pre-run:
+      - playbooks/ansible-network-appliance-base/pre.yaml
       - playbooks/ansible-cloud/k8s/pre.yaml
-    run: playbooks/ansible-cloud/k8s/molecule.yaml
+    run: playbooks/ansible-cloud/k8s/run.yaml
     required-projects:
       - name: github.com/ansible/ansible
-      - name: github.com/ansible-collections/kubernetes.core
     timeout: 5400
-    nodeset: centos-7-4vcpu
+    nodeset: Kubernetes-Molecule.1.0.0
+    # NOTE: we set ansible_network_os with some generic
+    # value to pass the ansible-network playbooks
+    host-vars:
+      ansible:
+        ansible_network_os: molecule
+      kubernetes:
+        ansible_network_os: molecule
     vars:
+      tox_envlist: molecule-devel
       ansible_collections_repo: github.com/ansible-collections/kubernetes.core
       ansible_test_python: 3.6
-      ansible_test_command: integration
-      ansible_test_collections: true
       ansible_test_venv_path: "~/venv"
+
+- job:
+    name: ansible-test-molecule-kubernetes-core-29
+    parent: ansible-test-molecule-kubernetes-core
+    vars:
+      tox_envlist: molecule-29
+
+- job:
+    name: ansible-test-molecule-kubernetes-core-210
+    parent: ansible-test-molecule-kubernetes-core
+    vars:
+      tox_envlist: molecule-210

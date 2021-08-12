@@ -110,4 +110,4 @@
       ansible.builtin.copy:
         src: /tmp/kubeconfig_api.token
         dest: /tmp/ansible_copy.txt
-      when: inventory_hostname == 'controller'
+      when: inventory_hostname == 'master'

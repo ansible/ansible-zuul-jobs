@@ -463,7 +463,7 @@
     # NOTE: we set ansible_network_os with some generic
     # value to pass the ansible-network playbooks
     host-vars:
-      fedora-34:
+      master:
         ansible_network_os: kubernetes_core
       kubernetes:
         ansible_network_os: kubernetes_core

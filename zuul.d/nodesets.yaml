@@ -1022,7 +1022,7 @@
 - nodeset:
     name: kind-centos
     nodes:
-      - name: fedora-34
+      - name: master
         label: fedora-34-1vcpu
       - name: kubernetes
         label: ubuntu-bionic-2vcpu
@@ -1032,4 +1032,4 @@
           - kubernetes
       - name: controller
         nodes:
-          - fedora-34
+          - master

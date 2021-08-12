@@ -104,11 +104,10 @@
         src: /tmp/kubeconfig_api.token
         dest: /tmp/
         flat: true
-      when: '"appliance-ssh" in group_names'
-      run_once: true
+      when: inventory_hostname == 'kubernetes'
 
     - name: Copy file from local host to controller
       ansible.builtin.copy:
         src: /tmp/kubeconfig_api.token
         dest: /tmp/ansible_copy.txt
-      when: '"controller" in group_names'
+      when: inventory_hostname == 'controller'

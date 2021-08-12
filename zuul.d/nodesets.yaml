@@ -1024,12 +1024,12 @@
     nodes:
       - name: fedora-34
         label: fedora-34-1vcpu
-      - name: ubuntu-bionic
+      - name: kubernetes
         label: ubuntu-bionic-2vcpu
     groups:
       - name: appliance-ssh
         nodes:
-          - ubuntu-bionic
+          - kubernetes
       - name: controller
         nodes:
           - fedora-34

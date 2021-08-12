@@ -3,12 +3,14 @@
   gather_facts: false
   tasks:
     - name: Run ensure-docker role
-      include_role:
+      import_role:
         name: ensure-docker
 
     - name: Install Kubernetes cluster
-      include_role:
+      import_role:
         name: setup-kind
+      vars:
+        kind_host_public_ip: "{{ hostvars['kubernetes']['nodepool']['interface_ip']}}"
 
     - set_fact:
         k8sadmin: "k8s-cluster-admin"

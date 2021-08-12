@@ -465,7 +465,7 @@
     host-vars:
       fedora-34:
         ansible_network_os: kubernetes_core
-      ubuntu-bionic:
+      kubernetes:
         ansible_network_os: kubernetes_core
     vars:
       ansible_collections_repo: github.com/ansible-collections/kubernetes.core

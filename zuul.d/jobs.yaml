@@ -258,13 +258,6 @@
       ansible_test_integration_targets: "netconf_.*"
 
 - job:
-    name: ansible-test-network-integration-ansible-netcommon-junos-vsrx-netconf-python36
-    parent: ansible-test-network-integration-junos-vsrx-python36
-    vars:
-      ansible_collections_repo: github.com/ansible-collections/ansible.netcommon
-      ansible_test_integration_targets: "netconf_.*"
-
-- job:
     name: ansible-test-units-posix
     parent: ansible-test-units-base
     required-projects:
@@ -381,13 +374,6 @@
 - job:
     name: ansible-test-network-integration-community-yang-iosxr-netconf-python36
     parent: ansible-test-network-integration-iosxr-python36
-    vars:
-      ansible_collections_repo: github.com/ansible-collections/community.yang
-      ansible_test_integration_targets: ""
-
-- job:
-    name: ansible-test-network-integration-community-yang-junos-vsrx-netconf-python36
-    parent: ansible-test-network-integration-junos-vsrx-python36
     vars:
       ansible_collections_repo: github.com/ansible-collections/community.yang
       ansible_test_integration_targets: ""

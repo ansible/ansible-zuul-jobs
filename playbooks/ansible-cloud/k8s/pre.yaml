@@ -47,6 +47,7 @@
     - name: define api key
       set_fact:
         k8s_api_token: "{{ _result.stdout | b64decode }}"
+      no_log: true
 
     - debug: var=k8s_api_token
 
@@ -54,7 +55,12 @@
       copy:
         dest: /tmp/kubeconfig_api.token
         content: "{{ k8s_api_token }}"
-      delegate_to: controller
+
+    - name: Fetch api token on local host
+      ansible.builtin.fetch:
+        src: /tmp/kubeconfig_api.token
+        dest: /tmp/
+        flat: true
 
 - hosts: controller
   tasks:

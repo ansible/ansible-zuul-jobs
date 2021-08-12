@@ -2,12 +2,6 @@
 - hosts: appliance-ssh
   gather_facts: false
   tasks:
-    - name: Ensure sshpass is present
-      become: true
-      package:
-        enablerepo: epel
-        name: sshpass
-        state: present
     - name: Run ensure-docker role
       include_role:
         name: ensure-docker

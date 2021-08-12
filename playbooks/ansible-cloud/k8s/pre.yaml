@@ -1,5 +1,6 @@
 ---
-- hosts: appliance-ssh
+- name: Deploy kubernetes cluster on appliance
+  hosts: appliance-ssh
   gather_facts: false
   tasks:
     - name: Run ensure-docker role
@@ -51,18 +52,13 @@
 
     - debug: var=k8s_api_token
 
-    - name: copy api key into controller
+    - name: create file containing api token
       copy:
         dest: /tmp/kubeconfig_api.token
         content: "{{ k8s_api_token }}"
 
-    - name: Fetch api token on local host
-      ansible.builtin.fetch:
-        src: /tmp/kubeconfig_api.token
-        dest: /tmp/
-        flat: true
-
-- hosts: controller
+- name: Configure controller
+  hosts: controller
   tasks:
     - name: Ensure controller directory exists
       file:
@@ -97,3 +93,22 @@
     - name: Fetch and install the artifacts
       import_role:
         name: deploy-artifacts
+
+- name: Copy api token from controller to appliance-ssh
+  hosts: all
+  gather_facts: false
+
+  tasks:
+    - name: Fetch file from appliance
+      ansible.builtin.fetch:
+        src: /tmp/kubeconfig_api.token
+        dest: /tmp/
+        flat: true
+      when: '"appliance-ssh" in group_names'
+      run_once: true
+
+    - name: Copy file from local host to controller
+      ansible.builtin.copy:
+        src: /tmp/kubeconfig_api.token
+        dest: /tmp/ansible_copy.txt
+      when: '"controller" in group_names'

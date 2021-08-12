@@ -10,6 +10,40 @@
       include_role:
         name: setup-kind
 
+    - set_fact:
+        k8sadmin: "k8s-cluster-admin"
+        k8sadmin_namespace: "kube-system"
+        k8sadmin_view: "k8s-cluster-view"
+        k8sadmin_secret_reader: "k8s-secret-reader"
+
+    - name: create service account
+      command: "kubectl create serviceaccount {{ k8sadmin }} -n {{ k8sadmin_namespace }}"
+      become: true
+
+    - name: cluster role binding (cluster admin)
+      command: "kubectl create clusterrolebinding {{ k8sadmin }} --clusterrole=cluster-admin --serviceaccount={{ k8sadmin_namespace }}:{{ k8sadmin }}"
+      become: true
+
+    - name: cluster role binding (view)
+      command: "kubectl create clusterrolebinding {{ k8sadmin_view }} --clusterrole view --user {{ k8sadmin }}"
+      become: true
+
+    - name: cluster role secreat reader
+      command: "kubectl create clusterrolebinding {{ k8sadmin_secret_reader }} --clusterrole secret-reader --user {{ k8sadmin }}"
+      become: true
+
+    - name: Read service account details
+      command: "kubectl -n {{ k8sadmin_namespace }} get serviceaccount/{{ k8sadmin }} -o jsonpath='{.secrets[0].name}')"
+      become: true
+      register: _result
+
+    - name: Get Api token for admin service account
+      command: "kubectl -n {{ k8sadmin_namespace }} get secret {{ _result.stdout }} -o jsonpath='{.data.token}' | base64 --decode"
+      become: true
+      register: _result
+
+    - debug: var=_result
+
 - hosts: controller
   tasks:
     - name: Ensure controller directory exists

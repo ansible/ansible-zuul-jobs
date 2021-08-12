@@ -27,3 +27,4 @@
 
 - name: Create cluster
   shell: "{{ kind_path }} create cluster --config /tmp/k8s_cluster_config.yaml"
+  become: true

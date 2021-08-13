@@ -9,7 +9,8 @@ if len(sys.argv) == 3:
     targets_from_cli = sys.argv[2].split(" ")
 else:
     targets_from_cli = []
-jobs = [f"{job_prefix}{i}" for i in range(10)]
+# NOTE(pabelanger): Hardcode this to 6 because that is the semaphore in zuul.
+jobs = [f"{job_prefix}{i}" for i in range(6)]
 total_jobs = 10
 slow_targets = []
 regular_targets = []

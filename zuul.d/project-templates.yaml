@@ -84,10 +84,6 @@
         - ansible-test-cloud-integration-aws-py36_3
         - ansible-test-cloud-integration-aws-py36_4
         - ansible-test-cloud-integration-aws-py36_5
-        - ansible-test-cloud-integration-aws-py36_6
-        - ansible-test-cloud-integration-aws-py36_7
-        - ansible-test-cloud-integration-aws-py36_8
-        - ansible-test-cloud-integration-aws-py36_9
 
     gate:
       queue: integrated-aws
@@ -112,10 +108,6 @@
         - ansible-test-cloud-integration-aws-py36_3
         - ansible-test-cloud-integration-aws-py36_4
         - ansible-test-cloud-integration-aws-py36_5
-        - ansible-test-cloud-integration-aws-py36_6
-        - ansible-test-cloud-integration-aws-py36_7
-        - ansible-test-cloud-integration-aws-py36_8
-        - ansible-test-cloud-integration-aws-py36_9
 
 - project-template:
     name: ansible-collections-community-aws
@@ -140,10 +132,6 @@
         - ansible-test-cloud-integration-aws-py36_3
         - ansible-test-cloud-integration-aws-py36_4
         - ansible-test-cloud-integration-aws-py36_5
-        - ansible-test-cloud-integration-aws-py36_6
-        - ansible-test-cloud-integration-aws-py36_7
-        - ansible-test-cloud-integration-aws-py36_8
-        - ansible-test-cloud-integration-aws-py36_9
         - ansible-galaxy-importer:
             voting: false
     gate:
@@ -167,10 +155,6 @@
         - ansible-test-cloud-integration-aws-py36_3
         - ansible-test-cloud-integration-aws-py36_4
         - ansible-test-cloud-integration-aws-py36_5
-        - ansible-test-cloud-integration-aws-py36_6
-        - ansible-test-cloud-integration-aws-py36_7
-        - ansible-test-cloud-integration-aws-py36_8
-        - ansible-test-cloud-integration-aws-py36_9
         - ansible-galaxy-importer:
             voting: false
 

@@ -336,29 +336,6 @@
     vars:
       ansible_test_integration_targets: "{{ child.targets_to_test[5]|join(' ') }}"
 
-- job:
-    name: ansible-test-cloud-integration-aws-py36_6
-    parent: ansible-test-cloud-integration-aws-py36
-    vars:
-      ansible_test_integration_targets: "{{ child.targets_to_test[6]|join(' ') }}"
-
-- job:
-    name: ansible-test-cloud-integration-aws-py36_7
-    parent: ansible-test-cloud-integration-aws-py36
-    vars:
-      ansible_test_integration_targets: "{{ child.targets_to_test[7]|join(' ') }}"
-
-- job:
-    name: ansible-test-cloud-integration-aws-py36_8
-    parent: ansible-test-cloud-integration-aws-py36
-    vars:
-      ansible_test_integration_targets: "{{ child.targets_to_test[8]|join(' ') }}"
-
-- job:
-    name: ansible-test-cloud-integration-aws-py36_9
-    parent: ansible-test-cloud-integration-aws-py36
-    vars:
-      ansible_test_integration_targets: "{{ child.targets_to_test[9]|join(' ') }}"
 #### units
 - job:
     name: ansible-test-units-community-aws-python38

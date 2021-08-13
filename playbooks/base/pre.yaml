@@ -1,13 +1,9 @@
 ---
 - hosts: all:!appliance*
   tasks:
-    # NOTE(pabelanger): We run this role in its own play to ensure unbound is
-    # restarted before proceeding with any other role. This is because we use
-    # notify / handler to restart the unbound service. With ansible notify
-    # actions are triggered at the end of each block of tasks in a play.
-    - name: Run configure-unbound role
+    - name: Run configure-systemd-resolved role
       include_role:
-        name: configure-unbound
+        name: configure-systemd-resolved
 
 - hosts: all:!appliance*
   tasks:

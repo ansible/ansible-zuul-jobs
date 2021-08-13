@@ -262,6 +262,9 @@
 - job:
     name: ansible-test-splitter
     run: playbooks/ansible-test-splitter/run.yaml
+    files:
+      - ^plugins/.*$
+      - ^tests/integration/.*$
     nodeset: controller-python36-f34
     required-projects:
       - name: github.com/ansible/ansible
@@ -286,6 +289,9 @@
       - playbooks/ansible-test-base/pre.yaml
       - playbooks/ansible-cloud/aws/pre.yaml
     run: playbooks/ansible-test-base/run.yaml
+    files:
+      - ^plugins/.*$
+      - ^tests/integration/.*$
     # TODO: disabled for now, required for Ara
     # post-run: playbooks/ansible-test-base/post.yaml
     required-projects:

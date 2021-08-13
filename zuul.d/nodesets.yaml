@@ -18,10 +18,10 @@
         label: centos-8-1vcpu
 
 - nodeset:
-    name: centos-8-stream-1vcpu
+    name: centos-8-stream
     nodes:
       - name: centos-8-stream
-        label: centos-8-stream-1vcpu
+        label: centos-8-stream
 
 - nodeset:
     name: fedora-latest-1vcpu

@@ -20,12 +20,12 @@
 - job:
     name: ansible-tox-docs
     parent: tox-docs
-    nodeset: centos-8-1vcpu
+    nodeset: centos-8-stream
 
 - job:
     name: ansible-tox-linters
     parent: tox-linters
-    nodeset: centos-8-1vcpu
+    nodeset: centos-8-stream
 
 - job: &ansible-tox-molecule-base
     name: ansible-tox-molecule-base
@@ -63,7 +63,7 @@
     name: ansible-tox-py36
     parent: tox-py36
     timeout: 3600
-    nodeset: centos-8-1vcpu
+    nodeset: centos-8-stream
 
 - job:
     name: ansible-tox-py37
@@ -86,7 +86,7 @@
     post-run: playbooks/ansible-build-python-tarball/post.yaml
     required-projects:
       - github.com/ansible-network/releases
-    nodeset: centos-8-1vcpu
+    nodeset: centos-8-stream
     vars:
       release_python: python3
 

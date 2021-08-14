@@ -11,6 +11,7 @@
     - etc/yum.repos.d/CentOS-Stream-AppStream.repo
     - etc/yum.repos.d/CentOS-Stream-BaseOS.repo
     - etc/yum.repos.d/CentOS-Stream-Extras.repo
+    - etc/yum.repos.d/CentOS-Stream-PowerTools.repo
   loop_control:
     loop_var: zj_repo
   notify:

@@ -1,5 +1,5 @@
 ---
-- hosts: controller
+- hosts: all
   tasks:
     - name: Run ansible-test-splitter
       import_role:

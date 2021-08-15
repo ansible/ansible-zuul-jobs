@@ -20,6 +20,8 @@
 - job:
     name: ansible-tox-docs
     parent: tox-docs
+    vars:
+      bindep_profile: docs
     nodeset: centos-8-stream
 
 - job:

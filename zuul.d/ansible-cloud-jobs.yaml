@@ -265,9 +265,7 @@
     files:
       - ^plugins/.*$
       - ^tests/integration/.*$
-    nodeset: controller-python36-f34
-    required-projects:
-      - name: github.com/ansible/ansible
+    nodeset: centos-8-stream
     timeout: 1000
     vars:
       ansible_collections_repo: "{{ zuul.project.canonical_name }}"

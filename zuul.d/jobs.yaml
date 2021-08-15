@@ -432,13 +432,6 @@
     parent: ansible-tox-py38
 
 - job:
-    name: ansible-builder-projecttoml-and-setuppy-insync
-    parent: tox
-    vars:
-      tox_envlist: insync
-    nodeset: fedora-latest-1vcpu
-
-- job:
     name: ansible-ee-tests-base
     parent: ansible-buildset-registry-consumer
     abstract: true

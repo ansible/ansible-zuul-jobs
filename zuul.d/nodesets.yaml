@@ -857,12 +857,12 @@
 - nodeset:
     name: controller-python36
     nodes:
-      - name: centos-8
-        label: centos-8-1vcpu
+      - name: centos-8-stream
+        label: centos-8-stream
     groups:
       - name: controller
         nodes:
-          - centos-8
+          - centos-8-stream
 
 - nodeset:
     name: controller-python37

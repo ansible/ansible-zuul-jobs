@@ -6,22 +6,11 @@
         path: "{{ ansible_user_dir }}/zuul-output/logs/controller"
         state: directory
 
-    - name: Run ensure-docker role
+    - name: Install container runtime
       include_role:
-        name: ensure-docker
+        name: "ensure-{{ (container_command == 'docker') | ternary('docker', 'podman') }}"
       when:
         - ansible_test_docker | default(False)
-
-    - name: Add python38 support if needed
-      block:
-        - name: Ensure python3.8 is present
-          become: true
-          package:
-            name: python3.8-dev
-            state: present
-      when:
-        - ansible_os_family == "Debian"
-        - ansible_test_python is version('3.8', '==')
 
     # NOTE(pabelanger): fedora-32 jobs, currently python3.7 only have
     # selinux bindings for python3.8. For now, disable selinux.

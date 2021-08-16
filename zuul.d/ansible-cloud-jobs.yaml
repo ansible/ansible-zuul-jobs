@@ -355,63 +355,49 @@
 
 #### sanity
 - job:
-    name: ansible-test-sanity-aws-ansible
+    name: ansible-test-sanity-aws-ansible-python36
     parent: ansible-test-sanity-docker
-    nodeset: controller-python36
-    dependencies:
-      - name: build-ansible-collection
-        soft: true
-    required-projects:
-      - name: github.com/ansible/ansible
-    timeout: 3600
     vars:
-      ansible_test_collections: true
-      ansible_collections_repo: "{{ zuul.project.canonical_name }}"
-      ansible_test_command: sanity
-      ansible_test_enable_ara: false
-      ansible_test_python: 3.6
       ansible_test_sanity_skiptests:
         - 'future-import-boilerplate'
         - 'metaclass-boilerplate'
 
 - job:
     name: ansible-test-sanity-aws-ansible-2.9-python36
-    parent: ansible-test-sanity-aws-ansible
-    required-projects:
-      - name: github.com/ansible/ansible
-        override-checkout: stable-2.9
+    parent: ansible-test-sanity-docker-stable-2.9
+    vars:
+      ansible_test_sanity_skiptests:
+        - 'future-import-boilerplate'
+        - 'metaclass-boilerplate'
 
 - job:
     name: ansible-test-sanity-aws-ansible-2.11-python36
-    parent: ansible-test-sanity-aws-ansible
-    required-projects:
-      - name: github.com/ansible/ansible
-        override-checkout: stable-2.11
+    parent: ansible-test-sanity-docker-stable-2.11
+    vars:
+      ansible_test_sanity_skiptests:
+        - 'future-import-boilerplate'
+        - 'metaclass-boilerplate'
 
 - job:
-    name: ansible-test-sanity-aws-ansible-devel-python36
-    parent: ansible-test-sanity-aws-ansible
-
-- job:
-    name: ansible-test-sanity-aws-ansible-devel-python38
-    parent: ansible-test-sanity-aws-ansible
+    name: ansible-test-sanity-aws-ansible-python38
+    parent: ansible-test-sanity-aws-ansible-python36
     nodeset: controller-python38
     vars:
       ansible_test_python: 3.8
 
 - job:
     name: ansible-test-sanity-aws-ansible-2.9-python38
-    parent: ansible-test-sanity-aws-ansible-devel-python38
-    required-projects:
-      - name: github.com/ansible/ansible
-        override-checkout: stable-2.9
+    parent: ansible-test-sanity-aws-ansible-2.9-python36
+    nodeset: controller-python38
+    vars:
+      ansible_test_python: 3.8
 
 - job:
     name: ansible-test-sanity-aws-ansible-2.11-python38
-    parent: ansible-test-sanity-aws-ansible-devel-python38
-    required-projects:
-      - name: github.com/ansible/ansible
-        override-checkout: stable-2.11
+    parent: ansible-test-sanity-aws-ansible-2.11-python36
+    nodeset: controller-python38
+    vars:
+      ansible_test_python: 3.8
 
 ### Cloud Common
 - job:

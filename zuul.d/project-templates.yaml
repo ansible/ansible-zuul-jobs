@@ -67,9 +67,6 @@
         - ansible-test-sanity-aws-ansible-python36
         - ansible-test-sanity-aws-ansible-2.9-python36
         - ansible-test-sanity-aws-ansible-2.11-python36
-        - ansible-test-sanity-aws-ansible-python38
-        - ansible-test-sanity-aws-ansible-2.9-python38
-        - ansible-test-sanity-aws-ansible-2.11-python38
         - ansible-test-units-amazon-aws-python38
         - build-ansible-collection:
             required-projects:

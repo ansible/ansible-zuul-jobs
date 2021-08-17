@@ -663,7 +663,19 @@
         - ansible-test-sanity-docker-stable-2.11
         - ansible-test-units-kubernetes-core-python37
         - ansible-test-integration-kubernetes-core
-        - ansible-test-molecule-kubernetes-core
+        - ansible-test-molecule-splitter-kubernetes-core
+        - ansible-test-molecule-kubernetes-core_devel_0
+        - ansible-test-molecule-kubernetes-core_devel_1
+        - ansible-test-molecule-kubernetes-core_devel_2
+        - ansible-test-molecule-kubernetes-core_devel_3
+        - ansible-test-molecule-kubernetes-core_2.9_0
+        - ansible-test-molecule-kubernetes-core_2.9_1
+        - ansible-test-molecule-kubernetes-core_2.9_2
+        - ansible-test-molecule-kubernetes-core_2.9_3
+        - ansible-test-molecule-kubernetes-core_2.10_0
+        - ansible-test-molecule-kubernetes-core_2.10_1
+        - ansible-test-molecule-kubernetes-core_2.10_2
+        - ansible-test-molecule-kubernetes-core_2.10_3
         - ansible-tox-linters
     gate:
       jobs: *ansible-collections-kubernetes-core-units-jobs

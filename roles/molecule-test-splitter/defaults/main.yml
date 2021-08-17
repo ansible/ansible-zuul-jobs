@@ -1,0 +1,3 @@
+---
+molecule_test_splitter__job_prefix: "ansible-test-molecule"
+molecule_test_splitter__ansible_release: []

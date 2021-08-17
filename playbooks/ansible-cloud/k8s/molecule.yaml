@@ -1,9 +1,14 @@
 ---
 - hosts: all
-  vars:
-    ansible_zuul_src_dir: "{{ ansible_user_dir }}/{{ zuul.projects['github.com/ansible/ansible-zuul-jobs'].src_dir }}"
   tasks:
-    - name: Test using Molecule
-      shell: "source {{ ansible_test_venv_path }}/bin/activate; make test-molecule"
-      args:
-        chdir: ~/.ansible/collections/ansible_collections/kubernetes/core
+    - name: Ensure tox is present
+      include_role:
+        name: ensure-tox
+
+    - name: Run molecule tests on tox
+      include_role:
+        name: tox
+      vars:
+        tox_extra_args: "-vv -- -s {{ kubernetes_core_molecule__test_scenario }}"
+        zuul_work_dir: "~/.ansible/collections/ansible_collections/kubernetes/core"
+        tox_install_siblings: false

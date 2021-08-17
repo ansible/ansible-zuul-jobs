@@ -3,6 +3,15 @@
   vars:
     ansible_zuul_src_dir: "{{ ansible_user_dir }}/{{ zuul.projects['github.com/ansible/ansible-zuul-jobs'].src_dir }}"
   tasks:
+    - name: Install molecule and collection dependencies
+      pip:
+        name:
+          - yamllint
+          - kubernetes
+          - flake8
+        virtualenv: '{{ ansible_test_venv_path }}'
+        virtualenv_python: python3
+
     - name: Integration tests
       shell: "source {{ ansible_test_venv_path }}/bin/activate; make test-integration"
       args:

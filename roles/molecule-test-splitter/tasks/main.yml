@@ -1,0 +1,13 @@
+---
+- name: Split scenario
+  molecule_splitter:
+    path: "{{ molecule_test_splitter__collection_path }}"
+    prefix: "{{ molecule_test_splitter__job_prefix }}"
+    ansible_release: "{{ molecule_test_splitter__ansible_release }}"
+  register: _result
+
+- debug: var=_result
+
+- name: Register the result
+  zuul_return:
+    data: "{{ _result.result }}"

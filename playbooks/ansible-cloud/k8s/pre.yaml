@@ -10,6 +10,11 @@
       include_role:
         name: ensure-docker
 
+    - name: Install virtualenv
+      pip:
+        name: virtualenv
+      become: true
+
     - name: Setup base virtualenv_options
       set_fact:
         _virtualenv_options: "--python python{{ ansible_test_python }}"
@@ -34,17 +39,6 @@
     - name: Fetch and install the artifacts
       import_role:
         name: deploy-artifacts
-
-    - name: Install molecule and collection dependencies
-      pip:
-        name:
-          - "molecule<3.3.0"
-          - yamllint
-          - kubernetes
-          - flake8
-          - jsonpatch
-        virtualenv: '{{ ansible_test_venv_path }}'
-        virtualenv_python: python3
 
     - name: Install Kubernetes cluster
       include_role:

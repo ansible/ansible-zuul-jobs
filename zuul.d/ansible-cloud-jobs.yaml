@@ -395,6 +395,21 @@
       ansible_collections_repo: github.com/ansible-collections/kubernetes.core
 
 - job:
+    name: ansible-test-molecule-splitter-kubernetes-core
+    run: playbooks/ansible-cloud/k8s/molecule-splitter.yaml
+    required-projects:
+      - name: github.com/ansible-collections/kubernetes.core
+    nodeset: centos-8-stream
+    vars:
+      molecule_test_splitter__collection_path: "{{ ansible_user_dir }}/{{ zuul.projects['github.com/ansible-collections/kubernetes.core'].src_dir }}"
+      molecule_test_splitter__job_prefix: ansible-test-molecule-kubernetes-core
+      molecule_test_splitter__ansible_release:
+        - "2.9"
+        - "2.10"
+        - devel
+      ansible_collections_repo: github.com/ansible-collections/kubernetes.core
+
+- job:
     name: ansible-test-integration-kubernetes-core
     dependencies:
       - name: build-ansible-collection
@@ -405,18 +420,18 @@
       - name: github.com/ansible/ansible
       - name: github.com/ansible-collections/kubernetes.core
     timeout: 5400
-    nodeset: centos-7-4vcpu
+    nodeset: centos-8-stream
     vars:
       ansible_collections_repo: github.com/ansible-collections/kubernetes.core
       ansible_test_python: 3.6
       ansible_test_command: integration
-      ansible_test_collections: true
       ansible_test_venv_path: "~/venv"
 
 - job:
-    name: ansible-test-molecule-kubernetes-core
+    name: ansible-test-molecule-kubernetes-core_devel_0
     dependencies:
       - name: build-ansible-collection
+      - name: ansible-test-molecule-splitter-kubernetes-core
     pre-run:
       - playbooks/ansible-cloud/k8s/pre.yaml
     run: playbooks/ansible-cloud/k8s/molecule.yaml
@@ -424,10 +439,81 @@
       - name: github.com/ansible/ansible
       - name: github.com/ansible-collections/kubernetes.core
     timeout: 5400
-    nodeset: centos-7-4vcpu
+    nodeset: centos-8-stream
     vars:
-      ansible_collections_repo: github.com/ansible-collections/kubernetes.core
+      kubernetes_core_molecule__test_scenario: "{{ child.scenario[0] }}"
       ansible_test_python: 3.6
-      ansible_test_command: integration
-      ansible_test_collections: true
       ansible_test_venv_path: "~/venv"
+      tox_envlist: molecule-devel
+
+- job:
+    name: ansible-test-molecule-kubernetes-core_devel_1
+    parent: ansible-test-molecule-kubernetes-core_devel_0
+    vars:
+      kubernetes_core_molecule__test_scenario: "{{ child.scenario[1] }}"
+
+- job:
+    name: ansible-test-molecule-kubernetes-core_devel_2
+    parent: ansible-test-molecule-kubernetes-core_devel_0
+    vars:
+      kubernetes_core_molecule__test_scenario: "{{ child.scenario[2] }}"
+
+- job:
+    name: ansible-test-molecule-kubernetes-core_devel_3
+    parent: ansible-test-molecule-kubernetes-core_devel_0
+    vars:
+      kubernetes_core_molecule__test_scenario: "{{ child.scenario[3] }}"
+
+- job:
+    name: ansible-test-molecule-kubernetes-core_2.9_0
+    parent: ansible-test-molecule-kubernetes-core_devel_0
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.9
+    vars:
+      tox_envlist: molecule-29
+
+- job:
+    name: ansible-test-molecule-kubernetes-core_2.9_1
+    parent: ansible-test-molecule-kubernetes-core_2.9_0
+    vars:
+      kubernetes_core_molecule__test_scenario: "{{ child.scenario[1] }}"
+
+- job:
+    name: ansible-test-molecule-kubernetes-core_2.9_2
+    parent: ansible-test-molecule-kubernetes-core_2.9_0
+    vars:
+      kubernetes_core_molecule__test_scenario: "{{ child.scenario[2] }}"
+
+- job:
+    name: ansible-test-molecule-kubernetes-core_2.9_3
+    parent: ansible-test-molecule-kubernetes-core_2.9_0
+    vars:
+      kubernetes_core_molecule__test_scenario: "{{ child.scenario[3] }}"
+
+- job:
+    name: ansible-test-molecule-kubernetes-core_2.10_0
+    parent: ansible-test-molecule-kubernetes-core_devel_0
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.10
+    vars:
+      tox_envlist: molecule-210
+
+- job:
+    name: ansible-test-molecule-kubernetes-core_2.10_1
+    parent: ansible-test-molecule-kubernetes-core_2.10_0
+    vars:
+      kubernetes_core_molecule__test_scenario: "{{ child.scenario[1] }}"
+
+- job:
+    name: ansible-test-molecule-kubernetes-core_2.10_2
+    parent: ansible-test-molecule-kubernetes-core_2.10_0
+    vars:
+      kubernetes_core_molecule__test_scenario: "{{ child.scenario[2] }}"
+
+- job:
+    name: ansible-test-molecule-kubernetes-core_2.10_3
+    parent: ansible-test-molecule-kubernetes-core_2.10_0
+    vars:
+      kubernetes_core_molecule__test_scenario: "{{ child.scenario[3] }}"

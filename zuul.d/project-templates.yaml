@@ -786,23 +786,23 @@
       queue: integrated
       jobs: *ansible-collections-community-yang-units-jobs
 
-#- project-template:
-#    name: ansible-collections-community-yang-juniper-junos
-#    check:
-#      jobs: &ansible-collections-juniper-junos-yang-jobs
-#        - ansible-test-network-integration-community-yang-junos-vsrx-netconf-python36:
-#            vars:
-#              ansible_test_collections: true
-#        - build-ansible-collection:
-#            required-projects:
-#              - name: github.com/ansible-collections/community.yang
-#              - name: github.com/ansible-collections/cisco.iosxr
-#              - name: github.com/ansible-collections/junipernetworks.junos
-#              - name: github.com/ansible-collections/ansible.netcommon
-#              - name: github.com/ansible-collections/ansible.utils
-#    gate:
-#      queue: integrated
-#      jobs: *ansible-collections-juniper-junos-yang-jobs
+- project-template:
+    name: ansible-collections-community-yang-juniper-junos
+    check:
+      jobs: &ansible-collections-juniper-junos-yang-jobs
+        - ansible-test-network-integration-community-yang-junos-vsrx-netconf-python36:
+            vars:
+              ansible_test_collections: true
+        - build-ansible-collection:
+            required-projects:
+              - name: github.com/ansible-collections/community.yang
+              - name: github.com/ansible-collections/cisco.iosxr
+              - name: github.com/ansible-collections/junipernetworks.junos
+              - name: github.com/ansible-collections/ansible.netcommon
+              - name: github.com/ansible-collections/ansible.utils
+    gate:
+      queue: integrated
+      jobs: *ansible-collections-juniper-junos-yang-jobs
 
 - project-template:
     name: ansible-collections-community-yang-cisco-iosxr

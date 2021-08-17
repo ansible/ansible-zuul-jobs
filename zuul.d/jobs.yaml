@@ -175,13 +175,13 @@
     vars:
       ansible_collections_repo: github.com/ansible-collections/ansible.netcommon
       ansible_test_integration_targets: "netconf_.*"
-
-- job:
-    name: ansible-test-network-integration-ansible-netcommon-junos-vsrx-netconf-python36
-    parent: ansible-test-network-integration-junos-vsrx-python36
-    vars:
-      ansible_collections_repo: github.com/ansible-collections/ansible.netcommon
-      ansible_test_integration_targets: "netconf_.*"
+#
+#- job:
+#    name: ansible-test-network-integration-ansible-netcommon-junos-vsrx-netconf-python36
+#    parent: ansible-test-network-integration-junos-vsrx-python36
+#    vars:
+#      ansible_collections_repo: github.com/ansible-collections/ansible.netcommon
+#      ansible_test_integration_targets: "netconf_.*"
 
 - job:
     name: ansible-test-units-posix
@@ -304,12 +304,12 @@
       ansible_collections_repo: github.com/ansible-collections/community.yang
       ansible_test_integration_targets: ""
 
-- job:
-    name: ansible-test-network-integration-community-yang-junos-vsrx-netconf-python36
-    parent: ansible-test-network-integration-junos-vsrx-python36
-    vars:
-      ansible_collections_repo: github.com/ansible-collections/community.yang
-      ansible_test_integration_targets: ""
+#- job:
+#    name: ansible-test-network-integration-community-yang-junos-vsrx-netconf-python36
+#    parent: ansible-test-network-integration-junos-vsrx-python36
+#    vars:
+#      ansible_collections_repo: github.com/ansible-collections/community.yang
+#      ansible_test_integration_targets: ""
 
 # molecule- prefixed jobs match ansible- ones but also enable extra
 # virtualization services that are use by molecule, like docker, podman (TBD)

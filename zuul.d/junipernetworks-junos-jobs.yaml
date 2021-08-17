@@ -15,7 +15,7 @@
     host-vars:
       vsrx3-18.4R1:
         ansible_network_os: junos
-    nodeset: vsrx3-18.4R1-python36
+    nodeset: vsrx3-18.4R1-python38
 
 - job:
     name: ansible-network-junos-vqfx-appliance
@@ -23,7 +23,7 @@
     host-vars:
       vqfx-18.1R3:
         ansible_network_os: junos
-    nodeset: vqfx-18.1R3-python36
+    nodeset: vqfx-18.1R3-python38
 
 - job:
     name: ansible-test-network-integration-junos-vsrx

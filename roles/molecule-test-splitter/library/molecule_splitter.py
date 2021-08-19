@@ -66,7 +66,7 @@ def array_split(buffer, N):
         idx = i % N
         split[idx].append(u)
         i+=1
-    return [",".join(x) for x in split if x]
+    return [" ".join(x) for x in split if x]
 
 
 def execute_module(module):

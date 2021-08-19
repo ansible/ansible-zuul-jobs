@@ -626,8 +626,8 @@
 - nodeset:
     name: vsrx3-18.4R1-python38
     nodes:
-      - name: ubuntu-bionic
-        label: ubuntu-bionic-2vcpu
+      - name: centos-8-stream
+        label: centos-8-stream
       - name: vsrx3-18.4R1
         label: vsrx3-18.4R1
     groups:
@@ -636,7 +636,7 @@
           - vsrx3-18.4R1
       - name: controller
         nodes:
-          - ubuntu-bionic
+          - centos-8-stream
 
 - nodeset:
     name: vyos-1.1.8-python38

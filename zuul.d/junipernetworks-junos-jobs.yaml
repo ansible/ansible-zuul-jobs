@@ -103,7 +103,7 @@
     nodeset: vsrx3-18.4R1-python38
 
 - job:
-    name: network-ee-integration-tests-junos-libssh
+    name: network-ee-integration-tests-junos-vsrx
     parent: network-ee-integration-tests-junos
     vars:
       test_ansible_network_cli_ssh_type: libssh

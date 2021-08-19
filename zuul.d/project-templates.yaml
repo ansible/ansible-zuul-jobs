@@ -584,7 +584,7 @@
     check:
       jobs: &ansible-collections-juniper-junos-jobs
         - ansible-test-network-integration-junos-vsrx
-        - network-ee-integration-tests-junos-libssh
+        - network-ee-integration-tests-junos-vsrx
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-collections/ansible.netcommon
@@ -593,22 +593,22 @@
       queue: integrated
       jobs: *ansible-collections-juniper-junos-jobs
 
-#- project-template:
-#    name: ansible-collections-juniper-junos-netconf
-#    check:
-#      jobs: &ansible-collections-juniper-junos-netconf-jobs
-#        - ansible-test-network-integration-ansible-netcommon-junos-vsrx-netconf-python36:
-#            vars:
-#              ansible_test_collections: true
-#        - build-ansible-collection:
-#            required-projects:
-#              - name: github.com/ansible-collections/ansible.netcommon
-#              - name: github.com/ansible-collections/ansible.utils
-#              - name: github.com/ansible-collections/cisco.iosxr
-#              - name: github.com/ansible-collections/junipernetworks.junos
-#    gate:
-#      queue: integrated
-#      jobs: *ansible-collections-juniper-junos-netconf-jobs
+- project-template:
+    name: ansible-collections-juniper-junos-netconf
+    check:
+      jobs: &ansible-collections-juniper-junos-netconf-jobs
+        - ansible-test-network-integration-ansible-netcommon-junos-vsrx-netconf-python36:
+            vars:
+              ansible_test_collections: true
+        - build-ansible-collection:
+            required-projects:
+              - name: github.com/ansible-collections/ansible.netcommon
+              - name: github.com/ansible-collections/ansible.utils
+              - name: github.com/ansible-collections/cisco.iosxr
+              - name: github.com/ansible-collections/junipernetworks.junos
+    gate:
+      queue: integrated
+      jobs: *ansible-collections-juniper-junos-netconf-jobs
 
 - project-template:
     name: ansible-collections-kubernetes-core-units

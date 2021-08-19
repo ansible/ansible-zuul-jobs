@@ -5,9 +5,7 @@
     mode: '0700'
 
 - name: Split the workload
-  command: python3 /tmp/split_targets.py "{{ ansible_test_splitter__children_prefix }}" "{{ ansible_test_splitter__targets_to_test|default('') }}"
-  args:
-    chdir: "{{ ansible_test_location }}"
+  command: python3 /tmp/split_targets.py -c "{{ ansible_test_location }}" -p "{{ ansible_test_splitter__children_prefix }}" -t "{{ ansible_test_splitter__targets_to_test|default('') }}"
   register: _result
 - debug: var=_result
 - set_fact:

@@ -3,21 +3,25 @@
 from pathlib import PosixPath
 import sys
 import json
+import argparse
+import os
 
-job_prefix = sys.argv[1]
-if len(sys.argv) == 3:
-    targets_from_cli = sys.argv[2].split(" ")
-else:
-    targets_from_cli = []
+parser = argparse.ArgumentParser()
+parser.add_argument('-t', '--targets', help="list of targets for integration testing. example: 'ec2_tag ami_info ec2_instance'",default="")
+parser.add_argument('-p', '--prefix', help='list of targets for integration testing', default="job_")
+parser.add_argument('-c', '--collection_path', help='path to the collection.', default=os.getcwd())
+
+args = parser.parse_args()
+batches = []
 # NOTE(pabelanger): Hardcode this to 6 because that is the semaphore in zuul.
-jobs = [f"{job_prefix}{i}" for i in range(6)]
-total_jobs = 10
+total_jobs = 6
 slow_targets = []
 regular_targets = []
 
-batches = []
+jobs = [f"{args.prefix}{i}" for i in range(total_jobs)]
 
-targets = PosixPath("tests/integration/targets/")
+targets = PosixPath(os.path.join(args.collection_path,"tests/integration/targets/"))
+targets_from_cli = [ x for x in args.targets.split(" ") if x != "" ]
 for target in targets.glob("*"):
     aliases = target / "aliases"
     if not target.is_dir():
@@ -43,7 +47,6 @@ for x in range(remaining_jobs):
     batch = regular_targets[x::remaining_jobs]
     if batch:
         batches.append(batch)
-
 
 result = {
     "data": {

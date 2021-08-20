@@ -74,8 +74,9 @@
 - job:
     name: ansible-tox-py38
     parent: tox-py38
+    pre-run: playbooks/ansible-tox-py38/pre.yaml
     timeout: 3600
-    nodeset: ubuntu-bionic-1vcpu
+    nodeset: centos-8-stream
 
 - job:
     name: ansible-build-python-tarball

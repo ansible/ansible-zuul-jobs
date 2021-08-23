@@ -164,8 +164,8 @@
 - nodeset:
     name: asav9-12-3-python36
     nodes:
-      - name: centos-8
-        label: centos-8-1vcpu
+      - name: centos-8-stream
+        label: centos-8-stream
       - name: asav9-12-3
         label: asav9-12-3
     groups:
@@ -174,7 +174,7 @@
           - asav9-12-3
       - name: controller
         nodes:
-          - centos-8
+          - centos-8-stream
 
 - nodeset:
     name: asav9-12-3-python37
@@ -239,8 +239,8 @@
 - nodeset:
     name: eos-4.20.10-python36
     nodes:
-      - name: centos-8
-        label: centos-8-1vcpu
+      - name: centos-8-stream
+        label: centos-8-stream
       - name: eos-4.20.10
         label: eos-4.20.10
     groups:
@@ -249,7 +249,7 @@
           - eos-4.20.10
       - name: controller
         nodes:
-          - centos-8
+          - centos-8-stream
 
 - nodeset:
     name: eos-4.20.10-python37
@@ -314,8 +314,8 @@
 - nodeset:
     name: eos-4.24.6-python36
     nodes:
-      - name: centos-8
-        label: centos-8-1vcpu
+      - name: centos-8-stream
+        label: centos-8-stream
       - name: eos-4.24.6
         label: eos-4.24.6
     groups:
@@ -324,7 +324,7 @@
           - eos-4.24.6
       - name: controller
         nodes:
-          - centos-8
+          - centos-8-stream
 
 - nodeset:
     name: eos-4.24.6-python37
@@ -389,8 +389,8 @@
 - nodeset:
     name: ios-15.6-2T-python36
     nodes:
-      - name: centos-8
-        label: centos-8-1vcpu
+      - name: centos-8-stream
+        label: centos-8-stream
       - name: ios-15.6-2T
         label: ios-15.6-2T
     groups:
@@ -399,7 +399,7 @@
           - ios-15.6-2T
       - name: controller
         nodes:
-          - centos-8
+          - centos-8-stream
 
 - nodeset:
     name: ios-15.6-2T-python37
@@ -463,8 +463,8 @@
 - nodeset:
     name: iosxr-6.1.3-python36
     nodes:
-      - name: centos-8
-        label: centos-8-1vcpu
+      - name: centos-8-stream
+        label: centos-8-stream
       - name: iosxr-6.1.3
         label: iosxrv-6.1.3
     groups:
@@ -473,7 +473,7 @@
           - iosxr-6.1.3
       - name: controller
         nodes:
-          - centos-8
+          - centos-8-stream
 
 - nodeset:
     name: iosxr-6.1.3-python37
@@ -537,8 +537,8 @@
 - nodeset:
     name: iosxr-7.0.2-python36
     nodes:
-      - name: centos-8
-        label: centos-8-1vcpu
+      - name: centos-8-stream
+        label: centos-8-stream
       - name: iosxr-7.0.2
         label: iosxrv-7.0.2
     groups:
@@ -547,7 +547,7 @@
           - iosxr-7.0.2
       - name: controller
         nodes:
-          - centos-8
+          - centos-8-stream
 
 - nodeset:
     name: iosxr-7.0.2-python37
@@ -627,8 +627,8 @@
 - nodeset:
     name: openvswitch-2.9.0-python36
     nodes:
-      - name: centos-8
-        label: centos-8-1vcpu
+      - name: centos-8-stream
+        label: centos-8-stream
       - name: openvswitch-2.9.0
         label: ubuntu-bionic-1vcpu
     groups:
@@ -637,7 +637,7 @@
           - openvswitch-2.9.0
       - name: controller
         nodes:
-          - centos-8
+          - centos-8-stream
 
 - nodeset:
     name: openvswitch-2.9.0-python37
@@ -702,8 +702,8 @@
 - nodeset:
     name: vqfx-18.1R3-python36
     nodes:
-      - name: centos-8
-        label: centos-8-1vcpu
+      - name: centos-8-stream
+        label: centos-8-stream
       - name: vqfx-18.1R3
         label: vqfx-18.1R3
     groups:
@@ -712,7 +712,7 @@
           - vqfx-18.1R3
       - name: controller
         nodes:
-          - centos-8
+          - centos-8-stream
 
 - nodeset:
     name: vqfx-18.1R3-python37
@@ -777,8 +777,8 @@
 - nodeset:
     name: vsrx3-18.4R1-python36
     nodes:
-      - name: centos-8
-        label: centos-8-1vcpu
+      - name: centos-8-stream
+        label: centos-8-stream
       - name: vsrx3-18.4R1
         label: vsrx3-18.4R1
     groups:
@@ -787,7 +787,7 @@
           - vsrx3-18.4R1
       - name: controller
         nodes:
-          - centos-8
+          - centos-8-stream
 
 - nodeset:
     name: vsrx3-18.4R1-python37

@@ -10,6 +10,14 @@
       include_role:
         name: ensure-docker
 
+    - name: Run ensure-virtualenv role
+      include_role:
+        name: ensure-virtualenv
+
+    - name: Run ensure-pip role
+      include_role:
+        name: ensure-pip
+
     - name: Setup base virtualenv_options
       set_fact:
         _virtualenv_options: "--python python{{ ansible_test_python }}"

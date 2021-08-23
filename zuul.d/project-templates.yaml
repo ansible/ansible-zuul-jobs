@@ -86,6 +86,13 @@
     gate:
       queue: integrated-aws
       jobs: *ansible-collections-amazon-aws-jobs
+    aws-complete:
+      queue: integrated-aws
+      jobs:
+        - << ansible-collections-amazon-aws-jobs
+        - ansible-test-splitter:
+            vars:
+              ansible_test_splitter__test_changed: false
 
 - project-template:
     name: ansible-collections-community-aws
@@ -117,6 +124,13 @@
     gate:
       queue: integrated-aws
       jobs: *ansible-collections-community-aws-jobs
+    aws-complete:
+      queue: integrated-aws
+      jobs:
+        - << ansible-collections-community-aws-jobs
+        - ansible-test-splitter:
+            vars:
+              ansible_test_splitter__test_changed: false
 
 - project-template:
     name: ansible-collections-arista-eos-units

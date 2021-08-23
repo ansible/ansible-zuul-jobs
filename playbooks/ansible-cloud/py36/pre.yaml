@@ -1,0 +1,10 @@
+---
+- hosts: controller
+  tasks:
+    - name: Ensure we've got python3.6 on the host for py36 jobs
+      become: true
+      package:
+        name: python3.6
+        state: present
+      when:
+        - ansible_test_python is version('3.6', '==')

@@ -1,10 +1,32 @@
 ---
 - hosts: all
-  vars:
-    ansible_zuul_src_dir: "{{ ansible_user_dir }}/{{ zuul.projects['github.com/ansible/ansible-zuul-jobs'].src_dir }}"
   tasks:
+    - set_fact:
+        collection_path: "{{ '~/.ansible/collections/ansible_collections/kubernetes/core' | expanduser }}"
+
     - name: Test using Molecule
       shell: "source {{ ansible_test_venv_path }}/bin/activate; molecule test"
       environment: "{{ ansible_test_environment | default({}) }}"
       args:
-        chdir: ~/.ansible/collections/ansible_collections/kubernetes/core
+        chdir: "{{ collection_path }}"
+      when: molecule_test___tag_id is not defined
+
+    - name: Run molecule tests for specific group
+      block:
+        - name: tags group file name
+          set_fact:
+            _tag_file: "{{ collection_path }}/molecule/default/tags_{{ molecule_test___tag_id }}.txt"
+
+        - debug: var=_tag_file
+
+        - name: Get list of tags to be executed
+          set_fact:
+            tags: "{{ lookup('file', _tag_file) | replace('\n', ',') }}"
+
+        - name: Test using Molecule
+          shell: "source {{ ansible_test_venv_path }}/bin/activate; molecule test -- -v --tags {{ tags }}"
+          environment: "{{ ansible_test_environment | default({}) }}"
+          args:
+            chdir: ~/.ansible/collections/ansible_collections/kubernetes/core
+          when: molecule_test___tag_id is not defined
+      when: molecule_test___tag_id is defined

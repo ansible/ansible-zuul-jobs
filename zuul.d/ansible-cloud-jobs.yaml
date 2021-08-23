@@ -410,9 +410,7 @@
     timeout: 5400
     nodeset: centos-8-stream
     vars:
-      ansible_collections_repo: github.com/ansible-collections/kubernetes.core
       ansible_test_python: 3.6
-      ansible_test_collections: true
       ansible_test_venv_path: "~/venv"
 
 - job:
@@ -428,21 +426,83 @@
     timeout: 5400
     nodeset: centos-8-stream
     vars:
-      ansible_collections_repo: github.com/ansible-collections/kubernetes.core
-      ansible_test_collections: true
       ansible_test_python: 3.6
       ansible_test_venv_path: "~/venv"
 
 - job:
-    name: ansible-test-molecule-kubernetes-core-2.9
+    name: ansible-test-molecule-kubernetes-core-0
+    parent: ansible-test-molecule-kubernetes-core
+    vars:
+      molecule_test___tag_id: 0
+
+- job:
+    name: ansible-test-molecule-kubernetes-core-1
+    parent: ansible-test-molecule-kubernetes-core-0
+    vars:
+      molecule_test___tag_id: 1
+
+- job:
+    name: ansible-test-molecule-kubernetes-core-2
+    parent: ansible-test-molecule-kubernetes-core-0
+    vars:
+      molecule_test___tag_id: 2
+
+- job:
+    name: ansible-test-molecule-kubernetes-core-3
+    parent: ansible-test-molecule-kubernetes-core-0
+    vars:
+      molecule_test___tag_id: 3
+
+- job:
+    name: ansible-test-molecule-kubernetes-core-2.9-0
     parent: ansible-test-molecule-kubernetes-core
     required-projects:
       - name: github.com/ansible/ansible
         override-checkout: stable-2.9
+    vars:
+      molecule_test___tag_id: 0
 
 - job:
-    name: ansible-test-molecule-kubernetes-core-2.10
+    name: ansible-test-molecule-kubernetes-core-2.9-1
+    parent: ansible-test-molecule-kubernetes-core-2.9-0
+    vars:
+      molecule_test___tag_id: 1
+
+- job:
+    name: ansible-test-molecule-kubernetes-core-2.9-2
+    parent: ansible-test-molecule-kubernetes-core-2.9-0
+    vars:
+      molecule_test___tag_id: 2
+
+- job:
+    name: ansible-test-molecule-kubernetes-core-2.9-3
+    parent: ansible-test-molecule-kubernetes-core-2.9-0
+    vars:
+      molecule_test___tag_id: 3
+
+- job:
+    name: ansible-test-molecule-kubernetes-core-2.10-0
     parent: ansible-test-molecule-kubernetes-core
     required-projects:
       - name: github.com/ansible/ansible
         override-checkout: stable-2.10
+    vars:
+      molecule_test___tag_id: 0
+
+- job:
+    name: ansible-test-molecule-kubernetes-core-2.10-1
+    parent: ansible-test-molecule-kubernetes-core-2.10-0
+    vars:
+      molecule_test___tag_id: 1
+
+- job:
+    name: ansible-test-molecule-kubernetes-core-2.10-2
+    parent: ansible-test-molecule-kubernetes-core-2.10-0
+    vars:
+      molecule_test___tag_id: 2
+
+- job:
+    name: ansible-test-molecule-kubernetes-core-2.10-3
+    parent: ansible-test-molecule-kubernetes-core-2.10-0
+    vars:
+      molecule_test___tag_id: 3

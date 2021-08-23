@@ -454,6 +454,10 @@
             required-projects:
               - name: github.com/ansible-collections/community.vmware
               - name: github.com/ansible-collections/vmware.vmware_rest
+        - ansible-test-molecule-kubernetes-core:
+            vars:
+              ansible_test_environment:
+                ENABLE_TURBO_MODE: true
     gate:
       jobs: *ansible-collections-cloud-common-jobs
 

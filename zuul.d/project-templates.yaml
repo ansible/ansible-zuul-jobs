@@ -89,8 +89,25 @@
     aws-complete:
       queue: integrated-aws
       jobs:
-        <<: *ansible-collections-amazon-aws-jobs
-        ansible_test_splitter__test_changed: false
+        - ansible-test-sanity-aws-ansible-python36
+        - ansible-test-sanity-aws-ansible-2.9-python36
+        - ansible-test-sanity-aws-ansible-2.11-python36
+        - ansible-test-units-amazon-aws-python38
+        - build-ansible-collection:
+            required-projects:
+              - name: github.com/ansible-collections/ansible.utils
+              - name: github.com/ansible-collections/ansible.netcommon
+              - name: github.com/ansible-collections/community.aws
+              - name: github.com/ansible-collections/community.general
+        - ansible-test-splitter:
+            vars:
+              ansible_test_splitter__test_changed: false
+        - ansible-test-cloud-integration-aws-py36_0
+        - ansible-test-cloud-integration-aws-py36_1
+        - ansible-test-cloud-integration-aws-py36_2
+        - ansible-test-cloud-integration-aws-py36_3
+        - ansible-test-cloud-integration-aws-py36_4
+        - ansible-test-cloud-integration-aws-py36_5
 
 - project-template:
     name: ansible-collections-community-aws
@@ -125,8 +142,28 @@
     aws-complete:
       queue: integrated-aws
       jobs:
-        <<: *ansible-collections-community-aws-jobs
-        ansible_test_splitter__test_changed: false
+        - ansible-test-sanity-docker
+        - ansible-test-sanity-docker-stable-2.9
+        - ansible-test-sanity-docker-stable-2.10
+        - ansible-test-sanity-docker-stable-2.11
+        - ansible-test-units-community-aws-python38
+        - build-ansible-collection:
+            required-projects:
+              - name: github.com/ansible-collections/amazon.aws
+              - name: github.com/ansible-collections/ansible.netcommon
+              - name: github.com/ansible-collections/ansible.utils
+              - name: github.com/ansible-collections/community.general
+        - ansible-test-splitter:
+            vars:
+              ansible_test_splitter__test_changed: false
+        - ansible-test-cloud-integration-aws-py36_0
+        - ansible-test-cloud-integration-aws-py36_1
+        - ansible-test-cloud-integration-aws-py36_2
+        - ansible-test-cloud-integration-aws-py36_3
+        - ansible-test-cloud-integration-aws-py36_4
+        - ansible-test-cloud-integration-aws-py36_5
+        - ansible-galaxy-importer:
+            voting: false
 
 - project-template:
     name: ansible-collections-arista-eos-units

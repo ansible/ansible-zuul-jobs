@@ -80,6 +80,14 @@
     vars:
       ansible_collections_repo: github.com/ansible-collections/junipernetworks.junos
 - job:
+    name: ansible-test-network-integration-junos-vsrx-netconf
+    parent: ansible-test-network-integration-junos-vsrx
+    abstract: true
+    nodeset: vsrx3-18.4R1-python38
+    vars:
+      ansible_test_skip_tags: local,network_cli
+
+- job:
     name: ansible-test-network-integration-junos-vsrx-python36
     parent: ansible-test-network-integration-junos-vsrx
     nodeset: vsrx3-18.4R1-python36

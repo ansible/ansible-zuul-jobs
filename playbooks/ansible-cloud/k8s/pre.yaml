@@ -46,7 +46,7 @@
     - name: Install molecule and collection dependencies
       pip:
         name:
-          - "molecule<3.3.0"
+          - molecule
           - yamllint
           - kubernetes
           - flake8

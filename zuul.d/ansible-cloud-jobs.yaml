@@ -432,3 +432,17 @@
       ansible_test_collections: true
       ansible_test_python: 3.6
       ansible_test_venv_path: "~/venv"
+
+- job:
+    name: ansible-test-molecule-kubernetes-core-2.9
+    parent: ansible-test-molecule-kubernetes-core
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.9
+
+- job:
+    name: ansible-test-molecule-kubernetes-core-2.10
+    parent: ansible-test-molecule-kubernetes-core
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.10

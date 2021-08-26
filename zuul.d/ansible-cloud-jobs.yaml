@@ -446,3 +446,12 @@
     required-projects:
       - name: github.com/ansible/ansible
         override-checkout: stable-2.10
+
+- job:
+    name: ansible-test-molecule-kubernetes-core-with-turbo
+    parent: ansible-test-molecule-kubernetes-core
+    required-projects:
+      - name: github.com/ansible-collections/cloud.common
+    vars:
+      ansible_test_environment:
+        ENABLE_TURBO_MODE: true

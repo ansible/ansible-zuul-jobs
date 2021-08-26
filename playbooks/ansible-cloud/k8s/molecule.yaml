@@ -13,15 +13,9 @@
 
     - name: Run molecule tests for specific group
       block:
-        - name: tags group file name
+        - name: Read list of tags
           set_fact:
-            _tag_file: "{{ collection_path }}/molecule/default/tags_{{ molecule_test___tag_id }}.txt"
-
-        - debug: var=_tag_file
-
-        - name: Get list of tags to be executed
-          set_fact:
-            tags: "{{ lookup('file', _tag_file) | replace('\n', ',') }}"
+            tags: "{{ lookup('file', collection_path ~ '/molecule/default/tags_' ~ molecule_test___tag_id  ~ '.txt') | replace('\n', ',') }}"
 
         - name: Test using Molecule
           shell: "source {{ ansible_test_venv_path }}/bin/activate; molecule test -- -v --tags {{ tags }}"

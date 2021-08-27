@@ -86,13 +86,9 @@
     gate:
       queue: integrated-aws
       jobs: *ansible-collections-amazon-aws-jobs
-    aws-complete:
+    ondemand:
       queue: integrated-aws
       jobs:
-        - ansible-test-sanity-aws-ansible-python36
-        - ansible-test-sanity-aws-ansible-2.9-python36
-        - ansible-test-sanity-aws-ansible-2.11-python36
-        - ansible-test-units-amazon-aws-python38
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-collections/ansible.utils
@@ -139,14 +135,9 @@
     gate:
       queue: integrated-aws
       jobs: *ansible-collections-community-aws-jobs
-    aws-complete:
+    ondemand:
       queue: integrated-aws
       jobs:
-        - ansible-test-sanity-docker
-        - ansible-test-sanity-docker-stable-2.9
-        - ansible-test-sanity-docker-stable-2.10
-        - ansible-test-sanity-docker-stable-2.11
-        - ansible-test-units-community-aws-python38
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-collections/amazon.aws

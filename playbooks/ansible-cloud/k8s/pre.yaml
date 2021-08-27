@@ -43,17 +43,6 @@
       import_role:
         name: deploy-artifacts
 
-    - name: Install molecule and collection dependencies
-      pip:
-        name:
-          - "molecule>=3.4.0"
-          - yamllint
-          - kubernetes
-          - flake8
-          - jsonpatch
-        virtualenv: '{{ ansible_test_venv_path }}'
-        virtualenv_python: python3
-
     - name: Install Kubernetes cluster
       include_role:
         name: setup-kind

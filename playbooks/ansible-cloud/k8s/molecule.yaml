@@ -1,26 +1,14 @@
 ---
 - hosts: all
   tasks:
-    - set_fact:
-        collection_path: "{{ '~/.ansible/collections/ansible_collections/kubernetes/core' | expanduser }}"
+    - name: Ensure tox is present
+      include_role:
+        name: ensure-tox
 
-    - name: Test using Molecule
-      shell: "source {{ ansible_test_venv_path }}/bin/activate; molecule test"
-      environment: "{{ ansible_test_environment | default({}) }}"
-      args:
-        chdir: "{{ collection_path }}"
-      when: molecule_test___tag_id is not defined
-
-    - name: Run molecule tests for specific group
-      block:
-        - name: Read list of tags
-          set_fact:
-            tags: "{{ lookup('file', collection_path ~ '/molecule/default/tags_' ~ molecule_test___tag_id  ~ '.txt') | replace('\n', ',') }}"
-
-        - name: Test using Molecule
-          shell: "source {{ ansible_test_venv_path }}/bin/activate; molecule test -- -v --tags {{ tags }}"
-          environment: "{{ ansible_test_environment | default({}) }}"
-          args:
-            chdir: ~/.ansible/collections/ansible_collections/kubernetes/core
-          when: molecule_test___tag_id is not defined
-      when: molecule_test___tag_id is defined
+    - name: Run molecule tests on tox
+      include_role:
+        name: tox
+      vars:
+        tox_extra_args: "-vv -- {{ molecule_test___id | default(omit) }}"
+        zuul_work_dir: "~/.ansible/collections/ansible_collections/kubernetes/core"
+        tox_install_siblings: false

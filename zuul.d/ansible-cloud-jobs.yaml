@@ -412,30 +412,31 @@
     vars:
       ansible_test_python: 3.6
       ansible_test_venv_path: "~/venv"
+      tox_envlist: molecule-devel
 
 - job:
     name: ansible-test-molecule-kubernetes-core-0
     parent: ansible-test-molecule-kubernetes-core
     vars:
-      molecule_test___tag_id: 0
+      molecule_test___id: 0
 
 - job:
     name: ansible-test-molecule-kubernetes-core-1
     parent: ansible-test-molecule-kubernetes-core-0
     vars:
-      molecule_test___tag_id: 1
+      molecule_test___id: 1
 
 - job:
     name: ansible-test-molecule-kubernetes-core-2
     parent: ansible-test-molecule-kubernetes-core-0
     vars:
-      molecule_test___tag_id: 2
+      molecule_test___id: 2
 
 - job:
     name: ansible-test-molecule-kubernetes-core-3
     parent: ansible-test-molecule-kubernetes-core-0
     vars:
-      molecule_test___tag_id: 3
+      molecule_test___id: 3
 
 - job:
     name: ansible-test-molecule-kubernetes-core-2.9-0
@@ -444,25 +445,26 @@
       - name: github.com/ansible/ansible
         override-checkout: stable-2.9
     vars:
-      molecule_test___tag_id: 0
+      molecule_test___id: 0
+      tox_envlist: molecule-29
 
 - job:
     name: ansible-test-molecule-kubernetes-core-2.9-1
     parent: ansible-test-molecule-kubernetes-core-2.9-0
     vars:
-      molecule_test___tag_id: 1
+      molecule_test___id: 1
 
 - job:
     name: ansible-test-molecule-kubernetes-core-2.9-2
     parent: ansible-test-molecule-kubernetes-core-2.9-0
     vars:
-      molecule_test___tag_id: 2
+      molecule_test___id: 2
 
 - job:
     name: ansible-test-molecule-kubernetes-core-2.9-3
     parent: ansible-test-molecule-kubernetes-core-2.9-0
     vars:
-      molecule_test___tag_id: 3
+      molecule_test___id: 3
 
 - job:
     name: ansible-test-molecule-kubernetes-core-2.10-0
@@ -471,22 +473,23 @@
       - name: github.com/ansible/ansible
         override-checkout: stable-2.10
     vars:
-      molecule_test___tag_id: 0
+      molecule_test___id: 0
+      tox_envlist: molecule-210
 
 - job:
     name: ansible-test-molecule-kubernetes-core-2.10-1
     parent: ansible-test-molecule-kubernetes-core-2.10-0
     vars:
-      molecule_test___tag_id: 1
+      molecule_test___id: 1
 
 - job:
     name: ansible-test-molecule-kubernetes-core-2.10-2
     parent: ansible-test-molecule-kubernetes-core-2.10-0
     vars:
-      molecule_test___tag_id: 2
+      molecule_test___id: 2
 
 - job:
     name: ansible-test-molecule-kubernetes-core-2.10-3
     parent: ansible-test-molecule-kubernetes-core-2.10-0
     vars:
-      molecule_test___tag_id: 3
+      molecule_test___id: 3

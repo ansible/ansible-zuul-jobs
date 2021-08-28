@@ -1603,9 +1603,6 @@
     lgtm:
       jobs:
         - noop
-    merge-check:
-      jobs:
-        - noop
     unlabel-on-push:
       jobs:
         - noop

@@ -1,6 +1,19 @@
 ---
 
 - job:
+    name: ansible-network-ios-appliance
+    parent: ansible-network-appliance-base
+    pre-run: playbooks/ansible-network-ios-appliance/pre.yaml
+    run: playbooks/ansible-network-ios-appliance/run.yaml
+    host-vars:
+      ios-15.6-2T:
+        ansible_network_os: ios
+    required-projects:
+      - name: github.com/ansible/ansible-zuul-jobs
+    nodeset: ios-15.6-2T-python38
+    timeout: 10800
+
+- job:
     name: network-ee-integration-tests-ansible-network
     parent: ansible-network-ios-appliance
 
@@ -8,3 +21,10 @@
     name: network-ee-integration-tests-ansible-network
     parent: network-ee-integration-tests
     nodeset: ios-15.6-2T-python38
+
+- job:
+    name: network-ee-integration-tests-ios-libssh
+    parent: network-ee-integration-tests-ansible-network
+    vars:
+      test_ansible_network_cli_ssh_type: libssh
+      test_ansible_skip_tags: local

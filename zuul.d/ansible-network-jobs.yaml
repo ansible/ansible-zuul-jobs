@@ -1,0 +1,10 @@
+---
+
+- job:
+    name: network-ee-integration-tests-ansible-network
+    parent: ansible-network-ios-appliance
+
+- job:
+    name: network-ee-integration-tests-ansible-network
+    parent: network-ee-integration-tests
+    nodeset: ios-15.6-2T-python38

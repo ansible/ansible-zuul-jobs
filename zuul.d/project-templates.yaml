@@ -1599,3 +1599,18 @@
     unlabel-on-push:
       jobs:
         - noop
+
+- project-template:
+    name: ansible-collections-ansible-network
+    check:
+      jobs: &ansible-collections-ansible-network-jobs
+        - network-ee-integration-tests-ansible-network-jobs
+        - build-ansible-collection:
+            required-projects:
+              - name: github.com/ansible-collections/ansible.network
+              - name: github.com/ansible-collections/cisco.ios
+              - name: github.com/ansible-collections/ansible.netcommon
+              - name: github.com/ansible-collections/ansible.utils
+    gate:
+      queue: integrated
+      jobs: *ansible-collections-ansible-network-jobs

@@ -201,7 +201,7 @@
     name: eos-4.24.6-python38
     nodes:
       - name: centos-8-stream
-        label: centos-8-stream 
+        label: centos-8-stream
       - name: eos-4.24.6
         label: eos-4.24.6
     groups:

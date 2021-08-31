@@ -84,7 +84,7 @@
       ansible_test_fips_mode: true
 
 - job:
-    name: network-ee-integration-tests-eos-libssh-stable-2.11-scenario
+    name: network-ee-integration-tests-eos-libssh-stable-2.11
     parent: network-ee-integration-tests-eos-stable-2.11
     vars:
       ansible_test_network_cli_ssh_type: libssh

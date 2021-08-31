@@ -173,39 +173,12 @@
     name: ansible-collections-arista-eos
     check:
       jobs: &ansible-collections-arista-eos-jobs
-<<<<<<< HEAD
-        - ansible-test-network-integration-eos-httpapi-python27-stable211
-        - ansible-test-network-integration-eos-httpapi-python27-stable29
-        - ansible-test-network-integration-eos-network_cli-python27-stable211-scenario01
-        - ansible-test-network-integration-eos-network_cli-python27-stable211-scenario02
-        - ansible-test-network-integration-eos-network_cli-python27-stable29
-        - ansible-test-network-integration-eos-httpapi-python38
-        - ansible-test-network-integration-eos-httpapi-python38-stable212
-        - ansible-test-network-integration-eos-httpapi-python36-stable211
-        - ansible-test-network-integration-eos-httpapi-python36-stable29
-        - ansible-test-network-integration-eos-network_cli-python38
-        - ansible-test-network-integration-eos-network_cli-python38-stable212-scenario01
-        - ansible-test-network-integration-eos-network_cli-python38-stable212-scenario02
-        - ansible-test-network-integration-eos-network_cli-python36-stable211-scenario01
-        - ansible-test-network-integration-eos-network_cli-python36-stable211-scenario02
-        - ansible-test-network-integration-eos-network_cli-python36-stable29
-        - ansible-test-network-integration-eos-network_cli-libssh-python38
-        - ansible-test-network-integration-eos-network_cli-libssh-python38-stable212-scenario01
-        - ansible-test-network-integration-eos-network_cli-libssh-python38-stable212-scenario02
-        - ansible-test-network-integration-eos-network_cli-libssh-python36-stable211-scenario01
-        - ansible-test-network-integration-eos-network_cli-libssh-python36-stable211-scenario02
-        - ansible-test-network-integration-eos-network_cli-libssh-python36-stable29
-=======
         - network-ee-integration-tests-eos
         - network-ee-integration-tests-eos-stable-2.9
         - network-ee-integration-tests-eos-stable-2.11
-        - network-ee-integration-tests-eos-libssh-scenario01
-        - network-ee-integration-tests-eos-libssh-scenario02
-        - network-ee-integration-tests-eos-libssh-stable-2.9-scenario01
-        - network-ee-integration-tests-eos-libssh-stable-2.9-scenario02
-        - network-ee-integration-tests-eos-libssh-stable-2.11-scenario01
-        - network-ee-integration-tests-eos-libssh-stable-2.11-scenario02
->>>>>>> Migrate eos integration test jobs to network-ee
+        - network-ee-integration-tests-eos-libssh
+        - network-ee-integration-tests-eos-libssh-stable-2.9
+        - network-ee-integration-tests-eos-libssh-stable-2.11
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-collections/ansible.netcommon

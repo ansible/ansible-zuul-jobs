@@ -4,7 +4,8 @@
     ansible_zuul_src_dir: "{{ ansible_user_dir }}/{{ zuul.projects['github.com/ansible/ansible-zuul-jobs'].src_dir }}"
   tasks:
     - name: Test using Molecule
-      shell: "source {{ ansible_test_venv_path }}/bin/activate; molecule test"
-      environment: "{{ ansible_test_environment | default({}) }}"
+      shell: "source {{ ansible_test_venv_path }}/bin/activate; molecule converge -- -v --tags validate"
+      environment:
+        ENABLE_TURBO_MODE: true
       args:
         chdir: ~/.ansible/collections/ansible_collections/kubernetes/core

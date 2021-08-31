@@ -4,7 +4,9 @@
 - job:
     name: ansible-network-nxos-appliance
     parent: ansible-network-appliance-base
-    pre-run: playbooks/ansible-network-nxos-appliance/pre.yaml
+    pre-run:
+      - playbooks/ansible-network-nxos-appliance/pre.yaml
+      - playbooks/network-ee-integration-tests/pre.yaml
     run: playbooks/ansible-network-nxos-appliance/run.yaml
     host-vars:
       nxos-7.0.3:

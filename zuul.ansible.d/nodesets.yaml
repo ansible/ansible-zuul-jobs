@@ -368,10 +368,15 @@
           - fedora-35
 
 - nodeset:
-    name: nxos-7.0.3-python36
+    name: nxos-7.0.3-python38
     nodes:
+<<<<<<< HEAD:zuul.ansible.d/nodesets.yaml
       - name: fedora-35
         label: ansible-fedora-35-1vcpu
+=======
+      - name: centos-8-stream
+        label: centos-8-stream
+>>>>>>> e10477f (Update nodeset and project-templates):zuul.d/nodesets.yaml
       - name: nxos-7.0.3
         label: nxos-7.0.3
     groups:
@@ -380,7 +385,56 @@
           - nxos-7.0.3
       - name: controller
         nodes:
+<<<<<<< HEAD:zuul.ansible.d/nodesets.yaml
           - fedora-35
+=======
+          - centos-8-stream
+
+- nodeset:
+    name: openvswitch-2.9.0-python27
+    nodes:
+      - name: ubuntu-bionic
+        label: ubuntu-bionic-1vcpu
+      - name: openvswitch-2.9.0
+        label: ubuntu-bionic-1vcpu
+    groups:
+      - name: openvswitch
+        nodes:
+          - openvswitch-2.9.0
+      - name: controller
+        nodes:
+          - ubuntu-bionic
+
+- nodeset:
+    name: openvswitch-2.9.0-python35
+    nodes:
+      - name: ubuntu-xenial
+        label: ubuntu-xenial-1vcpu
+      - name: openvswitch-2.9.0
+        label: ubuntu-bionic-1vcpu
+    groups:
+      - name: openvswitch
+        nodes:
+          - openvswitch-2.9.0
+      - name: controller
+        nodes:
+          - ubuntu-xenial
+
+- nodeset:
+    name: openvswitch-2.9.0-python36
+    nodes:
+      - name: centos-8
+        label: centos-8-1vcpu
+      - name: openvswitch-2.9.0
+        label: ubuntu-bionic-1vcpu
+    groups:
+      - name: openvswitch
+        nodes:
+          - openvswitch-2.9.0
+      - name: controller
+        nodes:
+          - centos-8
+>>>>>>> e10477f (Update nodeset and project-templates):zuul.d/nodesets.yaml
 
 - nodeset:
     name: nxos-7.0.3-python38

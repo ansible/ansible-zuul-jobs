@@ -313,70 +313,9 @@
     name: ansible-collections-cisco-nxos
     check:
       jobs:
-        - ansible-test-network-integration-nxos-cli-python38-scenario01:
-            vars:
-              ansible_test_collections: true
-            voting: false
-        - ansible-test-network-integration-nxos-cli-python38-scenario02:
-            vars:
-              ansible_test_collections: true
-            voting: false
-        - ansible-test-network-integration-nxos-cli-python38-scenario03:
-            vars:
-              ansible_test_collections: true
-            voting: false
-        - ansible-test-network-integration-nxos-cli-python38-scenario04:
-            vars:
-              ansible_test_collections: true
-            voting: false
-        - ansible-test-network-integration-nxos-cli-python36-stable29-scenario01:
-            vars:
-              ansible_test_collections: true
-            voting: false
-        - ansible-test-network-integration-nxos-cli-python36-stable29-scenario02:
-            vars:
-              ansible_test_collections: true
-            voting: false
-        - ansible-test-network-integration-nxos-cli-python36-stable29-scenario03:
-            vars:
-              ansible_test_collections: true
-            voting: false
-        - ansible-test-network-integration-nxos-cli-python36-stable29-scenario04:
-            vars:
-              ansible_test_collections: true
-            voting: false
-        - ansible-test-network-integration-nxos-cli-python36-stable211-scenario01:
-            vars:
-              ansible_test_collections: true
-            voting: false
-        - ansible-test-network-integration-nxos-cli-python36-stable211-scenario02:
-            vars:
-              ansible_test_collections: true
-            voting: false
-        - ansible-test-network-integration-nxos-cli-python36-stable211-scenario03:
-            vars:
-              ansible_test_collections: true
-            voting: false
-        - ansible-test-network-integration-nxos-cli-python36-stable211-scenario04:
-            vars:
-              ansible_test_collections: true
-            voting: false
-        - ansible-test-network-integration-nxos-cli-python38-stable212-scenario01:
-            vars:
-              ansible_test_collections: true
-            voting: false
-        - ansible-test-network-integration-nxos-cli-python38-stable212-scenario02:
-            vars:
-              ansible_test_collections: true
-            voting: false
-        - ansible-test-network-integration-nxos-cli-python38-stable212-scenario03:
-            vars:
-              ansible_test_collections: true
-            voting: false
-        - ansible-test-network-integration-nxos-cli-python38-stable212-scenario04:
-            vars:
-              ansible_test_collections: true
-            voting: false
+        - network-ee-integration-tests-nxos
+        - network-ee-integration-tests-nxos-stable-2.11
+        - network-ee-integration-tests-nxos-stable-2.9
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-collections/ansible.netcommon

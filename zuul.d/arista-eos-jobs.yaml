@@ -56,19 +56,10 @@
       ansible_test_skip_tags: local,httpapi
 
 - job:
-    name: network-ee-integration-tests-eos-libssh-scenario01
+    name: network-ee-integration-tests-eos-libssh
     parent: network-ee-integration-tests-eos
     vars:
       ansible_test_network_cli_ssh_type: libssh
-      ansible_test_do_number: 1
-      ansible_test_skip_tags: local,httpapi
-
-- job:
-    name: network-ee-integration-tests-eos-libssh-scenario02
-    parent: network-ee-integration-tests-eos
-    vars:
-      ansible_test_network_cli_ssh_type: libssh
-      ansible_test_do_number: 2
       ansible_test_skip_tags: local,httpapi
 
 # =============================================================================
@@ -85,19 +76,10 @@
       ansible_test_fips_mode: true
 
 - job:
-    name: network-ee-integration-tests-eos-libssh-stable-2.11-scenario01
+    name: network-ee-integration-tests-eos-libssh-stable-2.11-scenario
     parent: network-ee-integration-tests-eos-stable-2.11
     vars:
       ansible_test_network_cli_ssh_type: libssh
-      ansible_test_do_number: 1
-      ansible_test_skip_tags: local,httpapi
-
-- job:
-    name: network-ee-integration-tests-eos-libssh-stable-2.11-scenario02
-    parent: network-ee-integration-tests-eos-stable-2.11
-    vars:
-      ansible_test_network_cli_ssh_type: libssh
-      ansible_test_do_number: 2
       ansible_test_skip_tags: local,httpapi
 
 # =============================================================================
@@ -115,17 +97,8 @@
       ansible_test_fips_mode: true
 
 - job:
-    name: network-ee-integration-tests-eos-libssh-stable-2.9-scenario01
+    name: network-ee-integration-tests-eos-libssh-stable-2.9
     parent: network-ee-integration-tests-eos-stable-2.9
     vars:
       ansible_test_network_cli_ssh_type: libssh
-      ansible_test_do_number: 1
-      ansible_test_skip_tags: local,httpapi
-
-- job:
-    name: network-ee-integration-tests-eos-libssh-stable-2.9-scenario02
-    parent: network-ee-integration-tests-eos-stable-2.9
-    vars:
-      ansible_test_network_cli_ssh_type: libssh
-      ansible_test_do_number: 2
       ansible_test_skip_tags: local,httpapi

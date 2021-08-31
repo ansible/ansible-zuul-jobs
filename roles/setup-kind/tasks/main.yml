@@ -20,5 +20,10 @@
     - "{{ kind_path }}"
     - "{{ kubectl_path }}"
 
+- name: Create cluster configuration
+  template:
+    src: kind-config.j2
+    dest: /tmp/cluster_config.yaml
+
 - name: Create cluster
-  shell: "{{ kind_path }} create cluster"
+  shell: "{{ kind_path }} create cluster --config /tmp/cluster_config.yaml"

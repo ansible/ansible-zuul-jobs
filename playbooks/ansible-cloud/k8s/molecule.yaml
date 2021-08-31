@@ -1,7 +1,5 @@
 ---
-- hosts: all
-  vars:
-    ansible_zuul_src_dir: "{{ ansible_user_dir }}/{{ zuul.projects['github.com/ansible/ansible-zuul-jobs'].src_dir }}"
+- hosts: controller
   tasks:
     - name: Test using Molecule
       shell: "source {{ ansible_test_venv_path }}/bin/activate; molecule test"

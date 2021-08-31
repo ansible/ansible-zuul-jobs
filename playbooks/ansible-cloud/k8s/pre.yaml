@@ -27,10 +27,6 @@
         path: "{{ ansible_user_dir }}/zuul-output/logs/controller"
         state: directory
 
-    - name: Ensure tox is present
-      include_role:
-        name: ensure-tox
-
     - name: Setup base virtualenv_options
       set_fact:
         _virtualenv_options: "--python python{{ ansible_test_python }}"
@@ -55,6 +51,17 @@
     - name: Fetch and install the artifacts
       import_role:
         name: deploy-artifacts
+
+    - name: Install molecule and collection dependencies
+      pip:
+        name:
+          - molecule
+          - yamllint
+          - kubernetes
+          - flake8
+          - jsonpatch
+        virtualenv: '{{ ansible_test_venv_path }}'
+        virtualenv_python: python3
 
     - name: Create kube config directory
       file:

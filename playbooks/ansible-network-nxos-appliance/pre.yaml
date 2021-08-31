@@ -6,7 +6,7 @@
         name: ensure-tox
     - name: Setup tox role
       include_role:
-        ansible-network-appliance-base
+        name: tox
       vars:
         tox_envlist: venv
         tox_extra_args: -- ansible-playbook -v -c network_cli playbooks/ansible-network-nxos-appliance/files/bootstrap.yaml

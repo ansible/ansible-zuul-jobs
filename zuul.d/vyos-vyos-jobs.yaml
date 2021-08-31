@@ -65,6 +65,8 @@
     vars:
       test_ansible_network_cli_ssh_type: libssh
       test_ansible_skip_tags: local
+      collection_name: network
+      collection_namespace: ansible
 
 # =============================================================================
 - job:

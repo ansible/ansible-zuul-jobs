@@ -372,6 +372,15 @@
     name: ansible-collections-cisco-iosxr
     check:
       jobs:
+        - network-ee-integration-tests-iosxr-netconf-stable-2.9
+        - network-ee-integration-tests-iosxr-network_cli-stable-2.9
+        - network-ee-integration-tests-iosxr-libssh-stable-2.9
+        - network-ee-integration-tests-iosxr-netconf-stable-2.11
+        - network-ee-integration-tests-iosxr-network_cli-stable-2.11
+        - network-ee-integration-tests-iosxr-libssh-stable-2.11
+        - network-ee-integration-tests-iosxr-netconf
+        - network-ee-integration-tests-iosxr-network_cli
+        - network-ee-integration-tests-iosxr-libssh
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-collections/ansible.netcommon

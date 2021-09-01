@@ -397,7 +397,7 @@
     name: ansible-collections-cisco-iosxr-netconf
     check:
       jobs:
-        - ansible-test-network-integration-ansible-netcommon-iosxr-netconf-python38:
+        - ansible-test-network-integration-ansible-netcommon-iosxr-netconf-python36:
             vars:
               ansible_test_collections: true
             voting: false

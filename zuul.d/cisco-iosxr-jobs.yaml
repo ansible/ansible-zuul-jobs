@@ -167,13 +167,8 @@
       ansible_test_integration_targets: "iosxr_.* netconf_.*"
 
 - job:
-    name: ansible-test-network-integration-iosxr-netconf
+    name: ansible-test-network-integration-iosxr-python38
     parent: ansible-test-network-integration-iosxr
     nodeset: iosxr-7.0.2-python38
     vars:
       ansible_test_skip_tags: local,network_cli
-
-- job:
-    name: ansible-test-network-integration-iosxr-netconf-python38
-    parent: ansible-test-network-integration-iosxr-netconf
-    nodeset: iosxr-7.0.2-python38

@@ -332,6 +332,19 @@
       jobs: *ansible-collections-cisco-ios-units-jobs
 
 - project-template:
+    name: ansible-collections-ansible-network
+    check:
+      jobs: &ansible-collections-ansible-network-jobs
+        - network-ee-integration-tests-network
+        - build-ansible-collection:
+            required-projects:
+              - name: github.com/ansible-collections/ansible.netcommon
+              - name: github.com/ansible-collections/ansible.utils
+    gate:
+      queue: integrated
+      jobs: *ansible-collections-ansible-network-jobs
+
+- project-template:
     name: ansible-collections-cisco-ios
     check:
       jobs: &ansible-collections-cisco-ios-jobs

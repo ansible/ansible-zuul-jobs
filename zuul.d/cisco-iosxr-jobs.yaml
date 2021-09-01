@@ -141,7 +141,7 @@
         ansible_network_os: iosxr
     required-projects:
       - name: github.com/ansible/ansible-zuul-jobs
-    nodeset: iosxr-7.0.2-python36
+    nodeset: iosxr-7.0.2-python38
 
 - job:
     name: ansible-test-network-integration-iosxr
@@ -167,15 +167,11 @@
       ansible_test_integration_targets: "iosxr_.* netconf_.*"
 
 - job:
-    name: ansible-test-network-integration-iosxr-python36
+    name: ansible-test-network-integration-iosxr-python38
     parent: ansible-test-network-integration-iosxr
-    nodeset: iosxr-7.0.2-python36
-    vars:
-      ansible_test_python: 3.6
+    nodeset: iosxr-7.0.2-python38
 
 - job:
-    name: ansible-test-network-integration-iosxr-netconf-python36
+    name: ansible-test-network-integration-iosxr-netconf-python38
     parent: ansible-test-network-integration-iosxr-netconf
-    nodeset: iosxr-7.0.2-python36
-    vars:
-      ansible_test_python: 3.6
+    nodeset: iosxr-7.0.2-python38

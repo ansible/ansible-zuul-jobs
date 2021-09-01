@@ -4,5 +4,7 @@
     - name: Install openvswitch package
       become: true
       package:
-        name: openvswitch-switch
+        name:
+          - openvswitch-switch
+          - python3.8-dev
         state: present

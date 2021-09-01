@@ -356,11 +356,12 @@
         nodes:
           - ubuntu-bionic
 
+
 - nodeset:
-    name: iosxr-7.0.2-python38
+    name: iosxr-7.0.2-python36
     nodes:
-      - name: centos-8-stream
-        label: centos-8-stream
+      - name: centos-8
+        label: centos-8-1vcpu
       - name: iosxr-7.0.2
         label: iosxrv-7.0.2
     groups:
@@ -369,7 +370,22 @@
           - iosxr-7.0.2
       - name: controller
         nodes:
-          - centos-8-stream
+          - centos-8
+
+- nodeset:
+    name: iosxr-7.0.2-python38
+    nodes:
+      - name: ubuntu-bionic
+        label: ubuntu-bionic-1vcpu
+      - name: iosxr-7.0.2
+        label: iosxrv-7.0.2
+    groups:
+      - name: appliance
+        nodes:
+          - iosxr-7.0.2
+      - name: controller
+        nodes:
+          - ubuntu-bionic
 
 - nodeset:
     name: nxos-7.0.3-python36

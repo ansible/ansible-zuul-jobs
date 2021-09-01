@@ -699,18 +699,9 @@
     name: ansible-collections-openvswitch-openvswitch
     check:
       jobs: &ansible-collections-openvswitch-openvswitch-jobs
-        - ansible-test-network-integration-openvswitch-python27-stable211
-        - ansible-test-network-integration-openvswitch-python27-stable29
-        - ansible-test-network-integration-openvswitch-python36:
-            vars:
-              ansible_test_collections: true
-        - ansible-test-network-integration-openvswitch-python36-stable211
-        - ansible-test-network-integration-openvswitch-python36-stable29
-        - ansible-test-network-integration-openvswitch-python38:
-            vars:
-              ansible_test_collections: true
-        - ansible-test-network-integration-openvswitch-python38-stable211
-        - ansible-test-network-integration-openvswitch-python38-stable29
+        - network-ee-integration-tests-openvswitch
+        - network-ee-integration-tests-openvswitch-stable-2.11
+        - network-ee-integration-tests-openvswitch-stable-2.9
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-collections/ansible.netcommon

@@ -582,8 +582,8 @@
 - nodeset:
     name: openvswitch-2.9.0-python38
     nodes:
-      - name: ubuntu-bionic
-        label: ubuntu-bionic-1vcpu
+      - name: centos-8-stream
+        label: centos-8-stream
       - name: openvswitch-2.9.0
         label: ubuntu-bionic-1vcpu
     groups:
@@ -592,7 +592,7 @@
           - openvswitch-2.9.0
       - name: controller
         nodes:
-          - ubuntu-bionic
+          - centos-8-stream
 
 - nodeset:
     name: vqfx-18.1R3-python27

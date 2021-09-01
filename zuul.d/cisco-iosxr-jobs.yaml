@@ -130,3 +130,52 @@
     parent: network-ee-integration-tests-iosxr-network_cli-stable-2.9
     vars:
       ansible_test_network_cli_ssh_type: libssh
+# ==================================================================================
+- job:
+    name: ansible-network-iosxr-appliance
+    parent: ansible-network-appliance-base
+    pre-run: playbooks/ansible-network-iosxr-appliance/pre.yaml
+    run: playbooks/ansible-network-iosxr-appliance/run.yaml
+    host-vars:
+      iosxr-7.0.2:
+        ansible_network_os: iosxr
+    required-projects:
+      - name: github.com/ansible/ansible-zuul-jobs
+    nodeset: iosxr-7.0.2-python36
+
+- job:
+    name: ansible-test-network-integration-iosxr
+    abstract: true
+    dependencies:
+      - name: build-ansible-collection
+        soft: true
+    parent: ansible-network-iosxr-appliance
+    pre-run:
+      - playbooks/ansible-test-base/pre.yaml
+      - playbooks/ansible-test-network-integration-base/pre.yaml
+    run: playbooks/ansible-test-base/run.yaml
+    post-run:
+      - playbooks/ansible-test-network-integration-base/post.yaml
+      - playbooks/ansible-test-base/post.yaml
+    required-projects:
+      - name: github.com/ansible/ansible
+      - name: github.com/ansible-collections/cisco.iosxr
+    timeout: 10800
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/cisco.iosxr
+      ansible_test_command: network-integration
+      ansible_test_integration_targets: "iosxr_.* netconf_.*"
+
+- job:
+    name: ansible-test-network-integration-iosxr-python36
+    parent: ansible-test-network-integration-iosxr
+    nodeset: iosxr-7.0.2-python36
+    vars:
+      ansible_test_python: 3.6
+
+- job:
+    name: ansible-test-network-integration-iosxr-netconf-python36
+    parent: ansible-test-network-integration-iosxr-netconf
+    nodeset: iosxr-7.0.2-python36
+    vars:
+      ansible_test_python: 3.6

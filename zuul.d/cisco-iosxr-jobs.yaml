@@ -170,3 +170,5 @@
     name: ansible-test-network-integration-iosxr-python36
     parent: ansible-test-network-integration-iosxr
     nodeset: iosxr-7.0.2-python36
+    vars:
+      ansible_test_python: 3.6

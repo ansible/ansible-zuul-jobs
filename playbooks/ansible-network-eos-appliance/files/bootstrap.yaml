@@ -1,6 +1,4 @@
 ---
-# NOTE(pabelanger): This needs to move into proper zuul-job, however until we
-# can use vyos_config on zuul-executor, we need to run as nested.
 - hosts: appliance
   gather_facts: false
   vars:

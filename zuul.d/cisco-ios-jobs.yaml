@@ -15,7 +15,7 @@
       - name: github.com/ansible/ansible-zuul-jobs
     nodeset: ios-15.6-2T-python38
 
-#-----------------------------------------------------------------------------
+# -----------------------------------------------------------------------------
 - job:
     name: ansible-test-units-ios-python27
     parent: ansible-test-units-base-python27
@@ -48,7 +48,7 @@
     vars:
       ansible_collections_repo: github.com/ansible-collections/cisco.ios
 
-#-----------------------------------------------------------------------------
+# -----------------------------------------------------------------------------
 - job:
     name: network-ee-integration-tests-ios
     parent: ansible-network-ios-appliance
@@ -64,7 +64,7 @@
     vars:
       test_ansible_network_cli_ssh_type: libssh
 
-#-----------------------------------------------------------------------------
+# -----------------------------------------------------------------------------
 - job:
     name: network-ee-integration-tests-ios-stable-2.11
     parent: ansible-network-ios-appliance
@@ -80,7 +80,7 @@
     vars:
       test_ansible_network_cli_ssh_type: libssh
 
-#-----------------------------------------------------------------------------
+# -----------------------------------------------------------------------------
 - job:
     name: network-ee-integration-tests-ios-stable-2.9
     parent: ansible-network-ios-appliance

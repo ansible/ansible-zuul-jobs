@@ -1,9 +1,20 @@
+# =============================================================================
 ---
-# ansible-collections/ansible.network.resource_manager jobs
+- job:
+    name: network-ee-integration-tests-network
+    parent: ansible-network-ios-appliance
 
 - job:
-    name: ansible-test-network-integration-ansible-network-resource_manager-ios-python36
-    parent: ansible-test-network-integration-ios-python36
+    name: network-ee-integration-tests-network
+    parent: network-ee-integration-tests
+    nodeset: ios-15.6-2T-python38
+
+- job:
+    name: network-ee-integration-tests-network-libssh
+    parent: network-ee-integration-tests-network
     vars:
-      ansible_collections_repo: github.com/ansible-collections/ansible.network
-      ansible_test_integration_targets: ""
+      test_ansible_network_cli_ssh_type: libssh
+      test_ansible_skip_tags: local
+      collection_namespace: "ansible"
+      collection_name: "network"
+# =============================================================================

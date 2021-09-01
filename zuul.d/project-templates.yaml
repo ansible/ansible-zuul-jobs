@@ -335,14 +335,12 @@
     name: ansible-collections-cisco-ios
     check:
       jobs: &ansible-collections-cisco-ios-jobs
-        - ansible-test-network-integration-ios-network_cli-python27-stable211
-        - ansible-test-network-integration-ios-network_cli-python27-stable29
-        - ansible-test-network-integration-ios-network_cli-python36
-        - ansible-test-network-integration-ios-network_cli-python36-stable211
-        - ansible-test-network-integration-ios-network_cli-python36-stable29
-        - ansible-test-network-integration-ios-network_cli-libssh-python36
-        - ansible-test-network-integration-ios-network_cli-libssh-python36-stable211
-        - ansible-test-network-integration-ios-network_cli-libssh-python36-stable29
+        - network-ee-integration-tests-ios
+        - network-ee-integration-tests-ios-stable-2.9
+        - network-ee-integration-tests-ios-stable-2.11
+        - network-ee-integration-tests-ios-libssh
+        - network-ee-integration-tests-ios-libssh-stable-2.9
+        - network-ee-integration-tests-ios-libssh-stable-2.11
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-collections/ansible.netcommon
@@ -990,19 +988,6 @@
         - ansible-test-network-integration-eos-python37:
             branches:
               - stable-2.9
-        - ansible-test-network-integration-ios-python27:
-            branches:
-              - stable-2.9
-        - ansible-test-network-integration-ios-python35:
-            branches:
-              - stable-2.9
-        - ansible-test-network-integration-ios-python36:
-            branches:
-              - stable-2.9
-        - ansible-test-network-integration-ios-python37:
-            branches:
-              - stable-2.9
-            voting: false
         - ansible-test-network-integration-iosxr-python27:
             branches:
               - stable-2.9
@@ -1125,79 +1110,6 @@
               - ^lib/ansible/plugins/terminal/eos.py
               - ^test/integration/targets/eos_.*
               - ^test/integration/targets/prepare_eos_tests/.*
-        - ansible-test-network-integration-ios-python27:
-            branches:
-              - stable-2.9
-            files:
-              - ^lib/ansible/cli/scripts/ansible_connection_cli_stub.py
-              - ^lib/ansible/modules/network/cli/.*
-              - ^lib/ansible/modules/network/ios/.*
-              - ^lib/ansible/module_utils/network/common/.*
-              - ^lib/ansible/module_utils/network/ios/.*
-              - ^lib/ansible/plugins/action/ios.py
-              - ^lib/ansible/plugins/action/net_.*
-              - ^lib/ansible/plugins/cliconf/ios.py
-              - ^lib/ansible/plugins/connection/local.py
-              - ^lib/ansible/plugins/connection/network_cli.py
-              - ^lib/ansible/plugins/terminal/__init__.py
-              - ^lib/ansible/plugins/terminal/ios.py
-              - ^test/integration/targets/ios_.*
-              - ^test/integration/targets/prepare_ios_tests/.*
-        - ansible-test-network-integration-ios-python35:
-            branches:
-              - stable-2.9
-            files:
-              - ^lib/ansible/cli/scripts/ansible_connection_cli_stub.py
-              - ^lib/ansible/modules/network/cli/.*
-              - ^lib/ansible/modules/network/ios/.*
-              - ^lib/ansible/module_utils/network/common/.*
-              - ^lib/ansible/module_utils/network/ios/.*
-              - ^lib/ansible/plugins/action/ios.py
-              - ^lib/ansible/plugins/action/net_.*
-              - ^lib/ansible/plugins/cliconf/ios.py
-              - ^lib/ansible/plugins/connection/local.py
-              - ^lib/ansible/plugins/connection/network_cli.py
-              - ^lib/ansible/plugins/terminal/__init__.py
-              - ^lib/ansible/plugins/terminal/ios.py
-              - ^test/integration/targets/ios_.*
-              - ^test/integration/targets/prepare_ios_tests/.*
-        - ansible-test-network-integration-ios-python36:
-            branches:
-              - stable-2.9
-            files:
-              - ^lib/ansible/cli/scripts/ansible_connection_cli_stub.py
-              - ^lib/ansible/modules/network/cli/.*
-              - ^lib/ansible/modules/network/ios/.*
-              - ^lib/ansible/module_utils/network/common/.*
-              - ^lib/ansible/module_utils/network/ios/.*
-              - ^lib/ansible/plugins/action/ios.py
-              - ^lib/ansible/plugins/action/net_.*
-              - ^lib/ansible/plugins/cliconf/ios.py
-              - ^lib/ansible/plugins/connection/local.py
-              - ^lib/ansible/plugins/connection/network_cli.py
-              - ^lib/ansible/plugins/terminal/__init__.py
-              - ^lib/ansible/plugins/terminal/ios.py
-              - ^test/integration/targets/ios_.*
-              - ^test/integration/targets/prepare_ios_tests/.*
-        - ansible-test-network-integration-ios-python37:
-            branches:
-              - stable-2.9
-            files:
-              - ^lib/ansible/cli/scripts/ansible_connection_cli_stub.py
-              - ^lib/ansible/modules/network/cli/.*
-              - ^lib/ansible/modules/network/ios/.*
-              - ^lib/ansible/module_utils/network/common/.*
-              - ^lib/ansible/module_utils/network/ios/.*
-              - ^lib/ansible/plugins/action/ios.py
-              - ^lib/ansible/plugins/action/net_.*
-              - ^lib/ansible/plugins/cliconf/ios.py
-              - ^lib/ansible/plugins/connection/local.py
-              - ^lib/ansible/plugins/connection/network_cli.py
-              - ^lib/ansible/plugins/terminal/__init__.py
-              - ^lib/ansible/plugins/terminal/ios.py
-              - ^test/integration/targets/ios_.*
-              - ^test/integration/targets/prepare_ios_tests/.*
-            voting: false
         - ansible-test-network-integration-iosxr-python27:
             branches:
               - stable-2.9
@@ -1606,19 +1518,3 @@
     unlabel-on-push:
       jobs:
         - noop
-- project-template:
-    name: ansible-collections-ansible-network-resource_manager-cisco-ios
-    check:
-      jobs: &ansible-collections-ansible-network-cisco-ios-jobs
-        - ansible-test-network-integration-ansible-network-resource_manager-ios-python36:
-            vars:
-              ansible_test_collections: true
-        - build-ansible-collection:
-            required-projects:
-              - name: github.com/ansible-collections/ansible.network
-              - name: github.com/ansible-collections/cisco.ios
-              - name: github.com/ansible-collections/ansible.netcommon
-              - name: github.com/ansible-collections/ansible.utils
-    gate:
-      queue: integrated
-      jobs: *ansible-collections-ansible-network-cisco-ios-jobs

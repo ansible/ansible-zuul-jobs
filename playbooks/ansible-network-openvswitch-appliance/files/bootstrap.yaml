@@ -7,4 +7,5 @@
         name:
           - openvswitch-switch
           - python3.8-dev
+          - python3-apt
         state: present

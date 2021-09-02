@@ -73,6 +73,7 @@
     parent: network-ee-integration-tests-stable-2.11
     nodeset: eos-4.24.6-python38
     vars:
+      test_ansible_python_interpreter: /usr/bin/python3.8
       ansible_test_integration_targets: "eos_.*"
       ansible_test_fips_mode: true
 
@@ -80,6 +81,7 @@
     name: network-ee-integration-tests-eos-libssh-stable-2.11
     parent: network-ee-integration-tests-eos-stable-2.11
     vars:
+      test_ansible_python_interpreter: /usr/bin/python3.8
       ansible_test_network_cli_ssh_type: libssh
       ansible_test_skip_tags: local,httpapi
 
@@ -94,6 +96,7 @@
     parent: network-ee-integration-tests-stable-2.9
     nodeset: eos-4.24.6-python38
     vars:
+      test_ansible_python_interpreter: /usr/bin/python3.8
       ansible_test_integration_targets: "eos_.*"
       ansible_test_fips_mode: true
 
@@ -101,5 +104,6 @@
     name: network-ee-integration-tests-eos-libssh-stable-2.9
     parent: network-ee-integration-tests-eos-stable-2.9
     vars:
+      test_ansible_python_interpreter: /usr/bin/python3.8
       ansible_test_network_cli_ssh_type: libssh
       ansible_test_skip_tags: local,httpapi

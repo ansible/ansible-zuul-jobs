@@ -168,9 +168,9 @@
     check:
       jobs: &ansible-collections-ansible-utils-jobs
         - build-ansible-collection
-        - ansible-test-integration-ansible-utils-python38
-        - ansible-test-integration-ansible-utils-python38-stable211
-        - ansible-test-integration-ansible-utils-python38-stable29
+        - network-ee-integration-ansible-utils-python38
+        - network-ee-integration-ansible-utils-python38-stable211
+        - network-ee-integration-ansible-utils-python38-stable29
     gate:
       queue: integrated
       jobs: *ansible-collections-ansible-utils-jobs

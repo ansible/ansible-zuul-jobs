@@ -12,21 +12,21 @@
       ansible_collections_repo: github.com/ansible-collections/ansible.utils
 
 - job:
-    name: ansible-test-integration-ansible-utils-python38
+    name: network-ee-integration-ansible-utils-python38
     parent: ansible-test-integration-ansible-utils
     nodeset: controller-utils-python38
     vars:
       ansible_test_python: 3.8
 
 - job:
-    name: ansible-test-integration-ansible-utils-python38-stable211
+    name: network-ee-integration-ansible-utils-python38-stable211
     parent: ansible-test-integration-ansible-utils
     nodeset: controller-utils-python38
     vars:
       ansible_test_python: 3.8
 
 - job:
-    name: ansible-test-integration-ansible-utils-python38-stable29
+    name: network-ee-integration-ansible-utils-python38-stable29
     parent: ansible-test-integration-ansible-utils
     nodeset: controller-python38
     vars:

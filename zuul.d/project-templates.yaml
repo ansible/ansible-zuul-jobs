@@ -699,9 +699,9 @@
     name: ansible-collections-openvswitch-openvswitch
     check:
       jobs: &ansible-collections-openvswitch-openvswitch-jobs
-        - network-ee-integration-tests-openvswitch
-        - network-ee-integration-tests-openvswitch-stable-2.11
-        - network-ee-integration-tests-openvswitch-stable-2.9
+        - network-ee-integration-tests-openvswitch-openvswitch
+        - network-ee-integration-tests-openvswitch-openvswitch-stable-2.11
+        - network-ee-integration-tests-openvswitch-openvswitch-stable-2.9
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-collections/ansible.netcommon

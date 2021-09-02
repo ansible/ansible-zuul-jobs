@@ -28,7 +28,8 @@ for target in targets.glob("*"):
     if not aliases.is_file():
         continue
     lines = aliases.read_text().split("\n")
-    if targets_from_cli and not {*lines, target.name} & set(targets_from_cli):
+    combined = lines + [target.name]
+    if targets_from_cli and not set(combined) & set(targets_from_cli):
         continue
     if "disabled" in lines:
         continue

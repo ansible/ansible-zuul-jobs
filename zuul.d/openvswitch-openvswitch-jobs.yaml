@@ -65,7 +65,7 @@
     parent: network-ee-integration-tests-stable-2.11
     nodeset: openvswitch-2.9.0-python38
     vars:
-      test_ansible_python_interpreter: /usr/bin/python3.8
+      test_ansible_python_interpreter: /usr/bin/python3.6
 
 - job:
     name: network-ee-integration-tests-openvswitch-stable-2.9
@@ -76,4 +76,4 @@
     parent: network-ee-integration-tests-stable-2.9
     nodeset: openvswitch-2.9.0-python38
     vars:
-      test_ansible_python_interpreter: /usr/bin/python3.8
+      test_ansible_python_interpreter: /usr/bin/python3.6

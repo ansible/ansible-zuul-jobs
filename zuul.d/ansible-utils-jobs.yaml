@@ -12,58 +12,25 @@
       ansible_collections_repo: github.com/ansible-collections/ansible.utils
 
 - job:
-    name: ansible-test-integration-ansible-utils-python27
+    name: ansible-test-integration-ansible-utils-python38
     parent: ansible-test-integration-ansible-utils
-    nodeset: controller-python27
+    nodeset: controller-utils-python38
     vars:
-      ansible_test_python: 2.7
+      ansible_test_python: 3.8
 
 - job:
-    name: ansible-test-integration-ansible-utils-python27-stable211
+    name: ansible-test-integration-ansible-utils-python38-stable211
     parent: ansible-test-integration-ansible-utils
-    nodeset: controller-python27
-    required-projects:
-      - name: github.com/ansible/ansible
-        override-checkout: stable-2.11
+    nodeset: controller-utils-python38
     vars:
-      ansible_test_python: 2.7
+      ansible_test_python: 3.8
 
 - job:
-    name: ansible-test-integration-ansible-utils-python27-stable29
+    name: ansible-test-integration-ansible-utils-python38-stable29
     parent: ansible-test-integration-ansible-utils
-    nodeset: controller-python27
-    required-projects:
-      - name: github.com/ansible/ansible
-        override-checkout: stable-2.9
+    nodeset: controller-python38
     vars:
-      ansible_test_python: 2.7
-
-- job:
-    name: ansible-test-integration-ansible-utils-python36
-    parent: ansible-test-integration-ansible-utils
-    nodeset: controller-python36
-    vars:
-      ansible_test_python: 3.6
-
-- job:
-    name: ansible-test-integration-ansible-utils-python36-stable211
-    parent: ansible-test-integration-ansible-utils
-    nodeset: controller-python36
-    required-projects:
-      - name: github.com/ansible/ansible
-        override-checkout: stable-2.11
-    vars:
-      ansible_test_python: 3.6
-
-- job:
-    name: ansible-test-integration-ansible-utils-python36-stable29
-    parent: ansible-test-integration-ansible-utils
-    nodeset: controller-python36
-    required-projects:
-      - name: github.com/ansible/ansible
-        override-checkout: stable-2.9
-    vars:
-      ansible_test_python: 3.6
+      ansible_test_python: 3.8
 
 - job:
     name: ansible-test-units-ansible-utils-python27

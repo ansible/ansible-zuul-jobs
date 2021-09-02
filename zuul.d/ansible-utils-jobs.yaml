@@ -24,8 +24,6 @@
     name: network-ee-integration-ansible-utils-python38
     parent: network-ee-integration-tests-utils
     nodeset: controller-utils-python38
-    vars:
-      ansible_test_python: 3.8
 
 - job:
     name: network-ee-integration-ansible-utils-python38-stable211

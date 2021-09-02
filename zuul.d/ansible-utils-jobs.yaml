@@ -5,6 +5,8 @@
     name: ansible-test-integration-ansible-utils
     abstract: true
     parent: ansible-test-integration-base
+    pre-run:
+      - playbooks/network-ee-integration-tests/pre.yaml
     required-projects:
       - name: github.com/ansible/ansible
       - name: github.com/ansible-collections/ansible.utils
@@ -24,6 +26,8 @@
     name: network-ee-integration-ansible-utils-python38
     parent: network-ee-integration-tests-utils
     nodeset: controller-utils-python38
+    vars:
+      ansible_test_python: 3.8
 
 - job:
     name: network-ee-integration-ansible-utils-python38-stable211

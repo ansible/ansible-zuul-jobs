@@ -92,13 +92,31 @@ class TestWriteInventory(testtools.TestCase):
                         "ansible_connection": "ssh",
                         "ansible_user": "zuul",
                         "ansible_host": "104.130.217.77",
-                        "ansible_port": 22
+                        "ansible_port": 22,
+                        'nodepool': {'az': None,
+                            'cloud': 'rax',
+                            'interface_ip': '104.130.217.77',
+                            'label': 'ubuntu-bionic',
+                            'private_ipv4': '10.210.196.115',
+                            'provider': 'rax-ord',
+                            'public_ipv4': '104.130.217.77',
+                            'public_ipv6': '2001:4801:7828:101:be76:4eff:fe10:14eb',
+                            'region': 'ORD'},
                     },
                     'xenial': {
                         "ansible_connection": "ssh",
                         "ansible_user": "zuul",
                         "ansible_host": "149.202.170.85",
                         "ansible_port": 22,
+                        'nodepool': {'az': 'nova',
+                            'cloud': 'ovh',
+                            'interface_ip': '149.202.170.85',
+                            'label': 'ubuntu-xenial',
+                            'private_ipv4': '149.202.170.85',
+                            'provider': 'ovh-gra1',
+                            'public_ipv4': '149.202.170.85',
+                            'public_ipv6': '2001:41d0:302:1000::17:a32b',
+                            'region': 'GRA1'}
                     }
                 }
             }
@@ -151,12 +169,31 @@ class TestWriteInventory(testtools.TestCase):
                     'bionic': {
                         "ansible_connection": "ssh",
                         "ansible_host": "104.130.217.77",
-                        "ansible_port": 22
+                        "ansible_port": 22,
+                        'nodepool': {'az': None,
+                            'cloud': 'rax',
+                            'interface_ip': '104.130.217.77',
+                            'label': 'ubuntu-bionic',
+                            'private_ipv4': '10.210.196.115',
+                            'provider': 'rax-ord',
+                            'public_ipv4': '104.130.217.77',
+                            'public_ipv6': '2001:4801:7828:101:be76:4eff:fe10:14eb',
+                            'region': 'ORD'},
+
                     },
                     'xenial': {
                         "ansible_connection": "ssh",
                         "ansible_host": "149.202.170.85",
                         "ansible_port": 22,
+                        'nodepool': {'az': 'nova',
+                            'cloud': 'ovh',
+                            'interface_ip': '149.202.170.85',
+                            'label': 'ubuntu-xenial',
+                            'private_ipv4': '149.202.170.85',
+                            'provider': 'ovh-gra1',
+                            'public_ipv4': '149.202.170.85',
+                            'public_ipv6': '2001:41d0:302:1000::17:a32b',
+                            'region': 'GRA1'}
                     }
                 }
             }

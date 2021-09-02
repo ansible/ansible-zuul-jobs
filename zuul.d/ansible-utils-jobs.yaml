@@ -5,8 +5,6 @@
     name: ansible-test-integration-ansible-utils
     abstract: true
     parent: ansible-test-integration-base
-    pre-run:
-      - playbooks/network-ee-integration-tests/pre.yaml
     required-projects:
       - name: github.com/ansible/ansible
       - name: github.com/ansible-collections/ansible.utils

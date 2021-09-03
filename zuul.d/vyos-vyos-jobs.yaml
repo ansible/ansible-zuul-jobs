@@ -76,13 +76,12 @@
     parent: network-ee-integration-tests-stable-2.11
     nodeset: vyos-1.1.8-python38
     vars:
-      test_ansible_python_interpreter: /usr/bin/python3.8
+      test_ansible_python_interpreter: /usr/bin/python3
 
 - job:
     name: network-ee-integration-tests-vyos-libssh-stable-2.11
     parent: network-ee-integration-tests-vyos-stable-2.11
     vars:
-      test_ansible_python_interpreter: /usr/bin/python3.8
       test_ansible_network_cli_ssh_type: libssh
       test_ansible_skip_tags: local
 
@@ -96,12 +95,11 @@
     parent: network-ee-integration-tests-stable-2.9
     nodeset: vyos-1.1.8-python38
     vars:
-      test_ansible_python_interpreter: /usr/bin/python3.8
+      test_ansible_python_interpreter: /usr/bin/python3
 
 - job:
     name: network-ee-integration-tests-vyos-libssh-stable-2.9
     parent: network-ee-integration-tests-vyos-stable-2.9
     vars:
-      test_ansible_python_interpreter: /usr/bin/python3.8
       test_ansible_network_cli_ssh_type: libssh
       test_ansible_skip_tags: local

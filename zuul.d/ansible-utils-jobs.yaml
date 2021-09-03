@@ -1,45 +1,39 @@
 ---
 # ansible-collections/ansible.utils jobs
-
-- job:
-    name: ansible-test-integration-ansible-utils
-    abstract: true
-    parent: ansible-test-integration-base
-    required-projects:
-      - name: github.com/ansible/ansible
-      - name: github.com/ansible-collections/ansible.utils
-    vars:
-      ansible_collections_repo: github.com/ansible-collections/ansible.utils
-
 - job:
     name: network-ee-integration-tests-utils
-    parent: ansible-test-integration-ansible-utils
+    parent: network-ee-integration-tests-openvswitch-openvswitch
 
 - job:
     name: network-ee-integration-tests-utils
     parent: network-ee-integration-tests
-    nodeset: controller-utils-python38
+    nodeset: openvswitch-2.9.0-python38
 
 - job:
     name: network-ee-integration-ansible-utils-python38
     parent: network-ee-integration-tests-utils
-    nodeset: controller-utils-python38
+    nodeset: openvswitch-2.9.0-python38
     vars:
-      ansible_test_python: 3.8
+      collection_name: utils
+      collection_namespace: ansible
 
 - job:
     name: network-ee-integration-ansible-utils-python38-stable211
     parent: network-ee-integration-tests-utils
-    nodeset: controller-utils-python38
+    nodeset: openvswitch-2.9.0-python38
     vars:
-      ansible_test_python: 3.8
+      test_ansible_python_interpreter: /usr/bin/python3.6
+      collection_name: utils
+      collection_namespace: ansible
 
 - job:
     name: network-ee-integration-ansible-utils-python38-stable29
     parent: network-ee-integration-tests-utils
-    nodeset: controller-utils-python38
+    nodeset: openvswitch-2.9.0-python38
     vars:
-      ansible_test_python: 3.8
+      test_ansible_python_interpreter: /usr/bin/python3.6
+      collection_name: utils
+      collection_namespace: ansible
 
 - job:
     name: ansible-test-units-ansible-utils-python27

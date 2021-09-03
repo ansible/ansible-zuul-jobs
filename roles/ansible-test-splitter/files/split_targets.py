@@ -30,16 +30,39 @@ def is_slow(lines):
     return False
 
 
-def iter_target_dir(collection_path):
-    targets = PosixPath(os.path.join(collection_path, "tests/integration/targets/"))
-    for target in targets.glob("*"):
+def get_all_targets(collection_path):
+    """Return all the targets from a directory."""
+    targets_dir = PosixPath(os.path.join(collection_path, "tests/integration/targets/"))
+    targets = {}
+    for target in targets_dir.glob("*"):
         aliases = target / "aliases"
         if not target.is_dir():
             continue
         if not aliases.is_file():
             continue
         lines = aliases.read_text().split("\n")
-        yield (target, lines)
+        targets[target.name] = lines
+    return targets
+
+
+def evaluate_redirection(in_targets, args_targets):
+    """Take get_all_targets() output and evaluate the redirection of the aliases files."""
+    targets = {}
+    allowed_targets = args_targets or [*in_targets.keys()]
+    for target_name, lines in in_targets.items():
+        for l in lines:
+            if l not in allowed_targets:
+                continue
+            if l not in in_targets:
+                continue
+
+            if l not in targets:
+                targets[l] = in_targets[l]
+            break
+        else:
+            if target_name in allowed_targets:
+                targets[target_name] = lines
+    return targets
 
 
 def to_skip_because_of_targets_parameters(target_name, lines, targets_from_cli):
@@ -50,18 +73,18 @@ def to_skip_because_of_targets_parameters(target_name, lines, targets_from_cli):
     return False
 
 
-def get_targets_to_run(collection_path, targets_from_cli):
+def get_targets_to_run(targets, targets_from_cli):
     slow_targets = []
     regular_targets = []
-    for target, lines in iter_target_dir(collection_path):
-        if to_skip_because_of_targets_parameters(target.name, lines, targets_from_cli):
+    for target_name, lines in targets.items():
+        if to_skip_because_of_targets_parameters(target_name, lines, targets_from_cli):
             continue
         if to_skip_because_disabled(lines):
             continue
         if is_slow(lines):
-            slow_targets.append(target.name)
+            slow_targets.append(target_name)
         else:
-            regular_targets.append(target.name)
+            regular_targets.append(target_name)
     return slow_targets, regular_targets
 
 
@@ -114,9 +137,9 @@ if __name__ == "__main__":
     args = get_args(sys.argv)
     jobs = get_job_list(args.prefix, total_jobs)
 
-    slow_targets, regular_targets = get_targets_to_run(
-        args.collection_path, args.targets
-    )
+    targets = get_all_targets(args.collection_path)
+    targets = evaluate_redirection(targets, args.targets)
+    slow_targets, regular_targets = get_targets_to_run(targets, args.targets)
     batches = build_up_batches(slow_targets, regular_targets, total_jobs)
     result = build_result_struct(jobs, batches)
 

@@ -1,17 +1,41 @@
 #!/usr/bin/env python
 
+from pathlib import PosixPath
 import pytest
-from unittest.mock import patch
+from unittest.mock import Mock, MagicMock, patch
 
 from split_targets import (
     get_job_list,
     to_skip_because_disabled,
     is_slow,
+    get_all_targets,
     get_args,
     to_skip_because_of_targets_parameters,
     build_up_batches,
     build_result_struct,
 )
+
+
+def new_aliases(content):
+    m_aliases = Mock()
+    m_aliases.is_file.return_value = True
+    m_aliases.read_text.return_value = content
+    return m_aliases
+
+
+def new_target(name, content):
+    m_target = MagicMock(return_value=True)
+    m_target.is_dir.return_value = True
+    m_target.__truediv__.return_value = new_aliases(content)
+    m_target.name = name
+    return m_target
+
+
+target_dir = [
+    new_target("t1", "cloud/aws\nslow"),
+    new_target("t2", "t1"),
+    new_target("t3", "cloud/aws\n\ndisabled"),
+]
 
 
 def test_get_job_list():
@@ -32,6 +56,15 @@ def test_is_slow():
     assert is_slow(["slow", "# disabled", "no_unstable"]) is True
     assert is_slow(["noslow", "# reason: slow"]) is True
     assert is_slow(["noslow", "# reason: noslow"]) is False
+
+
+@patch.object(PosixPath, "glob", MagicMock(return_value=target_dir))
+def test_get_all_targets():
+    assert get_all_targets("somewhere") == {
+        "t1": ["cloud/aws", "slow"],
+        "t2": ["t1"],
+        "t3": ["cloud/aws", "", "disabled"],
+    }
 
 
 def test_get_args_targets_with_parameters():

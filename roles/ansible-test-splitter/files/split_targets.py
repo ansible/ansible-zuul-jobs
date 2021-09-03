@@ -15,7 +15,6 @@ args = parser.parse_args()
 batches = []
 # NOTE(pabelanger): Hardcode this to 6 because that is the semaphore in zuul.
 total_jobs = 6
-slow_targets = []
 regular_targets = []
 
 jobs = [f"{args.prefix}{i}" for i in range(total_jobs)]
@@ -28,9 +27,10 @@ for target in targets.glob("*"):
         continue
     if not aliases.is_file():
         continue
-    if targets_from_cli and target.name not in targets_from_cli:
-        continue
     lines = aliases.read_text().split("\n")
+    combined = lines + [target.name]
+    if targets_from_cli and not set(combined) & set(targets_from_cli):
+        continue
     if "disabled" in lines:
         continue
     if "unstable" in lines:
@@ -40,8 +40,7 @@ for target in targets.glob("*"):
     else:
         regular_targets.append(target.name)
 
-slow_jobs = len(batches)
-remaining_jobs = total_jobs - slow_jobs
+remaining_jobs = max(total_jobs - len(batches), 1)
 
 for x in range(remaining_jobs):
     batch = regular_targets[x::remaining_jobs]

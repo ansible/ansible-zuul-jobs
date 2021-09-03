@@ -1,0 +1,8 @@
+---
+- hosts: all
+  tasks:
+    - name: Ensure python3.7 is present
+      become: true
+      package:
+        name: python3.7
+        state: present

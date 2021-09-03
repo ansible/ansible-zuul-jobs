@@ -1,0 +1,19 @@
+---
+- job:
+    name: network-ee-integration-tests-ansible-network
+    parent: ansible-network-vyos-appliance
+
+- job:
+    name: network-ee-integration-tests-ansible-network
+    parent: network-ee-integration-tests
+    vars:
+      test_ansible_skip_tags: local
+      collection_namespace: ansible
+      collection_name: network
+    nodeset: vyos-1.1.8-python38
+
+- job:
+    name: network-ee-integration-tests-ansible-network-libssh
+    parent: network-ee-integration-tests-ansible-network
+    vars:
+      test_ansible_network_cli_ssh_type: libssh

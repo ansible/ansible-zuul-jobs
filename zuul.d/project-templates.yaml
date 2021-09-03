@@ -1444,6 +1444,15 @@
       jobs: *network-ee-test-jobs
 
 - project-template:
+    name: ansible-collections-ansible-network
+    check:
+      jobs: &ansible-collections-ansible-network-jobs
+        - network-ee-integration-tests-ansible-network
+    gate:
+      queue: integrated
+      jobs: *ansible-collections-ansible-network-jobs
+
+- project-template:
     name: noop-jobs
     description: |
       This template runs no jobs, it is needed if a project does not use

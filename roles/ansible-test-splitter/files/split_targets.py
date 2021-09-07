@@ -59,7 +59,7 @@ def get_targets_to_run(collection_path, targets_from_cli):
         if to_skip_because_disabled(lines):
             continue
         if is_slow(lines):
-            slow_targets.append([target.name])
+            slow_targets.append(target.name)
         else:
             regular_targets.append(target.name)
     return slow_targets, regular_targets

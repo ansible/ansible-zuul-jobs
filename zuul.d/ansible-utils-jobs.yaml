@@ -13,6 +13,9 @@
     name: network-ee-integration-ansible-utils
     parent: network-ee-integration-tests-utils
     nodeset: openvswitch-2.9.0-python38
+    vars:
+      collection_name: utils
+      collection_namespace: ansible
 
 - job:
     name: network-ee-integration-ansible-utils-stable211
@@ -20,6 +23,8 @@
     nodeset: openvswitch-2.9.0-python38
     vars:
       test_ansible_python_interpreter: /usr/bin/python3.6
+      collection_name: utils
+      collection_namespace: ansible
 
 - job:
     name: network-ee-integration-ansible-utils-stable29
@@ -27,6 +32,8 @@
     nodeset: openvswitch-2.9.0-python38
     vars:
       test_ansible_python_interpreter: /usr/bin/python3.6
+      collection_name: utils
+      collection_namespace: ansible
 
 - job:
     name: ansible-test-units-ansible-utils-python27

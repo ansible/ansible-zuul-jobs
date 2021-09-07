@@ -3,6 +3,8 @@
     name: network-ee-tests-base
     parent: ansible-ee-tests-base
     abstract: true
+    irrelevant-files:
+      - .pre-commit-config.yaml
     vars:
       container_image_name: quay.io/ansible/network-ee
 

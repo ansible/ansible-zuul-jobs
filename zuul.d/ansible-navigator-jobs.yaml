@@ -5,6 +5,7 @@
     vars:
       tox_install_siblings: false
       tox_envlist: py38,type,report,clean
+      tox_extra_args: -vv --skip-missing-interpreters false
     nodeset: ubuntu-bionic-4vcpu
 
 - job:
@@ -12,3 +13,4 @@
     parent: ansible-tox-py38
     vars:
       tox_envlist: smoke
+      tox_extra_args: -vv --skip-missing-interpreters false

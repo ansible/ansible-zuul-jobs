@@ -11,6 +11,8 @@
     required-projects:
       - name: github.com/ansible/ansible
     timeout: 3600
+    irrelevant-files:
+      - .pre-commit-config.yaml
     vars:
       ansible_test_collections: true
       ansible_collections_repo: "{{ zuul.project.canonical_name }}"

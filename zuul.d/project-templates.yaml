@@ -604,9 +604,9 @@
     name: ansible-collections-juniper-junos-netconf
     check:
       jobs: &ansible-collections-juniper-junos-netconf-jobs
-        - ansible-test-network-integration-ansible-netcommon-junos-vsrx-netconf-python36:
-            vars:
-              ansible_test_collections: true
+        - network-ee-integration-tests-junos-netconf
+        - network-ee-integration-tests-junos-netconf-stable-2.9
+        - network-ee-integration-tests-junos-netconf-stable-2.11
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-collections/ansible.netcommon

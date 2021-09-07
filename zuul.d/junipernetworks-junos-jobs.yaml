@@ -9,7 +9,7 @@
       - playbooks/network-ee-integration-tests/pre.yaml
     run: playbooks/ansible-network-junos-appliance/run.yaml
     host-vars:
-       vsrx3-18.4R1:
+      vsrx3-18.4R1:
         ansible_network_os: junos
     required-projects:
       - name: github.com/ansible/ansible-zuul-jobs
@@ -30,29 +30,6 @@
       vqfx-18.1R3:
         ansible_network_os: junos
     nodeset: vqfx-18.1R3-python38
-
-#- job:
-#    name: ansible-test-network-integration-junos-vsrx
-#    abstract: true
-#    dependencies:
-#      - name: build-ansible-collection
-#        soft: true
-#    parent: ansible-network-junos-vsrx-appliance
-#    pre-run:
-#      - playbooks/ansible-test-base/pre.yaml
-#      - playbooks/ansible-test-network-integration-base/pre.yaml
-#    run: playbooks/ansible-test-base/run.yaml
-#    post-run:
-#      - playbooks/ansible-test-network-integration-base/post.yaml
-#      - playbooks/ansible-test-base/post.yaml
-#    required-projects:
-#      - name: github.com/ansible/ansible
-#      - name: github.com/ansible-collections/junipernetworks.junos
-#    timeout: 10800
-#    vars:
-#      ansible_collections_repo: github.com/ansible-collections/junipernetworks.junos
-#      ansible_test_command: network-integration
-#      ansible_test_integration_targets: "junos_.* netconf_.*"
 
 - job:
     name: ansible-test-units-junos-python27
@@ -89,6 +66,7 @@
 - job:
     name: network-ee-integration-tests-junos
     parent: ansible-network-junos-appliance
+    nodeset: vsrx3-18.4R1-python38
 
 - job:
     name: network-ee-integration-tests-junos-netconf

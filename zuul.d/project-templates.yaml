@@ -174,7 +174,7 @@
     check:
       jobs: &ansible-collections-arista-eos-jobs
         - network-ee-integration-tests-eos-httpapi
-        - network-ee-integration-tests-eos-network_cli
+        - network-ee-integration-tests-eos
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-collections/ansible.netcommon

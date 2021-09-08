@@ -44,99 +44,78 @@
 # =============================================================================
 
 - job:
-    name: network-ee-integration-tests-eos
+    name: network-ee-integration-tests-arista-eos
     parent: ansible-network-eos-appliance
 
 - job:
-    name: network-ee-integration-tests-eos
+    name: network-ee-integration-tests-arista-eos
     parent: network-ee-integration-tests
     nodeset: eos-4.24.6-python38
     vars:
-      ansible_test_integration_targets: "eos_.*"
+      test_ansible_skip_tags: httpapi
 
 - job:
-    name: network-ee-integration-tests-eos-network_cli
-    parent: network-ee-integration-tests-eos
+    name: network-ee-integration-tests-arista-eos-httpapi
+    parent: network-ee-integration-tests-arista-eos
     vars:
-      test_ansible_skip_tags: local,httpapi
+      test_ansible_skip_tags: network_cli
 
 - job:
-    name: network-ee-integration-tests-eos-httpapi
-    parent: network-ee-integration-tests-eos
-    vars:
-      test_ansible_skip_tags: local,network_cli
-
-- job:
-    name: network-ee-integration-tests-eos-libssh
-    parent: network-ee-integration-tests-eos
+    name: network-ee-integration-tests-arista-eos-libssh
+    parent: network-ee-integration-tests-arista-eos
     vars:
       ansible_test_network_cli_ssh_type: libssh
       ansible_test_fips_mode: true
-      test_ansible_skip_tags: local,httpapi
 
 # =============================================================================
 - job:
-    name: network-ee-integration-tests-eos-stable-2.11
+    name: network-ee-integration-tests-arista-eos-stable-2.11
     parent: ansible-network-eos-appliance
 
 - job:
-    name: network-ee-integration-tests-eos-stable-2.11
+    name: network-ee-integration-tests-arista-eos-stable-2.11
     parent: network-ee-integration-tests-stable-2.11
     nodeset: eos-4.24.6-python38
     vars:
       test_ansible_python_interpreter: /usr/bin/python3.8
-      ansible_test_integration_targets: "eos_.*"
+      test_ansible_skip_tags: httpapi
 
 - job:
-    name: network-ee-integration-tests-eos-network_cli-stable-2.11
-    parent: network-ee-integration-tests-eos-stable-2.11
+    name: network-ee-integration-tests-arista-eos-httpapi-stable-2.11
+    parent: network-ee-integration-tests-arista-eos-stable-2.11
     vars:
-      test_ansible_skip_tags: local,httpapi
+      test_ansible_skip_tags: network_cli
 
 - job:
-    name: network-ee-integration-tests-eos-httpapi-stable-2.11
-    parent: network-ee-integration-tests-eos-stable-2.11
-    vars:
-      test_ansible_skip_tags: local,network_cli
-
-- job:
-    name: network-ee-integration-tests-eos-libssh-stable-2.11
-    parent: network-ee-integration-tests-eos-stable-2.11
+    name: network-ee-integration-tests-arista-eos-libssh-stable-2.11
+    parent: network-ee-integration-tests-arista-eos-stable-2.11
     vars:
       ansible_test_network_cli_ssh_type: libssh
       ansible_test_fips_mode: true
-      test_ansible_skip_tags: local,httpapi
 
 # =============================================================================
 
 - job:
-    name: network-ee-integration-tests-eos-stable-2.9
+    name: network-ee-integration-tests-arista-eos-stable-2.9
     parent: ansible-network-eos-appliance
 
 - job:
-    name: network-ee-integration-tests-eos-stable-2.9
+    name: network-ee-integration-tests-arista-eos-stable-2.9
     parent: network-ee-integration-tests-stable-2.9
     nodeset: eos-4.24.6-python38
     vars:
       test_ansible_python_interpreter: /usr/bin/python3.8
-      ansible_test_integration_targets: "eos_.*"
-      ansible_test_fips_mode: true
+      test_ansible_skip_tags: httpapi
 
 - job:
-    name: network-ee-integration-tests-eos-network_cli-stable-2.9
-    parent: network-ee-integration-tests-eos-stable-2.9
+    name: network-ee-integration-tests-arista-eos-httpapi-stable-2.9
+    parent: network-ee-integration-tests-arista-eos-stable-2.9
     vars:
-      test_ansible_skip_tags: local,httpapi
+      test_ansible_skip_tags: network_cli
 
 - job:
-    name: network-ee-integration-tests-eos-httpapi-stable-2.9
-    parent: network-ee-integration-tests-eos-stable-2.9
-    vars:
-      test_ansible_skip_tags: local,network_cli
-- job:
-    name: network-ee-integration-tests-eos-libssh-stable-2.9
-    parent: network-ee-integration-tests-eos-stable-2.9
+    name: network-ee-integration-tests-arista-eos-libssh-stable-2.9
+    parent: network-ee-integration-tests-arista-eos-stable-2.9
     vars:
       ansible_test_fips_mode: true
       ansible_test_network_cli_ssh_type: libssh
-      test_ansible_skip_tags: local,httpapi

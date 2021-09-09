@@ -291,31 +291,30 @@
       queue: integrated
       jobs: *ansible-collections-cisco-asa-jobs
 
-- project-template:
-    name: ansible-collections-cisco-nxos-units
-    check:
-      jobs: &ansible-collections-cisco-nxos-units-jobs
-        - ansible-changelog-fragment
-        - ansible-test-sanity-docker-devel
-        - ansible-test-sanity-docker-milestone
-        - ansible-test-sanity-docker-stable-2.9
-        - ansible-test-sanity-docker-stable-2.10
-        - ansible-test-sanity-docker-stable-2.11
-        - ansible-test-sanity-docker-stable-2.12
-        - ansible-test-units-nxos-python27
-        - ansible-test-units-nxos-python36
-        - ansible-test-units-nxos-python37
-    gate:
-      queue: integrated
-      jobs: *ansible-collections-cisco-nxos-units-jobs
+#- project-template:
+#    name: ansible-collections-cisco-nxos-units
+#    check:
+#      jobs: &ansible-collections-cisco-nxos-units-jobs
+#        - ansible-changelog-fragment
+#        - ansible-test-sanity-docker
+#        - ansible-test-sanity-docker-stable-2.9
+#        - ansible-test-sanity-docker-stable-2.10
+#        - ansible-test-sanity-docker-stable-2.11
+#        - ansible-test-units-nxos-python27
+#        - ansible-test-units-nxos-python35
+#        - ansible-test-units-nxos-python36
+#        - ansible-test-units-nxos-python37
+#    gate:
+#      queue: integrated
+#      jobs: *ansible-collections-cisco-nxos-units-jobs
 
 - project-template:
     name: ansible-collections-cisco-nxos
     check:
       jobs:
         - network-ee-integration-tests-nxos
-        - network-ee-integration-tests-nxos-stable-2.11
-        - network-ee-integration-tests-nxos-stable-2.9
+        #- network-ee-integration-tests-nxos-stable-2.11
+        #- network-ee-integration-tests-nxos-stable-2.9
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-collections/ansible.netcommon

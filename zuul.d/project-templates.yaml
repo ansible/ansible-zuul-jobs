@@ -173,7 +173,14 @@
     check:
       jobs: &ansible-collections-arista-eos-jobs
         - network-ee-integration-tests-arista-eos-httpapi
+        - network-ee-integration-tests-arista-eos-httpapi-stable-2.9
+        - network-ee-integration-tests-arista-eos-httpapi-stable-2.11
         - network-ee-integration-tests-arista-eos
+        - network-ee-integration-tests-arista-eos-stable-2.9
+        - network-ee-integration-tests-arista-eos-stable-2.11
+        - network-ee-integration-tests-arista-eos-libssh
+        - network-ee-integration-tests-arista-eos-libssh-stable-2.9
+        - network-ee-integration-tests-arista-eos-libssh-stable-2.11
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-collections/ansible.netcommon

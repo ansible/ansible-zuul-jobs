@@ -416,7 +416,7 @@
 
 - project-template:
     name: ansible-collections-community-okd
-    third-party-check:
+    3pci-check:
       jobs:
         - build-ansible-collection:
             required-projects:

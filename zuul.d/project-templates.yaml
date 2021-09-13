@@ -446,6 +446,13 @@
                 ENABLE_TURBO_MODE: true
     gate:
       jobs: *ansible-collections-cloud-common-jobs
+    periodic:
+      jobs:
+        - ansible-test-sanity-docker
+        - ansible-test-sanity-docker-stable-2.9
+        - ansible-test-sanity-docker-stable-2.10
+        - ansible-test-sanity-docker-stable-2.11
+        - ansible-test-units-cloud-common-python38
 
 - project-template:
     name: ansible-collections-community-vmware
@@ -505,6 +512,12 @@
         - ansible-test-sanity-docker-stable-2.11
     gate:
       jobs: *ansible-collections-community-vmware-rest-jobs
+    periodic:
+      jobs:
+        - ansible-test-sanity-docker
+        - ansible-test-sanity-docker-stable-2.9
+        - ansible-test-sanity-docker-stable-2.10
+        - ansible-test-sanity-docker-stable-2.11
 
 - project-template:
     name: ansible-collections-community-vmware-rest-code-generator

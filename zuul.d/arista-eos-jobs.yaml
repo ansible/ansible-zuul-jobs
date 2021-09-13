@@ -64,8 +64,8 @@
     name: network-ee-integration-tests-arista-eos-libssh
     parent: network-ee-integration-tests-arista-eos
     vars:
-      ansible_test_network_cli_ssh_type: libssh
-      ansible_test_fips_mode: true
+      test_ansible_network_cli_ssh_type: libssh
+      # ansible_test_fips_mode: true
 
 # =============================================================================
 - job:
@@ -90,8 +90,8 @@
     name: network-ee-integration-tests-arista-eos-libssh-stable-2.11
     parent: network-ee-integration-tests-arista-eos-stable-2.11
     vars:
-      ansible_test_network_cli_ssh_type: libssh
-      ansible_test_fips_mode: true
+      test_ansible_network_cli_ssh_type: libssh
+      # ansible_test_fips_mode: true
 
 # =============================================================================
 
@@ -117,5 +117,5 @@
     name: network-ee-integration-tests-arista-eos-libssh-stable-2.9
     parent: network-ee-integration-tests-arista-eos-stable-2.9
     vars:
-      ansible_test_fips_mode: true
-      ansible_test_network_cli_ssh_type: libssh
+      # ansible_test_fips_mode: true
+      test_ansible_network_cli_ssh_type: libssh

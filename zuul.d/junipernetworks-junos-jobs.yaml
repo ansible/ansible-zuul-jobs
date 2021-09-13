@@ -14,22 +14,7 @@
     required-projects:
       - name: github.com/ansible/ansible-zuul-jobs
     nodeset: vsrx3-18.4R1-python38
-
-- job:
-    name: ansible-network-junos-vsrx-appliance
-    parent: ansible-network-junos-appliance
-    host-vars:
-      vsrx3-18.4R1:
-        ansible_network_os: junos
-    nodeset: vsrx3-18.4R1-python38
-
-- job:
-    name: ansible-network-junos-vqfx-appliance
-    parent: ansible-network-junos-appliance
-    host-vars:
-      vqfx-18.1R3:
-        ansible_network_os: junos
-    nodeset: vqfx-18.1R3-python38
+    timeout: 10800
 
 - job:
     name: ansible-test-units-junos-python27
@@ -66,23 +51,35 @@
 - job:
     name: network-ee-integration-tests-junos
     parent: ansible-network-junos-appliance
-    nodeset: vsrx3-18.4R1-python38
+
+- job:
+    name: ansible-network-junos-vsrx-appliance
+    parent: ansible-network-junos-appliance
+    host-vars:
+      vsrx3-18.4R1:
+        ansible_network_os: junos
+
+- job:
+    name: ansible-network-junos-vqfx-appliance
+    parent: ansible-network-junos-appliance
+    host-vars:
+      vqfx-18.1R3:
+        ansible_network_os: junos
+    nodeset: vqfx-18.1R3-python38
 
 - job:
     name: network-ee-integration-tests-junos-netconf
     parent: network-ee-integration-tests-junos
     nodeset: vsrx3-18.4R1-python38
     vars:
-      ansible_test_integration_targets: "junos_.*"
-      ansible_test_skip_tags: local,network_cli
+      test_ansible_skip_tags: local,network_cli
 
 - job:
     name: network-ee-integration-tests-junos-network_cli
     parent: network-ee-integration-tests-junos
     nodeset: vsrx3-18.4R1-python38
     vars:
-      ansible_test_integration_targets: "junos_.*"
-      ansible_test_skip_tags: local,netconf
+      test_ansible_skip_tags: local,netconf
 
 - job:
     name: network-ee-integration-tests-junos-libssh
@@ -101,16 +98,14 @@
     parent: network-ee-integration-tests-junos-stable-2.11
     nodeset: vsrx3-18.4R1-python38
     vars:
-      ansible_test_integration_targets: "junos_.*"
-      ansible_test_skip_tags: local,network_cli
+      test_ansible_skip_tags: local,network_cli
 
 - job:
     name: network-ee-integration-tests-junos-network_cli-stable-2.11
     parent: network-ee-integration-tests-junos-stable-2.11
     nodeset: vsrx3-18.4R1-python38
     vars:
-      ansible_test_integration_targets: "junos_.*"
-      ansible_test_skip_tags: local,netconf
+      test_ansible_skip_tags: local,netconf
 
 - job:
     name: network-ee-integration-tests-junos-libssh-stable-2.11
@@ -128,16 +123,14 @@
     parent: network-ee-integration-tests-junos-stable-2.9
     nodeset: vsrx3-18.4R1-python38
     vars:
-      ansible_test_integration_targets: "junos_.*"
-      ansible_test_skip_tags: local,network_cli
+      test_ansible_skip_tags: local,network_cli
 
 - job:
     name: network-ee-integration-tests-junos-network_cli-stable-2.9
     parent: network-ee-integration-tests-junos-stable-2.9
     nodeset: vsrx3-18.4R1-python38
     vars:
-      ansible_test_integration_targets: "junos_.*"
-      ansible_test_skip_tags: local,netconf
+      test_ansible_skip_tags: local,netconf
 
 - job:
     name: network-ee-integration-tests-junos-libssh-stable-2.9

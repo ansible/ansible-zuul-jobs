@@ -41,3 +41,15 @@
   become: true
   notify:
     - Restart nfs-server
+
+- name: Install squid
+  package:
+    name: squid
+    state: present
+  become: true
+
+- name: Start squid
+  systemd:
+    state: started
+    name: squid
+  become: true

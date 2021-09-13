@@ -421,6 +421,10 @@
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-collections/kubernetes.core
+        - ansible-test-sanity-docker
+        - ansible-test-sanity-docker-stable-2.9
+        - ansible-test-sanity-docker-stable-2.10
+        - ansible-test-sanity-docker-stable-2.11
         - ansible-galaxy-importer:
             voting: false
 

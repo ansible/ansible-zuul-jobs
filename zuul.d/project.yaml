@@ -6,7 +6,7 @@
       jobs:
         - ansible-tox-py38:
             vars:
-              tox_envlist: pytest
+              tox_envlist: pytest,black
         - ansible-network-asa-appliance:
             files:
               - playbooks/ansible-network-appliance-base/.*
@@ -64,7 +64,7 @@
       jobs:
         - ansible-tox-py38:
             vars:
-              tox_envlist: pytest
+              tox_envlist: pytest,black
         - ansible-network-asa-appliance:
             files:
               - playbooks/ansible-network-appliance-base/.*

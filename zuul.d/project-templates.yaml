@@ -76,6 +76,24 @@
     gate:
       queue: integrated-aws
       jobs: *ansible-collections-amazon-aws-jobs
+    ondemand:
+      queue: integrated-aws
+      jobs:
+        - build-ansible-collection:
+            required-projects:
+              - name: github.com/ansible-collections/ansible.utils
+              - name: github.com/ansible-collections/ansible.netcommon
+              - name: github.com/ansible-collections/community.aws
+              - name: github.com/ansible-collections/community.general
+        - ansible-test-splitter:
+            vars:
+              ansible_test_splitter__test_changed: false
+        - ansible-test-cloud-integration-aws-py36_0
+        - ansible-test-cloud-integration-aws-py36_1
+        - ansible-test-cloud-integration-aws-py36_2
+        - ansible-test-cloud-integration-aws-py36_3
+        - ansible-test-cloud-integration-aws-py36_4
+        - ansible-test-cloud-integration-aws-py36_5
 
 - project-template:
     name: ansible-collections-community-aws
@@ -107,6 +125,26 @@
     gate:
       queue: integrated-aws
       jobs: *ansible-collections-community-aws-jobs
+    ondemand:
+      queue: integrated-aws
+      jobs:
+        - build-ansible-collection:
+            required-projects:
+              - name: github.com/ansible-collections/amazon.aws
+              - name: github.com/ansible-collections/ansible.netcommon
+              - name: github.com/ansible-collections/ansible.utils
+              - name: github.com/ansible-collections/community.general
+        - ansible-test-splitter:
+            vars:
+              ansible_test_splitter__test_changed: false
+        - ansible-test-cloud-integration-aws-py36_0
+        - ansible-test-cloud-integration-aws-py36_1
+        - ansible-test-cloud-integration-aws-py36_2
+        - ansible-test-cloud-integration-aws-py36_3
+        - ansible-test-cloud-integration-aws-py36_4
+        - ansible-test-cloud-integration-aws-py36_5
+        - ansible-galaxy-importer:
+            voting: false
 
 - project-template:
     name: ansible-collections-arista-eos-units

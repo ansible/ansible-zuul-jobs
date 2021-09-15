@@ -53,6 +53,7 @@
     nodeset: eos-4.24.6-python38
     vars:
       test_ansible_skip_tags: httpapi
+      test_ansible_ssh_private_key_file: ~/.ssh/id_ecdsa
       test_fips_mode: false
 
 - job:
@@ -124,4 +125,5 @@
     parent: network-ee-integration-tests-arista-eos-stable-2.9
     vars:
       test_ansible_network_cli_ssh_type: libssh
-      test_fips_mode: true
+      # Backport of https://github.com/ansible/ansible/pull/73992 needed for 2.9 to enable fips
+      test_fips_mode: false

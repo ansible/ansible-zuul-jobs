@@ -89,6 +89,7 @@
     nodeset: eos-4.24.6-python38
     vars:
       test_ansible_python_interpreter: /usr/bin/python3.8
+      test_ansible_ssh_private_key_file: ~/.ssh/id_ecdsa
       test_ansible_skip_tags: httpapi
       test_fips_mode: false
 
@@ -118,6 +119,7 @@
     nodeset: eos-4.24.6-python38
     vars:
       test_ansible_python_interpreter: /usr/bin/python3.8
+      test_ansible_ssh_private_key_file: ~/.ssh/id_ecdsa
       test_ansible_skip_tags: httpapi
       test_fips_mode: false
 

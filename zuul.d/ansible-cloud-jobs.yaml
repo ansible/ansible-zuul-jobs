@@ -305,6 +305,14 @@
       ansible_test_enable_ara: false
       ansible_test_python: 3.6
       ansible_test_retry_on_error: true
+      ansible_test_requirement_files:
+        - requirements.txt
+        - test-requirements.txt
+        # Ansible-test picks up requirements and constraints from
+        # tests/integration when running in docker, mirror this
+        - tests/integration/requirements.txt
+      ansible_test_constraint_files:
+        - tests/integration/constraints.txt
     semaphore: ansible-test-cloud-integration-aws
 
 - job:
@@ -344,17 +352,24 @@
       ansible_test_integration_targets: "{{ child.targets_to_test[5]|join(' ') }}"
 
 #### units
-- job:
-    name: ansible-test-units-community-aws-python38
-    parent: ansible-test-units-base-python38
-    vars:
-      ansible_collections_repo: "{{ zuul.project.canonical_name }}"
 
 - job:
     name: ansible-test-units-amazon-aws-python38
     parent: ansible-test-units-base-python38
     vars:
       ansible_collections_repo: "{{ zuul.project.canonical_name }}"
+      ansible_test_requirement_files:
+        - requirements.txt
+        - test-requirements.txt
+        # Ansible-test picks up requirements and constraints from
+        # tests/unit when running in docker, mirror this
+        - tests/unit/requirements.txt
+      ansible_test_constraint_files:
+        - tests/unit/constraints.txt
+
+- job:
+    name: ansible-test-units-community-aws-python38
+    parent: ansible-test-units-amazon-aws-python38
 
 #### sanity
 - job:

@@ -583,15 +583,12 @@
     name: ansible-collections-juniper-junos
     check:
       jobs: &ansible-collections-juniper-junos-jobs
-        - network-ee-integration-tests-junos-netconf-stable-2.9
-        - network-ee-integration-tests-junos-network_cli-stable-2.9
-        - network-ee-integration-tests-junos-libssh-stable-2.9
-        - network-ee-integration-tests-junos-netconf-stable-2.11
-        - network-ee-integration-tests-junos-network_cli-stable-2.11
-        - network-ee-integration-tests-junos-libssh-stable-2.11
-        - network-ee-integration-tests-junos-netconf
-        - network-ee-integration-tests-junos-network_cli
+        - network-ee-integration-tests-junos
+        - network-ee-integration-tests-junos-stable-2.9
+        - network-ee-integration-tests-junos-stable-2.11
         - network-ee-integration-tests-junos-libssh
+        - network-ee-integration-tests-junos-libssh-stable-2.9
+        - network-ee-integration-tests-junos-libssh-stable-2.11
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-collections/ansible.netcommon

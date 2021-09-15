@@ -16,6 +16,7 @@
     nodeset: vsrx3-18.4R1-python38
     timeout: 10800
 
+# =============================================================================
 - job:
     name: ansible-test-units-junos-python27
     parent: ansible-test-units-base-python27
@@ -48,16 +49,72 @@
     vars:
       ansible_collections_repo: github.com/ansible-collections/junipernetworks.junos
 
+# =============================================================================
 - job:
     name: network-ee-integration-tests-junos
     parent: ansible-network-junos-appliance
 
+- job:
+    name: network-ee-integration-tests-junos
+    parent: network-ee-integration-tests
+    nodeset: vsrx3-18.4R1-python38
+    vars:
+      test_fips_mode: false
+
+- job:
+    name: network-ee-integration-tests-junos-libssh
+    parent: network-ee-integration-tests-junos
+    vars:
+      test_ansible_network_cli_ssh_type: libssh
+      test_ansible_skip_tags: local,netconf
+
+# =============================================================================
+- job:
+    name: network-ee-integration-tests-junos-stable-2.11
+    parent: ansible-network-junos-appliance
+
+- job:
+    name: network-ee-integration-tests-junos-stable-2.11
+    parent: network-ee-integration-tests-stable-2.11
+    nodeset: vsrx3-18.4R1-python38
+    vars:
+      test_ansible_python_interpreter: /usr/bin/python3
+      test_fips_mode: false
+
+- job:
+    name: network-ee-integration-tests-junos-libssh-stable-2.11
+    parent: network-ee-integration-tests-junos-stable-2.11
+    vars:
+      test_ansible_network_cli_ssh_type: libssh
+      test_ansible_skip_tags: local,netconf
+
+# =============================================================================
+- job:
+    name: network-ee-integration-tests-junos-stable-2.9
+    parent: ansible-network-junos-appliance
+
+- job:
+    name: network-ee-integration-tests-junos-stable-2.9
+    parent: network-ee-integration-tests-stable-2.9
+    nodeset: vsrx3-18.4R1-python38
+    vars:
+      test_ansible_python_interpreter: /usr/bin/python3
+      test_fips_mode: false
+
+- job:
+    name: network-ee-integration-tests-junos-libssh-stable-2.9
+    parent: network-ee-integration-tests-junos-stable-2.9
+    vars:
+      test_ansible_network_cli_ssh_type: libssh
+      test_ansible_skip_tags: local,netconf
+# =============================================================================
 - job:
     name: ansible-network-junos-vsrx-appliance
     parent: ansible-network-junos-appliance
     host-vars:
       vsrx3-18.4R1:
         ansible_network_os: junos
+    nodeset: vsrx3-18.4R1-python38
 
 - job:
     name: ansible-network-junos-vqfx-appliance
@@ -73,69 +130,15 @@
     nodeset: vsrx3-18.4R1-python38
     vars:
       test_ansible_skip_tags: local,network_cli
-
-- job:
-    name: network-ee-integration-tests-junos-network_cli
-    parent: network-ee-integration-tests-junos
-    nodeset: vsrx3-18.4R1-python38
-    vars:
-      test_ansible_skip_tags: local,netconf
-
-- job:
-    name: network-ee-integration-tests-junos-libssh
-    parent: network-ee-integration-tests-junos
-    nodeset: vsrx3-18.4R1-python38
-    vars:
-      test_ansible_network_cli_ssh_type: libssh
-      test_ansible_skip_tags: local,netconf
-
-- job:
-    name: network-ee-integration-tests-junos-stable-2.11
-    parent: ansible-network-junos-appliance
-
 - job:
     name: network-ee-integration-tests-junos-netconf-stable-2.11
     parent: network-ee-integration-tests-junos-stable-2.11
     nodeset: vsrx3-18.4R1-python38
     vars:
       test_ansible_skip_tags: local,network_cli
-
-- job:
-    name: network-ee-integration-tests-junos-network_cli-stable-2.11
-    parent: network-ee-integration-tests-junos-stable-2.11
-    nodeset: vsrx3-18.4R1-python38
-    vars:
-      test_ansible_skip_tags: local,netconf
-
-- job:
-    name: network-ee-integration-tests-junos-libssh-stable-2.11
-    parent: network-ee-integration-tests-junos-network_cli-stable-2.11
-    vars:
-      ansible_test_network_cli_ssh_type: libssh
-      test_ansible_skip_tags: local,netconf
-
-- job:
-    name: network-ee-integration-tests-junos-stable-2.9
-    parent: ansible-network-junos-appliance
-
 - job:
     name: network-ee-integration-tests-junos-netconf-stable-2.9
     parent: network-ee-integration-tests-junos-stable-2.9
     nodeset: vsrx3-18.4R1-python38
     vars:
       test_ansible_skip_tags: local,network_cli
-
-- job:
-    name: network-ee-integration-tests-junos-network_cli-stable-2.9
-    parent: network-ee-integration-tests-junos-stable-2.9
-    nodeset: vsrx3-18.4R1-python38
-    vars:
-      test_ansible_skip_tags: local,netconf
-
-- job:
-    name: network-ee-integration-tests-junos-libssh-stable-2.9
-    parent: network-ee-integration-tests-junos-stable-2.9
-    nodeset: vsrx3-18.4R1-python38
-    vars:
-      ansible_test_network_cli_ssh_type: libssh
-      test_ansible_skip_tags: local,netconf

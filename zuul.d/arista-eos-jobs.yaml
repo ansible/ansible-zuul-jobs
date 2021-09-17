@@ -91,6 +91,7 @@
       test_ansible_python_interpreter: /usr/bin/python3.8
       test_ansible_ssh_private_key_file: ~/.ssh/id_ecdsa
       test_ansible_skip_tags: httpapi
+      # Backport PR to be merged https://github.com/ansible/ansible/pull/75706 to enable fips for libssh job
       test_fips_mode: false
 
 - job:
@@ -98,14 +99,12 @@
     parent: network-ee-integration-tests-arista-eos-stable-2.11
     vars:
       test_ansible_skip_tags: network_cli
-      test_fips_mode: false
 
 - job:
     name: network-ee-integration-tests-arista-eos-libssh-stable-2.11
     parent: network-ee-integration-tests-arista-eos-stable-2.11
     vars:
       test_ansible_network_cli_ssh_type: libssh
-      test_fips_mode: true
 
 # =============================================================================
 
@@ -121,6 +120,7 @@
       test_ansible_python_interpreter: /usr/bin/python3.8
       test_ansible_ssh_private_key_file: ~/.ssh/id_ecdsa
       test_ansible_skip_tags: httpapi
+      # Backport of https://github.com/ansible/ansible/pull/73992 needed for 2.9 to enable fips
       test_fips_mode: false
 
 - job:
@@ -128,12 +128,9 @@
     parent: network-ee-integration-tests-arista-eos-stable-2.9
     vars:
       test_ansible_skip_tags: network_cli
-      test_fips_mode: false
 
 - job:
     name: network-ee-integration-tests-arista-eos-libssh-stable-2.9
     parent: network-ee-integration-tests-arista-eos-stable-2.9
     vars:
       test_ansible_network_cli_ssh_type: libssh
-      # Backport of https://github.com/ansible/ansible/pull/73992 needed for 2.9 to enable fips
-      test_fips_mode: false

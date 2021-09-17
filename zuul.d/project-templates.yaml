@@ -1337,6 +1337,33 @@
       jobs: *network-ee-test-jobs
 
 - project-template:
+    name: network-ee-tests-non-voting
+    description: |
+      This is a set of non voting jobs, run from within a network execution environment
+      to validate network collections are working properly. This depends on
+      network-ee-container-image-jobs project-template.
+    check:
+      jobs: &network-ee-test-jobs-non-voting
+        - network-ee-sanity-tests:
+            voting: false
+        - network-ee-sanity-tests-stable-2.9:
+            voting: false
+        - network-ee-sanity-tests-stable-2.10:
+            voting: false
+        - network-ee-sanity-tests-stable-2.11:
+            voting: false
+        - network-ee-unit-tests:
+            voting: false
+        - network-ee-unit-tests-stable-2.9:
+            voting: false
+        - network-ee-unit-tests-stable-2.10:
+            voting: false
+        - network-ee-unit-tests-stable-2.11:
+            voting: false
+    gate:
+      jobs: *network-ee-test-jobs-non-voting
+
+- project-template:
     name: noop-jobs
     description: |
       This template runs no jobs, it is needed if a project does not use

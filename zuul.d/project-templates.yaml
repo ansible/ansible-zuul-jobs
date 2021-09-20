@@ -1393,6 +1393,25 @@
                 soft: true
 
 - project-template:
+    name: publish-to-automation-hub-3pci
+    description: |
+      Publish an Ansible collection to Ansible Automation Hub
+    third-party-check:
+      jobs:
+        - build-ansible-collection
+    pre-release:
+      jobs:
+        - release-ansible-collection-automation-hub
+    release:
+      jobs:
+        - release-ansible-collection-automation-hub
+        - release-ansible-collection-announcement:
+            dependencies:
+              - name: release-ansible-collection-automation-hub
+              - name: release-ansible-collection-galaxy
+                soft: true
+
+- project-template:
     name: publish-to-galaxy
     description: |
       Publish an Ansible collection to Ansible Galaxy

@@ -372,7 +372,7 @@
 
 #### sanity
 - job:
-    name: ansible-test-sanity-aws-ansible-python36
+    name: ansible-test-sanity-aws-ansible
     parent: ansible-test-sanity-docker
     vars:
       ansible_test_sanity_skiptests:
@@ -380,7 +380,7 @@
         - 'metaclass-boilerplate'
 
 - job:
-    name: ansible-test-sanity-aws-ansible-2.9-python36
+    name: ansible-test-sanity-aws-ansible-2.9
     parent: ansible-test-sanity-docker-stable-2.9
     vars:
       ansible_test_sanity_skiptests:
@@ -388,7 +388,7 @@
         - 'metaclass-boilerplate'
 
 - job:
-    name: ansible-test-sanity-aws-ansible-2.11-python36
+    name: ansible-test-sanity-aws-ansible-2.11
     parent: ansible-test-sanity-docker-stable-2.11
     vars:
       ansible_test_sanity_skiptests:

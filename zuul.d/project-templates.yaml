@@ -54,9 +54,9 @@
     check:
       queue: integrated-aws
       jobs: &ansible-collections-amazon-aws-jobs
-        - ansible-test-sanity-aws-ansible-python36
-        - ansible-test-sanity-aws-ansible-2.9-python36
-        - ansible-test-sanity-aws-ansible-2.11-python36
+        - ansible-test-sanity-aws-ansible
+        - ansible-test-sanity-aws-ansible-2.9
+        - ansible-test-sanity-aws-ansible-2.11
         - ansible-test-units-amazon-aws-python38
         - build-ansible-collection:
             required-projects:

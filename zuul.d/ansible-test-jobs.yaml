@@ -2,7 +2,7 @@
 - job:
     name: ansible-test-sanity-docker
     parent: unittests
-    nodeset: controller-python36
+    nodeset: controller-python38
     dependencies:
       - name: build-ansible-collection
         soft: true
@@ -19,7 +19,7 @@
       ansible_test_command: sanity
       ansible_test_docker: true
       ansible_test_enable_ara: false
-      ansible_test_python: 3.6
+      ansible_test_python: 3.8
       container_command: podman
 
 - job:

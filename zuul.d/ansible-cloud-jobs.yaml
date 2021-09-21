@@ -19,12 +19,11 @@
 # govcsim
 
 - job:
-    name: ansible-test-cloud-integration-govcsim-python36
-    nodeset: vmware-govcsim-python36
+    name: ansible-test-cloud-integration-govcsim-python38
+    nodeset: vmware-govcsim-python38
     dependencies:
       - name: build-ansible-collection
     pre-run:
-      - playbooks/ansible-cloud/py36/pre.yaml
       - playbooks/ansible-test-base/pre.yaml
       - playbooks/ansible-cloud/govcsim-base/pre.yaml
     run: playbooks/ansible-test-base/run.yaml
@@ -36,7 +35,7 @@
     timeout: 3600
     vars:
       ansible_collections_repo: github.com/ansible-collections/community.vmware
-      ansible_test_python: 3.6
+      ansible_test_python: 3.8
       ansible_test_integration_targets: zuul/vmware/govcsim/
       ansible_test_command: integration
       ansible_test_split_in: 3
@@ -45,20 +44,20 @@
         VMWARE_TEST_PLATFORM: static
 
 - job:
-    name: ansible-test-cloud-integration-govcsim-python36_1_of_3
-    parent: ansible-test-cloud-integration-govcsim-python36
+    name: ansible-test-cloud-integration-govcsim-python38_1_of_3
+    parent: ansible-test-cloud-integration-govcsim-python38
     vars:
       ansible_test_do_number: 1
 
 - job:
-    name: ansible-test-cloud-integration-govcsim-python36_2_of_3
-    parent: ansible-test-cloud-integration-govcsim-python36
+    name: ansible-test-cloud-integration-govcsim-python38_2_of_3
+    parent: ansible-test-cloud-integration-govcsim-python38
     vars:
       ansible_test_do_number: 2
 
 - job:
-    name: ansible-test-cloud-integration-govcsim-python36_3_of_3
-    parent: ansible-test-cloud-integration-govcsim-python36
+    name: ansible-test-cloud-integration-govcsim-python38_3_of_3
+    parent: ansible-test-cloud-integration-govcsim-python38
     vars:
       ansible_test_do_number: 3
 

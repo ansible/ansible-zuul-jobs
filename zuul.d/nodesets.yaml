@@ -55,7 +55,7 @@
 
 # Ansible cloud appliance nodesets
 - nodeset:
-    name: vmware-govcsim-python36
+    name: vmware-govcsim-python38
     nodes:
       - name: fedora-34
         label: fedora-34-1vcpu

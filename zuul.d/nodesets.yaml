@@ -55,7 +55,7 @@
 
 # Ansible cloud appliance nodesets
 - nodeset:
-    name: vmware-govcsim-python36
+    name: vmware-govcsim-python38
     nodes:
       - name: fedora-34
         label: fedora-34-1vcpu
@@ -66,7 +66,7 @@
 
 # vcenter 7.0.2
 - nodeset:
-    name: vmware-vcsa-7.0.2-python36
+    name: vmware-vcsa-7.0.2-python38
     nodes:
       - name: fedora-34
         label: fedora-34-1vcpu
@@ -81,7 +81,7 @@
           - fedora-34
 
 - nodeset:
-    name: vmware-vcsa_1esxi-7.0.2-python36
+    name: vmware-vcsa_1esxi-7.0.2-python38
     nodes:
       - name: fedora-34
         label: fedora-34-1vcpu
@@ -104,7 +104,7 @@
           - fedora-34
 
 - nodeset:
-    name: vmware-vcsa_2esxi-7.0.2-python36
+    name: vmware-vcsa_2esxi-7.0.2-python38
     nodes:
       - name: fedora-34
         label: fedora-34-1vcpu
@@ -691,7 +691,7 @@
           - ubuntu-bionic
 
 - nodeset:
-    name: controller-python36-f34
+    name: controller-python38-f34
     nodes:
       - name: fedora-34
         label: fedora-34-1vcpu

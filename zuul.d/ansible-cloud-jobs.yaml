@@ -14,17 +14,16 @@
         ansible_network_os: vmware_rest
       esxi1:
         ansible_network_os: vmware_rest
-    nodeset: vmware-vcsa-7.0.2-python36
+    nodeset: vmware-vcsa-7.0.2-python38
 
 # govcsim
 
 - job:
-    name: ansible-test-cloud-integration-govcsim-python36
-    nodeset: vmware-govcsim-python36
+    name: ansible-test-cloud-integration-govcsim-python38
+    nodeset: vmware-govcsim-python38
     dependencies:
       - name: build-ansible-collection
     pre-run:
-      - playbooks/ansible-cloud/py36/pre.yaml
       - playbooks/ansible-test-base/pre.yaml
       - playbooks/ansible-cloud/govcsim-base/pre.yaml
     run: playbooks/ansible-test-base/run.yaml
@@ -36,7 +35,7 @@
     timeout: 3600
     vars:
       ansible_collections_repo: github.com/ansible-collections/community.vmware
-      ansible_test_python: 3.6
+      ansible_test_python: 3.8
       ansible_test_integration_targets: zuul/vmware/govcsim/
       ansible_test_command: integration
       ansible_test_split_in: 3
@@ -45,20 +44,20 @@
         VMWARE_TEST_PLATFORM: static
 
 - job:
-    name: ansible-test-cloud-integration-govcsim-python36_1_of_3
-    parent: ansible-test-cloud-integration-govcsim-python36
+    name: ansible-test-cloud-integration-govcsim-python38_1_of_3
+    parent: ansible-test-cloud-integration-govcsim-python38
     vars:
       ansible_test_do_number: 1
 
 - job:
-    name: ansible-test-cloud-integration-govcsim-python36_2_of_3
-    parent: ansible-test-cloud-integration-govcsim-python36
+    name: ansible-test-cloud-integration-govcsim-python38_2_of_3
+    parent: ansible-test-cloud-integration-govcsim-python38
     vars:
       ansible_test_do_number: 2
 
 - job:
-    name: ansible-test-cloud-integration-govcsim-python36_3_of_3
-    parent: ansible-test-cloud-integration-govcsim-python36
+    name: ansible-test-cloud-integration-govcsim-python38_3_of_3
+    parent: ansible-test-cloud-integration-govcsim-python38
     vars:
       ansible_test_do_number: 3
 
@@ -71,7 +70,6 @@
     dependencies:
       - name: build-ansible-collection
     pre-run:
-      - playbooks/ansible-cloud/py36/pre.yaml
       - playbooks/ansible-test-base/pre.yaml
     run: playbooks/ansible-test-base/run.yaml
     post-run: playbooks/ansible-test-base/post.yaml
@@ -90,30 +88,30 @@
 
 # vcenter 7.0.2
 - job:
-    name: ansible-test-cloud-integration-vcenter7_only-python36
+    name: ansible-test-cloud-integration-vcenter7_only-python38
     parent: ansible-test-cloud-integration-vcenter
-    nodeset: vmware-vcsa-7.0.2-python36
+    nodeset: vmware-vcsa-7.0.2-python38
     vars:
-      ansible_test_python: 3.6
+      ansible_test_python: 3.8
       ansible_test_integration_targets: zuul/vmware/vcenter_only/
 
 - job:
-    name: ansible-test-cloud-integration-vcenter7_1esxi-python36
+    name: ansible-test-cloud-integration-vcenter7_1esxi-python38
     parent: ansible-test-cloud-integration-vcenter
-    nodeset: vmware-vcsa_1esxi-7.0.2-python36
+    nodeset: vmware-vcsa_1esxi-7.0.2-python38
     vars:
-      ansible_test_python: 3.6
+      ansible_test_python: 3.8
       ansible_test_integration_targets: zuul/vmware/vcenter_1esxi/
     # 5h
     timeout: 10800
 
 
 - job:
-    name: ansible-test-cloud-integration-vcenter7_2esxi-python36
+    name: ansible-test-cloud-integration-vcenter7_2esxi-python38
     parent: ansible-test-cloud-integration-vcenter
-    nodeset: vmware-vcsa_2esxi-7.0.2-python36
+    nodeset: vmware-vcsa_2esxi-7.0.2-python38
     vars:
-      ansible_test_python: 3.6
+      ansible_test_python: 3.8
       ansible_test_integration_targets: zuul/vmware/vcenter_2esxi/
     # NOTE: we set ansible_network_os with some generic
     # value to pass the ansible-network playbooks
@@ -127,22 +125,22 @@
 
 # stable211
 - job:
-    name: ansible-test-cloud-integration-vcenter7_only-python36-stable211
-    parent: ansible-test-cloud-integration-vcenter7_only-python36
+    name: ansible-test-cloud-integration-vcenter7_only-python38-stable211
+    parent: ansible-test-cloud-integration-vcenter7_only-python38
     required-projects:
       - name: github.com/ansible/ansible
         override-checkout: stable-2.11
 
 - job:
-    name: ansible-test-cloud-integration-vcenter7_1esxi-python36-stable211
-    parent: ansible-test-cloud-integration-vcenter7_1esxi-python36
+    name: ansible-test-cloud-integration-vcenter7_1esxi-python38-stable211
+    parent: ansible-test-cloud-integration-vcenter7_1esxi-python38
     required-projects:
       - name: github.com/ansible/ansible
         override-checkout: stable-2.11
 
 - job:
-    name: ansible-test-cloud-integration-vcenter7_1esxi-python36-stable211_1_of_2
-    parent: ansible-test-cloud-integration-vcenter7_1esxi-python36
+    name: ansible-test-cloud-integration-vcenter7_1esxi-python38-stable211_1_of_2
+    parent: ansible-test-cloud-integration-vcenter7_1esxi-python38
     required-projects:
       - name: github.com/ansible/ansible
         override-checkout: stable-2.11
@@ -151,8 +149,8 @@
       ansible_test_do_number: 1
 
 - job:
-    name: ansible-test-cloud-integration-vcenter7_1esxi-python36-stable211_2_of_2
-    parent: ansible-test-cloud-integration-vcenter7_1esxi-python36
+    name: ansible-test-cloud-integration-vcenter7_1esxi-python38-stable211_2_of_2
+    parent: ansible-test-cloud-integration-vcenter7_1esxi-python38
     required-projects:
       - name: github.com/ansible/ansible
         override-checkout: stable-2.11
@@ -162,8 +160,8 @@
 
 
 - job:
-    name: ansible-test-cloud-integration-vcenter7_2esxi-python36-stable211
-    parent: ansible-test-cloud-integration-vcenter7_2esxi-python36
+    name: ansible-test-cloud-integration-vcenter7_2esxi-python38-stable211
+    parent: ansible-test-cloud-integration-vcenter7_2esxi-python38
     required-projects:
       - name: github.com/ansible/ansible
         override-checkout: stable-2.11
@@ -187,7 +185,7 @@
         ansible_network_os: vmware_rest
       esxi1:
         ansible_network_os: vmware_rest
-    nodeset: vmware-vcsa_1esxi-7.0.2-python36
+    nodeset: vmware-vcsa_1esxi-7.0.2-python38
 
 # NOTE(pabelanger): Due to low memory capacity in vexxhost, it is
 # possible to wedge the provider.  For now, only run 1 job at a time.
@@ -220,10 +218,10 @@
     semaphore: ansible-test-cloud-integration-vmware-rest
 
 - job:
-    name: ansible-test-cloud-integration-vmware-rest-python36
+    name: ansible-test-cloud-integration-vmware-rest-python38
     parent: ansible-test-cloud-integration-vmware-rest
     vars:
-      ansible_test_python: 3.6
+      ansible_test_python: 3.8
 
 
 ##### units
@@ -272,21 +270,20 @@
     vars:
       ansible_collections_repo: "{{ zuul.project.canonical_name }}"
       ansible_test_location: "{{ ansible_user_dir }}/{{ zuul.projects[zuul.project.canonical_name].src_dir }}"
-      ansible_test_splitter__children_prefix: ansible-test-cloud-integration-aws-py36_
+      ansible_test_splitter__children_prefix: ansible-test-cloud-integration-aws-py38_
 
 - semaphore:
     name: ansible-test-cloud-integration-aws
     max: 6
 
 - job:
-    name: ansible-test-cloud-integration-aws-py36
+    name: ansible-test-cloud-integration-aws-py38
     parent: ansible-core-ci-aws-session
-    nodeset: controller-python36-f34
+    nodeset: controller-python38-f34
     dependencies:
       - name: build-ansible-collection
       - name: ansible-test-splitter
     pre-run:
-      - playbooks/ansible-cloud/py36/pre.yaml
       - playbooks/ansible-test-base/pre.yaml
       - playbooks/ansible-cloud/aws/pre.yaml
     run: playbooks/ansible-test-base/run.yaml
@@ -303,7 +300,7 @@
       ansible_collections_repo: "{{ zuul.project.canonical_name }}"
       ansible_test_command: integration
       ansible_test_enable_ara: false
-      ansible_test_python: 3.6
+      ansible_test_python: 3.8
       ansible_test_retry_on_error: true
       ansible_test_requirement_files:
         - requirements.txt
@@ -316,38 +313,38 @@
     semaphore: ansible-test-cloud-integration-aws
 
 - job:
-    name: ansible-test-cloud-integration-aws-py36_0
-    parent: ansible-test-cloud-integration-aws-py36
+    name: ansible-test-cloud-integration-aws-py38_0
+    parent: ansible-test-cloud-integration-aws-py38
     vars:
       ansible_test_integration_targets: "{{ child.targets_to_test[0]|join(' ') }}"
 
 - job:
-    name: ansible-test-cloud-integration-aws-py36_1
-    parent: ansible-test-cloud-integration-aws-py36
+    name: ansible-test-cloud-integration-aws-py38_1
+    parent: ansible-test-cloud-integration-aws-py38
     vars:
       ansible_test_integration_targets: "{{ child.targets_to_test[1]|join(' ') }}"
 
 - job:
-    name: ansible-test-cloud-integration-aws-py36_2
-    parent: ansible-test-cloud-integration-aws-py36
+    name: ansible-test-cloud-integration-aws-py38_2
+    parent: ansible-test-cloud-integration-aws-py38
     vars:
       ansible_test_integration_targets: "{{ child.targets_to_test[2]|join(' ') }}"
 
 - job:
-    name: ansible-test-cloud-integration-aws-py36_3
-    parent: ansible-test-cloud-integration-aws-py36
+    name: ansible-test-cloud-integration-aws-py38_3
+    parent: ansible-test-cloud-integration-aws-py38
     vars:
       ansible_test_integration_targets: "{{ child.targets_to_test[3]|join(' ') }}"
 
 - job:
-    name: ansible-test-cloud-integration-aws-py36_4
-    parent: ansible-test-cloud-integration-aws-py36
+    name: ansible-test-cloud-integration-aws-py38_4
+    parent: ansible-test-cloud-integration-aws-py38
     vars:
       ansible_test_integration_targets: "{{ child.targets_to_test[4]|join(' ') }}"
 
 - job:
-    name: ansible-test-cloud-integration-aws-py36_5
-    parent: ansible-test-cloud-integration-aws-py36
+    name: ansible-test-cloud-integration-aws-py38_5
+    parent: ansible-test-cloud-integration-aws-py38
     vars:
       ansible_test_integration_targets: "{{ child.targets_to_test[5]|join(' ') }}"
 
@@ -373,7 +370,7 @@
 
 #### sanity
 - job:
-    name: ansible-test-sanity-aws-ansible-python36
+    name: ansible-test-sanity-aws-ansible-python38
     parent: ansible-test-sanity-docker
     vars:
       ansible_test_sanity_skiptests:
@@ -381,7 +378,7 @@
         - 'metaclass-boilerplate'
 
 - job:
-    name: ansible-test-sanity-aws-ansible-2.9-python36
+    name: ansible-test-sanity-aws-ansible-2.9-python38
     parent: ansible-test-sanity-docker-stable-2.9
     vars:
       ansible_test_sanity_skiptests:
@@ -389,7 +386,7 @@
         - 'metaclass-boilerplate'
 
 - job:
-    name: ansible-test-sanity-aws-ansible-2.11-python36
+    name: ansible-test-sanity-aws-ansible-2.11-python38
     parent: ansible-test-sanity-docker-stable-2.11
     vars:
       ansible_test_sanity_skiptests:
@@ -427,7 +424,7 @@
     vars:
       ansible_collections_repo: github.com/ansible-collections/kubernetes.core
       ansible_test_collections: true
-      ansible_test_python: 3.6
+      ansible_test_python: 3.8
       ansible_test_venv_path: "~/venv"
 
 - job:

@@ -54,9 +54,9 @@
     check:
       queue: integrated-aws
       jobs: &ansible-collections-amazon-aws-jobs
-        - ansible-test-sanity-aws-ansible-python36
-        - ansible-test-sanity-aws-ansible-2.9-python36
-        - ansible-test-sanity-aws-ansible-2.11-python36
+        - ansible-test-sanity-aws-ansible-python38
+        - ansible-test-sanity-aws-ansible-2.9-python38
+        - ansible-test-sanity-aws-ansible-2.11-python38
         - ansible-test-units-amazon-aws-python38
         - build-ansible-collection:
             required-projects:
@@ -67,12 +67,12 @@
         - ansible-test-splitter:
             vars:
               ansible_test_splitter__test_changed: true
-        - ansible-test-cloud-integration-aws-py36_0
-        - ansible-test-cloud-integration-aws-py36_1
-        - ansible-test-cloud-integration-aws-py36_2
-        - ansible-test-cloud-integration-aws-py36_3
-        - ansible-test-cloud-integration-aws-py36_4
-        - ansible-test-cloud-integration-aws-py36_5
+        - ansible-test-cloud-integration-aws-py38_0
+        - ansible-test-cloud-integration-aws-py38_1
+        - ansible-test-cloud-integration-aws-py38_2
+        - ansible-test-cloud-integration-aws-py38_3
+        - ansible-test-cloud-integration-aws-py38_4
+        - ansible-test-cloud-integration-aws-py38_5
     gate:
       queue: integrated-aws
       jobs: *ansible-collections-amazon-aws-jobs
@@ -114,12 +114,12 @@
         - ansible-test-splitter:
             vars:
               ansible_test_splitter__test_changed: true
-        - ansible-test-cloud-integration-aws-py36_0
-        - ansible-test-cloud-integration-aws-py36_1
-        - ansible-test-cloud-integration-aws-py36_2
-        - ansible-test-cloud-integration-aws-py36_3
-        - ansible-test-cloud-integration-aws-py36_4
-        - ansible-test-cloud-integration-aws-py36_5
+        - ansible-test-cloud-integration-aws-py38_0
+        - ansible-test-cloud-integration-aws-py38_1
+        - ansible-test-cloud-integration-aws-py38_2
+        - ansible-test-cloud-integration-aws-py38_3
+        - ansible-test-cloud-integration-aws-py38_4
+        - ansible-test-cloud-integration-aws-py38_5
         - ansible-galaxy-importer:
             voting: false
     gate:
@@ -137,12 +137,12 @@
         - ansible-test-splitter:
             vars:
               ansible_test_splitter__test_changed: false
-        - ansible-test-cloud-integration-aws-py36_0
-        - ansible-test-cloud-integration-aws-py36_1
-        - ansible-test-cloud-integration-aws-py36_2
-        - ansible-test-cloud-integration-aws-py36_3
-        - ansible-test-cloud-integration-aws-py36_4
-        - ansible-test-cloud-integration-aws-py36_5
+        - ansible-test-cloud-integration-aws-py38_0
+        - ansible-test-cloud-integration-aws-py38_1
+        - ansible-test-cloud-integration-aws-py38_2
+        - ansible-test-cloud-integration-aws-py38_3
+        - ansible-test-cloud-integration-aws-py38_4
+        - ansible-test-cloud-integration-aws-py38_5
         - ansible-galaxy-importer:
             voting: false
 
@@ -474,7 +474,7 @@
         - ansible-test-sanity-docker-stable-2.10
         - ansible-test-sanity-docker-stable-2.11
         - ansible-test-units-cloud-common-python38
-        - ansible-test-cloud-integration-vmware-rest-python36:
+        - ansible-test-cloud-integration-vmware-rest-python38:
             required-projects:
               - name: github.com/ansible-collections/vmware.vmware_rest
         - build-ansible-collection:
@@ -500,11 +500,11 @@
     name: ansible-collections-community-vmware
     check:
       jobs:
-        - ansible-test-cloud-integration-govcsim-python36_1_of_3:
+        - ansible-test-cloud-integration-govcsim-python38_1_of_3:
             voting: false
-        - ansible-test-cloud-integration-govcsim-python36_2_of_3:
+        - ansible-test-cloud-integration-govcsim-python38_2_of_3:
             voting: false
-        - ansible-test-cloud-integration-govcsim-python36_3_of_3:
+        - ansible-test-cloud-integration-govcsim-python38_3_of_3:
             voting: false
         - ansible-tox-linters
         - build-ansible-collection
@@ -512,21 +512,18 @@
         - ansible-test-sanity-docker-stable-2.9
         - ansible-test-sanity-docker-stable-2.10
         - ansible-test-sanity-docker-stable-2.11
-        - ansible-test-units-community-vmware-python27
-        - ansible-test-units-community-vmware-python36
-        - ansible-test-units-community-vmware-python37
         - ansible-test-units-community-vmware-python38
-        - ansible-test-cloud-integration-vcenter7_only-python36-stable211
-        - ansible-test-cloud-integration-vcenter7_2esxi-python36-stable211
-        - ansible-test-cloud-integration-vcenter7_1esxi-python36-stable211_1_of_2
-        - ansible-test-cloud-integration-vcenter7_1esxi-python36-stable211_2_of_2
+        - ansible-test-cloud-integration-vcenter7_only-python38-stable211
+        - ansible-test-cloud-integration-vcenter7_2esxi-python38-stable211
+        - ansible-test-cloud-integration-vcenter7_1esxi-python38-stable211_1_of_2
+        - ansible-test-cloud-integration-vcenter7_1esxi-python38-stable211_2_of_2
     gate:
       jobs:
-        - ansible-test-cloud-integration-govcsim-python36_1_of_3:
+        - ansible-test-cloud-integration-govcsim-python38_1_of_3:
             voting: false
-        - ansible-test-cloud-integration-govcsim-python36_2_of_3:
+        - ansible-test-cloud-integration-govcsim-python38_2_of_3:
             voting: false
-        - ansible-test-cloud-integration-govcsim-python36_3_of_3:
+        - ansible-test-cloud-integration-govcsim-python38_3_of_3:
             voting: false
         - ansible-tox-linters
         - build-ansible-collection
@@ -534,15 +531,12 @@
         - ansible-test-sanity-docker-stable-2.9
         - ansible-test-sanity-docker-stable-2.10
         - ansible-test-sanity-docker-stable-2.11
-        - ansible-test-units-community-vmware-python27
-        - ansible-test-units-community-vmware-python36
-        - ansible-test-units-community-vmware-python37
         - ansible-test-units-community-vmware-python38
 - project-template:
     name: ansible-collections-community-vmware-rest
     check:
       jobs: &ansible-collections-community-vmware-rest-jobs
-        - ansible-test-cloud-integration-vmware-rest-python36
+        - ansible-test-cloud-integration-vmware-rest-python38
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-collections/cloud.common
@@ -566,14 +560,14 @@
     name: ansible-collections-community-vmware-rest-code-generator
     check:
       jobs:
-        - ansible-test-cloud-integration-vmware-rest-python36
+        - ansible-test-cloud-integration-vmware-rest-python38
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-collections/cloud.common
               - name: github.com/ansible-collections/community.vmware
     gate:
       jobs:
-        - ansible-test-cloud-integration-vmware-rest-python36
+        - ansible-test-cloud-integration-vmware-rest-python38
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-collections/cloud.common

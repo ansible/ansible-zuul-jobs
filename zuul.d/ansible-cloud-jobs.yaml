@@ -236,14 +236,6 @@
       ansible_collections_repo: github.com/ansible-collections/community.vmware
 
 - job:
-    name: ansible-test-units-community-vmware-python36
-    parent: ansible-test-units-base-python36
-    required-projects:
-      - name: github.com/ansible-collections/community.vmware
-    vars:
-      ansible_collections_repo: github.com/ansible-collections/community.vmware
-
-- job:
     name: ansible-test-units-community-vmware-python37
     parent: ansible-test-units-base-python37
     required-projects:

@@ -478,7 +478,6 @@
         - ansible-test-sanity-docker-stable-2.10
         - ansible-test-sanity-docker-stable-2.11
         - ansible-test-units-community-vmware-python27
-        - ansible-test-units-community-vmware-python36
         - ansible-test-units-community-vmware-python37
         - ansible-test-units-community-vmware-python38
         - ansible-test-cloud-integration-vcenter7_only-python36-stable211
@@ -500,9 +499,9 @@
         - ansible-test-sanity-docker-stable-2.10
         - ansible-test-sanity-docker-stable-2.11
         - ansible-test-units-community-vmware-python27
-        - ansible-test-units-community-vmware-python36
         - ansible-test-units-community-vmware-python37
         - ansible-test-units-community-vmware-python38
+
 - project-template:
     name: ansible-collections-community-vmware-rest
     check:

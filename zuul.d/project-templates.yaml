@@ -500,11 +500,11 @@
     name: ansible-collections-community-vmware
     check:
       jobs:
-        - ansible-test-cloud-integration-govcsim-python36_1_of_3:
+        - ansible-test-cloud-integration-govcsim-python38_1_of_3:
             voting: false
-        - ansible-test-cloud-integration-govcsim-python36_2_of_3:
+        - ansible-test-cloud-integration-govcsim-python38_2_of_3:
             voting: false
-        - ansible-test-cloud-integration-govcsim-python36_3_of_3:
+        - ansible-test-cloud-integration-govcsim-python38_3_of_3:
             voting: false
         - ansible-tox-linters
         - build-ansible-collection
@@ -522,11 +522,11 @@
         - ansible-test-cloud-integration-vcenter7_1esxi-python36-stable211_2_of_2
     gate:
       jobs:
-        - ansible-test-cloud-integration-govcsim-python36_1_of_3:
+        - ansible-test-cloud-integration-govcsim-python38_1_of_3:
             voting: false
-        - ansible-test-cloud-integration-govcsim-python36_2_of_3:
+        - ansible-test-cloud-integration-govcsim-python38_2_of_3:
             voting: false
-        - ansible-test-cloud-integration-govcsim-python36_3_of_3:
+        - ansible-test-cloud-integration-govcsim-python38_3_of_3:
             voting: false
         - ansible-tox-linters
         - build-ansible-collection

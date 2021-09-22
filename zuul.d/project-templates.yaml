@@ -172,14 +172,14 @@
         - ansible-test-network-integration-eos-network_cli-python27-stable211-scenario01
         - ansible-test-network-integration-eos-network_cli-python27-stable211-scenario02
         - ansible-test-network-integration-eos-network_cli-python27-stable29
-        - ansible-test-network-integration-eos-httpapi-python36
+        - ansible-test-network-integration-eos-httpapi-python38
         - ansible-test-network-integration-eos-httpapi-python36-stable211
         - ansible-test-network-integration-eos-httpapi-python36-stable29
-        - ansible-test-network-integration-eos-network_cli-python36
+        - ansible-test-network-integration-eos-network_cli-python38
         - ansible-test-network-integration-eos-network_cli-python36-stable211-scenario01
         - ansible-test-network-integration-eos-network_cli-python36-stable211-scenario02
         - ansible-test-network-integration-eos-network_cli-python36-stable29
-        - ansible-test-network-integration-eos-network_cli-libssh-python36
+        - ansible-test-network-integration-eos-network_cli-libssh-python38
         - ansible-test-network-integration-eos-network_cli-libssh-python36-stable211-scenario01
         - ansible-test-network-integration-eos-network_cli-libssh-python36-stable211-scenario02
         - ansible-test-network-integration-eos-network_cli-libssh-python36-stable29

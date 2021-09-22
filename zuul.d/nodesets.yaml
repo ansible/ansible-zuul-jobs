@@ -446,7 +446,7 @@
           - ubuntu-bionic
 
 - nodeset:
-    name: nxos-7.0.3-python36
+    name: nxos-7.0.3-python38
     nodes:
       - name: ubuntu-bionic
         label: ubuntu-bionic-1vcpu

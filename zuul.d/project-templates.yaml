@@ -54,9 +54,9 @@
     check:
       queue: integrated-aws
       jobs: &ansible-collections-amazon-aws-jobs
-        - ansible-test-sanity-aws-ansible-python36
-        - ansible-test-sanity-aws-ansible-2.9-python36
-        - ansible-test-sanity-aws-ansible-2.11-python36
+        - ansible-test-sanity-aws-ansible-python38
+        - ansible-test-sanity-aws-ansible-2.9-python38
+        - ansible-test-sanity-aws-ansible-2.11-python38
         - ansible-test-units-amazon-aws-python38
         - build-ansible-collection:
             required-projects:
@@ -67,12 +67,12 @@
         - ansible-test-splitter:
             vars:
               ansible_test_splitter__test_changed: true
-        - ansible-test-cloud-integration-aws-py36_0
-        - ansible-test-cloud-integration-aws-py36_1
-        - ansible-test-cloud-integration-aws-py36_2
-        - ansible-test-cloud-integration-aws-py36_3
-        - ansible-test-cloud-integration-aws-py36_4
-        - ansible-test-cloud-integration-aws-py36_5
+        - ansible-test-cloud-integration-aws-py38_0
+        - ansible-test-cloud-integration-aws-py38_1
+        - ansible-test-cloud-integration-aws-py38_2
+        - ansible-test-cloud-integration-aws-py38_3
+        - ansible-test-cloud-integration-aws-py38_4
+        - ansible-test-cloud-integration-aws-py38_5
     gate:
       queue: integrated-aws
       jobs: *ansible-collections-amazon-aws-jobs
@@ -88,12 +88,12 @@
         - ansible-test-splitter:
             vars:
               ansible_test_splitter__test_changed: false
-        - ansible-test-cloud-integration-aws-py36_0
-        - ansible-test-cloud-integration-aws-py36_1
-        - ansible-test-cloud-integration-aws-py36_2
-        - ansible-test-cloud-integration-aws-py36_3
-        - ansible-test-cloud-integration-aws-py36_4
-        - ansible-test-cloud-integration-aws-py36_5
+        - ansible-test-cloud-integration-aws-py38_0
+        - ansible-test-cloud-integration-aws-py38_1
+        - ansible-test-cloud-integration-aws-py38_2
+        - ansible-test-cloud-integration-aws-py38_3
+        - ansible-test-cloud-integration-aws-py38_4
+        - ansible-test-cloud-integration-aws-py38_5
 
 - project-template:
     name: ansible-collections-community-aws
@@ -114,12 +114,12 @@
         - ansible-test-splitter:
             vars:
               ansible_test_splitter__test_changed: true
-        - ansible-test-cloud-integration-aws-py36_0
-        - ansible-test-cloud-integration-aws-py36_1
-        - ansible-test-cloud-integration-aws-py36_2
-        - ansible-test-cloud-integration-aws-py36_3
-        - ansible-test-cloud-integration-aws-py36_4
-        - ansible-test-cloud-integration-aws-py36_5
+        - ansible-test-cloud-integration-aws-py38_0
+        - ansible-test-cloud-integration-aws-py38_1
+        - ansible-test-cloud-integration-aws-py38_2
+        - ansible-test-cloud-integration-aws-py38_3
+        - ansible-test-cloud-integration-aws-py38_4
+        - ansible-test-cloud-integration-aws-py38_5
         - ansible-galaxy-importer:
             voting: false
     gate:
@@ -137,12 +137,12 @@
         - ansible-test-splitter:
             vars:
               ansible_test_splitter__test_changed: false
-        - ansible-test-cloud-integration-aws-py36_0
-        - ansible-test-cloud-integration-aws-py36_1
-        - ansible-test-cloud-integration-aws-py36_2
-        - ansible-test-cloud-integration-aws-py36_3
-        - ansible-test-cloud-integration-aws-py36_4
-        - ansible-test-cloud-integration-aws-py36_5
+        - ansible-test-cloud-integration-aws-py38_0
+        - ansible-test-cloud-integration-aws-py38_1
+        - ansible-test-cloud-integration-aws-py38_2
+        - ansible-test-cloud-integration-aws-py38_3
+        - ansible-test-cloud-integration-aws-py38_4
+        - ansible-test-cloud-integration-aws-py38_5
         - ansible-galaxy-importer:
             voting: false
 

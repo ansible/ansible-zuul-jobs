@@ -271,21 +271,20 @@
     vars:
       ansible_collections_repo: "{{ zuul.project.canonical_name }}"
       ansible_test_location: "{{ ansible_user_dir }}/{{ zuul.projects[zuul.project.canonical_name].src_dir }}"
-      ansible_test_splitter__children_prefix: ansible-test-cloud-integration-aws-py36_
+      ansible_test_splitter__children_prefix: ansible-test-cloud-integration-aws-py38_
 
 - semaphore:
     name: ansible-test-cloud-integration-aws
     max: 6
 
 - job:
-    name: ansible-test-cloud-integration-aws-py36
+    name: ansible-test-cloud-integration-aws-py38
     parent: ansible-core-ci-aws-session
-    nodeset: controller-python36-f34
+    nodeset: controller-python38-f34
     dependencies:
       - name: build-ansible-collection
       - name: ansible-test-splitter
     pre-run:
-      - playbooks/ansible-cloud/py36/pre.yaml
       - playbooks/ansible-test-base/pre.yaml
       - playbooks/ansible-cloud/aws/pre.yaml
     run: playbooks/ansible-test-base/run.yaml
@@ -302,7 +301,7 @@
       ansible_collections_repo: "{{ zuul.project.canonical_name }}"
       ansible_test_command: integration
       ansible_test_enable_ara: false
-      ansible_test_python: 3.6
+      ansible_test_python: 3.8
       ansible_test_retry_on_error: true
       ansible_test_requirement_files:
         - requirements.txt
@@ -315,38 +314,38 @@
     semaphore: ansible-test-cloud-integration-aws
 
 - job:
-    name: ansible-test-cloud-integration-aws-py36_0
-    parent: ansible-test-cloud-integration-aws-py36
+    name: ansible-test-cloud-integration-aws-py38_0
+    parent: ansible-test-cloud-integration-aws-py38
     vars:
       ansible_test_integration_targets: "{{ child.targets_to_test[0]|join(' ') }}"
 
 - job:
-    name: ansible-test-cloud-integration-aws-py36_1
-    parent: ansible-test-cloud-integration-aws-py36
+    name: ansible-test-cloud-integration-aws-py38_1
+    parent: ansible-test-cloud-integration-aws-py38
     vars:
       ansible_test_integration_targets: "{{ child.targets_to_test[1]|join(' ') }}"
 
 - job:
-    name: ansible-test-cloud-integration-aws-py36_2
-    parent: ansible-test-cloud-integration-aws-py36
+    name: ansible-test-cloud-integration-aws-py38_2
+    parent: ansible-test-cloud-integration-aws-py38
     vars:
       ansible_test_integration_targets: "{{ child.targets_to_test[2]|join(' ') }}"
 
 - job:
-    name: ansible-test-cloud-integration-aws-py36_3
-    parent: ansible-test-cloud-integration-aws-py36
+    name: ansible-test-cloud-integration-aws-py38_3
+    parent: ansible-test-cloud-integration-aws-py38
     vars:
       ansible_test_integration_targets: "{{ child.targets_to_test[3]|join(' ') }}"
 
 - job:
-    name: ansible-test-cloud-integration-aws-py36_4
-    parent: ansible-test-cloud-integration-aws-py36
+    name: ansible-test-cloud-integration-aws-py38_4
+    parent: ansible-test-cloud-integration-aws-py38
     vars:
       ansible_test_integration_targets: "{{ child.targets_to_test[4]|join(' ') }}"
 
 - job:
-    name: ansible-test-cloud-integration-aws-py36_5
-    parent: ansible-test-cloud-integration-aws-py36
+    name: ansible-test-cloud-integration-aws-py38_5
+    parent: ansible-test-cloud-integration-aws-py38
     vars:
       ansible_test_integration_targets: "{{ child.targets_to_test[5]|join(' ') }}"
 
@@ -372,7 +371,7 @@
 
 #### sanity
 - job:
-    name: ansible-test-sanity-aws-ansible-python36
+    name: ansible-test-sanity-aws-ansible-python38
     parent: ansible-test-sanity-docker
     vars:
       ansible_test_sanity_skiptests:
@@ -380,7 +379,7 @@
         - 'metaclass-boilerplate'
 
 - job:
-    name: ansible-test-sanity-aws-ansible-2.9-python36
+    name: ansible-test-sanity-aws-ansible-2.9-python38
     parent: ansible-test-sanity-docker-stable-2.9
     vars:
       ansible_test_sanity_skiptests:
@@ -388,7 +387,7 @@
         - 'metaclass-boilerplate'
 
 - job:
-    name: ansible-test-sanity-aws-ansible-2.11-python36
+    name: ansible-test-sanity-aws-ansible-2.11-python38
     parent: ansible-test-sanity-docker-stable-2.11
     vars:
       ansible_test_sanity_skiptests:

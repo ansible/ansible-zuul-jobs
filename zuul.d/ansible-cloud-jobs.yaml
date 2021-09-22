@@ -404,8 +404,8 @@
 
 ### Kubernetes Core
 - job:
-    name: ansible-test-units-kubernetes-core-python37
-    parent: ansible-test-units-base-python37
+    name: ansible-test-units-kubernetes-core-python38
+    parent: ansible-test-units-base-python38
     required-projects:
       - name: github.com/ansible-collections/kubernetes.core
     vars:
@@ -426,7 +426,7 @@
     vars:
       ansible_collections_repo: github.com/ansible-collections/kubernetes.core
       ansible_test_collections: true
-      ansible_test_python: 3.6
+      ansible_test_python: 3.8
       ansible_test_venv_path: "~/venv"
 
 - job:

@@ -700,6 +700,16 @@
         nodes:
           - fedora-34
 
+- nodeset:
+    name: controller-python38-f34
+    nodes:
+      - name: fedora-34
+        label: fedora-34-1vcpu
+    groups:
+      - name: controller
+        nodes:
+          - fedora-34
+
 # Ansible Security appliance nodesets
 - nodeset:
     name: QRadarCE-7.3.1-python38

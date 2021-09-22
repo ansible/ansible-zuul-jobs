@@ -69,7 +69,7 @@
       ansible_collections_repo: github.com/ansible-collections/cisco.nxos
 
 - job:
-    name: ansible-test-network-integration-nxos-cli-python36
+    name: ansible-test-network-integration-nxos-cli-python38
     parent: ansible-test-network-integration-nxos
     nodeset: nxos-7.0.3-python38
     vars:
@@ -78,26 +78,26 @@
       ansible_test_split_in: 4
 
 - job:
-    name: ansible-test-network-integration-nxos-cli-python36-scenario01
-    parent: ansible-test-network-integration-nxos-cli-python36
+    name: ansible-test-network-integration-nxos-cli-python38-scenario01
+    parent: ansible-test-network-integration-nxos-cli-python38
     vars:
       ansible_test_do_number: 1
 
 - job:
-    name: ansible-test-network-integration-nxos-cli-python36-scenario02
-    parent: ansible-test-network-integration-nxos-cli-python36
+    name: ansible-test-network-integration-nxos-cli-python38-scenario02
+    parent: ansible-test-network-integration-nxos-cli-python38
     vars:
       ansible_test_do_number: 2
 
 - job:
-    name: ansible-test-network-integration-nxos-cli-python36-scenario03
-    parent: ansible-test-network-integration-nxos-cli-python36
+    name: ansible-test-network-integration-nxos-cli-python38-scenario03
+    parent: ansible-test-network-integration-nxos-cli-python38
     vars:
       ansible_test_do_number: 3
 
 - job:
-    name: ansible-test-network-integration-nxos-cli-python36-scenario04
-    parent: ansible-test-network-integration-nxos-cli-python36
+    name: ansible-test-network-integration-nxos-cli-python38-scenario04
+    parent: ansible-test-network-integration-nxos-cli-python38
     vars:
       ansible_test_do_number: 4
 

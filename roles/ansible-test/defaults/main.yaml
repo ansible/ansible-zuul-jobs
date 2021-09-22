@@ -25,3 +25,5 @@ ansible_test_network_cli_ssh_type: paramiko
 ansible_test_changed: false
 ansible_test_base_branch: main
 ansible_test_verbosity: "-vvvv"
+ansible_test_requirement_files: ['requirements.txt', 'test-requirements.txt']
+ansible_test_constraint_files: []

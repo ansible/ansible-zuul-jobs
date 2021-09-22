@@ -1,6 +1,6 @@
 ---
 # ansible-collections/openvswitch.openvswitch jobs
-
+# =============================================================================
 - job:
     name: ansible-network-openvswitch-appliance
     parent: ansible-network-appliance-base
@@ -47,6 +47,7 @@
     vars:
       ansible_collections_repo: github.com/ansible-collections/openvswitch.openvswitch
 
+# =============================================================================
 - job:
     name: network-ee-integration-tests-openvswitch-openvswitch
     parent: ansible-network-openvswitch-appliance
@@ -56,6 +57,7 @@
     parent: network-ee-integration-tests
     nodeset: openvswitch-2.9.0-python38
 
+# =============================================================================
 - job:
     name: network-ee-integration-tests-openvswitch-openvswitch-stable-2.11
     parent: ansible-network-openvswitch-appliance
@@ -64,9 +66,8 @@
     name: network-ee-integration-tests-openvswitch-openvswitch-stable-2.11
     parent: network-ee-integration-tests-stable-2.11
     nodeset: openvswitch-2.9.0-python38
-    vars:
-      test_ansible_python_interpreter: /usr/bin/python3.6
 
+# =============================================================================
 - job:
     name: network-ee-integration-tests-openvswitch-openvswitch-stable-2.9
     parent: ansible-network-openvswitch-appliance
@@ -76,4 +77,4 @@
     parent: network-ee-integration-tests-stable-2.9
     nodeset: openvswitch-2.9.0-python38
     vars:
-      test_ansible_python_interpreter: /usr/bin/python3.6
+      test_ansible_python_interpreter: /usr/bin/python3

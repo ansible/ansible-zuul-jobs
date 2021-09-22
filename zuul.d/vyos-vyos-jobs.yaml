@@ -58,6 +58,9 @@
     name: network-ee-integration-tests-vyos
     parent: network-ee-integration-tests
     nodeset: vyos-1.1.8-python38
+    vars:
+      # NOTE(pabelanger): We can only use RSA ssh keys for vyos.
+      test_fips_mode: false
 
 - job:
     name: network-ee-integration-tests-vyos-libssh
@@ -77,6 +80,8 @@
     nodeset: vyos-1.1.8-python38
     vars:
       test_ansible_python_interpreter: /usr/bin/python3
+      # NOTE(pabelanger): We can only use RSA ssh keys for vyos.
+      test_fips_mode: false
 
 - job:
     name: network-ee-integration-tests-vyos-libssh-stable-2.11
@@ -96,6 +101,8 @@
     nodeset: vyos-1.1.8-python38
     vars:
       test_ansible_python_interpreter: /usr/bin/python3
+      # NOTE(pabelanger): We can only use RSA ssh keys for vyos.
+      test_fips_mode: false
 
 - job:
     name: network-ee-integration-tests-vyos-libssh-stable-2.9

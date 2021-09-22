@@ -2,7 +2,7 @@
 - job:
     name: ansible-test-sanity-docker
     parent: unittests
-    nodeset: controller-python36
+    nodeset: controller-python38
     dependencies:
       - name: build-ansible-collection
         soft: true
@@ -11,13 +11,15 @@
     required-projects:
       - name: github.com/ansible/ansible
     timeout: 3600
+    irrelevant-files:
+      - .pre-commit-config.yaml
     vars:
       ansible_test_collections: true
       ansible_collections_repo: "{{ zuul.project.canonical_name }}"
       ansible_test_command: sanity
       ansible_test_docker: true
       ansible_test_enable_ara: false
-      ansible_test_python: 3.6
+      ansible_test_python: 3.8
       container_command: podman
 
 - job:

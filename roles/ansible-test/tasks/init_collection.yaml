@@ -4,8 +4,13 @@
     _test_location: "{{ ansible_test_collection_dir }}/{{ ansible_test_collection_namespace }}/{{ ansible_test_collection_name }}"
     _test_cfg_location: "{{ ansible_test_collection_dir }}/{{ ansible_test_collection_namespace }}/{{ ansible_test_collection_name }}/tests/integration/{{ ansible_test_test_command }}.cfg"
 
+- name: Setup minimum test requirements
+  set_fact:
+    _test_requirements: '{% for requirement in ansible_test_requirement_files %} -r {{ _test_location }}/{{ requirement }}{% endfor %}'
+    _test_constraints: '{% for constraint in ansible_test_constraint_files %} -c {{ _test_location }}/{{ constraint }}{% endfor %}'
+
 - name: Install python requirements
-  shell: "{{ ansible_test_venv_path }}/bin/pip install -r {{ _test_location }}/requirements.txt -r {{ _test_location }}/test-requirements.txt"
+  shell: "{{ ansible_test_venv_path }}/bin/pip install {{ _test_requirements }} {{ _test_constraints }}"
 
 - name: Copy potential cloud provider configuration for ansible-test in the collection
   shell: "cp -v {{ ansible_test_ansible_path }}/test/integration/cloud-config-*.ini {{ _test_location }}/tests/integration/"

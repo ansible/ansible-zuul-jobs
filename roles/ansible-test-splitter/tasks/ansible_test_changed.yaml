@@ -1,11 +1,11 @@
 ---
 - copy:
-    src: test_changed.py
-    dest: /tmp/test_changed.py
+    src: list_changed_targets.py
+    dest: /tmp/list_changed_targets.py
     mode: '0700'
 
 - name: Identify the changed targets
-  command: python3 /tmp/test_changed.py "{{ zuul.branch }}"
+  command: python3 /tmp/list_changed_targets.py "{{ zuul.branch }}"
   args:
     chdir: "{{ ansible_test_location }}"
   register: _result

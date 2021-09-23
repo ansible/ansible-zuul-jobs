@@ -218,12 +218,6 @@
     timeout: 3600
     semaphore: ansible-test-cloud-integration-vmware-rest
 
-- job:
-    name: ansible-test-cloud-integration-vmware-rest-python36
-    parent: ansible-test-cloud-integration-vmware-rest
-    vars:
-      ansible_test_python: 3.6
-
 
 ##### units
 - job:

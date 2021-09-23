@@ -542,7 +542,7 @@
     name: ansible-collections-community-vmware-rest
     check:
       jobs: &ansible-collections-community-vmware-rest-jobs
-        - ansible-test-cloud-integration-vmware-rest-python36
+        - ansible-test-cloud-integration-vmware-rest-python38
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-collections/cloud.common
@@ -566,14 +566,14 @@
     name: ansible-collections-community-vmware-rest-code-generator
     check:
       jobs:
-        - ansible-test-cloud-integration-vmware-rest-python36
+        - ansible-test-cloud-integration-vmware-rest-python38
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-collections/cloud.common
               - name: github.com/ansible-collections/community.vmware
     gate:
       jobs:
-        - ansible-test-cloud-integration-vmware-rest-python36
+        - ansible-test-cloud-integration-vmware-rest-python38
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-collections/cloud.common

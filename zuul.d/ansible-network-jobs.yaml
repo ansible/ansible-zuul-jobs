@@ -19,5 +19,3 @@
     parent: network-ee-integration-tests-ansible-network
     vars:
       test_ansible_network_cli_ssh_type: libssh
-      # NOTE(pabelanger): We can only use RSA ssh keys for vyos.
-      test_fips_mode: false

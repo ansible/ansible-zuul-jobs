@@ -219,10 +219,10 @@
     semaphore: ansible-test-cloud-integration-vmware-rest
 
 - job:
-    name: ansible-test-cloud-integration-vmware-rest-python36
+    name: ansible-test-cloud-integration-vmware-rest-python38
     parent: ansible-test-cloud-integration-vmware-rest
     vars:
-      ansible_test_python: 3.6
+      ansible_test_python: 3.8
 
 
 ##### units

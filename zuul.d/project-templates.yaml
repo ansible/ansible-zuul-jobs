@@ -348,6 +348,7 @@
               - name: github.com/ansible-collections/ansible.utils
     gate:
       queue: integrated
+      fail-fast: true
       jobs: *ansible-collections-cisco-asa-jobs
 
 - project-template:

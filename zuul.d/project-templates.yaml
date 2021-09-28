@@ -54,9 +54,9 @@
     check:
       queue: integrated-aws
       jobs: &ansible-collections-amazon-aws-jobs
-        - ansible-test-sanity-aws-ansible-python36
-        - ansible-test-sanity-aws-ansible-2.9-python36
-        - ansible-test-sanity-aws-ansible-2.11-python36
+        - ansible-test-sanity-aws-ansible-python38
+        - ansible-test-sanity-aws-ansible-2.9-python38
+        - ansible-test-sanity-aws-ansible-2.11-python38
         - ansible-test-units-amazon-aws-python38
         - build-ansible-collection:
             required-projects:
@@ -67,12 +67,12 @@
         - ansible-test-splitter:
             vars:
               ansible_test_splitter__test_changed: true
-        - ansible-test-cloud-integration-aws-py36_0
-        - ansible-test-cloud-integration-aws-py36_1
-        - ansible-test-cloud-integration-aws-py36_2
-        - ansible-test-cloud-integration-aws-py36_3
-        - ansible-test-cloud-integration-aws-py36_4
-        - ansible-test-cloud-integration-aws-py36_5
+        - ansible-test-cloud-integration-aws-py38_0
+        - ansible-test-cloud-integration-aws-py38_1
+        - ansible-test-cloud-integration-aws-py38_2
+        - ansible-test-cloud-integration-aws-py38_3
+        - ansible-test-cloud-integration-aws-py38_4
+        - ansible-test-cloud-integration-aws-py38_5
     gate:
       queue: integrated-aws
       jobs: *ansible-collections-amazon-aws-jobs
@@ -88,12 +88,12 @@
         - ansible-test-splitter:
             vars:
               ansible_test_splitter__test_changed: false
-        - ansible-test-cloud-integration-aws-py36_0
-        - ansible-test-cloud-integration-aws-py36_1
-        - ansible-test-cloud-integration-aws-py36_2
-        - ansible-test-cloud-integration-aws-py36_3
-        - ansible-test-cloud-integration-aws-py36_4
-        - ansible-test-cloud-integration-aws-py36_5
+        - ansible-test-cloud-integration-aws-py38_0
+        - ansible-test-cloud-integration-aws-py38_1
+        - ansible-test-cloud-integration-aws-py38_2
+        - ansible-test-cloud-integration-aws-py38_3
+        - ansible-test-cloud-integration-aws-py38_4
+        - ansible-test-cloud-integration-aws-py38_5
 
 - project-template:
     name: ansible-collections-community-aws
@@ -114,12 +114,12 @@
         - ansible-test-splitter:
             vars:
               ansible_test_splitter__test_changed: true
-        - ansible-test-cloud-integration-aws-py36_0
-        - ansible-test-cloud-integration-aws-py36_1
-        - ansible-test-cloud-integration-aws-py36_2
-        - ansible-test-cloud-integration-aws-py36_3
-        - ansible-test-cloud-integration-aws-py36_4
-        - ansible-test-cloud-integration-aws-py36_5
+        - ansible-test-cloud-integration-aws-py38_0
+        - ansible-test-cloud-integration-aws-py38_1
+        - ansible-test-cloud-integration-aws-py38_2
+        - ansible-test-cloud-integration-aws-py38_3
+        - ansible-test-cloud-integration-aws-py38_4
+        - ansible-test-cloud-integration-aws-py38_5
         - ansible-galaxy-importer:
             voting: false
     gate:
@@ -137,12 +137,12 @@
         - ansible-test-splitter:
             vars:
               ansible_test_splitter__test_changed: false
-        - ansible-test-cloud-integration-aws-py36_0
-        - ansible-test-cloud-integration-aws-py36_1
-        - ansible-test-cloud-integration-aws-py36_2
-        - ansible-test-cloud-integration-aws-py36_3
-        - ansible-test-cloud-integration-aws-py36_4
-        - ansible-test-cloud-integration-aws-py36_5
+        - ansible-test-cloud-integration-aws-py38_0
+        - ansible-test-cloud-integration-aws-py38_1
+        - ansible-test-cloud-integration-aws-py38_2
+        - ansible-test-cloud-integration-aws-py38_3
+        - ansible-test-cloud-integration-aws-py38_4
+        - ansible-test-cloud-integration-aws-py38_5
         - ansible-galaxy-importer:
             voting: false
 
@@ -172,14 +172,14 @@
         - ansible-test-network-integration-eos-network_cli-python27-stable211-scenario01
         - ansible-test-network-integration-eos-network_cli-python27-stable211-scenario02
         - ansible-test-network-integration-eos-network_cli-python27-stable29
-        - ansible-test-network-integration-eos-httpapi-python36
+        - ansible-test-network-integration-eos-httpapi-python38
         - ansible-test-network-integration-eos-httpapi-python36-stable211
         - ansible-test-network-integration-eos-httpapi-python36-stable29
-        - ansible-test-network-integration-eos-network_cli-python36
+        - ansible-test-network-integration-eos-network_cli-python38
         - ansible-test-network-integration-eos-network_cli-python36-stable211-scenario01
         - ansible-test-network-integration-eos-network_cli-python36-stable211-scenario02
         - ansible-test-network-integration-eos-network_cli-python36-stable29
-        - ansible-test-network-integration-eos-network_cli-libssh-python36
+        - ansible-test-network-integration-eos-network_cli-libssh-python38
         - ansible-test-network-integration-eos-network_cli-libssh-python36-stable211-scenario01
         - ansible-test-network-integration-eos-network_cli-libssh-python36-stable211-scenario02
         - ansible-test-network-integration-eos-network_cli-libssh-python36-stable29
@@ -278,19 +278,19 @@
     name: ansible-collections-cisco-nxos
     check:
       jobs:
-        - ansible-test-network-integration-nxos-cli-python36-scenario01:
+        - ansible-test-network-integration-nxos-cli-python38-scenario01:
             vars:
               ansible_test_collections: true
             voting: false
-        - ansible-test-network-integration-nxos-cli-python36-scenario02:
+        - ansible-test-network-integration-nxos-cli-python38-scenario02:
             vars:
               ansible_test_collections: true
             voting: false
-        - ansible-test-network-integration-nxos-cli-python36-scenario03:
+        - ansible-test-network-integration-nxos-cli-python38-scenario03:
             vars:
               ansible_test_collections: true
             voting: false
-        - ansible-test-network-integration-nxos-cli-python36-scenario04:
+        - ansible-test-network-integration-nxos-cli-python38-scenario04:
             vars:
               ansible_test_collections: true
             voting: false
@@ -411,7 +411,7 @@
     name: ansible-collections-cisco-iosxr-netconf
     check:
       jobs:
-        - ansible-test-network-integration-ansible-netcommon-iosxr-netconf-python36:
+        - ansible-test-network-integration-ansible-netcommon-iosxr-netconf-python38:
             vars:
               ansible_test_collections: true
             voting: false
@@ -474,7 +474,7 @@
         - ansible-test-sanity-docker-stable-2.10
         - ansible-test-sanity-docker-stable-2.11
         - ansible-test-units-cloud-common-python38
-        - ansible-test-cloud-integration-vmware-rest-python36:
+        - ansible-test-cloud-integration-vmware-rest-python38:
             required-projects:
               - name: github.com/ansible-collections/vmware.vmware_rest
         - build-ansible-collection:
@@ -542,7 +542,7 @@
     name: ansible-collections-community-vmware-rest
     check:
       jobs: &ansible-collections-community-vmware-rest-jobs
-        - ansible-test-cloud-integration-vmware-rest-python36
+        - ansible-test-cloud-integration-vmware-rest-python38
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-collections/cloud.common
@@ -566,14 +566,14 @@
     name: ansible-collections-community-vmware-rest-code-generator
     check:
       jobs:
-        - ansible-test-cloud-integration-vmware-rest-python36
+        - ansible-test-cloud-integration-vmware-rest-python38
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-collections/cloud.common
               - name: github.com/ansible-collections/community.vmware
     gate:
       jobs:
-        - ansible-test-cloud-integration-vmware-rest-python36
+        - ansible-test-cloud-integration-vmware-rest-python38
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-collections/cloud.common
@@ -641,7 +641,7 @@
             vars:
               ansible_test_collections: true
               ansible_test_integration_targets: "junos_.*"
-        - ansible-test-network-integration-junos-vsrx-netconf-python36:
+        - ansible-test-network-integration-junos-vsrx-netconf-python38:
             vars:
               ansible_test_collections: true
               ansible_test_integration_targets: "junos_.*"
@@ -653,7 +653,7 @@
             vars:
               ansible_test_collections: true
               ansible_test_integration_targets: "junos_.*"
-        - ansible-test-network-integration-junos-vsrx-network_cli-python36:
+        - ansible-test-network-integration-junos-vsrx-network_cli-python38:
             vars:
               ansible_test_collections: true
               ansible_test_integration_targets: "junos_.*"
@@ -665,7 +665,7 @@
             vars:
               ansible_test_collections: true
               ansible_test_integration_targets: "junos_.*"
-        - ansible-test-network-integration-junos-vsrx-network_cli-libssh-python36:
+        - ansible-test-network-integration-junos-vsrx-network_cli-libssh-python38:
             vars:
               ansible_test_collections: true
               ansible_test_integration_targets: "junos_.*"
@@ -689,7 +689,7 @@
     name: ansible-collections-juniper-junos-netconf
     check:
       jobs: &ansible-collections-juniper-junos-netconf-jobs
-        - ansible-test-network-integration-ansible-netcommon-junos-vsrx-netconf-python36:
+        - ansible-test-network-integration-ansible-netcommon-junos-vsrx-netconf-python38:
             vars:
               ansible_test_collections: true
         - build-ansible-collection:
@@ -711,7 +711,7 @@
         - ansible-test-sanity-docker-stable-2.9
         - ansible-test-sanity-docker-stable-2.10
         - ansible-test-sanity-docker-stable-2.11
-        - ansible-test-units-kubernetes-core-python37
+        - ansible-test-units-kubernetes-core-python38
         - ansible-test-molecule-kubernetes-core
         - ansible-test-molecule-kubernetes-core-2.9
         - ansible-test-molecule-kubernetes-core-2.10
@@ -1336,6 +1336,15 @@
         - network-ee-unit-tests-stable-2.11
     gate:
       jobs: *network-ee-test-jobs
+
+- project-template:
+    name: ansible-collections-ansible-network
+    check:
+      jobs: &ansible-collections-ansible-network-jobs
+        - network-ee-integration-tests-ansible-network
+    gate:
+      queue: integrated
+      jobs: *ansible-collections-ansible-network-jobs
 
 - project-template:
     name: noop-jobs

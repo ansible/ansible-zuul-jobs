@@ -461,6 +461,21 @@
           - ubuntu-bionic
 
 - nodeset:
+    name: nxos-7.0.3-python38
+    nodes:
+      - name: ubuntu-bionic
+        label: ubuntu-bionic-1vcpu
+      - name: nxos-7.0.3
+        label: nxos-7.0.3
+    groups:
+      - name: appliance
+        nodes:
+          - nxos-7.0.3
+      - name: controller
+        nodes:
+          - ubuntu-bionic
+
+- nodeset:
     name: openvswitch-2.9.0-python38
     nodes:
       - name: centos-8-stream
@@ -692,6 +707,16 @@
 
 - nodeset:
     name: controller-python36-f34
+    nodes:
+      - name: fedora-34
+        label: fedora-34-1vcpu
+    groups:
+      - name: controller
+        nodes:
+          - fedora-34
+
+- nodeset:
+    name: controller-python38-f34
     nodes:
       - name: fedora-34
         label: fedora-34-1vcpu

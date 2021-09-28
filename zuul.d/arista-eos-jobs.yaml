@@ -174,22 +174,22 @@
       ansible_test_python: 3.6
 
 - job:
-    name: ansible-test-network-integration-eos-httpapi-python36
+    name: ansible-test-network-integration-eos-httpapi-python38
     parent: ansible-test-network-integration-eos-httpapi
-    nodeset: eos-4.24.6-python36
+    nodeset: eos-4.24.6-python38
     vars:
-      ansible_test_python: 3.6
+      ansible_test_python: 3.8
 
 - job:
-    name: ansible-test-network-integration-eos-network_cli-python36
+    name: ansible-test-network-integration-eos-network_cli-python38
     parent: ansible-test-network-integration-eos-network_cli
-    nodeset: eos-4.24.6-python36
+    nodeset: eos-4.24.6-python38
     vars:
-      ansible_test_python: 3.6
+      ansible_test_python: 3.8
 
 - job:
-    name: ansible-test-network-integration-eos-network_cli-libssh-python36
-    parent: ansible-test-network-integration-eos-network_cli-python36
+    name: ansible-test-network-integration-eos-network_cli-libssh-python38
+    parent: ansible-test-network-integration-eos-network_cli-python38
     vars:
       ansible_test_network_cli_ssh_type: libssh
 

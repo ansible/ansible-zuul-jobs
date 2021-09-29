@@ -363,9 +363,11 @@
         - network-ee-integration-tests-ios
         - network-ee-integration-tests-ios-stable-2.9
         - network-ee-integration-tests-ios-stable-2.11
+        - network-ee-integration-tests-ios-stable-2.12
         - network-ee-integration-tests-ios-libssh
         - network-ee-integration-tests-ios-libssh-stable-2.9
         - network-ee-integration-tests-ios-libssh-stable-2.11
+        - network-ee-integration-tests-ios-libssh-stable-2.12
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-collections/ansible.netcommon

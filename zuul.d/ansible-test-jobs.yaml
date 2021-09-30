@@ -48,3 +48,12 @@
         override-checkout: stable-2.11
     vars:
       container_command: docker
+
+- job:
+    name: ansible-test-sanity-docker-stable-2.12
+    parent: ansible-test-sanity-docker
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.12
+    vars:
+      container_command: docker

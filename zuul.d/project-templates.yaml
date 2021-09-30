@@ -155,6 +155,7 @@
         - ansible-test-sanity-docker-stable-2.9
         - ansible-test-sanity-docker-stable-2.10
         - ansible-test-sanity-docker-stable-2.11
+        - ansible-test-sanity-docker-stable-2.12
         - ansible-test-units-eos-python27
         - ansible-test-units-eos-python35
         - ansible-test-units-eos-python36
@@ -173,13 +174,18 @@
         - ansible-test-network-integration-eos-network_cli-python27-stable211-scenario02
         - ansible-test-network-integration-eos-network_cli-python27-stable29
         - ansible-test-network-integration-eos-httpapi-python38
+        - ansible-test-network-integration-eos-httpapi-python38-stable212
         - ansible-test-network-integration-eos-httpapi-python36-stable211
         - ansible-test-network-integration-eos-httpapi-python36-stable29
         - ansible-test-network-integration-eos-network_cli-python38
+        - ansible-test-network-integration-eos-network_cli-python38-stable212-scenario01
+        - ansible-test-network-integration-eos-network_cli-python38-stable212-scenario02
         - ansible-test-network-integration-eos-network_cli-python36-stable211-scenario01
         - ansible-test-network-integration-eos-network_cli-python36-stable211-scenario02
         - ansible-test-network-integration-eos-network_cli-python36-stable29
         - ansible-test-network-integration-eos-network_cli-libssh-python38
+        - ansible-test-network-integration-eos-network_cli-libssh-python38-stable212-scenario01
+        - ansible-test-network-integration-eos-network_cli-libssh-python38-stable212-scenario02
         - ansible-test-network-integration-eos-network_cli-libssh-python36-stable211-scenario01
         - ansible-test-network-integration-eos-network_cli-libssh-python36-stable211-scenario02
         - ansible-test-network-integration-eos-network_cli-libssh-python36-stable29
@@ -1330,10 +1336,12 @@
         - network-ee-sanity-tests-stable-2.9
         - network-ee-sanity-tests-stable-2.10
         - network-ee-sanity-tests-stable-2.11
+        - network-ee-sanity-tests-stable-2.12
         - network-ee-unit-tests
         - network-ee-unit-tests-stable-2.9
         - network-ee-unit-tests-stable-2.10
         - network-ee-unit-tests-stable-2.11
+        - network-ee-unit-tests-stable-2.12
     gate:
       jobs: *network-ee-test-jobs
 

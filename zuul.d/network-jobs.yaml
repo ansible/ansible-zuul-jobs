@@ -30,6 +30,27 @@
       container_image_test: unit
 
 - job:
+    name: network-ee-tests-stable-2.12
+    parent: network-ee-tests-base
+    abstract: true
+    dependencies:
+      - network-ee-build-container-image-stable-2.12
+    vars:
+      container_image_version: stable-2.12
+
+- job:
+    name: network-ee-sanity-tests-stable-2.12
+    parent: network-ee-tests-stable-2.12
+    vars:
+      container_image_test: sanity
+
+- job:
+    name: network-ee-unit-tests-stable-2.12
+    parent: network-ee-tests-stable-2.12
+    vars:
+      container_image_test: unit
+
+- job:
     name: network-ee-tests-stable-2.11
     parent: network-ee-tests-base
     abstract: true

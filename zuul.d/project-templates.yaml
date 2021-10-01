@@ -767,6 +767,7 @@
         - ansible-test-sanity-docker-stable-2.9
         - ansible-test-sanity-docker-stable-2.10
         - ansible-test-sanity-docker-stable-2.11
+        - ansible-test-sanity-docker-stable-2.12
         - ansible-test-units-vyos-python27
         - ansible-test-units-vyos-python35
         - ansible-test-units-vyos-python36
@@ -782,9 +783,11 @@
         - network-ee-integration-tests-vyos
         - network-ee-integration-tests-vyos-stable-2.9
         - network-ee-integration-tests-vyos-stable-2.11
+        - network-ee-integration-tests-vyos-stable-2.12
         - network-ee-integration-tests-vyos-libssh
         - network-ee-integration-tests-vyos-libssh-stable-2.9
         - network-ee-integration-tests-vyos-libssh-stable-2.11
+        - network-ee-integration-tests-vyos-libssh-stable-2.12
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-collections/ansible.netcommon

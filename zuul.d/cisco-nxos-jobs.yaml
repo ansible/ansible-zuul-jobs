@@ -104,12 +104,12 @@
 - job:
     name: ansible-test-network-integration-nxos-cli-python36-stable212
     parent: ansible-test-network-integration-nxos
-    nodeset: nxos-7.0.3-python36
+    nodeset: nxos-7.0.3-python38
     required-projects:
       - name: github.com/ansible/ansible
         override-checkout: stable-2.12
     vars:
-      ansible_test_python: 3.6
+      ansible_test_python: 3.8
       ansible_test_skip_tags: local,nxapi
       ansible_test_split_in: 4
 

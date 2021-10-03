@@ -619,6 +619,7 @@
         - ansible-test-sanity-docker-stable-2.9
         - ansible-test-sanity-docker-stable-2.10
         - ansible-test-sanity-docker-stable-2.11
+        - ansible-test-sanity-docker-stable-2.12
         - ansible-test-units-junos-python27
         - ansible-test-units-junos-python35
         - ansible-test-units-junos-python36
@@ -655,11 +656,23 @@
             vars:
               ansible_test_collections: true
               ansible_test_integration_targets: "junos_.*"
+        - ansible-test-network-integration-junos-vsrx-netconf-python38-stable212:
+            vars:
+              ansible_test_collections: true
+              ansible_test_integration_targets: "junos_.*"
         - ansible-test-network-integration-junos-vsrx-netconf-python36-stable29:
             vars:
               ansible_test_collections: true
               ansible_test_integration_targets: "junos_.*"
         - ansible-test-network-integration-junos-vsrx-network_cli-python38:
+            vars:
+              ansible_test_collections: true
+              ansible_test_integration_targets: "junos_.*"
+        - ansible-test-network-integration-junos-vsrx-network_cli-python38-stable212-scenario01:
+            vars:
+              ansible_test_collections: true
+              ansible_test_integration_targets: "junos_.*"
+        - ansible-test-network-integration-junos-vsrx-network_cli-python38-stable212-scenario02:
             vars:
               ansible_test_collections: true
               ansible_test_integration_targets: "junos_.*"
@@ -672,6 +685,14 @@
               ansible_test_collections: true
               ansible_test_integration_targets: "junos_.*"
         - ansible-test-network-integration-junos-vsrx-network_cli-libssh-python38:
+            vars:
+              ansible_test_collections: true
+              ansible_test_integration_targets: "junos_.*"
+        - ansible-test-network-integration-junos-vsrx-network_cli-libssh-python38-stable212-scenario01:
+            vars:
+              ansible_test_collections: true
+              ansible_test_integration_targets: "junos_.*"
+        - ansible-test-network-integration-junos-vsrx-network_cli-libssh-python38-stable212-scenario02:
             vars:
               ansible_test_collections: true
               ansible_test_integration_targets: "junos_.*"

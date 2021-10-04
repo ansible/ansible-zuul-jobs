@@ -65,8 +65,6 @@
       ansible_test_python: 3.8
 
 - job:
-<<<<<<< HEAD
-<<<<<<< HEAD
     name: ansible-test-network-integration-asa-python38
     parent: ansible-test-network-integration-asa
     nodeset: asav9-12-3-python38
@@ -122,9 +120,13 @@
       test_ansible_python_interpreter: /usr/bin/python3
       test_fips_mode: false
 <<<<<<< HEAD
+<<<<<<< HEAD
       ansible_test_python: 3.8
 =======
 >>>>>>> 9d5d053 (fix asa 1.12 jobs)
+=======
+      ansible_test_python: 3.8
+>>>>>>> 4e5af9c (fix ansible_test_python)
 
 - job:
     name: network-ee-integration-tests-cisco-asa-libssh-stable-2.12
@@ -147,9 +149,13 @@
       test_ansible_python_interpreter: /usr/bin/python3
       test_fips_mode: false
 <<<<<<< HEAD
+<<<<<<< HEAD
       ansible_test_python: 3.8
 =======
 >>>>>>> 9d5d053 (fix asa 1.12 jobs)
+=======
+      ansible_test_python: 3.8
+>>>>>>> 4e5af9c (fix ansible_test_python)
 
 - job:
     name: network-ee-integration-tests-cisco-asa-libssh-stable-2.11

@@ -66,6 +66,7 @@
 
 - job:
 <<<<<<< HEAD
+<<<<<<< HEAD
     name: ansible-test-network-integration-asa-python38
     parent: ansible-test-network-integration-asa
     nodeset: asav9-12-3-python38
@@ -103,10 +104,6 @@
 - job:
     name: ansible-test-network-integration-asa-libssh-python38-stable212
     parent: ansible-test-network-integration-asa-python38-stable212
-=======
-    name: network-ee-integration-tests-libssh
-    parent: network-ee-integration-tests-cisco-asa
->>>>>>> 3649565 (fix asa 1.12 jobs)
     vars:
       test_ansible_network_cli_ssh_type: libssh
       test_ansible_skip_tags: local

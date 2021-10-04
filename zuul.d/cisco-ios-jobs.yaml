@@ -69,6 +69,27 @@
 
 # =============================================================================
 - job:
+    name: network-ee-integration-tests-ios-stable-2.12
+    parent: ansible-network-ios-appliance
+
+- job:
+    name: network-ee-integration-tests-ios-stable-2.12
+    parent: network-ee-integration-tests-stable-2.12
+    nodeset: ios-15.6-2T-python38
+    vars:
+      test_ansible_python_interpreter: /usr/bin/python3
+      # NOTE(pabelanger): Migrate to ecdsa SSH key then enable
+      test_fips_mode: false
+
+- job:
+    name: network-ee-integration-tests-ios-libssh-stable-2.12
+    parent: network-ee-integration-tests-ios-stable-2.12
+    vars:
+      test_ansible_network_cli_ssh_type: libssh
+      test_ansible_skip_tags: local
+
+# =============================================================================
+- job:
     name: network-ee-integration-tests-ios-stable-2.11
     parent: ansible-network-ios-appliance
 

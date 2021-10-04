@@ -3,7 +3,9 @@
 - job:
     name: ansible-security-splunk-appliance
     parent: ansible-network-appliance-base
-    pre-run: playbooks/ansible-security-splunk-appliance/pre.yaml
+    pre-run:
+      - playbooks/ansible-security-splunk-appliance/pre.yaml
+      - playbooks/network-ee-integration-tests/pre.yaml
     run: playbooks/ansible-security-splunk-appliance/run.yaml
     host-vars:
       SplunkEnterprise-SES-8.0.0:
@@ -21,7 +23,7 @@
     parent: ansible-security-splunk-appliance
     pre-run:
       - playbooks/ansible-test-base/pre.yaml
-      - playbooks/ansible-test-network-integration-base/pre.yaml
+      - playbooks/network-ee-integration-tests/pre.yaml
     run: playbooks/ansible-test-base/run.yaml
     post-run:
       - playbooks/ansible-test-network-integration-base/post.yaml
@@ -36,13 +38,23 @@
       ansible_test_collections: true
 
 - job:
-    name: ansible-security-integration-splunk-es-python27
+    name: network-ee-integration-splunk-es-python27
     parent: ansible-security-integration-splunk
     vars:
       ansible_test_python: 2.7
 
 - job:
+<<<<<<< HEAD
     name: ansible-security-integration-splunk-es-python38
+=======
+    name: network-ee-integration-splunk-es-python36
+    parent: ansible-security-integration-splunk
+    vars:
+      ansible_test_python: 3.6
+
+- job:
+    name: network-ee-integration-splunk-es-python38
+>>>>>>> 8d3b9ef (to support network-ee)
     parent: ansible-security-integration-splunk
     vars:
       ansible_test_python: 3.8
@@ -51,7 +63,9 @@
 - job:
     name: ansible-security-qradar-appliance
     parent: ansible-network-appliance-base
-    pre-run: playbooks/ansible-security-qradar-appliance/pre.yaml
+    pre-run:
+      - playbooks/ansible-security-qradar-appliance/pre.yaml
+      - playbooks/network-ee-integration-tests/pre.yaml
     run: playbooks/ansible-security-qradar-appliance/run.yaml
     host-vars:
       QRadarCE-7.3.1:
@@ -69,7 +83,7 @@
     parent: ansible-security-qradar-appliance
     pre-run:
       - playbooks/ansible-test-base/pre.yaml
-      - playbooks/ansible-test-network-integration-base/pre.yaml
+      - playbooks/network-ee-integration-tests/pre.yaml
     run: playbooks/ansible-test-base/run.yaml
     post-run:
       - playbooks/ansible-test-network-integration-base/post.yaml
@@ -84,13 +98,23 @@
       ansible_test_collections: true
 
 - job:
-    name: ansible-test-security-integration-qradar-python27
+    name: network-ee-integration-integration-qradar-python27
     parent: ansible-test-security-integration-qradar
     vars:
       ansible_test_python: 2.7
 
 - job:
+<<<<<<< HEAD
     name: ansible-test-security-integration-qradar-python38
+=======
+    name: network-ee-integration-integration-qradar-python36
+    parent: ansible-test-security-integration-qradar
+    vars:
+      ansible_test_python: 3.6
+
+- job:
+    name: network-ee-integration-integration-qradar-python38
+>>>>>>> 8d3b9ef (to support network-ee)
     parent: ansible-test-security-integration-qradar
     vars:
       ansible_test_python: 3.8
@@ -99,7 +123,9 @@
 - job:
     name: ansible-security-trendmicro-deepsec-appliance
     parent: ansible-network-appliance-base
-    pre-run: playbooks/ansible-security-trendmicro-deepsec-appliance/pre.yaml
+    pre-run:
+      - playbooks/ansible-security-trendmicro-deepsec-appliance/pre.yaml
+      - playbooks/network-ee-integration-tests/pre.yaml
     run: playbooks/ansible-security-trendmicro-deepsec-appliance/run.yaml
     host-vars:
       Trendmicro-DeepSecurity-20.0.344:
@@ -117,7 +143,7 @@
     parent: ansible-security-trendmicro-deepsec-appliance
     pre-run:
       - playbooks/ansible-test-base/pre.yaml
-      - playbooks/ansible-test-network-integration-base/pre.yaml
+      - playbooks/network-ee-integration-tests/pre.yaml
     run: playbooks/ansible-test-base/run.yaml
     post-run:
       - playbooks/ansible-test-network-integration-base/post.yaml
@@ -132,7 +158,7 @@
       ansible_test_collections: true
 
 - job:
-    name: ansible-security-integration-trendmicro-deepsec-python27
+    name: network-ee-integration-trendmicro-deepsec-python27
     parent: ansible-security-integration-trendmicro-deepsec
     nodeset: Trendmicro-DeepSecurity-20.0.344-python27
     required-projects:
@@ -142,7 +168,7 @@
       ansible_test_python: 2.7
 
 - job:
-    name: ansible-security-integration-trendmicro-deepsec-python36
+    name: network-ee-integration-trendmicro-deepsec-python36
     parent: ansible-security-integration-trendmicro-deepsec
     nodeset: Trendmicro-DeepSecurity-20.0.344-python36
     required-projects:
@@ -152,7 +178,7 @@
       ansible_test_python: 3.6
 
 - job:
-    name: ansible-security-integration-trendmicro-deepsec-python38
+    name: network-ee-integration-trendmicro-deepsec-python38
     parent: ansible-security-integration-trendmicro-deepsec
     nodeset: Trendmicro-DeepSecurity-20.0.344-python38
     vars:
@@ -161,66 +187,88 @@
 # stable29
 
 - job:
-    name: ansible-security-integration-splunk-es-python38-stable29
-    parent: ansible-security-integration-splunk-es-python38
+    name: network-ee-integration-splunk-es-python38-stable29
+    parent: network-ee-integration-splunk-es-python38
     required-projects:
       - name: github.com/ansible/ansible
         override-checkout: stable-2.9
 
 - job:
-    name: ansible-test-security-integration-qradar-python38-stable29
-    parent: ansible-test-security-integration-qradar-python38
+    name: network-ee-integration-qradar-python38-stable29
+    parent: network-ee-integration-qradar-python38
     required-projects:
       - name: github.com/ansible/ansible
         override-checkout: stable-2.9
 
 - job:
-    name: ansible-security-integration-trendmicro-deepsec-python38-stable29
-    parent: ansible-security-integration-trendmicro-deepsec-python38
+    name: network-ee-integration-trendmicro-deepsec-python38-stable29
+    parent: network-ee-integration-trendmicro-deepsec-python38
     required-projects:
       - name: github.com/ansible/ansible
         override-checkout: stable-2.9
 
 # stable211
 - job:
-    name: ansible-security-integration-splunk-es-python38-stable211
-    parent: ansible-security-integration-splunk-es-python38
+    name: network-ee-integration-splunk-es-python38-stable210
+    parent: network-ee-integration-splunk-es-python38
     required-projects:
       - name: github.com/ansible/ansible
         override-checkout: stable-2.11
 
 - job:
-    name: ansible-test-security-integration-qradar-python38-stable211
-    parent: ansible-test-security-integration-qradar-python38
+    name: network-ee-integration-qradar-python38-stable210
+    parent: network-ee-integration-qradar-python38
     required-projects:
       - name: github.com/ansible/ansible
         override-checkout: stable-2.11
 
 - job:
-    name: ansible-security-integration-trendmicro-deepsec-python38-stable211
-    parent: ansible-security-integration-trendmicro-deepsec-python38
+    name: network-ee-integration-trendmicro-deepsec-python38-stable210
+    parent: network-ee-integration-trendmicro-deepsec-python38
     required-projects:
       - name: github.com/ansible/ansible
         override-checkout: stable-2.11
 
 # stable212
 - job:
-    name: ansible-security-integration-splunk-es-python38-stable212
-    parent: ansible-security-integration-splunk-es-python38
+    name: network-ee-integration-splunk-es-python38-stable211
+    parent: network-ee-integration-splunk-es-python38
     required-projects:
       - name: github.com/ansible/ansible
         override-checkout: stable-2.12
 
 - job:
-    name: ansible-test-security-integration-qradar-python38-stable212
-    parent: ansible-test-security-integration-qradar-python38
+    name: network-ee-integration-qradar-python38-stable211
+    parent: network-ee-integration-qradar-python38
     required-projects:
       - name: github.com/ansible/ansible
         override-checkout: stable-2.12
 
 - job:
-    name: ansible-security-integration-trendmicro-deepsec-python38-stable212
-    parent: ansible-security-integration-trendmicro-deepsec-python38
+    name: network-ee-integration-trendmicro-deepsec-python38-stable211
+    parent: network-ee-integration-trendmicro-deepsec-python38
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.11
+
+# stable212
+- job:
+    name: network-ee-integration-splunk-es-python38-stable212
+    parent: network-ee-integration-splunk-es-python38
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.12
+
+- job:
+    name: network-ee-integration-qradar-python38-stable212
+    parent: network-ee-integration-qradar-python38
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.12
+
+- job:
+    name: network-ee-integration-trendmicro-deepsec-python38-stable212
+    parent: network-ee-integration-trendmicro-deepsec-python38
     required-projects:
       - name: github.com/ansible/ansible
         override-checkout: stable-2.12

@@ -761,6 +761,7 @@
         - ansible-test-sanity-docker-stable-2.9
         - ansible-test-sanity-docker-stable-2.10
         - ansible-test-sanity-docker-stable-2.11
+        - ansible-test-sanity-docker-stable-2.12
         - ansible-test-units-openvswitch-python27
         - ansible-test-units-openvswitch-python35
         - ansible-test-units-openvswitch-python36
@@ -774,6 +775,7 @@
     check:
       jobs: &ansible-collections-openvswitch-openvswitch-jobs
         - network-ee-integration-tests-openvswitch-openvswitch
+        - network-ee-integration-tests-openvswitch-openvswitch-stable-2.12
         - network-ee-integration-tests-openvswitch-openvswitch-stable-2.11
         - network-ee-integration-tests-openvswitch-openvswitch-stable-2.9
         - build-ansible-collection:

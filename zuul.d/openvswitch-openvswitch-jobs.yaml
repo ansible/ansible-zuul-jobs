@@ -69,6 +69,16 @@
 
 # =============================================================================
 - job:
+    name: network-ee-integration-tests-openvswitch-openvswitch-stable-2.12
+    parent: ansible-network-openvswitch-appliance
+
+- job:
+    name: network-ee-integration-tests-openvswitch-openvswitch-stable-2.12
+    parent: network-ee-integration-tests-stable-2.12
+    nodeset: openvswitch-2.9.0-python38
+
+# =============================================================================
+- job:
     name: network-ee-integration-tests-openvswitch-openvswitch-stable-2.9
     parent: ansible-network-openvswitch-appliance
 

@@ -102,7 +102,7 @@
       ansible_test_do_number: 4
 
 - job:
-    name: ansible-test-network-integration-nxos-cli-python36-stable212
+    name: ansible-test-network-integration-nxos-cli-python38-stable212
     parent: ansible-test-network-integration-nxos
     nodeset: nxos-7.0.3-python38
     required-projects:
@@ -114,26 +114,26 @@
       ansible_test_split_in: 4
 
 - job:
-    name: ansible-test-network-integration-nxos-cli-python36-stable212-scenario01
-    parent: ansible-test-network-integration-nxos-cli-python36-stable212
+    name: ansible-test-network-integration-nxos-cli-python38-stable212-scenario01
+    parent: ansible-test-network-integration-nxos-cli-python38-stable212
     vars:
       ansible_test_do_number: 1
 
 - job:
-    name: ansible-test-network-integration-nxos-cli-python36-stable212-scenario02
-    parent: ansible-test-network-integration-nxos-cli-python36-stable212
+    name: ansible-test-network-integration-nxos-cli-python38-stable212-scenario02
+    parent: ansible-test-network-integration-nxos-cli-python38-stable212
     vars:
       ansible_test_do_number: 2
 
 - job:
-    name: ansible-test-network-integration-nxos-cli-python36-stable212-scenario03
-    parent: ansible-test-network-integration-nxos-cli-python36-stable212
+    name: ansible-test-network-integration-nxos-cli-python38-stable212-scenario03
+    parent: ansible-test-network-integration-nxos-cli-python38-stable212
     vars:
       ansible_test_do_number: 3
 
 - job:
-    name: ansible-test-network-integration-nxos-cli-python36-stable212-scenario04
-    parent: ansible-test-network-integration-nxos-cli-python36-stable212
+    name: ansible-test-network-integration-nxos-cli-python38-stable212-scenario04
+    parent: ansible-test-network-integration-nxos-cli-python38-stable212
     vars:
       ansible_test_do_number: 4
 

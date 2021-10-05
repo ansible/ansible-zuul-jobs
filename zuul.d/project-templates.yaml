@@ -274,6 +274,7 @@
         - ansible-test-sanity-docker-stable-2.9
         - ansible-test-sanity-docker-stable-2.10
         - ansible-test-sanity-docker-stable-2.11
+        - ansible-test-sanity-docker-stable-2.12
         - ansible-test-units-nxos-python27
         - ansible-test-units-nxos-python35
         - ansible-test-units-nxos-python36
@@ -331,6 +332,22 @@
               ansible_test_collections: true
             voting: false
         - ansible-test-network-integration-nxos-cli-python36-stable211-scenario04:
+            vars:
+              ansible_test_collections: true
+            voting: false
+        - ansible-test-network-integration-nxos-cli-python38-stable212-scenario01:
+            vars:
+              ansible_test_collections: true
+            voting: false
+        - ansible-test-network-integration-nxos-cli-python38-stable212-scenario02:
+            vars:
+              ansible_test_collections: true
+            voting: false
+        - ansible-test-network-integration-nxos-cli-python38-stable212-scenario03:
+            vars:
+              ansible_test_collections: true
+            voting: false
+        - ansible-test-network-integration-nxos-cli-python38-stable212-scenario04:
             vars:
               ansible_test_collections: true
             voting: false

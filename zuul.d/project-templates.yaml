@@ -272,6 +272,7 @@
         - ansible-test-sanity-docker-stable-2.9
         - ansible-test-sanity-docker-stable-2.10
         - ansible-test-sanity-docker-stable-2.11
+        - ansible-test-sanity-docker-stable-2.12
         - ansible-test-units-nxos-python27
         - ansible-test-units-nxos-python35
         - ansible-test-units-nxos-python36

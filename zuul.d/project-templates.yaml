@@ -237,6 +237,7 @@
         - ansible-test-sanity-docker-stable-2.9
         - ansible-test-sanity-docker-stable-2.10
         - ansible-test-sanity-docker-stable-2.11
+        - ansible-test-sanity-docker-stable-2.12
         - ansible-test-units-asa-python27
         - ansible-test-units-asa-python35
         - ansible-test-units-asa-python36
@@ -252,9 +253,11 @@
         - ansible-test-network-integration-asa-python27-stable211
         - ansible-test-network-integration-asa-python27-stable29
         - ansible-test-network-integration-asa-python38
+        - ansible-test-network-integration-asa-python38-stable212
         - ansible-test-network-integration-asa-python38-stable211
         - ansible-test-network-integration-asa-python38-stable29
         - ansible-test-network-integration-asa-libssh-python38
+        - ansible-test-network-integration-asa-libssh-python38-stable212
         - ansible-test-network-integration-asa-libssh-python38-stable211
         - ansible-test-network-integration-asa-libssh-python38-stable29
         - build-ansible-collection:

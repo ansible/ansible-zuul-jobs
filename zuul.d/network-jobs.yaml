@@ -3,6 +3,8 @@
     name: network-ee-tests-base
     parent: ansible-ee-tests-base
     abstract: true
+    irrelevant-files:
+      - .pre-commit-config.yaml
     vars:
       container_image_name: quay.io/ansible/network-ee
 
@@ -24,6 +26,27 @@
 - job:
     name: network-ee-unit-tests
     parent: network-ee-tests
+    vars:
+      container_image_test: unit
+
+- job:
+    name: network-ee-tests-stable-2.12
+    parent: network-ee-tests-base
+    abstract: true
+    dependencies:
+      - network-ee-build-container-image-stable-2.12
+    vars:
+      container_image_version: stable-2.12
+
+- job:
+    name: network-ee-sanity-tests-stable-2.12
+    parent: network-ee-tests-stable-2.12
+    vars:
+      container_image_test: sanity
+
+- job:
+    name: network-ee-unit-tests-stable-2.12
+    parent: network-ee-tests-stable-2.12
     vars:
       container_image_test: unit
 

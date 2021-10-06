@@ -1,70 +1,6 @@
 ---
 # ansible-collections/ansible.utils jobs
-
-- job:
-    name: ansible-test-integration-ansible-utils
-    abstract: true
-    parent: ansible-test-integration-base
-    required-projects:
-      - name: github.com/ansible/ansible
-      - name: github.com/ansible-collections/ansible.utils
-    vars:
-      ansible_collections_repo: github.com/ansible-collections/ansible.utils
-
-- job:
-    name: ansible-test-integration-ansible-utils-python27
-    parent: ansible-test-integration-ansible-utils
-    nodeset: controller-python27
-    vars:
-      ansible_test_python: 2.7
-
-- job:
-    name: ansible-test-integration-ansible-utils-python27-stable211
-    parent: ansible-test-integration-ansible-utils
-    nodeset: controller-python27
-    required-projects:
-      - name: github.com/ansible/ansible
-        override-checkout: stable-2.11
-    vars:
-      ansible_test_python: 2.7
-
-- job:
-    name: ansible-test-integration-ansible-utils-python27-stable29
-    parent: ansible-test-integration-ansible-utils
-    nodeset: controller-python27
-    required-projects:
-      - name: github.com/ansible/ansible
-        override-checkout: stable-2.9
-    vars:
-      ansible_test_python: 2.7
-
-- job:
-    name: ansible-test-integration-ansible-utils-python36
-    parent: ansible-test-integration-ansible-utils
-    nodeset: controller-python36
-    vars:
-      ansible_test_python: 3.6
-
-- job:
-    name: ansible-test-integration-ansible-utils-python36-stable211
-    parent: ansible-test-integration-ansible-utils
-    nodeset: controller-python36
-    required-projects:
-      - name: github.com/ansible/ansible
-        override-checkout: stable-2.11
-    vars:
-      ansible_test_python: 3.6
-
-- job:
-    name: ansible-test-integration-ansible-utils-python36-stable29
-    parent: ansible-test-integration-ansible-utils
-    nodeset: controller-python36
-    required-projects:
-      - name: github.com/ansible/ansible
-        override-checkout: stable-2.9
-    vars:
-      ansible_test_python: 3.6
-
+# =============================================================================
 - job:
     name: ansible-test-units-ansible-utils-python27
     parent: ansible-test-units-base-python27
@@ -96,3 +32,56 @@
       - name: github.com/ansible-collections/ansible.utils
     vars:
       ansible_collections_repo: github.com/ansible-collections/ansible.utils
+
+# =============================================================================
+- job:
+    name: network-ee-integration-tests-ansible-utils
+    parent: ansible-network-openvswitch-appliance
+
+- job:
+    name: network-ee-integration-tests-ansible-utils
+    parent: network-ee-integration-tests
+    nodeset: openvswitch-2.9.0-python38
+    vars:
+      collection_name: utils
+      collection_namespace: ansible
+
+# =============================================================================
+- job:
+    name: network-ee-integration-tests-ansible-utils-stable-2.12
+    parent: ansible-network-openvswitch-appliance
+
+- job:
+    name: network-ee-integration-tests-ansible-utils-stable-2.12
+    parent: network-ee-integration-tests-stable-2.12
+    nodeset: openvswitch-2.9.0-python38
+    vars:
+      collection_name: utils
+      collection_namespace: ansible
+
+# =============================================================================
+- job:
+    name: network-ee-integration-tests-ansible-utils-stable-2.11
+    parent: ansible-network-openvswitch-appliance
+
+- job:
+    name: network-ee-integration-tests-ansible-utils-stable-2.11
+    parent: network-ee-integration-tests-stable-2.11
+    nodeset: openvswitch-2.9.0-python38
+    vars:
+      collection_name: utils
+      collection_namespace: ansible
+
+# =============================================================================
+- job:
+    name: network-ee-integration-tests-ansible-utils-stable-2.9
+    parent: ansible-network-openvswitch-appliance
+
+- job:
+    name: network-ee-integration-tests-ansible-utils-stable-2.9
+    parent: network-ee-integration-tests-stable-2.9
+    nodeset: openvswitch-2.9.0-python38
+    vars:
+      test_ansible_python_interpreter: /usr/bin/python3
+      collection_name: utils
+      collection_namespace: ansible

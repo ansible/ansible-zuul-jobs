@@ -46,11 +46,12 @@
     - name: Install molecule and collection dependencies
       pip:
         name:
-          - "molecule<3.3.0"
+          - molecule
           - yamllint
           - kubernetes
           - flake8
           - jsonpatch
+          - selinux_please_lie_to_me
         virtualenv: '{{ ansible_test_venv_path }}'
         virtualenv_python: python3
 

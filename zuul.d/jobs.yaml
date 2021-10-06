@@ -25,7 +25,7 @@
 - job:
     name: ansible-tox-linters
     parent: tox-linters
-    nodeset: centos-8-stream
+    nodeset: fedora-latest-1vcpu
 
 - job: &ansible-tox-molecule-base
     name: ansible-tox-molecule-base
@@ -68,6 +68,7 @@
 - job:
     name: ansible-tox-py37
     parent: tox-py37
+    pre-run: playbooks/ansible-tox-py37/pre.yaml
     timeout: 3600
     nodeset: fedora-latest-1vcpu
 
@@ -169,15 +170,15 @@
       ansible_collections_repo: github.com/ansible-collections/ansible.netcommon
 
 - job:
-    name: ansible-test-network-integration-ansible-netcommon-iosxr-netconf-python36
-    parent: ansible-test-network-integration-iosxr-python36
+    name: ansible-test-network-integration-ansible-netcommon-iosxr-netconf-python38
+    parent: ansible-test-network-integration-iosxr-python38
     vars:
       ansible_collections_repo: github.com/ansible-collections/ansible.netcommon
       ansible_test_integration_targets: "netconf_.*"
 
 - job:
-    name: ansible-test-network-integration-ansible-netcommon-junos-vsrx-netconf-python36
-    parent: ansible-test-network-integration-junos-vsrx-python36
+    name: ansible-test-network-integration-ansible-netcommon-junos-vsrx-netconf-python38
+    parent: ansible-test-network-integration-junos-vsrx-python38
     vars:
       ansible_collections_repo: github.com/ansible-collections/ansible.netcommon
       ansible_test_integration_targets: "netconf_.*"
@@ -208,6 +209,8 @@
       - name: github.com/ansible/ansible
         override-checkout: stable-2.9
     timeout: 3600
+    irrelevant-files:
+      - .pre-commit-config.yaml
     vars:
       ansible_test_collections: true
       ansible_test_command: units

@@ -4,5 +4,6 @@
     - name: Install openvswitch package
       become: true
       package:
-        name: openvswitch-switch
+        name:
+          - openvswitch-switch
         state: present

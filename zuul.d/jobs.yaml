@@ -108,7 +108,7 @@
     run: playbooks/ansible-galaxy-importer/run.yaml
     required-projects:
       - github.com/ansible-network/releases
-    nodeset: centos-8-1vcpu
+    nodeset: centos-8-stream
 
 - job:
     name: ansible-network-appliance-base

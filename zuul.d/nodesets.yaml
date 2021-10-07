@@ -24,6 +24,12 @@
         label: centos-8-stream
 
 - nodeset:
+    name: centos-8-stream-small
+    nodes:
+      - name: centos-8-stream-small
+        label: centos-8-stream-small
+
+- nodeset:
     name: fedora-latest-1vcpu
     nodes:
       - name: fedora-34

@@ -64,6 +64,7 @@
               - name: github.com/ansible-collections/ansible.netcommon
               - name: github.com/ansible-collections/community.aws
               - name: github.com/ansible-collections/community.general
+              - name: github.com/ansible-collections/community.crypto
         - ansible-test-splitter:
             vars:
               ansible_test_splitter__test_changed: true
@@ -111,6 +112,7 @@
               - name: github.com/ansible-collections/ansible.netcommon
               - name: github.com/ansible-collections/ansible.utils
               - name: github.com/ansible-collections/community.general
+              - name: github.com/ansible-collections/community.crypto
         - ansible-test-splitter:
             vars:
               ansible_test_splitter__test_changed: true

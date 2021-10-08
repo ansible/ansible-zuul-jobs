@@ -11,6 +11,12 @@
       include_role:
         name: test-setup
 
+    - debug:
+        var: hostvars
+    - debug:
+        msg: "{{ hostvars[item] }}"
+      with_inventory_hostnames: appliance:appliance-ssh:openvswitch
+
     - name: Set SSH interface IP for appliance
       set_fact:
         __ssh_ip: "{{ hostvars[item].ansible_host }}"

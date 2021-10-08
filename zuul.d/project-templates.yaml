@@ -779,8 +779,6 @@
         - ansible-test-molecule-kubernetes-core
         - ansible-test-molecule-kubernetes-core-2.9
         - ansible-test-molecule-kubernetes-core-2.10
-        - ansible-test-molecule-kubernetes-core-2.11
-        - ansible-test-molecule-kubernetes-core-2.12
         - ansible-test-molecule-kubernetes-core-with-turbo
         - ansible-tox-linters
     gate:

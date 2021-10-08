@@ -24,6 +24,12 @@
         label: centos-8-stream
 
 - nodeset:
+    name: centos-8-stream-small
+    nodes:
+      - name: centos-8-stream-small
+        label: centos-8-stream-small
+
+- nodeset:
     name: fedora-latest-1vcpu
     nodes:
       - name: fedora-34
@@ -175,21 +181,6 @@
       - name: controller
         nodes:
           - centos-8
-
-- nodeset:
-    name: asav9-12-3-python37
-    nodes:
-      - name: fedora-32
-        label: fedora-32-1vcpu
-      - name: asav9-12-3
-        label: asav9-12-3
-    groups:
-      - name: appliance
-        nodes:
-          - asav9-12-3
-      - name: controller
-        nodes:
-          - fedora-32
 
 - nodeset:
     name: asav9-12-3-python38

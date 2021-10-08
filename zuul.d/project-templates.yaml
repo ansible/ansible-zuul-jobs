@@ -1018,8 +1018,10 @@
         - build-ansible-collection
         - ansible-changelog-fragment
         - ansible-test-security-integration-qradar-python27
-        - ansible-test-security-integration-qradar-python36
         - ansible-test-security-integration-qradar-python38
+        - ansible-test-security-integration-qradar-python38-stable29
+        - ansible-test-security-integration-qradar-python38-stable211
+        - ansible-test-security-integration-qradar-python38-stable212
         - ansible-test-sanity-docker-devel
         - ansible-test-sanity-docker-milestone
         - ansible-test-sanity-docker-stable-2.9
@@ -1035,8 +1037,10 @@
         - build-ansible-collection
         - ansible-changelog-fragment
         - ansible-security-integration-splunk-es-python27
-        - ansible-security-integration-splunk-es-python36
         - ansible-security-integration-splunk-es-python38
+        - ansible-security-integration-splunk-es-python38-stable29
+        - ansible-security-integration-splunk-es-python38-stable211
+        - ansible-security-integration-splunk-es-python38-stable212
         - ansible-test-sanity-docker-devel
         - ansible-test-sanity-docker-milestone
         - ansible-test-sanity-docker-stable-2.9
@@ -1052,8 +1056,10 @@
         - build-ansible-collection
         - ansible-changelog-fragment
         - ansible-security-integration-trendmicro-deepsec-python27
-        - ansible-security-integration-trendmicro-deepsec-python36
         - ansible-security-integration-trendmicro-deepsec-python38
+        - ansible-security-integration-trendmicro-deepsec-python38-stable29
+        - ansible-security-integration-trendmicro-deepsec-python38-stable211
+        - ansible-security-integration-trendmicro-deepsec-python38-stable212
         - ansible-test-sanity-docker-devel
         - ansible-test-sanity-docker-milestone
         - ansible-test-sanity-docker-stable-2.9

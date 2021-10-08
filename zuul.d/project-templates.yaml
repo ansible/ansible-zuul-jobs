@@ -101,7 +101,8 @@
     check:
       queue: integrated-aws
       jobs: &ansible-collections-community-aws-jobs
-        - ansible-test-sanity-docker
+        - ansible-test-sanity-docker-devel
+        - ansible-test-sanity-docker-milestone
         - ansible-test-sanity-docker-stable-2.9
         - ansible-test-sanity-docker-stable-2.10
         - ansible-test-sanity-docker-stable-2.11
@@ -153,7 +154,8 @@
     check:
       jobs: &ansible-collections-arista-eos-units-jobs
         - ansible-changelog-fragment
-        - ansible-test-sanity-docker
+        - ansible-test-sanity-docker-devel
+        - ansible-test-sanity-docker-milestone
         - ansible-test-sanity-docker-stable-2.9
         - ansible-test-sanity-docker-stable-2.10
         - ansible-test-sanity-docker-stable-2.11
@@ -217,7 +219,8 @@
     check:
       jobs: &ansible-collections-ansible-utils-units-jobs
         - ansible-changelog-fragment
-        - ansible-test-sanity-docker
+        - ansible-test-sanity-docker-devel
+        - ansible-test-sanity-docker-milestone
         - ansible-test-sanity-docker-stable-2.9
         - ansible-test-sanity-docker-stable-2.10
         - ansible-test-sanity-docker-stable-2.11
@@ -235,7 +238,8 @@
     check:
       jobs: &ansible-collections-cisco-asa-units-jobs
         - ansible-changelog-fragment
-        - ansible-test-sanity-docker
+        - ansible-test-sanity-docker-devel
+        - ansible-test-sanity-docker-milestone
         - ansible-test-sanity-docker-stable-2.9
         - ansible-test-sanity-docker-stable-2.10
         - ansible-test-sanity-docker-stable-2.11
@@ -275,7 +279,8 @@
     check:
       jobs: &ansible-collections-cisco-nxos-units-jobs
         - ansible-changelog-fragment
-        - ansible-test-sanity-docker
+        - ansible-test-sanity-docker-devel
+        - ansible-test-sanity-docker-milestone
         - ansible-test-sanity-docker-stable-2.9
         - ansible-test-sanity-docker-stable-2.10
         - ansible-test-sanity-docker-stable-2.11
@@ -373,7 +378,8 @@
     check:
       jobs: &ansible-collections-cisco-ios-units-jobs
         - ansible-changelog-fragment
-        - ansible-test-sanity-docker
+        - ansible-test-sanity-docker-devel
+        - ansible-test-sanity-docker-milestone
         - ansible-test-sanity-docker-stable-2.9
         - ansible-test-sanity-docker-stable-2.10
         - ansible-test-sanity-docker-stable-2.11
@@ -412,7 +418,8 @@
     check:
       jobs: &ansible-collections-cisco-iosxr-units-jobs
         - ansible-changelog-fragment
-        - ansible-test-sanity-docker
+        - ansible-test-sanity-docker-devel
+        - ansible-test-sanity-docker-milestone
         - ansible-test-sanity-docker-stable-2.9
         - ansible-test-sanity-docker-stable-2.10
         - ansible-test-sanity-docker-stable-2.11
@@ -492,7 +499,8 @@
             required-projects:
               - name: github.com/ansible-collections/kubernetes.core
                 override-checkout: stable-2.1
-        - ansible-test-sanity-docker
+        - ansible-test-sanity-docker-devel
+        - ansible-test-sanity-docker-milestone
         - ansible-test-sanity-docker-stable-2.9
         - ansible-test-sanity-docker-stable-2.10
         - ansible-test-sanity-docker-stable-2.11
@@ -503,7 +511,8 @@
     name: ansible-collections-cloud-common
     check:
       jobs: &ansible-collections-cloud-common-jobs
-        - ansible-test-sanity-docker
+        - ansible-test-sanity-docker-devel
+        - ansible-test-sanity-docker-milestone
         - ansible-test-sanity-docker-stable-2.9
         - ansible-test-sanity-docker-stable-2.10
         - ansible-test-sanity-docker-stable-2.11
@@ -523,7 +532,8 @@
       jobs: *ansible-collections-cloud-common-jobs
     periodic:
       jobs:
-        - ansible-test-sanity-docker
+        - ansible-test-sanity-docker-devel
+        - ansible-test-sanity-docker-milestone
         - ansible-test-sanity-docker-stable-2.9
         - ansible-test-sanity-docker-stable-2.10
         - ansible-test-sanity-docker-stable-2.11
@@ -542,7 +552,8 @@
             voting: false
         - ansible-tox-linters
         - build-ansible-collection
-        - ansible-test-sanity-docker
+        - ansible-test-sanity-docker-devel
+        - ansible-test-sanity-docker-milestone
         - ansible-test-sanity-docker-stable-2.9
         - ansible-test-sanity-docker-stable-2.10
         - ansible-test-sanity-docker-stable-2.11
@@ -564,7 +575,8 @@
             voting: false
         - ansible-tox-linters
         - build-ansible-collection
-        - ansible-test-sanity-docker
+        - ansible-test-sanity-docker-devel
+        - ansible-test-sanity-docker-milestone
         - ansible-test-sanity-docker-stable-2.9
         - ansible-test-sanity-docker-stable-2.10
         - ansible-test-sanity-docker-stable-2.11
@@ -582,7 +594,8 @@
               - name: github.com/ansible-collections/cloud.common
               - name: github.com/ansible-collections/community.vmware
         - ansible-tox-linters
-        - ansible-test-sanity-docker
+        - ansible-test-sanity-docker-devel
+        - ansible-test-sanity-docker-milestone
         - ansible-test-sanity-docker-stable-2.9
         - ansible-test-sanity-docker-stable-2.10
         - ansible-test-sanity-docker-stable-2.11
@@ -590,7 +603,8 @@
       jobs: *ansible-collections-community-vmware-rest-jobs
     periodic:
       jobs:
-        - ansible-test-sanity-docker
+        - ansible-test-sanity-docker-devel
+        - ansible-test-sanity-docker-milestone
         - ansible-test-sanity-docker-stable-2.9
         - ansible-test-sanity-docker-stable-2.10
         - ansible-test-sanity-docker-stable-2.11
@@ -632,7 +646,8 @@
     name: ansible-collections-community-asa-units
     check:
       jobs: &ansible-collections-community-asa-units-jobs
-        - ansible-test-sanity-docker
+        - ansible-test-sanity-docker-devel
+        - ansible-test-sanity-docker-milestone
         - ansible-test-sanity-docker-stable-2.9
         - ansible-test-sanity-docker-stable-2.10
     gate:
@@ -643,7 +658,8 @@
     check:
       jobs: &ansible-collections-juniper-junos-units-jobs
         - ansible-changelog-fragment
-        - ansible-test-sanity-docker
+        - ansible-test-sanity-docker-devel
+        - ansible-test-sanity-docker-milestone
         - ansible-test-sanity-docker-stable-2.9
         - ansible-test-sanity-docker-stable-2.10
         - ansible-test-sanity-docker-stable-2.11
@@ -762,7 +778,8 @@
     check:
       jobs: &ansible-collections-kubernetes-core-units-jobs
         - build-ansible-collection
-        - ansible-test-sanity-docker
+        - ansible-test-sanity-docker-devel
+        - ansible-test-sanity-docker-milestone
         - ansible-test-sanity-docker-stable-2.9
         - ansible-test-sanity-docker-stable-2.10
         - ansible-test-sanity-docker-stable-2.11
@@ -780,7 +797,8 @@
     check:
       jobs: &ansible-collections-openvswitch-openvswitch-units-jobs
         - ansible-changelog-fragment
-        - ansible-test-sanity-docker
+        - ansible-test-sanity-docker-devel
+        - ansible-test-sanity-docker-milestone
         - ansible-test-sanity-docker-stable-2.9
         - ansible-test-sanity-docker-stable-2.10
         - ansible-test-sanity-docker-stable-2.11
@@ -814,7 +832,8 @@
     check:
       jobs: &ansible-collections-vyos-vyos-units-jobs
         - ansible-changelog-fragment
-        - ansible-test-sanity-docker
+        - ansible-test-sanity-docker-devel
+        - ansible-test-sanity-docker-milestone
         - ansible-test-sanity-docker-stable-2.9
         - ansible-test-sanity-docker-stable-2.10
         - ansible-test-sanity-docker-stable-2.11
@@ -851,7 +870,8 @@
     name: ansible-collections-frr-frr-units
     check:
       jobs: &ansible-collections-ffr-ffr-units-jobs
-        - ansible-test-sanity-docker
+        - ansible-test-sanity-docker-devel
+        - ansible-test-sanity-docker-milestone
         - ansible-test-sanity-docker-stable-2.9
         - ansible-test-sanity-docker-stable-2.10
         - ansible-test-sanity-docker-stable-2.11
@@ -869,7 +889,8 @@
     check:
       jobs: &ansible-collections-ansible-netcommon-units-jobs
         - ansible-changelog-fragment
-        - ansible-test-sanity-docker
+        - ansible-test-sanity-docker-devel
+        - ansible-test-sanity-docker-milestone
         - ansible-test-sanity-docker-stable-2.9
         - ansible-test-sanity-docker-stable-2.10
         - ansible-test-sanity-docker-stable-2.11
@@ -926,7 +947,8 @@
     check:
       jobs: &ansible-collections-community-yang-units-jobs
         - ansible-changelog-fragment
-        - ansible-test-sanity-docker
+        - ansible-test-sanity-docker-devel
+        - ansible-test-sanity-docker-milestone
         - ansible-test-sanity-docker-stable-2.9
         - ansible-test-sanity-docker-stable-2.10
         - ansible-test-units-yang-python27
@@ -981,7 +1003,8 @@
     check:
       jobs: &ansible-collections-ansible-posix-units-jobs
         - ansible-changelog-fragment
-        - ansible-test-sanity-docker
+        - ansible-test-sanity-docker-devel
+        - ansible-test-sanity-docker-milestone
         - ansible-test-sanity-docker-stable-2.9
         - ansible-test-sanity-docker-stable-2.10
         - ansible-test-sanity-docker-stable-2.11
@@ -998,7 +1021,8 @@
         - ansible-test-security-integration-qradar-python27
         - ansible-test-security-integration-qradar-python36
         - ansible-test-security-integration-qradar-python38
-        - ansible-test-sanity-docker
+        - ansible-test-sanity-docker-devel
+        - ansible-test-sanity-docker-milestone
         - ansible-test-sanity-docker-stable-2.9
         - ansible-test-sanity-docker-stable-2.10
         - ansible-test-sanity-docker-stable-2.11
@@ -1014,7 +1038,8 @@
         - ansible-security-integration-splunk-es-python27
         - ansible-security-integration-splunk-es-python36
         - ansible-security-integration-splunk-es-python38
-        - ansible-test-sanity-docker
+        - ansible-test-sanity-docker-devel
+        - ansible-test-sanity-docker-milestone
         - ansible-test-sanity-docker-stable-2.9
         - ansible-test-sanity-docker-stable-2.10
         - ansible-test-sanity-docker-stable-2.11
@@ -1030,7 +1055,8 @@
         - ansible-security-integration-trendmicro-deepsec-python27
         - ansible-security-integration-trendmicro-deepsec-python36
         - ansible-security-integration-trendmicro-deepsec-python38
-        - ansible-test-sanity-docker
+        - ansible-test-sanity-docker-devel
+        - ansible-test-sanity-docker-milestone
         - ansible-test-sanity-docker-stable-2.9
         - ansible-test-sanity-docker-stable-2.10
         - ansible-test-sanity-docker-stable-2.11
@@ -1043,7 +1069,8 @@
       jobs: *ansible-collections-security-trendmicro-deepsec-jobs
     periodic:
       jobs:
-        - ansible-test-sanity-docker
+        - ansible-test-sanity-docker-devel
+        - ansible-test-sanity-docker-milestone
         - ansible-test-sanity-docker-stable-2.9
         - ansible-test-sanity-docker-stable-2.10
         - ansible-test-sanity-docker-stable-2.11
@@ -1055,7 +1082,8 @@
     check:
       jobs: &ansible-collections-servicenow-itsm-units-jobs
         - build-ansible-collection
-        - ansible-test-sanity-docker
+        - ansible-test-sanity-docker-devel
+        - ansible-test-sanity-docker-milestone
         - ansible-test-sanity-docker-stable-2.9
         - ansible-test-sanity-docker-stable-2.10
         - ansible-test-sanity-docker-stable-2.11
@@ -1070,7 +1098,8 @@
     name: ansible-collections-symantec-epm-units
     check:
       jobs: &ansible-collections-symantec-epm-units-jobs
-        - ansible-test-sanity-docker
+        - ansible-test-sanity-docker-devel
+        - ansible-test-sanity-docker-milestone
         - ansible-test-sanity-docker-stable-2.9
         - ansible-test-sanity-docker-stable-2.10
     gate:

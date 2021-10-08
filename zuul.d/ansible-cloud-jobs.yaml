@@ -365,6 +365,7 @@
       ansible_test_constraint_files:
         - tests/unit/constraints.txt
 
+# TODO(Gonéri): do we still need this flavor of the job?
 - job:
     name: ansible-test-units-community-aws-python38
     parent: ansible-test-units-amazon-aws-python38
@@ -372,7 +373,7 @@
 #### sanity
 - job:
     name: ansible-test-sanity-aws-ansible-python38
-    parent: ansible-test-sanity-docker
+    parent: ansible-test-sanity-docker-milestone
     vars:
       ansible_test_sanity_skiptests:
         - 'future-import-boilerplate'

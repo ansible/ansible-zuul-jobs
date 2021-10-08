@@ -23,6 +23,21 @@
       container_command: podman
 
 - job:
+    name: ansible-test-sanity-docker-devel
+    parent: ansible-test-sanity-docker
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: devel
+    voting: false
+
+- job:
+    name: ansible-test-sanity-docker-milestone
+    parent: ansible-test-sanity-docker
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: milestone
+
+- job:
     name: ansible-test-sanity-docker-stable-2.9
     parent: ansible-test-sanity-docker
     required-projects:
@@ -55,5 +70,3 @@
     required-projects:
       - name: github.com/ansible/ansible
         override-checkout: stable-2.12
-    vars:
-      container_command: docker

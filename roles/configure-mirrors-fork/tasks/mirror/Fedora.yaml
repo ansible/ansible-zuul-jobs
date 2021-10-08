@@ -1,4 +1,9 @@
 ---
+- name: Remove fedora-cisco-openh264 repository
+  become: true
+  file:
+    path: /etc/yum.repos.d/fedora-cisco-openh264.repo
+    state: absent
 - name: Install Fedora repository files
   become: true
   template:

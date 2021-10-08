@@ -432,6 +432,21 @@
       ansible_test_venv_path: "~/venv"
 
 - job:
+    name: ansible-test-molecule-kubernetes-core-devel
+    parent: ansible-test-molecule-kubernetes-core
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: devel
+    voting: false
+
+- job:
+    name: ansible-test-molecule-kubernetes-core-milestone
+    parent: ansible-test-molecule-kubernetes-core
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: milestone
+
+- job:
     name: ansible-test-molecule-kubernetes-core-2.9
     parent: ansible-test-molecule-kubernetes-core
     required-projects:
@@ -450,6 +465,8 @@
     parent: ansible-test-molecule-kubernetes-core
     required-projects:
       - name: github.com/ansible-collections/cloud.common
+      - name: github.com/ansible/ansible
+        override-checkout: milestone
     vars:
       ansible_test_environment:
         ENABLE_TURBO_MODE: true

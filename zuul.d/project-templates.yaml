@@ -524,10 +524,7 @@
             required-projects:
               - name: github.com/ansible-collections/community.vmware
               - name: github.com/ansible-collections/vmware.vmware_rest
-        - ansible-test-molecule-kubernetes-core:
-            vars:
-              ansible_test_environment:
-                ENABLE_TURBO_MODE: true
+        - ansible-test-molecule-kubernetes-core-with-turbo
     gate:
       jobs: *ansible-collections-cloud-common-jobs
     periodic:
@@ -784,7 +781,8 @@
         - ansible-test-sanity-docker-stable-2.10
         - ansible-test-sanity-docker-stable-2.11
         - ansible-test-units-kubernetes-core-python38
-        - ansible-test-molecule-kubernetes-core
+        - ansible-test-molecule-kubernetes-core-devel
+        - ansible-test-molecule-kubernetes-core-milestone
         - ansible-test-molecule-kubernetes-core-2.9
         - ansible-test-molecule-kubernetes-core-2.10
         - ansible-test-molecule-kubernetes-core-with-turbo

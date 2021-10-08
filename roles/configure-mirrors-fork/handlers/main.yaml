@@ -11,6 +11,9 @@
 - name: Update yum/dnf cache
   become: true
   command: "{{ item }}"
+  register: result
+  until: result is succeeded
+  retries: 3
   args:
     warn: false
   # verbose is needed in order to make it possible to debug potential failures

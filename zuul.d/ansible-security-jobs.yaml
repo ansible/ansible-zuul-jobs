@@ -130,11 +130,6 @@
       ansible_test_command: network-integration
       ansible_test_integration_targets: "deepsec_.*"
       ansible_test_collections: true
-- job:
-    name: ansible-security-integration-trendmicro-deepsec-python26
-    parent: ansible-security-integration-trendmicro-deepsec
-    vars:
-      ansible_test_python: 2.6
 
 - job:
     name: ansible-security-integration-trendmicro-deepsec-python27

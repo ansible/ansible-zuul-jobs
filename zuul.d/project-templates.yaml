@@ -505,6 +505,7 @@
         - ansible-test-sanity-docker-stable-2.9
         - ansible-test-sanity-docker-stable-2.10
         - ansible-test-sanity-docker-stable-2.11
+        - ansible-test-sanity-docker-stable-2.12
         - ansible-galaxy-importer:
             voting: false
 
@@ -517,6 +518,7 @@
         - ansible-test-sanity-docker-stable-2.9
         - ansible-test-sanity-docker-stable-2.10
         - ansible-test-sanity-docker-stable-2.11
+        - ansible-test-sanity-docker-stable-2.12
         - ansible-test-units-cloud-common-python38
         - ansible-test-cloud-integration-vmware-rest-python38:
             required-projects:
@@ -535,6 +537,7 @@
         - ansible-test-sanity-docker-stable-2.9
         - ansible-test-sanity-docker-stable-2.10
         - ansible-test-sanity-docker-stable-2.11
+        - ansible-test-sanity-docker-stable-2.12
         - ansible-test-units-cloud-common-python38
         - build-ansible-collection
 
@@ -555,6 +558,7 @@
         - ansible-test-sanity-docker-stable-2.9
         - ansible-test-sanity-docker-stable-2.10
         - ansible-test-sanity-docker-stable-2.11
+        - ansible-test-sanity-docker-stable-2.12
         - ansible-test-units-community-vmware-python27
         - ansible-test-units-community-vmware-python36
         - ansible-test-units-community-vmware-python37
@@ -578,6 +582,7 @@
         - ansible-test-sanity-docker-stable-2.9
         - ansible-test-sanity-docker-stable-2.10
         - ansible-test-sanity-docker-stable-2.11
+        - ansible-test-sanity-docker-stable-2.12
         - ansible-test-units-community-vmware-python27
         - ansible-test-units-community-vmware-python36
         - ansible-test-units-community-vmware-python37
@@ -597,6 +602,7 @@
         - ansible-test-sanity-docker-stable-2.9
         - ansible-test-sanity-docker-stable-2.10
         - ansible-test-sanity-docker-stable-2.11
+        - ansible-test-sanity-docker-stable-2.12
     gate:
       jobs: *ansible-collections-community-vmware-rest-jobs
     periodic:
@@ -606,6 +612,7 @@
         - ansible-test-sanity-docker-stable-2.9
         - ansible-test-sanity-docker-stable-2.10
         - ansible-test-sanity-docker-stable-2.11
+        - ansible-test-sanity-docker-stable-2.12
         - build-ansible-collection
 
 - project-template:
@@ -648,6 +655,8 @@
         - ansible-test-sanity-docker-milestone
         - ansible-test-sanity-docker-stable-2.9
         - ansible-test-sanity-docker-stable-2.10
+        - ansible-test-sanity-docker-stable-2.11
+        - ansible-test-sanity-docker-stable-2.12
     gate:
       jobs: *ansible-collections-community-asa-units-jobs
 
@@ -781,6 +790,7 @@
         - ansible-test-sanity-docker-stable-2.9
         - ansible-test-sanity-docker-stable-2.10
         - ansible-test-sanity-docker-stable-2.11
+        - ansible-test-sanity-docker-stable-2.12
         - ansible-test-units-kubernetes-core-python38
         - ansible-test-molecule-kubernetes-core-devel
         - ansible-test-molecule-kubernetes-core-milestone
@@ -893,6 +903,7 @@
         - ansible-test-sanity-docker-stable-2.9
         - ansible-test-sanity-docker-stable-2.10
         - ansible-test-sanity-docker-stable-2.11
+        - ansible-test-sanity-docker-stable-2.12
         - ansible-test-units-netcommon-python27
         - ansible-test-units-netcommon-python35
         - ansible-test-units-netcommon-python36
@@ -950,6 +961,8 @@
         - ansible-test-sanity-docker-milestone
         - ansible-test-sanity-docker-stable-2.9
         - ansible-test-sanity-docker-stable-2.10
+        - ansible-test-sanity-docker-stable-2.11
+        - ansible-test-sanity-docker-stable-2.12
         - ansible-test-units-yang-python27
         - ansible-test-units-yang-python35
         - ansible-test-units-yang-python36
@@ -1007,6 +1020,7 @@
         - ansible-test-sanity-docker-stable-2.9
         - ansible-test-sanity-docker-stable-2.10
         - ansible-test-sanity-docker-stable-2.11
+        - ansible-test-sanity-docker-stable-2.12
         - ansible-test-units-posix
     gate:
       jobs: *ansible-collections-ansible-posix-units-jobs
@@ -1027,6 +1041,7 @@
         - ansible-test-sanity-docker-stable-2.9
         - ansible-test-sanity-docker-stable-2.10
         - ansible-test-sanity-docker-stable-2.11
+        - ansible-test-sanity-docker-stable-2.12
     gate:
       jobs: *ansible-collections-security-ibm-qradar-jobs
 
@@ -1046,6 +1061,7 @@
         - ansible-test-sanity-docker-stable-2.9
         - ansible-test-sanity-docker-stable-2.10
         - ansible-test-sanity-docker-stable-2.11
+        - ansible-test-sanity-docker-stable-2.12
     gate:
       jobs: *ansible-collections-security-splunk-es-jobs
 
@@ -1065,6 +1081,7 @@
         - ansible-test-sanity-docker-stable-2.9
         - ansible-test-sanity-docker-stable-2.10
         - ansible-test-sanity-docker-stable-2.11
+        - ansible-test-sanity-docker-stable-2.12
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-collections/ansible.netcommon
@@ -1079,6 +1096,7 @@
         - ansible-test-sanity-docker-stable-2.9
         - ansible-test-sanity-docker-stable-2.10
         - ansible-test-sanity-docker-stable-2.11
+        - ansible-test-sanity-docker-stable-2.12
         - ansible-security-integration-trendmicro-deepsec-python38
         - build-ansible-collection
 
@@ -1092,6 +1110,7 @@
         - ansible-test-sanity-docker-stable-2.9
         - ansible-test-sanity-docker-stable-2.10
         - ansible-test-sanity-docker-stable-2.11
+        - ansible-test-sanity-docker-stable-2.12
         - ansible-test-units-servicenow-itsm-python27
         - ansible-test-units-servicenow-itsm-python36
         - ansible-test-units-servicenow-itsm-python37
@@ -1107,6 +1126,8 @@
         - ansible-test-sanity-docker-milestone
         - ansible-test-sanity-docker-stable-2.9
         - ansible-test-sanity-docker-stable-2.10
+        - ansible-test-sanity-docker-stable-2.11
+        - ansible-test-sanity-docker-stable-2.12
     gate:
       jobs: *ansible-collections-symantec-epm-units-jobs
 

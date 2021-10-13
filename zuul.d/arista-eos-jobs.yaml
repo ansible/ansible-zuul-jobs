@@ -11,6 +11,7 @@
     host-vars:
       eos-4.24.6:
         ansible_network_os: eos
+        ansible_host_key_checking: no
     required-projects:
       - name: github.com/ansible/ansible-zuul-jobs
     nodeset: eos-4.24.6-python38

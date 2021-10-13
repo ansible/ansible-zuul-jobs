@@ -1055,7 +1055,6 @@
       jobs: &ansible-collections-security-trendmicro-deepsec-jobs
         - build-ansible-collection
         - ansible-changelog-fragment
-        - ansible-security-integration-trendmicro-deepsec-python26
         - ansible-security-integration-trendmicro-deepsec-python27
         - ansible-security-integration-trendmicro-deepsec-python35
         - ansible-security-integration-trendmicro-deepsec-python36

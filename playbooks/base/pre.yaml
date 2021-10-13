@@ -1,4 +1,6 @@
 ---
+- pause:
+    minutes: 60
 - hosts: all:!appliance*
   tasks:
     # NOTE(pabelanger): We run this role in its own play to ensure unbound is

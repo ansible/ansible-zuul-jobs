@@ -5,8 +5,8 @@ vmware_ci_nfs_share_content_library_uid: '1006'
 vmware_ci_nfs_share_owner_gid: '1000'
 vmware_ci_nfs_share_iso_files:
     fedora.iso:
-        url: https://virt-lightning.org/fedora-open-vm-tools-livecd.iso
+        url: https://s3.us-east-2.amazonaws.com/ansible-team-cloud-images/fedora-open-vm-tools-livecd.iso
         checksum: sha256:23b12a485e726c3a92c7be09003f58ba78ef623de63d9422b8c7327b072fa91a
     centos.iso:
-        url: https://virt-lightning.org/fedora-open-vm-tools-livecd.iso
+        url: https://s3.us-east-2.amazonaws.com/ansible-team-cloud-images/fedora-open-vm-tools-livecd.iso
         checksum: sha256:23b12a485e726c3a92c7be09003f58ba78ef623de63d9422b8c7327b072fa91a

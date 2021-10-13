@@ -5,6 +5,7 @@
     check:
       jobs:
         - ansible-tox-py38:
+            nodeset: eos-4.24.6-python38
             vars:
               tox_envlist: pytest,black
         - ansible-network-asa-appliance:

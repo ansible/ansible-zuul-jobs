@@ -1,12 +1,7 @@
 ---
 - project:
-    templates:
-      - ansible-python-jobs
     check:
       jobs:
-        - ansible-tox-py38:
-            vars:
-              tox_envlist: pytest,black
         - ansible-network-asa-appliance:
             files:
               - playbooks/ansible-network-appliance-base/.*
@@ -62,9 +57,6 @@
               - roles/trendmicro.*
     gate:
       jobs:
-        - ansible-tox-py38:
-            vars:
-              tox_envlist: pytest,black
         - ansible-network-asa-appliance:
             files:
               - playbooks/ansible-network-appliance-base/.*

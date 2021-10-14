@@ -11,7 +11,7 @@
     ansible-version: 4.7
     host-vars:
       eos-4.24.6:
-        ansible_network_os: eos
+        ansible_network_os: arista.eos.eos
 #        ansible_host_key_checking: no
     required-projects:
       - name: github.com/ansible/ansible-zuul-jobs

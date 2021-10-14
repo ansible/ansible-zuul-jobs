@@ -155,8 +155,8 @@
 - nodeset:
     name: asav9-12-3-python35
     nodes:
-      - name: ubuntu-xenial
-        label: ubuntu-xenial-1vcpu
+      - name: fedora-34
+        label: fedora-34-1vcpu
       - name: asav9-12-3
         label: asav9-12-3
     groups:
@@ -165,7 +165,7 @@
           - asav9-12-3
       - name: controller
         nodes:
-          - ubuntu-xenial
+          - fedora-34
 
 - nodeset:
     name: asav9-12-3-python36

@@ -11,6 +11,12 @@
 
 - name: Install python requirements
   shell: "{{ ansible_test_venv_path }}/bin/pip install {{ _test_requirements }} {{ _test_constraints }}"
+  # we've got frequent timeout with files.pythonhosted.org. This seems to be related to IPv6
+  # e.g: HTTPSConnectionPool(host='files.pythonhosted.org', port=443): Read timed out.
+  retries: 3
+  delay: 3
+  register: result
+  until: result.rc == 0
 
 - name: Copy potential cloud provider configuration for ansible-test in the collection
   shell: "cp -v {{ ansible_test_ansible_path }}/test/integration/cloud-config-*.ini {{ _test_location }}/tests/integration/"

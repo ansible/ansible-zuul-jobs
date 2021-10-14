@@ -2,7 +2,7 @@
 # see http://docs.openstack.org/infra/bindep/ for additional information.
 
 gcc-c++ [test platform:rpm]
-libffi-dev [test platform:ubuntu-bionic]
+libffi-dev [test platform:dpkg ]
 libssh-devel [test platform:rpm]
 libssh-dev [test platform:dpkg]
 libxml2-dev [test platform:ubuntu-bionic]

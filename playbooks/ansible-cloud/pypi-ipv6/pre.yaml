@@ -1,0 +1,8 @@
+---
+- hosts: controller
+  tasks:
+    - name: Ensure we use IPv4 to reach files.pythonhosted.org
+      lineinfile:
+        path: /etc/hosts
+        line: 151.101.137.63 files.pythonhosted.org
+      become: true

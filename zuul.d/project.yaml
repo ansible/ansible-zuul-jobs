@@ -8,6 +8,9 @@
             nodeset: eos-4.24.6-python38
             vars:
               tox_envlist: pytest,black
+            host-vars:
+              eos-4.24.6:
+                ansible_network_os: eos
         - ansible-network-asa-appliance:
             files:
               - playbooks/ansible-network-appliance-base/.*

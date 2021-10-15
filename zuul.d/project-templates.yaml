@@ -1073,6 +1073,8 @@
         - build-ansible-collection
         - ansible-changelog-fragment
         - ansible-security-integration-trendmicro-deepsec-python27
+        - ansible-security-integration-trendmicro-deepsec-python35
+        - ansible-security-integration-trendmicro-deepsec-python36
         - ansible-security-integration-trendmicro-deepsec-python38
         - ansible-security-integration-trendmicro-deepsec-python38-stable29
         - ansible-security-integration-trendmicro-deepsec-python38-stable211

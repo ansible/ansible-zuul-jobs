@@ -138,6 +138,18 @@
       ansible_test_python: 2.7
 
 - job:
+    name: ansible-security-integration-trendmicro-deepsec-python35
+    parent: ansible-security-integration-trendmicro-deepsec
+    vars:
+      ansible_test_python: 3.5
+
+- job:
+    name: ansible-security-integration-trendmicro-deepsec-python36
+    parent: ansible-security-integration-trendmicro-deepsec
+    vars:
+      ansible_test_python: 3.6
+
+- job:
     name: ansible-security-integration-trendmicro-deepsec-python38
     parent: ansible-security-integration-trendmicro-deepsec
     vars:

@@ -12,7 +12,7 @@
   become: true
   command: "{{ item }}"
   register: result
-  until: result is succeeded
+  until: result is not failed
   retries: 3
   args:
     warn: false

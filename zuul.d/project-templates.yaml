@@ -1534,7 +1534,7 @@
     name: publish-to-automation-hub-3pci
     description: |
       Publish an Ansible collection to Ansible Automation Hub
-    third-party-check:
+    3pci-check:
       jobs:
         - build-ansible-collection
     pre-release:

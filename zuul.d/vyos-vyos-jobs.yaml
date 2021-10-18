@@ -26,14 +26,6 @@
       ansible_collections_repo: github.com/ansible-collections/vyos.vyos
 
 - job:
-    name: ansible-test-units-vyos-python35
-    parent: ansible-test-units-base-python35
-    required-projects:
-      - name: github.com/ansible-collections/vyos.vyos
-    vars:
-      ansible_collections_repo: github.com/ansible-collections/vyos.vyos
-
-- job:
     name: ansible-test-units-vyos-python36
     parent: ansible-test-units-base-python36
     required-projects:

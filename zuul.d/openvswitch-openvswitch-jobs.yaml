@@ -24,14 +24,6 @@
       ansible_collections_repo: github.com/ansible-collections/openvswitch.openvswitch
 
 - job:
-    name: ansible-test-units-openvswitch-python35
-    parent: ansible-test-units-base-python35
-    required-projects:
-      - name: github.com/ansible-collections/openvswitch.openvswitch
-    vars:
-      ansible_collections_repo: github.com/ansible-collections/openvswitch.openvswitch
-
-- job:
     name: ansible-test-units-openvswitch-python36
     parent: ansible-test-units-base-python36
     required-projects:

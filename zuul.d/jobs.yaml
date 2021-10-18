@@ -146,14 +146,6 @@
       ansible_collections_repo: github.com/ansible-collections/ansible.netcommon
 
 - job:
-    name: ansible-test-units-netcommon-python35
-    parent: ansible-test-units-base-python35
-    required-projects:
-      - name: github.com/ansible-collections/ansible.netcommon
-    vars:
-      ansible_collections_repo: github.com/ansible-collections/ansible.netcommon
-
-- job:
     name: ansible-test-units-netcommon-python36
     parent: ansible-test-units-base-python36
     required-projects:
@@ -262,14 +254,6 @@
 - job:
     name: ansible-test-units-yang-python27
     parent: ansible-test-units-base-python27
-    required-projects:
-      - name: github.com/ansible-collections/community.yang
-    vars:
-      ansible_collections_repo: github.com/ansible-collections/community.yang
-
-- job:
-    name: ansible-test-units-yang-python35
-    parent: ansible-test-units-base-python35
     required-projects:
       - name: github.com/ansible-collections/community.yang
     vars:

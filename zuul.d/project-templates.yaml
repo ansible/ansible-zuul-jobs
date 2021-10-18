@@ -527,8 +527,7 @@
             required-projects:
               - name: github.com/ansible-collections/community.vmware
               - name: github.com/ansible-collections/vmware.vmware_rest
-        - ansible-test-molecule-kubernetes-core-with-turbo:
-            voting: false
+        - ansible-test-molecule-kubernetes-core-with-turbo
     gate:
       jobs: *ansible-collections-cloud-common-jobs
     periodic:

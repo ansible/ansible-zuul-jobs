@@ -11,5 +11,11 @@
         collection_name: "{{ zuul.project.short_name.split('.')[1] }}"
       when: collection_name is not defined
 
+    - name: Pull the test container
+      shell: "podman pull {{ container_image_name }}-{{ container_image_test }}-tests:{{ container_image_version }}"
+      register: result
+      until: result is not failed
+      retries: 3
+
     - name: Run test container
       shell: "podman run -w /usr/share/ansible/collections/ansible_collections/{{ collection_namespace }}/{{ collection_name }} {{ container_image_name }}-{{ container_image_test }}-tests:{{ container_image_version }}"

@@ -24,14 +24,6 @@
       ansible_collections_repo: github.com/ansible-collections/cisco.ios
 
 - job:
-    name: ansible-test-units-ios-python35
-    parent: ansible-test-units-base-python35
-    required-projects:
-      - name: github.com/ansible-collections/cisco.ios
-    vars:
-      ansible_collections_repo: github.com/ansible-collections/cisco.ios
-
-- job:
     name: ansible-test-units-ios-python36
     parent: ansible-test-units-base-python36
     required-projects:

@@ -46,14 +46,6 @@
       ansible_collections_repo: github.com/ansible-collections/arista.eos
 
 - job:
-    name: ansible-test-units-eos-python35
-    parent: ansible-test-units-base-python35
-    required-projects:
-      - name: github.com/ansible-collections/arista.eos
-    vars:
-      ansible_collections_repo: github.com/ansible-collections/arista.eos
-
-- job:
     name: ansible-test-units-eos-python36
     parent: ansible-test-units-base-python36
     required-projects:

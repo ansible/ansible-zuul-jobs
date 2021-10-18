@@ -8,14 +8,6 @@
       ansible_collections_repo: github.com/ansible-collections/frr.frr
 
 - job:
-    name: ansible-test-units-frr-python35
-    parent: ansible-test-units-base-python35
-    required-projects:
-      - name: github.com/ansible-collections/frr.frr
-    vars:
-      ansible_collections_repo: github.com/ansible-collections/frr.frr
-
-- job:
     name: ansible-test-units-frr-python36
     parent: ansible-test-units-base-python36
     required-projects:

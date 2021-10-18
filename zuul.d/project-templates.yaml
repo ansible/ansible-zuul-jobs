@@ -162,7 +162,6 @@
         - ansible-test-sanity-docker-stable-2.11
         - ansible-test-sanity-docker-stable-2.12
         - ansible-test-units-eos-python27
-        - ansible-test-units-eos-python35
         - ansible-test-units-eos-python36
         - ansible-test-units-eos-python37
     gate:
@@ -227,7 +226,6 @@
         - ansible-test-sanity-docker-stable-2.11
         - ansible-test-sanity-docker-stable-2.12
         - ansible-test-units-ansible-utils-python27
-        - ansible-test-units-ansible-utils-python35
         - ansible-test-units-ansible-utils-python36
         - ansible-test-units-ansible-utils-python37
     gate:
@@ -246,7 +244,6 @@
         - ansible-test-sanity-docker-stable-2.11
         - ansible-test-sanity-docker-stable-2.12
         - ansible-test-units-asa-python27
-        - ansible-test-units-asa-python35
         - ansible-test-units-asa-python36
         - ansible-test-units-asa-python37
     gate:
@@ -287,7 +284,6 @@
         - ansible-test-sanity-docker-stable-2.11
         - ansible-test-sanity-docker-stable-2.12
         - ansible-test-units-nxos-python27
-        - ansible-test-units-nxos-python35
         - ansible-test-units-nxos-python36
         - ansible-test-units-nxos-python37
     gate:
@@ -386,7 +382,6 @@
         - ansible-test-sanity-docker-stable-2.11
         - ansible-test-sanity-docker-stable-2.12
         - ansible-test-units-ios-python27
-        - ansible-test-units-ios-python35
         - ansible-test-units-ios-python36
         - ansible-test-units-ios-python37
     gate:
@@ -426,7 +421,6 @@
         - ansible-test-sanity-docker-stable-2.11
         - ansible-test-sanity-docker-stable-2.12
         - ansible-test-units-iosxr-python27
-        - ansible-test-units-iosxr-python35
         - ansible-test-units-iosxr-python36
         - ansible-test-units-iosxr-python37
     gate:
@@ -673,7 +667,6 @@
         - ansible-test-sanity-docker-stable-2.11
         - ansible-test-sanity-docker-stable-2.12
         - ansible-test-units-junos-python27
-        - ansible-test-units-junos-python35
         - ansible-test-units-junos-python36
         - ansible-test-units-junos-python37
     gate:
@@ -814,7 +807,6 @@
         - ansible-test-sanity-docker-stable-2.11
         - ansible-test-sanity-docker-stable-2.12
         - ansible-test-units-openvswitch-python27
-        - ansible-test-units-openvswitch-python35
         - ansible-test-units-openvswitch-python36
         - ansible-test-units-openvswitch-python37
     gate:
@@ -849,7 +841,6 @@
         - ansible-test-sanity-docker-stable-2.11
         - ansible-test-sanity-docker-stable-2.12
         - ansible-test-units-vyos-python27
-        - ansible-test-units-vyos-python35
         - ansible-test-units-vyos-python36
         - ansible-test-units-vyos-python37
     gate:
@@ -887,7 +878,6 @@
         - ansible-test-sanity-docker-stable-2.11
         - ansible-test-sanity-docker-stable-2.12
         - ansible-test-units-frr-python27
-        - ansible-test-units-frr-python35
         - ansible-test-units-frr-python36
         - ansible-test-units-frr-python37
     gate:
@@ -906,7 +896,6 @@
         - ansible-test-sanity-docker-stable-2.11
         - ansible-test-sanity-docker-stable-2.12
         - ansible-test-units-netcommon-python27
-        - ansible-test-units-netcommon-python35
         - ansible-test-units-netcommon-python36
         - ansible-test-units-netcommon-python37
     gate:
@@ -965,7 +954,6 @@
         - ansible-test-sanity-docker-stable-2.11
         - ansible-test-sanity-docker-stable-2.12
         - ansible-test-units-yang-python27
-        - ansible-test-units-yang-python35
         - ansible-test-units-yang-python36
         - ansible-test-units-yang-python37
         - ansible-test-units-yang-python38

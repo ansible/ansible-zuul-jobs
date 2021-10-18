@@ -10,14 +10,6 @@
       ansible_collections_repo: github.com/ansible-collections/ansible.utils
 
 - job:
-    name: ansible-test-units-ansible-utils-python35
-    parent: ansible-test-units-base-python35
-    required-projects:
-      - name: github.com/ansible-collections/ansible.utils
-    vars:
-      ansible_collections_repo: github.com/ansible-collections/ansible.utils
-
-- job:
     name: ansible-test-units-ansible-utils-python36
     parent: ansible-test-units-base-python27
     required-projects:

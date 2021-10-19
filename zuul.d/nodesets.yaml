@@ -202,12 +202,12 @@
     nodes:
       - name: centos-8
         label: centos-8-stream
-      - name: eos-4.24.6_new
-        label: eos-4.24.6_new
+      - name: eos_goneri
+        label: eos_goneri
     groups:
       - name: appliance
         nodes:
-          - eos-4.24.6_new
+          - eos_goneri
       - name: controller
         nodes:
           - centos-8

@@ -33,7 +33,7 @@
   tasks:
     - name: Enable eAPI access with default configuration
       expect:
-        command: "ssh {{ hostvars['eos-4.24.6_new'].ansible_host }}"
+        command: "ssh {{ hostvars['eos_goneri'].ansible_host }}"
         responses:
           '^.*>$': enable
           '^.*[^\)]#$':

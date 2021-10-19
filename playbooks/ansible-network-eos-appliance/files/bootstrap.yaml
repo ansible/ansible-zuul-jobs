@@ -10,7 +10,7 @@
   tasks:
     - name: lookup SSH public key
       set_fact:
-        _ssh_key: "{{ lookup('file', '~/.ssh/id_ecdsa.pub') }}"
+        _ssh_key: "{{ lookup('file', '~/.ssh/id_rsa.pub') }}"
 
     - name: Setup new user
       become: true

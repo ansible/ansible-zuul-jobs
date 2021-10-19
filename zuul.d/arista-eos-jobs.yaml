@@ -53,7 +53,7 @@
     nodeset: eos-4.24.6-python38
     vars:
       test_ansible_skip_tags: httpapi
-      test_ansible_ssh_private_key_file: ~/.ssh/id_ecdsa
+      # test_ansible_ssh_private_key_file: ~/.ssh/id_ecdsa
       test_fips_mode: false
 
 - job:
@@ -81,7 +81,7 @@
     nodeset: eos-4.24.6-python38
     vars:
       test_ansible_python_interpreter: /usr/bin/python3.8
-      test_ansible_ssh_private_key_file: ~/.ssh/id_ecdsa
+      # test_ansible_ssh_private_key_file: ~/.ssh/id_ecdsa
       test_ansible_skip_tags: httpapi
       # Backport PR to be merged https://github.com/ansible/ansible/pull/75706 to enable fips for libssh job
       test_fips_mode: false
@@ -110,7 +110,7 @@
     nodeset: eos-4.24.6-python38
     vars:
       test_ansible_python_interpreter: /usr/bin/python3.8
-      test_ansible_ssh_private_key_file: ~/.ssh/id_ecdsa
+      # test_ansible_ssh_private_key_file: ~/.ssh/id_ecdsa
       test_ansible_skip_tags: httpapi
       # Backport of https://github.com/ansible/ansible/pull/73992 needed for 2.9 to enable fips
       test_fips_mode: false

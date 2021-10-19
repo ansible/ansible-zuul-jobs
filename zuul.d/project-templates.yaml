@@ -54,10 +54,6 @@
     check:
       queue: integrated-aws
       jobs: &ansible-collections-amazon-aws-jobs
-        - ansible-test-sanity-aws-ansible-python38
-        - ansible-test-sanity-aws-ansible-2.9-python38
-        - ansible-test-sanity-aws-ansible-2.11-python38
-        - ansible-test-units-amazon-aws-python38
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-collections/ansible.utils
@@ -103,10 +99,6 @@
       jobs: &ansible-collections-community-aws-jobs
         - ansible-test-sanity-docker-devel
         - ansible-test-sanity-docker-milestone
-        - ansible-test-sanity-docker-stable-2.9
-        - ansible-test-sanity-docker-stable-2.10
-        - ansible-test-sanity-docker-stable-2.11
-        - ansible-test-sanity-docker-stable-2.12
         - ansible-test-units-community-aws-python38
         - build-ansible-collection:
             required-projects:
@@ -770,10 +762,6 @@
         - build-ansible-collection
         - ansible-test-sanity-docker-devel
         - ansible-test-sanity-docker-milestone
-        - ansible-test-sanity-docker-stable-2.9
-        - ansible-test-sanity-docker-stable-2.10
-        - ansible-test-sanity-docker-stable-2.11
-        - ansible-test-sanity-docker-stable-2.12
         - ansible-test-units-kubernetes-core-python38
         - ansible-test-molecule-kubernetes-core-devel
         - ansible-test-molecule-kubernetes-core-milestone

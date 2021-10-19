@@ -263,7 +263,7 @@
       - name: ubuntu-bionic
         label: ubuntu-bionic-1vcpu
       - name: eos-4.24.6
-        label: eos-4.24.6_new
+        label: eos_goneri
     groups:
       - name: appliance
         nodes:

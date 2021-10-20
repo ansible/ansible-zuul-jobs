@@ -1141,7 +1141,7 @@
               - stable-2.9
     third-party-check-silent:
       jobs:
-        - ansible-test-network-integration-eos-python28:
+        - ansible-test-network-integration-eos-python38:
             branches:
               - stable-2.9
             files:

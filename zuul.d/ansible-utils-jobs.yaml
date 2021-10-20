@@ -37,6 +37,7 @@
     vars:
       collection_name: utils
       collection_namespace: ansible
+      ansible_connection: local
 
 # =============================================================================
 - job:
@@ -50,6 +51,7 @@
     vars:
       collection_name: utils
       collection_namespace: ansible
+      ansible_connection: local
 
 # =============================================================================
 - job:
@@ -63,6 +65,7 @@
     vars:
       collection_name: utils
       collection_namespace: ansible
+      ansible_connection: local
 
 # =============================================================================
 - job:

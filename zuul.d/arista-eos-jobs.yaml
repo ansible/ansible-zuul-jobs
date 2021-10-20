@@ -9,7 +9,7 @@
       - playbooks/network-ee-integration-tests/pre.yaml
     run: playbooks/ansible-network-eos-appliance/run.yaml
     host-vars:
-      eos_goneri:
+      eos-4.24.6:
         ansible_network_os: eos
     required-projects:
       - name: github.com/ansible/ansible-zuul-jobs

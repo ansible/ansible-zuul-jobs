@@ -51,7 +51,7 @@
     vars:
       collection_name: utils
       collection_namespace: ansible
-      ansible_connection: local
+      connection: local
 
 # =============================================================================
 - job:
@@ -65,7 +65,7 @@
     vars:
       collection_name: utils
       collection_namespace: ansible
-      ansible_connection: local
+      connection: local
 
 # =============================================================================
 - job:
@@ -80,3 +80,4 @@
       test_ansible_python_interpreter: /usr/bin/python3
       collection_name: utils
       collection_namespace: ansible
+      connection: local

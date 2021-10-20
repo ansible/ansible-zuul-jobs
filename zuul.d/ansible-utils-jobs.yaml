@@ -37,7 +37,7 @@
     vars:
       collection_name: utils
       collection_namespace: ansible
-      ansible_connection: local
+      connection: local
 
 # =============================================================================
 - job:

@@ -162,6 +162,7 @@
         - ansible-test-sanity-docker-stable-2.11
         - ansible-test-sanity-docker-stable-2.12
         - ansible-test-units-eos-python27
+        - ansible-test-units-eos-python38
         - ansible-test-units-eos-python36
         - ansible-test-units-eos-python37
     gate:
@@ -175,12 +176,15 @@
         - network-ee-integration-tests-arista-eos-httpapi
         - network-ee-integration-tests-arista-eos-httpapi-stable-2.9
         - network-ee-integration-tests-arista-eos-httpapi-stable-2.11
+        - network-ee-integration-tests-arista-eos-httpapi-stable-2.12
         - network-ee-integration-tests-arista-eos
         - network-ee-integration-tests-arista-eos-stable-2.9
         - network-ee-integration-tests-arista-eos-stable-2.11
+        - network-ee-integration-tests-arista-eos-stable-2.12
         - network-ee-integration-tests-arista-eos-libssh
         - network-ee-integration-tests-arista-eos-libssh-stable-2.9
         - network-ee-integration-tests-arista-eos-libssh-stable-2.11
+        - network-ee-integration-tests-arista-eos-libssh-stable-2.12
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-collections/ansible.netcommon
@@ -189,6 +193,16 @@
       queue: integrated
       fail-fast: true
       jobs: *ansible-collections-arista-eos-jobs
+    periodic:
+      jobs:
+        - ansible-test-sanity-docker-devel
+        - ansible-test-sanity-docker-milestone
+        - ansible-test-sanity-docker-stable-2.9
+        - ansible-test-sanity-docker-stable-2.10
+        - ansible-test-sanity-docker-stable-2.11
+        - ansible-test-sanity-docker-stable-2.12
+        - ansible-test-units-eos-python38
+        - build-ansible-collection
 
 - project-template:
     name: ansible-collections-ansible-utils

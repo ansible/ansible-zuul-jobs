@@ -26,6 +26,14 @@
       ansible_collections_repo: github.com/ansible-collections/arista.eos
 
 - job:
+    name: ansible-test-units-eos-python38
+    parent: ansible-test-units-base-python38
+    required-projects:
+      - name: github.com/ansible-collections/arista.eos
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/arista.eos
+
+- job:
     name: ansible-test-units-eos-python36
     parent: ansible-test-units-base-python36
     required-projects:
@@ -69,6 +77,34 @@
     vars:
       test_ansible_network_cli_ssh_type: libssh
       test_fips_mode: true
+
+# =============================================================================
+- job:
+    name: network-ee-integration-tests-arista-eos-stable-2.12
+    parent: ansible-network-eos-appliance
+
+- job:
+    name: network-ee-integration-tests-arista-eos-stable-2.12
+    parent: network-ee-integration-tests-stable-2.12
+    nodeset: eos-4.24.6-python38
+    vars:
+      test_ansible_python_interpreter: /usr/bin/python3.8
+      test_ansible_ssh_private_key_file: ~/.ssh/id_ecdsa
+      test_ansible_skip_tags: httpapi
+      # Backport PR to be merged https://github.com/ansible/ansible/pull/75706 to enable fips for libssh job
+      test_fips_mode: false
+
+- job:
+    name: network-ee-integration-tests-arista-eos-httpapi-stable-2.12
+    parent: network-ee-integration-tests-arista-eos-stable-2.12
+    vars:
+      test_ansible_skip_tags: network_cli
+
+- job:
+    name: network-ee-integration-tests-arista-eos-libssh-stable-2.12
+    parent: network-ee-integration-tests-arista-eos-stable-2.12
+    vars:
+      test_ansible_network_cli_ssh_type: libssh
 
 # =============================================================================
 - job:

@@ -163,4 +163,3 @@
     parent: network-ee-integration-tests-arista-eos-stable-2.9
     vars:
       test_ansible_network_cli_ssh_type: libssh
-      test_fips_mode: true

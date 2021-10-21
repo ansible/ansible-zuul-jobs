@@ -297,6 +297,7 @@
     # post-run: playbooks/ansible-test-base/post.yaml
     required-projects:
       - name: github.com/ansible/ansible
+        override-checkout: milestone
     timeout: 3600
     vars:
       ansible_test_collections: true

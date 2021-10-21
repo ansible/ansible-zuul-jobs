@@ -421,71 +421,12 @@
         nodes:
           - centos-8-stream
 
-- nodeset:
-    name: vqfx-18.1R3-python27
-    nodes:
-      - name: ubuntu-bionic
-        label: ubuntu-bionic-1vcpu
-      - name: vqfx-18.1R3
-        label: vqfx-18.1R3
-    groups:
-      - name: appliance
-        nodes:
-          - vqfx-18.1R3
-      - name: controller
-        nodes:
-          - ubuntu-bionic
-
-- nodeset:
-    name: vqfx-18.1R3-python35
-    nodes:
-      - name: ubuntu-xenial
-        label: ubuntu-xenial-1vcpu
-      - name: vqfx-18.1R3
-        label: vqfx-18.1R3
-    groups:
-      - name: appliance
-        nodes:
-          - vqfx-18.1R3
-      - name: controller
-        nodes:
-          - ubuntu-xenial
-
-- nodeset:
-    name: vqfx-18.1R3-python36
-    nodes:
-      - name: centos-8
-        label: centos-8-stream
-      - name: vqfx-18.1R3
-        label: vqfx-18.1R3
-    groups:
-      - name: appliance
-        nodes:
-          - vqfx-18.1R3
-      - name: controller
-        nodes:
-          - centos-8
-
-- nodeset:
-    name: vqfx-18.1R3-python37
-    nodes:
-      - name: fedora-32
-        label: fedora-32-1vcpu
-      - name: vqfx-18.1R3
-        label: vqfx-18.1R3
-    groups:
-      - name: appliance
-        nodes:
-          - vqfx-18.1R3
-      - name: controller
-        nodes:
-          - fedora-32
 
 - nodeset:
     name: vqfx-18.1R3-python38
     nodes:
-      - name: ubuntu-bionic
-        label: ubuntu-bionic-1vcpu
+      - name: centos-8-stream
+        label: centos-8-stream
       - name: vqfx-18.1R3
         label: vqfx-18.1R3
     groups:
@@ -494,42 +435,12 @@
           - vqfx-18.1R3
       - name: controller
         nodes:
-          - ubuntu-bionic
+          - centos-8-stream
 
 - nodeset:
-    name: vsrx3-18.4R1-python27
+    name: vsrx3-18.4R1-python38
     nodes:
-      - name: ubuntu-bionic
-        label: ubuntu-bionic-1vcpu
-      - name: vsrx3-18.4R1
-        label: vsrx3-18.4R1
-    groups:
-      - name: appliance
-        nodes:
-          - vsrx3-18.4R1
-      - name: controller
-        nodes:
-          - ubuntu-bionic
-
-- nodeset:
-    name: vsrx3-18.4R1-python35
-    nodes:
-      - name: ubuntu-xenial
-        label: ubuntu-xenial-1vcpu
-      - name: vsrx3-18.4R1
-        label: vsrx3-18.4R1
-    groups:
-      - name: appliance
-        nodes:
-          - vsrx3-18.4R1
-      - name: controller
-        nodes:
-          - ubuntu-xenial
-
-- nodeset:
-    name: vsrx3-18.4R1-python36
-    nodes:
-      - name: centos-8
+      - name: centos-8-stream
         label: centos-8-stream
       - name: vsrx3-18.4R1
         label: vsrx3-18.4R1
@@ -539,37 +450,7 @@
           - vsrx3-18.4R1
       - name: controller
         nodes:
-          - centos-8
-
-- nodeset:
-    name: vsrx3-18.4R1-python37
-    nodes:
-      - name: fedora-32
-        label: fedora-32-1vcpu
-      - name: vsrx3-18.4R1
-        label: vsrx3-18.4R1
-    groups:
-      - name: appliance
-        nodes:
-          - vsrx3-18.4R1
-      - name: controller
-        nodes:
-          - fedora-32
-
-- nodeset:
-    name: vsrx3-18.4R1-python38
-    nodes:
-      - name: ubuntu-bionic
-        label: ubuntu-bionic-1vcpu
-      - name: vsrx3-18.4R1
-        label: vsrx3-18.4R1
-    groups:
-      - name: appliance
-        nodes:
-          - vsrx3-18.4R1
-      - name: controller
-        nodes:
-          - ubuntu-bionic
+          - centos-8-stream
 
 - nodeset:
     name: vyos-1.1.8-python38

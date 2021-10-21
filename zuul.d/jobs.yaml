@@ -169,8 +169,8 @@
       ansible_test_integration_targets: "netconf_.*"
 
 - job:
-    name: ansible-test-network-integration-ansible-netcommon-junos-vsrx-netconf-python38
-    parent: ansible-test-network-integration-junos-vsrx-python38
+    name: ansible-test-network-integration-ansible-netcommon-junos-vsrx-netconf-python36
+    parent: network-ee-integration-tests-junos
     vars:
       ansible_collections_repo: github.com/ansible-collections/ansible.netcommon
       ansible_test_integration_targets: "netconf_.*"
@@ -292,7 +292,7 @@
 
 - job:
     name: ansible-test-network-integration-community-yang-junos-vsrx-netconf-python36
-    parent: ansible-test-network-integration-junos-vsrx-python36
+    parent: network-ee-integration-tests-junos
     vars:
       ansible_collections_repo: github.com/ansible-collections/community.yang
       ansible_test_integration_targets: ""

@@ -4,7 +4,6 @@
     - name: Ensure tox
       include_role:
         name: ensure-tox
-
     - name: Setup tox role
       include_role:
         name: tox

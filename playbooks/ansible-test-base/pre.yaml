@@ -67,7 +67,7 @@
       # TODO(pabelanger): Remove ANSIBLE_SKIP_CONFLICT_CHECK in the future.
       environment:
         ANSIBLE_SKIP_CONFLICT_CHECK: 1
-      shell: "~/venv/bin/pip install {{ ansible_user_dir }}/{{ zuul.projects['github.com/ansible/ansible'].src_dir }} 'jinja2<3.0.0'"
+      shell: "~/venv/bin/pip install {{ ansible_user_dir }}/{{ zuul.projects['github.com/ansible/ansible'].src_dir }}"
 
     # NOTE(pabelanger): For integration jobs, install collections after our
     # appliance is configured. This stops pre-merged code from failing

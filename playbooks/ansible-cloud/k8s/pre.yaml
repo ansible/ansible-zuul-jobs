@@ -37,7 +37,7 @@
     - name: Install Ansible into virtualenv
       environment:
         ANSIBLE_SKIP_CONFLICT_CHECK: 1
-      shell: "{{ ansible_test_venv_path }}/bin/pip install {{ ansible_user_dir }}/{{ zuul.projects['github.com/ansible/ansible'].src_dir }} 'jinja2<3.0.0'"
+      shell: "{{ ansible_test_venv_path }}/bin/pip install {{ ansible_user_dir }}/{{ zuul.projects['github.com/ansible/ansible'].src_dir }}"
 
     - name: Fetch and install the artifacts
       import_role:

@@ -44,10 +44,12 @@
       jobs:
         - ansible-tox-py36
         - ansible-tox-py38
+        - ansible-tox-py39
     gate:
       jobs:
         - ansible-tox-py36
         - ansible-tox-py38
+        - ansible-tox-py39
 
 - project-template:
     name: ansible-collections-amazon-aws

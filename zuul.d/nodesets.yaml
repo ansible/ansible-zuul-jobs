@@ -440,7 +440,7 @@
 - nodeset:
     name: vsrx3-18.4R1-python38
     nodes:
-      - name: centos-8-stream
+      - name: centos-8
         label: centos-8-stream
       - name: vsrx3-18.4R1
         label: vsrx3-18.4R1
@@ -450,7 +450,7 @@
           - vsrx3-18.4R1
       - name: controller
         nodes:
-          - centos-8-stream
+          - centos-8
 
 - nodeset:
     name: vyos-1.1.8-python38

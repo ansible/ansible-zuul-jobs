@@ -659,9 +659,9 @@
         - ansible-test-sanity-docker-stable-2.11
         - ansible-test-sanity-docker-stable-2.12
         - ansible-test-units-junos-python27
+        - ansible-test-units-junos-python38
         - ansible-test-units-junos-python36
         - ansible-test-units-junos-python37
-        - ansible-test-units-junos-python38
     gate:
       queue: integrated
       jobs: *ansible-collections-juniper-junos-units-jobs
@@ -671,13 +671,7 @@
     check:
       jobs: &ansible-collections-juniper-junos-jobs
         - network-ee-integration-tests-junos
-        - network-ee-integration-tests-junos-stable-2.9
-        - network-ee-integration-tests-junos-stable-2.11
-        - network-ee-integration-tests-junos-stable-2.12
-        - network-ee-integration-tests-junos-libssh
-        - network-ee-integration-tests-junos-libssh-stable-2.9
-        - network-ee-integration-tests-junos-libssh-stable-2.11
-        - network-ee-integration-tests-junos-libssh-stable-2.12
+        - network-ee-integration-tests-junos-vsrx-netconf
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-collections/ansible.netcommon

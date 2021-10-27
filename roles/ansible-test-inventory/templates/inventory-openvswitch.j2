@@ -6,3 +6,5 @@ openvswitch-2.15.0 ansible_port=22 ansible_python_interpreter=python ansible_hos
 
 [openvswitch:vars]
 ansible_become=true
+# This has no effect, but satisfies the bootstrapping
+ansible_network_os=openvswitch

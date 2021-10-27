@@ -4,9 +4,10 @@
     - name: Install openvswitch package
       become: true
       package:
-        name: openvswitch-2.15.0-2.fc34
+        name: openvswitch
         state: present
 
-    - name: OVS-CTL start
-      command: "/usr/share/openvswitch/scripts/ovs-ctl start"
-      become: true
+    - name: Start openvswitch
+      systemd:
+        name: openvswitch
+        state: started

@@ -6,8 +6,7 @@
       package:
         name: openvswitch-2.15.0-2.fc34
         state: present
-    
+
     - name: OVS-CTL start
       command: "/usr/share/openvswitch/scripts/ovs-ctl start"
-      become: true 
-
+      become: true

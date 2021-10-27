@@ -13,7 +13,7 @@
         ansible_network_os: openvswitch
     required-projects:
       - name: github.com/ansible/ansible-zuul-jobs
-    nodeset: openvswitch-2.9.0-python38
+    nodeset: openvswitch-2.15.0-python38
 
 - job:
     name: ansible-test-units-openvswitch-python27
@@ -47,7 +47,7 @@
 - job:
     name: network-ee-integration-tests-openvswitch-openvswitch
     parent: network-ee-integration-tests
-    nodeset: openvswitch-2.9.0-python38
+    nodeset: openvswitch-2.15.0-python38
 
 # =============================================================================
 - job:
@@ -57,7 +57,7 @@
 - job:
     name: network-ee-integration-tests-openvswitch-openvswitch-stable-2.11
     parent: network-ee-integration-tests-stable-2.11
-    nodeset: openvswitch-2.9.0-python38
+    nodeset: openvswitch-2.15.0-python38
 
 # =============================================================================
 - job:
@@ -67,7 +67,7 @@
 - job:
     name: network-ee-integration-tests-openvswitch-openvswitch-stable-2.12
     parent: network-ee-integration-tests-stable-2.12
-    nodeset: openvswitch-2.9.0-python38
+    nodeset: openvswitch-2.15.0-python38
 
 # =============================================================================
 - job:
@@ -77,6 +77,6 @@
 - job:
     name: network-ee-integration-tests-openvswitch-openvswitch-stable-2.9
     parent: network-ee-integration-tests-stable-2.9
-    nodeset: openvswitch-2.9.0-python38
+    nodeset: openvswitch-2.15.0-python38
     vars:
       test_ansible_python_interpreter: /usr/bin/python3

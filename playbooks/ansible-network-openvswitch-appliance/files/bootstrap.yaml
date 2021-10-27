@@ -11,3 +11,4 @@
       systemd:
         name: openvswitch
         state: started
+      become: true

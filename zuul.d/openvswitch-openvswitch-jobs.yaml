@@ -9,7 +9,8 @@
       - playbooks/network-ee-integration-tests/pre.yaml
     run: playbooks/ansible-network-openvswitch-appliance/run.yaml
     host-vars:
-      openvswitch-2.9.0:
+      openvswitch-2.15.0:
+        # This actually has no effect, but helps while bootstrapping
         ansible_network_os: openvswitch
     required-projects:
       - name: github.com/ansible/ansible-zuul-jobs

@@ -49,6 +49,8 @@
     name: network-ee-integration-tests-openvswitch-openvswitch
     parent: network-ee-integration-tests
     nodeset: openvswitch-2.15.0-python38
+    vars:
+      test_fips_mode: false
 
 # =============================================================================
 - job:
@@ -59,6 +61,8 @@
     name: network-ee-integration-tests-openvswitch-openvswitch-stable-2.11
     parent: network-ee-integration-tests-stable-2.11
     nodeset: openvswitch-2.15.0-python38
+    vars:
+      test_fips_mode: false
 
 # =============================================================================
 - job:
@@ -69,6 +73,8 @@
     name: network-ee-integration-tests-openvswitch-openvswitch-stable-2.12
     parent: network-ee-integration-tests-stable-2.12
     nodeset: openvswitch-2.15.0-python38
+    vars:
+      test_fips_mode: false
 
 # =============================================================================
 - job:
@@ -81,3 +87,4 @@
     nodeset: openvswitch-2.15.0-python38
     vars:
       test_ansible_python_interpreter: /usr/bin/python3
+      test_fips_mode: false

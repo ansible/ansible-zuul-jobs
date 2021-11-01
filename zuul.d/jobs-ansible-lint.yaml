@@ -73,3 +73,21 @@
     parent: ansible-tox-py38
     vars:
       tox_envlist: py38-ansibledevel
+
+- job:
+    name: ansible-lint-tox-py39-ansible28
+    parent: ansible-tox-py39
+    vars:
+      tox_envlist: py39-ansible28
+
+- job:
+    name: ansible-lint-tox-py39-ansible29
+    parent: ansible-tox-py39
+    vars:
+      tox_envlist: py39-ansible29
+
+- job:
+    name: ansible-lint-tox-py39-ansibledevel
+    parent: ansible-tox-py39
+    vars:
+      tox_envlist: py39-ansibledevel

@@ -80,6 +80,13 @@
     nodeset: centos-8-stream
 
 - job:
+    name: ansible-tox-py39
+    parent: tox-py39
+    pre-run: playbooks/ansible-tox-py39/pre.yaml
+    timeout: 3600
+    nodeset: centos-8-stream
+
+- job:
     name: ansible-build-python-tarball
     description: |
       Test building python tarballs / wheels and the packaging metadata
@@ -335,6 +342,11 @@
     <<: *ansible-tox-molecule-base
     name: molecule-tox-py38
     parent: ansible-tox-py38
+
+- job:
+    <<: *ansible-tox-molecule-base
+    name: molecule-tox-py39
+    parent: ansible-tox-py39
 
 - job:
     name: ansible-ee-tests-base

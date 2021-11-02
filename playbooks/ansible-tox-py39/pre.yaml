@@ -1,8 +1,21 @@
 ---
 - hosts: all
+  vars:
+    python3_devel_pkg: python39-devel
   tasks:
-    - name: Ensure python3.9 is present
+
+    - name: Set python package name for Fedora 34
+      set_fact:
+        python3_devel_pkg: python3-devel
+      when: ansible_distribution == 'Fedora' and ansible_distribution_major_version == '34'
+
+    - name: Set python package name for Fedora 35
+      set_fact:
+        python3_devel_pkg: python3.9
+      when: ansible_distribution == 'Fedora' and ansible_distribution_major_version == '35'
+
+    - name: Ensure python3.9 devel is present
       become: true
       package:
-        name: python39-devel
+        name: "{{ python3_devel_pkg }}"
         state: present

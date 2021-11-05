@@ -87,6 +87,11 @@
     nodeset: centos-8-stream
 
 - job:
+    name: ansible-tox-py39-fedora
+    parent: ansible-tox-py39
+    nodeset: fedora-latest-1vcpu
+
+- job:
     name: ansible-build-python-tarball
     description: |
       Test building python tarballs / wheels and the packaging metadata

@@ -1,8 +1,24 @@
 ---
 - hosts: all
   tasks:
-    - name: Ensure python3.9 is present
+
+    - name: Include distribution specific variables
+      include_vars: "{{ lookup('first_found', params) }}"
+      vars:
+        params:
+          files:
+            - "{{ ansible_facts.distribution }}-{{ ansible_facts.distribution_version }}.yml"
+            - "{{ ansible_facts.os_family }}-{{ ansible_facts.distribution_major_version }}.yml"
+            - "{{ ansible_facts.distribution }}.yml"
+            - "{{ ansible_facts.os_family }}.yml"
+            - default.yml
+          paths:
+            - vars
+      tags:
+        - always
+
+    - name: Ensure python3.9 devel is present
       become: true
       package:
-        name: python39-devel
+        name: "{{ python3_devel_pkg }}"
         state: present

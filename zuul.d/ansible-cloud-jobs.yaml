@@ -14,7 +14,7 @@
         ansible_network_os: vmware_rest
       esxi1:
         ansible_network_os: vmware_rest
-    nodeset: vmware-vcsa-7.0.2-python36
+    nodeset: vmware-vcsa-7.0.3-python36
 
 # govcsim
 
@@ -88,11 +88,11 @@
       ansible_test_retry_on_error: true
       ansible_test_collections: true
 
-# vcenter 7.0.2
+# vcenter 7.0.3
 - job:
     name: ansible-test-cloud-integration-vcenter7_only-python36
     parent: ansible-test-cloud-integration-vcenter
-    nodeset: vmware-vcsa-7.0.2-python36
+    nodeset: vmware-vcsa-7.0.3-python36
     vars:
       ansible_test_python: 3.6
       ansible_test_integration_targets: zuul/vmware/vcenter_only/
@@ -100,7 +100,7 @@
 - job:
     name: ansible-test-cloud-integration-vcenter7_1esxi-python36
     parent: ansible-test-cloud-integration-vcenter
-    nodeset: vmware-vcsa_1esxi-7.0.2-python36
+    nodeset: vmware-vcsa_1esxi-7.0.3-python36
     vars:
       ansible_test_python: 3.6
       ansible_test_integration_targets: zuul/vmware/vcenter_1esxi/
@@ -111,7 +111,7 @@
 - job:
     name: ansible-test-cloud-integration-vcenter7_2esxi-python36
     parent: ansible-test-cloud-integration-vcenter
-    nodeset: vmware-vcsa_2esxi-7.0.2-python36
+    nodeset: vmware-vcsa_2esxi-7.0.3-python36
     vars:
       ansible_test_python: 3.6
       ansible_test_integration_targets: zuul/vmware/vcenter_2esxi/
@@ -187,7 +187,7 @@
         ansible_network_os: vmware_rest
       esxi1:
         ansible_network_os: vmware_rest
-    nodeset: vmware-vcsa_1esxi-7.0.2-python36
+    nodeset: vmware-vcsa_1esxi-7.0.3-python36
 
 # NOTE(pabelanger): Due to low memory capacity in vexxhost, it is
 # possible to wedge the provider.  For now, only run 1 job at a time.

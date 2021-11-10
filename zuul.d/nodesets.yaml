@@ -63,12 +63,12 @@
 - nodeset:
     name: vmware-govcsim-python38
     nodes:
-      - name: fedora-34
-        label: fedora-34-1vcpu
+      - name: fedora-35
+        label: fedora-35-1vcpu
     groups:
       - name: controller
         nodes:
-          - fedora-34
+          - fedora-35
 
 # vcenter 7.0.2
 - nodeset:

@@ -14,7 +14,7 @@
             state: latest
 
     - set_fact:
-        gh_token_path: "{{ ansible_user_dir }}/{{ zuul.projects['github.com/ansible/project-config'].src_dir }}"
+        gh_token_path: "{{ ansible_user_dir }}/{{ zuul.projects['github.com/ansible/project-config'].src_dir }}/github_token_file.txt"
 
     - name: Copy github token into file
       copy:

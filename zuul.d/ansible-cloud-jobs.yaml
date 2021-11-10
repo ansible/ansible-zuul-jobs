@@ -413,9 +413,9 @@
     required-projects:
       - name: github.com/ansible/project-config
     vars:
-      ansible_github_token:
-        value: "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"
       zuul_work_dir: "{{ zuul.projects['github.com/ansible/project-config'].src_dir }}"
+    secrets:
+      - ansible_github_token
 
 ### Kubernetes Core
 - job:

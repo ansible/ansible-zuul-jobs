@@ -1,1 +1,0 @@
-validation new jobs for project-config

@@ -405,6 +405,18 @@
     vars:
       ansible_collections_repo: "{{ zuul.project.canonical_name }}"
 
+- job:
+    name: project-config-tox-linters
+    parent: ansible-tox-linters
+    pre-run:
+      - playbooks/configure-tox-with-gh/pre.yaml
+    required-projects:
+      - name: github.com/ansible/project-config
+    vars:
+      ansible_github_token:
+        value: "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"
+      zuul_work_dir: "{{ zuul.projects['github.com/ansible/project-config'].src_dir }}"
+
 ### Kubernetes Core
 - job:
     name: ansible-test-units-kubernetes-core-python38

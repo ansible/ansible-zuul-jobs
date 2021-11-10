@@ -522,6 +522,7 @@
               - name: github.com/ansible-collections/community.vmware
               - name: github.com/ansible-collections/vmware.vmware_rest
         - ansible-test-molecule-kubernetes-core-with-turbo
+        - project-config-tox-linters
     gate:
       jobs: *ansible-collections-cloud-common-jobs
     periodic:

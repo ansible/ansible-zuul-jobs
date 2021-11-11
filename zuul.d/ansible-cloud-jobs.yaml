@@ -472,3 +472,10 @@
     vars:
       ansible_test_environment:
         ENABLE_TURBO_MODE: true
+
+- job:
+    name: ansible-test-redhat-openshift-sanity
+    run: playbooks/ansible-cloud/k8s/downstream_sanity.yaml
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/community.okd
+      dest: ~/.ansible/collections/ansible_collections/redhat/openshift

@@ -522,7 +522,11 @@
               - name: github.com/ansible-collections/community.vmware
               - name: github.com/ansible-collections/vmware.vmware_rest
         - ansible-test-molecule-kubernetes-core-with-turbo
-        - project-config-tox-linters
+        - project-config-tox-linters:
+            required-projects:
+              - name: github.com/ansible/project-config
+            vars:
+              zuul_work_dir: "{{ zuul.projects['github.com/ansible/project-config'].src_dir }}"
     gate:
       jobs: *ansible-collections-cloud-common-jobs
     periodic:

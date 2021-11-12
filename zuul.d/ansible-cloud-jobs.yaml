@@ -406,7 +406,7 @@
       ansible_collections_repo: "{{ zuul.project.canonical_name }}"
 
 - job:
-    name: project-config-tox-linters-test
+    name: cloud-common-project-config-tox-linters-test
     parent: project-config-tox-linters-test
     required-projects:
       - name: github.com/ansible/project-config

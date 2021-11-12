@@ -405,12 +405,6 @@
     vars:
       ansible_collections_repo: "{{ zuul.project.canonical_name }}"
 
-- job:
-    name: cloud-common-project-config-tox-linters-test
-    parent: project-config-tox-linters-test
-    required-projects:
-      - name: github.com/ansible/project-config
-
 ### Kubernetes Core
 - job:
     name: ansible-test-units-kubernetes-core-python38

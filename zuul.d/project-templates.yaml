@@ -541,7 +541,9 @@
         - ansible-test-cloud-integration-govcsim-python38_3_of_3:
             voting: false
         - ansible-tox-linters
-        - build-ansible-collection
+        - build-ansible-collection:
+            required-projects:
+              - name: github.com/ansible-collections/vmware.vmware_rest
         - ansible-test-sanity-docker-devel
         - ansible-test-sanity-docker-milestone
         - ansible-test-sanity-docker-stable-2.9
@@ -565,7 +567,9 @@
         - ansible-test-cloud-integration-govcsim-python38_3_of_3:
             voting: false
         - ansible-tox-linters
-        - build-ansible-collection
+        - build-ansible-collection:
+            required-projects:
+              - name: github.com/ansible-collections/vmware.vmware_rest
         - ansible-test-sanity-docker-devel
         - ansible-test-sanity-docker-milestone
         - ansible-test-sanity-docker-stable-2.9

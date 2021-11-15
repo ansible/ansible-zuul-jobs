@@ -27,6 +27,7 @@
       - playbooks/ansible-cloud/py38/pre.yaml
       - playbooks/ansible-test-base/pre.yaml
       - playbooks/ansible-cloud/govcsim-base/pre.yaml
+      - playbooks/ansible-cloud/vcenter-integration-controller/pre.yaml
     run: playbooks/ansible-test-base/run.yaml
     post-run: playbooks/ansible-test-base/post.yaml
     required-projects:
@@ -73,6 +74,7 @@
     pre-run:
       - playbooks/ansible-cloud/py36/pre.yaml
       - playbooks/ansible-test-base/pre.yaml
+      - playbooks/ansible-cloud/vcenter-integration-controller/pre.yaml
     run: playbooks/ansible-test-base/run.yaml
     post-run: playbooks/ansible-test-base/post.yaml
     required-projects:

@@ -1,0 +1,10 @@
+---
+- hosts: controller
+  tasks:
+    # for community.vmware.vmware_content_library_manager
+    # See: https://github.com/ansible-collections/community.vmware/pull/1132
+    - name: Install the openssl package
+      package:
+        name: openssl
+        state: present
+      become: true

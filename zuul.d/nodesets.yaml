@@ -74,8 +74,8 @@
 - nodeset:
     name: vmware-vcsa-7.0.2-python36
     nodes:
-      - name: fedora-34
-        label: fedora-34-1vcpu
+      - name: fedora-35
+        label: fedora-35-1vcpu
       - name: vcenter
         label: vmware-vcsa-7.0.2
     groups:
@@ -84,13 +84,13 @@
           - vcenter
       - name: controller
         nodes:
-          - fedora-34
+          - fedora-35
 
 - nodeset:
     name: vmware-vcsa_1esxi-7.0.2-python36
     nodes:
-      - name: fedora-34
-        label: fedora-34-1vcpu
+      - name: fedora-35
+        label: fedora-35-1vcpu
       - name: vcenter
         label: vmware-vcsa-7.0.2
       - name: esxi1
@@ -107,13 +107,13 @@
           - esxi1
       - name: controller
         nodes:
-          - fedora-34
+          - fedora-35
 
 - nodeset:
     name: vmware-vcsa_2esxi-7.0.2-python36
     nodes:
-      - name: fedora-34
-        label: fedora-34-1vcpu
+      - name: fedora-35
+        label: fedora-35-1vcpu
       - name: vcenter
         label: vmware-vcsa-7.0.2
       - name: esxi1
@@ -134,7 +134,7 @@
           - esxi2
       - name: controller
         nodes:
-          - fedora-34
+          - fedora-35
 
 # Ansible network appliance nodesets
 - nodeset:

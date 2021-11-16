@@ -96,14 +96,6 @@
             state: directory
           become: true
 
-        - name: Move the cached files
-          shell: |
-             test -f /opt/cache/files/fedora-open-vm-tools-livecd.iso && cp -l /opt/cache/files/fedora-open-vm-tools-livecd.iso /srv/share/isos/centos.iso
-             test -f /opt/cache/files/fedora-open-vm-tools-livecd.iso && cp -l /opt/cache/files/fedora-open-vm-tools-livecd.iso /srv/share/isos/fedora.iso
-          args:
-            creates: /srv/share/isos/fedora.iso
-          become: true
-
         - name: Adjust the ownership
           file:
             path: /srv/share/isos

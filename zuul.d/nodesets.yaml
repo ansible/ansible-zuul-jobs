@@ -726,8 +726,8 @@
 - nodeset:
     name: QRadarCE-7.3.1-python38
     nodes:
-      - name: ubuntu-bionic
-        label: ubuntu-bionic-1vcpu
+      - name: fedora-35
+        label: fedora-35-1vcpu
       - name: QRadarCE-7.3.1
         label: QRadarCE-7.3.1
     groups:
@@ -736,17 +736,17 @@
           - QRadarCE-7.3.1
       - name: controller
         nodes:
-          - ubuntu-bionic
+          - fedora-35
       - name: aws
         nodes:
           - QRadarCE-7.3.1
-          - ubuntu-bionic
+          - fedora-35
 
 - nodeset:
     name: SplunkEnterprise-SES-8.0.0-python38
     nodes:
-      - name: ubuntu-bionic
-        label: ubuntu-bionic-1vcpu
+      - name: fedora-35
+        label: fedora-35-1vcpu
       - name: SplunkEnterprise-SES-8.0.0
         label: SplunkEnterprise-SES-8.0.0
     groups:
@@ -755,17 +755,17 @@
           - SplunkEnterprise-SES-8.0.0
       - name: controller
         nodes:
-          - ubuntu-bionic
+          - fedora-35
       - name: aws
         nodes:
           - SplunkEnterprise-SES-8.0.0
-          - ubuntu-bionic
+          - fedora-35
 
 - nodeset:
     name: Trendmicro-DeepSecurity-20.0.344-python38
     nodes:
-      - name: ubuntu-bionic
-        label: ubuntu-bionic-1vcpu
+      - name: fedora-35
+        label: fedora-35-1vcpu
       - name: Trendmicro-DeepSecurity-20.0.344
         label: Trendmicro-DeepSecurity-20.0.344
     groups:
@@ -774,8 +774,8 @@
           - Trendmicro-DeepSecurity-20.0.344
       - name: controller
         nodes:
-          - ubuntu-bionic
+          - fedora-35
       - name: aws
         nodes:
           - Trendmicro-DeepSecurity-20.0.344
-          - ubuntu-bionic
+          - fedora-35

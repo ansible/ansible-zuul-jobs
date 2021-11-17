@@ -782,8 +782,8 @@
 - nodeset:
     name: Trendmicro-DeepSecurity-20.0.344-python27
     nodes:
-      - name: ubuntu-bionic
-        label: ubuntu-bionic-1vcpu
+      - name: fedora-35
+        label: fedora-35-1vcpu
       - name: Trendmicro-DeepSecurity-20.0.344
         label: Trendmicro-DeepSecurity-20.0.344
     groups:
@@ -792,13 +792,13 @@
           - Trendmicro-DeepSecurity-20.0.344
       - name: controller
         nodes:
-          - ubuntu-bionic
+          - fedora-35
 
 - nodeset:
     name: Trendmicro-DeepSecurity-20.0.344-python35
     nodes:
-      - name: ubuntu-xenial
-        label: ubuntu-xenial-1vcpu
+      - name: fedora-35
+        label: fedora-35-1vcpu
       - name: Trendmicro-DeepSecurity-20.0.344
         label: Trendmicro-DeepSecurity-20.0.344
     groups:
@@ -807,13 +807,13 @@
           - Trendmicro-DeepSecurity-20.0.344
       - name: controller
         nodes:
-          - ubuntu-xenial
+          - fedora-35
 
 - nodeset:
     name: Trendmicro-DeepSecurity-20.0.344-python36
     nodes:
-      - name: centos-8
-        label: centos-8-stream
+      - name: fedora-35
+        label: fedora-35-1vcpu
       - name: Trendmicro-DeepSecurity-20.0.344
         label: Trendmicro-DeepSecurity-20.0.344
     groups:
@@ -822,4 +822,4 @@
           - Trendmicro-DeepSecurity-20.0.344
       - name: controller
         nodes:
-          - centos-8
+          - fedora-35

@@ -23,6 +23,12 @@
         - ansible_os_family == "Debian"
         - ansible_test_python is version('3.8', '==')
 
+    - name: Run ensure-python role (Fedora only for now)
+      include_role:
+        name: ensure-python
+      vars:
+        ensure_python__version: "{{ ansible_test_python }}"
+
     # NOTE(pabelanger): fedora-32 jobs, currently python3.7 only have
     # selinux bindings for python3.8. For now, disable selinux.
     - name: Disable selinux for python3.7 jobs

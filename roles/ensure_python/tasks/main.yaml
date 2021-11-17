@@ -1,0 +1,7 @@
+---
+- name: Install the right Python version (rpm)
+  become: true
+  package:
+    name: "python{{ ensure_python__version }}"
+    state: present
+  when: ansible_distribution == 'Fedora'

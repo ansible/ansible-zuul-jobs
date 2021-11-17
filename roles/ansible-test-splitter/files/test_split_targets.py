@@ -7,12 +7,14 @@ from unittest.mock import Mock, MagicMock, patch
 from split_targets import (
     get_job_list,
     to_skip_because_disabled,
+    to_skip_because_unstable,
     is_slow,
     get_all_targets,
     get_args,
     to_skip_because_of_targets_parameters,
     build_up_batches,
     build_result_struct,
+    get_targets_to_run,
 )
 
 
@@ -49,7 +51,9 @@ def test_get_job_list():
 
 def test_to_skip():
     assert to_skip_because_disabled(["slow", "# disabled", "no_unstable"]) is False
-    assert to_skip_because_disabled(["# really unstable", "unstable"]) is True
+    assert to_skip_because_disabled(["# really unstable", "unstable"]) is False
+    assert to_skip_because_unstable(["slow", "# disabled", "no_unstable"]) is False
+    assert to_skip_because_unstable(["# really unstable", "unstable"]) is True
 
 
 def test_is_slow():
@@ -149,3 +153,17 @@ def test_build_up_batches(slow_targets, regular_targets, total_jobs, expected):
 )
 def test_build_result_struct(jobs, batches, expected):
     assert build_result_struct(jobs, batches) == expected
+
+
+@pytest.mark.parametrize(
+    "target,targets_from_cli,expected",
+    [
+        ({"test1": ["cloud/aws"]}, [], ([], ["test1"])),
+        ({"test1": ["cloud/aws", "slow"]}, [], (["test1"], [])),
+        ({"test1": ["cloud/aws"]}, ["test1"], ([], ["test1"])),
+        ({"test1": ["cloud/aws", "unstable"]}, ["test1"], ([], ["test1"])),
+        ({"test1": ["cloud/aws", "slow"]}, ["test1"], (["test1"], [])),
+    ],
+)
+def test_get_targets_to_run(target, targets_from_cli, expected):
+    assert get_targets_to_run(target, targets_from_cli) == expected

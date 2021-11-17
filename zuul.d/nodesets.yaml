@@ -780,7 +780,7 @@
           - Trendmicro-DeepSecurity-20.0.344
           - ubuntu-bionic
 - nodeset:
-    name: Trendmicro-DeepSecurity-20.0.344-python35
+    name: Trendmicro-DeepSecurity-20.0.344-python27
     nodes:
       - name: ubuntu-bionic
         label: ubuntu-bionic-1vcpu
@@ -795,7 +795,7 @@
           - ubuntu-bionic
 
 - nodeset:
-    name: Trendmicro-DeepSecurity-20.0.344-python36
+    name: Trendmicro-DeepSecurity-20.0.344-python35
     nodes:
       - name: ubuntu-xenial
         label: ubuntu-xenial-1vcpu

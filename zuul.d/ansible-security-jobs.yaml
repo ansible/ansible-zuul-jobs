@@ -106,7 +106,7 @@
         ansible_network_os: trendmicro.deepsec.deepsec
     required-projects:
       - name: github.com/ansible/ansible-zuul-jobs
-    nodeset: Trendmicro-DeepSecurity-20.0.344-python36
+    nodeset: Trendmicro-DeepSecurity-20.0.344-python38
 
 - job:
     name: ansible-security-integration-trendmicro-deepsec

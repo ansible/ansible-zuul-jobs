@@ -158,6 +158,7 @@
 - job:
     name: ansible-security-integration-trendmicro-deepsec-python38
     parent: ansible-security-integration-trendmicro-deepsec
+    nodeset: Trendmicro-DeepSecurity-20.0.344-python38
     vars:
       ansible_test_python: 3.8
 

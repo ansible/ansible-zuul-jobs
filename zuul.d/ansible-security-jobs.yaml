@@ -134,6 +134,9 @@
 - job:
     name: ansible-security-integration-trendmicro-deepsec-python27
     parent: ansible-security-integration-trendmicro-deepsec
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.11
     vars:
       ansible_test_python: 2.7
 

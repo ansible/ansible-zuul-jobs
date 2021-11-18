@@ -132,6 +132,41 @@
       ansible_test_collections: true
 
 - job:
+    name: ansible-security-trendmicro-deepsec-appliance-py35
+    parent: ansible-network-appliance-base
+    pre-run: playbooks/ansible-security-trendmicro-deepsec-appliance/pre.yaml
+    run: playbooks/ansible-security-trendmicro-deepsec-appliance/run.yaml
+    host-vars:
+      Trendmicro-DeepSecurity-20.0.344:
+        ansible_network_os: trendmicro.deepsec.deepsec
+    required-projects:
+      - name: github.com/ansible/ansible-zuul-jobs
+    nodeset: Trendmicro-DeepSecurity-20.0.344-python35
+
+- job:
+    name: ansible-security-integration-trendmicro-deepsec-py35
+    abstract: true
+    dependencies:
+      - name: build-ansible-collection
+        soft: true
+    parent: ansible-security-trendmicro-deepsec-appliance-py35
+    pre-run:
+      - playbooks/ansible-test-base/pre.yaml
+      - playbooks/ansible-test-network-integration-base/pre.yaml
+    run: playbooks/ansible-test-base/run.yaml
+    post-run:
+      - playbooks/ansible-test-network-integration-base/post.yaml
+      - playbooks/ansible-test-base/post.yaml
+    required-projects:
+      - name: github.com/ansible/ansible
+      - name: github.com/ansible-collections/trendmicro.deepsec
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/trendmicro.deepsec
+      ansible_test_command: network-integration
+      ansible_test_integration_targets: "deepsec_.*"
+      ansible_test_collections: true
+
+- job:
     name: ansible-security-integration-trendmicro-deepsec-python27
     parent: ansible-security-integration-trendmicro-deepsec
     nodeset: Trendmicro-DeepSecurity-20.0.344-python27
@@ -143,7 +178,7 @@
 
 - job:
     name: ansible-security-integration-trendmicro-deepsec-python35
-    parent: ansible-security-integration-trendmicro-deepsec
+    parent: ansible-security-integration-trendmicro-deepsec-py35
     nodeset: Trendmicro-DeepSecurity-20.0.344-python35
     vars:
       ansible_test_python: 3.5

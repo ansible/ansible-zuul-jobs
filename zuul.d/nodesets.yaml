@@ -685,12 +685,12 @@
 - nodeset:
     name: controller-python37
     nodes:
-      - name: fedora-35
-        label: fedora-35-1vcpu
+      - name: fedora-32
+        label: fedora-32-1vcpu
     groups:
       - name: controller
         nodes:
-          - fedora-35
+          - fedora-32
 
 - nodeset:
     name: controller-python38

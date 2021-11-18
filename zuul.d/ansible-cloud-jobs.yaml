@@ -248,6 +248,8 @@
 - job:
     name: ansible-test-units-community-vmware-python37
     parent: ansible-test-units-base-python37
+    pre-run:
+      - playbooks/ansible-tox-py37/pre.yaml
     required-projects:
       - name: github.com/ansible-collections/community.vmware
     vars:

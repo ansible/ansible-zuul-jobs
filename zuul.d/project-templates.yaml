@@ -841,6 +841,7 @@
         - ansible-test-units-vyos-python27
         - ansible-test-units-vyos-python36
         - ansible-test-units-vyos-python37
+        - ansible-test-units-vyos-python38
     gate:
       queue: integrated
       jobs: *ansible-collections-vyos-vyos-units-jobs
@@ -872,7 +873,7 @@
         - ansible-test-sanity-docker-stable-2.10
         - ansible-test-sanity-docker-stable-2.11
         - ansible-test-sanity-docker-stable-2.12
-        - ansible-test-units-eos-python38
+        - ansible-test-units-vyos-python38
         - build-ansible-collection
 
 - project-template:

@@ -291,13 +291,6 @@
       ansible_test_network_cli_ssh_type: libssh
 
 - job:
-    name: ansible-test-network-integration-junos-vsrx-python37
-    parent: ansible-test-network-integration-junos-vsrx
-    nodeset: vsrx3-18.4R1-python37
-    vars:
-      ansible_test_python: 3.7
-
-- job:
     name: ansible-test-network-integration-junos-vsrx-python38
     parent: ansible-test-network-integration-junos-vsrx
     nodeset: vsrx3-18.4R1-python38

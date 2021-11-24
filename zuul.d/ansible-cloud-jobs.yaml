@@ -72,7 +72,6 @@
     dependencies:
       - name: build-ansible-collection
     pre-run:
-      - playbooks/ansible-cloud/py36/pre.yaml
       - playbooks/ansible-test-base/pre.yaml
       - playbooks/ansible-cloud/vcenter-integration-controller/pre.yaml
     run: playbooks/ansible-test-base/run.yaml

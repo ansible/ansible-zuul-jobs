@@ -25,6 +25,14 @@
     vars:
       ansible_collections_repo: github.com/ansible-collections/ansible.utils
 
+- job:
+    name: ansible-test-units-ansible-utils-python38
+    parent: ansible-test-units-base-python38
+    required-projects:
+      - name: github.com/ansible-collections/ansible.utils
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/ansible.utils
+
 # =============================================================================
 - job:
     name: network-ee-integration-tests-ansible-utils

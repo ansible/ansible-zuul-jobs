@@ -1395,6 +1395,15 @@
     gate:
       queue: integrated
       jobs: *ansible-collections-ansible-network-jobs
+    periodic:
+      jobs:
+        - ansible-test-sanity-docker-devel
+        - ansible-test-sanity-docker-milestone
+        - ansible-test-sanity-docker-stable-2.9
+        - ansible-test-sanity-docker-stable-2.10
+        - ansible-test-sanity-docker-stable-2.11
+        - ansible-test-sanity-docker-stable-2.12
+        - build-ansible-collection
 
 - project-template:
     name: noop-jobs

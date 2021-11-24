@@ -29,26 +29,6 @@
       vars:
         ensure_python__version: "{{ ansible_test_python }}"
 
-    # NOTE(pabelanger): fedora-32 jobs, currently python3.7 only have
-    # selinux bindings for python3.8. For now, disable selinux.
-    - name: Disable selinux for python3.7 jobs
-      block:
-        - name: Disable selinux
-          become: true
-          selinux:
-            state: disabled
-
-        - name: Reboot node
-          become: true
-          reboot:
-
-        - name: Run start-zuul-console role
-          include_role:
-            name: start-zuul-console
-      when:
-        - ansible_os_family == "RedHat"
-        - ansible_test_python is version('3.7', '==')
-
     - name: Run ensure-virtualenv role
       include_role:
         name: ensure-virtualenv

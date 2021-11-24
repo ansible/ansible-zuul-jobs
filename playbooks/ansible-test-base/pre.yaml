@@ -60,8 +60,19 @@
     - name: Create virtualenv for ansible-test
       shell: "virtualenv {{ _virtualenv_options }} ~/venv"
 
+    - name: Set selinux package
+      set_fact:
+        _selinux_package: selinux
+
+    - name: Set selinux package (Fedora)
+      set_fact:
+        _selinux_package: selinux-please-lie-to-me
+      when:
+        - ansible_distribution == 'Fedora'
+        - ansible_test_python is version('3.6', '<=')
+
     - name: Install selinux into virtualenv
-      shell: ~/venv/bin/pip install selinux "setuptools<50.0.0"
+      shell: '~/venv/bin/pip install {{ _selinux_package }} "setuptools<50.0.0"'
       when: ansible_os_family == "RedHat"
 
     # ara is installing ansible-2.10, when 2.9 is needed. Commenting to temporarily fix the issue.

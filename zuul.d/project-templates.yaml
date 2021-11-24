@@ -1193,6 +1193,9 @@
       jobs: *ansible-collections-symantec-epm-units-jobs
 
 - project-template:
+    name: ansible-test-network-integration
+
+- project-template:
     name: network-ee-tests
     description: |
       This is a set of jobs, run from within a network execution environment

@@ -14,18 +14,20 @@ def get_job_list(prefix, total_jobs):
     return [f"{prefix}{i}" for i in range(total_jobs)]
 
 
-def to_skip_because_disabled(lines):
-    if "disabled" in lines:
-        return True
+def to_skip_because_unstable(lines):
     if "unstable" in lines:
         return True
     return False
 
 
-def is_slow(lines):
-    if "slow" in lines:
+def to_skip_because_disabled(lines):
+    if "disabled" in lines:
         return True
-    if "# reason: slow" in lines:
+    return False
+
+
+def is_slow(lines):
+    if "slow" in lines or "# reason: slow" in lines:
         return True
     return False
 
@@ -60,6 +62,8 @@ def get_targets_to_run(targets, targets_from_cli):
         if to_skip_because_of_targets_parameters(target_name, lines, targets_from_cli):
             continue
         if to_skip_because_disabled(lines):
+            continue
+        if to_skip_because_unstable(lines) and target_name not in targets_from_cli:
             continue
         if is_slow(lines):
             slow_targets.append(target_name)

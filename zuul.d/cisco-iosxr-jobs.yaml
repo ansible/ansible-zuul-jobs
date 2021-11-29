@@ -61,6 +61,14 @@
       ansible_collections_repo: github.com/ansible-collections/cisco.iosxr
 
 - job:
+    name: ansible-test-units-iosxr-python38
+    parent: ansible-test-units-base-python38
+    required-projects:
+      - name: github.com/ansible-collections/cisco.iosxr
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/cisco.iosxr
+
+- job:
     name: ansible-test-network-integration-iosxr-netconf
     parent: ansible-test-network-integration-iosxr
     abstract: true

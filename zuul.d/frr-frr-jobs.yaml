@@ -22,3 +22,11 @@
       - name: github.com/ansible-collections/frr.frr
     vars:
       ansible_collections_repo: github.com/ansible-collections/frr.frr
+
+- job:
+    name: ansible-test-units-frr-python38
+    parent: ansible-test-units-base-python38
+    required-projects:
+      - name: github.com/ansible-collections/frr.frr
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/frr.frr

@@ -134,24 +134,27 @@
 - job:
     name: ansible-security-integration-trendmicro-deepsec-python27
     parent: ansible-security-integration-trendmicro-deepsec
+    nodeset: Trendmicro-DeepSecurity-20.0.344-python27
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.11
     vars:
       ansible_test_python: 2.7
 
 - job:
-    name: ansible-security-integration-trendmicro-deepsec-python35
-    parent: ansible-security-integration-trendmicro-deepsec
-    vars:
-      ansible_test_python: 3.5
-
-- job:
     name: ansible-security-integration-trendmicro-deepsec-python36
     parent: ansible-security-integration-trendmicro-deepsec
+    nodeset: Trendmicro-DeepSecurity-20.0.344-python36
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.11
     vars:
       ansible_test_python: 3.6
 
 - job:
     name: ansible-security-integration-trendmicro-deepsec-python38
     parent: ansible-security-integration-trendmicro-deepsec
+    nodeset: Trendmicro-DeepSecurity-20.0.344-python38
     vars:
       ansible_test_python: 3.8
 

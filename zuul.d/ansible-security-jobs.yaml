@@ -177,16 +177,12 @@
       ansible_test_python: 2.7
 
 - job:
-    name: ansible-security-integration-trendmicro-deepsec-python35
-    parent: ansible-security-integration-trendmicro-deepsec-py35
-    nodeset: Trendmicro-DeepSecurity-20.0.344-python35
-    vars:
-      ansible_test_python: 3.5
-
-- job:
     name: ansible-security-integration-trendmicro-deepsec-python36
     parent: ansible-security-integration-trendmicro-deepsec
     nodeset: Trendmicro-DeepSecurity-20.0.344-python36
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.11
     vars:
       ansible_test_python: 3.6
 

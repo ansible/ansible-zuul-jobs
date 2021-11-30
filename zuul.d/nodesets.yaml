@@ -799,25 +799,6 @@
           - fedora-35
 
 - nodeset:
-    name: Trendmicro-DeepSecurity-20.0.344-python35
-    nodes:
-      - name: fedora-35
-        label: fedora-35-1vcpu
-      - name: Trendmicro-DeepSecurity-20.0.344
-        label: Trendmicro-DeepSecurity-20.0.344
-    groups:
-      - name: appliance-ssh
-        nodes:
-          - Trendmicro-DeepSecurity-20.0.344
-      - name: controller
-        nodes:
-          - fedora-35
-      - name: aws
-        nodes:
-          - Trendmicro-DeepSecurity-20.0.344
-          - fedora-35
-
-- nodeset:
     name: Trendmicro-DeepSecurity-20.0.344-python36
     nodes:
       - name: fedora-35

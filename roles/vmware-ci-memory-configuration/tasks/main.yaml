@@ -20,3 +20,4 @@
   # https://kb.vmware.com/s/article/2118557
   shell: |
     service-control --restart vmware-sps
+  become: true

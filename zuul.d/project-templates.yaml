@@ -163,7 +163,8 @@
         - ansible-test-sanity-docker-stable-2.10
         - ansible-test-sanity-docker-stable-2.11
         - ansible-test-sanity-docker-stable-2.12
-        - ansible-test-units-eos-python27
+        - ansible-test-units-eos-python27:
+            voting: false
         - ansible-test-units-eos-python38
         - ansible-test-units-eos-python36
         - ansible-test-units-eos-python37

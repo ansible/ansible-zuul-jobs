@@ -24,7 +24,6 @@
     dependencies:
       - name: build-ansible-collection
     pre-run:
-      - playbooks/ansible-cloud/py38/pre.yaml
       - playbooks/ansible-test-base/pre.yaml
       - playbooks/ansible-cloud/govcsim-base/pre.yaml
       - playbooks/ansible-cloud/vcenter-integration-controller/pre.yaml
@@ -287,7 +286,6 @@
       - name: build-ansible-collection
       - name: ansible-test-splitter
     pre-run:
-      - playbooks/ansible-cloud/py38/pre.yaml
       - playbooks/ansible-test-base/pre.yaml
       - playbooks/ansible-cloud/aws/pre.yaml
     run: playbooks/ansible-test-base/run.yaml

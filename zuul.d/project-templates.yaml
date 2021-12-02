@@ -68,14 +68,39 @@
               - name: github.com/ansible-collections/community.general
               - name: github.com/ansible-collections/community.crypto
         - ansible-test-splitter:
+            required-projects:
+              - name: github.com/ansible-collections/community.aws
             vars:
               ansible_test_splitter__test_changed: true
-        - ansible-test-cloud-integration-aws-py38_0
-        - ansible-test-cloud-integration-aws-py38_1
-        - ansible-test-cloud-integration-aws-py38_2
-        - ansible-test-cloud-integration-aws-py38_3
-        - ansible-test-cloud-integration-aws-py38_4
-        - ansible-test-cloud-integration-aws-py38_5
+              ansible_test_splitter__check_for_changes_in:
+                - "~/{{ zuul.projects['github.com/ansible-collections/amazon.aws'].src_dir }}"
+                - "~/{{ zuul.projects['github.com/ansible-collections/community.aws'].src_dir }}"
+        - integration-amazon.aws-1
+        - integration-amazon.aws-2
+        - integration-amazon.aws-3
+        - integration-amazon.aws-4
+        - integration-amazon.aws-5
+        - integration-amazon.aws-6
+        - integration-amazon.aws-7
+        - integration-amazon.aws-8
+        - integration-amazon.aws-9
+        - integration-amazon.aws-10
+        - integration-amazon.aws-11
+        - integration-amazon.aws-12
+        - integration-amazon.aws-13
+        - integration-community.aws-1
+        - integration-community.aws-2
+        - integration-community.aws-3
+        - integration-community.aws-4
+        - integration-community.aws-5
+        - integration-community.aws-6
+        - integration-community.aws-7
+        - integration-community.aws-8
+        - integration-community.aws-9
+        - integration-community.aws-10
+        - integration-community.aws-11
+        - integration-community.aws-12
+        - integration-community.aws-13
     gate:
       queue: integrated-aws
       jobs: *ansible-collections-amazon-aws-jobs
@@ -91,12 +116,18 @@
         - ansible-test-splitter:
             vars:
               ansible_test_splitter__test_changed: false
-        - ansible-test-cloud-integration-aws-py38_0
-        - ansible-test-cloud-integration-aws-py38_1
-        - ansible-test-cloud-integration-aws-py38_2
-        - ansible-test-cloud-integration-aws-py38_3
-        - ansible-test-cloud-integration-aws-py38_4
-        - ansible-test-cloud-integration-aws-py38_5
+              ansible_test_splitter__check_for_changes_in:
+                - "~/{{ zuul.projects['github.com/ansible-collections/amazon.aws'].src_dir }}"
+        - integration-amazon.aws-1
+        - integration-amazon.aws-2
+        - integration-amazon.aws-3
+        - integration-amazon.aws-4
+        - integration-amazon.aws-5
+        - integration-amazon.aws-6
+        - integration-amazon.aws-7
+        - integration-amazon.aws-8
+        - integration-amazon.aws-9
+        - integration-amazon.aws-10
 
 - project-template:
     name: ansible-collections-community-aws
@@ -119,12 +150,21 @@
         - ansible-test-splitter:
             vars:
               ansible_test_splitter__test_changed: true
-        - ansible-test-cloud-integration-aws-py38_0
-        - ansible-test-cloud-integration-aws-py38_1
-        - ansible-test-cloud-integration-aws-py38_2
-        - ansible-test-cloud-integration-aws-py38_3
-        - ansible-test-cloud-integration-aws-py38_4
-        - ansible-test-cloud-integration-aws-py38_5
+              ansible_test_splitter__check_for_changes_in:
+                - "~/{{ zuul.projects['github.com/ansible-collections/community.aws'].src_dir }}"
+        - integration-community.aws-1
+        - integration-community.aws-2
+        - integration-community.aws-3
+        - integration-community.aws-4
+        - integration-community.aws-5
+        - integration-community.aws-6
+        - integration-community.aws-7
+        - integration-community.aws-8
+        - integration-community.aws-9
+        - integration-community.aws-10
+        - integration-community.aws-11
+        - integration-community.aws-12
+        - integration-community.aws-13
         - ansible-galaxy-importer:
             voting: false
     third-party-check:
@@ -146,12 +186,18 @@
         - ansible-test-splitter:
             vars:
               ansible_test_splitter__test_changed: false
-        - ansible-test-cloud-integration-aws-py38_0
-        - ansible-test-cloud-integration-aws-py38_1
-        - ansible-test-cloud-integration-aws-py38_2
-        - ansible-test-cloud-integration-aws-py38_3
-        - ansible-test-cloud-integration-aws-py38_4
-        - ansible-test-cloud-integration-aws-py38_5
+              ansible_test_splitter__check_for_changes_in:
+                - "~/{{ zuul.projects['github.com/ansible-collections/community.aws'].src_dir }}"
+        - integration-community.aws-1
+        - integration-community.aws-2
+        - integration-community.aws-3
+        - integration-community.aws-4
+        - integration-community.aws-5
+        - integration-community.aws-6
+        - integration-community.aws-7
+        - integration-community.aws-8
+        - integration-community.aws-9
+        - integration-community.aws-10
         - ansible-galaxy-importer:
             voting: false
 

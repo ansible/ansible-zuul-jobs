@@ -261,14 +261,14 @@
       ansible_test_split_in: 2
 
 - job:
-    name: ansible-test-network-integration-junos-vsrx-python38-scenario01
-    parent: ansible-test-network-integration-junos-vsrx-python38
+    name: ansible-test-network-integration-junos-vsrx-netconf-python38-scenario01
+    parent: ansible-test-network-integration-junos-vsrx-netconf-python38
     vars:
       ansible_test_do_number: 1
 
 - job:
-    name: ansible-test-network-integration-junos-vsrx-python38-scenario02
-    parent: ansible-test-network-integration-junos-vsrx-python38
+    name: ansible-test-network-integration-junos-vsrx-netconf-python38-scenario02
+    parent: ansible-test-network-integration-junos-vsrx-netconf-python38
     vars:
       ansible_test_do_number: 2
 
@@ -359,8 +359,8 @@
 
 - job:
     name: ansible-test-network-integration-junos-vsrx-netconf-python38-stable212
-    parent: ansible-test-network-integration-junos-vsrx-network_cli
-    nodeset: vsrx3-18.4R1-python27
+    parent: ansible-test-network-integration-junos-vsrx-netconf
+    nodeset: vsrx3-18.4R1-python38
     required-projects:
       - name: github.com/ansible/ansible
         override-checkout: stable-2.12
@@ -382,8 +382,8 @@
 
 - job:
     name: ansible-test-network-integration-junos-vsrx-network_cli-python38-stable212
-    parent: ansible-test-network-integration-junos-vsrx-netconf
-    nodeset: vsrx3-18.4R1-python27
+    parent: ansible-test-network-integration-junos-vsrx-network_cli
+    nodeset: vsrx3-18.4R1-python38
     required-projects:
       - name: github.com/ansible/ansible
         override-checkout: stable-2.12
@@ -404,18 +404,10 @@
       ansible_test_do_number: 2
 
 - job:
-    name: ansible-test-network-integration-junos-vsrx-network_cli-libssh-python38-stable212-scenario01
+    name: ansible-test-network-integration-junos-vsrx-network_cli-libssh-python38-stable212
     parent: ansible-test-network-integration-junos-vsrx-network_cli-python38-stable212
     vars:
       ansible_test_network_cli_ssh_type: libssh
-      ansible_test_do_number: 1
-
-- job:
-    name: ansible-test-network-integration-junos-vsrx-network_cli-libssh-python38-stable212-scenario02
-    parent: ansible-test-network-integration-junos-vsrx-network_cli-python38-stable212
-    vars:
-      ansible_test_network_cli_ssh_type: libssh
-      ansible_test_do_number: 2
 
 - job:
     name: ansible-test-network-integration-junos-vsrx-network_cli-python36-stable211

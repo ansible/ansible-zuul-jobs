@@ -235,6 +235,8 @@
         - ansible-test-units-ansible-utils-python27
         - ansible-test-units-ansible-utils-python36
         - ansible-test-units-ansible-utils-python37
+        - network-ee-unit-tests:
+            voting: false
     gate:
       queue: integrated
       jobs: *ansible-collections-ansible-utils-units-jobs

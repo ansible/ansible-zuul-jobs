@@ -39,6 +39,14 @@
     vars:
       ansible_collections_repo: github.com/ansible-collections/cisco.ios
 
+- job:
+    name: ansible-test-units-ios-python38
+    parent: ansible-test-units-base-python38
+    required-projects:
+      - name: github.com/ansible-collections/cisco.ios
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/cisco.ios
+
 # =============================================================================
 - job:
     name: network-ee-integration-tests-ios

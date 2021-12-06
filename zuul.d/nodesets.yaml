@@ -490,8 +490,8 @@
 - nodeset:
     name: vqfx-18.1R3-python27
     nodes:
-      - name: fedora-35
-        label: fedora-35-1vcpu
+      - name: centos-8
+        label: centos-8-stream
       - name: vqfx-18.1R3
         label: vqfx-18.1R3
     groups:
@@ -500,7 +500,7 @@
           - vqfx-18.1R3
       - name: controller
         nodes:
-          - fedora-35
+          - centos-8
 
 - nodeset:
     name: vqfx-18.1R3-python35
@@ -550,8 +550,8 @@
 - nodeset:
     name: vqfx-18.1R3-python38
     nodes:
-      - name: fedora-35
-        label: fedora-35-1vcpu
+      - name: centos-8
+        label: centos-8-stream
       - name: vqfx-18.1R3
         label: vqfx-18.1R3
     groups:
@@ -560,13 +560,13 @@
           - vqfx-18.1R3
       - name: controller
         nodes:
-          - fedora-35
+          - centos-8
 
 - nodeset:
     name: vsrx3-18.4R1-python27
     nodes:
-      - name: fedora-35
-        label: fedora-35-1vcpu
+      - name: centos-8
+        label: centos-8-stream
       - name: vsrx3-18.4R1
         label: vsrx3-18.4R1
     groups:
@@ -575,7 +575,7 @@
           - vsrx3-18.4R1
       - name: controller
         nodes:
-          - fedora-35
+          - centos-8
 
 - nodeset:
     name: vsrx3-18.4R1-python35
@@ -625,8 +625,8 @@
 - nodeset:
     name: vsrx3-18.4R1-python38
     nodes:
-      - name: fedora-35
-        label: fedora-35-1vcpu
+      - name: fedora-32
+        label: fedora-32-1vcpu
       - name: vsrx3-18.4R1
         label: vsrx3-18.4R1
     groups:
@@ -635,7 +635,7 @@
           - vsrx3-18.4R1
       - name: controller
         nodes:
-          - fedora-35
+          - fedora-32
 
 - nodeset:
     name: vyos-1.1.8-python38

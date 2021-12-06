@@ -490,8 +490,8 @@
 - nodeset:
     name: vqfx-18.1R3-python27
     nodes:
-      - name: centos-8
-        label: centos-8-stream
+      - name: ubuntu-bionic
+        label: ubuntu-bionic-1vcpu
       - name: vqfx-18.1R3
         label: vqfx-18.1R3
     groups:
@@ -500,7 +500,7 @@
           - vqfx-18.1R3
       - name: controller
         nodes:
-          - centos-8
+          - ubuntu-bionic
 
 - nodeset:
     name: vqfx-18.1R3-python35
@@ -550,8 +550,8 @@
 - nodeset:
     name: vqfx-18.1R3-python38
     nodes:
-      - name: centos-8
-        label: centos-8-stream
+      - name: ubuntu-bionic
+        label: ubuntu-bionic-1vcpu
       - name: vqfx-18.1R3
         label: vqfx-18.1R3
     groups:
@@ -560,13 +560,13 @@
           - vqfx-18.1R3
       - name: controller
         nodes:
-          - centos-8
+          - ubuntu-bionic
 
 - nodeset:
     name: vsrx3-18.4R1-python27
     nodes:
-      - name: centos-8
-        label: centos-8-stream
+      - name: ubuntu-bionic
+        label: ubuntu-bionic-1vcpu
       - name: vsrx3-18.4R1
         label: vsrx3-18.4R1
     groups:
@@ -575,7 +575,7 @@
           - vsrx3-18.4R1
       - name: controller
         nodes:
-          - centos-8
+          - ubuntu-bionic
 
 - nodeset:
     name: vsrx3-18.4R1-python35
@@ -625,8 +625,8 @@
 - nodeset:
     name: vsrx3-18.4R1-python38
     nodes:
-      - name: fedora-32
-        label: fedora-32-1vcpu
+      - name: ubuntu-bionic
+        label: ubuntu-bionic-1vcpu
       - name: vsrx3-18.4R1
         label: vsrx3-18.4R1
     groups:
@@ -635,7 +635,7 @@
           - vsrx3-18.4R1
       - name: controller
         nodes:
-          - fedora-32
+          - ubuntu-bionic
 
 - nodeset:
     name: vyos-1.1.8-python38

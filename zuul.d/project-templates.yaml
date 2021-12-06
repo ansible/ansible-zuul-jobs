@@ -212,7 +212,8 @@
     check:
       jobs: &ansible-collections-ansible-utils-jobs
         - build-ansible-collection
-        - network-ee-integration-tests-ansible-utils
+        - network-ee-integration-tests-ansible-utils:
+            voting: false
         - network-ee-integration-tests-ansible-utils-stable-2.12
         - network-ee-integration-tests-ansible-utils-stable-2.11
         - network-ee-integration-tests-ansible-utils-stable-2.9
@@ -234,6 +235,8 @@
         - ansible-test-units-ansible-utils-python27
         - ansible-test-units-ansible-utils-python36
         - ansible-test-units-ansible-utils-python37
+        - network-ee-unit-tests:
+            voting: false
     gate:
       queue: integrated
       jobs: *ansible-collections-ansible-utils-units-jobs

@@ -1418,12 +1418,6 @@
       repository should use this directly.
     # Include a check queue so that initially every repo has a check queue
     # and we can report invalid zuul.yaml files.
-    check:
-      jobs:
-        - github-workflows
-    gate:
-      jobs:
-        - github-workflows
     lgtm:
       jobs:
         - noop

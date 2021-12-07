@@ -1274,7 +1274,8 @@
         - ansible-security-integration-trendmicro-deepsec-python38-stable29
         - ansible-security-integration-trendmicro-deepsec-python38-stable211
         - ansible-security-integration-trendmicro-deepsec-python38-stable212
-        - ansible-test-sanity-docker-devel
+        - ansible-test-sanity-docker-devel:
+            voting: false
         - ansible-test-sanity-docker-milestone
         - ansible-test-sanity-docker-stable-2.9
         - ansible-test-sanity-docker-stable-2.10

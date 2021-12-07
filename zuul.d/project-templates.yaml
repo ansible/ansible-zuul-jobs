@@ -1106,6 +1106,8 @@
         - ansible-test-units-netcommon-python27
         - ansible-test-units-netcommon-python36
         - ansible-test-units-netcommon-python37
+        - network-ee-sanity-tests:
+            voting: false
     gate:
       queue: integrated
       jobs: *ansible-collections-ansible-netcommon-units-jobs

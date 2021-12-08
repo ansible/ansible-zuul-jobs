@@ -42,7 +42,7 @@
     required-projects:
       - name: github.com/ansible/ansible
       - name: github.com/ansible-collections/junipernetworks.junos
-    timeout: 10800
+    timeout: 14400
     vars:
       ansible_collections_repo: github.com/ansible-collections/junipernetworks.junos
       ansible_test_command: network-integration

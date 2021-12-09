@@ -1341,8 +1341,7 @@
       network-ee-container-image-jobs project-template.
     check:
       jobs: &network-ee-test-jobs
-        - network-ee-sanity-tests:
-            voting: false
+        - network-ee-sanity-tests
         - network-ee-sanity-tests-stable-2.9
         - network-ee-sanity-tests-stable-2.10
         - network-ee-sanity-tests-stable-2.11

@@ -625,7 +625,7 @@
         - ansible-test-units-community-vmware-python37
         - ansible-test-units-community-vmware-python38
 - project-template:
-    name: ansible-collections-community-vmware-rest
+    name: sfa-collections-community-vmware-rest
     check:
       jobs: &ansible-collections-community-vmware-rest-jobs
         - ansible-test-cloud-integration-vmware-rest-python38

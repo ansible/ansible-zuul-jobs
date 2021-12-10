@@ -2,7 +2,7 @@
 - job:
     name: ansible-test-sanity-docker
     parent: unittests
-    nodeset: controller-python38-f34
+    nodeset: controller-python38
     dependencies:
       - name: build-ansible-collection
         soft: true

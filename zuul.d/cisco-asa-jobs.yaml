@@ -10,7 +10,7 @@
       asav9-12-3:
         ansible_network_os: asa
     required-projects:
-      - name: github.com/ansible/ansible-zuul-jobs
+      - name: github.com/goneri/ansible-zuul-jobs
     nodeset: asav9-12-3-python36
 
 - job:

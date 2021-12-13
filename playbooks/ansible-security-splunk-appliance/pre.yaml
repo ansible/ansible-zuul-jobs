@@ -12,7 +12,7 @@
         tox_envlist: venv
         tox_extra_args: -vv -- ansible-playbook -v -c network_cli playbooks/ansible-security-splunk-appliance/files/bootstrap.yaml
         tox_install_siblings: false
-        zuul_work_dir: "{{ zuul.projects['github.com/ansible/ansible-zuul-jobs'].src_dir }}"
+        zuul_work_dir: "{{ zuul.projects['github.com/goneri/ansible-zuul-jobs'].src_dir }}"
 
 - hosts: appliance*
   tasks:

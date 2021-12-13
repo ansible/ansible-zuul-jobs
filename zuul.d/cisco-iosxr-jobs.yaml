@@ -10,7 +10,7 @@
       iosxr-7.0.2:
         ansible_network_os: iosxr
     required-projects:
-      - name: github.com/ansible/ansible-zuul-jobs
+      - name: github.com/goneri/ansible-zuul-jobs
     nodeset: iosxr-7.0.2-python36
 
 - job:

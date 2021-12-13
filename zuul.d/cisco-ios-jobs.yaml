@@ -10,7 +10,7 @@
       ios-15.6-2T:
         ansible_network_os: ios
     required-projects:
-      - name: github.com/ansible/ansible-zuul-jobs
+      - name: github.com/goneri/ansible-zuul-jobs
     nodeset: ios-15.6-2T-python38
     timeout: 10800
 

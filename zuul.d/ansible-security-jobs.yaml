@@ -9,7 +9,7 @@
       SplunkEnterprise-SES-8.0.0:
         ansible_network_os: splunk
     required-projects:
-      - name: github.com/ansible/ansible-zuul-jobs
+      - name: github.com/goneri/ansible-zuul-jobs
     nodeset: SplunkEnterprise-SES-8.0.0-python38
 
 - job:
@@ -57,7 +57,7 @@
       QRadarCE-7.3.1:
         ansible_network_os: qradar
     required-projects:
-      - name: github.com/ansible/ansible-zuul-jobs
+      - name: github.com/goneri/ansible-zuul-jobs
     nodeset: QRadarCE-7.3.1-python38
 
 - job:
@@ -105,7 +105,7 @@
       Trendmicro-DeepSecurity-20.0.344:
         ansible_network_os: trendmicro.deepsec.deepsec
     required-projects:
-      - name: github.com/ansible/ansible-zuul-jobs
+      - name: github.com/goneri/ansible-zuul-jobs
     nodeset: Trendmicro-DeepSecurity-20.0.344-python38
 
 - job:

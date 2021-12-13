@@ -7,7 +7,7 @@
     pre-run: playbooks/ansible-network-junos-appliance/pre.yaml
     run: playbooks/ansible-network-junos-appliance/run.yaml
     required-projects:
-      - name: github.com/ansible/ansible-zuul-jobs
+      - name: github.com/goneri/ansible-zuul-jobs
 
 - job:
     name: ansible-network-junos-vsrx-appliance

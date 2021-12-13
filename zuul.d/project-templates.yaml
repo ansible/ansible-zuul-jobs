@@ -551,6 +551,7 @@
         - ansible-test-sanity-docker-stable-2.12
         - ansible-galaxy-importer:
             voting: false
+        - ansible-test-units-community-okd-python38
 
 - project-template:
     name: ansible-collections-cloud-common

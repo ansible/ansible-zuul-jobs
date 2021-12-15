@@ -224,6 +224,7 @@
     parent: ansible-test-cloud-integration-vmware-rest
     vars:
       ansible_test_python: 3.8
+    nodeset: vmware-vcsa-7.0.3-python36
 
 
 ##### units

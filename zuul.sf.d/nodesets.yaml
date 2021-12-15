@@ -1,0 +1,287 @@
+---
+# We don't have CentOS8 Stream yet
+- nodeset:
+    name: asav9-12-3-python27
+    nodes:
+      - name: fedora-35
+        label: ansible-fedora-35-1vcpu
+
+- nodeset:
+    name: asav9-12-3-python36
+    nodes:
+      - name: fedora-35
+        label: ansible-fedora-35-1vcpu
+
+- nodeset:
+    name: asav9-12-3-python38
+    nodes:
+      - name: fedora-35
+        label: ansible-fedora-35-1vcpu
+
+- nodeset:
+    name: centos-7-1vcpu
+    nodes:
+      - name: fedora-35
+        label: ansible-fedora-35-1vcpu
+
+- nodeset:
+    name: centos-8-stream
+    nodes:
+      - name: fedora-35
+        label: ansible-fedora-35-1vcpu
+
+- nodeset:
+    name: centos-8-stream-small
+    nodes:
+      - name: fedora-35
+        label: ansible-fedora-35-1vcpu
+
+- nodeset:
+    name: eos-4.24.6-python38
+    nodes:
+      - name: fedora-35
+        label: ansible-fedora-35-1vcpu
+
+- nodeset:
+    name: fedora-35-1vcpu
+    nodes:
+      - name: fedora-35
+        label: ansible-fedora-35-1vcpu
+
+- nodeset:
+    name: fedora-latest-1vcpu
+    nodes:
+      - name: fedora-35
+        label: ansible-fedora-35-1vcpu
+
+- nodeset:
+    name: ios-15.6-2T-python38
+    nodes:
+      - name: fedora-35
+        label: ansible-fedora-35-1vcpu
+
+- nodeset:
+    name: iosxr-7.0.2-python27
+    nodes:
+      - name: fedora-35
+        label: ansible-fedora-35-1vcpu
+
+- nodeset:
+    name: iosxr-7.0.2-python35
+    nodes:
+      - name: fedora-35
+        label: ansible-fedora-35-1vcpu
+
+- nodeset:
+    name: iosxr-7.0.2-python36
+    nodes:
+      - name: fedora-35
+        label: ansible-fedora-35-1vcpu
+
+- nodeset:
+    name: iosxr-7.0.2-python37
+    nodes:
+      - name: fedora-35
+        label: ansible-fedora-35-1vcpu
+
+- nodeset:
+    name: iosxr-7.0.2-python38
+    nodes:
+      - name: fedora-35
+        label: ansible-fedora-35-1vcpu
+
+- nodeset:
+    name: nxos-7.0.3-python36
+    nodes:
+      - name: fedora-35
+        label: ansible-fedora-35-1vcpu
+
+- nodeset:
+    name: nxos-7.0.3-python38
+    nodes:
+      - name: fedora-35
+        label: ansible-fedora-35-1vcpu
+
+- nodeset:
+    name: openvswitch-2.9.0-python38
+    nodes:
+      - name: fedora-35
+        label: ansible-fedora-35-1vcpu
+
+- nodeset:
+    name: QRadarCE-7.3.1-python38
+    nodes:
+      - name: fedora-35
+        label: ansible-fedora-35-1vcpu
+
+- nodeset:
+    name: SplunkEnterprise-SES-8.0.0-python38
+    nodes:
+      - name: fedora-35
+        label: ansible-fedora-35-1vcpu
+
+- nodeset:
+    name: Trendmicro-DeepSecurity-20.0.344-python27
+    nodes:
+      - name: fedora-35
+        label: ansible-fedora-35-1vcpu
+
+- nodeset:
+    name: Trendmicro-DeepSecurity-20.0.344-python36
+    nodes:
+      - name: fedora-35
+        label: ansible-fedora-35-1vcpu
+
+- nodeset:
+    name: Trendmicro-DeepSecurity-20.0.344-python38
+    nodes:
+      - name: fedora-35
+        label: ansible-fedora-35-1vcpu
+
+- nodeset:
+    name: ubuntu-bionic-1vcpu
+    nodes:
+      - name: fedora-35
+        label: ansible-fedora-35-1vcpu
+
+- nodeset:
+    name: ubuntu-xenial-1vcpu
+    nodes:
+      - name: fedora-35
+        label: ansible-fedora-35-1vcpu
+
+- nodeset:
+    name: vqfx-18.1R3-python36
+    nodes:
+      - name: fedora-35
+        label: ansible-fedora-35-1vcpu
+
+- nodeset:
+    name: vsrx3-18.4R1-python27
+    nodes:
+      - name: fedora-35
+        label: ansible-fedora-35-1vcpu
+
+- nodeset:
+    name: vsrx3-18.4R1-python35
+    nodes:
+      - name: fedora-35
+        label: ansible-fedora-35-1vcpu
+
+- nodeset:
+    name: vsrx3-18.4R1-python36
+    nodes:
+      - name: fedora-35
+        label: ansible-fedora-35-1vcpu
+
+- nodeset:
+    name: vsrx3-18.4R1-python38
+    nodes:
+      - name: fedora-35
+        label: ansible-fedora-35-1vcpu
+
+- nodeset:
+    name: vyos-1.1.8-python38
+    nodes:
+      - name: fedora-35
+        label: ansible-fedora-35-1vcpu
+## end aliases
+
+# Ansible cloud appliance nodesets
+- nodeset:
+    name: vmware-govcsim-python38
+    nodes:
+      - name: fedora-35
+        label: ansible-fedora-35-1vcpu
+    groups:
+      - name: controller
+        nodes:
+          - fedora-35
+
+# vcenter 7.0.3
+- nodeset:
+    name: ansible-vmware-vcsa-7.0.3-python36
+    nodes:
+      - name: controller
+        label: ansible-fedora-35-1vcpu
+      - name: vcenter
+        label: ansible-vmware-vcsa-7.0.3
+    groups:
+      - name: appliance-ssh
+        nodes:
+          - vcenter
+
+- nodeset:
+    name: vmware-vcsa_1esxi-7.0.3-python36
+    nodes:
+      - name: controller
+        label: ansible-fedora-35-1vcpu
+      - name: vcenter
+        label: ansible-vmware-vcsa-7.0.3
+      - name: esxi1
+        label: ansible-esxi-7.0.3
+    groups:
+      - name: appliance-ssh
+        nodes:
+          - vcenter
+      - name: appliance
+        nodes:
+          - esxi1
+      - name: esxis
+        nodes:
+          - esxi1
+
+- nodeset:
+    name: vmware-vcsa_2esxi-7.0.3-python36
+    nodes:
+      - name: controller
+        label: ansible-fedora-35-1vcpu
+      - name: vcenter
+        label: ansible-vmware-vcsa-7.0.3
+      - name: esxi1
+        label: ansible-esxi-7.0.3
+      - name: esxi2
+        label: ansible-esxi-7.0.3
+    groups:
+      - name: appliance-ssh
+        nodes:
+          - vcenter
+      - name: appliance
+        nodes:
+          - esxi1
+          - esxi2
+      - name: esxis
+        nodes:
+          - esxi1
+          - esxi2
+
+- nodeset:
+    name: controller-python27
+    nodes:
+      - name: controller
+        label: ansible-fedora-35-1vcpu
+
+- nodeset:
+    name: controller-python35
+    nodes:
+      - name: controller
+        # note: there is no py35 on f35
+        label: ansible-fedora-35-1vcpu
+
+- nodeset:
+    name: controller-python36
+    nodes:
+      - name: controller
+        label: ansible-fedora-35-1vcpu
+
+- nodeset:
+    name: controller-python37
+    nodes:
+      - name: controller
+        label: ansible-fedora-35-1vcpu
+
+- nodeset:
+    name: controller-python38
+    nodes:
+      - name: controller
+        label: ansible-fedora-35-1vcpu

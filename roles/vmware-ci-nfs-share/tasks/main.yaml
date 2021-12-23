@@ -1,10 +1,15 @@
 ---
+- name: Create the share directory
+  file:
+    path: /srv/share
+    state: directory
+  become: true
+
 - name: Prepare the NFS shares
   file:
     path: '{{ item }}'
     state: directory
-    owner: '{{ vmware_ci_nfs_share_owner_uid }}'
-    group: '{{ vmware_ci_nfs_share_owner_gid }}'
+    owner: '{{ ansible_user }}'
   with_items:
     - /srv/share/vms
     - /srv/share/isos
@@ -25,6 +30,26 @@
     checksum: '{{ item.value.checksum }}'
     mode: '0644'
   with_dict: "{{ vmware_ci_nfs_share_iso_files }}"
+
+- name: Adjust the ownership of the isos dir
+  file:
+    path: /srv/share/isos
+    state: directory
+    recurse: true
+    owner: '{{ vmware_ci_nfs_share_owner_uid }}'
+    group: '{{ vmware_ci_nfs_share_owner_gid }}'
+    mode: '0555'
+  become: true
+
+- name: Adjust the ownership of the vms dir
+  file:
+    path: /srv/share/isos
+    state: directory
+    recurse: true
+    owner: '{{ vmware_ci_nfs_share_owner_uid }}'
+    group: '{{ vmware_ci_nfs_share_owner_gid }}'
+    mode: '0755'
+  become: true
 
 - name: Install nfs-utils
   package:

@@ -5,6 +5,5 @@
     gather_subset: pkg_mgr
 
 - name: Set up infrastructure mirrors
-  include: mirror.yaml
+  include_tasks: mirror.yaml
   when: mirror_fqdn is defined
-  static: false

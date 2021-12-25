@@ -9,8 +9,7 @@
     - "default.yaml"
 
 - name: Setup distribution specific packaging mirrors
-  include: "{{ item }}"
-  static: false
+  include_tasks: "{{ item }}"
   with_first_found:
     - "mirror/{{ ansible_lsb.id }}-{{ ansible_lsb.major_release }}.yaml"
     - "mirror/{{ ansible_distribution }}-{{ ansible_distribution_major_version }}.yaml"

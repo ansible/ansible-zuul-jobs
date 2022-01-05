@@ -49,7 +49,7 @@
           vcenter: "{{ hostvars['vcenter']['nodepool']['interface_ip']}}"
           esxi1: "{{ 'esxi1' in hostvars and hostvars['esxi1']['nodepool']['interface_ip']}}"
           esxi2: "{{ 'esxi2' in hostvars and hostvars['esxi2']['nodepool']['interface_ip']}}"
-          datastore: "{{ hostvars[groups['controller'][0]]['nodepool']['interface_ip']}}"
+          datastore: "{{ hostvars['controller']['nodepool']['interface_ip']}}"
 
 - hosts: appliance:appliance-ssh
   gather_facts: false

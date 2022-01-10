@@ -263,6 +263,7 @@
 ### AWS
 - job:
     name: ansible-test-splitter
+    pre-run: playbooks/ansible-test-splitter/pre.yaml
     run: playbooks/ansible-test-splitter/run.yaml
     files:
       - ^plugins/.*$

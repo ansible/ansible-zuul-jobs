@@ -22,6 +22,11 @@
       set_fact:
         _virtualenv_options: "--python python{{ ansible_test_python }}"
 
+    - name: Ensure pip temp directory exists in /var/tmp
+      file:
+        state: directory
+        path: /var/tmp/ansible-test-pip
+
     - name: Create virtualenv for ansible-test
       shell: "virtualenv {{ _virtualenv_options }} {{ ansible_test_venv_path }}"
 
@@ -37,6 +42,7 @@
     - name: Install Ansible into virtualenv
       environment:
         ANSIBLE_SKIP_CONFLICT_CHECK: 1
+        TMPDIR: /var/tmp/ansible-test-pip
       shell: "{{ ansible_test_venv_path }}/bin/pip install {{ ansible_user_dir }}/{{ zuul.projects['github.com/ansible/ansible'].src_dir }}"
 
     - name: Fetch and install the artifacts

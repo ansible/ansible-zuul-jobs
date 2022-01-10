@@ -60,10 +60,16 @@
     #   shell: ~/venv/bin/pip install "ara<1.0.0"
     #   when: "'integration' in ansible_test_command"
 
+    - name: Ensure pip temp directory exists in /var/tmp
+      file:
+        state: directory
+        path: /var/tmp/ansible-test-pip
+
     - name: Install ansible into virtualenv
       # TODO(pabelanger): Remove ANSIBLE_SKIP_CONFLICT_CHECK in the future.
       environment:
         ANSIBLE_SKIP_CONFLICT_CHECK: 1
+        TMPDIR: /var/tmp/ansible-test-pip
       shell: "~/venv/bin/pip install {{ ansible_user_dir }}/{{ zuul.projects['github.com/ansible/ansible'].src_dir }}"
 
     # NOTE(pabelanger): For integration jobs, install collections after our

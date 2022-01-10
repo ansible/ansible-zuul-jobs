@@ -591,8 +591,6 @@
               - name: github.com/ansible-collections/vmware.vmware_rest
         - ansible-test-sanity-docker-devel
         - ansible-test-sanity-docker-milestone
-        - ansible-test-sanity-docker-stable-2.9
-        - ansible-test-sanity-docker-stable-2.10
         - ansible-test-sanity-docker-stable-2.11
         - ansible-test-sanity-docker-stable-2.12
         - ansible-test-units-community-vmware-python27
@@ -605,20 +603,12 @@
         - ansible-test-cloud-integration-vcenter7_1esxi-python36-stable211_2_of_2
     gate:
       jobs:
-        - ansible-test-cloud-integration-govcsim-python38_1_of_3:
-            voting: false
-        - ansible-test-cloud-integration-govcsim-python38_2_of_3:
-            voting: false
-        - ansible-test-cloud-integration-govcsim-python38_3_of_3:
-            voting: false
         - ansible-tox-linters
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-collections/vmware.vmware_rest
         - ansible-test-sanity-docker-devel
         - ansible-test-sanity-docker-milestone
-        - ansible-test-sanity-docker-stable-2.9
-        - ansible-test-sanity-docker-stable-2.10
         - ansible-test-sanity-docker-stable-2.11
         - ansible-test-sanity-docker-stable-2.12
         - ansible-test-units-community-vmware-python27

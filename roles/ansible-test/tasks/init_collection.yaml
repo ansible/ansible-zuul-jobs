@@ -9,12 +9,19 @@
     _test_requirements: '{% for requirement in ansible_test_requirement_files %} -r {{ _test_location }}/{{ requirement }}{% endfor %}'
     _test_constraints: '{% for constraint in ansible_test_constraint_files %} -c {{ _test_location }}/{{ constraint }}{% endfor %}'
 
+- name: Ensure pip temp directory exists in /var/tmp
+  file:
+    state: directory
+    path: /var/tmp/ansible-test-pip
+
 - name: Install python requirements
   shell: "{{ ansible_test_venv_path }}/bin/pip install {{ _test_requirements }} {{ _test_constraints }}"
   register: r
   until: r.rc == 0
   retries: 2
   delay: 60
+  environment:
+    TMPDIR: /var/tmp/ansible-test-pip
 
 - name: Copy potential cloud provider configuration for ansible-test in the collection
   shell: "cp -v {{ ansible_test_ansible_path }}/test/integration/cloud-config-*.ini {{ _test_location }}/tests/integration/"

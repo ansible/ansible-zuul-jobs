@@ -1,0 +1,8 @@
+---
+- hosts: all
+  tasks:
+    - name: Install the dependencies
+      package:
+        name: git
+        state: present
+      become: true

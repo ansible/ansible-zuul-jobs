@@ -7,6 +7,7 @@
     # password authentication is enabled on images.  This needs to be fixed on
     # ansible/ansible repo.
     - name: Allow password-authentication for anible-test
+      become: true
       vyos_config:
         lines:
           - delete service ssh disable-password-authentication

@@ -22,7 +22,7 @@
 - hosts: appliance
   gather_facts: false
   tasks:
-    #- name: Remove vyos user
+    # - name: Remove vyos user
     #  vyos_config:
     #    lines:
     #      - delete system login user vyos

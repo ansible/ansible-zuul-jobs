@@ -43,7 +43,7 @@
 
 - name: Adjust the ownership of the vms dir
   file:
-    path: /srv/share/isos
+    path: /srv/share/vms
     state: directory
     recurse: true
     owner: '{{ vmware_ci_nfs_share_owner_uid }}'

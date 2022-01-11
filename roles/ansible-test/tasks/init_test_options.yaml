@@ -50,33 +50,6 @@
   when:
     - ansible_test_python
 
-- name: Use the mirror to pull the container image
-  when: ansible_test_docker and nodepool.cloud in ["ansible-vexxhost"]
-  block:
-    - name: Install nss-mdns
-      package:
-        name: nss-mdns
-        state: present
-      become: true
-    - name: Start avahi
-      systemd:
-        state: started
-        name: avahi-daemon
-      become: true
-    - name: Create the podman configuration directory
-      file:
-        path: ~/.config/containers/
-        state: directory
-    - name: Copy the configuration
-      copy:
-        dest: ~/.config/containers/registries.conf
-        content: |
-          [[registry]]
-          prefix = "quay.io/ansible/default-test-container"
-          insecure = true
-          blocked = false
-          location = "mirror.local:5000/ansible/default-test-container"
-
 - name: Setup --docker option
   set_fact:
     ansible_test_options: "{{ ansible_test_options }} --docker"

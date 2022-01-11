@@ -19,11 +19,15 @@
           - set service ssh disable-password-authentication
         save: true
 
-# - hosts: appliance
-#  gather_facts: false
-#  tasks:
-#    - name: Remove vyos user
-#      vyos_config:
-#        lines:
-#          - delete system login user vyos
-#        save: true
+ - hosts: appliance
+   gather_facts: false
+   tasks:
+     - name: Remove vyos user
+       vyos_config:
+         lines:
+           - delete system login user vyos
+         save: true
+
+      - name: Debug
+        debug:
+          msg: "Debug"

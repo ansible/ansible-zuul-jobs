@@ -36,10 +36,10 @@
         label: ansible-fedora-35-1vcpu
 
 - nodeset:
-    name: ubuntu-bionic-1vcpu
+    name: fedora-bionic-1vcpu
     nodes:
-      - name: ubuntu-bionic
-        label: ubuntu-bionic-1vcpu
+      - name: fedora-bionic
+        label: fedora-bionic-1vcpu
 
 - nodeset:
     name: ubuntu-bionic-2vcpu

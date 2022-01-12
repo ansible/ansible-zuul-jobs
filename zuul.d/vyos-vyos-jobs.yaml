@@ -52,10 +52,6 @@
 - job:
     name: network-ee-integration-tests-vyos
     parent: ansible-network-vyos-appliance
-    vars:
-      ansible_test_requirement_files:
-        - requirements.txt
-        - test-requirements.txt
 
 - job:
     name: network-ee-integration-tests-vyos

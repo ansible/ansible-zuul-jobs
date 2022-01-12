@@ -15,9 +15,6 @@
       - name: github.com/ansible/ansible-zuul-jobs
     nodeset: vyos-1.1.8-python38
     timeout: 10800
-    ansible_test_requirement_files:
-      - requirements.txt
-      - test-requirements.txt
 
 # =============================================================================
 - job:
@@ -55,6 +52,10 @@
 - job:
     name: network-ee-integration-tests-vyos
     parent: ansible-network-vyos-appliance
+    vars:
+      ansible_test_requirement_files:
+        - requirements.txt
+        - test-requirements.txt
 
 - job:
     name: network-ee-integration-tests-vyos

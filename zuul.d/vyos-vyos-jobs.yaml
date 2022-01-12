@@ -15,6 +15,9 @@
       - name: github.com/ansible/ansible-zuul-jobs
     nodeset: vyos-1.1.8-python38
     timeout: 10800
+    ansible_test_requirement_files:
+      - requirements.txt
+      - test-requirements.txt
 
 # =============================================================================
 - job:

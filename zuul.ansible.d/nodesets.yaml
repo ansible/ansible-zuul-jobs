@@ -385,8 +385,8 @@
 - nodeset:
     name: nxos-7.0.3-python38
     nodes:
-      - name: fedora-35
-        label: ansible-fedora-35-1vcpu
+      - name: centos-8
+        label: centos-8-stream
       - name: nxos-7.0.3
         label: nxos-7.0.3
     groups:
@@ -395,7 +395,7 @@
           - nxos-7.0.3
       - name: controller
         nodes:
-          - fedora-35
+          - centos-8
 
 - nodeset:
     name: openvswitch-2.9.0-python38

@@ -5,7 +5,7 @@
     name: ansible-network-nxos-appliance
     parent: ansible-network-appliance-base
     pre-run:
-      - playbooks/ansible-network-eos-appliance/pre.yaml
+      - playbooks/ansible-network-nxos-appliance/pre.yaml
       - playbooks/network-ee-integration-tests/pre.yaml
     run: playbooks/ansible-network-nxos-appliance/run.yaml
     host-vars:

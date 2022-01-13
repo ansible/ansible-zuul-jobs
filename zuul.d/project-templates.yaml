@@ -579,12 +579,6 @@
     name: ansible-collections-community-vmware
     check:
       jobs:
-        - ansible-test-cloud-integration-govcsim-python38_1_of_3:
-            voting: false
-        - ansible-test-cloud-integration-govcsim-python38_2_of_3:
-            voting: false
-        - ansible-test-cloud-integration-govcsim-python38_3_of_3:
-            voting: false
         - ansible-tox-linters
         - build-ansible-collection:
             required-projects:
@@ -599,8 +593,15 @@
         - ansible-test-units-community-vmware-python38
         - ansible-test-cloud-integration-vcenter7_only-python36-stable211
         - ansible-test-cloud-integration-vcenter7_2esxi-python36-stable211
-        - ansible-test-cloud-integration-vcenter7_1esxi-python36-stable211_1_of_2
-        - ansible-test-cloud-integration-vcenter7_1esxi-python36-stable211_2_of_2
+        - ansible-test-cloud-integration-vcenter7_1esxi-python36-stable211_part1
+        - ansible-test-cloud-integration-vcenter7_1esxi-python36-stable211_part2
+        - ansible-test-cloud-integration-vcenter7_1esxi-python36-stable211_part3
+        - ansible-test-cloud-integration-vcenter7_1esxi-python36-stable211_part4
+        - ansible-test-cloud-integration-vcenter7_1esxi-python36-stable211_part5
+        - ansible-test-cloud-integration-vcenter7_1esxi-python36-stable211_part6
+        - ansible-test-cloud-integration-vcenter7_1esxi-python36-stable211_part7
+        - ansible-test-cloud-integration-vcenter7_1esxi-python36-stable211_part8
+        - ansible-test-cloud-integration-vcenter7_1esxi-python36-stable211_part9
     gate:
       jobs:
         - ansible-tox-linters

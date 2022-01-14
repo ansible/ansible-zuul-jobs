@@ -589,6 +589,7 @@
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-collections/vmware.vmware_rest
+              - name: github.com/ansible-collections/cloud.common
         - ansible-test-sanity-docker-devel
         - ansible-test-sanity-docker-milestone
         - ansible-test-sanity-docker-stable-2.11
@@ -604,9 +605,7 @@
     gate:
       jobs:
         - ansible-tox-linters
-        - build-ansible-collection:
-            required-projects:
-              - name: github.com/ansible-collections/vmware.vmware_rest
+        - build-ansible-collection
         - ansible-test-sanity-docker-devel
         - ansible-test-sanity-docker-milestone
         - ansible-test-sanity-docker-stable-2.11

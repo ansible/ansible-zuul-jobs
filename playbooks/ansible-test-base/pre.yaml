@@ -6,11 +6,20 @@
         path: "{{ ansible_user_dir }}/zuul-output/logs/controller"
         state: directory
 
-    - name: Install container runtime
-      include_role:
-        name: "ensure-{{ (container_command == 'docker') | ternary('docker', 'podman') }}"
-      when:
-        - ansible_test_docker | default(False)
+    - when: ansible_test_docker | default(False)
+      block:
+      - name: Install podman
+        package:
+          name: podman
+          state: present
+        when:
+          - ansible_distribution = 'Fedora'
+
+      - name: Install container runtime
+        include_role:
+          name: "ensure-{{ (container_command == 'docker') | ternary('docker', 'podman') }}"
+        when:
+          - ansible_distribution != 'Fedora'
 
     - name: Add python38 support if needed
       block:

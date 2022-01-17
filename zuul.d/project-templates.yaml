@@ -579,12 +579,9 @@
     name: ansible-collections-community-vmware
     check:
       jobs:
-        - ansible-test-cloud-integration-govcsim-python38_1_of_3:
-            voting: false
-        - ansible-test-cloud-integration-govcsim-python38_2_of_3:
-            voting: false
-        - ansible-test-cloud-integration-govcsim-python38_3_of_3:
-            voting: false
+        - ansible-test-cloud-integration-govcsim-python38_1_of_3
+        - ansible-test-cloud-integration-govcsim-python38_2_of_3
+        - ansible-test-cloud-integration-govcsim-python38_3_of_3
         - ansible-tox-linters
         - build-ansible-collection:
             required-projects:
@@ -614,6 +611,10 @@
         - ansible-test-units-community-vmware-python36
         - ansible-test-units-community-vmware-python37
         - ansible-test-units-community-vmware-python38
+        - ansible-test-cloud-integration-govcsim-python38_1_of_3
+        - ansible-test-cloud-integration-govcsim-python38_2_of_3
+        - ansible-test-cloud-integration-govcsim-python38_3_of_3
+
 - project-template:
     name: ansible-collections-community-vmware-rest
     check:

@@ -1,0 +1,35 @@
+- hosts: all
+  tasks:
+    - name: Setup download-artifact-fork role
+      include_role:
+        name: download-artifact-fork
+      vars:
+        download_artifact_directory: "{{ zuul.projects['github.com/ansible/network-ee'].src_dir }}/_build/collections"
+        download_artifact_type: ansible_collection
+
+    - name: Adjust the requirements.yaml file to point on the local colletion tarballs
+      replace:
+        path: "{{ zuul.projects['github.com/ansible/network-ee'].src_dir }}/_build/requirements.yml"
+        regexp: "{{ item.name }}$"
+        replace: "collections/{{ item.url | basename }}"
+      with_items: "{{ zuul.artifacts }}"
+      when: "'metadata' in item and 'type' in item.metadata and (item.metadata.type == 'ansible_collection')"
+
+    - name: Install podman
+      package:
+        name: podman
+        state: present
+      become: true
+
+    - name: Build the image
+      command: |
+        podman pull quay.io/ansible/ansible-runner:{{ ansible_runner_container_version }}
+        podman pull quay.io/ansible/ansible-builder:latest
+
+        # later: turn --pull-never on for these commands
+        podman build . --build-arg ANSIBLE_GALAXY_CLI_COLLECTION_OPTS=--pre --build-arg EE_BASE_IMAGE=quay.io/ansible/ansible-runner:latest --tag quay.io/ansible/network-ee:to-test
+        podman build tests --build-arg NETWORK_EE_IMAGE=quay.io/ansible/network-ee:to-test --tag quay.io/ansible/network-ee-tests:to-test
+        podman build test --file Containerfile.ansible-test --target network-ee-unit-tests --build-arg NETWORK_EE_TESTS_IMAGE=quay.io/ansible/network-ee-tests:to-test --tag quay.io/ansible/network-ee-unit-tests:to-test
+        podman build test --file Containerfile.ansible-test --target network-ee-sanity-tests --build-arg NETWORK_EE_TESTS_IMAGE=quay.io/ansible/network-ee-tests:to-test --tag quay.io/ansible/network-ee-sanity-tests:to-test
+      args:
+        chdir: "{{ zuul.projects['github.com/ansible/network-ee'].src_dir }}"

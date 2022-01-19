@@ -155,47 +155,18 @@
 - project-template:
     name: ansible-collections-arista-eos-units
     check:
-      jobs: &ansible-collections-arista-eos-units-jobs
-        - ansible-changelog-fragment
-        - ansible-test-sanity-docker-devel
-        - ansible-test-sanity-docker-milestone
-        - ansible-test-sanity-docker-stable-2.9
-        - ansible-test-sanity-docker-stable-2.10
-        - ansible-test-sanity-docker-stable-2.11
-        - ansible-test-sanity-docker-stable-2.12
-        - ansible-test-units-eos-python27:
-            voting: false
-        - ansible-test-units-eos-python38
-        - ansible-test-units-eos-python36
-        - ansible-test-units-eos-python37
+      # TMP, DNM
+      jobs: []
     gate:
-      queue: integrated
-      jobs: *ansible-collections-arista-eos-units-jobs
+      # TMP, DNM
+      jobs: []
 
 - project-template:
     name: ansible-collections-arista-eos
     check:
-      jobs: &ansible-collections-arista-eos-jobs
-        - network-ee-integration-tests-arista-eos-httpapi
-        - network-ee-integration-tests-arista-eos-httpapi-stable-2.9
-        - network-ee-integration-tests-arista-eos-httpapi-stable-2.11
-        - network-ee-integration-tests-arista-eos-httpapi-stable-2.12
-        - network-ee-integration-tests-arista-eos
-        - network-ee-integration-tests-arista-eos-stable-2.9
-        - network-ee-integration-tests-arista-eos-stable-2.11
-        - network-ee-integration-tests-arista-eos-stable-2.12
-        - network-ee-integration-tests-arista-eos-libssh
-        - network-ee-integration-tests-arista-eos-libssh-stable-2.9
-        - network-ee-integration-tests-arista-eos-libssh-stable-2.11
-        - network-ee-integration-tests-arista-eos-libssh-stable-2.12
-        - build-ansible-collection:
-            required-projects:
-              - name: github.com/ansible-collections/ansible.netcommon
-              - name: github.com/ansible-collections/ansible.utils
+      jobs: []
     gate:
-      queue: integrated
-      fail-fast: true
-      jobs: *ansible-collections-arista-eos-jobs
+      jobs: []
     periodic:
       jobs:
         - ansible-test-sanity-docker-devel
@@ -1325,7 +1296,31 @@
     name: ansible-test-network-integration
 
 - project-template:
+    #name: ansible-ee-tests
     name: network-ee-tests
+    description: |
+      This is a set of jobs, run the sanity and unit tests from within
+      a clean and up to date EE container.
+    check:
+      jobs: &ansible-ee-test-jobs
+        - ansible-ee-sanity-tests-latest
+        - ansible-ee-sanity-tests-stable-2.9
+        - ansible-ee-sanity-tests-stable-2.10
+        - ansible-ee-sanity-tests-stable-2.11
+        - ansible-ee-sanity-tests-stable-2.12
+        - ansible-ee-unit-tests-latest
+        - ansible-ee-unit-tests-stable-2.9
+        - ansible-ee-unit-tests-stable-2.10
+        - ansible-ee-unit-tests-stable-2.11
+        - ansible-ee-unit-tests-stable-2.12
+        # for testing
+        - build-ansible-collection-pod
+    gate:
+      jobs: *ansible-ee-test-jobs
+
+- project-template:
+    #name: network-ee-tests
+    name: network-ee-testsa
     description: |
       This is a set of jobs, run from within a network execution environment
       to validate network collections are working properly. This depends on

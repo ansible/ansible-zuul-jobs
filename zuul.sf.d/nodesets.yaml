@@ -285,3 +285,9 @@
     nodes:
       - name: controller
         label: ansible-fedora-35-1vcpu
+
+- nodeset:
+    name: tox-linters
+    nodes:
+      - name: fedora-35
+        label: zuul-worker-f35

@@ -25,7 +25,7 @@
 - job:
     name: ansible-tox-linters
     parent: tox-linters
-    nodeset: fedora-latest-1vcpu
+    nodeset: tox-linters
 
 - job: &ansible-tox-molecule-base
     name: ansible-tox-molecule-base

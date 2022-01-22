@@ -1,0 +1,62 @@
+---
+- job:
+    name: ansible-ee-tests
+    abstract: true
+    irrelevant-files:
+      - .pre-commit-config.yaml
+    pre-run:
+      - playbooks/ansible-ee/pre.yaml
+    run: playbooks/ansible-ee/run.yaml
+    required-projects:
+      - name: github.com/ansible/network-ee
+    dependencies:
+      - build-ansible-collection
+    vars:
+      container_image_name: quay.io/ansible/network-ee
+    nodeset: controller-python35
+
+# latest
+- job:
+    name: ansible-ee-tests-latest
+    parent: ansible-ee-tests
+    vars:
+      ansible_runner_container_version: latest
+      container_image_tests:
+        - sanity
+        - unit
+
+- job:
+    name: ansible-ee-tests-stable-2.12
+    parent: ansible-ee-tests
+    vars:
+      ansible_runner_container_version: stable-2.12-devel
+      container_image_tests:
+        - sanity
+        - unit
+
+- job:
+    name: ansible-ee-tests-stable-2.11
+    parent: ansible-ee-tests
+    vars:
+      ansible_runner_container_version: stable-2.11-devel
+      container_image_tests:
+        - sanity
+        - unit
+
+- job:
+    name: ansible-ee-tests-stable-2.10
+    parent: ansible-ee-tests
+    vars:
+      ansible_runner_container_version: stable-2.10-devel
+      container_image_tests:
+        - sanity
+        - unit
+
+- job:
+    name: ansible-ee-tests-stable-2.9
+    parent: ansible-ee-tests
+    vars:
+      ansible_runner_container_version: stable-2.9-devel
+      container_image_tests:
+        - sanity
+        - unit

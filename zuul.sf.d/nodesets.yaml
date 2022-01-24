@@ -45,8 +45,15 @@
 - nodeset:
     name: eos-4.24.6-python38
     nodes:
-      - name: fedora-35
+      - name: controller
+        # TODO
         label: ansible-fedora-35-1vcpu
+      - name: eos-4.24.6
+        label: vEOS-4.24.6F
+    groups:
+      - name: appliance
+        nodes:
+          - eos-4.24.6
 
 - nodeset:
     name: fedora-35-1vcpu
@@ -111,8 +118,27 @@
 - nodeset:
     name: openvswitch-2.9.0-python38
     nodes:
-      - name: fedora-35
+      - name: centos-8-stream
+        label: centos-8-stream
+      - name: openvswitch-2.9.0
+        label: ubuntu-bionic-1vcpu
+    groups:
+      - name: openvswitch
+        nodes:
+          - openvswitch-2.9.0
+      - name: controller
+        nodes:
+          - centos-8-stream
+
+- nodeset:
+    name: openvswitch-2.15.0-python38
+    nodes:
+      - name: controller
         label: ansible-fedora-35-1vcpu
+    groups:
+      - name: openvswitch
+        nodes:
+          - controller
 
 - nodeset:
     name: QRadarCE-7.3.1-python38

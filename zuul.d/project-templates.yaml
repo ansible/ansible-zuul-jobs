@@ -1171,6 +1171,34 @@
         - build-ansible-collection
 
 - project-template:
+    name: ansible-collections-openvswitch-openvswitch_no_network-ee
+    check:
+      jobs: &ansible-collections-openvswitch-openvswitch-jobs_no_network_ee
+        - ansible-ee-integration-ovs-latest
+        - ansible-ee-integration-ovs-stable2.12
+        - ansible-ee-integration-ovs-stable2.11
+        - ansible-ee-integration-ovs-stable2.10
+        - ansible-ee-integration-ovs-stable2.9
+        - build-ansible-collection:
+            required-projects:
+              - name: github.com/ansible-collections/ansible.netcommon
+              - name: github.com/ansible-collections/ansible.utils
+    gate:
+      queue: integrated
+      jobs: *ansible-collections-openvswitch-openvswitch-jobs_no_network_ee
+    periodic:
+      jobs:
+        - ansible-test-sanity-docker-devel
+        - ansible-test-sanity-docker-milestone
+        - ansible-test-sanity-docker-stable-2.9
+        - ansible-test-sanity-docker-stable-2.10
+        - ansible-test-sanity-docker-stable-2.11
+        - ansible-test-sanity-docker-stable-2.12
+        - ansible-test-units-openvswitch-python38
+        - build-ansible-collection
+
+
+- project-template:
     name: ansible-collections-vyos-vyos-units
     check:
       jobs: &ansible-collections-vyos-vyos-units-jobs

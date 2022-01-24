@@ -11,11 +11,6 @@
         collection_name: "{{ zuul.project.short_name.split('.')[1] }}"
       when: collection_name is not defined
 
-    - command: podman images
-      register: result
-
-    - debug: var=result
-
     - name: Run the test
       include_tasks: "run-{{ item }}.yaml"
       with_items: "{{ container_image_tests }}"

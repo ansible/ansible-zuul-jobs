@@ -60,3 +60,13 @@
       container_image_tests:
         - sanity
         - unit
+
+- job:
+    name: ansible-ee-integration-latest
+    parent: ansible-ee-tests
+    vars:
+      ansible_runner_container_version: latest
+      container_image_tests:
+        - integration
+      ansible_network_os: eos
+    nodeset: eos-4.24.6-python38

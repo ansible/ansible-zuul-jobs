@@ -291,3 +291,28 @@
     nodes:
       - name: controller
         label: zuul-worker-ansible
+
+- nodeset:
+    name: ansible-galaxy-importer
+    nodes:
+      - name: controller
+        label: zuul-worker-ansible
+
+- nodeset:
+    name: ansible-tox-py38
+    nodes:
+      - name: controller
+        label: zuul-worker-ansible
+
+- nodeset:
+    name: ansible-tox-py39
+    nodes:
+      - name: controller
+        label: zuul-worker-ansible
+
+
+- nodeset:
+    name: ansible-tox-py310
+    nodes:
+      - name: controller
+        label: zuul-worker-ansible

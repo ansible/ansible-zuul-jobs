@@ -316,3 +316,9 @@
     nodes:
       - name: controller
         label: zuul-worker-ansible
+
+- nodeset:
+    name: ansible-test-splitter
+    nodes:
+      - name: controller
+        label: zuul-worker-ansible

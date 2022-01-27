@@ -762,3 +762,9 @@
     nodes:
       - name: controller
         label: fedora-latest-1vcpu
+
+- nodeset:
+    name: ansible-test-splitter
+    nodes:
+      - name: controller
+        label: centos-8-stream-small

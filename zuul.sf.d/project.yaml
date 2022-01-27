@@ -10,9 +10,6 @@
         - ansible-tox-py39:
             vars:
               tox_envlist: pytest,black
-        - ansible-tox-py39-fedora:
-            vars:
-              tox_envlist: pytest,black
         - ansible-tox-py310:
             vars:
               tox_envlist: pytest,black
@@ -75,9 +72,6 @@
             vars:
               tox_envlist: pytest,black
         - ansible-tox-py39:
-            vars:
-              tox_envlist: pytest,black
-        - ansible-tox-py39-fedora:
             vars:
               tox_envlist: pytest,black
         - ansible-network-asa-appliance:

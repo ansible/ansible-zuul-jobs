@@ -268,7 +268,7 @@
     files:
       - ^plugins/.*$
       - ^tests/integration/.*$
-    nodeset: centos-8-stream
+    nodeset: container-ansible
     timeout: 1000
     vars:
       ansible_collections_repo: "{{ zuul.project.canonical_name }}"

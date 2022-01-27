@@ -18,6 +18,6 @@
 
 - name: Install require-project collection using ansible-galaxy
   args:
-    chdir: "{{ ansible_user_dir }}/downloads"
+    chdir: ~/downloads
     executable: /bin/bash
   shell: "source {{ deploy_artifacts_venv_path }}/bin/activate; ansible-galaxy collection install {{ __collections }}"

@@ -731,3 +731,9 @@
         nodes:
           - Trendmicro-DeepSecurity-20.0.344
           - fedora-35
+
+- nodeset:
+    name: ansible-tox-linters
+    nodes:
+      - name: controller
+        label: ansible-fedora-35-1vcpu

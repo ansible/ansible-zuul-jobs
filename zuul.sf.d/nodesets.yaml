@@ -1,4 +1,10 @@
 ---
+- nodeset:
+    name: container-ansible
+    nodes:
+      - name: controller
+        label: zuul-worker-ansible
+
 # We don't have CentOS8 Stream yet
 - nodeset:
     name: asav9-12-3-python27

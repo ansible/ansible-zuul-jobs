@@ -1,5 +1,5 @@
 ---
-- hosts: all
+- hosts: controller
   tasks:
     - name: Setup download-artifact-fork role
       include_role:
@@ -39,3 +39,7 @@
         podman build tests --pull-never --file Containerfile.ansible-test --target network-ee-sanity-tests --build-arg NETWORK_EE_TESTS_IMAGE=quay.io/ansible/network-ee-tests:to-test --tag quay.io/ansible/network-ee-sanity-tests:to-test
       args:
         chdir: "{{ zuul.projects['github.com/ansible/network-ee'].src_dir }}"
+
+    - name: Prepare the integration tests
+      include_tasks: pre-integration.yaml
+      when: '"integration" in container_image_tests'

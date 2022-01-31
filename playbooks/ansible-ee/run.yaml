@@ -11,6 +11,6 @@
         collection_name: "{{ zuul.project.short_name.split('.')[1] }}"
       when: collection_name is not defined
 
-    - name: Run test container
-      shell: "podman run --pull=never -w /usr/share/ansible/collections/ansible_collections/{{ collection_namespace }}/{{ collection_name }} {{ container_image_name }}-{{ item }}-tests:to-test"
+    - name: Run the test
+      include_tasks: "run-{{ item }}.yaml"
       with_items: "{{ container_image_tests }}"

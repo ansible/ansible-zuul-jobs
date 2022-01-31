@@ -88,3 +88,42 @@
     nodeset: openvswitch-2.9.0-python38
     vars:
       test_ansible_python_interpreter: /usr/bin/python3
+
+# ansible-ee
+- job:
+    name: ansible-ee-integration-ovs-latest
+    parent: ansible-ee-tests
+    pre-run:
+      - playbooks/ansible-network-openvswitch-appliance/pre.yaml
+    vars:
+      ansible_runner_container_version: latest
+      container_image_tests:
+        - integration
+      ansible_network_os: openvswitch
+      test_ansible_ssh_private_key_file: ~/.ssh/id_ecdsa
+      test_ansible_network_cli_ssh_type: libssh
+    nodeset: openvswitch-2.15.0-python38
+
+- job:
+    name: ansible-ee-integration-ovs-stable2.11
+    parent: ansible-ee-integration-ovs-latest
+    vars:
+      ansible_runner_container_version: stable-2.11-devel
+
+- job:
+    name: ansible-ee-integration-ovs-stable2.12
+    parent: ansible-ee-integration-ovs-latest
+    vars:
+      ansible_runner_container_version: stable-2.12-devel
+
+- job:
+    name: ansible-ee-integration-ovs-stable2.10
+    parent: ansible-ee-integration-ovs-latest
+    vars:
+      ansible_runner_container_version: stable-2.10-devel
+
+- job:
+    name: ansible-ee-integration-ovs-stable2.9
+    parent: ansible-ee-integration-ovs-latest
+    vars:
+      ansible_runner_container_version: stable-2.9-devel

@@ -307,6 +307,7 @@
         - ansible-test-units-nxos-python37
     gate:
       queue: integrated
+      fail-fast: true
       jobs: *ansible-collections-cisco-nxos-units-jobs
 
 - project-template:
@@ -383,6 +384,7 @@
               - name: github.com/ansible-collections/ansible.utils
     gate:
       queue: integrated
+      fail-fast: true
       jobs:
         - build-ansible-collection:
             required-projects:
@@ -436,6 +438,7 @@
               - name: github.com/ansible-collections/ansible.utils
     gate:
       queue: integrated
+      fail-fast: true
       jobs: *ansible-collections-cisco-ios-jobs
     periodic:
       jobs:
@@ -464,6 +467,7 @@
         - ansible-test-units-iosxr-python37
     gate:
       queue: integrated
+      fail-fast: true
       jobs: *ansible-collections-cisco-iosxr-units-jobs
 
 - project-template:
@@ -476,6 +480,7 @@
               - name: github.com/ansible-collections/ansible.utils
     gate:
       queue: integrated
+      fail-fast: true
       jobs:
         - build-ansible-collection:
             required-projects:
@@ -513,6 +518,7 @@
               - name: github.com/ansible-collections/vyos.vyos
     gate:
       queue: integrated
+      fail-fast: true
       jobs:
         - build-ansible-collection:
             required-projects:
@@ -704,6 +710,7 @@
         - ansible-test-units-junos-python37
     gate:
       queue: integrated
+      fail-fast: true
       jobs: *ansible-collections-juniper-junos-units-jobs
 
 - project-template:
@@ -912,6 +919,7 @@
               - name: github.com/ansible-collections/ansible.utils
     gate:
       queue: integrated
+      fail-fast: true
       jobs: *ansible-collections-juniper-junos-jobs
 
     periodic:
@@ -940,6 +948,7 @@
               - name: github.com/ansible-collections/junipernetworks.junos
     gate:
       queue: integrated
+      fail-fast: true
       jobs: *ansible-collections-juniper-junos-netconf-jobs
 
 - project-template:
@@ -1024,6 +1033,7 @@
         - ansible-test-units-vyos-python38
     gate:
       queue: integrated
+      fail-fast: true
       jobs: *ansible-collections-vyos-vyos-units-jobs
 
 - project-template:
@@ -1044,6 +1054,7 @@
               - name: github.com/ansible-collections/ansible.utils
     gate:
       queue: integrated
+      fail-fast: true
       jobs: *ansible-collections-vyos-vyos-jobs
     periodic:
       jobs:
@@ -1099,6 +1110,7 @@
         - ansible-test-units-netcommon-python37
     gate:
       queue: integrated
+      fail-fast: true
       jobs: *ansible-collections-ansible-netcommon-units-jobs
 
 - project-template:
@@ -1121,6 +1133,7 @@
               - name: github.com/ansible-collections/vyos.vyos
     gate:
       queue: integrated
+      fail-fast: true
       jobs: *ansible-collections-ansible-network-units-jobs
 
 - project-template:
@@ -1195,6 +1208,7 @@
               - name: github.com/ansible-collections/ansible.utils
     gate:
       queue: integrated
+      fail-fast: true
       jobs: *ansible-collections-cisco-iosxr-yang-jobs
 
 
@@ -1344,6 +1358,7 @@
         - network-ee-unit-tests-stable-2.12
     gate:
       jobs: *network-ee-test-jobs
+      fail-fast: true
 
 - project-template:
     name: ansible-collections-ansible-network

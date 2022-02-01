@@ -20,7 +20,7 @@
 - job:
     name: ansible-tox-docs
     parent: tox-docs
-    nodeset: centos-8-stream
+    nodeset: fedora-latest-1vcpu
 
 - job:
     name: ansible-tox-linters

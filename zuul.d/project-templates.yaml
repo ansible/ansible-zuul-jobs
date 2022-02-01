@@ -128,6 +128,10 @@
         - ansible-test-cloud-integration-aws-py38_5
         - ansible-galaxy-importer:
             voting: false
+    third-party-check:
+      jobs:
+        - ansible-galaxy-importer:
+            voting: false
     gate:
       queue: integrated-aws
       jobs: *ansible-collections-community-aws-jobs

@@ -1,24 +1,14 @@
 ---
-- hosts: openvswitch
+- hosts: controller
   tasks:
-    - when: ansible_distribution == 'Fedora'
-      block:
-        - name: Install openvswitch package
-          become: true
-          package:
-            name:
-              - openvswitch
-            state: present
-        - name: Start the service
-          become: true
-          service:
-            name: openvswitch
-            state: started
-    - when: ansible_distribution == 'Ubuntu'
-      block:
-        - name: Install openvswitch package
-          become: true
-          package:
-            name:
-              - openvswitch-switch
-            state: present
+    - name: Ensure tox
+      include_role:
+        name: ensure-tox
+    - name: Setup tox role
+      include_role:
+        name: tox
+      vars:
+        tox_envlist: venv
+        tox_extra_args: -vv -- ansible-playbook -v playbooks/ansible-network-openvswitch-appliance/files/bootstrap.yaml
+        tox_install_siblings: false
+        zuul_work_dir: "{{ zuul.projects['github.com/ansible/ansible-zuul-jobs'].src_dir }}"

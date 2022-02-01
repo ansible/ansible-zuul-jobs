@@ -1,5 +1,5 @@
 ---
-
+# openvswitch.openvswitch
 - project-template:
     name: ansible-collections-openvswitch-openvswitch-units
     check:
@@ -43,4 +43,57 @@
         - ansible-test-sanity-docker-stable-2.11
         - ansible-test-sanity-docker-stable-2.12
         - ansible-test-units-openvswitch-python38
+        - build-ansible-collection
+
+# ansible.utils
+- project-template:
+    name: ansible-collections-ansible-utils_no_network-ee
+    check:
+      jobs: &ansible-collections-ansible-utils-jobs_no_network_ee
+        - build-ansible-collection:
+            required-projects:
+              - name: github.com/ansible-collections/ansible.netcommon
+              - name: github.com/ansible-collections/ansible.utils
+    gate:
+      queue: integrated
+      jobs: *ansible-collections-ansible-utils-jobs_no_network_ee
+    periodic:
+      jobs:
+        - ansible-test-sanity-docker-devel
+        - ansible-test-sanity-docker-milestone
+        - ansible-test-sanity-docker-stable-2.9
+        - ansible-test-sanity-docker-stable-2.10
+        - ansible-test-sanity-docker-stable-2.11
+        - ansible-test-sanity-docker-stable-2.12
+        - ansible-test-units-openvswitch-python38
+        - build-ansible-collection
+
+- project-template:
+    name: ansible-collections-ansible-utils-units
+    check:
+      jobs: &ansible-collections-ansible-utils-units-jobs
+        - ansible-changelog-fragment
+        - ansible-test-sanity-docker-devel
+        - ansible-test-sanity-docker-milestone
+        - ansible-test-sanity-docker-stable-2.9
+        - ansible-test-sanity-docker-stable-2.10
+        - ansible-test-sanity-docker-stable-2.11
+        - ansible-test-sanity-docker-stable-2.12
+        - ansible-test-units-ansible-utils-python27
+        - ansible-test-units-ansible-utils-python36
+        - ansible-test-units-ansible-utils-python37
+        - network-ee-unit-tests:
+            voting: false
+    gate:
+      queue: integrated
+      jobs: *ansible-collections-ansible-utils-units-jobs
+    periodic:
+      jobs:
+        - ansible-test-sanity-docker-devel
+        - ansible-test-sanity-docker-milestone
+        - ansible-test-sanity-docker-stable-2.9
+        - ansible-test-sanity-docker-stable-2.10
+        - ansible-test-sanity-docker-stable-2.11
+        - ansible-test-sanity-docker-stable-2.12
+        - ansible-test-units-ansible-utils-python38
         - build-ansible-collection

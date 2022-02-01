@@ -1,7 +1,7 @@
 # {{ ansible_managed }}
 [appstream]
 name=CentOS Stream $releasever - AppStream
-baseurl={{ package_mirror }}/$stream/AppStream/$basearch/os/
+baseurl=https://vault.centos.org/8.5.2111/AppStream/$basearch/os/
 gpgcheck=1
 enabled=1
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-centosofficial

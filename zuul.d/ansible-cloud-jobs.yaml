@@ -253,11 +253,12 @@
 
 - job:
     name: ansible-test-units-community-vmware-python38
-    parent: ansible-test-units-base-python38
+    parent: ansible-tox-py38
     required-projects:
       - name: github.com/ansible-collections/community.vmware
     vars:
       ansible_collections_repo: github.com/ansible-collections/community.vmware
+      ansible_test_python: 3.8
 
 
 ### AWS
@@ -356,7 +357,7 @@
 
 - job:
     name: ansible-test-units-amazon-aws-python38
-    parent: ansible-test-units-base-python38
+    parent: ansible-tox-py38
     vars:
       ansible_collections_repo: "{{ zuul.project.canonical_name }}"
       ansible_test_requirement_files:
@@ -367,6 +368,7 @@
         - tests/unit/requirements.txt
       ansible_test_constraint_files:
         - tests/unit/constraints.txt
+      ansible_test_python: 3.8
 
 # TODO(Gonéri): do we still need this flavor of the job?
 - job:
@@ -401,27 +403,30 @@
 ### Cloud Common
 - job:
     name: ansible-test-units-cloud-common-python38
-    parent: ansible-test-units-base-python38
+    parent: ansible-tox-py38
     vars:
       ansible_collections_repo: "{{ zuul.project.canonical_name }}"
+      ansible_test_python: 3.8
 
 ### Community OKD
 - job:
     name: ansible-test-units-community-okd-python38
-    parent: ansible-test-units-base-python38
+    parent: ansible-tox-py38
     required-projects:
       - name: github.com/openshift/community.okd
     vars:
       ansible_collections_repo: github.com/openshift/community.okd
+      ansible_test_python: 3.8
 
 ### Kubernetes Core
 - job:
     name: ansible-test-units-kubernetes-core-python38
-    parent: ansible-test-units-base-python38
+    parent: ansible-tox-py38
     required-projects:
       - name: github.com/ansible-collections/kubernetes.core
     vars:
       ansible_collections_repo: github.com/ansible-collections/kubernetes.core
+      ansible_test_python: 3.8
 
 - job:
     name: ansible-test-molecule-kubernetes-core

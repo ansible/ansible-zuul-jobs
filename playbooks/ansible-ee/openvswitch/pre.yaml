@@ -1,0 +1,24 @@
+---
+- hosts: openvswitch
+  tasks:
+    - when: ansible_distribution == 'Fedora'
+      block:
+        - name: Install openvswitch package
+          become: true
+          package:
+            name:
+              - openvswitch
+            state: present
+        - name: Start the service
+          become: true
+          service:
+            name: openvswitch
+            state: started
+    - when: ansible_distribution == 'Ubuntu'
+      block:
+        - name: Install openvswitch package
+          become: true
+          package:
+            name:
+              - openvswitch-switch
+            state: present

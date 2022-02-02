@@ -1,3 +1,3 @@
 ---
 epel_mirror: https://mirror.csclub.uwaterloo.ca/fedora/epel
-package_mirror: http://mirror.facebook.net/centos
+package_mirror: https://vault.centos.org/8.4.2105

@@ -4,7 +4,12 @@
     ansible_zuul_src_dir: "{{ ansible_user_dir }}/{{ zuul.projects['github.com/ansible/ansible-zuul-jobs'].src_dir }}"
   tasks:
     - name: Test using Molecule
-      shell: "source {{ ansible_test_venv_path }}/bin/activate; molecule test"
+      shell: |
+        source {{ ansible_test_venv_path }}/bin/activate
+        set -eux
+        pip freeze
+        python3 -c 'import selinux; assert selinux.is_selinux_enabled() is False'
+        molecule test
       environment: "{{ ansible_test_environment | default({}) }}"
       args:
         chdir: ~/.ansible/collections/ansible_collections/kubernetes/core

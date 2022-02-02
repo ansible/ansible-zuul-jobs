@@ -111,6 +111,10 @@
           image: "{{ container_image_name}}:to-test"
         mode: stdout
 
+- name: Print ansible-navigator.cfg
+  debug:
+    msg: "{{ _navigator_data | to_nice_yaml(indent=2, explicit_start=True) }}"
+
 - name: Write ansible-navigator.cfg file
   copy:
     content: "{{ _navigator_data | to_nice_yaml(indent=2, explicit_start=True) }}"

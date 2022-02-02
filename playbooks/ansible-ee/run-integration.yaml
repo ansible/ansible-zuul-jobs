@@ -4,6 +4,17 @@
   args:
     chdir: "{{ zuul.projects['github.com/ansible/network-ee'].src_dir }}"
 
+- name: Setup collection_namespace
+  set_fact:
+    collection_namespace: "{{ zuul.project.short_name.split('.')[0] }}"
+  when: collection_namespace is not defined
+
+- name: Setup collection_name
+  set_fact:
+    collection_name: "{{ zuul.project.short_name.split('.')[1] }}"
+  when: collection_name is not defined
+
+
 - name: Run integration tests
   args:
     chdir: "{{ zuul.projects['github.com/ansible/network-ee'].src_dir }}/tests/integration"

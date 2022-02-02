@@ -435,7 +435,7 @@
       - name: github.com/ansible/ansible
       - name: github.com/ansible-collections/kubernetes.core
     timeout: 5400
-    nodeset: centos-8-stream
+    nodeset: fedora-35-1vcpu
     vars:
       ansible_collections_repo: github.com/ansible-collections/kubernetes.core
       ansible_test_collections: true

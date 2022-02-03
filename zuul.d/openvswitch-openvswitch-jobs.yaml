@@ -108,22 +108,22 @@
     name: ansible-ee-integration-ovs-stable2.11
     parent: ansible-ee-integration-ovs-latest
     vars:
-      ansible_runner_container_version: stable-2.11-devel
+      ansible_runner_container_version: stable-2.11-latest
 
 - job:
     name: ansible-ee-integration-ovs-stable2.12
     parent: ansible-ee-integration-ovs-latest
     vars:
-      ansible_runner_container_version: stable-2.12-devel
+      ansible_runner_container_version: stable-2.12-latest
 
 - job:
     name: ansible-ee-integration-ovs-stable2.10
     parent: ansible-ee-integration-ovs-latest
     vars:
-      ansible_runner_container_version: stable-2.10-devel
+      ansible_runner_container_version: stable-2.10-latest
 
 - job:
     name: ansible-ee-integration-ovs-stable2.9
     parent: ansible-ee-integration-ovs-latest
     vars:
-      ansible_runner_container_version: stable-2.9-devel
+      ansible_runner_container_version: stable-2.9-latest

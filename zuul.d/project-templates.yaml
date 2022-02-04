@@ -106,7 +106,6 @@
         - ansible-test-sanity-docker-devel
         - ansible-test-sanity-docker-milestone
         - ansible-test-sanity-docker-stable-2.9
-        - ansible-test-sanity-docker-stable-2.10
         - ansible-test-sanity-docker-stable-2.11
         - ansible-test-sanity-docker-stable-2.12
         - ansible-test-units-community-aws-python38
@@ -512,7 +511,6 @@
         - ansible-test-sanity-docker-devel
         - ansible-test-sanity-docker-milestone
         - ansible-test-sanity-docker-stable-2.9
-        - ansible-test-sanity-docker-stable-2.10
         - ansible-test-sanity-docker-stable-2.11
         - ansible-test-sanity-docker-stable-2.12
         - ansible-galaxy-importer:
@@ -595,7 +593,6 @@
         - ansible-test-sanity-docker-devel
         - ansible-test-sanity-docker-milestone
         - ansible-test-sanity-docker-stable-2.9
-        - ansible-test-sanity-docker-stable-2.10
         - ansible-test-sanity-docker-stable-2.11
         - ansible-test-sanity-docker-stable-2.12
     gate:
@@ -605,7 +602,6 @@
         - ansible-test-sanity-docker-devel
         - ansible-test-sanity-docker-milestone
         - ansible-test-sanity-docker-stable-2.9
-        - ansible-test-sanity-docker-stable-2.10
         - ansible-test-sanity-docker-stable-2.11
         - ansible-test-sanity-docker-stable-2.12
         - build-ansible-collection
@@ -1073,14 +1069,12 @@
         - ansible-test-sanity-docker-devel
         - ansible-test-sanity-docker-milestone
         - ansible-test-sanity-docker-stable-2.9
-        - ansible-test-sanity-docker-stable-2.10
         - ansible-test-sanity-docker-stable-2.11
         - ansible-test-sanity-docker-stable-2.12
         - ansible-test-units-kubernetes-core-python38
         - ansible-test-molecule-kubernetes-core-devel
         - ansible-test-molecule-kubernetes-core-milestone
         - ansible-test-molecule-kubernetes-core-2.9
-        - ansible-test-molecule-kubernetes-core-2.10
         - ansible-test-molecule-kubernetes-core-with-turbo
         - ansible-tox-linters
     gate:
@@ -1417,7 +1411,6 @@
       jobs: &ansible-ee-test-jobs
         - ansible-ee-tests-latest
         - ansible-ee-tests-stable-2.9
-        - ansible-ee-tests-stable-2.10
         - ansible-ee-tests-stable-2.11
         - ansible-ee-tests-stable-2.12
     gate:

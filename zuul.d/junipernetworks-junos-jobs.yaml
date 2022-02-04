@@ -164,20 +164,6 @@
       ansible_test_python: 2.7
 
 - job:
-    name: ansible-test-network-integration-junos-vsrx-python35
-    parent: ansible-test-network-integration-junos-vsrx
-    nodeset: vsrx3-18.4R1-python35
-    vars:
-      ansible_test_python: 3.5
-
-- job:
-    name: ansible-test-network-integration-junos-vsrx-python36
-    parent: ansible-test-network-integration-junos-vsrx
-    nodeset: vsrx3-18.4R1-python36
-    vars:
-      ansible_test_python: 3.6
-
-- job:
     name: ansible-test-network-integration-junos-vsrx-netconf-python38
     parent: ansible-test-network-integration-junos-vsrx-netconf
     nodeset: vsrx3-18.4R1-python38

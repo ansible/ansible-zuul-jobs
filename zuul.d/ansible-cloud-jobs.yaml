@@ -7,13 +7,6 @@
     run: playbooks/ansible-cloud/vcenter-appliance/run.yaml
     required-projects:
       - name: github.com/ansible/ansible-zuul-jobs
-    # NOTE: we set ansible_network_os with some generic
-    # value to pass the ansible-network playbooks
-    host-vars:
-      vcenter:
-        ansible_network_os: vmware_rest
-      esxi1:
-        ansible_network_os: vmware_rest
     nodeset: vmware-vcsa-7.0.3-python36
 
 # govcsim

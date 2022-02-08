@@ -781,6 +781,9 @@
         - network-ee-integration-tests-vyos-libssh-stable-2.9
         - network-ee-integration-tests-vyos-libssh-stable-2.11
         - network-ee-integration-tests-vyos-libssh-stable-2.12
+        - build-ansible-collection:
+            required-projects:
+              - name: github.com/ansible-collections/ansible.utils
     gate:
       queue: integrated
       fail-fast: true
@@ -833,12 +836,7 @@
         - network-ee-integration-tests-vyos-libssh-stable-2.12
         - build-ansible-collection:
             required-projects:
-              - name: github.com/ansible-collections/ansible.netcommon
               - name: github.com/ansible-collections/ansible.utils
-    gate:
-      queue: integrated
-      fail-fast: true
-      jobs: *ansible-collections-juniper-junos-netcommon-jobs
 
 - project-template:
     name: ansible-collections-juniper-junos

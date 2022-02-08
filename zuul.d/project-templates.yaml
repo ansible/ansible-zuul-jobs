@@ -166,8 +166,7 @@
         - ansible-test-sanity-docker-stable-2.10
         - ansible-test-sanity-docker-stable-2.11
         - ansible-test-sanity-docker-stable-2.12
-        - ansible-test-units-eos-python27:
-            voting: false
+        - ansible-test-units-eos-python27
         - ansible-test-units-eos-python38
         - ansible-test-units-eos-python36
         - ansible-test-units-eos-python37
@@ -679,187 +678,10 @@
       jobs: *ansible-collections-juniper-junos-units-jobs
 
 - project-template:
-    name: ansible-collections-juniper-junos-netcommon
+    name: ansible-collections-ansible-netcommon
     check:
-      jobs: &ansible-collections-juniper-junos-netcommon-jobs
-        - ansible-test-network-integration-junos-vsrx-netconf-python27-stable29:
-            vars:
-              ansible_test_collections: true
-              ansible_test_integration_targets: "junos_.*"
-        - ansible-test-network-integration-junos-vsrx-netconf-python27-stable29:
-            vars:
-              ansible_test_collections: true
-              ansible_test_integration_targets: "junos_.*"
-        - ansible-test-network-integration-junos-vsrx-netconf-python27-stable29:
-            vars:
-              ansible_test_collections: true
-              ansible_test_integration_targets: "junos_.*"
-        - ansible-test-network-integration-junos-vsrx-netconf-python27-stable29:
-            vars:
-              ansible_test_collections: true
-              ansible_test_integration_targets: "junos_.*"
-        - ansible-test-network-integration-junos-vsrx-network_cli-python27-stable29:
-            vars:
-              ansible_test_collections: true
-              ansible_test_integration_targets: "junos_.*"
-        - ansible-test-network-integration-junos-vsrx-network_cli-python27-stable29:
-            vars:
-              ansible_test_collections: true
-              ansible_test_integration_targets: "junos_.*"
-        - ansible-test-network-integration-junos-vsrx-network_cli-python27-stable29:
-            vars:
-              ansible_test_collections: true
-              ansible_test_integration_targets: "junos_.*"
-        - ansible-test-network-integration-junos-vsrx-network_cli-python27-stable29:
-            vars:
-              ansible_test_collections: true
-              ansible_test_integration_targets: "junos_.*"
-        - ansible-test-network-integration-junos-vsrx-netconf-python38:
-            vars:
-              ansible_test_collections: true
-              ansible_test_integration_targets: "junos_.*"
-        - ansible-test-network-integration-junos-vsrx-netconf-python38:
-            vars:
-              ansible_test_collections: true
-              ansible_test_integration_targets: "junos_.*"
-        - ansible-test-network-integration-junos-vsrx-netconf-python38:
-            vars:
-              ansible_test_collections: true
-              ansible_test_integration_targets: "junos_.*"
-        - ansible-test-network-integration-junos-vsrx-netconf-python38:
-            vars:
-              ansible_test_collections: true
-              ansible_test_integration_targets: "junos_.*"
-        - ansible-test-network-integration-junos-vsrx-netconf-python38-stable212:
-            vars:
-              ansible_test_collections: true
-              ansible_test_integration_targets: "junos_.*"
-        - ansible-test-network-integration-junos-vsrx-netconf-python38-stable212:
-            vars:
-              ansible_test_collections: true
-              ansible_test_integration_targets: "junos_.*"
-        - ansible-test-network-integration-junos-vsrx-netconf-python38-stable212:
-            vars:
-              ansible_test_collections: true
-              ansible_test_integration_targets: "junos_.*"
-        - ansible-test-network-integration-junos-vsrx-netconf-python38-stable212:
-            vars:
-              ansible_test_collections: true
-              ansible_test_integration_targets: "junos_.*"
-        - ansible-test-network-integration-junos-vsrx-netconf-python36-stable29:
-            vars:
-              ansible_test_collections: true
-              ansible_test_integration_targets: "junos_.*"
-        - ansible-test-network-integration-junos-vsrx-netconf-python36-stable29:
-            vars:
-              ansible_test_collections: true
-              ansible_test_integration_targets: "junos_.*"
-        - ansible-test-network-integration-junos-vsrx-netconf-python36-stable29:
-            vars:
-              ansible_test_collections: true
-              ansible_test_integration_targets: "junos_.*"
-        - ansible-test-network-integration-junos-vsrx-netconf-python36-stable29:
-            vars:
-              ansible_test_collections: true
-              ansible_test_integration_targets: "junos_.*"
-        - ansible-test-network-integration-junos-vsrx-network_cli-python38:
-            vars:
-              ansible_test_collections: true
-              ansible_test_integration_targets: "junos_.*"
-        - ansible-test-network-integration-junos-vsrx-network_cli-python38:
-            vars:
-              ansible_test_collections: true
-              ansible_test_integration_targets: "junos_.*"
-        - ansible-test-network-integration-junos-vsrx-network_cli-python38:
-            vars:
-              ansible_test_collections: true
-              ansible_test_integration_targets: "junos_.*"
-        - ansible-test-network-integration-junos-vsrx-network_cli-python38:
-            vars:
-              ansible_test_collections: true
-              ansible_test_integration_targets: "junos_.*"
-        - ansible-test-network-integration-junos-vsrx-network_cli-python38-stable212:
-            vars:
-              ansible_test_collections: true
-              ansible_test_integration_targets: "junos_.*"
-        - ansible-test-network-integration-junos-vsrx-network_cli-python38-stable212:
-            vars:
-              ansible_test_collections: true
-              ansible_test_integration_targets: "junos_.*"
-        - ansible-test-network-integration-junos-vsrx-network_cli-python38-stable212:
-            vars:
-              ansible_test_collections: true
-              ansible_test_integration_targets: "junos_.*"
-        - ansible-test-network-integration-junos-vsrx-network_cli-python38-stable212:
-            vars:
-              ansible_test_collections: true
-              ansible_test_integration_targets: "junos_.*"
-        - ansible-test-network-integration-junos-vsrx-network_cli-python36-stable29:
-            vars:
-              ansible_test_collections: true
-              ansible_test_integration_targets: "junos_.*"
-        - ansible-test-network-integration-junos-vsrx-network_cli-libssh-python38:
-            vars:
-              ansible_test_collections: true
-              ansible_test_integration_targets: "junos_.*"
-        - ansible-test-network-integration-junos-vsrx-network_cli-libssh-python38:
-            vars:
-              ansible_test_collections: true
-              ansible_test_integration_targets: "junos_.*"
-        - ansible-test-network-integration-junos-vsrx-network_cli-libssh-python38:
-            vars:
-              ansible_test_collections: true
-              ansible_test_integration_targets: "junos_.*"
-        - ansible-test-network-integration-junos-vsrx-network_cli-libssh-python38:
-            vars:
-              ansible_test_collections: true
-              ansible_test_integration_targets: "junos_.*"
-        - ansible-test-network-integration-junos-vsrx-network_cli-libssh-python38-stable212:
-            vars:
-              ansible_test_collections: true
-              ansible_test_integration_targets: "junos_.*"
-        - ansible-test-network-integration-junos-vsrx-network_cli-libssh-python36-stable29:
-            vars:
-              ansible_test_collections: true
-              ansible_test_integration_targets: "junos_.*"
-        - build-ansible-collection:
-            required-projects:
-              - name: github.com/ansible-collections/ansible.netcommon
-              - name: github.com/ansible-collections/ansible.utils
-    gate:
-      queue: integrated
-      fail-fast: true
-      jobs: *ansible-collections-juniper-junos-netcommon-jobs
-
-- project-template:
-    name: ansible-collections-juniper-junos
-    check:
-      jobs: &ansible-collections-juniper-junos-jobs
+      jobs:
         - ansible-test-network-integration-junos-vsrx-netconf-python27-stable211:
-            vars:
-              ansible_test_collections: true
-              ansible_test_integration_targets: "junos_.*"
-        - ansible-test-network-integration-junos-vsrx-netconf-python27-stable211:
-            vars:
-              ansible_test_collections: true
-              ansible_test_integration_targets: "junos_.*"
-        - ansible-test-network-integration-junos-vsrx-netconf-python27-stable211:
-            vars:
-              ansible_test_collections: true
-              ansible_test_integration_targets: "junos_.*"
-        - ansible-test-network-integration-junos-vsrx-netconf-python27-stable211:
-            vars:
-              ansible_test_collections: true
-              ansible_test_integration_targets: "junos_.*"
-        - ansible-test-network-integration-junos-vsrx-netconf-python27-stable29:
-            vars:
-              ansible_test_collections: true
-              ansible_test_integration_targets: "junos_.*"
-        - ansible-test-network-integration-junos-vsrx-netconf-python27-stable29:
-            vars:
-              ansible_test_collections: true
-              ansible_test_integration_targets: "junos_.*"
-        - ansible-test-network-integration-junos-vsrx-netconf-python27-stable29:
             vars:
               ansible_test_collections: true
               ansible_test_integration_targets: "junos_.*"
@@ -871,43 +693,7 @@
             vars:
               ansible_test_collections: true
               ansible_test_integration_targets: "junos_.*"
-        - ansible-test-network-integration-junos-vsrx-network_cli-python27-stable211:
-            vars:
-              ansible_test_collections: true
-              ansible_test_integration_targets: "junos_.*"
-        - ansible-test-network-integration-junos-vsrx-network_cli-python27-stable211:
-            vars:
-              ansible_test_collections: true
-              ansible_test_integration_targets: "junos_.*"
-        - ansible-test-network-integration-junos-vsrx-network_cli-python27-stable211:
-            vars:
-              ansible_test_collections: true
-              ansible_test_integration_targets: "junos_.*"
         - ansible-test-network-integration-junos-vsrx-network_cli-python27-stable29:
-            vars:
-              ansible_test_collections: true
-              ansible_test_integration_targets: "junos_.*"
-        - ansible-test-network-integration-junos-vsrx-network_cli-python27-stable29:
-            vars:
-              ansible_test_collections: true
-              ansible_test_integration_targets: "junos_.*"
-        - ansible-test-network-integration-junos-vsrx-network_cli-python27-stable29:
-            vars:
-              ansible_test_collections: true
-              ansible_test_integration_targets: "junos_.*"
-        - ansible-test-network-integration-junos-vsrx-network_cli-python27-stable29:
-            vars:
-              ansible_test_collections: true
-              ansible_test_integration_targets: "junos_.*"
-        - ansible-test-network-integration-junos-vsrx-netconf-python38:
-            vars:
-              ansible_test_collections: true
-              ansible_test_integration_targets: "junos_.*"
-        - ansible-test-network-integration-junos-vsrx-netconf-python38:
-            vars:
-              ansible_test_collections: true
-              ansible_test_integration_targets: "junos_.*"
-        - ansible-test-network-integration-junos-vsrx-netconf-python38:
             vars:
               ansible_test_collections: true
               ansible_test_integration_targets: "junos_.*"
@@ -919,30 +705,6 @@
             vars:
               ansible_test_collections: true
               ansible_test_integration_targets: "junos_.*"
-        - ansible-test-network-integration-junos-vsrx-netconf-python36-stable211:
-            vars:
-              ansible_test_collections: true
-              ansible_test_integration_targets: "junos_.*"
-        - ansible-test-network-integration-junos-vsrx-netconf-python36-stable211:
-            vars:
-              ansible_test_collections: true
-              ansible_test_integration_targets: "junos_.*"
-        - ansible-test-network-integration-junos-vsrx-netconf-python36-stable211:
-            vars:
-              ansible_test_collections: true
-              ansible_test_integration_targets: "junos_.*"
-        - ansible-test-network-integration-junos-vsrx-netconf-python38-stable212:
-            vars:
-              ansible_test_collections: true
-              ansible_test_integration_targets: "junos_.*"
-        - ansible-test-network-integration-junos-vsrx-netconf-python38-stable212:
-            vars:
-              ansible_test_collections: true
-              ansible_test_integration_targets: "junos_.*"
-        - ansible-test-network-integration-junos-vsrx-netconf-python38-stable212:
-            vars:
-              ansible_test_collections: true
-              ansible_test_integration_targets: "junos_.*"
         - ansible-test-network-integration-junos-vsrx-netconf-python38-stable212:
             vars:
               ansible_test_collections: true
@@ -951,43 +713,7 @@
             vars:
               ansible_test_collections: true
               ansible_test_integration_targets: "junos_.*"
-        - ansible-test-network-integration-junos-vsrx-netconf-python36-stable29:
-            vars:
-              ansible_test_collections: true
-              ansible_test_integration_targets: "junos_.*"
-        - ansible-test-network-integration-junos-vsrx-netconf-python36-stable29:
-            vars:
-              ansible_test_collections: true
-              ansible_test_integration_targets: "junos_.*"
-        - ansible-test-network-integration-junos-vsrx-netconf-python36-stable29:
-            vars:
-              ansible_test_collections: true
-              ansible_test_integration_targets: "junos_.*"
         - ansible-test-network-integration-junos-vsrx-network_cli-python38:
-            vars:
-              ansible_test_collections: true
-              ansible_test_integration_targets: "junos_.*"
-        - ansible-test-network-integration-junos-vsrx-network_cli-python38:
-            vars:
-              ansible_test_collections: true
-              ansible_test_integration_targets: "junos_.*"
-        - ansible-test-network-integration-junos-vsrx-network_cli-python38:
-            vars:
-              ansible_test_collections: true
-              ansible_test_integration_targets: "junos_.*"
-        - ansible-test-network-integration-junos-vsrx-network_cli-python38:
-            vars:
-              ansible_test_collections: true
-              ansible_test_integration_targets: "junos_.*"
-        - ansible-test-network-integration-junos-vsrx-network_cli-python38-stable212:
-            vars:
-              ansible_test_collections: true
-              ansible_test_integration_targets: "junos_.*"
-        - ansible-test-network-integration-junos-vsrx-network_cli-python38-stable212:
-            vars:
-              ansible_test_collections: true
-              ansible_test_integration_targets: "junos_.*"
-        - ansible-test-network-integration-junos-vsrx-network_cli-python38-stable212:
             vars:
               ansible_test_collections: true
               ansible_test_integration_targets: "junos_.*"
@@ -1007,11 +733,162 @@
             vars:
               ansible_test_collections: true
               ansible_test_integration_targets: "junos_.*"
-        - ansible-test-network-integration-junos-vsrx-network_cli-libssh-python38:
+        - ansible-test-network-integration-junos-vsrx-network_cli-libssh-python38-stable212:
+            vars:
+              ansible_test_collections: true
+              ansible_test_integration_targets: "junos_.*"
+        - ansible-test-network-integration-junos-vsrx-network_cli-libssh-python36-stable29:
+            vars:
+              ansible_test_collections: true
+              ansible_test_integration_targets: "junos_.*"
+        - ansible-test-network-integration-junos-vsrx-network_cli-libssh-python36-stable211:
+            vars:
+              ansible_test_collections: true
+              ansible_test_integration_targets: "junos_.*"
+        - network-ee-integration-tests-arista-eos-httpapi
+        - network-ee-integration-tests-arista-eos-httpapi-stable-2.9
+        - network-ee-integration-tests-arista-eos-httpapi-stable-2.11
+        - network-ee-integration-tests-arista-eos-httpapi-stable-2.12
+        - network-ee-integration-tests-arista-eos
+        - network-ee-integration-tests-arista-eos-stable-2.9
+        - network-ee-integration-tests-arista-eos-stable-2.11
+        - network-ee-integration-tests-arista-eos-stable-2.12
+        - network-ee-integration-tests-arista-eos-libssh
+        - network-ee-integration-tests-arista-eos-libssh-stable-2.9
+        - network-ee-integration-tests-arista-eos-libssh-stable-2.11
+        - network-ee-integration-tests-arista-eos-libssh-stable-2.12
+        - network-ee-integration-tests-ios:
+            voting: false
+        - network-ee-integration-tests-ios-stable-2.9:
+            voting: false
+        - network-ee-integration-tests-ios-stable-2.11:
+            voting: false
+        - network-ee-integration-tests-ios-stable-2.12:
+            voting: false
+        - network-ee-integration-tests-ios-libssh:
+            voting: false
+        - network-ee-integration-tests-ios-libssh-stable-2.9:
+            voting: false
+        - network-ee-integration-tests-ios-libssh-stable-2.11:
+            voting: false
+        - network-ee-integration-tests-ios-libssh-stable-2.12:
+            voting: false
+        - network-ee-integration-tests-vyos
+        - network-ee-integration-tests-vyos-stable-2.9
+        - network-ee-integration-tests-vyos-stable-2.11
+        - network-ee-integration-tests-vyos-stable-2.12
+        - network-ee-integration-tests-vyos-libssh
+        - network-ee-integration-tests-vyos-libssh-stable-2.9
+        - network-ee-integration-tests-vyos-libssh-stable-2.11
+        - network-ee-integration-tests-vyos-libssh-stable-2.12
+    gate:
+      queue: integrated
+      fail-fast: true
+      jobs:
+        - ansible-test-network-integration-junos-vsrx-netconf-python27-stable29:
+            vars:
+              ansible_test_collections: true
+              ansible_test_integration_targets: "junos_.*"
+        - ansible-test-network-integration-junos-vsrx-network_cli-python27-stable29:
+            vars:
+              ansible_test_collections: true
+              ansible_test_integration_targets: "junos_.*"
+        - ansible-test-network-integration-junos-vsrx-netconf-python38:
+            vars:
+              ansible_test_collections: true
+              ansible_test_integration_targets: "junos_.*"
+        - ansible-test-network-integration-junos-vsrx-netconf-python36-stable29:
+            vars:
+              ansible_test_collections: true
+              ansible_test_integration_targets: "junos_.*"
+        - ansible-test-network-integration-junos-vsrx-network_cli-python38:
+            vars:
+              ansible_test_collections: true
+              ansible_test_integration_targets: "junos_.*"
+        - ansible-test-network-integration-junos-vsrx-network_cli-python36-stable29:
             vars:
               ansible_test_collections: true
               ansible_test_integration_targets: "junos_.*"
         - ansible-test-network-integration-junos-vsrx-network_cli-libssh-python38:
+            vars:
+              ansible_test_collections: true
+              ansible_test_integration_targets: "junos_.*"
+        - network-ee-integration-tests-arista-eos-httpapi
+        - network-ee-integration-tests-arista-eos-httpapi-stable-2.9
+        - network-ee-integration-tests-arista-eos
+        - network-ee-integration-tests-arista-eos-stable-2.9
+        - network-ee-integration-tests-arista-eos-libssh
+        - network-ee-integration-tests-arista-eos-libssh-stable-2.9
+        - network-ee-integration-tests-ios:
+            voting: false
+        - network-ee-integration-tests-ios-stable-2.11:
+            voting: false
+        - network-ee-integration-tests-ios-libssh:
+            voting: false
+        - network-ee-integration-tests-ios-libssh-stable-2.11:
+            voting: false
+        - network-ee-integration-tests-vyos
+        - network-ee-integration-tests-vyos-stable-2.12
+        - network-ee-integration-tests-vyos-libssh
+        - network-ee-integration-tests-vyos-libssh-stable-2.12
+        - build-ansible-collection:
+            required-projects:
+              - name: github.com/ansible-collections/ansible.netcommon
+              - name: github.com/ansible-collections/ansible.utils
+    gate:
+      queue: integrated
+      fail-fast: true
+      jobs: *ansible-collections-juniper-junos-netcommon-jobs
+
+- project-template:
+    name: ansible-collections-juniper-junos
+    check:
+      jobs: &ansible-collections-juniper-junos-jobs
+        - ansible-test-network-integration-junos-vsrx-netconf-python27-stable211:
+            vars:
+              ansible_test_collections: true
+              ansible_test_integration_targets: "junos_.*"
+        - ansible-test-network-integration-junos-vsrx-netconf-python27-stable29:
+            vars:
+              ansible_test_collections: true
+              ansible_test_integration_targets: "junos_.*"
+        - ansible-test-network-integration-junos-vsrx-network_cli-python27-stable211:
+            vars:
+              ansible_test_collections: true
+              ansible_test_integration_targets: "junos_.*"
+        - ansible-test-network-integration-junos-vsrx-network_cli-python27-stable29:
+            vars:
+              ansible_test_collections: true
+              ansible_test_integration_targets: "junos_.*"
+        - ansible-test-network-integration-junos-vsrx-netconf-python38:
+            vars:
+              ansible_test_collections: true
+              ansible_test_integration_targets: "junos_.*"
+        - ansible-test-network-integration-junos-vsrx-netconf-python36-stable211:
+            vars:
+              ansible_test_collections: true
+              ansible_test_integration_targets: "junos_.*"
+        - ansible-test-network-integration-junos-vsrx-netconf-python38-stable212:
+            vars:
+              ansible_test_collections: true
+              ansible_test_integration_targets: "junos_.*"
+        - ansible-test-network-integration-junos-vsrx-netconf-python36-stable29:
+            vars:
+              ansible_test_collections: true
+              ansible_test_integration_targets: "junos_.*"
+        - ansible-test-network-integration-junos-vsrx-network_cli-python38:
+            vars:
+              ansible_test_collections: true
+              ansible_test_integration_targets: "junos_.*"
+        - ansible-test-network-integration-junos-vsrx-network_cli-python38-stable212:
+            vars:
+              ansible_test_collections: true
+              ansible_test_integration_targets: "junos_.*"
+        - ansible-test-network-integration-junos-vsrx-network_cli-python36-stable211:
+            vars:
+              ansible_test_collections: true
+              ansible_test_integration_targets: "junos_.*"
+        - ansible-test-network-integration-junos-vsrx-network_cli-python36-stable29:
             vars:
               ansible_test_collections: true
               ansible_test_integration_targets: "junos_.*"

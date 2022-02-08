@@ -1,4 +1,5 @@
 ---
+# openvswitch.openvswitch
 - project-template:
     name: ansible-collections-openvswitch-openvswitch-units
     check:
@@ -43,6 +44,7 @@
         - ansible-test-units-openvswitch-python38
         - build-ansible-collection
 
+# ansible.utils
 - project-template:
     name: ansible-collections-ansible-utils
     check:

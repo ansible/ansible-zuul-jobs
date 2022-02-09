@@ -58,6 +58,7 @@
     parent: network-ee-integration-tests
     nodeset: vyos-1.1.8-python38
     vars:
+      test_ansible_python_interpreter: /usr/bin/python3
       # NOTE(pabelanger): We can only use RSA ssh keys for vyos.
       test_fips_mode: false
 

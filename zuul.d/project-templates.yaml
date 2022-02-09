@@ -1490,11 +1490,7 @@
     release:
       jobs:
         - release-ansible-collection-automation-hub
-        - release-ansible-collection-announcement:
-            dependencies:
-              - name: release-ansible-collection-automation-hub
-              - name: release-ansible-collection-galaxy
-                soft: true
+        - release-ansible-collection-announcement
 
 - project-template:
     name: publish-to-automation-hub-3pci

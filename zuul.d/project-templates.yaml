@@ -382,22 +382,14 @@
     name: ansible-collections-cisco-ios
     check:
       jobs: &ansible-collections-cisco-ios-jobs
-        - network-ee-integration-tests-ios:
-            voting: false
-        - network-ee-integration-tests-ios-stable-2.9:
-            voting: false
-        - network-ee-integration-tests-ios-stable-2.11:
-            voting: false
-        - network-ee-integration-tests-ios-stable-2.12:
-            voting: false
-        - network-ee-integration-tests-ios-libssh:
-            voting: false
-        - network-ee-integration-tests-ios-libssh-stable-2.9:
-            voting: false
-        - network-ee-integration-tests-ios-libssh-stable-2.11:
-            voting: false
-        - network-ee-integration-tests-ios-libssh-stable-2.12:
-            voting: false
+        - network-ee-integration-tests-ios
+        - network-ee-integration-tests-ios-stable-2.9
+        - network-ee-integration-tests-ios-stable-2.11
+        - network-ee-integration-tests-ios-stable-2.12
+        - network-ee-integration-tests-ios-libssh
+        - network-ee-integration-tests-ios-libssh-stable-2.9
+        - network-ee-integration-tests-ios-libssh-stable-2.11
+        - network-ee-integration-tests-ios-libssh-stable-2.12
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-collections/ansible.netcommon
@@ -821,22 +813,14 @@
         - network-ee-integration-tests-arista-eos-libssh-stable-2.9
         - network-ee-integration-tests-arista-eos-libssh-stable-2.11
         - network-ee-integration-tests-arista-eos-libssh-stable-2.12
-        - network-ee-integration-tests-ios:
-            voting: false
-        - network-ee-integration-tests-ios-stable-2.9:
-            voting: false
-        - network-ee-integration-tests-ios-stable-2.11:
-            voting: false
-        - network-ee-integration-tests-ios-stable-2.12:
-            voting: false
-        - network-ee-integration-tests-ios-libssh:
-            voting: false
-        - network-ee-integration-tests-ios-libssh-stable-2.9:
-            voting: false
-        - network-ee-integration-tests-ios-libssh-stable-2.11:
-            voting: false
-        - network-ee-integration-tests-ios-libssh-stable-2.12:
-            voting: false
+        - network-ee-integration-tests-ios
+        - network-ee-integration-tests-ios-stable-2.9
+        - network-ee-integration-tests-ios-stable-2.11
+        - network-ee-integration-tests-ios-stable-2.12
+        - network-ee-integration-tests-ios-libssh
+        - network-ee-integration-tests-ios-libssh-stable-2.9
+        - network-ee-integration-tests-ios-libssh-stable-2.11
+        - network-ee-integration-tests-ios-libssh-stable-2.12
         - network-ee-integration-tests-vyos
         - network-ee-integration-tests-vyos-stable-2.9
         - network-ee-integration-tests-vyos-stable-2.11
@@ -922,14 +906,10 @@
         - network-ee-integration-tests-arista-eos-stable-2.9
         - network-ee-integration-tests-arista-eos-libssh
         - network-ee-integration-tests-arista-eos-libssh-stable-2.9
-        - network-ee-integration-tests-ios:
-            voting: false
-        - network-ee-integration-tests-ios-stable-2.11:
-            voting: false
-        - network-ee-integration-tests-ios-libssh:
-            voting: false
-        - network-ee-integration-tests-ios-libssh-stable-2.11:
-            voting: false
+        - network-ee-integration-tests-ios
+        - network-ee-integration-tests-ios-stable-2.11
+        - network-ee-integration-tests-ios-libssh
+        - network-ee-integration-tests-ios-libssh-stable-2.11
         - network-ee-integration-tests-vyos
         - network-ee-integration-tests-vyos-stable-2.12
         - network-ee-integration-tests-vyos-libssh

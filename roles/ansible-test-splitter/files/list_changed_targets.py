@@ -76,28 +76,31 @@ class WhatHaveChanged:
         self.collection_path = path
         self.branch = branch
         self.collection_name = lambda: read_collection_name(path)
+        self.files = None
 
     def changed_files(self):
         """List of changed files
 
         Returns a list of pathlib.PosixPath
         """
-        return [
-            PosixPath(p)
-            for p in (
-                subprocess.check_output(
-                    [
-                        "git",
-                        "diff",
-                        f"origin/{self.branch}",
-                        "--name-only",
-                    ],
-                    cwd=self.collection_path,
+        if self.files is None:
+            self.files = [
+                PosixPath(p)
+                for p in (
+                    subprocess.check_output(
+                        [
+                            "git",
+                            "diff",
+                            f"origin/{self.branch}",
+                            "--name-only",
+                        ],
+                        cwd=self.collection_path,
+                    )
+                    .decode()
+                    .split("\n")
                 )
-                .decode()
-                .split("\n")
-            )
-        ]
+            ]
+        return self.files
 
     def modules(self):
         """List the modules impacted by the change"""
@@ -119,6 +122,12 @@ class WhatHaveChanged:
                     PosixPath(d),
                     f"ansible_collections.{self.collection_name()}.plugins.module_utils.{d.stem}",
                 )
+
+    def lookup(self):
+        """List the lookup plugins impacted by the change"""
+        for d in self.changed_files():
+            if str(d).startswith("plugins/lookup/"):
+                yield PosixPath(d)
 
 
 class Target:
@@ -258,6 +267,9 @@ if __name__ == "__main__":
                 for c in collections:
                     c.add_target_to_plan(f"module_utils_{path.stem}")
                     c.cover_module_utils(pymod)
+            for path in whc.lookup():
+                for c in collections:
+                    c.add_target_to_plan(f"lookup_{path.stem}")
 
     egs = ElGrandeSeparator(collections)
     egs.output()

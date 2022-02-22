@@ -114,10 +114,13 @@
               - name: github.com/ansible-collections/community.aws
               - name: github.com/ansible-collections/community.general
         - ansible-test-splitter:
+            required-projects:
+              - name: github.com/ansible-collections/community.aws
             vars:
               ansible_test_splitter__test_changed: false
               ansible_test_splitter__check_for_changes_in:
                 - "~/{{ zuul.projects['github.com/ansible-collections/amazon.aws'].src_dir }}"
+                - "~/{{ zuul.projects['github.com/ansible-collections/community.aws'].src_dir }}"
         - integration-amazon.aws-1
         - integration-amazon.aws-2
         - integration-amazon.aws-3
@@ -128,6 +131,22 @@
         - integration-amazon.aws-8
         - integration-amazon.aws-9
         - integration-amazon.aws-10
+        - integration-amazon.aws-11
+        - integration-amazon.aws-12
+        - integration-amazon.aws-13
+        - integration-community.aws-1
+        - integration-community.aws-2
+        - integration-community.aws-3
+        - integration-community.aws-4
+        - integration-community.aws-5
+        - integration-community.aws-6
+        - integration-community.aws-7
+        - integration-community.aws-8
+        - integration-community.aws-9
+        - integration-community.aws-10
+        - integration-community.aws-11
+        - integration-community.aws-12
+        - integration-community.aws-13
 
 - project-template:
     name: ansible-collections-community-aws

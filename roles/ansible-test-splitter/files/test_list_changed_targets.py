@@ -45,6 +45,7 @@ def test_what_changed_files():
         PosixPath("tests/something"),
         PosixPath("plugins/module_utils/core.py"),
         PosixPath("plugins/modules/ec2.py"),
+        PosixPath("plugins/lookup/aws_test.py"),
     ]
     assert list(whc.modules()) == [PosixPath("plugins/modules/ec2.py")]
     assert list(whc.module_utils()) == [
@@ -53,6 +54,7 @@ def test_what_changed_files():
             "ansible_collections.a.b.plugins.module_utils.core",
         )
     ]
+    assert list(whc.lookup()) == [PosixPath("plugins/lookup/aws_test.py")]
 
 
 def build_collection(aliases):

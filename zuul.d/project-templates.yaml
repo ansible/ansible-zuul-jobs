@@ -1437,7 +1437,8 @@
       a clean and up to date EE container.
     check:
       jobs: &ansible-ee-test-jobs
-        - ansible-ee-tests-latest
+        - ansible-ee-tests-latest:
+            voting: false
         - ansible-ee-tests-stable-2.9
         - ansible-ee-tests-stable-2.11
         - ansible-ee-tests-stable-2.12

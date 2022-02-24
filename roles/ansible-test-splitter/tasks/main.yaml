@@ -4,12 +4,21 @@
     dest: /tmp/list_changed_targets.py
     mode: '0700'
 
+- set_fact:
+    splitter_cmd: >
+      python3 /tmp/list_changed_targets.py
+      --branch {{ zuul.branch }}
+      {% if ansible_test_splitter__releases_to_test is defined %}--ansible-releases {{ ansible_test_splitter__releases_to_test | join(' ') }}{% endif %}
+      {% if ansible_test_splitter__total_job is defined %}--total-job {{ ansible_test_splitter__total_job }}{% endif %}
+      {% if ansible_test_splitter__test_changed|bool %}--test-changed{% else %}--test-all-the-targets{% endif %}
+      {{ ansible_test_splitter__check_for_changes_in | join(' ') }}
+
 - name: Will split up the jobs with the following command
   debug:
-    msg: "python3 /tmp/list_changed_targets.py --branch {{ zuul.branch }} {% if ansible_test_splitter__test_changed|bool %}--test-changed{% else %}--test-all-the-targets{% endif %} {{ ansible_test_splitter__check_for_changes_in | join(' ') }}"
+    msg: "{{ splitter_cmd }}"
 
 - name: Split up the workload
-  command: python3 /tmp/list_changed_targets.py --branch {{ zuul.branch }} {% if ansible_test_splitter__test_changed|bool %}--test-changed{% else %}--test-all-the-targets{% endif %} {{ ansible_test_splitter__check_for_changes_in | join(' ') }}
+  command: "{{ splitter_cmd }}"
   register: _result
 
 - set_fact:

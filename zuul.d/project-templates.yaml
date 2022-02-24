@@ -616,7 +616,17 @@
               - name: github.com/ansible-collections/community.vmware
               - name: github.com/ansible-collections/vmware.vmware_rest
               - name: github.com/ansible-collections/kubernetes.core
-        - ansible-test-molecule-kubernetes-core-with-turbo
+        - ansible-test-splitter:
+            vars:
+              ansible_test_splitter__test_changed: false
+              ansible_test_splitter__total_job: 3
+              ansible_test_splitter__check_for_changes_in:
+                - "~/{{ zuul.projects['github.com/ansible-collections/kubernetes.core'].src_dir }}"
+              ansible_test_splitter__releases_to_test:
+                - "with-turbo"
+        - integration-kubernetes.core-with-turbo-1
+        - integration-kubernetes.core-with-turbo-2
+        - integration-kubernetes.core-with-turbo-3
     gate:
       jobs: *ansible-collections-cloud-common-jobs
     periodic:
@@ -1121,10 +1131,31 @@
         - ansible-test-sanity-docker-stable-2.11
         - ansible-test-sanity-docker-stable-2.12
         - ansible-test-units-kubernetes-core-python38
-        - ansible-test-molecule-kubernetes-core-devel
-        - ansible-test-molecule-kubernetes-core-milestone
-        - ansible-test-molecule-kubernetes-core-2.9
-        - ansible-test-molecule-kubernetes-core-with-turbo
+        - ansible-test-splitter:
+            vars:
+              ansible_test_splitter__test_changed: true
+              ansible_test_splitter__total_job: 3
+              ansible_test_splitter__releases_to_test:
+                - "devel"
+                - "milestone"
+                - "2.9"
+                - "2.10"
+                - "with-turbo"
+        - integration-kubernetes.core-devel-1
+        - integration-kubernetes.core-devel-2
+        - integration-kubernetes.core-devel-3
+        - integration-kubernetes.core-milestone-1
+        - integration-kubernetes.core-milestone-2
+        - integration-kubernetes.core-milestone-3
+        - integration-kubernetes.core-2.9-1
+        - integration-kubernetes.core-2.9-2
+        - integration-kubernetes.core-2.9-3
+        - integration-kubernetes.core-2.10-1
+        - integration-kubernetes.core-2.10-2
+        - integration-kubernetes.core-2.10-3
+        - integration-kubernetes.core-with-turbo-1
+        - integration-kubernetes.core-with-turbo-2
+        - integration-kubernetes.core-with-turbo-3
         - ansible-tox-linters
         - ansible-ee-tests-stable-2.12:
             voting: false

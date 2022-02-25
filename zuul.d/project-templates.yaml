@@ -433,7 +433,7 @@
     check:
       jobs:
         - ansible-test-integration-ansible-plugin-builder:
-            var:
+            vars:
               ansible_test_collections: true
         - build-ansible-collection:
             required-projects:
@@ -443,7 +443,7 @@
       fail-fast: true
       jobs:
         - ansible-test-integration-ansible-plugin-builder:
-            var:
+            vars:
               ansible_test_collections: true
         - build-ansible-collection:
             required-projects:

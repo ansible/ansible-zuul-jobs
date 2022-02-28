@@ -7,3 +7,5 @@
     name: ansible-test-integration-ansible-plugin-builder
     parent: ansible-test-integration-base
     nodeset: openvswitch-2.9.0-python38
+    vars:
+      ansible_test_python: 3.8

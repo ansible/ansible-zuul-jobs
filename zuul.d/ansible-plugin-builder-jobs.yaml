@@ -4,6 +4,29 @@
 #    parent: ansible-network-openvswitch-appliance
 #    vars:
 #      ansible_test_python: 3.8
+#
+- job:
+    name: ansible-test-network-integration-ansible-plugin-builder
+    abstract: true
+    dependencies:
+      - name: build-ansible-collection
+        soft: true
+    parent: ansible-network-openvswitch-appliance
+    pre-run:
+      - playbooks/ansible-test-base/pre.yaml
+      - playbooks/ansible-test-network-integration-base/pre.yaml
+    run: playbooks/ansible-test-base/run.yaml
+    post-run:
+      - playbooks/ansible-test-network-integration-base/post.yaml
+      - playbooks/ansible-test-base/post.yaml
+    required-projects:
+      - name: github.com/ansible/ansible
+      - name: github.com/ansible-community/ansible.plugin_builder
+    timeout: 10800
+    vars:
+      ansible_collections_repo: github.com/ansible-community/ansible.plugin_builder
+      ansible_test_command: network-integration
+
 
 - job:
     name: ansible-test-integration-ansible-plugin-builder

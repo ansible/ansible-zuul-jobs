@@ -101,11 +101,6 @@
         - integration-community.aws-11
         - integration-community.aws-12
         - integration-community.aws-13
-        - ansible-ee-tests-stable-2.12:
-            voting: false
-        - ansible-ee-tests-latest:
-            voting: false
-
     gate:
       queue: integrated-aws
       jobs: *ansible-collections-amazon-aws-jobs
@@ -152,8 +147,6 @@
         - integration-community.aws-11
         - integration-community.aws-12
         - integration-community.aws-13
-        - ansible-ee-tests-stable-2.12:
-            voting: false
 
 - project-template:
     name: ansible-collections-community-aws
@@ -1471,7 +1464,8 @@
             voting: false
         - ansible-ee-tests-stable-2.9
         - ansible-ee-tests-stable-2.11
-        - ansible-ee-tests-stable-2.12
+        - ansible-ee-tests-stable-2.12:
+            voting: false
     gate:
       jobs: *ansible-ee-test-jobs
 

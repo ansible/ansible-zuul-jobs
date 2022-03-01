@@ -1133,6 +1133,8 @@
         - ansible-test-molecule-kubernetes-core-2.9
         - ansible-test-molecule-kubernetes-core-with-turbo
         - ansible-tox-linters
+        - ansible-ee-tests-stable-2.12:
+            voting: false
     gate:
       jobs: *ansible-collections-kubernetes-core-units-jobs
 

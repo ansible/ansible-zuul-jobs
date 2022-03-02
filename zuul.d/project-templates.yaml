@@ -1128,7 +1128,10 @@
               ansible_test_splitter__check_for_changes_in:
                 - "~/{{ zuul.projects['github.com/ansible-collections/kubernetes.core'].src_dir }}"
               ansible_test_splitter__test_release:
-                - "with-turbo"
+                - with-turbo
+                - devel
+                - milestone
+                - 2.9
         - ansible-test-kubernetes-core-devel
         - ansible-test-kubernetes-core-milestone
         - ansible-test-kubernetes-core-2.9

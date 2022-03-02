@@ -776,3 +776,24 @@
     nodes:
       - name: controller
         label: fedora-latest-1vcpu
+
+- nodeset:
+    name: kubernetes_3workers_1node-0.0.1
+    nodes:
+      - name: kubernetes
+        label: centos-8-stream
+      - name: worker1
+        label: centos-8-stream
+      - name: worker2
+        label: centos-8-stream
+      - name: worker3
+        label: centos-8-stream
+    groups:
+      - name: controller
+        nodes:
+          - worker1
+          - worker2
+          - worker3
+      - name: appliance-ssh
+        nodes:
+          - kubernetes

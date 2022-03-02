@@ -3,13 +3,27 @@
     src: list_changed_targets.py
     dest: /tmp/list_changed_targets.py
     mode: '0700'
+  when: ansible_test_splitter__version == "aws"
 
+- copy:
+    src: list_kubernetes_changed_targets.py
+    dest: /tmp/list_changed_targets.py
+    mode: '0700'
+  when: ansible_test_splitter__version == "kubernetes"
+
+- set_fact:
+    splitter_cmd: >
+      python3 /tmp/list_changed_targets.py
+      --branch {{ zuul.branch }}
+      {% if ansible_test_splitter__test_release is defined and ansible_test_splitter__version == "kubernetes" %}--release {{ ansible_test_splitter__test_release | join(' ') }}{% endif %}
+      {% if ansible_test_splitter__test_changed|bool %}--test-changed{% else %}--test-all-the-targets{% endif %}
+      {{ ansible_test_splitter__check_for_changes_in | join(' ') }}
 - name: Will split up the jobs with the following command
   debug:
-    msg: "python3 /tmp/list_changed_targets.py --branch {{ zuul.branch }} {% if ansible_test_splitter__test_changed|bool %}--test-changed{% else %}--test-all-the-targets{% endif %} {{ ansible_test_splitter__check_for_changes_in | join(' ') }}"
+    msg: "{{ splitter_cmd }}"
 
 - name: Split up the workload
-  command: python3 /tmp/list_changed_targets.py --branch {{ zuul.branch }} {% if ansible_test_splitter__test_changed|bool %}--test-changed{% else %}--test-all-the-targets{% endif %} {{ ansible_test_splitter__check_for_changes_in | join(' ') }}
+  command: "{{ splitter_cmd }}"
   register: _result
 
 - set_fact:

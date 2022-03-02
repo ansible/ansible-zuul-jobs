@@ -1,0 +1,13 @@
+---
+- hosts: controller
+  tasks:
+    - name: Test using ansible-playbook
+      shell: |
+        source {{ ansible_test_venv_path }}/bin/activate
+        set -eux
+        pip freeze
+        python3 -c 'import selinux; assert selinux.is_selinux_enabled() is False'
+        ansible-playbook /tmp/play.yaml -v
+      environment: "{{ ansible_test_environment | default({}) }}"
+      args:
+        chdir: ~/.ansible/collections/ansible_collections/kubernetes/core

@@ -1,14 +1,30 @@
 ---
-- hosts: all
+- name: Create Kubernetes cluster on appliance
+  hosts: appliance-ssh
+  gather_facts: false
+  tasks:
+    - name: Run ensure-docker role
+      import_role:
+        name: ensure-docker
+
+    - name: Setup k8s cluster
+      import_role:
+        name: setup-kind
+      vars:
+        kind_cluster_ip: "{{ hostvars['kubernetes']['nodepool']['interface_ip']}}"
+
+    - name: Fetch Kube config from cluster
+      fetch:
+        src: "~/.kube/config"
+        dest: "{{ zuul.executor.work_root }}/config"
+        flat: true
+
+- hosts: controller
   tasks:
     - name: Ensure controller directory exists
       file:
         path: "{{ ansible_user_dir }}/zuul-output/logs/controller"
         state: directory
-
-    - name: Run ensure-docker role
-      include_role:
-        name: ensure-docker
 
     - name: Run ensure-virtualenv role
       include_role:
@@ -46,7 +62,6 @@
     - name: Install molecule and collection dependencies
       pip:
         name:
-          - molecule
           - yamllint
           - kubernetes
           - flake8
@@ -59,6 +74,7 @@
         {{ ansible_test_venv_path }}/bin/pip uninstall -y selinux
         {{ ansible_test_venv_path }}/bin/pip install selinux_please_lie_to_me
 
-    - name: Install Kubernetes cluster
-      include_role:
-        name: setup-kind
+    - name: copy test playbook
+      copy:
+        src: play.yaml
+        dest: /tmp/play.yaml

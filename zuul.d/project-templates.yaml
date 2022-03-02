@@ -1121,10 +1121,18 @@
         - ansible-test-sanity-docker-stable-2.11
         - ansible-test-sanity-docker-stable-2.12
         - ansible-test-units-kubernetes-core-python38
-        - ansible-test-molecule-kubernetes-core-devel
-        - ansible-test-molecule-kubernetes-core-milestone
-        - ansible-test-molecule-kubernetes-core-2.9
-        - ansible-test-molecule-kubernetes-core-with-turbo
+        - ansible-test-splitter:
+            vars:
+              ansible_test_splitter__test_changed: true
+              ansible_test_splitter__version: "kubernetes"
+              ansible_test_splitter__check_for_changes_in:
+                - "~/{{ zuul.projects['github.com/ansible-collections/kubernetes.core'].src_dir }}"
+              ansible_test_splitter__test_release:
+                - "with-turbo"
+        - ansible-test-kubernetes-core-devel
+        - ansible-test-kubernetes-core-milestone
+        - ansible-test-kubernetes-core-2.9
+        - ansible-test-kubernetes-core-with-turbo
         - ansible-tox-linters
         - ansible-ee-tests-stable-2.12:
             voting: false

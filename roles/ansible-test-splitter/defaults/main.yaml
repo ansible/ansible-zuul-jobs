@@ -4,3 +4,4 @@ ansible_test_splitter__test_changed: false
 # ansible_test_splitter__test_changed is true
 ansible_test_splitter__check_for_changes_in:
   - "~/{{ zuul.projects[zuul.project.canonical_name].src_dir }}"
+ansible_test_splitter__version: "aws"

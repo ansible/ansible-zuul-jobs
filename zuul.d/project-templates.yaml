@@ -616,7 +616,7 @@
               - name: github.com/ansible-collections/community.vmware
               - name: github.com/ansible-collections/vmware.vmware_rest
               - name: github.com/ansible-collections/kubernetes.core
-        - ansible-test-molecule-kubernetes-core-with-turbo
+        - ansible-test-kubernetes-core-with-turbo
     gate:
       jobs: *ansible-collections-cloud-common-jobs
     periodic:

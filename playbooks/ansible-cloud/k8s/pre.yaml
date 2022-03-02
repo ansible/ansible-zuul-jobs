@@ -1,6 +1,6 @@
 ---
 - name: Create Kubernetes cluster on appliance
-  hosts: appliance-ssh
+  hosts: openvswitch
   gather_facts: false
   tasks:
     - name: Run ensure-docker role

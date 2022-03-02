@@ -2,11 +2,11 @@
 - name: Converge
   hosts: localhost
   connection: local
-  gather_facts: no
+  gather_facts: false
 
   collections:
     - kubernetes.core
-  
+
   tasks:
     - name: Create simple namespace
       k8s:

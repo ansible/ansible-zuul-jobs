@@ -33,14 +33,14 @@
 - nodeset:
     name: centos-8-stream
     nodes:
-      - name: fedora-35
-        label: ansible-fedora-35-1vcpu
+      - name: controller
+        label: ansible-cloud-centos-8-stream
 
 - nodeset:
     name: centos-8-stream-small
     nodes:
-      - name: fedora-35
-        label: ansible-fedora-35-1vcpu
+      - name: controller
+        label: ansible-cloud-centos-8-stream
 
 - nodeset:
     name: eos-4.24.6-python38

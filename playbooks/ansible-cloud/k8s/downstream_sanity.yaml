@@ -1,0 +1,17 @@
+---
+- hosts: all
+  tasks:
+    - name: Ensure controller directory exists
+      file:
+        path: "{{ dest }}"
+        state: directory
+
+    - name: Clone redhat.openshift collection
+      git:
+        repo: "https://{{ ansible_collections_repo }}.git"
+        dest: "{{ dest }}"
+
+    - name: Sanity test for redhat.openshift
+      shell: ./ci/downstream.sh -s
+      args:
+        chdir: "{{ dest }}"

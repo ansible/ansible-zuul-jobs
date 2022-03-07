@@ -603,6 +603,16 @@
         - ansible-test-units-community-okd-python38
 
 - project-template:
+    name: ansible-collections-redhat-openshift-sanity
+    3pci-check:
+      jobs:
+        - build-ansible-collection:
+            required-projects:
+              - name: github.com/ansible-collections/kubernetes.core
+                override-checkout: stable-2.1
+        - ansible-test-redhat-openshift-sanity
+
+- project-template:
     name: ansible-collections-cloud-common
     check:
       jobs: &ansible-collections-cloud-common-jobs

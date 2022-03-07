@@ -93,7 +93,7 @@
       tox_envlist: py310
     pre-run: playbooks/ansible-tox-py310/pre.yaml
     timeout: 3600
-    nodeset: ansible-tox-py310
+    nodeset: centos-9-stream
 
 - job:
     name: ansible-tox-py39-fedora

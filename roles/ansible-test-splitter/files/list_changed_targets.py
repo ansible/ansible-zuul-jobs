@@ -204,7 +204,7 @@ class ElGrandeSeparator:
     def __init__(self, collections):
         self.collections = collections
         self.total_jobs = 13  # aka slot
-        self.targets_per_slot = 20
+        self.targets_per_slot = 14
 
     def output(self):
         batches = []

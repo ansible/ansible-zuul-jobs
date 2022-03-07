@@ -43,6 +43,12 @@
         label: ansible-cloud-centos-8-stream
 
 - nodeset:
+    name: centos-9-stream
+    nodes:
+      - name: controller
+        label: ansible-cloud-centos-9-stream
+
+- nodeset:
     name: eos-4.24.6-python38
     nodes:
       - name: controller

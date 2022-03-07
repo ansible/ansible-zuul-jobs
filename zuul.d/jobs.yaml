@@ -109,7 +109,7 @@
     post-run: playbooks/ansible-build-python-tarball/post.yaml
     required-projects:
       - github.com/ansible-network/releases
-    nodeset: centos-8-stream
+    nodeset: container-ansible
     vars:
       release_python: python3
 

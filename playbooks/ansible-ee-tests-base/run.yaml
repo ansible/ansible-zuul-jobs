@@ -1,4 +1,5 @@
 ---
+# used by network-ee
 - hosts: all
   tasks:
     - name: Setup collection_namespace

@@ -43,10 +43,9 @@
       import_role:
         name: deploy-artifacts
 
-    - name: Install molecule and collection dependencies
+    - name: Install collection dependencies
       pip:
         name:
-          - molecule
           - yamllint
           - kubernetes
           - flake8

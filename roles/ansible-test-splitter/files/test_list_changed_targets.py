@@ -20,6 +20,24 @@ import time
 import botocore.exceptions
 """
 
+my_module_2 = """
+import ansible_collections.kubernetes.core.plugins.module_utils.k8sdynamicclient
+
+def main():
+    mutually_exclusive = [
+        ("resource_definition", "src"),
+    ]
+    module = AnsibleModule(
+        argument_spec=argspec(),
+    )
+    from ansible_collections.kubernetes.core.plugins.module_utils.common import (
+        K8sAnsibleMixin,
+        get_api_client,
+    )
+
+    k8s_ansible_mixin = K8sAnsibleMixin(module)
+"""
+
 
 def test_read_collection_name():
     m_galaxy_file = MagicMock()
@@ -30,11 +48,20 @@ def test_read_collection_name():
 
 
 def test_list_pyimport():
-    assert list(list_pyimport("amazon.aws", my_module)) == [
+    assert list(
+        list_pyimport("ansible_collections.amazon.aws.plugins.", my_module)
+    ) == [
         "ansible_collections.amazon.aws.plugins.module_utils.core",
         "ipaddress",
         "time",
         "botocore.exceptions",
+    ]
+
+    assert list(
+        list_pyimport("ansible_collections.kubernetes.core.plugins.", my_module_2)
+    ) == [
+        "ansible_collections.kubernetes.core.plugins.module_utils.k8sdynamicclient",
+        "ansible_collections.kubernetes.core.plugins.module_utils.common",
     ]
 
 
@@ -46,6 +73,9 @@ def test_what_changed_files():
         PosixPath("plugins/module_utils/core.py"),
         PosixPath("plugins/modules/ec2.py"),
         PosixPath("plugins/lookup/aws_test.py"),
+        PosixPath("tests/integration/targets/k8s_target_1/action.yaml"),
+        PosixPath("tests/integration/targets/k8s_target_2/file.txt"),
+        PosixPath("tests/integration/targets/k8s_target_3/tasks/main.yaml"),
     ]
     assert list(whc.modules()) == [PosixPath("plugins/modules/ec2.py")]
     assert list(whc.module_utils()) == [
@@ -55,6 +85,11 @@ def test_what_changed_files():
         )
     ]
     assert list(whc.lookup()) == [PosixPath("plugins/lookup/aws_test.py")]
+    assert list(whc.targets()) == [
+        "k8s_target_1",
+        "k8s_target_2",
+        "k8s_target_3",
+    ]
 
 
 def build_collection(aliases):
@@ -84,6 +119,12 @@ def test_c_targets():
     c = build_collection([build_alias("a", "#ec2\n")])
     assert len(list(c._targets())) == 1
     assert list(c._targets())[0].name == "a"
+    assert list(c._targets())[0].execution_time() == 0
+
+    c = build_collection([build_alias("a", "time=30\n")])
+    assert len(list(c._targets())) == 1
+    assert list(c._targets())[0].name == "a"
+    assert list(c._targets())[0].execution_time() == 30
 
 
 def test_c_disabled_unstable():
@@ -118,7 +159,6 @@ def test_c_slow_regular_targets():
     assert len(list(c._targets())) == 2
     assert list(c._targets())[0].is_slow()
     assert not list(c._targets())[1].is_slow()
-    print(c.slow_targets_to_test())
     assert len(c.slow_targets_to_test()) == 1
 
 
@@ -133,7 +173,6 @@ def test_c_inventory_targets():
     assert len(list(c._targets())) == 2
     assert list(c._targets())[0].is_slow()
     assert not list(c._targets())[1].is_slow()
-    print(c.slow_targets_to_test())
     assert len(c.slow_targets_to_test()) == 1
 
 
@@ -161,10 +200,9 @@ def test_argparse():
 
 def test_splitter_basic():
     c = build_collection([build_alias("a", "ec2\n")])
-    egs = ElGrandeSeparator(c)
-    with pytest.raises(StopIteration):
-        first = next(egs.build_up_batches(["slot1"], c))
-        assert first == ("slot1", ["ec2"])
+    c.cover_all()
+    egs = ElGrandeSeparator([c], 13, [])
+    assert list(egs.build_up_batches(["slot1"], c)) == [("slot1", ["a"])]
 
 
 def test_splitter_with_slow():
@@ -177,12 +215,47 @@ def test_splitter_with_slow():
         ]
     )
     c.cover_all()
-    egs = ElGrandeSeparator(c)
+    egs = ElGrandeSeparator([c])
     result = list(egs.build_up_batches([f"slot{i}" for i in range(4)], c))
     assert result == [
         ("slot0", ["slow-bob"]),
         ("slot1", ["slow-jim"]),
         ("slot2", ["a", "regular-dude"]),
+    ]
+
+
+def test_splitter_with_time():
+    c = build_collection(
+        [
+            build_alias("a", "time=100\n"),
+            build_alias("b", "time=10\n"),
+            build_alias("c", "time=20\n"),
+            build_alias("d", "time=30\n"),
+            build_alias("e", "time=40\n"),
+        ]
+    )
+    c.cover_all()
+    egs = ElGrandeSeparator([c])
+    result = list(egs.build_up_batches_by_time([f"slot{i}" for i in range(2)], c))
+    assert result == [
+        ("slot0", ["a"]),
+        ("slot1", ["e", "d", "c", "b"]),
+    ]
+
+    c = build_collection(
+        [
+            build_alias("a", "time=10\n"),
+            build_alias("b", "time=5\n"),
+            build_alias("c", "time=6\n"),
+            build_alias("d", "time=1\n"),
+        ]
+    )
+    c.cover_all()
+    egs = ElGrandeSeparator([c])
+    result = list(egs.build_up_batches_by_time([f"slot{i}" for i in range(2)], c))
+    assert result == [
+        ("slot0", ["a", "d"]),
+        ("slot1", ["c", "b"]),
     ]
 
 

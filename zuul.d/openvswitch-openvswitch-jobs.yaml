@@ -94,7 +94,9 @@
     name: ansible-ee-integration-ovs-latest
     parent: ansible-ee-tests
     pre-run:
+      - playbooks/ansible-ee/integration/pre.yaml
       - playbooks/ansible-ee/openvswitch/pre.yaml
+    run: playbooks/ansible-ee/integration/run.yaml
     vars:
       ansible_runner_container_version: latest
       container_image_tests:

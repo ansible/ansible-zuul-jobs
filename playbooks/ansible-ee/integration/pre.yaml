@@ -1,0 +1,136 @@
+---
+- hosts: controller
+  gather_facts: false
+  tasks:
+    - set_fact:
+        _hosts_dict: {}
+    - name: Enable FIPS mode
+      include_role:
+        name: enable-fips
+      when:
+        - test_fips_mode|default(false) | bool
+
+    - name: Ensure python3.8 is present
+      become: true
+      package:
+        name: python3.8
+        state: present
+
+    - set_fact:
+        _network_appliance_groups: "{{ groups.keys()|select('match', '^(appliance|openvswitch)')|list }}"
+
+    - name: Select proper appliance
+      set_fact:
+        _appliance_vars: "{{ hostvars[groups[_network_appliance_groups|first][0]] }}"
+      when: _network_appliance_groups|length > 0
+
+    - name: Select proper ansible_network_os
+      set_fact:
+        _network_os: "{{ _appliance_vars['ansible_network_os'] }}"
+
+    # Update ansible-navigator inventory file with nodepool information.
+    - name: Read appliance inventory file
+      slurp:
+        path: "{{ zuul.projects['github.com/ansible/network-ee'].src_dir }}/tests/integration/inventories/{{ _network_os }}.yaml"
+      register: _inventory
+
+    - name: Load inventory data into fact
+      set_fact:
+        _inventory_data: "{{ _inventory['content'] | b64decode | from_yaml }}"
+
+    - name: Setup nodepool hostvars
+      set_fact:
+        _hosts_dict: "{{ _hosts_dict | combine({ _network_os: { 'ansible_host': _appliance_vars.ansible_host } }) }}"
+
+    - name: Patch inventory data for testing
+      set_fact:
+        _inventory_data: "{{ _inventory_data | combine(newdata, recursive=True) }}"
+      vars:
+        newdata:
+          appliance:
+            hosts: "{{ _hosts_dict }}"
+            vars:
+              ansible_ssh_private_key_file: "{{ test_ansible_ssh_private_key_file }}"
+
+    # NOTE(pabelanger): Force python3.8 so we don't pick up /usr/libexec/platform-python
+    - name: Patch ansible_python_interpreter inventory data
+      set_fact:
+        _inventory_data: "{{ _inventory_data | combine(newdata, recursive=True) }}"
+      vars:
+        newdata:
+          appliance:
+            vars:
+              ansible_python_interpreter: "{{ test_ansible_python_interpreter }}"
+      when: test_ansible_python_interpreter is defined
+
+    - name: Patch collection_name inventory data
+      set_fact:
+        _inventory_data: "{{ _inventory_data | combine(newdata, recursive=True) }}"
+      vars:
+        newdata:
+          appliance:
+            vars:
+              collection_name: "{{ collection_name }}"
+      when: collection_name is defined
+
+    - name: Patch collection_namespace inventory data
+      set_fact:
+        _inventory_data: "{{ _inventory_data | combine(newdata, recursive=True) }}"
+      vars:
+        newdata:
+          appliance:
+            vars:
+              collection_namespace: "{{ collection_namespace }}"
+      when: collection_namespace is defined
+
+    - name: Write appliance inventory file
+      copy:
+        content: "{{ _inventory_data | to_nice_yaml(indent=2, explicit_start=True) }}"
+        dest: "{{ zuul.projects['github.com/ansible/network-ee'].src_dir }}/tests/integration/inventories/{{ _network_os }}.yaml"
+
+    - name: Setup appliance inventory symlink
+      file:
+        dest: "~/{{ zuul.projects['github.com/ansible/network-ee'].src_dir }}/tests/integration/inventories/hosts.yaml"
+        src: "~/{{ zuul.projects['github.com/ansible/network-ee'].src_dir }}/tests/integration/inventories/{{ _network_os }}.yaml"
+        state: link
+
+    # Update ansible-navigator.cfg with per job settings
+    - name: Read ansible-navigator.cfg file
+      slurp:
+        path: "{{ zuul.projects['github.com/ansible/network-ee'].src_dir }}/tests/integration/ansible-navigator.yaml"
+      register: _navigator
+
+    - name: Load navigator data into fact
+      set_fact:
+        _navigator_data: "{{ _navigator['content'] | b64decode | from_yaml }}"
+
+    - name: Patch navigator data for testing
+      set_fact:
+        _navigator_data: "{{ _navigator_data | combine(newdata, recursive=True) }}"
+      vars:
+        newdata:
+          ansible-navigator:
+            execution-environment:
+              image: "{{ container_image_name}}:to-test"
+            mode: stdout
+
+    - name: Write ansible-navigator.cfg file
+      copy:
+        content: "{{ _navigator_data | to_nice_yaml(indent=2, explicit_start=True) }}"
+        dest: "{{ zuul.projects['github.com/ansible/network-ee'].src_dir }}/tests/integration/ansible-navigator.yaml"
+
+    # Update ansible.cfg with per job settings
+    - name: Set persistent_connection ssh_type value
+      ini_file:
+        path: "{{ zuul.projects['github.com/ansible/network-ee'].src_dir }}/tests/integration/ansible.cfg"
+        section: persistent_connection
+        option: ssh_type
+        value: "{{ test_ansible_network_cli_ssh_type }}"
+
+    - name: Set tags skip value
+      ini_file:
+        path: "{{ zuul.projects['github.com/ansible/network-ee'].src_dir }}/tests/integration/ansible.cfg"
+        section: tags
+        option: skip
+        value: "{{ test_ansible_skip_tags }}"
+      when: test_ansible_skip_tags is defined

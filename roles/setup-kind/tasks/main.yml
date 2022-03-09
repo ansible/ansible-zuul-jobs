@@ -26,3 +26,18 @@
 
 - name: Create cluster
   shell: "{{ kind_path }} create cluster"
+  when: kind_cluster_ip is not defined
+
+- block:
+    - set_fact:
+        cluster_config: "/tmp/config.yaml"
+
+    - name: Create cluster configuration
+      template:
+        src: config.j2
+        dest: "{{ cluster_config }}"
+
+    - name: Create cluster
+      shell: "{{ kind_path }} create cluster --config {{ cluster_config }}"
+
+  when: kind_cluster_ip is defined

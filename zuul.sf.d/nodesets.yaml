@@ -48,6 +48,13 @@
       - name: controller
         label: ansible-cloud-centos-9-stream
 
+# temporary setting
+- nodeset:
+    name: centos7
+    nodes:
+      - name: controller
+        label: centos-7-4vcpu
+
 - nodeset:
     name: eos-4.24.6-python38
     nodes:

@@ -1,7 +1,0 @@
----
-- hosts: controller
-  tasks:
-    - name: create simple namespace
-      kubernetes.core.k8s:
-        kind: Namespace
-        name: test

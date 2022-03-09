@@ -501,7 +501,7 @@
     pre-run:
       - playbooks/ansible-cloud/py38/pre.yaml
       - playbooks/ansible-cloud/k8s/pre.yaml
-    run: playbooks/ansible-cloud/k8s/run.yaml
+    run: playbooks/ansible-test-base/run.yaml
     files:
       - ^plugins/.*$
       - ^tests/integration/.*$

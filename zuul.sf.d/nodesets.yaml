@@ -34,19 +34,31 @@
     name: centos-8-stream
     nodes:
       - name: controller
-        label: ansible-cloud-centos-8-stream
+        label: ansible-cloud-centos-8-stream-tiny
 
 - nodeset:
     name: centos-8-stream-small
     nodes:
       - name: controller
-        label: ansible-cloud-centos-8-stream
+        label: ansible-cloud-centos-8-stream-tiny
+
+- nodeset:
+    name: centos-8-stream-large
+    nodes:
+      - name: controller
+        label: ansible-cloud-centos-8-stream-large
 
 - nodeset:
     name: centos-9-stream
     nodes:
       - name: controller
-        label: ansible-cloud-centos-9-stream
+        label: ansible-cloud-centos-9-stream-tiny
+
+- nodeset:
+    name: centos-9-stream-large
+    nodes:
+      - name: controller
+        label: ansible-cloud-centos-9-stream-large
 
 - nodeset:
     name: eos-4.24.6-python38

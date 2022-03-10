@@ -274,3 +274,123 @@
     nodeset: vsrx3-18.4R1-python38
     vars:
       ansible_test_python: 3.8
+
+# ansible-ee
+- job:
+    name: ansible-ee-integration-junos-vsxr-latest
+    parent: ansible-ee-tests
+    pre-run:
+      - playbooks/ansible-ee/integration/pre.yaml
+      - playbooks/ansible-network-junos-appliance/pre.yaml
+    run: playbooks/ansible-ee/integration/run.yaml
+    vars:
+      ansible_runner_container_version: latest
+      container_image_tests:
+        - integration
+      ansible_test_collections: true
+      test_ansible_ssh_private_key_file: ~/.ssh/id_ecdsa
+      test_ansible_network_cli_ssh_type: libssh
+      ansible_test_integration_targets: "junos_.*"
+    nodeset: vsrx3-18.4R1-python36
+    host-vars:
+      vsrx3-18.4R1:
+        ansible_network_os: junos
+
+# ansible-test-network-integration-junos-vsrx-netconf-python27-stable211
+- job:
+    name: ansible-ee-integration-junos-vsxr-netconf-python27-stable2.11
+    parent: ansible-ee-integration-junos-vsxr-latest
+    vars:
+      ansible_runner_container_version: stable-2.11-devel
+      ansible_test_python: 2.7
+
+# ansible-test-network-integration-junos-vsrx-netconf-python27-stable29
+- job:
+    name: ansible-ee-integration-junos-vsxr-netconf-python27-stable2.9
+    parent: ansible-ee-integration-junos-vsxr-latest
+    vars:
+      ansible_runner_container_version: stable-2.9-devel
+      ansible_test_python: 2.7
+
+# ansible-test-network-integration-junos-vsrx-network_cli-python27-stable211
+- job:
+    name: ansible-ee-integration-junos-vsxr-network_cli-python27-stable2.11
+    parent: ansible-ee-integration-junos-vsxr-latest
+    vars:
+      ansible_runner_container_version: stable-2.11-devel
+      ansible_test_network_cli_ssh_type: libssh
+      ansible_test_python: 2.7
+
+# ansible-test-network-integration-junos-vsrx-network_cli-python27-stable29
+- job:
+    name: ansible-ee-integration-junos-vsxr-network_cli-python27-stable2.9
+    parent: ansible-ee-integration-junos-vsxr-latest
+    vars:
+      ansible_runner_container_version: stable-2.9-devel
+      ansible_test_network_cli_ssh_type: libssh
+      ansible_test_python: 2.7
+
+# ansible-test-network-integration-junos-vsrx-netconf-python38
+# NOTE(Gonéri): Not sure if we need this one
+#- job:
+#    name: ansible-ee-integration-junos-vsxr-network_cli-python38-latest
+#    parent: ansible-ee-integration-junos-vsxr-latest
+#    vars:
+#      ansible_test_python: 3.8
+
+# ansible-test-network-integration-junos-vsrx-netconf-python38-stable212
+- job:
+    name: ansible-ee-integration-junos-vsxr-netconf-python38-stable2.12
+    parent: ansible-ee-integration-junos-vsxr-latest
+    vars:
+      ansible_runner_container_version: stable-2.12-devel
+      ansible_test_python: 3.8
+
+# ansible-test-network-integration-junos-vsrx-netconf-python36-stable29
+- job:
+    name: ansible-ee-integration-junos-vsxr-netconf-python36-stable2.9
+    parent: ansible-ee-integration-junos-vsxr-latest
+    vars:
+      ansible_runner_container_version: stable-2.9-devel
+      ansible_test_python: 3.6
+
+# ansible-test-network-integration-junos-vsrx-network_cli-python38
+- job:
+    name: ansible-ee-integration-junos-vsxr-network_cli-python38-latest
+    parent: ansible-ee-integration-junos-vsxr-latest
+    vars:
+      ansible_test_python: 3.8
+      ansible_test_network_cli_ssh_type: libssh
+
+# ansible-test-network-integration-junos-vsrx-network_cli-python38-stable212
+- job:
+    name: ansible-ee-integration-junos-vsxr-network_cli-python38-stable.2.12
+    parent: ansible-ee-integration-junos-vsxr-latest
+    vars:
+      ansible_runner_container_version: stable-2.12-devel
+      ansible_test_python: 3.8
+      ansible_test_network_cli_ssh_type: libssh
+
+# ansible-test-network-integration-junos-vsrx-network_cli-python36-stable211
+- job:
+    name: ansible-ee-integration-junos-vsxr-network_cli-python36-stable.2.11
+    parent: ansible-ee-integration-junos-vsxr-latest
+    vars:
+      ansible_runner_container_version: stable-2.11-devel
+      ansible_test_python: 3.6
+      ansible_test_network_cli_ssh_type: libssh
+
+# ansible-test-network-integration-junos-vsrx-network_cli-python36-stable29
+- job:
+    name: ansible-ee-integration-junos-vsxr-network_cli-python36-stable.2.9
+    parent: ansible-ee-integration-junos-vsxr-latest
+    vars:
+      ansible_runner_container_version: stable-2.9-devel
+      ansible_test_python: 3.6
+      ansible_test_network_cli_ssh_type: libssh
+
+# NOTE(Gonéri): it looks like we already run these scenario.
+# ansible-test-network-integration-junos-vsrx-network_cli-libssh-python38
+# ansible-test-network-integration-junos-vsrx-network_cli-libssh-python38-stable212
+# ansible-test-network-integration-junos-vsrx-network_cli-libssh-python36-stable29
+# ansible-test-network-integration-junos-vsrx-network_cli-libssh-python36-stable211

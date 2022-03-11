@@ -336,11 +336,12 @@ class ElGrandeSeparator:
         self.targets_per_slot = 20
         self.releases = ansible_releases
 
-        total_targets = sum([len(c._my_test_plan) for c in self.collections])
-        if total_targets == 0:
-            # Worst case: no targets test found for any collection
-            for c in self.collections:
-                c.cover_all()
+        # This is remove for now as it has huge impact on amazon.aws collection
+        # total_targets = sum([len(c._my_test_plan) for c in self.collections])
+        # if total_targets == 0:
+        #     # Worst case: no targets test found for any collection
+        #     for c in self.collections:
+        #         c.cover_all()
 
     def output(self):
         batches = []

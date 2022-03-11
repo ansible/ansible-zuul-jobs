@@ -1,22 +1,4 @@
 ---
-# ansible-collections/arista.eos jobs
-
-- job:
-    name: ansible-network-eos-appliance
-    parent: ansible-network-appliance-base
-    pre-run:
-      - playbooks/ansible-network-eos-appliance/pre.yaml
-      - playbooks/network-ee-integration-tests/pre.yaml
-    run: playbooks/ansible-network-eos-appliance/run.yaml
-    host-vars:
-      eos-4.24.6:
-        ansible_network_os: eos
-    required-projects:
-      - name: github.com/ansible/ansible-zuul-jobs
-    nodeset: eos-4.24.6-python38
-    timeout: 10800
-
-# =============================================================================
 - job:
     name: ansible-test-units-eos-python27
     parent: ansible-test-units-base-python27
@@ -49,117 +31,77 @@
     vars:
       ansible_collections_repo: github.com/ansible-collections/arista.eos
 
-# =============================================================================
-
+# ansible-ee
 - job:
-    name: network-ee-integration-tests-arista-eos
-    parent: ansible-network-eos-appliance
-
-- job:
-    name: network-ee-integration-tests-arista-eos
-    parent: network-ee-integration-tests
-    nodeset: eos-4.24.6-python38
+    name: ansible-ee-integration-arista-eos-httpapi-latest
+    parent: ansible-ee-tests
+    pre-run:
+      - playbooks/ansible-ee/integration/pre.yaml
+      # Ensure we install the bindeps
+      - playbooks/ansible-network-appliance-base/pre.yaml
+      - playbooks/ansible-ee/arista-eos/pre.yaml
+    run: playbooks/ansible-ee/integration/run.yaml
     vars:
-      test_ansible_skip_tags: httpapi
+      ansible_runner_container_version: latest
+      container_image_tests:
+        - integration
       test_ansible_ssh_private_key_file: ~/.ssh/id_ecdsa
-      test_fips_mode: false
+      test_ansible_network_cli_ssh_type: paramiko
+    host-vars:
+      eos-4.24.6:
+        ansible_network_os: eos
+    nodeset: eos-4.24.6-python38
+    timeout: 10800
 
 - job:
-    name: network-ee-integration-tests-arista-eos-httpapi
-    parent: network-ee-integration-tests-arista-eos
+    name: ansible-ee-integration-arista-eos-httpapi-stable-2.9
+    parent: ansible-ee-integration-arista-eos-httpapi-latest
     vars:
-      test_ansible_skip_tags: network_cli
+      test_ansible_python_interpreter: /usr/bin/python3.8
+      ansible_runner_container_version: stable-2.9-devel
 
 - job:
-    name: network-ee-integration-tests-arista-eos-libssh
-    parent: network-ee-integration-tests-arista-eos
+    name: ansible-ee-integration-arista-eos-httpapi-stable-2.11
+    parent: ansible-ee-integration-arista-eos-httpapi-latest
+    vars:
+      ansible_runner_container_version: stable-2.11-devel
+
+- job:
+    name: ansible-ee-integration-arista-eos-httpapi-stable-2.12
+    parent: ansible-ee-integration-arista-eos-httpapi-latest
+    vars:
+      ansible_runner_container_version: stable-2.12-devel
+
+# libssh
+- job:
+    name: ansible-ee-integration-arista-eos-libssh-latest
+    parent: ansible-ee-integration-arista-eos-httpapi-latest
     vars:
       test_ansible_network_cli_ssh_type: libssh
       test_fips_mode: true
 
-# =============================================================================
 - job:
-    name: network-ee-integration-tests-arista-eos-stable-2.12
-    parent: ansible-network-eos-appliance
-
-- job:
-    name: network-ee-integration-tests-arista-eos-stable-2.12
-    parent: network-ee-integration-tests-stable-2.12
-    nodeset: eos-4.24.6-python38
+    name: ansible-ee-integration-arista-eos-libssh-stable-2.9
+    parent: ansible-ee-integration-arista-eos-httpapi-latest
     vars:
       test_ansible_python_interpreter: /usr/bin/python3.8
-      test_ansible_ssh_private_key_file: ~/.ssh/id_ecdsa
-      test_ansible_skip_tags: httpapi
-      # Backport PR to be merged https://github.com/ansible/ansible/pull/75706 to enable fips for libssh job
-      test_fips_mode: false
-
-- job:
-    name: network-ee-integration-tests-arista-eos-httpapi-stable-2.12
-    parent: network-ee-integration-tests-arista-eos-stable-2.12
-    vars:
-      test_ansible_skip_tags: network_cli
-
-- job:
-    name: network-ee-integration-tests-arista-eos-libssh-stable-2.12
-    parent: network-ee-integration-tests-arista-eos-stable-2.12
-    vars:
+      ansible_runner_container_version: stable-2.9-devel
       test_ansible_network_cli_ssh_type: libssh
-      test_fips_mode: true
-
-# =============================================================================
-- job:
-    name: network-ee-integration-tests-arista-eos-stable-2.11
-    parent: ansible-network-eos-appliance
-
-- job:
-    name: network-ee-integration-tests-arista-eos-stable-2.11
-    parent: network-ee-integration-tests-stable-2.11
-    nodeset: eos-4.24.6-python38
-    vars:
-      test_ansible_python_interpreter: /usr/bin/python3.8
-      test_ansible_ssh_private_key_file: ~/.ssh/id_ecdsa
-      test_ansible_skip_tags: httpapi
-      # Backport PR to be merged https://github.com/ansible/ansible/pull/75706 to enable fips for libssh job
-      test_fips_mode: false
-
-- job:
-    name: network-ee-integration-tests-arista-eos-httpapi-stable-2.11
-    parent: network-ee-integration-tests-arista-eos-stable-2.11
-    vars:
-      test_ansible_skip_tags: network_cli
-
-- job:
-    name: network-ee-integration-tests-arista-eos-libssh-stable-2.11
-    parent: network-ee-integration-tests-arista-eos-stable-2.11
-    vars:
-      test_ansible_network_cli_ssh_type: libssh
-      test_fips_mode: true
-
-# =============================================================================
-
-- job:
-    name: network-ee-integration-tests-arista-eos-stable-2.9
-    parent: ansible-network-eos-appliance
-
-- job:
-    name: network-ee-integration-tests-arista-eos-stable-2.9
-    parent: network-ee-integration-tests-stable-2.9
-    nodeset: eos-4.24.6-python38
-    vars:
-      test_ansible_python_interpreter: /usr/bin/python3.8
-      test_ansible_ssh_private_key_file: ~/.ssh/id_ecdsa
-      test_ansible_skip_tags: httpapi
       # Backport of https://github.com/ansible/ansible/pull/73992 needed for 2.9 to enable fips
       test_fips_mode: false
 
 - job:
-    name: network-ee-integration-tests-arista-eos-httpapi-stable-2.9
-    parent: network-ee-integration-tests-arista-eos-stable-2.9
+    name: ansible-ee-integration-arista-eos-libssh-stable-2.11
+    parent: ansible-ee-integration-arista-eos-httpapi-latest
     vars:
-      test_ansible_skip_tags: network_cli
+      ansible_runner_container_version: stable-2.11-devel
+      test_ansible_network_cli_ssh_type: libssh
+      test_fips_mode: true
 
 - job:
-    name: network-ee-integration-tests-arista-eos-libssh-stable-2.9
-    parent: network-ee-integration-tests-arista-eos-stable-2.9
+    name: ansible-ee-integration-arista-eos-libssh-stable-2.12
+    parent: ansible-ee-integration-arista-eos-httpapi-latest
     vars:
+      ansible_runner_container_version: stable-2.12-devel
       test_ansible_network_cli_ssh_type: libssh
+      test_fips_mode: true

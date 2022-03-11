@@ -246,18 +246,14 @@
     name: ansible-collections-arista-eos
     check:
       jobs: &ansible-collections-arista-eos-jobs
-        - network-ee-integration-tests-arista-eos-httpapi
-        - network-ee-integration-tests-arista-eos-httpapi-stable-2.9
-        - network-ee-integration-tests-arista-eos-httpapi-stable-2.11
-        - network-ee-integration-tests-arista-eos-httpapi-stable-2.12
-        - network-ee-integration-tests-arista-eos
-        - network-ee-integration-tests-arista-eos-stable-2.9
-        - network-ee-integration-tests-arista-eos-stable-2.11
-        - network-ee-integration-tests-arista-eos-stable-2.12
-        - network-ee-integration-tests-arista-eos-libssh
-        - network-ee-integration-tests-arista-eos-libssh-stable-2.9
-        - network-ee-integration-tests-arista-eos-libssh-stable-2.11
-        - network-ee-integration-tests-arista-eos-libssh-stable-2.12
+        - ansible-ee-integration-arista-eos-httpapi-latest
+        - ansible-ee-integration-arista-eos-httpapi-stable-2.9
+        - ansible-ee-integration-arista-eos-httpapi-stable-2.11
+        - ansible-ee-integration-arista-eos-httpapi-stable-2.12
+        - ansible-ee-integration-arista-eos-libssh-latest
+        - ansible-ee-integration-arista-eos-libssh-stable-2.9
+        - ansible-ee-integration-arista-eos-libssh-stable-2.11
+        - ansible-ee-integration-arista-eos-libssh-stable-2.12
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-collections/ansible.netcommon
@@ -900,18 +896,14 @@
             vars:
               ansible_test_collections: true
             voting: false
-        - network-ee-integration-tests-arista-eos-httpapi
-        - network-ee-integration-tests-arista-eos-httpapi-stable-2.9
-        - network-ee-integration-tests-arista-eos-httpapi-stable-2.11
-        - network-ee-integration-tests-arista-eos-httpapi-stable-2.12
-        - network-ee-integration-tests-arista-eos
-        - network-ee-integration-tests-arista-eos-stable-2.9
-        - network-ee-integration-tests-arista-eos-stable-2.11
-        - network-ee-integration-tests-arista-eos-stable-2.12
-        - network-ee-integration-tests-arista-eos-libssh
-        - network-ee-integration-tests-arista-eos-libssh-stable-2.9
-        - network-ee-integration-tests-arista-eos-libssh-stable-2.11
-        - network-ee-integration-tests-arista-eos-libssh-stable-2.12
+        - ansible-ee-integration-arista-eos-httpapi-latest
+        - ansible-ee-integration-arista-eos-httpapi-stable-2.9
+        - ansible-ee-integration-arista-eos-httpapi-stable-2.11
+        - ansible-ee-integration-arista-eos-httpapi-stable-2.12
+        - ansible-ee-integration-arista-eos-libssh-latest
+        - ansible-ee-integration-arista-eos-libssh-stable-2.9
+        - ansible-ee-integration-arista-eos-libssh-stable-2.11
+        - ansible-ee-integration-arista-eos-libssh-stable-2.12
         - network-ee-integration-tests-ios
         - network-ee-integration-tests-ios-stable-2.9
         - network-ee-integration-tests-ios-stable-2.11
@@ -999,12 +991,10 @@
             vars:
               ansible_test_collections: true
             voting: false
-        - network-ee-integration-tests-arista-eos-httpapi
-        - network-ee-integration-tests-arista-eos-httpapi-stable-2.9
-        - network-ee-integration-tests-arista-eos
-        - network-ee-integration-tests-arista-eos-stable-2.9
-        - network-ee-integration-tests-arista-eos-libssh
-        - network-ee-integration-tests-arista-eos-libssh-stable-2.9
+        - ansible-ee-integration-arista-eos-httpapi-latest
+        - ansible-ee-integration-arista-eos-httpapi-stable-2.9
+        - ansible-ee-integration-arista-eos-libssh-latest
+        - ansible-ee-integration-arista-eos-libssh-stable-2.9
         - network-ee-integration-tests-ios
         - network-ee-integration-tests-ios-stable-2.11
         - network-ee-integration-tests-ios-libssh

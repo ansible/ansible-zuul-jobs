@@ -10,9 +10,6 @@
         - ansible-tox-py39:
             vars:
               tox_envlist: pytest,black
-        - ansible-tox-py39-fedora:
-            vars:
-              tox_envlist: pytest,black
         - ansible-tox-py310:
             vars:
               tox_envlist: pytest,black
@@ -20,10 +17,6 @@
             files:
               - playbooks/ansible-network-appliance-base/.*
               - playbooks/ansible-network-asa-appliance/.*
-        - ansible-network-eos-appliance:
-            files:
-              - playbooks/ansible-network-appliance-base/.*
-              - playbooks/ansible-network-eos-appliance/.*
         - ansible-network-ios-appliance:
             files:
               - playbooks/ansible-network-appliance-base/.*
@@ -47,10 +40,6 @@
               - playbooks/ansible-network-appliance-base/.*
               - playbooks/ansible-network-nxos-appliance/.*
             voting: false
-        - ansible-network-openvswitch-appliance:
-            files:
-              - playbooks/ansible-network-appliance-base/.*
-              - playbooks/ansible-network-openvswitch-appliance/.*
         - ansible-network-vyos-appliance:
             files:
               - playbooks/ansible-network-appliance-base/.*
@@ -77,17 +66,10 @@
         - ansible-tox-py39:
             vars:
               tox_envlist: pytest,black
-        - ansible-tox-py39-fedora:
-            vars:
-              tox_envlist: pytest,black
         - ansible-network-asa-appliance:
             files:
               - playbooks/ansible-network-appliance-base/.*
               - playbooks/ansible-network-asa-appliance/.*
-        - ansible-network-eos-appliance:
-            files:
-              - playbooks/ansible-network-appliance-base/.*
-              - playbooks/ansible-network-eos-appliance/.*
         - ansible-network-ios-appliance:
             files:
               - playbooks/ansible-network-appliance-base/.*
@@ -96,10 +78,6 @@
             files:
               - playbooks/ansible-network-appliance-base/.*
               - playbooks/ansible-network-junos-appliance/.*
-        - ansible-network-openvswitch-appliance:
-            files:
-              - playbooks/ansible-network-appliance-base/.*
-              - playbooks/ansible-network-openvswitch-appliance/.*
         - ansible-network-vyos-appliance:
             files:
               - playbooks/ansible-network-appliance-base/.*

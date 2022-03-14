@@ -1,4 +1,10 @@
 ---
+- nodeset:
+    name: container-ansible
+    nodes:
+      - name: controller
+        label: zuul-worker-ansible
+
 # We don't have CentOS8 Stream yet
 - nodeset:
     name: asav9-12-3-python27
@@ -27,20 +33,45 @@
 - nodeset:
     name: centos-8-stream
     nodes:
-      - name: fedora-35
-        label: ansible-fedora-35-1vcpu
+      - name: controller
+        label: ansible-cloud-centos-8-stream-tiny
 
 - nodeset:
     name: centos-8-stream-small
     nodes:
-      - name: fedora-35
-        label: ansible-fedora-35-1vcpu
+      - name: controller
+        label: ansible-cloud-centos-8-stream-tiny
+
+- nodeset:
+    name: centos-8-stream-large
+    nodes:
+      - name: controller
+        label: ansible-cloud-centos-8-stream-large
+
+- nodeset:
+    name: centos-9-stream
+    nodes:
+      - name: controller
+        label: ansible-cloud-centos-9-stream-tiny
+
+- nodeset:
+    name: centos-9-stream-large
+    nodes:
+      - name: controller
+        label: ansible-cloud-centos-9-stream-large
 
 - nodeset:
     name: eos-4.24.6-python38
     nodes:
-      - name: fedora-35
+      - name: controller
+        # TODO
         label: ansible-fedora-35-1vcpu
+      - name: eos-4.24.6
+        label: vEOS-4.24.6F
+    groups:
+      - name: appliance
+        nodes:
+          - eos-4.24.6
 
 - nodeset:
     name: fedora-35-1vcpu
@@ -105,8 +136,27 @@
 - nodeset:
     name: openvswitch-2.9.0-python38
     nodes:
-      - name: fedora-35
+      - name: centos-8-stream
+        label: centos-8-stream
+      - name: openvswitch-2.9.0
+        label: ubuntu-bionic-1vcpu
+    groups:
+      - name: openvswitch
+        nodes:
+          - openvswitch-2.9.0
+      - name: controller
+        nodes:
+          - centos-8-stream
+
+- nodeset:
+    name: openvswitch-2.15.0-python38
+    nodes:
+      - name: controller
         label: ansible-fedora-35-1vcpu
+    groups:
+      - name: openvswitch
+        nodes:
+          - controller
 
 - nodeset:
     name: QRadarCE-7.3.1-python38
@@ -285,3 +335,34 @@
     nodes:
       - name: controller
         label: ansible-fedora-35-1vcpu
+
+- nodeset:
+    name: ansible-tox-linters
+    nodes:
+      - name: controller
+        label: zuul-worker-ansible
+
+- nodeset:
+    name: ansible-galaxy-importer
+    nodes:
+      - name: controller
+        label: zuul-worker-ansible
+
+- nodeset:
+    name: ansible-tox-py38
+    nodes:
+      - name: controller
+        label: zuul-worker-ansible
+
+- nodeset:
+    name: ansible-tox-py39
+    nodes:
+      - name: controller
+        label: zuul-worker-ansible
+
+
+- nodeset:
+    name: ansible-tox-py310
+    nodes:
+      - name: controller
+        label: zuul-worker-ansible

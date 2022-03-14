@@ -1,3 +1,6 @@
 ---
 ansible_test_splitter__test_changed: false
-ansible_test_splitter__children_prefix: please_adjust_this
+# Git repositories of changed collections, only when
+# ansible_test_splitter__test_changed is true
+ansible_test_splitter__check_for_changes_in:
+  - "~/{{ zuul.projects[zuul.project.canonical_name].src_dir }}"

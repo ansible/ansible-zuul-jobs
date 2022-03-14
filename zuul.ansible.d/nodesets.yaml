@@ -23,6 +23,13 @@
       - name: centos-8-stream
         label: centos-8-stream
 
+# only work with SF
+- nodeset:
+    name: centos-8-stream-large
+    nodes:
+      - name: centos-8-stream
+        label: centos-8-stream
+
 - nodeset:
     name: centos-8-stream-small
     nodes:
@@ -731,3 +738,48 @@
         nodes:
           - Trendmicro-DeepSecurity-20.0.344
           - fedora-35
+
+- nodeset:
+    name: ansible-tox-linters
+    nodes:
+      - name: controller
+        label: ansible-fedora-35-1vcpu
+
+- nodeset:
+    name: ansible-galaxy-importer
+    nodes:
+      - name: controller
+        label: centos-8-stream-small
+
+- nodeset:
+    name: ansible-tox-py38
+    nodes:
+      - name: controller
+        label: centos-8-stream-small
+
+- nodeset:
+    name: ansible-tox-py39
+    nodes:
+      - name: controller
+        label: centos-8-stream-small
+
+
+- nodeset:
+    name: ansible-tox-py310
+    nodes:
+      - name: controller
+        label: fedora-latest-1vcpu
+
+# Ensure some nodesets are defined even if we don't use it
+# with zuul.ansible.com
+- nodeset:
+    name: container-ansible
+    nodes:
+      - name: controller
+        label: fedora-latest-1vcpu
+
+- nodeset:
+    name: openvswitch-2.15.0-python38
+    nodes:
+      - name: controller
+        label: fedora-latest-1vcpu

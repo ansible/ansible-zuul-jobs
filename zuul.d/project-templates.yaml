@@ -952,14 +952,8 @@
         - ansible-ee-integration-ios-libssh-stable-2.9
         - ansible-ee-integration-ios-libssh-stable-2.11
         - ansible-ee-integration-ios-libssh-stable-2.12
-        - network-ee-integration-tests-vyos
-        - network-ee-integration-tests-vyos-stable-2.9
-        - network-ee-integration-tests-vyos-stable-2.11
-        - network-ee-integration-tests-vyos-stable-2.12
-        - network-ee-integration-tests-vyos-libssh
-        - network-ee-integration-tests-vyos-libssh-stable-2.9
-        - network-ee-integration-tests-vyos-libssh-stable-2.11
-        - network-ee-integration-tests-vyos-libssh-stable-2.12
+        - ansible-ee-integration-vyos-latest
+        - ansible-ee-integration-vyos-libssh-latest
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-collections/ansible.utils
@@ -1039,10 +1033,8 @@
         - ansible-ee-integration-ios-stable-2.11
         - ansible-ee-integration-ios-libssh-latest
         - ansible-ee-integration-ios-libssh-stable-2.11
-        - network-ee-integration-tests-vyos
-        - network-ee-integration-tests-vyos-stable-2.12
-        - network-ee-integration-tests-vyos-libssh
-        - network-ee-integration-tests-vyos-libssh-stable-2.12
+        - ansible-ee-integration-vyos-latest
+        - ansible-ee-integration-vyos-libssh-latest
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-collections/ansible.utils
@@ -1221,14 +1213,14 @@
     name: ansible-collections-vyos-vyos
     check:
       jobs: &ansible-collections-vyos-vyos-jobs
-        - network-ee-integration-tests-vyos
-        - network-ee-integration-tests-vyos-stable-2.9
-        - network-ee-integration-tests-vyos-stable-2.11
-        - network-ee-integration-tests-vyos-stable-2.12
-        - network-ee-integration-tests-vyos-libssh
-        - network-ee-integration-tests-vyos-libssh-stable-2.9
-        - network-ee-integration-tests-vyos-libssh-stable-2.11
-        - network-ee-integration-tests-vyos-libssh-stable-2.12
+        - ansible-ee-integration-vyos-latest
+        - ansible-ee-integration-vyos-stable-2.12
+        - ansible-ee-integration-vyos-stable-2.11
+        - ansible-ee-integration-vyos-stable-2.9
+        - ansible-ee-integration-vyos-libssh-latest
+        - ansible-ee-integration-vyos-libssh-stable-2.12
+        - ansible-ee-integration-vyos-libssh-stable-2.11
+        - ansible-ee-integration-vyos-libssh-stable-2.9
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-collections/ansible.netcommon

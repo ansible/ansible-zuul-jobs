@@ -1,21 +1,4 @@
 ---
-# ansible-collections/vyos.vyos jobs
-# =============================================================================
-- job:
-    name: ansible-network-vyos-appliance
-    parent: ansible-network-appliance-base
-    pre-run:
-      - playbooks/ansible-network-vyos-appliance/pre.yaml
-      - playbooks/network-ee-integration-tests/pre.yaml
-    run: playbooks/ansible-network-vyos-appliance/run.yaml
-    host-vars:
-      vyos-1.1.8:
-        ansible_network_os: vyos
-    required-projects:
-      - name: github.com/ansible/ansible-zuul-jobs
-    nodeset: vyos-1.1.8-python38
-    timeout: 10800
-
 # =============================================================================
 - job:
     name: ansible-test-units-vyos-python27
@@ -49,85 +32,71 @@
     vars:
       ansible_collections_repo: github.com/ansible-collections/vyos.vyos
 # =============================================================================
+# ansible-ee
 - job:
-    name: network-ee-integration-tests-vyos
-    parent: ansible-network-vyos-appliance
-
-- job:
-    name: network-ee-integration-tests-vyos
-    parent: network-ee-integration-tests
-    nodeset: vyos-1.1.8-python38
+    name: ansible-ee-integration-vyos-latest
+    parent: ansible-ee-tests
+    pre-run:
+      - playbooks/ansible-ee/integration/pre.yaml
+      # Ensure we install the bindeps
+      - playbooks/ansible-network-appliance-base/pre.yaml
+      - playbooks/ansible-network-vyos-appliance/pre.yaml
+    run: playbooks/ansible-ee/integration/run.yaml
     vars:
-      test_ansible_python_interpreter: /usr/bin/python3
-      # NOTE(pabelanger): We can only use RSA ssh keys for vyos.
-      test_fips_mode: false
+      ansible_runner_container_version: latest
+      container_image_tests:
+        - integration
+      test_ansible_network_cli_ssh_type: paramiko
+      test_ansible_ssh_private_key_file: ~/.ssh/id_rsa
+    host-vars:
+      vyos:
+        ansible_network_os: vyos
+    nodeset: vyos-1.1
+    timeout: 10800
 
 - job:
-    name: network-ee-integration-tests-vyos-libssh
-    parent: network-ee-integration-tests-vyos
+    name: ansible-ee-integration-vyos-stable-2.12
+    parent: ansible-ee-integration-vyos-latest
     vars:
-      test_ansible_network_cli_ssh_type: libssh
-      test_ansible_skip_tags: local
-
-# =============================================================================
-- job:
-    name: network-ee-integration-tests-vyos-stable-2.12
-    parent: ansible-network-vyos-appliance
+      ansible_runner_container_version: stable-2.12-devel
 
 - job:
-    name: network-ee-integration-tests-vyos-stable-2.12
-    parent: network-ee-integration-tests-stable-2.12
-    nodeset: vyos-1.1.8-python38
+    name: ansible-ee-integration-vyos-stable-2.11
+    parent: ansible-ee-integration-vyos-latest
     vars:
-      test_ansible_python_interpreter: /usr/bin/python3
-      # NOTE(pabelanger): We can only use RSA ssh keys for vyos.
-      test_fips_mode: false
+      ansible_runner_container_version: stable-2.11-devel
 
 - job:
-    name: network-ee-integration-tests-vyos-libssh-stable-2.12
-    parent: network-ee-integration-tests-vyos-stable-2.12
+    name: ansible-ee-integration-vyos-stable-2.9
+    parent: ansible-ee-integration-vyos-latest
     vars:
-      test_ansible_network_cli_ssh_type: libssh
-      test_ansible_skip_tags: local
+      test_ansible_python_interpreter: /usr/bin/python3.8
+      ansible_runner_container_version: stable-2.9-devel
 
-# =============================================================================
-- job:
-    name: network-ee-integration-tests-vyos-stable-2.11
-    parent: ansible-network-vyos-appliance
 
+# libssh
 - job:
-    name: network-ee-integration-tests-vyos-stable-2.11
-    parent: network-ee-integration-tests-stable-2.11
-    nodeset: vyos-1.1.8-python38
-    vars:
-      test_ansible_python_interpreter: /usr/bin/python3
-      # NOTE(pabelanger): We can only use RSA ssh keys for vyos.
-      test_fips_mode: false
-
-- job:
-    name: network-ee-integration-tests-vyos-libssh-stable-2.11
-    parent: network-ee-integration-tests-vyos-stable-2.11
+    name: ansible-ee-integration-vyos-libssh-latest
+    parent: ansible-ee-integration-vyos-latest
     vars:
       test_ansible_network_cli_ssh_type: libssh
       test_ansible_skip_tags: local
 
-# =============================================================================
 - job:
-    name: network-ee-integration-tests-vyos-stable-2.9
-    parent: ansible-network-vyos-appliance
+    name: ansible-ee-integration-vyos-libssh-stable-2.12
+    parent: ansible-ee-integration-vyos-libssh-latest
+    vars:
+      ansible_runner_container_version: stable-2.12-devel
 
 - job:
-    name: network-ee-integration-tests-vyos-stable-2.9
-    parent: network-ee-integration-tests-stable-2.9
-    nodeset: vyos-1.1.8-python38
+    name: ansible-ee-integration-vyos-libssh-stable-2.11
+    parent: ansible-ee-integration-vyos-libssh-latest
     vars:
-      test_ansible_python_interpreter: /usr/bin/python3
-      # NOTE(pabelanger): We can only use RSA ssh keys for vyos.
-      test_fips_mode: false
+      ansible_runner_container_version: stable-2.11-devel
 
 - job:
-    name: network-ee-integration-tests-vyos-libssh-stable-2.9
-    parent: network-ee-integration-tests-vyos-stable-2.9
+    name: ansible-ee-integration-vyos-libssh-stable-2.9
+    parent: ansible-ee-integration-vyos-libssh-latest
     vars:
-      test_ansible_network_cli_ssh_type: libssh
-      test_ansible_skip_tags: local
+      test_ansible_python_interpreter: /usr/bin/python3.8
+      ansible_runner_container_version: stable-2.9-devel

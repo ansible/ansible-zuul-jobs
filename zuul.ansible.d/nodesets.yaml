@@ -567,19 +567,16 @@
           - fedora-35
 
 - nodeset:
-    name: vyos-1.1.8-python38
+    name: vyos-1.1
     nodes:
-      - name: centos-8-stream
+      - name: controller
         label: centos-8-stream
-      - name: vyos-1.1.8
+      - name: vyos
         label: vyos-1.1.8-1vcpu
     groups:
       - name: appliance
         nodes:
-          - vyos-1.1.8
-      - name: controller
-        nodes:
-          - centos-8-stream
+          - vyos
 
 - nodeset:
     name: controller-python27

@@ -4,6 +4,11 @@
     dest: /tmp/list_changed_targets.py
     mode: '0700'
 
+- name: list branch for Kubernetes
+  command: "git branch -r"
+  args:
+    chdir: "{{ ansible_test_splitter__check_for_changes_in | join(' ') }}"
+
 - set_fact:
     splitter_cmd: >
       python3 /tmp/list_changed_targets.py

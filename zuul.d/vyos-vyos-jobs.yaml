@@ -131,3 +131,26 @@
     vars:
       test_ansible_network_cli_ssh_type: libssh
       test_ansible_skip_tags: local
+
+# ansible-ee
+- job:
+    name: ansible-ee-integration-vyos-latest
+    parent: ansible-ee-tests
+    pre-run:
+      - playbooks/ansible-ee/integration/pre.yaml
+      # Ensure we install the bindeps
+      - playbooks/ansible-network-appliance-base/pre.yaml
+      - playbooks/ansible-network-vyos-appliance/pre.yaml
+    run: playbooks/ansible-ee/integration/run.yaml
+    vars:
+      ansible_runner_container_version: latest
+      container_image_tests:
+        - integration
+      test_ansible_ssh_private_key_file: ~/.ssh/id_ecdsa
+      test_ansible_network_cli_ssh_type: libssh
+    host-vars:
+      eos-4.24.6:
+        ansible_network_os: eos
+    nodeset: eos-4.24.6-python38
+    timeout: 10800
+

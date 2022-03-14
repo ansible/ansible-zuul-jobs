@@ -268,19 +268,17 @@
     files:
       - ^plugins/.*$
       - ^tests/integration/.*$
-    nodeset: centos-8-stream
+    nodeset: container-ansible
     timeout: 1000
     vars:
       ansible_collections_repo: "{{ zuul.project.canonical_name }}"
-      ansible_test_location: "{{ ansible_user_dir }}/{{ zuul.projects[zuul.project.canonical_name].src_dir }}"
-      ansible_test_splitter__children_prefix: ansible-test-cloud-integration-aws-py38_
 
 - semaphore:
     name: ansible-test-cloud-integration-aws
     max: 6
 
 - job:
-    name: ansible-test-cloud-integration-aws-py38
+    name: ansible-test-cloud-integration-aws
     parent: ansible-core-ci-aws-session
     nodeset: controller-python38
     dependencies:
@@ -298,10 +296,10 @@
     required-projects:
       - name: github.com/ansible/ansible
         override-checkout: milestone
+      - name: github.com/ansible-collections/community.aws
     timeout: 3600
     vars:
       ansible_test_collections: true
-      ansible_collections_repo: "{{ zuul.project.canonical_name }}"
       ansible_test_command: integration
       ansible_test_enable_ara: false
       ansible_test_python: 3.8
@@ -314,43 +312,115 @@
         - tests/integration/requirements.txt
       ansible_test_constraint_files:
         - tests/integration/constraints.txt
+      # this child.targets_to_test data structure comes from
+      # ansible-test-splitter
+      ansible_test_integration_targets: "{{ child.targets_to_test[zuul.job] }}"
+      ansible_collections_repo: "github.com/ansible-collections/{{ zuul.job.split('-')[1] }}"
     semaphore: ansible-test-cloud-integration-aws
 
 - job:
-    name: ansible-test-cloud-integration-aws-py38_0
-    parent: ansible-test-cloud-integration-aws-py38
-    vars:
-      ansible_test_integration_targets: "{{ child.targets_to_test[0]|join(' ') }}"
+    name: integration-amazon.aws-1
+    parent: ansible-test-cloud-integration-aws
 
 - job:
-    name: ansible-test-cloud-integration-aws-py38_1
-    parent: ansible-test-cloud-integration-aws-py38
-    vars:
-      ansible_test_integration_targets: "{{ child.targets_to_test[1]|join(' ') }}"
+    name: integration-amazon.aws-2
+    parent: ansible-test-cloud-integration-aws
 
 - job:
-    name: ansible-test-cloud-integration-aws-py38_2
-    parent: ansible-test-cloud-integration-aws-py38
-    vars:
-      ansible_test_integration_targets: "{{ child.targets_to_test[2]|join(' ') }}"
+    name: integration-amazon.aws-3
+    parent: ansible-test-cloud-integration-aws
 
 - job:
-    name: ansible-test-cloud-integration-aws-py38_3
-    parent: ansible-test-cloud-integration-aws-py38
-    vars:
-      ansible_test_integration_targets: "{{ child.targets_to_test[3]|join(' ') }}"
+    name: integration-amazon.aws-4
+    parent: ansible-test-cloud-integration-aws
 
 - job:
-    name: ansible-test-cloud-integration-aws-py38_4
-    parent: ansible-test-cloud-integration-aws-py38
-    vars:
-      ansible_test_integration_targets: "{{ child.targets_to_test[4]|join(' ') }}"
+    name: integration-amazon.aws-5
+    parent: ansible-test-cloud-integration-aws
 
 - job:
-    name: ansible-test-cloud-integration-aws-py38_5
-    parent: ansible-test-cloud-integration-aws-py38
-    vars:
-      ansible_test_integration_targets: "{{ child.targets_to_test[5]|join(' ') }}"
+    name: integration-amazon.aws-6
+    parent: ansible-test-cloud-integration-aws
+
+- job:
+    name: integration-amazon.aws-7
+    parent: ansible-test-cloud-integration-aws
+
+- job:
+    name: integration-amazon.aws-8
+    parent: ansible-test-cloud-integration-aws
+
+- job:
+    name: integration-amazon.aws-9
+    parent: ansible-test-cloud-integration-aws
+
+- job:
+    name: integration-amazon.aws-10
+    parent: ansible-test-cloud-integration-aws
+
+- job:
+    name: integration-amazon.aws-11
+    parent: ansible-test-cloud-integration-aws
+
+- job:
+    name: integration-amazon.aws-12
+    parent: ansible-test-cloud-integration-aws
+
+- job:
+    name: integration-amazon.aws-13
+    parent: ansible-test-cloud-integration-aws
+
+- job:
+    name: integration-community.aws-1
+    parent: ansible-test-cloud-integration-aws
+
+- job:
+    name: integration-community.aws-2
+    parent: ansible-test-cloud-integration-aws
+
+- job:
+    name: integration-community.aws-3
+    parent: ansible-test-cloud-integration-aws
+
+- job:
+    name: integration-community.aws-4
+    parent: ansible-test-cloud-integration-aws
+
+- job:
+    name: integration-community.aws-5
+    parent: ansible-test-cloud-integration-aws
+
+- job:
+    name: integration-community.aws-6
+    parent: ansible-test-cloud-integration-aws
+
+- job:
+    name: integration-community.aws-7
+    parent: ansible-test-cloud-integration-aws
+
+- job:
+    name: integration-community.aws-8
+    parent: ansible-test-cloud-integration-aws
+
+- job:
+    name: integration-community.aws-9
+    parent: ansible-test-cloud-integration-aws
+
+- job:
+    name: integration-community.aws-10
+    parent: ansible-test-cloud-integration-aws
+
+- job:
+    name: integration-community.aws-11
+    parent: ansible-test-cloud-integration-aws
+
+- job:
+    name: integration-community.aws-12
+    parent: ansible-test-cloud-integration-aws
+
+- job:
+    name: integration-community.aws-13
+    parent: ansible-test-cloud-integration-aws
 
 #### units
 
@@ -424,56 +494,93 @@
       ansible_collections_repo: github.com/ansible-collections/kubernetes.core
 
 - job:
-    name: ansible-test-molecule-kubernetes-core
+    name: ansible-test-cloud-integration-kubernetes-core
     dependencies:
       - name: build-ansible-collection
+      - name: ansible-test-splitter
     pre-run:
       - playbooks/ansible-cloud/py38/pre.yaml
       - playbooks/ansible-cloud/k8s/pre.yaml
-    run: playbooks/ansible-cloud/k8s/molecule.yaml
+    run: playbooks/ansible-test-base/run.yaml
+    files:
+      - ^plugins/.*$
+      - ^tests/integration/.*$
     required-projects:
       - name: github.com/ansible/ansible
       - name: github.com/ansible-collections/kubernetes.core
-    timeout: 5400
-    nodeset: centos-8-stream
+    timeout: 3600
+    nodeset: centos-8-stream-large
     vars:
-      ansible_collections_repo: github.com/ansible-collections/kubernetes.core
       ansible_test_collections: true
+      ansible_test_command: integration
+      ansible_test_enable_ara: false
       ansible_test_python: 3.8
+      ansible_test_retry_on_error: true
+      ansible_test_integration_targets: "{{ child.targets_to_test[zuul.job] }}"
+      ansible_collections_repo: "github.com/ansible-collections/{{ zuul.job.split('-')[1] }}"
       ansible_test_venv_path: "~/venv"
 
 - job:
-    name: ansible-test-molecule-kubernetes-core-devel
-    parent: ansible-test-molecule-kubernetes-core
-    required-projects:
-      - name: github.com/ansible/ansible
-        override-checkout: devel
+    name: integration-kubernetes.core-devel-1
+    parent: ansible-test-cloud-integration-kubernetes-core
     voting: false
 
 - job:
-    name: ansible-test-molecule-kubernetes-core-milestone
-    parent: ansible-test-molecule-kubernetes-core
+    name: integration-kubernetes.core-devel-2
+    parent: integration-kubernetes.core-devel-1
+
+- job:
+    name: integration-kubernetes.core-devel-3
+    parent: integration-kubernetes.core-devel-1
+
+- job:
+    name: integration-kubernetes.core-milestone-1
+    parent: ansible-test-cloud-integration-kubernetes-core
     required-projects:
       - name: github.com/ansible/ansible
         override-checkout: milestone
 
 - job:
-    name: ansible-test-molecule-kubernetes-core-2.9
-    parent: ansible-test-molecule-kubernetes-core
+    name: integration-kubernetes.core-milestone-2
+    parent: integration-kubernetes.core-milestone-1
+
+- job:
+    name: integration-kubernetes.core-milestone-3
+    parent: integration-kubernetes.core-milestone-1
+
+- job:
+    name: integration-kubernetes.core-2.9-1
+    parent: ansible-test-cloud-integration-kubernetes-core
     required-projects:
       - name: github.com/ansible/ansible
         override-checkout: stable-2.9
 
 - job:
-    name: ansible-test-molecule-kubernetes-core-2.10
-    parent: ansible-test-molecule-kubernetes-core
+    name: integration-kubernetes.core-2.9-2
+    parent: integration-kubernetes.core-2.9-1
+
+- job:
+    name: integration-kubernetes.core-2.9-3
+    parent: integration-kubernetes.core-2.9-1
+
+- job:
+    name: integration-kubernetes.core-2.10-1
+    parent: ansible-test-cloud-integration-kubernetes-core
     required-projects:
       - name: github.com/ansible/ansible
         override-checkout: stable-2.10
 
 - job:
-    name: ansible-test-molecule-kubernetes-core-with-turbo
-    parent: ansible-test-molecule-kubernetes-core
+    name: integration-kubernetes.core-2.10-2
+    parent: integration-kubernetes.core-2.10-1
+
+- job:
+    name: integration-kubernetes.core-2.10-3
+    parent: integration-kubernetes.core-2.10-1
+
+- job:
+    name: integration-kubernetes.core-with-turbo-1
+    parent: ansible-test-cloud-integration-kubernetes-core
     required-projects:
       - name: github.com/ansible-collections/cloud.common
       - name: github.com/ansible/ansible
@@ -481,3 +588,11 @@
     vars:
       ansible_test_environment:
         ENABLE_TURBO_MODE: true
+
+- job:
+    name: integration-kubernetes.core-with-turbo-2
+    parent: integration-kubernetes.core-with-turbo-1
+
+- job:
+    name: integration-kubernetes.core-with-turbo-3
+    parent: integration-kubernetes.core-with-turbo-1

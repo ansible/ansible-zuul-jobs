@@ -1,0 +1,16 @@
+---
+- hosts: all
+  tasks:
+    - name: Setup collection_namespace
+      set_fact:
+        collection_namespace: "{{ zuul.project.short_name.split('.')[0] }}"
+      when: collection_namespace is not defined
+
+    - name: Setup collection_name
+      set_fact:
+        collection_name: "{{ zuul.project.short_name.split('.')[1] }}"
+      when: collection_name is not defined
+
+    - name: Run the test
+      include_tasks: "run-{{ item }}.yaml"
+      with_items: "{{ container_image_tests }}"

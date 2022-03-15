@@ -87,3 +87,22 @@
         - ansible-test-sanity-docker-stable-2.11
         - ansible-test-sanity-docker-stable-2.12
         - build-ansible-collection
+- project-template:
+    name: ansible-collections-security-ibm-qradar
+    check:
+      jobs: &ansible-collections-security-ibm-qradar-jobs
+        - build-ansible-collection
+        - ansible-changelog-fragment
+        - ansible-ee-security-integration-qradar-python27
+        - ansible-ee-security-integration-qradar-python38
+        - ansible-ee-security-integration-qradar-python38-stable29
+        - ansible-ee-security-integration-qradar-python38-stable211
+        - ansible-ee-security-integration-qradar-python38-stable212
+        - ansible-test-sanity-docker-devel
+        - ansible-test-sanity-docker-milestone
+        - ansible-test-sanity-docker-stable-2.9
+        - ansible-test-sanity-docker-stable-2.10
+        - ansible-test-sanity-docker-stable-2.11
+        - ansible-test-sanity-docker-stable-2.12
+    gate:
+      jobs: *ansible-collections-security-ibm-qradar-jobs     

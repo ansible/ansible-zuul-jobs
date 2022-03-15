@@ -1,0 +1,83 @@
+---
+- hosts: controller
+  tasks:
+    - name: Ensure controller directory exists
+      file:
+        path: "{{ ansible_user_dir }}/zuul-output/logs/controller"
+        state: directory
+
+    - name: Install container runtime
+      include_role:
+        name: "ensure-{{ (container_command == 'docker') | ternary('docker', 'podman') }}"
+      when:
+        - ansible_test_docker | default(False)
+
+    - name: Add python38 support if needed
+      block:
+        - name: Ensure python3.8 is present
+          become: true
+          package:
+            name: python3.8-dev
+            state: present
+      when:
+        - ansible_os_family == "Debian"
+        - ansible_test_python is version('3.8', '==')
+
+    - name: Run our-ensure-python role (Fedora only for now)
+      include_role:
+        name: our-ensure-python
+      vars:
+        ensure_python__version: "{{ ansible_test_python }}"
+
+    - name: Run ensure-virtualenv role
+      include_role:
+        name: ensure-virtualenv
+
+    - name: Setup base virtualenv_options
+      set_fact:
+        _virtualenv_options: "--python python{{ ansible_test_python }}"
+
+    - name: Create virtualenv for ansible-test
+      shell: "virtualenv {{ _virtualenv_options }} ~/venv"
+
+    - name: Set selinux package
+      set_fact:
+        _selinux_package: selinux
+
+    - name: Set selinux package (Fedora)
+      set_fact:
+        _selinux_package: selinux-please-lie-to-me
+      when:
+        - ansible_distribution == 'Fedora'
+        - ansible_test_python is version('3.6', '<=')
+
+    - name: Install selinux into virtualenv
+      shell: '~/venv/bin/pip install {{ _selinux_package }} "setuptools<50.0.0"'
+      when: ansible_os_family == "RedHat"
+
+    # ara is installing ansible-2.10, when 2.9 is needed. Commenting to temporarily fix the issue.
+    # - name: Install ara into virtualenv
+    #   shell: ~/venv/bin/pip install "ara<1.0.0"
+    #   when: "'integration' in ansible_test_command"
+
+    - name: Ensure pip temp directory exists in /var/tmp
+      file:
+        state: directory
+        path: /var/tmp/ansible-test-pip
+
+    - name: Install ansible into virtualenv
+      # TODO(pabelanger): Remove ANSIBLE_SKIP_CONFLICT_CHECK in the future.
+      environment:
+        ANSIBLE_SKIP_CONFLICT_CHECK: 1
+        TMPDIR: /var/tmp/ansible-test-pip
+      shell: "~/venv/bin/pip install {{ ansible_user_dir }}/{{ zuul.projects['github.com/ansible/ansible'].src_dir }}"
+
+    # NOTE(pabelanger): For integration jobs, install collections after our
+    # appliance is configured. This stops pre-merged code from failing
+    # to configure appliances.
+    - name: Fetch and install the artifacts
+      import_role:
+        name: deploy-artifacts
+      when:
+        - ansible_test_collections | default(False)
+        - "'network-integration' not in ansible_test_command"

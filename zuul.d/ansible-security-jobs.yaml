@@ -224,7 +224,6 @@
     required-projects:
       - name: github.com/ansible/ansible
         override-checkout: stable-2.12
-        
 - job:
     name: ansible-ee-security-integration-qradar
     abstract: true
@@ -288,4 +287,4 @@
     parent: ansible-ee-security-integration-qradar-python38
     required-projects:
       - name: github.com/ansible/ansible
-        override-checkout: stable-2.12        
+        override-checkout: stable-2.12

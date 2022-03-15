@@ -256,7 +256,6 @@
       ansible_test_command: network-integration
       ansible_test_integration_targets: "qradar_.*"
       ansible_test_collections: true
-      ansible_test_collections: true
       
 - job:
     name: ansible-ee-security-integration-qradar-python27

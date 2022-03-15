@@ -230,7 +230,7 @@
     dependencies:
       - name: build-ansible-collection
         soft: true
-    parent: ansible-ee-test-base
+    parent: ansible-ee-tests
     pre-run:
       - playbooks/ansible-security-qradar-appliance/pre.yaml
       - playbooks/ansible-ee-network-integration-base/pre.yaml

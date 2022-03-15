@@ -260,7 +260,6 @@
     parent: ansible-ee-security-integration-qradar
     vars:
       ansible_test_python: 2.7
-
 - job:
     name: ansible-ee-security-integration-qradar-python38
     parent: ansible-ee-security-integration-qradar

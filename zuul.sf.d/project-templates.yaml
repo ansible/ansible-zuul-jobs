@@ -105,4 +105,4 @@
         - ansible-test-sanity-docker-stable-2.11
         - ansible-test-sanity-docker-stable-2.12
     gate:
-      jobs: *ansible-collections-security-ibm-qradar-jobs     
+      jobs: *ansible-collections-security-ibm-qradar-jobs

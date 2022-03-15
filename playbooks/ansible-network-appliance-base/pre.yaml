@@ -27,12 +27,6 @@
         __ssh_port: 22
       with_inventory_hostnames: appliance:appliance-ssh:openvswitch
 
-    - name: Set SSH interface port for NXOS
-      set_fact:
-        __ssh_port: 8022
-      when: hostvars[item].ansible_network_os in ['nxos']
-      with_inventory_hostnames: appliance:appliance-ssh:openvswitch
-
     - name: Wait 300 seconds for SSH port on appliance
       wait_for:
         host: "{{ __ssh_ip }}"

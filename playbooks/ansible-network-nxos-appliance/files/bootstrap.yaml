@@ -4,7 +4,7 @@
 - hosts: appliance
   gather_facts: false
   vars:
-    ansible_password: admin
+    ansible_password: qXq6vQPmU28U
     ansible_ssh_user: admin
   tasks:
     - name: lookup SSH public key

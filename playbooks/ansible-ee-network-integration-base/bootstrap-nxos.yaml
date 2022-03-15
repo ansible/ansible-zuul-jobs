@@ -1,0 +1,14 @@
+---
+- hosts: appliance
+  gather_facts: false
+  connection: network_cli
+  tasks:
+    - name: Setup zuul password for ansible-test
+      nxos_user:
+        name: zuul
+        configured_password: superSecretPass
+
+    - name: Enable Feature Privilege
+      nxos_config:
+        lines:
+          - feature privilege

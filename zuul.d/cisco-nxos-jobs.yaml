@@ -208,3 +208,24 @@
     parent: ansible-test-network-integration-nxos-cli-python36-stable29
     vars:
       ansible_test_do_number: 4
+
+# ansible-ee
+- job:
+    name: ansible-ee-integration-nxos-latest
+    parent: ansible-ee-tests
+    pre-run:
+      - playbooks/ansible-ee/integration/pre.yaml
+      # Ensure we install the bindeps
+      - playbooks/ansible-network-appliance-base/pre.yaml
+      - playbooks/ansible-network-nxos-appliance/pre.yaml
+    run: playbooks/ansible-ee/integration/run.yaml
+    host-vars:
+      nxos:
+        ansible_network_os: nxos
+    vars:
+      ansible_runner_container_version: latest
+      container_image_tests:
+        - integration
+      test_ansible_ssh_private_key_file: ~/.ssh/id_ecdsa
+      test_ansible_network_cli_ssh_type: libssh
+    nodeset: nxos-9

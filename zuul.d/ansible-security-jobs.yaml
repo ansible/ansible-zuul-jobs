@@ -224,3 +224,63 @@
     required-projects:
       - name: github.com/ansible/ansible
         override-checkout: stable-2.12
+- job:
+    name: ansible-ee-security-integration-qradar
+    abstract: true
+    dependencies:
+      - name: build-ansible-collection
+        soft: true
+    parent: ansible-ee-test-base
+    pre-run:
+      - playbooks/ansible-security-qradar-appliance/pre.yaml
+      - playbooks/ansible-ee-network-integration-base/pre.yaml
+      - playbooks/ansible-network-appliance-base/pre.yaml
+    run: playbooks/ansible-security-qradar-appliance/run.yaml
+    post-run:
+      - playbooks/ansible-ee-network-integration-base/post.yaml
+      - playbooks/ansible-network-appliance-base/post.yaml
+    files:
+      - ^plugins/.*$
+      - ^tests/integration/.*$
+    host-vars:
+      QRadarCE-7.3.1:
+        ansible_network_os: qradar  
+    required-projects:
+      - name: github.com/ansible/ansible
+      - name: github.com/ansible-collections/ibm.qradar
+      - name: github.com/ansible/ansible-zuul-jobs
+    nodeset: QRadarCE-7.3.1-python38   
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/ibm.qradar
+      ansible_test_command: network-integration
+      ansible_test_integration_targets: "qradar_.*"
+      ansible_test_collections: true        
+- job:
+    name: ansible-ee-security-integration-qradar-python27
+    parent: ansible-ee-security-integration-qradar
+    vars:
+      ansible_test_python: 2.7
+
+- job:
+    name: ansible-ee-security-integration-qradar-python38
+    parent: ansible-ee-security-integration-qradar
+    vars:
+      ansible_test_python: 3.8
+- job:
+    name: ansible-ee-security-integration-qradar-python38-stable29
+    parent: ansible-ee-security-integration-qradar-python38
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.9      
+- job:
+    name: ansible-ee-security-integration-qradar-python38-stable211
+    parent: ansible-ee-security-integration-qradar-python38
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.11       
+- job:
+    name: ansible-ee-security-integration-qradar-python38-stable212
+    parent: ansible-ee-security-integration-qradar-python38
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.12  

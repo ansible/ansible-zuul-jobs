@@ -2,20 +2,6 @@
 # ansible-collections/openvswitch.openvswitch jobs
 # =============================================================================
 - job:
-    name: ansible-network-openvswitch-appliance
-    parent: ansible-network-appliance-base
-    pre-run:
-      - playbooks/ansible-network-openvswitch-appliance/pre.yaml
-      - playbooks/network-ee-integration-tests/pre.yaml
-    run: playbooks/ansible-network-openvswitch-appliance/run.yaml
-    host-vars:
-      openvswitch-2.9.0:
-        ansible_network_os: openvswitch
-    required-projects:
-      - name: github.com/ansible/ansible-zuul-jobs
-    nodeset: openvswitch-2.9.0-python38
-
-- job:
     name: ansible-test-units-openvswitch-python27
     parent: ansible-test-units-base-python27
     required-projects:
@@ -46,48 +32,6 @@
       - name: github.com/ansible-collections/openvswitch.openvswitch
     vars:
       ansible_collections_repo: github.com/ansible-collections/openvswitch.openvswitch
-
-# =============================================================================
-- job:
-    name: network-ee-integration-tests-openvswitch-openvswitch
-    parent: ansible-network-openvswitch-appliance
-
-- job:
-    name: network-ee-integration-tests-openvswitch-openvswitch
-    parent: network-ee-integration-tests
-    nodeset: openvswitch-2.9.0-python38
-
-# =============================================================================
-- job:
-    name: network-ee-integration-tests-openvswitch-openvswitch-stable-2.11
-    parent: ansible-network-openvswitch-appliance
-
-- job:
-    name: network-ee-integration-tests-openvswitch-openvswitch-stable-2.11
-    parent: network-ee-integration-tests-stable-2.11
-    nodeset: openvswitch-2.9.0-python38
-
-# =============================================================================
-- job:
-    name: network-ee-integration-tests-openvswitch-openvswitch-stable-2.12
-    parent: ansible-network-openvswitch-appliance
-
-- job:
-    name: network-ee-integration-tests-openvswitch-openvswitch-stable-2.12
-    parent: network-ee-integration-tests-stable-2.12
-    nodeset: openvswitch-2.9.0-python38
-
-# =============================================================================
-- job:
-    name: network-ee-integration-tests-openvswitch-openvswitch-stable-2.9
-    parent: ansible-network-openvswitch-appliance
-
-- job:
-    name: network-ee-integration-tests-openvswitch-openvswitch-stable-2.9
-    parent: network-ee-integration-tests-stable-2.9
-    nodeset: openvswitch-2.9.0-python38
-    vars:
-      test_ansible_python_interpreter: /usr/bin/python3
 
 # ansible-ee
 - job:
@@ -128,4 +72,5 @@
     name: ansible-ee-integration-ovs-stable2.9
     parent: ansible-ee-integration-ovs-latest
     vars:
+      test_ansible_python_interpreter: /usr/bin/python3
       ansible_runner_container_version: stable-2.9-devel

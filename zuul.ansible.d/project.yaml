@@ -5,6 +5,4 @@
         - ansible-tox-py39:
             vars:
               tox_envlist: pytest,black
-        - ansible-test-integration-ansible-plugin-builder:
-            vars:
-              ansible_test_collections: true
+        - network-ee-integration-tests-ansible-plugin-builder

@@ -24,6 +24,7 @@
       - name: github.com/ansible-community/ansible.plugin_builder
     timeout: 10800
     vars:
+      ansible_network_os: openvswitch
       ansible_collections_repo: github.com/ansible-community/ansible.plugin_builder
       ansible_test_command: network-integration
 

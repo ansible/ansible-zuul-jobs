@@ -494,16 +494,10 @@
       ansible_collections_repo: github.com/ansible-collections/kubernetes.core
 
 - job:
-    name: ansible-test-splitter-kubernetes-core
-    parent: ansible-test-splitter
-    required-projects:
-      - name: github.com/ansible-collections/kubernetes.core
-
-- job:
     name: ansible-test-cloud-integration-kubernetes-core
     dependencies:
       - name: build-ansible-collection
-      - name: ansible-test-splitter-kubernetes-core
+      - name: ansible-test-splitter
     pre-run:
       - playbooks/ansible-cloud/py38/pre.yaml
       - playbooks/ansible-cloud/k8s/pre.yaml

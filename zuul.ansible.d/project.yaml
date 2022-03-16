@@ -8,4 +8,3 @@
         - ansible-test-integration-ansible-plugin-builder:
             vars:
               ansible_test_collections: true
-

@@ -1722,3 +1722,60 @@
     unlabel-on-push:
       jobs:
         - noop
+
+- project-template:
+    name: network-ee-container-image-jobs
+    check:
+      jobs: &id001
+        - build-ansible-collection:
+            required-projects:
+              - name: github.com/ansible-collections/amazon.aws
+              - name: github.com/ansible-collections/ansible.netcommon
+              - name: github.com/ansible-collections/ansible.network
+              - name: github.com/ansible-collections/ansible.posix
+              - name: github.com/ansible-collections/ansible.security
+              - name: github.com/ansible-collections/ansible.utils
+              - name: github.com/ansible-collections/arista.eos
+              - name: github.com/ansible-collections/cisco.asa
+              - name: github.com/ansible-collections/cisco.ios
+              - name: github.com/ansible-collections/cisco.iosxr
+              - name: github.com/ansible-collections/cisco.nxos
+              - name: github.com/ansible-collections/cloud.common
+              - name: github.com/ansible-collections/frr.frr
+              - name: github.com/ansible-collections/ibm.qradar
+              - name: github.com/ansible-collections/junipernetworks.junos
+              - name: github.com/ansible-collections/kubernetes.core
+              - name: github.com/ansible-collections/openvswitch.openvswitch
+              - name: github.com/ansible-collections/servicenow.itsm
+              - name: github.com/ansible-collections/splunk.es
+              - name: github.com/ansible-collections/trendmicro.deepsec
+              - name: github.com/ansible-collections/vmware.vmware_rest
+              - name: github.com/ansible-collections/vyos.vyos
+        - ansible-buildset-registry:
+            dependencies:
+              - build-ansible-collection
+        - network-ee-build-container-image
+        - network-ee-build-container-image-stable-2.9
+        - network-ee-build-container-image-stable-2.10
+        - network-ee-build-container-image-stable-2.11
+        - network-ee-build-container-image-stable-2.12
+    gate:
+      jobs: *id001
+    post:
+      jobs: &id002
+        - ansible-buildset-registry
+        - network-ee-upload-container-image:
+            vars:
+              upload_container_image_promote: false
+        - network-ee-upload-container-image-stable-2.9:
+            vars:
+              upload_container_image_promote: false
+        - network-ee-upload-container-image-stable-2.10:
+            vars:
+              upload_container_image_promote: false
+        - network-ee-upload-container-image-stable-2.11:
+            vars:
+              upload_container_image_promote: false
+        - network-ee-upload-container-image-stable-2.12:
+            vars:
+              upload_container_image_promote: false

@@ -1,0 +1,37 @@
+---
+- hosts: all
+  tasks:
+    - name: Setup download-artifact-fork role
+      include_role:
+        name: download-artifact-fork
+      vars:
+        download_artifact_directory: "{{ zuul_work_dir }}/_build/collections"
+        download_artifact_type: ansible_collection
+
+    - name: Update requirements.yaml file
+      replace:
+        path: "{{ zuul_work_dir }}/_build/requirements.yml"
+        regexp: "{{ item.name }}$"
+        replace: "collections/{{ item.url | basename }}"
+      with_items: "{{ zuul.artifacts }}"
+      when: "'metadata' in item and 'type' in item.metadata and (item.metadata.type == 'ansible_collection')"
+
+    - name: Set _runner_tag to devel branch
+      set_fact:
+        _runner_tag: devel
+
+    - name: Override _runner_tag with stable branch
+      set_fact:
+        _runner_tag: "{{ zuul.job | regex_replace('network-ee-build-container-image-') }}-devel"
+      when: "'stable' in zuul.job"
+
+    - name: Pull container images
+      command: "{{ container_command }} pull {{ item }}"
+      delay: 30
+      retries: 3
+      register: result
+      until: result is success
+      with_items:
+        - quay.io/ansible/python-builder:latest
+        - quay.io/ansible/ansible-builder:latest
+        - quay.io/ansible/ansible-runner:{{ _runner_tag }}

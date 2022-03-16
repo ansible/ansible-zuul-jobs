@@ -1,0 +1,60 @@
+---
+- job:
+    name: network-ee-integration-tests-base
+    pre-run: playbooks/network-ee-integration-tests/pre.yaml
+    run: playbooks/network-ee-integration-tests/run.yaml
+    post-run: playbooks/network-ee-integration-tests/post.yaml
+    required-projects:
+      - github.com/ansible/ansible-navigator
+      - github.com/ansible/ansible-runner
+      - github.com/ansible/network-ee
+    vars:
+      test_ansible_network_cli_ssh_type: paramiko
+      test_ansible_ssh_private_key_file: ~/.ssh/id_rsa
+      test_fips_mode: true
+
+# =============================================================================
+- job:
+    name: network-ee-integration-tests
+    parent: network-ee-tests
+
+- job:
+    name: network-ee-integration-tests
+    parent: network-ee-integration-tests-base
+
+# =============================================================================
+# - job:
+#    name: network-ee-integration-tests-stable-2.12
+#    parent: network-ee-tests-stable-2.12
+
+# - job:
+#    name: network-ee-integration-tests-stable-2.12
+#    parent: network-ee-integration-tests-base
+
+# =============================================================================
+- job:
+    name: network-ee-integration-tests-stable-2.12
+    parent: network-ee-tests-stable-2.12
+
+- job:
+    name: network-ee-integration-tests-stable-2.12
+    parent: network-ee-integration-tests-base
+
+# =============================================================================
+
+- job:
+    name: network-ee-integration-tests-stable-2.11
+    parent: network-ee-tests-stable-2.11
+
+- job:
+    name: network-ee-integration-tests-stable-2.11
+    parent: network-ee-integration-tests-base
+
+# =============================================================================
+- job:
+    name: network-ee-integration-tests-stable-2.9
+    parent: network-ee-tests-stable-2.9
+
+- job:
+    name: network-ee-integration-tests-stable-2.9
+    parent: network-ee-integration-tests-base

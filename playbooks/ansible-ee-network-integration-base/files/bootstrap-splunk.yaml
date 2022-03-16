@@ -1,8 +1,0 @@
----
-- hosts: controller
-  gather_facts: false
-  connection: local
-  tasks:
-    - name: Bootstrap Splunk
-      debug:
-        msg: Nothing to do

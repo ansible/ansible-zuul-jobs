@@ -1,23 +1,27 @@
 ---
-# ansible-collections/ansible.plugin_builder jobs
-# - job:
-#    name: ansible-network-openvswitch-appliance
-#    parent: ansible-network-appliance-base
-#    pre-run:
-#      - playbooks/ansible-network-openvswitch-appliance/pre.yaml
-#      - playbooks/network-ee-integration-tests/pre.yaml
-#    run: playbooks/ansible-network-openvswitch-appliance/run.yaml
-#    host-vars:
-#      openvswitch-2.9.0:
-#        ansible_network_os: openvswitch
-#    required-projects:
-#      - name: github.com/ansible/ansible-zuul-jobs
-#    nodeset: openvswitch-2.9.0-python38
-
-# =============================================================================
+# ansible-ee
 - job:
-    name: network-ee-integration-tests-ansible-plugin-builder
-    parent: ansible-network-openvswitch-appliance
+    name: ansible-ee-integration-ansible-plugin-builder-latest
+    parent: ansible-ee-tests
+    pre-run:
+      - playbooks/ansible-ee/integration/pre.yaml
+    run: playbooks/ansible-ee/integration/run.yaml
+    vars:
+      ansible_runner_container_version: latest
+      container_image_tests:
+        - integration
+      ansible_network_os: openvswitch
+      test_ansible_ssh_private_key_file: ~/.ssh/id_ecdsa
+      test_ansible_network_cli_ssh_type: libssh
+      collection_name: plugin_builder
+      collection_namespace: ansible
+    nodeset: openvswitch-2.15.0-python38
+
+- job:
+    name: ansible-ee-integration-ansible-plugin-builder-stable2.11
+    parent: ansible-ee-integration-ansible-plugin-builder-latest
+    vars:
+      ansible_runner_container_version: stable-2.11-devel
 
 - job:
     name: ansible-test-integration-ansible-plugin-builder
@@ -31,3 +35,20 @@
     vars:
       collection_name: plugin_builder
       collection_namespace: ansible
+    name: ansible-ee-integration-ansible-plugin-builder-stable2.12
+    parent: ansible-ee-integration-ansible-plugin-builder-latest
+    vars:
+      ansible_runner_container_version: stable-2.12-devel
+
+- job:
+    name: ansible-ee-integration-ansible-plugin-builder-stable2.10
+    parent: ansible-ee-integration-ansible-plugin-builder-latest
+    vars:
+      ansible_runner_container_version: stable-2.10-devel
+
+- job:
+    name: ansible-ee-integration-ansible-plugin-builder-stable2.9
+    parent: ansible-ee-integration-ansible-plugin-builder-latest
+    vars:
+      ansible_runner_container_version: stable-2.9-devel
+>>>>>>> moved to ansible-ee

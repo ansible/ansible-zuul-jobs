@@ -12,7 +12,19 @@
       collection_name: network
       # NOTE(pabelanger): We can only use RSA ssh keys for vyos.
       test_fips_mode: false
-    nodeset: vyos-1.1.8-python38
+    nodeset:
+      nodes:
+        - name: centos-8-stream
+          label: centos-8-stream
+        - name: vyos-1.1.8
+          label: vyos-1.1.8-1vcpu
+      groups:
+        - name: appliance
+          nodes:
+            - vyos-1.1.8
+        - name: controller
+          nodes:
+            - centos-8-stream
 
 - job:
     name: network-ee-integration-tests-ansible-network-libssh
@@ -29,7 +41,20 @@
 - job:
     name: network-ee-integration-tests-ansible-network-stable-2.12
     parent: network-ee-integration-tests-stable-2.12
-    nodeset: vyos-1.1.8-python38
+    nodeset:
+      nodes:
+        - name: centos-8-stream
+          label: centos-8-stream
+        - name: vyos-1.1.8
+          label: vyos-1.1.8-1vcpu
+      groups:
+        - name: appliance
+          nodes:
+            - vyos-1.1.8
+        - name: controller
+          nodes:
+            - centos-8-stream
+
     vars:
       test_ansible_python_interpreter: /usr/bin/python3
       # NOTE(pabelanger): We can only use RSA ssh keys for vyos.

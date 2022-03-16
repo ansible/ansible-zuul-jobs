@@ -46,7 +46,7 @@
         - build-ansible-collection
 
 - project-template:
-    name: ansible-collections-ansible-plugin-builder
+    name: ansible-community-ansible-plugin-builder
     check:
       jobs: &ansible-collections-ansible-plugin-builder-jobs
         - ansible-ee-integration-ansible-plugin-builder-latest

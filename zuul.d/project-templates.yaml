@@ -1136,7 +1136,7 @@
         - ansible-test-sanity-docker-stable-2.11
         - ansible-test-sanity-docker-stable-2.12
         - ansible-test-units-kubernetes-core-python38
-        - ansible-test-splitter-kubernetes-core:
+        - ansible-test-splitter:
             vars:
               ansible_test_splitter__test_changed: true
               ansible_test_splitter__total_job: 3

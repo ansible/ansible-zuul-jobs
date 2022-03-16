@@ -620,6 +620,8 @@
               - name: github.com/ansible-collections/vmware.vmware_rest
               - name: github.com/ansible-collections/kubernetes.core
         - ansible-test-splitter:
+            required-projects:
+              - name: github.com/ansible-collections/kubernetes.core
             vars:
               ansible_test_splitter__test_changed: false
               ansible_test_splitter__total_job: 3

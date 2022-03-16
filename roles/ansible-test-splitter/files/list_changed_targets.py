@@ -56,9 +56,6 @@ parser.add_argument(
     help="the location of the collections to test. e.g: ~/.ansible/collections/ansible_collections/amazon/aws",
 )
 
-targets_to_test = []
-targets_dir = PosixPath("tests/integration/targets")
-
 
 def parse_args(raw_args):
     return parser.parse_args(raw_args)
@@ -81,7 +78,7 @@ def list_pyimport(prefix, module_content):
             yield f"{prefix}{'.'.join(module)}"
 
 
-def build_import_tree(collection_path, collection_name):
+def build_import_tree(collection_path, collection_name, collections_names):
     """
     This function will generate import dependencies for the modules and the module_utils.
     Let say we have the following input:
@@ -129,10 +126,14 @@ def build_import_tree(collection_path, collection_name):
     """
     modules_import = defaultdict(list)
     prefix = f"ansible_collections.{collection_name}.plugins."
+    all_prefixes = [f"ansible_collections.{n}.plugins." for n in collections_names]
     utils_to_visit = []
     for mod in collection_path.glob("plugins/modules/*"):
         for i in list_pyimport(prefix, mod.read_text()):
-            if i.startswith(prefix) and i not in modules_import[mod.stem]:
+            if (
+                any(i.startswith(p) for p in all_prefixes)
+                and i not in modules_import[mod.stem]
+            ):
                 modules_import[mod.stem].append(i)
                 if i not in utils_to_visit:
                     utils_to_visit.append(i)
@@ -302,11 +303,11 @@ class Collection:
                 continue
             self.add_target_to_plan(t.name)
 
-    def cover_module_utils(self, pymod):
+    def cover_module_utils(self, pymod, collections_names):
         """Track the targets to run follow up to a module_utils changed."""
         if self.modules_import is None or self.utils_import is None:
             self.modules_import, self.utils_import = build_import_tree(
-                self.collection_path, self.collection_name()
+                self.collection_path, self.collection_name(), collections_names
             )
 
         u_candidates = [pymod]
@@ -362,6 +363,13 @@ class ElGrandeSeparator:
                     for b in self.build_up_batches(slots, c):
                         batches.append(b)
         result = self.build_result_struct(batches)
+        # add collection imports
+        result["imports"] = {}
+        for c in self.collections:
+            result["imports"][c.collection_name()] = {
+                "modules": c.modules_import,
+                "utils": c.utils_import,
+            }
         print(json.dumps(result))
 
     def build_up_batches(self, slots, c):
@@ -424,6 +432,7 @@ if __name__ == "__main__":
     args = parse_args(sys.argv[1:])
 
     collections = [Collection(i) for i in args.collection_to_tests]
+    collections_names = [c.collection_name() for c in collections]
 
     if args.test_all_the_targets:
         for c in collections:
@@ -439,7 +448,7 @@ if __name__ == "__main__":
             for path, pymod in whc.module_utils():
                 for c in collections:
                     c.add_target_to_plan(f"module_utils_{path.stem}")
-                    c.cover_module_utils(pymod)
+                    c.cover_module_utils(pymod, collections_names)
             for path in whc.lookup():
                 for c in collections:
                     c.add_target_to_plan(f"lookup_{path.stem}")

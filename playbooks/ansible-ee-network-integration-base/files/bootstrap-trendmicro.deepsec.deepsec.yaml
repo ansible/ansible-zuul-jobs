@@ -1,4 +1,0 @@
----
-- hosts: appliance-ssh
-  gather_facts: false
-  tasks: []

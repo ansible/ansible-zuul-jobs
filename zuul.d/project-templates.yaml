@@ -461,7 +461,6 @@
     name: ansible-community-ansible-plugin-builder
     check:
       jobs:
-        - network-ee-integration-tests-ansible-plugin-builder
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-collections/ansible.utils
@@ -469,7 +468,6 @@
       queue: integrated
       fail-fast: true
       jobs:
-        - network-ee-integration-tests-ansible-plugin-builder
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-collections/ansible.utils

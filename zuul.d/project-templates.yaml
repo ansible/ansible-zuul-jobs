@@ -251,8 +251,8 @@
       jobs: &ansible-collections-amazon-cloud-generator-jobs
         - tox-linters
         - tox-py38
-      gate:
-        jobs: *ansible-collections-amazon-cloud-generator-jobs
+    gate:
+      jobs: *ansible-collections-amazon-cloud-generator-jobs
 
 - project-template:
     name: ansible-collections-arista-eos-units

@@ -245,6 +245,14 @@
       queue: integrated-aws
       jobs: *ansible-collections-amazon-cloud-jobs
 
+    name: ansible-collections-amazon-cloud-code-generator
+    check:
+      jobs: &ansible-collections-amazon-cloud-generator-jobs
+        - tox-linters
+        - tox-py38
+      gate:
+        jobs: *ansible-collections-amazon-cloud-generator-jobs
+
 - project-template:
     name: ansible-collections-arista-eos-units
     check:

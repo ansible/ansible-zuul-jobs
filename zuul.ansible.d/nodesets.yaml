@@ -198,7 +198,7 @@
 - nodeset:
     name: eos-4.24.6-python38
     nodes:
-      - name: centos-8
+      - name: controller
         label: centos-8-stream
       - name: eos-4.24.6
         label: eos-4.24.6
@@ -206,9 +206,6 @@
       - name: appliance
         nodes:
           - eos-4.24.6
-      - name: controller
-        nodes:
-          - centos-8
 
 - nodeset:
     name: ios-15.6-2T-python38

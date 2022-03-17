@@ -64,7 +64,6 @@
     name: eos-4.24.6-python38
     nodes:
       - name: controller
-        # TODO
         label: ansible-fedora-35-1vcpu
       - name: eos-4.24.6
         label: vEOS-4.24.6F

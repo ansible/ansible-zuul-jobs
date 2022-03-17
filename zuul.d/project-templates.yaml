@@ -1553,12 +1553,6 @@
 
 - project-template:
     name: ansible-collections-ansible-network
-    check:
-      jobs: &ansible-collections-ansible-network-jobs
-        - network-ee-integration-tests-ansible-network
-    gate:
-      queue: integrated
-      jobs: *ansible-collections-ansible-network-jobs
     periodic:
       jobs:
         - ansible-test-sanity-docker-devel

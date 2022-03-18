@@ -233,7 +233,6 @@
         - ansible-test-sanity-docker-stable-2.9
         - ansible-test-sanity-docker-stable-2.11
         - ansible-test-sanity-docker-stable-2.12
-        - ansible-test-units-amazon-cloud-python38
         - ansible-test-integration-amazon-cloud
         - build-ansible-collection:
             required-projects:

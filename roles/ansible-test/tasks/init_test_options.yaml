@@ -24,14 +24,14 @@
     ansible_test_options: "{{ ansible_test_options }} --requirements"
   when: not ansible_test_collections
 
-- name: Enable coverage commands for unit tests
+- name: Adjust options for unit tests
   set_fact:
-    ansible_test_options: "--coverage"
+    ansible_test_options: ""
   when: ansible_test_test_command == 'units'
 
 - when: ansible_test_test_command == 'sanity'
   block:
-    - name: Enable coverage commands for unit tests
+    - name: Install requirements with unit tests
       set_fact:
         ansible_test_options: "--requirements"
 

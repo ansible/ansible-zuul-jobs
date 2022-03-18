@@ -1,4 +1,5 @@
 ---
+# playbook used to generate the coverage report.
 - hosts: controller
   vars:
     ansible_test_location: "{{ ansible_user_dir }}/{{ zuul.projects[ansible_collections_repo].src_dir }}"

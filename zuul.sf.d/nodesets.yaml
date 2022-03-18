@@ -194,41 +194,34 @@
         label: ansible-fedora-35-1vcpu
 
 - nodeset:
-    name: vqfx-18.1R3-python36
+    name: vsrx3
     nodes:
-      - name: fedora-35
+      - name: controller
         label: ansible-fedora-35-1vcpu
+      - name: vsrx3
+        label: vsrx3
+    groups:
+      - name: appliance
+        nodes:
+          - vsrx3
 
 - nodeset:
-    name: vsrx3-18.4R1-python27
+    name: vqfx-18
     nodes:
-      - name: fedora-35
+      - name: controller
         label: ansible-fedora-35-1vcpu
-
-- nodeset:
-    name: vsrx3-18.4R1-python35
-    nodes:
-      - name: fedora-35
-        label: ansible-fedora-35-1vcpu
-
-- nodeset:
-    name: vsrx3-18.4R1-python36
-    nodes:
-      - name: fedora-35
-        label: ansible-fedora-35-1vcpu
-
-- nodeset:
-    name: vsrx3-18.4R1-python38
-    nodes:
-      - name: fedora-35
-        label: ansible-fedora-35-1vcpu
+      - name: vqfx-18
+        label: vqfx-18
+    groups:
+      - name: appliance
+        nodes:
+          - vqfx-18
 
 - nodeset:
     name: vyos-1.1.8-python38
     nodes:
-      - name: fedora-35
+      - name: controller
         label: ansible-fedora-35-1vcpu
-## end aliases
 
 # Ansible cloud appliance nodesets
 - nodeset:

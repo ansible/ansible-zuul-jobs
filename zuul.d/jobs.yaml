@@ -25,6 +25,7 @@
 - job:
     name: ansible-tox-linters
     parent: tox-linters
+    pre-run: playbooks/ansible-tox-py38/pre.yaml
     nodeset: ansible-tox-linters
 
 - job: &ansible-tox-molecule-base

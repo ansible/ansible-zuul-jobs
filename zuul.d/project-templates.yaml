@@ -248,8 +248,8 @@
     name: ansible-collections-amazon-cloud-code-generator
     check:
       jobs: &ansible-collections-amazon-cloud-generator-jobs
-        - tox-linters
-        - tox-py38
+        - ansible-tox-linters
+        - ansible-tox-py38
     gate:
       jobs: *ansible-collections-amazon-cloud-generator-jobs
 

@@ -470,6 +470,10 @@
     name: ansible-test-units-community-aws-python38
     parent: ansible-test-units-amazon-aws-python38
 
+- job:
+    name: ansible-test-units-amazon-cloud-generator-python38
+    parent: ansible-test-units-amazon-aws-python38
+
 #### sanity
 - job:
     name: ansible-test-sanity-aws-ansible-python38

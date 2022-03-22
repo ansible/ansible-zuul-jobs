@@ -250,6 +250,7 @@
       jobs: &ansible-collections-amazon-cloud-generator-jobs
         - tox-linters
         - tox-py38
+        - ansible-test-units-amazon-cloud-generator-python38
     gate:
       jobs: *ansible-collections-amazon-cloud-generator-jobs
 

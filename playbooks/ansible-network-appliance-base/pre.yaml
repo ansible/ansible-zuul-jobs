@@ -1,6 +1,15 @@
 ---
 - hosts: controller
   tasks:
+    - name: List CentOS repositories
+      command: dnf repolist
+      become: true
+      when: ansible_distribution == "CentOS"
+
+    - name: Ensable PowerTools on CentOS
+      command: dnf config-manager --set-enabled powertools
+      become: true
+      when: ansible_distribution == "CentOS"
     - name: Install binary dependencies from ansible/ansible-zuul-jobs
       include_role:
         name: bindep
@@ -44,7 +53,8 @@
       register: r
       until: r.rc == 0
       retries: 10
-      delay: 60
+      delay: 5
+      ignore_errors: true
 
     - name: Create /etc/ansible folder
       become: true

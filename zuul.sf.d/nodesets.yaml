@@ -79,10 +79,18 @@
         label: ansible-fedora-35-1vcpu
 
 - nodeset:
-    name: ios-15.6-2T-python38
+    name: ios-15
     nodes:
-      - name: fedora-35
-        label: ansible-fedora-35-1vcpu
+      # NOTE: Fedora 35 comes with a version of ssh that ignore the
+      # old deprecated protocols used by the appliance
+      - name: controller
+        label: ansible-cloud-centos-8-stream-tiny
+      - name: ios
+        label: ios-15
+    groups:
+      - name: appliance
+        nodes:
+          - ios
 
 - nodeset:
     name: iosxr-7.0.2-python27

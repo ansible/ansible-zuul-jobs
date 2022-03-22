@@ -208,19 +208,16 @@
           - eos-4.24.6
 
 - nodeset:
-    name: ios-15.6-2T-python38
+    name: ios-15
     nodes:
-      - name: centos-8-stream
-        label: centos-8-stream
-      - name: ios-15.6-2T
-        label: ios-15.6-2T
+      - name: controller
+        label: ansible-fedora-35-1vcpu
+      - name: ios
+        label: ios-15
     groups:
       - name: appliance
         nodes:
-          - ios-15.6-2T
-      - name: controller
-        nodes:
-          - centos-8-stream
+          - ios
 
 - nodeset:
     name: iosxr-6.1.3-python27

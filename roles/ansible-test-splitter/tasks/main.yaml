@@ -4,6 +4,15 @@
     dest: /tmp/list_changed_targets.py
     mode: '0700'
 
+- name: list available branch for each repo
+  command: "git branch -r"
+  args:
+    chdir: "{{ item }}"
+  with_items: "{{ ansible_test_splitter__check_for_changes_in }}"
+  register: gitbranch
+
+- debug: var=gitbranch
+
 - set_fact:
     splitter_cmd: >
       python3 /tmp/list_changed_targets.py

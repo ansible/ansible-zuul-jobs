@@ -135,7 +135,6 @@
 - job:
     name: ansible-network-appliance-base
     pre-run: playbooks/ansible-network-appliance-base/pre.yaml
-    post-run: playbooks/ansible-network-appliance-base/post.yaml
     files:
       - ^plugins/.*$
       - ^tests/integration/.*$

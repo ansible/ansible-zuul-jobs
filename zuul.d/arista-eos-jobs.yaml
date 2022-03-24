@@ -46,9 +46,9 @@
       container_image_tests:
         - integration
       test_ansible_ssh_private_key_file: ~/.ssh/id_ecdsa
-      test_ansible_network_cli_ssh_type: paramiko
       test_ansible_python_interpreter: /usr/bin/python3.8
-      test_fips_mode: true
+      test_ansible_network_cli_ssh_type: paramiko
+      test_fips_mode: false
     host-vars:
       eos-4.24.6:
         ansible_network_os: eos

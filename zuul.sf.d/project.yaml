@@ -44,6 +44,7 @@
             files:
               - playbooks/ansible-network-appliance-base/.*
               - playbooks/ansible-network-vyos-appliance/.*
+            voting: false
         - ansible-security-qradar-appliance:
             files:
               - playbooks/ansible-test-network-integration-base/files/bootstrap-qradar.yaml
@@ -78,10 +79,6 @@
             files:
               - playbooks/ansible-network-appliance-base/.*
               - playbooks/ansible-network-junos-appliance/.*
-        - ansible-network-vyos-appliance:
-            files:
-              - playbooks/ansible-network-appliance-base/.*
-              - playbooks/ansible-network-vyos-appliance/.*
         - ansible-security-qradar-appliance:
             files:
               - playbooks/ansible-network-appliance-base/.*

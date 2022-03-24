@@ -1,7 +1,0 @@
----
-- hosts: controller
-  tasks:
-    - name: Ensure ara-report directory exists
-      file:
-        path: "{{ ansible_user_dir }}/zuul-output/logs/controller/ara-report"
-        state: directory

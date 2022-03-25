@@ -334,7 +334,7 @@ class ElGrandeSeparator:
     def __init__(self, collections, total_jobs=13, ansible_releases=[]):
         self.collections = collections
         self.total_jobs = total_jobs  # aka slot
-        self.targets_per_slot = 20
+        self.targets_per_slot = 10
         self.releases = ansible_releases
 
         total_targets = sum([len(c._my_test_plan) for c in self.collections])

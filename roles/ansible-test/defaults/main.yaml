@@ -17,7 +17,6 @@ ansible_test_python: "{{ ansible_python_version.split('.')[:2]|join('.') }}"
 ansible_test_venv_path: ~/venv
 ansible_test_inventory_path: ~/inventory
 ansible_test_collection_dir: ~/.ansible/collections/ansible_collections
-ansible_test_enable_ara: true
 ansible_test_split_in: 1
 ansible_test_do_number: 1
 ansible_test_sanity_skiptests: []

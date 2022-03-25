@@ -67,26 +67,3 @@
         - ansible-tox-py39:
             vars:
               tox_envlist: pytest,black
-        - ansible-network-asa-appliance:
-            files:
-              - playbooks/ansible-network-appliance-base/.*
-              - playbooks/ansible-network-asa-appliance/.*
-        - ansible-network-ios-appliance:
-            files:
-              - playbooks/ansible-network-appliance-base/.*
-              - playbooks/ansible-network-ios-appliance/.*
-        - ansible-network-junos-vsrx-appliance:
-            files:
-              - playbooks/ansible-network-appliance-base/.*
-              - playbooks/ansible-network-junos-appliance/.*
-        - ansible-security-qradar-appliance:
-            files:
-              - playbooks/ansible-network-appliance-base/.*
-        - ansible-security-splunk-appliance:
-            files:
-              - playbooks/ansible-test-network-integration-base/files/bootstrap-splunk.yaml
-              - playbooks/ansible-network-appliance-base/.*
-              - roles/splunk.*
-        - ansible-security-trendmicro-deepsec-appliance:
-            files:
-              - playbooks/ansible-network-appliance-base/.*

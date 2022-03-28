@@ -8,6 +8,14 @@
       ansible_collections_repo: github.com/ansible-collections/arista.eos
 
 - job:
+    name: ansible-test-units-eos-python39
+    parent: ansible-test-units-base-python39
+    required-projects:
+      - name: github.com/ansible-collections/arista.eos
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/arista.eos
+
+- job:
     name: ansible-test-units-eos-python38
     parent: ansible-test-units-base-python38
     required-projects:
@@ -46,7 +54,7 @@
       container_image_tests:
         - integration
       test_ansible_ssh_private_key_file: ~/.ssh/id_ecdsa
-      test_ansible_python_interpreter: /usr/bin/python3.8
+      test_ansible_python_interpreter: /usr/bin/python3.9
       test_ansible_network_cli_ssh_type: paramiko
       test_fips_mode: false
     host-vars:
@@ -54,7 +62,7 @@
         ansible_network_os: eos
     required-projects:
       - name: github.com/ansible/ansible-zuul-jobs
-    nodeset: eos-4.24.6-python38
+    nodeset: eos-4.24.6-python39
     timeout: 10800
     files:
       - ^plugins/.*$

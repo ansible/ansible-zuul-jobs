@@ -67,6 +67,18 @@
           - eos-4.24.6
 
 - nodeset:
+    name: eos-4.24.6-python39
+    nodes:
+      - name: controller
+        label: ansible-fedora-35-1vcpu
+      - name: eos-4.24.6
+        label: vEOS-4.24.6F
+    groups:
+      - name: appliance
+        nodes:
+          - eos-4.24.6
+
+- nodeset:
     name: fedora-35-1vcpu
     nodes:
       - name: fedora-35
@@ -333,6 +345,12 @@
 
 - nodeset:
     name: controller-python38
+    nodes:
+      - name: controller
+        label: ansible-fedora-35-1vcpu
+
+- nodeset:
+    name: controller-python39
     nodes:
       - name: controller
         label: ansible-fedora-35-1vcpu

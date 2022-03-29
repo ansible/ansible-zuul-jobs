@@ -37,6 +37,20 @@
         label: ansible-cloud-centos-8-stream-tiny
 
 - nodeset:
+    name: test-goneri
+    nodes:
+      - name: controller
+        label: ansible-cloud-centos-8-stream-tiny
+      - name: node1
+        label: ios-15
+      - name: node2
+        label: ios-15
+      - name: node3
+        label: ios-15
+      - name: node4
+        label: ios-15
+
+- nodeset:
     name: centos-8-stream-large
     nodes:
       - name: controller
@@ -338,7 +352,7 @@
     name: ansible-tox-py38
     nodes:
       - name: controller
-        label: ansible-fedora-35-1vcpu
+        label: test-goneri
 
 - nodeset:
     name: ansible-tox-py39

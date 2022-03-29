@@ -301,7 +301,6 @@
     vars:
       ansible_test_collections: true
       ansible_test_command: integration
-      ansible_test_enable_ara: false
       ansible_test_python: 3.8
       ansible_test_retry_on_error: true
       ansible_test_requirement_files:
@@ -422,6 +421,26 @@
     name: integration-community.aws-13
     parent: ansible-test-cloud-integration-aws
 
+- job:
+    name: ansible-test-integration-amazon-cloud
+    parent: ansible-core-ci-aws-session
+    dependencies:
+      - name: build-ansible-collection
+    pre-run:
+      - playbooks/ansible-test-base/pre.yaml
+    run: playbooks/ansible-test-base/run.yaml
+    post-run:
+      - playbooks/ansible-test-base/post.yaml
+    required-projects:
+      - name: github.com/ansible-collections/amazon.aws
+    timeout: 3600
+    vars:
+      ansible_test_collections: true
+      ansible_test_command: integration
+      ansible_test_python: 3.8
+      ansible_test_integration_targets: ""
+      ansible_collections_repo: "{{ zuul.project.canonical_name }}"
+
 #### units
 
 - job:
@@ -437,6 +456,12 @@
         - tests/unit/requirements.txt
       ansible_test_constraint_files:
         - tests/unit/constraints.txt
+
+- job:
+    name: ansible-test-units-amazon-cloud-python38
+    parent: ansible-test-units-base-python38
+    vars:
+      ansible_collections_repo: "{{ zuul.project.canonical_name }}"
 
 # TODO(Gonéri): do we still need this flavor of the job?
 - job:
@@ -513,7 +538,6 @@
     vars:
       ansible_test_collections: true
       ansible_test_command: integration
-      ansible_test_enable_ara: false
       ansible_test_python: 3.8
       ansible_test_retry_on_error: true
       ansible_test_integration_targets: "{{ child.targets_to_test[zuul.job] }}"

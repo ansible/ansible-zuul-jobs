@@ -1,0 +1,324 @@
+---
+- job:
+    name: network-ee-tox-ansible-builder
+    parent: ansible-buildset-registry-consumer
+    dependencies:
+      - ansible-buildset-registry
+    timeout: 5400
+    vars:
+      container_command: podman
+
+- job:
+    name: network-ee-tox-ansible-builder
+    parent: tox
+    requires:
+      - ansible-runner-container-image
+      - ansible-builder-container-image
+    required-projects:
+      - github.com/ansible/ansible-builder
+    nodeset: centos-8-stream
+    vars:
+      tox_envlist: ansible-builder
+      tox_package_name: "{{ zuul.project.short_name }}"
+
+- job:
+    name: network-ee-container-image-base
+    abstract: true
+    timeout: 5400
+    required-projects:
+      - github.com/ansible/network-ee
+    requires:
+      - ansible-builder-container-image
+      - python-builder-container-image
+    nodeset: centos-8-stream
+    vars:
+      zuul_work_dir: "{{ ansible_user_dir }}/{{ zuul.projects['github.com/ansible/network-ee'].src_dir }}"
+
+- job:
+    name: network-ee-build-container-image-base
+    parent: network-ee-container-image-base
+    abstract: true
+    pre-run: playbooks/network-ee-build-container-image-base/pre.yaml
+    dependencies:
+      - ansible-buildset-registry
+      - build-ansible-collection
+
+- job:
+    name: network-ee-build-container-image
+    parent: ansible-build-container-image
+    description: Build network-ee container images
+    requires:
+      - ansible-runner-container-image
+    vars: &network_ee_image_vars
+      container_images: &network_ee_container_images
+        - context: .
+          build_args:
+            - ANSIBLE_GALAXY_CLI_COLLECTION_OPTS=--pre
+          registry: quay.io
+          repository: quay.io/ansible/network-ee
+          tags:
+            # If zuul.tag is defined: [ '3', '3.19', '3.19.0' ].  Only works for 3-component tags.
+            # Otherwise: ['latest']
+            &imagetag "{{ zuul.tag is defined | ternary([zuul.get('tag', '').split('.')[0], '.'.join(zuul.get('tag', '').split('.')[:2]), zuul.get('tag', '')], ['latest']) }}"
+        - context: tests
+          registry: quay.io
+          repository: quay.io/ansible/network-ee-tests
+          tags: *imagetag
+        - context: tests
+          container_filename: Containerfile.ansible-test
+          registry: quay.io
+          repository: quay.io/ansible/network-ee-sanity-tests
+          target: network-ee-sanity-tests
+          tags: *imagetag
+        - context: tests
+          container_filename: Containerfile.ansible-test
+          registry: quay.io
+          repository: quay.io/ansible/network-ee-unit-tests
+          target: network-ee-unit-tests
+          tags: *imagetag
+      docker_images: *network_ee_container_images
+
+- job:
+    name: network-ee-build-container-image
+    parent: network-ee-build-container-image-base
+
+- job:
+    name: network-ee-build-container-image-stable-2.12
+    parent: ansible-build-container-image
+    description: Build network-ee stable-2.12 container images
+    requires:
+      - ansible-runner-stable-2.12-container-image
+    vars: &network_ee_stable_2_12_image_vars
+      container_images: &network_ee_container_images_stable_2_12
+        - context: .
+          build_args:
+            - EE_BASE_IMAGE=quay.io/ansible/ansible-runner:stable-2.12-devel
+          registry: quay.io
+          repository: quay.io/ansible/network-ee
+          tags:
+            &imagetag_stable_2_12 ['stable-2.12']
+        - context: tests
+          build_args:
+            - NETWORK_EE_IMAGE=quay.io/ansible/network-ee:stable-2.12
+          registry: quay.io
+          repository: quay.io/ansible/network-ee-tests
+          tags: *imagetag_stable_2_12
+        - context: tests
+          build_args:
+            - NETWORK_EE_TESTS_IMAGE=quay.io/ansible/network-ee-tests:stable-2.12
+          container_filename: Containerfile.ansible-test
+          registry: quay.io
+          repository: quay.io/ansible/network-ee-sanity-tests
+          target: network-ee-sanity-tests
+          tags: *imagetag_stable_2_12
+        - context: tests
+          build_args:
+            - NETWORK_EE_TESTS_IMAGE=quay.io/ansible/network-ee-tests:stable-2.12
+          container_filename: Containerfile.ansible-test
+          registry: quay.io
+          repository: quay.io/ansible/network-ee-unit-tests
+          target: network-ee-unit-tests
+          tags: *imagetag_stable_2_12
+      docker_images: *network_ee_container_images_stable_2_12
+
+- job:
+    name: network-ee-build-container-image-stable-2.12
+    parent: network-ee-build-container-image-base
+
+- job:
+    name: network-ee-build-container-image-stable-2.11
+    parent: ansible-build-container-image
+    description: Build network-ee stable-2.11 container images
+    requires:
+      - ansible-runner-stable-2.11-container-image
+    vars: &network_ee_stable_2_11_image_vars
+      container_images: &network_ee_container_images_stable_2_11
+        - context: .
+          build_args:
+            - EE_BASE_IMAGE=quay.io/ansible/ansible-runner:stable-2.11-devel
+          registry: quay.io
+          repository: quay.io/ansible/network-ee
+          tags:
+            &imagetag_stable_2_11 ['stable-2.11']
+        - context: tests
+          build_args:
+            - NETWORK_EE_IMAGE=quay.io/ansible/network-ee:stable-2.11
+          registry: quay.io
+          repository: quay.io/ansible/network-ee-tests
+          tags: *imagetag_stable_2_11
+        - context: tests
+          build_args:
+            - NETWORK_EE_TESTS_IMAGE=quay.io/ansible/network-ee-tests:stable-2.11
+          container_filename: Containerfile.ansible-test
+          registry: quay.io
+          repository: quay.io/ansible/network-ee-sanity-tests
+          target: network-ee-sanity-tests
+          tags: *imagetag_stable_2_11
+        - context: tests
+          build_args:
+            - NETWORK_EE_TESTS_IMAGE=quay.io/ansible/network-ee-tests:stable-2.11
+          container_filename: Containerfile.ansible-test
+          registry: quay.io
+          repository: quay.io/ansible/network-ee-unit-tests
+          target: network-ee-unit-tests
+          tags: *imagetag_stable_2_11
+      docker_images: *network_ee_container_images_stable_2_11
+
+- job:
+    name: network-ee-build-container-image-stable-2.11
+    parent: network-ee-build-container-image-base
+
+- job:
+    name: network-ee-build-container-image-stable-2.10
+    parent: ansible-build-container-image
+    description: Build network-ee stable-2.10 container images
+    requires:
+      - ansible-runner-stable-2.10-container-image
+    vars: &network_ee_stable_2_10_image_vars
+      container_images: &network_ee_container_images_stable_2_10
+        - context: .
+          build_args:
+            - EE_BASE_IMAGE=quay.io/ansible/ansible-runner:stable-2.10-devel
+          registry: quay.io
+          repository: quay.io/ansible/network-ee
+          tags:
+            &imagetag_stable_2_10 ['stable-2.10']
+        - context: tests
+          build_args:
+            - NETWORK_EE_IMAGE=quay.io/ansible/network-ee:stable-2.10
+          registry: quay.io
+          repository: quay.io/ansible/network-ee-tests
+          tags: *imagetag_stable_2_10
+        - context: tests
+          build_args:
+            - NETWORK_EE_TESTS_IMAGE=quay.io/ansible/network-ee-tests:stable-2.10
+          container_filename: Containerfile.ansible-test
+          registry: quay.io
+          repository: quay.io/ansible/network-ee-sanity-tests
+          target: network-ee-sanity-tests
+          tags: *imagetag_stable_2_10
+        - context: tests
+          build_args:
+            - NETWORK_EE_TESTS_IMAGE=quay.io/ansible/network-ee-tests:stable-2.10
+          container_filename: Containerfile.ansible-test
+          registry: quay.io
+          repository: quay.io/ansible/network-ee-unit-tests
+          target: network-ee-unit-tests
+          tags: *imagetag_stable_2_10
+      docker_images: *network_ee_container_images_stable_2_10
+
+- job:
+    name: network-ee-build-container-image-stable-2.10
+    parent: network-ee-build-container-image-base
+
+- job:
+    name: network-ee-build-container-image-stable-2.9
+    parent: ansible-build-container-image
+    description: Build network-ee stable-2.9 container images
+    requires:
+      - ansible-runner-stable-2.9-container-image
+    vars: &network_ee_stable_2_9_image_vars
+      container_images: &network_ee_container_images_stable_2_9
+        - context: .
+          build_args:
+            - EE_BASE_IMAGE=quay.io/ansible/ansible-runner:stable-2.9-devel
+          registry: quay.io
+          repository: quay.io/ansible/network-ee
+          tags:
+            &imagetag_stable_2_9 ['stable-2.9']
+        - context: tests
+          build_args:
+            - NETWORK_EE_IMAGE=quay.io/ansible/network-ee:stable-2.9
+          registry: quay.io
+          repository: quay.io/ansible/network-ee-tests
+          tags: *imagetag_stable_2_9
+        - context: tests
+          build_args:
+            - NETWORK_EE_TESTS_IMAGE=quay.io/ansible/network-ee-tests:stable-2.9
+          container_filename: Containerfile.ansible-test
+          registry: quay.io
+          repository: quay.io/ansible/network-ee-sanity-tests
+          target: network-ee-sanity-tests
+          tags: *imagetag_stable_2_9
+        - context: tests
+          build_args:
+            - NETWORK_EE_TESTS_IMAGE=quay.io/ansible/network-ee-tests:stable-2.9
+          container_filename: Containerfile.ansible-test
+          registry: quay.io
+          repository: quay.io/ansible/network-ee-unit-tests
+          target: network-ee-unit-tests
+          tags: *imagetag_stable_2_9
+      docker_images: *network_ee_container_images_stable_2_9
+
+- job:
+    name: network-ee-build-container-image-stable-2.9
+    parent: network-ee-build-container-image-base
+
+- job:
+    name: network-ee-upload-container-image
+    parent: ansible-upload-container-image
+    description: Build network-ee container images and upload to quay.io
+    requires:
+      - ansible-runner-container-image
+    vars: *network_ee_image_vars
+
+- job:
+    name: network-ee-upload-container-image
+    parent: network-ee-container-image-base
+    dependencies:
+      - ansible-buildset-registry
+
+- job:
+    name: network-ee-upload-container-image-stable-2.10
+    parent: ansible-upload-container-image
+    description: Build network-ee stable-2.10 container images and upload to quay.io
+    requires:
+      - ansible-runner-stable-2.10-container-image
+    vars: *network_ee_stable_2_10_image_vars
+
+- job:
+    name: network-ee-upload-container-image-stable-2.10
+    parent: network-ee-container-image-base
+    dependencies:
+      - ansible-buildset-registry
+
+- job:
+    name: network-ee-upload-container-image-stable-2.12
+    parent: ansible-upload-container-image
+    description: Build network-ee stable-2.12 container images and upload to quay.io
+    requires:
+      - ansible-runner-stable-2.12-container-image
+    vars: *network_ee_stable_2_12_image_vars
+
+- job:
+    name: network-ee-upload-container-image-stable-2.12
+    parent: network-ee-container-image-base
+    dependencies:
+      - ansible-buildset-registry
+- job:
+    name: network-ee-upload-container-image-stable-2.11
+    parent: ansible-upload-container-image
+    description: Build network-ee stable-2.11 container images and upload to quay.io
+    requires:
+      - ansible-runner-stable-2.11-container-image
+    vars: *network_ee_stable_2_11_image_vars
+
+- job:
+    name: network-ee-upload-container-image-stable-2.11
+    parent: network-ee-container-image-base
+    dependencies:
+      - ansible-buildset-registry
+
+- job:
+    name: network-ee-upload-container-image-stable-2.9
+    parent: ansible-upload-container-image
+    description: Build network-ee stable-2.9 container images and upload to quay.io
+    requires:
+      - ansible-runner-stable-2.9-container-image
+    vars: *network_ee_stable_2_9_image_vars
+
+- job:
+    name: network-ee-upload-container-image-stable-2.9
+    parent: network-ee-container-image-base
+    dependencies:
+      - ansible-buildset-registry

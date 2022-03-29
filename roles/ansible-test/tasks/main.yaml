@@ -37,11 +37,6 @@
     option: log_path
     value: ~/ansible-debug.txt
 
-# - name: Enable ara
-#  import_tasks: enable_ara.yaml
-#  when: ansible_test_enable_ara
-
-
 - name: Identiy the targets associated with the changed files
   import_tasks: ansible_test_changed.yaml
   when: ansible_test_changed|bool

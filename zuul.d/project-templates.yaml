@@ -70,6 +70,7 @@
         - ansible-test-splitter:
             required-projects:
               - name: github.com/ansible-collections/community.aws
+              - name: github.com/ansible-collections/amazon.aws
             vars:
               ansible_test_splitter__test_changed: true
               ansible_test_splitter__check_for_changes_in:
@@ -167,6 +168,8 @@
               - name: github.com/ansible-collections/community.general
               - name: github.com/ansible-collections/community.crypto
         - ansible-test-splitter:
+            required-projects:
+              - name: github.com/ansible-collections/community.aws
             vars:
               ansible_test_splitter__test_changed: true
               ansible_test_splitter__check_for_changes_in:
@@ -221,6 +224,36 @@
             voting: false
 
 - project-template:
+    name: ansible-collections-amazon-cloud
+    check:
+      queue: integrated-aws
+      jobs: &ansible-collections-amazon-cloud-jobs
+        - ansible-test-sanity-docker-devel
+        - ansible-test-sanity-docker-milestone
+        - ansible-test-sanity-docker-stable-2.9
+        - ansible-test-sanity-docker-stable-2.11
+        - ansible-test-sanity-docker-stable-2.12
+        - ansible-test-integration-amazon-cloud
+        - build-ansible-collection:
+            required-projects:
+              - name: github.com/ansible-collections/amazon.aws
+    gate:
+      queue: integrated-aws
+      jobs: *ansible-collections-amazon-cloud-jobs
+    ondemand:
+      queue: integrated-aws
+      jobs: *ansible-collections-amazon-cloud-jobs
+
+- project-template:
+    name: ansible-collections-amazon-cloud-code-generator
+    check:
+      jobs: &ansible-collections-amazon-cloud-generator-jobs
+        - ansible-tox-linters
+        - ansible-tox-py38
+    gate:
+      jobs: *ansible-collections-amazon-cloud-generator-jobs
+
+- project-template:
     name: ansible-collections-arista-eos-units
     check:
       jobs: &ansible-collections-arista-eos-units-jobs
@@ -243,18 +276,18 @@
     name: ansible-collections-arista-eos
     check:
       jobs: &ansible-collections-arista-eos-jobs
-        - network-ee-integration-tests-arista-eos-httpapi
-        - network-ee-integration-tests-arista-eos-httpapi-stable-2.9
-        - network-ee-integration-tests-arista-eos-httpapi-stable-2.11
-        - network-ee-integration-tests-arista-eos-httpapi-stable-2.12
-        - network-ee-integration-tests-arista-eos
-        - network-ee-integration-tests-arista-eos-stable-2.9
-        - network-ee-integration-tests-arista-eos-stable-2.11
-        - network-ee-integration-tests-arista-eos-stable-2.12
-        - network-ee-integration-tests-arista-eos-libssh
-        - network-ee-integration-tests-arista-eos-libssh-stable-2.9
-        - network-ee-integration-tests-arista-eos-libssh-stable-2.11
-        - network-ee-integration-tests-arista-eos-libssh-stable-2.12
+        - ansible-ee-integration-arista-eos-latest
+        - ansible-ee-integration-arista-eos-stable-2.9
+        - ansible-ee-integration-arista-eos-stable-2.11
+        - ansible-ee-integration-arista-eos-stable-2.12
+        - ansible-ee-integration-arista-eos-httpapi-latest
+        - ansible-ee-integration-arista-eos-httpapi-stable-2.9
+        - ansible-ee-integration-arista-eos-httpapi-stable-2.11
+        - ansible-ee-integration-arista-eos-httpapi-stable-2.12
+        - ansible-ee-integration-arista-eos-libssh-latest
+        - ansible-ee-integration-arista-eos-libssh-stable-2.9
+        - ansible-ee-integration-arista-eos-libssh-stable-2.11
+        - ansible-ee-integration-arista-eos-libssh-stable-2.12
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-collections/ansible.netcommon
@@ -617,6 +650,8 @@
               - name: github.com/ansible-collections/vmware.vmware_rest
               - name: github.com/ansible-collections/kubernetes.core
         - ansible-test-splitter:
+            required-projects:
+              - name: github.com/ansible-collections/kubernetes.core
             vars:
               ansible_test_splitter__test_changed: false
               ansible_test_splitter__total_job: 3
@@ -897,18 +932,18 @@
             vars:
               ansible_test_collections: true
             voting: false
-        - network-ee-integration-tests-arista-eos-httpapi
-        - network-ee-integration-tests-arista-eos-httpapi-stable-2.9
-        - network-ee-integration-tests-arista-eos-httpapi-stable-2.11
-        - network-ee-integration-tests-arista-eos-httpapi-stable-2.12
-        - network-ee-integration-tests-arista-eos
-        - network-ee-integration-tests-arista-eos-stable-2.9
-        - network-ee-integration-tests-arista-eos-stable-2.11
-        - network-ee-integration-tests-arista-eos-stable-2.12
-        - network-ee-integration-tests-arista-eos-libssh
-        - network-ee-integration-tests-arista-eos-libssh-stable-2.9
-        - network-ee-integration-tests-arista-eos-libssh-stable-2.11
-        - network-ee-integration-tests-arista-eos-libssh-stable-2.12
+        - ansible-ee-integration-arista-eos-latest
+        - ansible-ee-integration-arista-eos-stable-2.9
+        - ansible-ee-integration-arista-eos-stable-2.11
+        - ansible-ee-integration-arista-eos-stable-2.12
+        - ansible-ee-integration-arista-eos-httpapi-latest
+        - ansible-ee-integration-arista-eos-httpapi-stable-2.9
+        - ansible-ee-integration-arista-eos-httpapi-stable-2.11
+        - ansible-ee-integration-arista-eos-httpapi-stable-2.12
+        - ansible-ee-integration-arista-eos-libssh-latest
+        - ansible-ee-integration-arista-eos-libssh-stable-2.9
+        - ansible-ee-integration-arista-eos-libssh-stable-2.11
+        - ansible-ee-integration-arista-eos-libssh-stable-2.12
         - network-ee-integration-tests-ios
         - network-ee-integration-tests-ios-stable-2.9
         - network-ee-integration-tests-ios-stable-2.11
@@ -996,12 +1031,10 @@
             vars:
               ansible_test_collections: true
             voting: false
-        - network-ee-integration-tests-arista-eos-httpapi
-        - network-ee-integration-tests-arista-eos-httpapi-stable-2.9
-        - network-ee-integration-tests-arista-eos
-        - network-ee-integration-tests-arista-eos-stable-2.9
-        - network-ee-integration-tests-arista-eos-libssh
-        - network-ee-integration-tests-arista-eos-libssh-stable-2.9
+        - ansible-ee-integration-arista-eos-latest
+        - ansible-ee-integration-arista-eos-httpapi-stable-2.9
+        - ansible-ee-integration-arista-eos-libssh-latest
+        - ansible-ee-integration-arista-eos-libssh-stable-2.9
         - network-ee-integration-tests-ios
         - network-ee-integration-tests-ios-stable-2.11
         - network-ee-integration-tests-ios-libssh
@@ -1132,6 +1165,8 @@
         - ansible-test-sanity-docker-stable-2.12
         - ansible-test-units-kubernetes-core-python38
         - ansible-test-splitter:
+            required-projects:
+              - name: github.com/ansible-collections/kubernetes.core
             vars:
               ansible_test_splitter__test_changed: true
               ansible_test_splitter__total_job: 3
@@ -1524,12 +1559,6 @@
 
 - project-template:
     name: ansible-collections-ansible-network
-    check:
-      jobs: &ansible-collections-ansible-network-jobs
-        - network-ee-integration-tests-ansible-network
-    gate:
-      queue: integrated
-      jobs: *ansible-collections-ansible-network-jobs
     periodic:
       jobs:
         - ansible-test-sanity-docker-devel
@@ -1717,3 +1746,60 @@
     unlabel-on-push:
       jobs:
         - noop
+
+- project-template:
+    name: network-ee-container-image-jobs
+    check:
+      jobs: &id001
+        - build-ansible-collection:
+            required-projects:
+              - name: github.com/ansible-collections/amazon.aws
+              - name: github.com/ansible-collections/ansible.netcommon
+              - name: github.com/ansible-collections/ansible.network
+              - name: github.com/ansible-collections/ansible.posix
+              - name: github.com/ansible-collections/ansible.security
+              - name: github.com/ansible-collections/ansible.utils
+              - name: github.com/ansible-collections/arista.eos
+              - name: github.com/ansible-collections/cisco.asa
+              - name: github.com/ansible-collections/cisco.ios
+              - name: github.com/ansible-collections/cisco.iosxr
+              - name: github.com/ansible-collections/cisco.nxos
+              - name: github.com/ansible-collections/cloud.common
+              - name: github.com/ansible-collections/frr.frr
+              - name: github.com/ansible-collections/ibm.qradar
+              - name: github.com/ansible-collections/junipernetworks.junos
+              - name: github.com/ansible-collections/kubernetes.core
+              - name: github.com/ansible-collections/openvswitch.openvswitch
+              - name: github.com/ansible-collections/servicenow.itsm
+              - name: github.com/ansible-collections/splunk.es
+              - name: github.com/ansible-collections/trendmicro.deepsec
+              - name: github.com/ansible-collections/vmware.vmware_rest
+              - name: github.com/ansible-collections/vyos.vyos
+        - ansible-buildset-registry:
+            dependencies:
+              - build-ansible-collection
+        - network-ee-build-container-image
+        - network-ee-build-container-image-stable-2.9
+        - network-ee-build-container-image-stable-2.10
+        - network-ee-build-container-image-stable-2.11
+        - network-ee-build-container-image-stable-2.12
+    gate:
+      jobs: *id001
+    post:
+      jobs: &id002
+        - ansible-buildset-registry
+        - network-ee-upload-container-image:
+            vars:
+              upload_container_image_promote: false
+        - network-ee-upload-container-image-stable-2.9:
+            vars:
+              upload_container_image_promote: false
+        - network-ee-upload-container-image-stable-2.10:
+            vars:
+              upload_container_image_promote: false
+        - network-ee-upload-container-image-stable-2.11:
+            vars:
+              upload_container_image_promote: false
+        - network-ee-upload-container-image-stable-2.12:
+            vars:
+              upload_container_image_promote: false

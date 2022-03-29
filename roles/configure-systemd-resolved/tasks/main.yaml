@@ -1,0 +1,29 @@
+---
+- name: Set DNS server
+  become: true
+  ini_file:
+    path: /etc/systemd/resolved.conf
+    section: Resolve
+    option: DNS
+    value: 1.1.1.1
+
+- name: Set Fallback DNS server
+  become: true
+  ini_file:
+    path: /etc/systemd/resolved.conf
+    section: Resolve
+    option: FallbackDNS
+    value: 8.8.8.8
+
+- name: symlink
+  become: true
+  shell: ln -sf /run/systemd/resolve/stub-resolv.conf /etc/resolv.conf
+
+- name: Restart systemd-resolved
+  become: true
+  service:
+    name: systemd-resolved
+    state: restarted
+
+- name: Validate DNS settings
+  shell: systemd-resolve --status

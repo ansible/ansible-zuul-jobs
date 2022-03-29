@@ -1,19 +1,4 @@
 ---
-# ansible-collections/cisco.ios jobs
-# =============================================================================
-- job:
-    name: ansible-network-ios-appliance
-    parent: ansible-network-appliance-base
-    pre-run: playbooks/ansible-network-ios-appliance/pre.yaml
-    run: playbooks/ansible-network-ios-appliance/run.yaml
-    host-vars:
-      ios:
-        ansible_network_os: ios
-    required-projects:
-      - name: github.com/ansible/ansible-zuul-jobs
-    nodeset: ios-15
-    timeout: 10800
-
 # =============================================================================
 - job:
     name: ansible-test-units-ios-python27
@@ -68,6 +53,8 @@
       test_ansible_python_interpreter: /usr/bin/python3.8
       test_ansible_skip_tags: local
       test_fips_mode: false
+    required-projects:
+      - name: github.com/ansible/ansible-zuul-jobs
     host-vars:
       ios:
         ansible_network_os: ios

@@ -78,7 +78,7 @@
     parent: tox-py38
     pre-run: playbooks/ansible-tox-py38/pre.yaml
     timeout: 3600
-    nodeset: ansible-tox-py38
+    nodeset: test-goneri
 
 - job:
     name: ansible-tox-py39

@@ -37,6 +37,20 @@
         label: ansible-cloud-centos-8-stream-tiny
 
 - nodeset:
+    name: test-goneri
+    nodes:
+      - name: controller
+        label: ansible-cloud-centos-8-stream-tiny
+      - name: node1
+        label: ansible-cloud-centos-8-stream-tiny
+      - name: node2
+        label: ansible-cloud-centos-8-stream-tiny
+      - name: node3
+        label: ansible-cloud-centos-8-stream-tiny
+      - name: node4
+        label: ansible-cloud-centos-8-stream-tiny
+
+- nodeset:
     name: centos-8-stream-large
     nodes:
       - name: controller

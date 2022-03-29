@@ -135,7 +135,7 @@
     name: ansible-ee-integration-arista-eos-libssh-stable-2.9
     parent: ansible-ee-integration-arista-eos-httpapi-latest
     vars:
-      test_ansible_python_interpreter: /usr/bin/python3.8
+      test_ansible_python_interpreter: /usr/bin/python3.9
       ansible_runner_container_version: stable-2.9-devel
       test_ansible_network_cli_ssh_type: libssh
       # Backport of https://github.com/ansible/ansible/pull/73992 needed for 2.9 to enable fips

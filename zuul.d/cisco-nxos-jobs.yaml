@@ -7,11 +7,11 @@
     pre-run: playbooks/ansible-network-nxos-appliance/pre.yaml
     run: playbooks/ansible-network-nxos-appliance/run.yaml
     host-vars:
-      nxos-7.0.3:
+      nxos:
         ansible_network_os: nxos
     required-projects:
       - name: github.com/ansible/ansible-zuul-jobs
-    nodeset: nxos-7.0.3-python36
+    nodeset: nxos-9
 
 - job:
     name: ansible-test-network-integration-nxos
@@ -71,7 +71,7 @@
 - job:
     name: ansible-test-network-integration-nxos-cli-python38
     parent: ansible-test-network-integration-nxos
-    nodeset: nxos-7.0.3-python38
+    nodeset: nxos-9
     vars:
       ansible_test_python: 3.8
       ansible_test_skip_tags: local,nxapi
@@ -104,7 +104,7 @@
 - job:
     name: ansible-test-network-integration-nxos-cli-python38-stable212
     parent: ansible-test-network-integration-nxos
-    nodeset: nxos-7.0.3-python38
+    nodeset: nxos-9
     required-projects:
       - name: github.com/ansible/ansible
         override-checkout: stable-2.12
@@ -140,7 +140,7 @@
 - job:
     name: ansible-test-network-integration-nxos-cli-python36-stable211
     parent: ansible-test-network-integration-nxos
-    nodeset: nxos-7.0.3-python36
+    nodeset: nxos-9
     required-projects:
       - name: github.com/ansible/ansible
         override-checkout: stable-2.11
@@ -176,7 +176,7 @@
 - job:
     name: ansible-test-network-integration-nxos-cli-python36-stable29
     parent: ansible-test-network-integration-nxos
-    nodeset: nxos-7.0.3-python36
+    nodeset: nxos-9
     required-projects:
       - name: github.com/ansible/ansible
         override-checkout: stable-2.9

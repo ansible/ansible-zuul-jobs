@@ -115,16 +115,16 @@
         label: ansible-fedora-35-1vcpu
 
 - nodeset:
-    name: nxos-7.0.3-python36
+    name: nxos-9
     nodes:
-      - name: fedora-35
+      - name: controller
         label: ansible-fedora-35-1vcpu
-
-- nodeset:
-    name: nxos-7.0.3-python38
-    nodes:
-      - name: fedora-35
-        label: ansible-fedora-35-1vcpu
+      - name: nxos
+        label: nxos-9
+    groups:
+      - name: appliance
+        nodes:
+          - nxos
 
 - nodeset:
     name: openvswitch-2.9.0-python38

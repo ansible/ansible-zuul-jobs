@@ -1,6 +1,23 @@
 ---
 - hosts: controller
   tasks:
+    - name: Create the ~/.ssh directory
+      file:
+        path: ~/.ssh
+        state: directory
+        mode: "0700"
+
+    - name: Relax SSH security to be compatible with the appliance
+      copy:
+        content: |
+          Host {{ hostvars['ios'].ansible_host }}
+            stricthostkeychecking no
+            userknownhostsfile=/dev/null
+            HostKeyAlgorithms +ssh-rsa
+            KexAlgorithms +diffie-hellman-group1-sha1
+        dest: ~/.ssh/config
+        mode: "0600"
+
     - name: Ensure tox
       include_role:
         name: ensure-tox

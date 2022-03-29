@@ -7,11 +7,11 @@
     pre-run: playbooks/ansible-network-ios-appliance/pre.yaml
     run: playbooks/ansible-network-ios-appliance/run.yaml
     host-vars:
-      ios-15.6-2T:
+      ios:
         ansible_network_os: ios
     required-projects:
       - name: github.com/ansible/ansible-zuul-jobs
-    nodeset: ios-15.6-2T-python38
+    nodeset: ios-15
     timeout: 10800
 
 # =============================================================================
@@ -48,84 +48,78 @@
       ansible_collections_repo: github.com/ansible-collections/cisco.ios
 
 # =============================================================================
+## ansible-ee
+# - network-ee-integration-tests-ios
 - job:
-    name: network-ee-integration-tests-ios
-    parent: ansible-network-ios-appliance
-
-- job:
-    name: network-ee-integration-tests-ios
-    parent: network-ee-integration-tests
-    nodeset: ios-15.6-2T-python38
+    name: ansible-ee-integration-ios-latest
+    parent: ansible-ee-tests
+    pre-run:
+      - playbooks/ansible-ee/integration/pre.yaml
+      # Ensure we install the bindeps
+      - playbooks/ansible-network-appliance-base/pre.yaml
+      - playbooks/ansible-network-ios-appliance/pre.yaml
+    run: playbooks/ansible-ee/integration/run.yaml
     vars:
-      # NOTE(pabelanger): Migrate to ecdsa SSH key then enable
-      test_fips_mode: false
-
-- job:
-    name: network-ee-integration-tests-ios-libssh
-    parent: network-ee-integration-tests-ios
-    vars:
-      test_ansible_network_cli_ssh_type: libssh
+      ansible_runner_container_version: latest
+      container_image_tests:
+        - integration
+      test_ansible_ssh_private_key_file: ~/.ssh/id_ecdsa
+      test_ansible_network_cli_ssh_type: paramiko
+      test_ansible_python_interpreter: /usr/bin/python3.8
       test_ansible_skip_tags: local
-
-# =============================================================================
-- job:
-    name: network-ee-integration-tests-ios-stable-2.12
-    parent: ansible-network-ios-appliance
-
-- job:
-    name: network-ee-integration-tests-ios-stable-2.12
-    parent: network-ee-integration-tests-stable-2.12
-    nodeset: ios-15.6-2T-python38
-    vars:
-      test_ansible_python_interpreter: /usr/bin/python3
-      # NOTE(pabelanger): Migrate to ecdsa SSH key then enable
       test_fips_mode: false
+    host-vars:
+      ios:
+        ansible_network_os: ios
+    nodeset: ios-15
+    timeout: 10800
 
+# - network-ee-integration-tests-ios-stable-2.9
 - job:
-    name: network-ee-integration-tests-ios-libssh-stable-2.12
-    parent: network-ee-integration-tests-ios-stable-2.12
+    name: ansible-ee-integration-ios-stable-2.9
+    parent: ansible-ee-integration-ios-latest
     vars:
+      ansible_runner_container_version: stable-2.9-devel
+
+# - network-ee-integration-tests-ios-stable-2.11
+- job:
+    name: ansible-ee-integration-ios-stable-2.11
+    parent: ansible-ee-integration-ios-latest
+    vars:
+      ansible_runner_container_version: stable-2.11-devel
+
+# - network-ee-integration-tests-ios-stable-2.12
+- job:
+    name: ansible-ee-integration-ios-stable-2.12
+    parent: ansible-ee-integration-ios-latest
+    vars:
+      ansible_runner_container_version: stable-2.12-devel
+
+# - network-ee-integration-tests-ios-libssh
+- job:
+    name: ansible-ee-integration-ios-libssh-latest
+    parent: ansible-ee-integration-ios-latest
+    vars:
+      ansible_runner_container_version: latest
       test_ansible_network_cli_ssh_type: libssh
-      test_ansible_skip_tags: local
 
-# =============================================================================
+# - network-ee-integration-tests-ios-libssh-stable-2.9
 - job:
-    name: network-ee-integration-tests-ios-stable-2.11
-    parent: ansible-network-ios-appliance
-
-- job:
-    name: network-ee-integration-tests-ios-stable-2.11
-    parent: network-ee-integration-tests-stable-2.11
-    nodeset: ios-15.6-2T-python38
+    name: ansible-ee-integration-ios-libssh-stable-2.9
+    parent: ansible-ee-integration-ios-libssh-latest
     vars:
-      test_ansible_python_interpreter: /usr/bin/python3
-      # NOTE(pabelanger): Migrate to ecdsa SSH key then enable
-      test_fips_mode: false
+      ansible_runner_container_version: stable-2.9-devel
 
+# - network-ee-integration-tests-ios-libssh-stable-2.11
 - job:
-    name: network-ee-integration-tests-ios-libssh-stable-2.11
-    parent: network-ee-integration-tests-ios-stable-2.11
+    name: ansible-ee-integration-ios-libssh-stable-2.11
+    parent: ansible-ee-integration-ios-libssh-latest
     vars:
-      test_ansible_network_cli_ssh_type: libssh
-      test_ansible_skip_tags: local
+      ansible_runner_container_version: stable-2.11-devel
 
-# =============================================================================
+# - network-ee-integration-tests-ios-libssh-stable-2.12
 - job:
-    name: network-ee-integration-tests-ios-stable-2.9
-    parent: ansible-network-ios-appliance
-
-- job:
-    name: network-ee-integration-tests-ios-stable-2.9
-    parent: network-ee-integration-tests-stable-2.9
-    nodeset: ios-15.6-2T-python38
+    name: ansible-ee-integration-ios-libssh-stable-2.12
+    parent: ansible-ee-integration-ios-libssh-latest
     vars:
-      test_ansible_python_interpreter: /usr/bin/python3
-      # NOTE(pabelanger): Migrate to ecdsa SSH key then enable
-      test_fips_mode: false
-
-- job:
-    name: network-ee-integration-tests-ios-libssh-stable-2.9
-    parent: network-ee-integration-tests-ios-stable-2.9
-    vars:
-      test_ansible_network_cli_ssh_type: libssh
-      test_ansible_skip_tags: local
+      ansible_runner_container_version: stable-2.12-devel

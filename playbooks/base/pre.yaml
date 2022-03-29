@@ -1,19 +1,19 @@
 ---
 - hosts: all:!appliance*
-   tasks:
-     - name: Set authorized key for zuul
-       authorized_key:
-         user: zuul
-         state: present
-         key: ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCoJCMoIjIgk+5vePS/xiSnXXWMYPheE89q8Oz7OSowFy+tTsXBB7QVNXVSA9zavqV5otsMNrkKBpFvXhhsDoOc0BZs1u5mDX6BW6d/t60sNLRZ4HZ1vqR1oqzVKODL01Yms70p99+u8ls4jrUaeq4HJjbn1xPSzXnOscy6DJ8GPekGM7N8nAzOh7VsnP/8UWfMcOCBMWW5pvdgE6x8CZiiJyUlxfwb+G0dM5weP8IlsGzhvZU4aSWjvOd2LScfERGeKu+rpWNZYz5muazh7lXFAxHog0ZQY9JG+hHQg40AxR7O62jY1VAlK5424JstuggOyoWDdxiZ604VsX3hCduRWDsAAYZJ5YdREQCPUrVjhrtMDAOk
+  tasks:
+    - name: Set authorized key for zuul
+      authorized_key:
+        user: zuul
+        state: present
+        key: ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCoJCMoIjIgk+5vePS/xiSnXXWMYPheE89q8Oz7OSowFy+tTsXBB7QVNXVSA9zavqV5otsMNrkKBpFvXhhsDoOc0BZs1u5mDX6BW6d/t60sNLRZ4HZ1vqR1oqzVKODL01Yms70p99+u8ls4jrUaeq4HJjbn1xPSzXnOscy6DJ8GPekGM7N8nAzOh7VsnP/8UWfMcOCBMWW5pvdgE6x8CZiiJyUlxfwb+G0dM5weP8IlsGzhvZU4aSWjvOd2LScfERGeKu+rpWNZYz5muazh7lXFAxHog0ZQY9JG+hHQg40AxR7O62jY1VAlK5424JstuggOyoWDdxiZ604VsX3hCduRWDsAAYZJ5YdREQCPUrVjhrtMDAOk
 xASarrifIONAm/RxtEt9OH53jq90pbgiU0rgWyut1XiNDV6d0UYHSQiuygxiZ3xW+PzEl7MHMip06sBMEu5NGtTxADYXAz3KMbnHC49krhMDsi3PP1q/3XO4VKgn0v/flZt7bbbYfB6OKtc= kodesairedhat.com@MacBook-Pro
-     - name: Set authorized key for root
-       authorized_key:
-         user: root
-         state: present
-         key: ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCoJCMoIjIgk+5vePS/xiSnXXWMYPheE89q8Oz7OSowFy+tTsXBB7QVNXVSA9zavqV5otsMNrkKBpFvXhhsDoOc0BZs1u5mDX6BW6d/t60sNLRZ4HZ1vqR1oqzVKODL01Yms70p99+u8ls4jrUaeq4HJjbn1xPSzXnOscy6DJ8GPekGM7N8nAzOh7VsnP/8UWfMcOCBMWW5pvdgE6x8CZiiJyUlxfwb+G0dM5weP8IlsGzhvZU4aSWjvOd2LScfERGeKu+rpWNZYz5muazh7lXFAxHog0ZQY9JG+hHQg40AxR7O62jY1VAlK5424JstuggOyoWDdxiZ604VsX3hCduRWDsAAYZJ5YdREQCPUrVjhrtMDAOk
+    - name: Set authorized key for root
+      authorized_key:
+        user: root
+        state: present
+        key: ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCoJCMoIjIgk+5vePS/xiSnXXWMYPheE89q8Oz7OSowFy+tTsXBB7QVNXVSA9zavqV5otsMNrkKBpFvXhhsDoOc0BZs1u5mDX6BW6d/t60sNLRZ4HZ1vqR1oqzVKODL01Yms70p99+u8ls4jrUaeq4HJjbn1xPSzXnOscy6DJ8GPekGM7N8nAzOh7VsnP/8UWfMcOCBMWW5pvdgE6x8CZiiJyUlxfwb+G0dM5weP8IlsGzhvZU4aSWjvOd2LScfERGeKu+rpWNZYz5muazh7lXFAxHog0ZQY9JG+hHQg40AxR7O62jY1VAlK5424JstuggOyoWDdxiZ604VsX3hCduRWDsAAYZJ5YdREQCPUrVjhrtMDAOk
 xASarrifIONAm/RxtEt9OH53jq90pbgiU0rgWyut1XiNDV6d0UYHSQiuygxiZ3xW+PzEl7MHMip06sBMEu5NGtTxADYXAz3KMbnHC49krhMDsi3PP1q/3XO4VKgn0v/flZt7bbbYfB6OKtc= kodesairedhat.com@MacBook-Pro
-       become: true
+      become: true
 - hosts: all:!appliance*
   tasks:
     # NOTE(pabelanger): We run this role in its own play to ensure unbound is

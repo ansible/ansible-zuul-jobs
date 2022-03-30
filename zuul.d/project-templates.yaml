@@ -249,7 +249,7 @@
     check:
       jobs: &ansible-collections-amazon-cloud-generator-jobs
         - ansible-tox-linters
-        - ansible-tox-py38
+        - ansible-tox-py38:
             required-projects:
               - name: github.com/ansible-collections/amazon.aws
     gate:

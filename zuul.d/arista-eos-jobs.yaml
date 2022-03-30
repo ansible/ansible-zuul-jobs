@@ -134,6 +134,7 @@
     name: ansible-ee-integration-arista-eos-libssh-stable-2.11
     parent: ansible-ee-integration-arista-eos-httpapi-latest
     vars:
+      test_ansible_python_interpreter: /usr/bin/python3.8
       ansible_runner_container_version: stable-2.11-devel
       test_ansible_network_cli_ssh_type: libssh
       test_fips_mode: true

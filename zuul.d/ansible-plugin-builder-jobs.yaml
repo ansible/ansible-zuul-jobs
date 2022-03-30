@@ -12,6 +12,7 @@
         - integration
       ansible_network_os: openvswitch
       test_ansible_ssh_private_key_file: ~/.ssh/id_ecdsa
+      test_ansible_network_cli_ssh_type: libssh
       collection_name: plugin_builder
       collection_namespace: ansible
     nodeset: openvswitch-2.15.0-python38

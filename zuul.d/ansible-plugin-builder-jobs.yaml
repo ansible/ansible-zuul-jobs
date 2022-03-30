@@ -12,43 +12,12 @@
         - integration
       ansible_network_os: openvswitch
       test_ansible_ssh_private_key_file: ~/.ssh/id_ecdsa
-      test_ansible_network_cli_ssh_type: libssh
       collection_name: plugin_builder
       collection_namespace: ansible
     nodeset: openvswitch-2.15.0-python38
 
 - job:
-    name: ansible-ee-integration-ansible-plugin-builder-stable2.11
-    parent: ansible-ee-integration-ansible-plugin-builder-latest
-    vars:
-      ansible_runner_container_version: stable-2.11-devel
-
-- job:
-    name: ansible-test-integration-ansible-plugin-builder
-    parent: ansible-test-integration-base
-    nodeset: openvswitch-2.15.0-python38
-    vars:
-      ansible_test_python: 3.8
-    name: network-ee-integration-tests-ansible-plugin-builder
-    parent: network-ee-integration-tests
-    nodeset: openvswitch-2.9.0-python38
-    vars:
-      collection_name: plugin_builder
-      collection_namespace: ansible
     name: ansible-ee-integration-ansible-plugin-builder-stable2.12
     parent: ansible-ee-integration-ansible-plugin-builder-latest
     vars:
       ansible_runner_container_version: stable-2.12-devel
-
-- job:
-    name: ansible-ee-integration-ansible-plugin-builder-stable2.10
-    parent: ansible-ee-integration-ansible-plugin-builder-latest
-    vars:
-      ansible_runner_container_version: stable-2.10-devel
-
-- job:
-    name: ansible-ee-integration-ansible-plugin-builder-stable2.9
-    parent: ansible-ee-integration-ansible-plugin-builder-latest
-    vars:
-      ansible_runner_container_version: stable-2.9-devel
->>>>>>> moved to ansible-ee

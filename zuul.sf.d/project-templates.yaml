@@ -51,9 +51,6 @@
       jobs: &ansible-collections-ansible-plugin-builder-jobs
         - ansible-ee-integration-ansible-plugin-builder-latest
         - ansible-ee-integration-ansible-plugin-builder-stable2.12
-        - ansible-ee-integration-ansible-plugin-builder-stable2.11
-        - ansible-ee-integration-ansible-plugin-builder-stable2.10
-        - ansible-ee-integration-ansible-plugin-builder-stable2.9
     gate:
       queue: integrated
       jobs: *ansible-collections-ansible-plugin-builder-jobs

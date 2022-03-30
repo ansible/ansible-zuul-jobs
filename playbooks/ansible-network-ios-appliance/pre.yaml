@@ -18,6 +18,12 @@
         dest: ~/.ssh/config
         mode: "0600"
 
+    # NOTE: hack to ensure Paramiko won't try to do a key based auth
+    # before using the login/pw
+    - name: Remove the local SSH keys
+      shell: |
+        rm ~/.ssh/id_*
+
     - name: Ensure tox
       include_role:
         name: ensure-tox

@@ -35,6 +35,7 @@
       ansible_collections_repo: github.com/ansible-collections/cisco.nxos
       ansible_test_command: network-integration
       ansible_test_integration_targets: "nxos_.*"
+      ansible_test_collections: True
 
 - job:
     name: ansible-test-units-nxos-python27

@@ -28,15 +28,6 @@
       set_fact:
         _network_os: "{{ _appliance_vars['ansible_network_os'] }}"
 
-    - name: Setup tox role
-      include_role:
-        name: tox
-      vars:
-        tox_envlist: venv
-        tox_extra_args: "-vv -- ansible-playbook -v playbooks/ansible-test-network-integration-base/files/bootstrap-{{ _network_os }}.yaml"
-        tox_install_siblings: false
-        zuul_work_dir: "{{ zuul.projects['github.com/ansible/ansible-zuul-jobs'].src_dir }}"
-
     - name: Ensure remote NETCONF SSH host keys are known
       shell: "ssh-keyscan -v -t rsa -p 830 {{ hostvars[item].ansible_host }} >> ~/.ssh/known_hosts"
       when: hostvars[item].ansible_network_os in ['junos']
@@ -140,6 +131,15 @@
         section: persistent_connection
         option: ssh_type
         value: "{{ test_ansible_network_cli_ssh_type }}"
+
+    - name: Setup tox role
+      include_role:
+        name: tox
+      vars:
+        tox_envlist: venv
+        tox_extra_args: "-vv -- ansible-playbook -v playbooks/ansible-test-network-integration-base/files/bootstrap-{{ _network_os }}.yaml"
+        tox_install_siblings: false
+        zuul_work_dir: "{{ zuul.projects['github.com/ansible/ansible-zuul-jobs'].src_dir }}"
 
     - name: Set tags skip value
       ini_file:

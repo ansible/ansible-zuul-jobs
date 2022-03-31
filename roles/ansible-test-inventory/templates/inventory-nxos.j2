@@ -7,19 +7,20 @@
 nxos-9 ansible_host={{ hostvars['nxos'].ansible_host }} ansible_user=zuul
 
 [nxos:vars]
-ansible_connection=network_cli
+ansible_connection={% if ansible_test_collections is defined -%}ansible.netcommon.{%- endif %}network_cli
+ansible_network_os={% if ansible_test_collections is defined -%}cisco.nxos.{%- endif %}nxos
 ansible_httpapi_pass=superSecretPass
 ansible_httpapi_port=80
 ansible_network_os=nxos
 ansible_python_interpreter=/home/zuul/venv/bin/python
 
 # ansible-test variables
-chassis_type="NXOSV"
+chassis_type="C9300v"
 cli={'transport': 'cli', 'authorize': true}
 fretta=""
-imagemr="1"
-imagetag="I5"
-image_version="9.3.6"
+imagemr="6"
+imagetag="9.3"
+image_version="9.3(6)"
 ipv6_supported=true
 major_version="7.0"
 nxapi={'port': '80', 'transport': 'nxapi', 'use_ssl': false}

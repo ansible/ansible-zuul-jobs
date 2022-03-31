@@ -7,8 +7,8 @@
 nxos-9 ansible_host={{ hostvars['nxos'].ansible_host }} ansible_user=zuul
 
 [nxos:vars]
-ansible_connection={% if ansible_test_collections is defined -%}ansible.netcommon.{%- endif %}network_cli
-ansible_network_os={% if ansible_test_collections is defined -%}cisco.nxos.{%- endif %}nxos
+ansible_connection=ansible.netcommon.network_cli
+ansible_network_os=cisco.nxos.nxos
 ansible_httpapi_pass=superSecretPass
 ansible_httpapi_port=80
 ansible_network_os=nxos

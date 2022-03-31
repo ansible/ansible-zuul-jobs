@@ -59,19 +59,21 @@
       ios:
         ansible_network_os: ios
     nodeset: ios-15
+    voting: false
     timeout: 10800
 
 # - network-ee-integration-tests-ios-stable-2.9
 - job:
     name: ansible-ee-integration-ios-stable-2.9
     parent: ansible-ee-integration-ios-latest
+    voting: false
     vars:
       ansible_runner_container_version: stable-2.9-devel
-
 # - network-ee-integration-tests-ios-stable-2.11
 - job:
     name: ansible-ee-integration-ios-stable-2.11
     parent: ansible-ee-integration-ios-latest
+    voting: false
     vars:
       ansible_runner_container_version: stable-2.11-devel
 
@@ -79,6 +81,7 @@
 - job:
     name: ansible-ee-integration-ios-stable-2.12
     parent: ansible-ee-integration-ios-latest
+    voting: false
     vars:
       ansible_runner_container_version: stable-2.12-devel
 

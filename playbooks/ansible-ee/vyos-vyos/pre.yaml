@@ -1,0 +1,15 @@
+---
+- hosts: controller
+  tasks:
+    - name: Ensure tox
+      include_role:
+        name: ensure-tox
+
+    - name: Setup tox role
+      include_role:
+        name: tox
+      vars:
+        tox_envlist: venv
+        tox_extra_args: -- ansible-playbook -v -c network_cli playbooks/ansible-ee/vyos-vyos/files/bootstrap.yaml
+        tox_install_siblings: false
+        zuul_work_dir: "{{ zuul.projects['github.com/ansible/ansible-zuul-jobs'].src_dir }}"

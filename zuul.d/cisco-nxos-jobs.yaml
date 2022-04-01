@@ -8,7 +8,7 @@
     run: playbooks/ansible-network-nxos-appliance/run.yaml
     host-vars:
       nxos:
-        ansible_network_os: cisco.nxos.nxos
+        ansible_network_os: nxos
     required-projects:
       - name: github.com/ansible/ansible-zuul-jobs
     nodeset: nxos-9

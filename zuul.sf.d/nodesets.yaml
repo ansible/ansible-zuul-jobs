@@ -168,8 +168,18 @@
 - nodeset:
     name: SplunkEnterprise-SES-8.0.0-python38
     nodes:
-      - name: fedora-35
+      - name: controller
         label: ansible-fedora-35-1vcpu
+      - name: SplunkEnterprise-SES-8.0.0
+        label: SplunkEnterprise-SES-8.0.0
+    groups:
+      - name: appliance-ssh
+        nodes:
+          - SplunkEnterprise-SES-8.0.0
+      - name: aws
+        nodes:
+          - SplunkEnterprise-SES-8.0.0
+          - controller
 
 - nodeset:
     name: Trendmicro-DeepSecurity-20.0.344-python27

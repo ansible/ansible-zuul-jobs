@@ -1139,6 +1139,7 @@
               - name: github.com/ansible-collections/ansible.netcommon
               - name: github.com/ansible-collections/ansible.utils
               - name: github.com/ansible-collections/cisco.iosxr
+              - name: github.com/ansible-collections/cisco.nxos
               - name: github.com/ansible-collections/junipernetworks.junos
     gate:
       queue: integrated

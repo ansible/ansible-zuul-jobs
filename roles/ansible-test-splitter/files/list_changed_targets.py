@@ -337,13 +337,7 @@ class ElGrandeSeparator:
         self.targets_per_slot = 10
         self.releases = ansible_releases
 
-        total_targets = sum([len(c._my_test_plan) for c in self.collections])
-        if total_targets == 0:
-            # Worst case: no targets test found for any collection
-            for c in self.collections:
-                c.cover_all()
-
-    def output(self):
+    def output(self, changes):
         batches = []
         rels = [""]
         if self.releases:
@@ -370,6 +364,7 @@ class ElGrandeSeparator:
                 "modules": c.modules_import,
                 "utils": c.utils_import,
             }
+        result["what_have_changes"] = changes
         print(json.dumps(result))
 
     def build_up_batches(self, slots, c):
@@ -434,27 +429,40 @@ if __name__ == "__main__":
     collections = [Collection(i) for i in args.collection_to_tests]
     collections_names = [c.collection_name() for c in collections]
 
+    changes = {}
     if args.test_all_the_targets:
         for c in collections:
             c.cover_all()
     else:
         for whc in [WhatHaveChanged(i, args.branch) for i in args.collection_to_tests]:
+            changes[whc.collection_name()] = {
+                "modules": [],
+                "inventory": [],
+                "module_utils": [],
+                "lookup": [],
+                "targets": [],
+            }
             for path in whc.modules():
+                changes[whc.collection_name()]["modules"].append(path.stem)
                 for c in collections:
                     c.add_target_to_plan(path.stem)
             for path in whc.inventory():
+                changes[whc.collection_name()]["inventory"].append(path.stem)
                 for c in collections:
                     c.add_target_to_plan(f"inventory_{path.stem}")
             for path, pymod in whc.module_utils():
+                changes[whc.collection_name()]["module_utils"].append(path.stem)
                 for c in collections:
                     c.add_target_to_plan(f"module_utils_{path.stem}")
                     c.cover_module_utils(pymod, collections_names)
             for path in whc.lookup():
+                changes[whc.collection_name()]["lookup"].append(path.stem)
                 for c in collections:
                     c.add_target_to_plan(f"lookup_{path.stem}")
             for t in whc.targets():
+                changes[whc.collection_name()]["targets"].append(t)
                 for c in collections:
                     c.add_target_to_plan(t)
 
     egs = ElGrandeSeparator(collections, args.total_job, args.ansible_releases)
-    egs.output()
+    egs.output(changes)

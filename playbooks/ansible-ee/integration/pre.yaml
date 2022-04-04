@@ -16,6 +16,12 @@
         name: python3.8
         state: present
 
+    # NOTE: This won't be necessary after the SF migration, tox is
+    # installed by default
+    - name: Ensure tox
+      include_role:
+        name: ensure-tox
+
     - set_fact:
         _network_appliance_groups: "{{ groups.keys()|select('match', '^(appliance|openvswitch)')|list }}"
 

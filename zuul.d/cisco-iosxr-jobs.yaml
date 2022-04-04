@@ -37,14 +37,6 @@
       ansible_test_integration_targets: "iosxr_.* netconf_.*"
 
 - job:
-    name: ansible-test-units-iosxr-python27
-    parent: ansible-test-units-base-python27
-    required-projects:
-      - name: github.com/ansible-collections/cisco.iosxr
-    vars:
-      ansible_collections_repo: github.com/ansible-collections/cisco.iosxr
-
-- job:
     name: ansible-test-units-iosxr-python36
     parent: ansible-test-units-base-python36
     required-projects:
@@ -63,6 +55,14 @@
 - job:
     name: ansible-test-units-iosxr-python38
     parent: ansible-test-units-base-python38
+    required-projects:
+      - name: github.com/ansible-collections/cisco.iosxr
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/cisco.iosxr
+
+- job:
+    name: ansible-test-units-iosxr-python39
+    parent: ansible-test-units-base-python39
     required-projects:
       - name: github.com/ansible-collections/cisco.iosxr
     vars:

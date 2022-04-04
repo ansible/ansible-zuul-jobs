@@ -360,6 +360,8 @@
         - ansible-test-sanity-docker-stable-2.12
         - ansible-test-units-nxos-python36
         - ansible-test-units-nxos-python37
+        - ansible-test-units-nxos-python38
+        - ansible-test-units-nxos-python39
     gate:
       queue: integrated
       fail-fast: true

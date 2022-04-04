@@ -28,6 +28,11 @@
       set_fact:
         _network_os: "{{ _appliance_vars['ansible_network_os'] }}"
 
+    - name: Ensure remote NETCONF SSH host keys are known
+      shell: "ssh-keyscan -v -t rsa -p 830 {{ hostvars[item].ansible_host }} >> ~/.ssh/known_hosts"
+      when: hostvars[item].ansible_network_os in ['junos']
+      with_inventory_hostnames: appliance
+
     # Update ansible-navigator inventory file with nodepool information.
     - name: Read appliance inventory file
       slurp:

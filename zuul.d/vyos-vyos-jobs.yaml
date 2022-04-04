@@ -41,6 +41,7 @@
       # Ensure we install the bindeps
       - playbooks/ansible-network-appliance-base/pre.yaml
       - playbooks/ansible-network-vyos-appliance/pre.yaml
+      - playbooks/ansible-ee/vyos-vyos/pre.yaml
     run: playbooks/ansible-ee/integration/run.yaml
     vars:
       ansible_runner_container_version: latest
@@ -53,6 +54,8 @@
     host-vars:
       vyos:
         ansible_network_os: vyos
+    required-projects:
+      - name: github.com/ansible/ansible-zuul-jobs
     nodeset: vyos-1.1
     timeout: 10800
     voting: false

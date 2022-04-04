@@ -270,6 +270,14 @@
     vars:
       ansible_test_python: 3.8
 
+job:
+    name: ansible-test-units-base-python39
+    parent: ansible-test-units-base
+    nodeset: controller-python39
+    abstract: true
+    vars:
+      ansible_test_python: 3.9
+
 - job:
     name: ansible-test-units-base-python39
     parent: ansible-test-units-base

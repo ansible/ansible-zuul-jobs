@@ -30,7 +30,7 @@
     required-projects:
       - name: github.com/ansible/ansible
       - name: github.com/ansible-collections/cisco.nxos
-    timeout: 10800
+    timeout: 12600
     vars:
       ansible_collections_repo: github.com/ansible-collections/cisco.nxos
       ansible_test_command: network-integration

@@ -6,6 +6,7 @@
       - name: github.com/ansible-collections/arista.eos
     vars:
       ansible_collections_repo: github.com/ansible-collections/arista.eos
+      ansible_runner_container_version: latest
 
 - job:
     name: ansible-test-units-eos-python38
@@ -72,6 +73,7 @@
     name: ansible-ee-integration-arista-eos-stable-2.9
     parent: ansible-ee-integration-arista-eos
     vars:
+      test_ansible_python_interpreter: /usr/bin/python3.8
       ansible_runner_container_version: stable-2.9-devel
       test_ansible_skip_tags: httpapi
 
@@ -98,6 +100,7 @@
     name: ansible-ee-integration-arista-eos-httpapi-stable-2.9
     parent: ansible-ee-integration-arista-eos
     vars:
+      test_ansible_python_interpreter: /usr/bin/python3.8
       ansible_runner_container_version: stable-2.9-devel
       test_ansible_skip_tags: network_cli
 
@@ -127,7 +130,7 @@
     name: ansible-ee-integration-arista-eos-libssh-stable-2.9
     parent: ansible-ee-integration-arista-eos-httpapi-latest
     vars:
-      test_ansible_python_interpreter: /usr/bin/python3.9
+      test_ansible_python_interpreter: /usr/bin/python3.8
       ansible_runner_container_version: stable-2.9-devel
       test_ansible_network_cli_ssh_type: libssh
       # Backport of https://github.com/ansible/ansible/pull/73992 needed for 2.9 to enable fips

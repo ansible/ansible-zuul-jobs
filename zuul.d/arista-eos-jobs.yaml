@@ -6,7 +6,6 @@
       - name: github.com/ansible-collections/arista.eos
     vars:
       ansible_collections_repo: github.com/ansible-collections/arista.eos
-      ansible_runner_container_version: latest
 
 - job:
     name: ansible-test-units-eos-python38

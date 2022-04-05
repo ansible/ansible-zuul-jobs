@@ -219,7 +219,6 @@
     # post-run: playbooks/ansible-test-units-base/post.yaml
     required-projects:
       - name: github.com/ansible/ansible
-        override-checkout: stable-2.9
     timeout: 3600
     irrelevant-files:
       - .pre-commit-config.yaml

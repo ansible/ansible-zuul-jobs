@@ -1,40 +1,32 @@
 ---
-# ansible-collections/cisco.nxos jobs
-
+# ansible-ee
 - job:
-    name: ansible-network-nxos-appliance
-    parent: ansible-network-appliance-base
-    pre-run: playbooks/ansible-network-nxos-appliance/pre.yaml
-    run: playbooks/ansible-network-nxos-appliance/run.yaml
+    name: ansible-ee-integration-cisco-nxos
+    parent: ansible-ee-tests
+    pre-run:
+      - playbooks/ansible-ee/integration/pre.yaml
+      # Ensure we install the bindeps
+      - playbooks/ansible-network-appliance-base/pre.yaml
+      - playbooks/ansible-network-nxos-appliance/pre.yaml
+    run: playbooks/ansible-ee/integration/run.yaml
+    vars:
+      ansible_runner_container_version: latest
+      container_image_tests:
+        - integration
+      test_ansible_ssh_private_key_file: ~/.ssh/id_ecdsa
+      test_ansible_python_interpreter: /usr/bin/python3.8
+      test_ansible_network_cli_ssh_type: paramiko
+      test_fips_mode: false
     host-vars:
       nxos:
         ansible_network_os: nxos
     required-projects:
       - name: github.com/ansible/ansible-zuul-jobs
     nodeset: nxos-9
-
-- job:
-    name: ansible-test-network-integration-nxos
-    abstract: true
-    dependencies:
-      - name: build-ansible-collection
-        soft: true
-    parent: ansible-network-nxos-appliance
-    pre-run:
-      - playbooks/ansible-test-base/pre.yaml
-      - playbooks/ansible-test-network-integration-base/pre.yaml
-    run: playbooks/ansible-test-base/run.yaml
-    post-run:
-      - playbooks/ansible-test-network-integration-base/post.yaml
-      - playbooks/ansible-test-base/post.yaml
-    required-projects:
-      - name: github.com/ansible/ansible
-      - name: github.com/ansible-collections/cisco.nxos
     timeout: 12600
-    vars:
-      ansible_collections_repo: github.com/ansible-collections/cisco.nxos
-      ansible_test_command: network-integration
-      ansible_test_integration_targets: "nxos_.*"
+    files:
+      - ^plugins/.*$
+      - ^tests/integration/.*$
 
 - job:
     name: ansible-test-units-nxos-python27
@@ -68,143 +60,9 @@
     vars:
       ansible_collections_repo: github.com/ansible-collections/cisco.nxos
 
-- job:
-    name: ansible-test-network-integration-nxos-cli-python38
-    parent: ansible-test-network-integration-nxos
-    nodeset: nxos-9
-    vars:
-      ansible_test_python: 3.8
-      ansible_test_skip_tags: local,nxapi
-      ansible_test_split_in: 4
 
 - job:
-    name: ansible-test-network-integration-nxos-cli-python38-scenario01
-    parent: ansible-test-network-integration-nxos-cli-python38
+    name: ansible-ee-integration-cisco-nxos-cli-python38-latest
+    parent: ansible-ee-integration-cisco-nxos
     vars:
-      ansible_test_do_number: 1
-
-- job:
-    name: ansible-test-network-integration-nxos-cli-python38-scenario02
-    parent: ansible-test-network-integration-nxos-cli-python38
-    vars:
-      ansible_test_do_number: 2
-
-- job:
-    name: ansible-test-network-integration-nxos-cli-python38-scenario03
-    parent: ansible-test-network-integration-nxos-cli-python38
-    vars:
-      ansible_test_do_number: 3
-
-- job:
-    name: ansible-test-network-integration-nxos-cli-python38-scenario04
-    parent: ansible-test-network-integration-nxos-cli-python38
-    vars:
-      ansible_test_do_number: 4
-
-- job:
-    name: ansible-test-network-integration-nxos-cli-python38-stable212
-    parent: ansible-test-network-integration-nxos
-    nodeset: nxos-9
-    required-projects:
-      - name: github.com/ansible/ansible
-        override-checkout: stable-2.12
-    vars:
-      ansible_test_python: 3.8
-      ansible_test_skip_tags: local,nxapi
-      ansible_test_split_in: 4
-
-- job:
-    name: ansible-test-network-integration-nxos-cli-python38-stable212-scenario01
-    parent: ansible-test-network-integration-nxos-cli-python38-stable212
-    vars:
-      ansible_test_do_number: 1
-
-- job:
-    name: ansible-test-network-integration-nxos-cli-python38-stable212-scenario02
-    parent: ansible-test-network-integration-nxos-cli-python38-stable212
-    vars:
-      ansible_test_do_number: 2
-
-- job:
-    name: ansible-test-network-integration-nxos-cli-python38-stable212-scenario03
-    parent: ansible-test-network-integration-nxos-cli-python38-stable212
-    vars:
-      ansible_test_do_number: 3
-
-- job:
-    name: ansible-test-network-integration-nxos-cli-python38-stable212-scenario04
-    parent: ansible-test-network-integration-nxos-cli-python38-stable212
-    vars:
-      ansible_test_do_number: 4
-
-- job:
-    name: ansible-test-network-integration-nxos-cli-python36-stable211
-    parent: ansible-test-network-integration-nxos
-    nodeset: nxos-9
-    required-projects:
-      - name: github.com/ansible/ansible
-        override-checkout: stable-2.11
-    vars:
-      ansible_test_python: 3.6
-      ansible_test_skip_tags: local,nxapi
-      ansible_test_split_in: 4
-
-- job:
-    name: ansible-test-network-integration-nxos-cli-python36-stable211-scenario01
-    parent: ansible-test-network-integration-nxos-cli-python36-stable211
-    vars:
-      ansible_test_do_number: 1
-
-- job:
-    name: ansible-test-network-integration-nxos-cli-python36-stable211-scenario02
-    parent: ansible-test-network-integration-nxos-cli-python36-stable211
-    vars:
-      ansible_test_do_number: 2
-
-- job:
-    name: ansible-test-network-integration-nxos-cli-python36-stable211-scenario03
-    parent: ansible-test-network-integration-nxos-cli-python36-stable211
-    vars:
-      ansible_test_do_number: 3
-
-- job:
-    name: ansible-test-network-integration-nxos-cli-python36-stable211-scenario04
-    parent: ansible-test-network-integration-nxos-cli-python36-stable211
-    vars:
-      ansible_test_do_number: 4
-
-- job:
-    name: ansible-test-network-integration-nxos-cli-python36-stable29
-    parent: ansible-test-network-integration-nxos
-    nodeset: nxos-9
-    required-projects:
-      - name: github.com/ansible/ansible
-        override-checkout: stable-2.9
-    vars:
-      ansible_test_python: 3.6
-      ansible_test_skip_tags: local,nxapi
-      ansible_test_split_in: 4
-
-- job:
-    name: ansible-test-network-integration-nxos-cli-python36-stable29-scenario01
-    parent: ansible-test-network-integration-nxos-cli-python36-stable29
-    vars:
-      ansible_test_do_number: 1
-
-- job:
-    name: ansible-test-network-integration-nxos-cli-python36-stable29-scenario02
-    parent: ansible-test-network-integration-nxos-cli-python36-stable29
-    vars:
-      ansible_test_do_number: 2
-
-- job:
-    name: ansible-test-network-integration-nxos-cli-python36-stable29-scenario03
-    parent: ansible-test-network-integration-nxos-cli-python36-stable29
-    vars:
-      ansible_test_do_number: 3
-
-- job:
-    name: ansible-test-network-integration-nxos-cli-python36-stable29-scenario04
-    parent: ansible-test-network-integration-nxos-cli-python36-stable29
-    vars:
-      ansible_test_do_number: 4
+      test_ansible_skip_tags: local,nxapi

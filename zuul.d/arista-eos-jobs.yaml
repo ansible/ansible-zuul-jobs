@@ -62,7 +62,7 @@
         ansible_network_os: eos
     required-projects:
       - name: github.com/ansible/ansible-zuul-jobs
-    nodeset: eos-4.24.6-python39
+    nodeset: eos-4.24.6
     timeout: 10800
     files:
       - ^plugins/.*$

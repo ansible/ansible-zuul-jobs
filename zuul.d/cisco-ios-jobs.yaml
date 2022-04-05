@@ -1,14 +1,6 @@
 ---
 # =============================================================================
 - job:
-    name: ansible-test-units-ios-python27
-    parent: ansible-test-units-base-python27
-    required-projects:
-      - name: github.com/ansible-collections/cisco.ios
-    vars:
-      ansible_collections_repo: github.com/ansible-collections/cisco.ios
-
-- job:
     name: ansible-test-units-ios-python36
     parent: ansible-test-units-base-python36
     required-projects:
@@ -27,6 +19,14 @@
 - job:
     name: ansible-test-units-ios-python38
     parent: ansible-test-units-base-python38
+    required-projects:
+      - name: github.com/ansible-collections/cisco.ios
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/cisco.ios
+
+- job:
+    name: ansible-test-units-ios-python39
+    parent: ansible-test-units-base-python39
     required-projects:
       - name: github.com/ansible-collections/cisco.ios
     vars:

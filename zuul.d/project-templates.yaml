@@ -427,9 +427,10 @@
         - ansible-test-sanity-docker-stable-2.10
         - ansible-test-sanity-docker-stable-2.11
         - ansible-test-sanity-docker-stable-2.12
-        - ansible-test-units-ios-python27
         - ansible-test-units-ios-python36
         - ansible-test-units-ios-python37
+        - ansible-test-units-ios-python38
+        - ansible-test-units-ios-python39
     gate:
       queue: integrated
       fail-fast: true

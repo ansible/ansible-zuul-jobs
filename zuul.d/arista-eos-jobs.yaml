@@ -56,6 +56,9 @@
       - name: github.com/ansible/ansible-zuul-jobs
     nodeset: eos-4.24.6-python38
     timeout: 10800
+    files:
+      - ^plugins/.*$
+      - ^tests/integration/.*$
 
 # network_cli
 

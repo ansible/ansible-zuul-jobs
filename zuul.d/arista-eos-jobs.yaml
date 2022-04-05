@@ -1,13 +1,5 @@
 ---
 - job:
-    name: ansible-test-units-eos-python27
-    parent: ansible-test-units-base-python27
-    required-projects:
-      - name: github.com/ansible-collections/arista.eos
-    vars:
-      ansible_collections_repo: github.com/ansible-collections/arista.eos
-
-- job:
     name: ansible-test-units-eos-python39
     parent: ansible-test-units-base-python39
     required-projects:

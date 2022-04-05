@@ -1,7 +1,7 @@
 ---
 - job:
-    name: ansible-test-units-eos-python27
-    parent: ansible-test-units-base-python27
+    name: ansible-test-units-eos-python39
+    parent: ansible-test-units-base-python39
     required-projects:
       - name: github.com/ansible-collections/arista.eos
     vars:
@@ -46,7 +46,7 @@
       container_image_tests:
         - integration
       test_ansible_ssh_private_key_file: ~/.ssh/id_ecdsa
-      test_ansible_python_interpreter: /usr/bin/python3.8
+      test_ansible_python_interpreter: /usr/bin/python3.9
       test_ansible_network_cli_ssh_type: paramiko
       test_fips_mode: false
     host-vars:
@@ -54,7 +54,7 @@
         ansible_network_os: eos
     required-projects:
       - name: github.com/ansible/ansible-zuul-jobs
-    nodeset: eos-4.24.6-python38
+    nodeset: eos-4.24.6
     timeout: 10800
     files:
       - ^plugins/.*$
@@ -127,7 +127,7 @@
     name: ansible-ee-integration-arista-eos-libssh-stable-2.9
     parent: ansible-ee-integration-arista-eos-httpapi-latest
     vars:
-      test_ansible_python_interpreter: /usr/bin/python3.8
+      test_ansible_python_interpreter: /usr/bin/python3.9
       ansible_runner_container_version: stable-2.9-devel
       test_ansible_network_cli_ssh_type: libssh
       # Backport of https://github.com/ansible/ansible/pull/73992 needed for 2.9 to enable fips

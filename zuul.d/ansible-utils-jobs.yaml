@@ -2,16 +2,8 @@
 # ansible-collections/ansible.utils jobs
 # =============================================================================
 - job:
-    name: ansible-test-units-ansible-utils-python27
-    parent: ansible-test-units-base-python27
-    required-projects:
-      - name: github.com/ansible-collections/ansible.utils
-    vars:
-      ansible_collections_repo: github.com/ansible-collections/ansible.utils
-
-- job:
     name: ansible-test-units-ansible-utils-python36
-    parent: ansible-test-units-base-python27
+    parent: ansible-test-units-base-python36
     required-projects:
       - name: github.com/ansible-collections/ansible.utils
     vars:
@@ -20,6 +12,14 @@
 - job:
     name: ansible-test-units-ansible-utils-python37
     parent: ansible-test-units-base-python37
+    required-projects:
+      - name: github.com/ansible-collections/ansible.utils
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/ansible.utils
+
+- job:
+    name: ansible-test-units-ansible-utils-python39
+    parent: ansible-test-units-base-python39
     required-projects:
       - name: github.com/ansible-collections/ansible.utils
     vars:

@@ -323,7 +323,6 @@
         - ansible-test-sanity-docker-stable-2.11
         - ansible-test-sanity-docker-stable-2.12
         - ansible-test-units-asa-python39
-            voting: false
         - ansible-test-units-asa-python36
         - ansible-test-units-asa-python37
     gate:

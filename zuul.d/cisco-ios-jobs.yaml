@@ -39,8 +39,8 @@
     name: ansible-ee-integration-ios-latest
     parent: ansible-ee-tests
     pre-run:
-      - playbooks/ansible-ee/integration/pre.yaml
       - playbooks/ansible-cloud/py38/pre.yaml
+      - playbooks/ansible-ee/integration/pre.yaml
       # Ensure we install the bindeps
       - playbooks/ansible-network-appliance-base/pre.yaml
       - playbooks/ansible-network-ios-appliance/pre.yaml

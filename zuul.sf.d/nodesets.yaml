@@ -150,7 +150,7 @@
           - centos-8-stream
 
 - nodeset:
-    name: openvswitch-2.15.0-python39
+    name: openvswitch-2.15.0
     nodes:
       - name: controller
         label: ansible-fedora-35-1vcpu

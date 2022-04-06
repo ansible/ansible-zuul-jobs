@@ -11,9 +11,10 @@
         - ansible-test-sanity-docker-stable-2.10
         - ansible-test-sanity-docker-stable-2.11
         - ansible-test-sanity-docker-stable-2.12
-        - ansible-test-units-openvswitch-python27
         - ansible-test-units-openvswitch-python36
         - ansible-test-units-openvswitch-python37
+        - ansible-test-units-openvswitch-python38
+        - ansible-test-units-openvswitch-python39
     gate:
       queue: integrated
       jobs: *ansible-collections-openvswitch-openvswitch-units-jobs

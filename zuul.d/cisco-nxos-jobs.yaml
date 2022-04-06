@@ -1,5 +1,9 @@
 ---
 # ansible-ee
+- semaphore:
+    name: ansible-ee-integration-cisco-nxos
+    max: 6
+
 - job:
     name: ansible-ee-integration-cisco-nxos
     parent: ansible-ee-tests
@@ -27,6 +31,7 @@
     files:
       - ^plugins/.*$
       - ^tests/integration/.*$
+    semaphore: ansible-ee-integration-cisco-nxos
 
 - job:
     name: ansible-test-units-nxos-python27
@@ -66,3 +71,55 @@
     parent: ansible-ee-integration-cisco-nxos
     vars:
       test_ansible_skip_tags: local,nxapi
+
+- job:
+    name:integration-ciso.nxos-cli-python38-latest-1
+    parent:ansible-ee-integration-cisco-nxos-cli-python38-latest
+
+- job:
+    name:integration-ciso.nxos-cli-python38-latest-2
+    parent:ansible-ee-integration-cisco-nxos-cli-python38-latest
+
+- job:
+    name:integration-ciso.nxos-cli-python38-latest-3
+    parent:ansible-ee-integration-cisco-nxos-cli-python38-latest
+
+- job:
+    name:integration-ciso.nxos-cli-python38-latest-4
+    parent:ansible-ee-integration-cisco-nxos-cli-python38-latest
+
+- job:
+    name:integration-ciso.nxos-cli-python38-latest-5
+    parent:ansible-ee-integration-cisco-nxos-cli-python38-latest
+
+- job:
+    name:integration-ciso.nxos-cli-python38-latest-6
+    parent:ansible-ee-integration-cisco-nxos-cli-python38-latest
+
+- job:
+    name:integration-ciso.nxos-cli-python38-latest-7
+    parent:ansible-ee-integration-cisco-nxos-cli-python38-latest
+
+- job:
+    name:integration-ciso.nxos-cli-python38-latest-8
+    parent:ansible-ee-integration-cisco-nxos-cli-python38-latest
+
+- job:
+    name:integration-ciso.nxos-cli-python38-latest-9
+    parent:ansible-ee-integration-cisco-nxos-cli-python38-latest
+
+- job:
+    name:integration-ciso.nxos-cli-python38-latest-10
+    parent:ansible-ee-integration-cisco-nxos-cli-python38-latest
+
+- job:
+    name:integration-ciso.nxos-cli-python38-latest-11
+    parent:ansible-ee-integration-cisco-nxos-cli-python38-latest
+
+- job:
+    name:integration-ciso.nxos-cli-python38-latest-12
+    parent:ansible-ee-integration-cisco-nxos-cli-python38-latest
+
+- job:
+    name:integration-ciso.nxos-cli-python38-latest--13
+    parent:ansible-ee-integration-cisco-nxos-cli-python38-latest

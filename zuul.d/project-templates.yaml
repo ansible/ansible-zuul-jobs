@@ -230,7 +230,6 @@
       jobs: &ansible-collections-amazon-cloud-jobs
         - ansible-test-sanity-docker-devel
         - ansible-test-sanity-docker-milestone
-        - ansible-test-sanity-docker-stable-2.9
         - ansible-test-sanity-docker-stable-2.11
         - ansible-test-sanity-docker-stable-2.12
         - ansible-test-integration-amazon-cloud

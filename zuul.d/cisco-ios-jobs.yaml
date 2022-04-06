@@ -5,6 +5,8 @@
     parent: ansible-test-units-base-python36
     required-projects:
       - name: github.com/ansible-collections/cisco.ios
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.9
     vars:
       ansible_collections_repo: github.com/ansible-collections/cisco.ios
 
@@ -13,6 +15,8 @@
     parent: ansible-test-units-base-python37
     required-projects:
       - name: github.com/ansible-collections/cisco.ios
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.9
     vars:
       ansible_collections_repo: github.com/ansible-collections/cisco.ios
 
@@ -68,6 +72,7 @@
     parent: ansible-ee-integration-ios-latest
     voting: false
     vars:
+      test_ansible_python_interpreter: /usr/bin/python3.8
       ansible_runner_container_version: stable-2.9-devel
 # - network-ee-integration-tests-ios-stable-2.11
 - job:
@@ -98,6 +103,7 @@
     name: ansible-ee-integration-ios-libssh-stable-2.9
     parent: ansible-ee-integration-ios-libssh-latest
     vars:
+      test_ansible_python_interpreter: /usr/bin/python3.8
       ansible_runner_container_version: stable-2.9-devel
 
 # - network-ee-integration-tests-ios-libssh-stable-2.11

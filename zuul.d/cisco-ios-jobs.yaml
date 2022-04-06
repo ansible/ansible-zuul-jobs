@@ -54,7 +54,7 @@
         - integration
       test_ansible_ssh_private_key_file: ~/.ssh/id_ecdsa
       test_ansible_network_cli_ssh_type: paramiko
-      test_ansible_python_interpreter: /usr/bin/python3.8
+      test_ansible_python_interpreter: /usr/bin/python3.9
       test_ansible_skip_tags: local
       test_fips_mode: false
     required-projects:
@@ -111,6 +111,7 @@
     name: ansible-ee-integration-ios-libssh-stable-2.11
     parent: ansible-ee-integration-ios-libssh-latest
     vars:
+      test_ansible_python_interpreter: /usr/bin/python3.8
       ansible_runner_container_version: stable-2.11-devel
 
 # - network-ee-integration-tests-ios-libssh-stable-2.12

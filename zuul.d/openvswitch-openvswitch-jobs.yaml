@@ -2,20 +2,6 @@
 # ansible-collections/openvswitch.openvswitch jobs
 # =============================================================================
 - job:
-    name: ansible-network-openvswitch-appliance
-    parent: ansible-network-appliance-base
-    pre-run:
-      - playbooks/ansible-network-openvswitch-appliance/pre.yaml
-      - playbooks/network-ee-integration-tests/pre.yaml
-    run: playbooks/ansible-network-openvswitch-appliance/run.yaml
-    host-vars:
-      openvswitch-2.9.0:
-        ansible_network_os: openvswitch
-    required-projects:
-      - name: github.com/ansible/ansible-zuul-jobs
-    nodeset: openvswitch-2.9.0-python38
-
-- job:
     name: ansible-test-units-openvswitch-python39
     parent: ansible-test-units-base-python39
     required-projects:

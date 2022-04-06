@@ -16,8 +16,8 @@
     nodeset: openvswitch-2.9.0-python38
 
 - job:
-    name: ansible-test-units-openvswitch-python27
-    parent: ansible-test-units-base-python27
+    name: ansible-test-units-openvswitch-python39
+    parent: ansible-test-units-base-python39
     required-projects:
       - name: github.com/ansible-collections/openvswitch.openvswitch
     vars:
@@ -47,47 +47,6 @@
     vars:
       ansible_collections_repo: github.com/ansible-collections/openvswitch.openvswitch
 
-# =============================================================================
-- job:
-    name: network-ee-integration-tests-openvswitch-openvswitch
-    parent: ansible-network-openvswitch-appliance
-
-- job:
-    name: network-ee-integration-tests-openvswitch-openvswitch
-    parent: network-ee-integration-tests
-    nodeset: openvswitch-2.9.0-python38
-
-# =============================================================================
-- job:
-    name: network-ee-integration-tests-openvswitch-openvswitch-stable-2.11
-    parent: ansible-network-openvswitch-appliance
-
-- job:
-    name: network-ee-integration-tests-openvswitch-openvswitch-stable-2.11
-    parent: network-ee-integration-tests-stable-2.11
-    nodeset: openvswitch-2.9.0-python38
-
-# =============================================================================
-- job:
-    name: network-ee-integration-tests-openvswitch-openvswitch-stable-2.12
-    parent: ansible-network-openvswitch-appliance
-
-- job:
-    name: network-ee-integration-tests-openvswitch-openvswitch-stable-2.12
-    parent: network-ee-integration-tests-stable-2.12
-    nodeset: openvswitch-2.9.0-python38
-
-# =============================================================================
-- job:
-    name: network-ee-integration-tests-openvswitch-openvswitch-stable-2.9
-    parent: ansible-network-openvswitch-appliance
-
-- job:
-    name: network-ee-integration-tests-openvswitch-openvswitch-stable-2.9
-    parent: network-ee-integration-tests-stable-2.9
-    nodeset: openvswitch-2.9.0-python38
-    vars:
-      test_ansible_python_interpreter: /usr/bin/python3
 
 # ansible-ee
 - job:
@@ -103,8 +62,9 @@
         - integration
       ansible_network_os: openvswitch
       test_ansible_ssh_private_key_file: ~/.ssh/id_ecdsa
+      test_ansible_python_interpreter: /usr/bin/python3.9
       test_ansible_network_cli_ssh_type: libssh
-    nodeset: openvswitch-2.15.0-python38
+    nodeset: openvswitch-2.15.0-python39
 
 - job:
     name: ansible-ee-integration-ovs-stable2.11

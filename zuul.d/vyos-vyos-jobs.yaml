@@ -56,6 +56,9 @@
     nodeset: vyos-1.1
     timeout: 10800
     voting: false
+    files:
+      - ^plugins/.*$
+      - ^tests/integration/.*$
 
 - job:
     name: ansible-ee-integration-vyos-stable-2.12

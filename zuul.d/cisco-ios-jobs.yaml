@@ -61,6 +61,9 @@
     nodeset: ios-15
     voting: false
     timeout: 10800
+    files:
+      - ^plugins/.*$
+      - ^tests/integration/.*$
 
 # - network-ee-integration-tests-ios-stable-2.9
 - job:
@@ -112,4 +115,4 @@
     name: ansible-ee-integration-ios-libssh-stable-2.12
     parent: ansible-ee-integration-ios-libssh-latest
     vars:
-      ansible_runner_container_version: stable-2.12-devel
+      ansible_runner_container:_version: stable-2.12-devel

@@ -105,6 +105,9 @@
       test_ansible_ssh_private_key_file: ~/.ssh/id_ecdsa
       test_ansible_network_cli_ssh_type: libssh
     nodeset: openvswitch-2.15.0-python38
+    files:
+      - ^plugins/.*$
+      - ^tests/integration/.*$
 
 - job:
     name: ansible-ee-integration-ovs-stable2.11

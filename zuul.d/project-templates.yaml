@@ -483,7 +483,7 @@
         - ansible-test-sanity-docker-stable-2.12
         - ansible-test-units-iosxr-python36
         - ansible-test-units-iosxr-python37
-        - ansible-test-units-nxos-python38
+        - ansible-test-units-iosxr-python38
         - ansible-test-units-iosxr-python39
     gate:
       queue: integrated

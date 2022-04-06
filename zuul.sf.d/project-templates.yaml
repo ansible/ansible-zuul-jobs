@@ -15,7 +15,6 @@
         - ansible-test-units-openvswitch-python37
         - ansible-test-units-openvswitch-python38
         - ansible-test-units-openvswitch-python39
-            voting: false
     gate:
       queue: integrated
       jobs: *ansible-collections-openvswitch-openvswitch-units-jobs

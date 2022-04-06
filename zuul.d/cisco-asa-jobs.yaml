@@ -38,8 +38,8 @@
       ansible_test_integration_targets: "asa_.*"
 
 - job:
-    name: ansible-test-units-asa-python27
-    parent: ansible-test-units-base-python27
+    name: ansible-test-units-asa-python39
+    parent: ansible-test-units-base-python39
     required-projects:
       - name: github.com/ansible-collections/cisco.asa
     vars:
@@ -62,45 +62,17 @@
       ansible_collections_repo: github.com/ansible-collections/cisco.asa
 
 - job:
-    name: ansible-test-network-integration-asa-python27
+    name: ansible-test-network-integration-asa-python39
     parent: ansible-test-network-integration-asa
     nodeset: asav9-12-3
     vars:
-      ansible_test_python: 2.7
+      ansible_test_python: 3.9
 
 - job:
-    name: ansible-test-network-integration-asa-python27-stable211
-    parent: ansible-test-network-integration-asa
-    nodeset: asav9-12-3
-    required-projects:
-      - name: github.com/ansible/ansible
-        override-checkout: stable-2.11
-    vars:
-      ansible_test_python: 2.7
-
-- job:
-    name: ansible-test-network-integration-asa-python27-stable29
-    parent: ansible-test-network-integration-asa
-    nodeset: asav9-12-3
-    required-projects:
-      - name: github.com/ansible/ansible
-        override-checkout: stable-2.9
-    vars:
-      ansible_test_python: 2.7
-
-- job:
-    name: ansible-test-network-integration-asa-python38
-    parent: ansible-test-network-integration-asa
-    nodeset: asav9-12-3
-    vars:
-      ansible_test_python: 3.8
-
-- job:
-    name: ansible-test-network-integration-asa-libssh-python38
-    parent: ansible-test-network-integration-asa-python38
+    name: ansible-test-network-integration-asa-libssh-python39
+    parent: ansible-test-network-integration-asa-python39
     vars:
       ansible_test_network_cli_ssh_type: libssh
-
 
 - job:
     name: ansible-test-network-integration-asa-python38-stable212

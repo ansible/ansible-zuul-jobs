@@ -13,7 +13,7 @@
       - build-ansible-collection
     vars:
       container_image_name: quay.io/ansible/network-ee
-    nodeset: controller-python35
+    nodeset: controller-node
 
 # latest
 - job:

@@ -25,7 +25,7 @@
 - job:
     name: ansible-tox-linters
     parent: tox-linters
-    pre-run: playbooks/ansible-tox-py38/pre.yaml
+    pre-run: playbooks/ansible-tox-py39/pre.yaml
     nodeset: ansible-tox-linters
 
 - job: &ansible-tox-molecule-base
@@ -208,7 +208,7 @@
     name: ansible-test-units-base
     parent: unittests
     # NOTE(pabelanger): nodeset to be removed
-    nodeset: controller-python38
+    nodeset: controller-node
     abstract: true
     dependencies:
       - name: build-ansible-collection
@@ -233,7 +233,7 @@
 - job:
     name: ansible-test-units-base-python27
     parent: ansible-test-units-base
-    nodeset: controller-python27
+    nodeset: controller-node
     abstract: true
     vars:
       ansible_test_python: 2.7
@@ -241,7 +241,7 @@
 - job:
     name: ansible-test-units-base-python35
     parent: ansible-test-units-base
-    nodeset: controller-python35
+    nodeset: controller-node
     abstract: true
     vars:
       ansible_test_python: 3.5
@@ -249,7 +249,7 @@
 - job:
     name: ansible-test-units-base-python36
     parent: ansible-test-units-base
-    nodeset: controller-python36
+    nodeset: controller-node
     abstract: true
     vars:
       ansible_test_python: 3.6
@@ -257,7 +257,7 @@
 - job:
     name: ansible-test-units-base-python37
     parent: ansible-test-units-base
-    nodeset: controller-python37
+    nodeset: controller-node
     abstract: true
     vars:
       ansible_test_python: 3.7
@@ -265,10 +265,18 @@
 - job:
     name: ansible-test-units-base-python38
     parent: ansible-test-units-base
-    nodeset: controller-python38
+    nodeset: controller-node
     abstract: true
     vars:
       ansible_test_python: 3.8
+
+- job:
+    name: ansible-test-units-base-python39
+    parent: ansible-test-units-base
+    nodeset: controller-node
+    abstract: true
+    vars:
+      ansible_test_python: 3.9
 
 - job:
     name: ansible-test-units-yang-python27

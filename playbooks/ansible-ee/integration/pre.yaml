@@ -10,10 +10,10 @@
       when:
         - test_fips_mode|default(false) | bool
 
-    - name: Ensure python3.8 is present
+    - name: Ensure python3.9 is present
       become: true
       package:
-        name: python3.8
+        name: python3.9
         state: present
 
     - set_fact:
@@ -57,7 +57,7 @@
             vars:
               ansible_ssh_private_key_file: "{{ test_ansible_ssh_private_key_file }}"
 
-    # NOTE(pabelanger): Force python3.8 so we don't pick up /usr/libexec/platform-python
+    # NOTE(pabelanger): Force python3.9 so we don't pick up /usr/libexec/platform-python
     - name: Patch ansible_python_interpreter inventory data
       set_fact:
         _inventory_data: "{{ _inventory_data | combine(newdata, recursive=True) }}"

@@ -792,6 +792,12 @@
         label: fedora-latest-1vcpu
 
 - nodeset:
+    name: openvswitch-2.15.0-python38
+    nodes:
+      - name: controller
+        label: fedora-latest-1vcpu
+
+- nodeset:
     name: openvswitch-2.15.0-python39
     nodes:
       - name: controller

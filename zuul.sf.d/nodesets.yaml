@@ -160,6 +160,16 @@
           - controller
 
 - nodeset:
+    name: openvswitch-2.15.0-python38
+    nodes:
+      - name: controller
+        label: ansible-fedora-35-1vcpu
+    groups:
+      - name: openvswitch
+        nodes:
+          - controller
+
+- nodeset:
     name: QRadarCE-7.3.1-python38
     nodes:
       - name: fedora-35

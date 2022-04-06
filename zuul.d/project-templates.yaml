@@ -1109,9 +1109,10 @@
         - ansible-test-sanity-docker-stable-2.10
         - ansible-test-sanity-docker-stable-2.11
         - ansible-test-sanity-docker-stable-2.12
-        - ansible-test-units-frr-python27
         - ansible-test-units-frr-python36
         - ansible-test-units-frr-python37
+        - ansible-test-units-frr-python38
+        - ansible-test-units-frr-python39
     gate:
       queue: integrated
       jobs: *ansible-collections-ffr-ffr-units-jobs

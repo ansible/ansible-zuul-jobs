@@ -62,7 +62,7 @@
     required-projects:
       - name: github.com/ansible-collections/junipernetworks.junos
       - name: github.com/ansible/ansible
-          override-checkout: stable-2.9
+        override-checkout: stable-2.9
     vars:
       ansible_collections_repo: github.com/ansible-collections/junipernetworks.junos
 
@@ -72,7 +72,7 @@
     required-projects:
       - name: github.com/ansible-collections/junipernetworks.junos
       - name: github.com/ansible/ansible
-          override-checkout: stable-2.9
+        override-checkout: stable-2.9
     vars:
       ansible_collections_repo: github.com/ansible-collections/junipernetworks.junos
 

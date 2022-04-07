@@ -63,7 +63,7 @@
 - semaphore:
     name: ansible-ee-integration-cisco-nxos-cli-python38-latest
     max: 6
-    
+ 
 - job:
     name: ansible-ee-integration-cisco-nxos-cli-python38-latest
     parent: ansible-ee-integration-cisco-nxos

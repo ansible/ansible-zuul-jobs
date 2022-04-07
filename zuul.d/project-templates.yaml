@@ -387,15 +387,6 @@
         - integration-cisco.nxos-cli-python38-latest-2
         - integration-cisco.nxos-cli-python38-latest-3
         - integration-cisco.nxos-cli-python38-latest-4
-        - integration-cisco.nxos-cli-python38-latest-5
-        - integration-cisco.nxos-cli-python38-latest-6
-        - integration-cisco.nxos-cli-python38-latest-7
-        - integration-cisco.nxos-cli-python38-latest-8
-        - integration-cisco.nxos-cli-python38-latest-9
-        - integration-cisco.nxos-cli-python38-latest-10
-        - integration-cisco.nxos-cli-python38-latest-11
-        - integration-cisco.nxos-cli-python38-latest-12
-        - integration-cisco.nxos-cli-python38-latest-13
     gate:
       queue: integrated
       fail-fast: true

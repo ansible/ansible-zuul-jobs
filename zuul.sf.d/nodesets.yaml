@@ -84,7 +84,7 @@
       # NOTE: Fedora 35 comes with a version of ssh that ignore the
       # old deprecated protocols used by the appliance
       - name: controller
-        label: ansible-fedora-35-1vcpu
+        label: ansible-cloud-centos-8-stream-tiny
       - name: ios
         label: ios-15
     groups:

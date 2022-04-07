@@ -480,9 +480,10 @@
         - ansible-test-sanity-docker-stable-2.10
         - ansible-test-sanity-docker-stable-2.11
         - ansible-test-sanity-docker-stable-2.12
-        - ansible-test-units-iosxr-python27
         - ansible-test-units-iosxr-python36
         - ansible-test-units-iosxr-python37
+        - ansible-test-units-iosxr-python38
+        - ansible-test-units-iosxr-python39
     gate:
       queue: integrated
       fail-fast: true

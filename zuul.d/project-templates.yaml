@@ -1197,10 +1197,10 @@
         - ansible-test-sanity-docker-stable-2.10
         - ansible-test-sanity-docker-stable-2.11
         - ansible-test-sanity-docker-stable-2.12
-        - ansible-test-units-yang-python27
-        - ansible-test-units-yang-python36
-        - ansible-test-units-yang-python37
-        - ansible-test-units-yang-python38
+        - ansible-test-units-ansible-yang-python27
+        - ansible-test-units-ansible-yang-python36
+        - ansible-test-units-ansible-yang-python37
+        - ansible-test-units-ansible-yang-python38
     gate:
       queue: integrated
       jobs: *ansible-collections-ansible-yang-units-jobs

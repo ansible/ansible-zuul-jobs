@@ -1,18 +1,12 @@
 ---
 # =============================================================================
 - job:
-    name: ansible-test-units-vyos-python27
-    parent: ansible-test-units-base-python27
-    required-projects:
-      - name: github.com/ansible-collections/vyos.vyos
-    vars:
-      ansible_collections_repo: github.com/ansible-collections/vyos.vyos
-
-- job:
     name: ansible-test-units-vyos-python36
     parent: ansible-test-units-base-python36
     required-projects:
       - name: github.com/ansible-collections/vyos.vyos
+      - name: github.com/ansible/ansible
+          override-checkout: stable-2.9
     vars:
       ansible_collections_repo: github.com/ansible-collections/vyos.vyos
 
@@ -21,12 +15,22 @@
     parent: ansible-test-units-base-python37
     required-projects:
       - name: github.com/ansible-collections/vyos.vyos
+      - name: github.com/ansible/ansible
+          override-checkout: stable-2.9
     vars:
       ansible_collections_repo: github.com/ansible-collections/vyos.vyos
 
 - job:
     name: ansible-test-units-vyos-python38
     parent: ansible-test-units-base-python38
+    required-projects:
+      - name: github.com/ansible-collections/vyos.vyos
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/vyos.vyos
+
+- job:
+    name: ansible-test-units-vyos-python39
+    parent: ansible-test-units-base-python39
     required-projects:
       - name: github.com/ansible-collections/vyos.vyos
     vars:
@@ -49,6 +53,7 @@
         - integration
       test_ansible_network_cli_ssh_type: paramiko
       test_ansible_ssh_private_key_file: ~/.ssh/id_rsa
+      test_ansible_python_interpreter: /usr/bin/python3.9
       # NOTE(pabelanger): We can only use RSA ssh keys for vyos.
       test_fips_mode: false
     host-vars:
@@ -69,7 +74,6 @@
     name: ansible-ee-integration-vyos-stable-2.11
     parent: ansible-ee-integration-vyos-latest
     vars:
-      test_ansible_python_interpreter: /usr/bin/python3.8
       ansible_runner_container_version: stable-2.11-devel
 
 - job:
@@ -98,7 +102,6 @@
     name: ansible-ee-integration-vyos-libssh-stable-2.11
     parent: ansible-ee-integration-vyos-libssh-latest
     vars:
-      test_ansible_python_interpreter: /usr/bin/python3.8
       ansible_runner_container_version: stable-2.11-devel
 
 - job:

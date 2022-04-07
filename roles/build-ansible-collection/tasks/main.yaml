@@ -4,8 +4,20 @@
     path: "{{ zuul_work_dir }}/galaxy.yml"
   register: _st
 
-- name: Build an ansible collection
-  args:
-    chdir: "{{ zuul_work_dir }}"
-  shell: "{{ ansible_galaxy_executable }} collection build --output-path {{ ansible_galaxy_output_path }} {{ ansible_galaxy_collection_path }}"
+- block:
+    - set_fact:
+        prepare_release_play: "{{ ansible_galaxy_collection_path }}/{{ ansible_prepare_release_playbook }}"
+
+    - name: "Check if {{ prepare_release_play }} exists"
+      stat:
+        path: "{{ prepare_release_play }}"
+      register: _release
+
+    - name: Prepare release
+      shell: "{{ ansible_playbook_executable }} {{ prepare_release_play }} -v"
+
+    - name: Build an ansible collection
+      args:
+        chdir: "{{ zuul_work_dir }}"
+      shell: "{{ ansible_galaxy_executable }} collection build --output-path {{ ansible_galaxy_output_path }} {{ ansible_galaxy_collection_path }}"
   when: _st.stat.exists

@@ -1,7 +1,0 @@
----
-- project:
-    check:
-      jobs:
-        - ansible-tox-py39:
-            vars:
-              tox_envlist: pytest,black

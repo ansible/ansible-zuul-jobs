@@ -383,7 +383,7 @@
               ansible_test_splitter__test_changed: false
               ansible_test_splitter__check_for_changes_in:
                 - "~/{{ zuul.projects['github.com/ansible-collections/cisco.nxos'].src_dir }}"
-        - integration-ciso.nxos-cli-python38-latest-1
+        - integration-cisco.nxos-cli-python38-latest-1
         - integration-ciso.nxos-cli-python38-latest-2
         - integration-ciso.nxos-cli-python38-latest-3
         - integration-ciso.nxos-cli-python38-latest-4

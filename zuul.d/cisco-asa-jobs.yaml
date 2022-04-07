@@ -114,6 +114,7 @@
       - name: github.com/ansible/ansible
         override-checkout: stable-2.9
     vars:
+      test_ansible_python_interpreter: /usr/bin/python3.8
       ansible_test_python: 3.8
 
 - job:
@@ -121,3 +122,4 @@
     parent: ansible-test-network-integration-asa-python38-stable29
     vars:
       ansible_test_network_cli_ssh_type: libssh
+      test_ansible_python_interpreter: /usr/bin/python3.8

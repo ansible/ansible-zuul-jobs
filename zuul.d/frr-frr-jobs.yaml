@@ -1,7 +1,7 @@
 ---
 - job:
-    name: ansible-test-units-frr-python27
-    parent: ansible-test-units-base-python27
+    name: ansible-test-units-frr-python39
+    parent: ansible-test-units-base-python39
     required-projects:
       - name: github.com/ansible-collections/frr.frr
     vars:
@@ -12,6 +12,8 @@
     parent: ansible-test-units-base-python36
     required-projects:
       - name: github.com/ansible-collections/frr.frr
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.9
     vars:
       ansible_collections_repo: github.com/ansible-collections/frr.frr
 
@@ -20,6 +22,8 @@
     parent: ansible-test-units-base-python37
     required-projects:
       - name: github.com/ansible-collections/frr.frr
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.9
     vars:
       ansible_collections_repo: github.com/ansible-collections/frr.frr
 

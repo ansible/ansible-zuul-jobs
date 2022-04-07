@@ -58,7 +58,6 @@
       - name: github.com/ansible/ansible-zuul-jobs
     nodeset: vyos-1.1
     timeout: 10800
-    voting: false
 
 - job:
     name: ansible-ee-integration-vyos-stable-2.12

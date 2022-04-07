@@ -208,7 +208,19 @@
           - eos-4.24.6
 
 - nodeset:
-    name: ios-15
+    name: eos-4.24.6-python39
+    nodes:
+      - name: controller
+        label: ansible-fedora-35-1vcpu
+      - name: eos-4.24.6
+        label: eos-4.24.6
+    groups:
+      - name: appliance
+        nodes:
+          - eos-4.24.6
+
+- nodeset:
+    name: ios-15.6-2T-python38
     nodes:
       - name: controller
         label: ansible-fedora-35-1vcpu
@@ -626,6 +638,16 @@
           - fedora-35
 
 - nodeset:
+    name: controller-python39
+    nodes:
+      - name: fedora-35
+        label: ansible-fedora-35-1vcpu
+    groups:
+      - name: controller
+        nodes:
+          - fedora-35
+
+- nodeset:
     name: controller-python36-f34
     nodes:
       - name: fedora-34
@@ -774,3 +796,9 @@
     nodes:
       - name: controller
         label: fedora-latest-1vcpu
+
+- nodeset:
+    name: openvswitch-2.15.0
+    nodes:
+      - name: controller
+        label: ansible-fedora-35-1vcpu

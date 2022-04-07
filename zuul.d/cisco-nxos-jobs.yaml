@@ -121,5 +121,5 @@
     parent: ansible-ee-integration-cisco-nxos-cli-python38-latest
 
 - job:
-    name: integration-ciso.nxos-cli-python38-latest--13
+    name: integration-ciso.nxos-cli-python38-latest-13
     parent: ansible-ee-integration-cisco-nxos-cli-python38-latest

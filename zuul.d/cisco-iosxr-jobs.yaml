@@ -37,18 +37,12 @@
       ansible_test_integration_targets: "iosxr_.* netconf_.*"
 
 - job:
-    name: ansible-test-units-iosxr-python27
-    parent: ansible-test-units-base-python27
-    required-projects:
-      - name: github.com/ansible-collections/cisco.iosxr
-    vars:
-      ansible_collections_repo: github.com/ansible-collections/cisco.iosxr
-
-- job:
     name: ansible-test-units-iosxr-python36
     parent: ansible-test-units-base-python36
     required-projects:
       - name: github.com/ansible-collections/cisco.iosxr
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.9
     vars:
       ansible_collections_repo: github.com/ansible-collections/cisco.iosxr
 
@@ -57,6 +51,8 @@
     parent: ansible-test-units-base-python37
     required-projects:
       - name: github.com/ansible-collections/cisco.iosxr
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.9
     vars:
       ansible_collections_repo: github.com/ansible-collections/cisco.iosxr
 
@@ -68,6 +64,15 @@
     vars:
       ansible_collections_repo: github.com/ansible-collections/cisco.iosxr
 
+- job:
+    name: ansible-test-units-iosxr-python39
+    parent: ansible-test-units-base-python39
+    required-projects:
+      - name: github.com/ansible-collections/cisco.iosxr
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/cisco.iosxr
+
+# As we are facing retry-limit issue(https://storyboard.openstack.org/#!/story/2009226) integration tests for iosxr are disable
 - job:
     name: ansible-test-network-integration-iosxr-netconf
     parent: ansible-test-network-integration-iosxr

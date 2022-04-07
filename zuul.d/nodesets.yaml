@@ -55,7 +55,7 @@
         label: ansible-cloud-centos-9-stream-large
 
 - nodeset:
-    name: eos-4.24.6-python38
+    name: eos-4.24.6
     nodes:
       - name: controller
         label: ansible-fedora-35-1vcpu
@@ -148,6 +148,16 @@
       - name: controller
         nodes:
           - centos-8-stream
+
+- nodeset:
+    name: openvswitch-2.15.0
+    nodes:
+      - name: controller
+        label: ansible-fedora-35-1vcpu
+    groups:
+      - name: openvswitch
+        nodes:
+          - controller
 
 - nodeset:
     name: openvswitch-2.15.0-python38
@@ -333,6 +343,12 @@
 
 - nodeset:
     name: controller-python38
+    nodes:
+      - name: controller
+        label: ansible-fedora-35-1vcpu
+
+- nodeset:
+    name: controller-node
     nodes:
       - name: controller
         label: ansible-fedora-35-1vcpu

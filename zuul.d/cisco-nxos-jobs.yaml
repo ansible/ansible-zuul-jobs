@@ -1,9 +1,5 @@
 ---
 # ansible-ee
-- semaphore:
-    name: ansible-ee-integration-cisco-nxos
-    max: 6
-
 - job:
     name: ansible-ee-integration-cisco-nxos
     parent: ansible-ee-tests
@@ -31,7 +27,6 @@
     files:
       - ^plugins/.*$
       - ^tests/integration/.*$
-    semaphore: ansible-ee-integration-cisco-nxos
 
 - job:
     name: ansible-test-units-nxos-python27
@@ -65,12 +60,16 @@
     vars:
       ansible_collections_repo: github.com/ansible-collections/cisco.nxos
 
-
+- semaphore:
+    name: ansible-ee-integration-cisco-nxos-cli-python38-latest
+    max: 6
+    
 - job:
     name: ansible-ee-integration-cisco-nxos-cli-python38-latest
     parent: ansible-ee-integration-cisco-nxos
     vars:
       test_ansible_skip_tags: local,nxapi
+    semaphore: ansible-ee-integration-cisco-nxos-cli-python38-latest
 
 - job:
     name: integration-cisco.nxos-cli-python38-latest-1

@@ -384,18 +384,18 @@
               ansible_test_splitter__check_for_changes_in:
                 - "~/{{ zuul.projects['github.com/ansible-collections/cisco.nxos'].src_dir }}"
         - integration-cisco.nxos-cli-python38-latest-1
-        - integration-ciso.nxos-cli-python38-latest-2
-        - integration-ciso.nxos-cli-python38-latest-3
-        - integration-ciso.nxos-cli-python38-latest-4
-        - integration-ciso.nxos-cli-python38-latest-5
-        - integration-ciso.nxos-cli-python38-latest-6
-        - integration-ciso.nxos-cli-python38-latest-7
-        - integration-ciso.nxos-cli-python38-latest-8
-        - integration-ciso.nxos-cli-python38-latest-9
-        - integration-ciso.nxos-cli-python38-latest-10
-        - integration-ciso.nxos-cli-python38-latest-11
-        - integration-ciso.nxos-cli-python38-latest-12
-        - integration-ciso.nxos-cli-python38-latest-13
+        - integration-cisco.nxos-cli-python38-latest-2
+        - integration-cisco.nxos-cli-python38-latest-3
+        - integration-cisco.nxos-cli-python38-latest-4
+        - integration-cisco.nxos-cli-python38-latest-5
+        - integration-cisco.nxos-cli-python38-latest-6
+        - integration-cisco.nxos-cli-python38-latest-7
+        - integration-cisco.nxos-cli-python38-latest-8
+        - integration-cisco.nxos-cli-python38-latest-9
+        - integration-cisco.nxos-cli-python38-latest-10
+        - integration-cisco.nxos-cli-python38-latest-11
+        - integration-cisco.nxos-cli-python38-latest-12
+        - integration-cisco.nxos-cli-python38-latest-13
     gate:
       queue: integrated
       fail-fast: true

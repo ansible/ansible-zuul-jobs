@@ -85,8 +85,6 @@
       ansible_runner_container_version: stable-2.9-devel
       test_ansible_skip_tags: ""
 
-
-
 # libssh
 - job:
     name: ansible-ee-integration-vyos-libssh-latest

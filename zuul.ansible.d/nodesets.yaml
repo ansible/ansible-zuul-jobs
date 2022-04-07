@@ -576,7 +576,7 @@
           - fedora-35
 
 - nodeset:
-    name: vsrx3-18.4R1-python39
+    name: vsrx3-18.4R1
     nodes:
       - name: fedora-35
         label: ansible-fedora-35-1vcpu

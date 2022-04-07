@@ -151,7 +151,7 @@
     nodeset: vsrx3
     required-projects:
       - name: github.com/ansible/ansible
-        override-checkout: stable-2.11
+        override-checkout: stable-2.9
     vars:
       test_ansible_python_interpreter: /usr/bin/python3.8
       ansible_test_python: 2.7
@@ -172,7 +172,7 @@
     nodeset: vsrx3
     required-projects:
       - name: github.com/ansible/ansible
-        override-checkout: stable-2.11
+        override-checkout: stable-2.9
     vars:
       test_ansible_python_interpreter: /usr/bin/python3.8
       ansible_test_python: 2.7
@@ -200,7 +200,7 @@
     nodeset: vsrx3
     required-projects:
       - name: github.com/ansible/ansible
-        override-checkout: stable-2.11
+        override-checkout: stable-2.9
     vars:
       ansible_test_python: 3.6
 
@@ -265,7 +265,7 @@
     nodeset: vsrx3
     required-projects:
       - name: github.com/ansible/ansible
-        override-checkout: stable-2.11
+        override-checkout: stable-2.9
     vars:
       test_ansible_python_interpreter: /usr/bin/python3.8
       ansible_test_python: 3.6

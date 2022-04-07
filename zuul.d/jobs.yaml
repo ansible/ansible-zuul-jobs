@@ -158,14 +158,6 @@
       ansible_collections_repo: "{{ zuul.project.canonical_name }}"
 
 - job:
-    name: ansible-test-units-netcommon-python27
-    parent: ansible-test-units-base-python27
-    required-projects:
-      - name: github.com/ansible-collections/ansible.netcommon
-    vars:
-      ansible_collections_repo: github.com/ansible-collections/ansible.netcommon
-
-- job:
     name: ansible-test-units-netcommon-python36
     parent: ansible-test-units-base-python36
     required-projects:
@@ -176,6 +168,22 @@
 - job:
     name: ansible-test-units-netcommon-python37
     parent: ansible-test-units-base-python37
+    required-projects:
+      - name: github.com/ansible-collections/ansible.netcommon
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/ansible.netcommon
+
+- job:
+    name: ansible-test-units-netcommon-python38
+    parent: ansible-test-units-base-python38
+    required-projects:
+      - name: github.com/ansible-collections/ansible.netcommon
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/ansible.netcommon
+
+- job:
+    name: ansible-test-units-netcommon-python39
+    parent: ansible-test-units-base-python39
     required-projects:
       - name: github.com/ansible-collections/ansible.netcommon
     vars:

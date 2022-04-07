@@ -576,6 +576,21 @@
           - fedora-35
 
 - nodeset:
+    name: vsrx3-18.4R1-python39
+    nodes:
+      - name: fedora-35
+        label: ansible-fedora-35-1vcpu
+      - name: vsrx3-18.4R1
+        label: vsrx3-18.4R1
+    groups:
+      - name: appliance
+        nodes:
+          - vsrx3-18.4R1
+      - name: controller
+        nodes:
+          - fedora-35
+
+- nodeset:
     name: vyos-1.1
     nodes:
       - name: controller

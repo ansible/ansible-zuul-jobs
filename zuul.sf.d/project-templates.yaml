@@ -47,6 +47,18 @@
         - build-ansible-collection
 
 - project-template:
+    name: ansible-community-ansible-plugin-builder
+    check:
+      jobs: &ansible-collections-ansible-plugin-builder-jobs
+        - ansible-ee-integration-ansible-plugin-builder-latest
+        - ansible-ee-integration-ansible-plugin-builder-stable2.12
+    gate:
+      queue: integrated
+      jobs: *ansible-collections-ansible-plugin-builder-jobs
+    periodic:
+      jobs: []
+
+- project-template:
     name: ansible-collections-ansible-utils
     check:
       jobs: &ansible-collections-ansible-utils-jobs

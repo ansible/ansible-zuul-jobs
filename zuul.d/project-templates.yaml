@@ -402,9 +402,6 @@
     name: ansible-community-ansible-plugin-builder
     check:
       jobs:
-        - ansible-test-integration-ansible-plugin-builder:
-            vars:
-              ansible_test_collections: true
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-collections/ansible.utils
@@ -412,9 +409,6 @@
       queue: integrated
       fail-fast: true
       jobs:
-        - ansible-test-integration-ansible-plugin-builder:
-            vars:
-              ansible_test_collections: true
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-collections/ansible.utils

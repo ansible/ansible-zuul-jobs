@@ -68,7 +68,7 @@
     vars:
       ansible_runner_container_version: stable-2.12-devel
 
- job:
+- job:
     name: ansible-ee-integration-ansible-utils-stable2.13
     parent: ansible-ee-integration-ansible-utils-latest
     vars:

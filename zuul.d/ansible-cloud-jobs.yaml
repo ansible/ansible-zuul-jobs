@@ -374,6 +374,7 @@
     post-run:
       - playbooks/ansible-test-base/post.yaml
     required-projects:
+      - name: github.com/ansible/ansible
       - name: github.com/ansible-collections/amazon.aws
     timeout: 3600
     nodeset: fedora-35-1vcpu

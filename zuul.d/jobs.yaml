@@ -10,14 +10,6 @@
     post-run: playbooks/base/post.yaml
 
 - job:
-    name: github-workflows
-    description: |
-      A job to validate no github workflow directory are found.
-    run: playbooks/github-workflows/run.yaml
-    nodeset:
-      nodes: []
-
-- job:
     name: ansible-tox-docs
     parent: tox-docs
     nodeset: centos-8-stream

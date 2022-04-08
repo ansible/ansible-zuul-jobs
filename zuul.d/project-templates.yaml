@@ -1765,6 +1765,7 @@
     check:
       jobs: &ansible-collections-ansible-utils-jobs
         - ansible-ee-integration-ansible-utils-latest
+        - ansible-ee-integration-ansible-utils-stable2.13
         - ansible-ee-integration-ansible-utils-stable2.12
         - ansible-ee-integration-ansible-utils-stable2.11
         - ansible-ee-integration-ansible-utils-stable2.10

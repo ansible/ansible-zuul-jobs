@@ -13,4 +13,4 @@
     required-projects:
       - name: github.com/ansible/ansible-zuul-jobs
     vars:
-      install_ovs: True
+      install_ovs: False

@@ -323,6 +323,44 @@
       ansible_collections_repo: github.com/ansible-collections/community.yang
       ansible_test_integration_targets: ""
 
+- job:
+    name: ansible-test-units-ansible-yang-python36
+    parent: ansible-test-units-base-python36
+    required-projects:
+      - name: github.com/ansible-collections/ansible.yang
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/ansible.yang
+
+- job:
+    name: ansible-test-units-ansible-yang-python37
+    parent: ansible-test-units-base-python37
+    required-projects:
+      - name: github.com/ansible-collections/ansible.yang
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/ansible.yang
+
+- job:
+    name: ansible-test-units-ansible-yang-python38
+    parent: ansible-test-units-base-python38
+    required-projects:
+      - name: github.com/ansible-collections/ansible.yang
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/ansible.yang
+
+- job:
+    name: ansible-test-network-integration-ansible-yang-iosxr-netconf-python36
+    parent: ansible-test-network-integration-iosxr-python36
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/ansible.yang
+      ansible_test_integration_targets: ""
+
+- job:
+    name: ansible-test-network-integration-ansible-yang-junos-vsrx-netconf-python36
+    parent: ansible-test-network-integration-junos-vsrx-python36
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/ansible.yang
+      ansible_test_integration_targets: ""
+
 # molecule- prefixed jobs match ansible- ones but also enable extra
 # virtualization services that are use by molecule, like docker, podman (TBD)
 # or libvirt (TBD).

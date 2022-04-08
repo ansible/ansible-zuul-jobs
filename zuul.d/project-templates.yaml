@@ -380,7 +380,8 @@
               - name: github.com/ansible-collections/ansible.utils
             vars:
               ansible_test_collections: true
-              ansible_test_splitter__test_changed: false
+              ansible_test_splitter__test_changed: true
+              ansible_test_splitter__total_job: 4
               ansible_test_splitter__check_for_changes_in:
                 - "~/{{ zuul.projects['github.com/ansible-collections/cisco.nxos'].src_dir }}"
         - integration-cisco.nxos-cli-python38-latest-1

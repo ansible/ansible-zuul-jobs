@@ -625,9 +625,6 @@
         - ansible-test-sanity-docker-milestone
         - ansible-test-sanity-docker-stable-2.11
         - ansible-test-sanity-docker-stable-2.12
-        - ansible-test-units-community-vmware-python27
-        - ansible-test-units-community-vmware-python36
-        - ansible-test-units-community-vmware-python37
         - ansible-test-units-community-vmware-python38
         - ansible-test-cloud-integration-vcenter7_only-python36-stable211
         - ansible-test-cloud-integration-vcenter7_2esxi-python36-stable211
@@ -641,9 +638,6 @@
         - ansible-test-sanity-docker-milestone
         - ansible-test-sanity-docker-stable-2.11
         - ansible-test-sanity-docker-stable-2.12
-        - ansible-test-units-community-vmware-python27
-        - ansible-test-units-community-vmware-python36
-        - ansible-test-units-community-vmware-python37
         - ansible-test-units-community-vmware-python38
         - ansible-test-cloud-integration-govcsim-python38_1_of_3
         - ansible-test-cloud-integration-govcsim-python38_2_of_3

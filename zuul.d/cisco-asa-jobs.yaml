@@ -119,14 +119,7 @@
     vars:
       test_ansible_python_interpreter: /usr/bin/python3
       test_fips_mode: false
-<<<<<<< HEAD
-<<<<<<< HEAD
       ansible_test_python: 3.8
-=======
->>>>>>> 9d5d053 (fix asa 1.12 jobs)
-=======
-      ansible_test_python: 3.8
->>>>>>> 4e5af9c (fix ansible_test_python)
 
 - job:
     name: network-ee-integration-tests-cisco-asa-libssh-stable-2.12
@@ -148,14 +141,7 @@
     vars:
       test_ansible_python_interpreter: /usr/bin/python3
       test_fips_mode: false
-<<<<<<< HEAD
-<<<<<<< HEAD
       ansible_test_python: 3.8
-=======
->>>>>>> 9d5d053 (fix asa 1.12 jobs)
-=======
-      ansible_test_python: 3.8
->>>>>>> 4e5af9c (fix ansible_test_python)
 
 - job:
     name: network-ee-integration-tests-cisco-asa-libssh-stable-2.11

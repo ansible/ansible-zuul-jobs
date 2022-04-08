@@ -1,45 +1,34 @@
 ---
 # ansible-collections/cisco.asa jobs
-
+# =============================================================================
 - job:
     name: ansible-network-asa-appliance
     parent: ansible-network-appliance-base
-    pre-run: playbooks/ansible-network-asa-appliance/pre.yaml
+    pre-run:
+      - playbooks/ansible-network-asa-appliance/pre.yaml
+      - playbooks/network-ee-integration-tests/pre.yaml
     run: playbooks/ansible-network-asa-appliance/run.yaml
     host-vars:
       asav9-12-3:
         ansible_network_os: asa
     required-projects:
       - name: github.com/ansible/ansible-zuul-jobs
-    nodeset: asav9-12-3
-
-- job:
-    name: ansible-test-network-integration-asa
-    abstract: true
-    dependencies:
-      - name: build-ansible-collection
-        soft: true
-    parent: ansible-network-asa-appliance
-    pre-run:
-      - playbooks/ansible-test-base/pre.yaml
-      - playbooks/ansible-test-network-integration-base/pre.yaml
-    run: playbooks/ansible-test-base/run.yaml
-    post-run:
-      - playbooks/ansible-test-network-integration-base/post.yaml
-      - playbooks/ansible-test-base/post.yaml
-    required-projects:
-      - name: github.com/ansible/ansible
-      - name: github.com/ansible-collections/cisco.asa
-    timeout: 9000
+    nodeset: asav9-12-3-python38
     vars:
-      ansible_collections_repo: github.com/ansible-collections/cisco.asa
-      ansible_test_collections: true
-      ansible_test_command: network-integration
-      ansible_test_integration_targets: "asa_.*"
+      ansible_test_python: 3.8
 
+# =============================================================================
 - job:
     name: ansible-test-units-asa-python27
     parent: ansible-test-units-base-python27
+    required-projects:
+      - name: github.com/ansible-collections/cisco.asa
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/cisco.asa
+
+- job:
+    name: ansible-test-units-asa-python35
+    parent: ansible-test-units-base-python35
     required-projects:
       - name: github.com/ansible-collections/cisco.asa
     vars:
@@ -61,43 +50,31 @@
     vars:
       ansible_collections_repo: github.com/ansible-collections/cisco.asa
 
+# =============================================================================
 - job:
-    name: ansible-test-network-integration-asa-python27
-    parent: ansible-test-network-integration-asa
-    nodeset: asav9-12-3
-    vars:
-      ansible_test_python: 2.7
+    name: network-ee-integration-tests-cisco-asa
+    parent: ansible-network-asa-appliance
 
 - job:
-    name: ansible-test-network-integration-asa-python27-stable211
-    parent: ansible-test-network-integration-asa
-    nodeset: asav9-12-3
-    required-projects:
-      - name: github.com/ansible/ansible
-        override-checkout: stable-2.11
+    name: network-ee-integration-tests-cisco-asa
+    parent: network-ee-integration-tests
+    nodeset: asav9-12-3-python38
     vars:
-      ansible_test_python: 2.7
-
-- job:
-    name: ansible-test-network-integration-asa-python27-stable29
-    parent: ansible-test-network-integration-asa
-    nodeset: asav9-12-3
-    required-projects:
-      - name: github.com/ansible/ansible
-        override-checkout: stable-2.9
-    vars:
-      ansible_test_python: 2.7
+      test_ansible_skip_tags: network_cli
+      test_fips_mode: false
+      ansible_test_python: 3.8
 
 - job:
     name: ansible-test-network-integration-asa-python38
     parent: ansible-test-network-integration-asa
-    nodeset: asav9-12-3
+    nodeset: asav9-12-3-python38
     vars:
-      ansible_test_python: 3.8
+      ansible_test_network_cli_ssh_type: network_cli
 
 - job:
     name: ansible-test-network-integration-asa-libssh-python38
-    parent: ansible-test-network-integration-asa-python38
+    parent: network-ee-integration-tests
+    nodeset: asav9-12-3-python38
     vars:
       ansible_test_network_cli_ssh_type: libssh
 
@@ -105,7 +82,7 @@
 - job:
     name: ansible-test-network-integration-asa-python38-stable212
     parent: ansible-test-network-integration-asa
-    nodeset: asav9-12-3
+    nodeset: asav9-12-3-python38
     required-projects:
       - name: github.com/ansible/ansible
         override-checkout: stable-2.12
@@ -115,7 +92,7 @@
 - job:
     name: ansible-test-network-integration-asa-python38-stable211
     parent: ansible-test-network-integration-asa
-    nodeset: asav9-12-3
+    nodeset: asav9-12-3-python38
     required-projects:
       - name: github.com/ansible/ansible
         override-checkout: stable-2.11
@@ -126,26 +103,72 @@
     name: ansible-test-network-integration-asa-libssh-python38-stable212
     parent: ansible-test-network-integration-asa-python38-stable212
     vars:
-      ansible_test_network_cli_ssh_type: libssh
+      test_ansible_network_cli_ssh_type: libssh
+      test_ansible_skip_tags: local
+      ansible_test_do_number: 1
+
+# =============================================================================
+- job:
+    name: network-ee-integration-tests-cisco-asa-stable-2.12
+    parent: ansible-network-asa-appliance
 
 - job:
-    name: ansible-test-network-integration-asa-libssh-python38-stable211
-    parent: ansible-test-network-integration-asa-python38-stable211
+    name: network-ee-integration-tests-cisco-asa-stable-2.12
+    parent: network-ee-integration-tests-stable-2.12
+    nodeset: asav9-12-3-python38
     vars:
-      ansible_test_network_cli_ssh_type: libssh
-
-- job:
-    name: ansible-test-network-integration-asa-python38-stable29
-    parent: ansible-test-network-integration-asa
-    nodeset: asav9-12-3
-    required-projects:
-      - name: github.com/ansible/ansible
-        override-checkout: stable-2.9
-    vars:
+      test_ansible_python_interpreter: /usr/bin/python3
+      test_fips_mode: false
       ansible_test_python: 3.8
 
 - job:
-    name: ansible-test-network-integration-asa-libssh-python38-stable29
-    parent: ansible-test-network-integration-asa-python38-stable29
+    name: network-ee-integration-tests-cisco-asa-libssh-stable-2.12
+    parent: network-ee-integration-tests-cisco-asa-stable-2.12
     vars:
-      ansible_test_network_cli_ssh_type: libssh
+      test_ansible_network_cli_ssh_type: libssh
+      test_ansible_skip_tags: local
+      ansible_test_do_number: 1
+
+# =============================================================================
+- job:
+    name: network-ee-integration-tests-cisco-asa-stable-2.11
+    parent: ansible-network-asa-appliance
+
+- job:
+    name: network-ee-integration-tests-cisco-asa-stable-2.11
+    parent: network-ee-integration-tests-stable-2.11
+    nodeset: asav9-12-3-python38
+    vars:
+      test_ansible_python_interpreter: /usr/bin/python3
+      test_fips_mode: false
+      ansible_test_python: 3.8
+
+- job:
+    name: network-ee-integration-tests-cisco-asa-libssh-stable-2.11
+    parent: network-ee-integration-tests-cisco-asa-stable-2.11
+    vars:
+      test_ansible_network_cli_ssh_type: libssh
+      test_ansible_skip_tags: local
+      ansible_test_do_number: 1
+
+# =============================================================================
+- job:
+    name: network-ee-integration-tests-cisco-asa-stable-2.9
+    parent: ansible-network-asa-appliance
+
+- job:
+    name: network-ee-integration-tests-cisco-asa-stable-2.9
+    parent: network-ee-integration-tests-stable-2.9
+    nodeset: asav9-12-3-python38
+    vars:
+      test_ansible_python_interpreter: /usr/bin/python3
+      test_fips_mode: false
+      ansible_test_python: 3.8
+
+- job:
+    name: network-ee-integration-tests-cisco-asa-libssh-stable-2.9
+    parent: network-ee-integration-tests-cisco-asa-stable-2.9
+    vars:
+      test_ansible_network_cli_ssh_type: libssh
+      test_ansible_skip_tags: local
+      ansible_test_do_number: 1

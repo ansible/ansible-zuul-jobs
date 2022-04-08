@@ -6,9 +6,9 @@
 - job:
     name: ansible-test-integration-ansible-plugin-builder
     parent: ansible-test-integration-base
-    nodeset: openvswitch-2.9.0-python38
+    nodeset: openvswitch-2.15.0
     host-vars:
-      openvswitch-2.9.0:
+      controller:
         ansible_network_os: openvswitch
     required-projects:
       - name: github.com/ansible/ansible-zuul-jobs

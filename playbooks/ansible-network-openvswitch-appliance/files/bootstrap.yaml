@@ -7,3 +7,4 @@
         name:
           - openvswitch-switch
         state: present
+      when: install_ovs|d(True)

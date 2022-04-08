@@ -12,3 +12,5 @@
         ansible_network_os: openvswitch
     required-projects:
       - name: github.com/ansible/ansible-zuul-jobs
+    vars:
+      install_ovs: True

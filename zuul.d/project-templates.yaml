@@ -1786,6 +1786,7 @@
         - ansible-test-sanity-docker-stable-2.10
         - ansible-test-sanity-docker-stable-2.11
         - ansible-test-sanity-docker-stable-2.12
+        - ansible-test-sanity-docker-stable-2.13
         - ansible-test-units-ansible-utils-python27
         - ansible-test-units-ansible-utils-python36
         - ansible-test-units-ansible-utils-python37

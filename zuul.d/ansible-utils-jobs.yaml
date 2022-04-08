@@ -2,24 +2,28 @@
 # ansible-collections/ansible.utils jobs
 # =============================================================================
 - job:
-    name: ansible-test-units-ansible-utils-python27
-    parent: ansible-test-units-base-python27
-    required-projects:
-      - name: github.com/ansible-collections/ansible.utils
-    vars:
-      ansible_collections_repo: github.com/ansible-collections/ansible.utils
-
-- job:
     name: ansible-test-units-ansible-utils-python36
-    parent: ansible-test-units-base-python27
+    parent: ansible-test-units-base-python36
     required-projects:
       - name: github.com/ansible-collections/ansible.utils
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.9
     vars:
       ansible_collections_repo: github.com/ansible-collections/ansible.utils
 
 - job:
     name: ansible-test-units-ansible-utils-python37
     parent: ansible-test-units-base-python37
+    required-projects:
+      - name: github.com/ansible-collections/ansible.utils
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.9
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/ansible.utils
+
+- job:
+    name: ansible-test-units-ansible-utils-python39
+    parent: ansible-test-units-base-python39
     required-projects:
       - name: github.com/ansible-collections/ansible.utils
     vars:
@@ -46,6 +50,7 @@
         - integration
       ansible_network_os: openvswitch
       test_ansible_ssh_private_key_file: ~/.ssh/id_ecdsa
+      test_ansible_python_interpreter: /usr/bin/python3.9
       test_ansible_network_cli_ssh_type: libssh
       collection_name: utils
       collection_namespace: ansible
@@ -74,3 +79,4 @@
     parent: ansible-ee-integration-ansible-utils-latest
     vars:
       ansible_runner_container_version: stable-2.9-devel
+      test_ansible_python_interpreter: /usr/bin/python3.8

@@ -5,6 +5,12 @@
       include_role:
         name: ensure-tox
 
+    - name: Ensure python3.9 is present
+      become: true
+      package:
+        name: python3.9
+        state: present
+
     - name: Setup tox role
       include_role:
         name: tox

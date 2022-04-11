@@ -23,7 +23,7 @@
     required-projects:
       - name: github.com/ansible/ansible-zuul-jobs
     nodeset: nxos-9
-    timeout: 10800
+    timeout: 12600
     files:
       - ^plugins/.*$
       - ^tests/integration/.*$

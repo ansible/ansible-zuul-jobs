@@ -734,6 +734,8 @@
         - ansible-test-units-junos-python27
         - ansible-test-units-junos-python36
         - ansible-test-units-junos-python37
+        - ansible-test-units-junos-python38
+        - ansible-test-units-junos-python39
     gate:
       queue: integrated
       fail-fast: true
@@ -976,6 +978,7 @@
         - ansible-test-sanity-docker-stable-2.11
         - ansible-test-sanity-docker-stable-2.12
         - ansible-test-units-junos-python38
+        - ansible-test-units-junos-python39
         - build-ansible-collection
 
 - project-template:

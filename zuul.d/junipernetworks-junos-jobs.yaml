@@ -61,6 +61,7 @@
     parent: ansible-test-units-base-python36
     required-projects:
       - name: github.com/ansible-collections/junipernetworks.junos
+      - name: github.com/ansible/ansible
     vars:
       ansible_collections_repo: github.com/ansible-collections/junipernetworks.junos
 
@@ -69,12 +70,21 @@
     parent: ansible-test-units-base-python37
     required-projects:
       - name: github.com/ansible-collections/junipernetworks.junos
+      - name: github.com/ansible/ansible
     vars:
       ansible_collections_repo: github.com/ansible-collections/junipernetworks.junos
 
 - job:
     name: ansible-test-units-junos-python38
     parent: ansible-test-units-base-python38
+    required-projects:
+      - name: github.com/ansible-collections/junipernetworks.junos
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/junipernetworks.junos
+
+- job:
+    name: ansible-test-units-junos-python39
+    parent: ansible-test-units-base-python39
     required-projects:
       - name: github.com/ansible-collections/junipernetworks.junos
     vars:
@@ -129,7 +139,6 @@
     nodeset: vsrx3
     required-projects:
       - name: github.com/ansible/ansible
-        override-checkout: stable-2.11
     vars:
       ansible_test_python: 2.7
 
@@ -139,8 +148,8 @@
     nodeset: vsrx3
     required-projects:
       - name: github.com/ansible/ansible
-        override-checkout: stable-2.11
     vars:
+      test_ansible_python_interpreter: /usr/bin/python3.8
       ansible_test_python: 2.7
 
 - job:
@@ -149,7 +158,6 @@
     nodeset: vsrx3
     required-projects:
       - name: github.com/ansible/ansible
-        override-checkout: stable-2.11
     vars:
       ansible_test_python: 2.7
 
@@ -159,8 +167,8 @@
     nodeset: vsrx3
     required-projects:
       - name: github.com/ansible/ansible
-        override-checkout: stable-2.11
     vars:
+      test_ansible_python_interpreter: /usr/bin/python3.8
       ansible_test_python: 2.7
 
 - job:
@@ -176,7 +184,6 @@
     nodeset: vsrx3
     required-projects:
       - name: github.com/ansible/ansible
-        override-checkout: stable-2.11
     vars:
       ansible_test_python: 3.6
 
@@ -186,7 +193,6 @@
     nodeset: vsrx3
     required-projects:
       - name: github.com/ansible/ansible
-        override-checkout: stable-2.11
     vars:
       ansible_test_python: 3.6
 
@@ -209,7 +215,6 @@
     nodeset: vsrx3
     required-projects:
       - name: github.com/ansible/ansible
-        override-checkout: stable-2.12
     vars:
       ansible_test_python: 3.8
 
@@ -219,7 +224,6 @@
     nodeset: vsrx3
     required-projects:
       - name: github.com/ansible/ansible
-        override-checkout: stable-2.12
     vars:
       ansible_test_python: 3.8
 
@@ -235,7 +239,6 @@
     nodeset: vsrx3
     required-projects:
       - name: github.com/ansible/ansible
-        override-checkout: stable-2.11
     vars:
       ansible_test_python: 3.6
 
@@ -251,14 +254,15 @@
     nodeset: vsrx3
     required-projects:
       - name: github.com/ansible/ansible
-        override-checkout: stable-2.11
     vars:
+      test_ansible_python_interpreter: /usr/bin/python3.8
       ansible_test_python: 3.6
 
 - job:
     name: ansible-test-network-integration-junos-vsrx-network_cli-libssh-python36-stable29
     parent: ansible-test-network-integration-junos-vsrx-network_cli-python36-stable29
     vars:
+      test_ansible_python_interpreter: /usr/bin/python3.8
       ansible_test_network_cli_ssh_type: libssh
 
 - job:

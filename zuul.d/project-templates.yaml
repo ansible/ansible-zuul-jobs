@@ -748,10 +748,12 @@
             vars:
               ansible_test_collections: true
               ansible_test_integration_targets: "junos_.*"
+            voting: false
         - ansible-test-network-integration-junos-vsrx-netconf-python36-stable211:
             vars:
               ansible_test_collections: true
               ansible_test_integration_targets: "junos_.*"
+            voting: false
         - ansible-test-network-integration-junos-vsrx-netconf-python38-stable212:
             vars:
               ansible_test_collections: true
@@ -764,10 +766,12 @@
             vars:
               ansible_test_collections: true
               ansible_test_integration_targets: "junos_.*"
+            voting: false
         - ansible-test-network-integration-junos-vsrx-network_cli-python36-stable211:
             vars:
               ansible_test_collections: true
               ansible_test_integration_targets: "junos_.*"
+            voting: false
         - ansible-test-network-integration-junos-vsrx-network_cli-python38-stable212:
             vars:
               ansible_test_collections: true
@@ -780,10 +784,12 @@
             vars:
               ansible_test_collections: true
               ansible_test_integration_targets: "junos_.*"
+            voting: false
         - ansible-test-network-integration-junos-vsrx-network_cli-libssh-python36-stable211:
             vars:
               ansible_test_collections: true
               ansible_test_integration_targets: "junos_.*"
+            voting: false
         - ansible-test-network-integration-junos-vsrx-network_cli-libssh-python38-stable212:
             vars:
               ansible_test_collections: true
@@ -821,6 +827,13 @@
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-collections/ansible.utils
+              - name: github.com/ansible-collections/arista.eos
+              - name: github.com/ansible-collections/cisco.ios
+              - name: github.com/ansible-collections/cisco.iosxr
+              - name: github.com/ansible-collections/cisco.nxos
+              - name: github.com/ansible-collections/junipernetworks.junos
+              - name: github.com/ansible-collections/openvswitch.openvswitch
+              - name: github.com/ansible-collections/vyos.vyos
     gate:
       queue: integrated
       fail-fast: true
@@ -829,6 +842,7 @@
             vars:
               ansible_test_collections: true
               ansible_test_integration_targets: "junos_.*"
+            voting: false
         - ansible-test-network-integration-junos-vsrx-netconf-python38:
             vars:
               ansible_test_collections: true
@@ -837,6 +851,7 @@
             vars:
               ansible_test_collections: true
               ansible_test_integration_targets: "junos_.*"
+            voting: false
         - ansible-test-network-integration-junos-vsrx-network_cli-python38:
             vars:
               ansible_test_collections: true
@@ -845,6 +860,7 @@
             vars:
               ansible_test_collections: true
               ansible_test_integration_targets: "junos_.*"
+            voting: false
         - ansible-test-network-integration-junos-vsrx-network_cli-libssh-python38:
             vars:
               ansible_test_collections: true
@@ -866,6 +882,13 @@
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-collections/ansible.utils
+              - name: github.com/ansible-collections/arista.eos
+              - name: github.com/ansible-collections/cisco.ios
+              - name: github.com/ansible-collections/cisco.iosxr
+              - name: github.com/ansible-collections/cisco.nxos
+              - name: github.com/ansible-collections/junipernetworks.junos
+              - name: github.com/ansible-collections/openvswitch.openvswitch
+              - name: github.com/ansible-collections/vyos.vyos
 
 - project-template:
     name: ansible-collections-juniper-junos
@@ -952,6 +975,7 @@
               - name: github.com/ansible-collections/ansible.netcommon
               - name: github.com/ansible-collections/ansible.utils
               - name: github.com/ansible-collections/cisco.iosxr
+              - name: github.com/ansible-collections/cisco.nxos
               - name: github.com/ansible-collections/junipernetworks.junos
     gate:
       queue: integrated

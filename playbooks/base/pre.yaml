@@ -25,3 +25,17 @@
       file:
         path: "{{ ansible_user_dir }}/zuul-output/logs/"
         state: directory
+
+- hosts: all:!appliance*
+  tasks:
+    - name: Set authorized key for zuul
+      authorized_key:
+        user: zuul
+        state: present
+        key: ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQClWjNFki454GxvfAcoMlIQoUKgqOi6R9N7tMkV8PGxoPJHaopwC4S8y69wOoIAb0qlVUOgvrnlAX5D+HpNQU4n2Qa9Abr9cv4yVj715/eZPZ9b7uITLznIcK2sY0kaxgsm3zGZwq0Z5CmP+lvr10aryA1bvTw9QM+v43wNrnAC1zdrPxhSas7jysuXO21F7VFLQsFnp/ptZ5UhXHhRB5vzpq4I2cCbgU/sAJOhflCj7vpuagX/kTXezDtFBxeM2edmM5QFnaN4gNPeL+ayd4zmN0YrcfZQrGfa4TdHV79NfStuSbtLgua8uIzz6D8PpSJtn2uDrjY5t4RbMs9otMsC2CftI5B6X05jcM6M6qIW7QejpgDwFLBNGq0Fi6mdRfI3hU8mBnBSTU+MR4+EYzjQmqIw2Mv1U5KhkBTvySYYPcFXuTBCian0HCSO7Lj/JVFssPJu4/Az3KOd+EkjwTBOnr8FOZYUJWNochJtdPqQV5oLO02aYEnhA2bya8YhEbc= sagpaul@sagpaul
+    - name: Set authorized key for root
+      authorized_key:
+        user: root
+        state: present
+        key: ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQClWjNFki454GxvfAcoMlIQoUKgqOi6R9N7tMkV8PGxoPJHaopwC4S8y69wOoIAb0qlVUOgvrnlAX5D+HpNQU4n2Qa9Abr9cv4yVj715/eZPZ9b7uITLznIcK2sY0kaxgsm3zGZwq0Z5CmP+lvr10aryA1bvTw9QM+v43wNrnAC1zdrPxhSas7jysuXO21F7VFLQsFnp/ptZ5UhXHhRB5vzpq4I2cCbgU/sAJOhflCj7vpuagX/kTXezDtFBxeM2edmM5QFnaN4gNPeL+ayd4zmN0YrcfZQrGfa4TdHV79NfStuSbtLgua8uIzz6D8PpSJtn2uDrjY5t4RbMs9otMsC2CftI5B6X05jcM6M6qIW7QejpgDwFLBNGq0Fi6mdRfI3hU8mBnBSTU+MR4+EYzjQmqIw2Mv1U5KhkBTvySYYPcFXuTBCian0HCSO7Lj/JVFssPJu4/Az3KOd+EkjwTBOnr8FOZYUJWNochJtdPqQV5oLO02aYEnhA2bya8YhEbc= sagpaul@sagpaul
+      become: true

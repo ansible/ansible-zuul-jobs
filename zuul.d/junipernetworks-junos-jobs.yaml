@@ -265,6 +265,9 @@
     name: ansible-test-network-integration-junos-vsrx-python36
     parent: ansible-test-network-integration-junos-vsrx
     nodeset: vsrx3
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.11
     vars:
       ansible_test_python: 3.6
 

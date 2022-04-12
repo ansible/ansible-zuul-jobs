@@ -372,3 +372,9 @@
     nodes:
       - name: controller
         label: ansible-fedora-35-1vcpu
+
+- nodeset:
+    name: rhel8
+    nodes:
+      - name: controller
+        label: ansible-rhel-8.5

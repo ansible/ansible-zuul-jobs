@@ -370,7 +370,7 @@
     name: ansible-collections-cisco-nxos
     check:
       jobs:
-        - ansible-ee-integration-cisco-nxos-cli-python38-latest:
+        - ansible-ee-integration-cisco-nxos-cli-python39-latest:
             vars:
               ansible_test_collections: true
             required-projects:
@@ -793,7 +793,7 @@
             vars:
               ansible_test_collections: true
               ansible_test_integration_targets: "junos_.*"
-        - ansible-ee-integration-cisco-nxos-cli-python38-latest:
+        - ansible-ee-integration-cisco-nxos-cli-python39-latest:
             vars:
               ansible_test_collections: true
             voting: false
@@ -850,7 +850,7 @@
             vars:
               ansible_test_collections: true
               ansible_test_integration_targets: "junos_.*"
-        - ansible-ee-integration-cisco-nxos-cli-python38-latest:
+        - ansible-ee-integration-cisco-nxos-cli-python39-latest:
             vars:
               ansible_test_collections: true
             voting: false

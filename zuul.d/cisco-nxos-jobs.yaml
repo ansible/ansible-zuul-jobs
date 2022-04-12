@@ -14,7 +14,7 @@
       container_image_tests:
         - integration
       test_ansible_ssh_private_key_file: ~/.ssh/id_ecdsa
-      test_ansible_python_interpreter: /usr/bin/python3.8
+      test_ansible_python_interpreter: /usr/bin/python3.9
       test_ansible_network_cli_ssh_type: paramiko
       test_fips_mode: false
     host-vars:
@@ -63,7 +63,7 @@
       ansible_collections_repo: github.com/ansible-collections/cisco.nxos
 
 - job:
-    name: ansible-ee-integration-cisco-nxos-cli-python38-latest
+    name: ansible-ee-integration-cisco-nxos-cli-python39-latest
     parent: ansible-ee-integration-cisco-nxos
     vars:
       test_ansible_skip_tags: local,nxapi

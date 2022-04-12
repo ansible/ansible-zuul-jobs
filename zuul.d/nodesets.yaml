@@ -306,6 +306,26 @@
           - esxi2
 
 - nodeset:
+    name: vmware-vcsa_1esxi-7.0.3-rhel
+    nodes:
+      - name: controller
+        label: ansible-rhel-8.5
+      - name: vcenter
+        label: ansible-vmware-vcsa-7.0.3
+      - name: esxi1
+        label: ansible-esxi-7.0.3
+    groups:
+      - name: appliance-ssh
+        nodes:
+          - vcenter
+      - name: appliance
+        nodes:
+          - esxi1
+      - name: esxis
+        nodes:
+          - esxi1
+
+- nodeset:
     name: controller-python27
     nodes:
       - name: controller

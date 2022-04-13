@@ -27,7 +27,6 @@
     files:
       - ^plugins/.*$
       - ^tests/integration/.*$
-      - ^test-requirements.txt
       - ^requirements.txt
 
 - job:

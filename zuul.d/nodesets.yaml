@@ -248,17 +248,6 @@
           - vyos
 
 
-# Ansible cloud appliance nodesets
-- nodeset:
-    name: vmware-govcsim-python38
-    nodes:
-      - name: fedora-35
-        label: ansible-fedora-35-1vcpu
-    groups:
-      - name: controller
-        nodes:
-          - fedora-35
-
 # vcenter 7.0.3
 - nodeset:
     name: vmware-vcsa-7.0.3-python36

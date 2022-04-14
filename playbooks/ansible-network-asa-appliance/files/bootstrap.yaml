@@ -5,7 +5,7 @@
   gather_facts: false
   vars:
     ansible_become_pass: cisco
-    ansible_password: admin123
+    ansible_password: zuul
     ansible_user: admin
 
   tasks:
@@ -18,7 +18,7 @@
       become_method: enable
       asa_config:
         lines:
-          - username zuul nopassword privilege 15
+          - username zuul ansible_password privilege 15
         save: true
 
     - name: Add SSH public key

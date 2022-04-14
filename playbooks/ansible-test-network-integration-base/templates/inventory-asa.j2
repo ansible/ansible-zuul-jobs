@@ -6,6 +6,7 @@ asav9-12-3 ansible_port=22 ansible_host={{ hostvars['asav9-12-3'].ansible_host }
 
 [asa:vars]
 ansible_become=true
+ansible_password=zuul
 ansible_become_method={% if ansible_test_collections is defined -%}ansible.netcommon.{%- endif %}enable
 ansible_become_pass=cisco
 ansible_connection={% if ansible_test_collections is defined -%}ansible.netcommon.{%- endif %}network_cli

@@ -30,14 +30,6 @@
         parents: username zuul attributes
         save: true
 
-    - name: Setup password for the user
-      become: true
-      become_method: enable
-      asa_config:
-        lines:
-          - "username zuul password {{ ansible_password }} privilege 15"
-        save: true
-
 - hosts: appliance
   gather_facts: false
   vars:

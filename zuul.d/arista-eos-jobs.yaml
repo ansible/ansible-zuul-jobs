@@ -92,6 +92,11 @@
     vars:
       ansible_runner_container_version: stable-2.12-devel
 
+- job:
+    name: ansible-ee-integration-arista-eos-stable-2.13
+    parent: ansible-ee-integration-arista-eos
+    vars:
+      ansible_runner_container_version: stable-2.13-devel
 # httpapi
 
 - job:
@@ -119,6 +124,13 @@
     parent: ansible-ee-integration-arista-eos
     vars:
       ansible_runner_container_version: stable-2.12-devel
+      test_ansible_skip_tags: network_cli
+
+- job:
+    name: ansible-ee-integration-arista-eos-httpapi-stable-2.13
+    parent: ansible-ee-integration-arista-eos
+    vars:
+      ansible_runner_container_version: stable-2.13-devel
       test_ansible_skip_tags: network_cli
 
 # libssh
@@ -153,5 +165,13 @@
     parent: ansible-ee-integration-arista-eos-httpapi-latest
     vars:
       ansible_runner_container_version: stable-2.12-devel
+      test_ansible_network_cli_ssh_type: libssh
+      test_fips_mode: true
+
+- job:
+    name: ansible-ee-integration-arista-eos-libssh-stable-2.13
+    parent: ansible-ee-integration-arista-eos-httpapi-latest
+    vars:
+      ansible_runner_container_version: stable-2.13-devel
       test_ansible_network_cli_ssh_type: libssh
       test_fips_mode: true

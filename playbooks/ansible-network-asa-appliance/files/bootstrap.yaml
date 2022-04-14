@@ -18,7 +18,7 @@
       become_method: enable
       asa_config:
         lines:
-          - "username zuul {{ ansible_password }} privilege 15"
+          - "username zuul password {{ ansible_password }} privilege 15"
         save: true
 
     - name: Add SSH public key

@@ -170,31 +170,19 @@
           - controller
 
 - nodeset:
-    name: QRadarCE-7.3.1-python38
+    name: QRadarCE-7.3.1
     nodes:
       - name: fedora-35
         label: ansible-fedora-35-1vcpu
 
 - nodeset:
-    name: SplunkEnterprise-SES-8.0.0-python38
+    name: SplunkEnterprise-SES-8.0.0
     nodes:
       - name: fedora-35
         label: ansible-fedora-35-1vcpu
 
 - nodeset:
-    name: Trendmicro-DeepSecurity-20.0.344-python27
-    nodes:
-      - name: fedora-35
-        label: ansible-fedora-35-1vcpu
-
-- nodeset:
-    name: Trendmicro-DeepSecurity-20.0.344-python36
-    nodes:
-      - name: fedora-35
-        label: ansible-fedora-35-1vcpu
-
-- nodeset:
-    name: Trendmicro-DeepSecurity-20.0.344-python38
+    name: Trendmicro-DeepSecurity-20.0.344
     nodes:
       - name: fedora-35
         label: ansible-fedora-35-1vcpu

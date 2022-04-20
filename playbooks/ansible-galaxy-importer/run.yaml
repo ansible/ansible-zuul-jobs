@@ -1,13 +1,16 @@
 ---
-- hosts: all
+- hosts: controller
   tasks:
-    - name: Generate version number for ansible collection
-      args:
-        chdir: "~/{{ zuul.project.src_dir }}"
-      shell: "~/{{ zuul.projects['github.com/ansible-network/releases'].src_dir }}/.tox/venv/bin/python -W ignore ~/{{ zuul.projects['github.com/ansible-network/releases'].src_dir }}/.tox/venv/bin/generate-ansible-collection"
-      register: _version
-
+    - name: Copy the galaxy.yml on the controller
+      fetch:
+        src: "{{ zuul.project.src_dir }}/galaxy.yml"
+        dest: '{{ zuul.executor.work_root }}/tmp_fetch'
+      register: _fetch
+    - name: Load information from galaxy.yml
+      include_vars:
+        file: '{{ _fetch.dest }}'
+        name: galaxy_info
     - name: Confirm collection can be imported into galaxy
       args:
         chdir: "~/{{ zuul.projects['github.com/ansible-network/releases'].src_dir }}"
-      shell: "source .tox/venv/bin/activate; ./tools/validate-collection.sh ~/downloads/{{ _version.stdout }}"
+      shell: "source .tox/venv/bin/activate; ./tools/validate-collection.sh ~/downloads/{{ galaxy_info.namespace}}-{{ galaxy_info.name }}-*.tar.gz"

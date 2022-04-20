@@ -102,6 +102,10 @@
         - integration-community.aws-11
         - integration-community.aws-12
         - integration-community.aws-13
+        # Failing due to broken six/urllib3 install in generated containers
+        # https://github.com/ansible/ansible-zuul-jobs/issues/1497
+        - ansible-ee-tests-stable-2.12:
+            voting: false
     gate:
       queue: integrated-aws
       jobs: *ansible-collections-amazon-aws-jobs
@@ -1409,7 +1413,11 @@
       a clean and up to date EE container.
     check:
       jobs: &ansible-ee-test-jobs
-        - ansible-ee-tests-latest
+        # Latest is expected to break from time to time.
+        - ansible-ee-tests-latest:
+            voting: false
+        # Temporary change due to rstcheck versioning issues.
+        # https://github.com/ansible/ansible-zuul-jobs/pull/1496
         - ansible-ee-tests-stable-2.9:
             voting: false
         - ansible-ee-tests-stable-2.11

@@ -63,6 +63,7 @@
     files:
       - ^plugins/.*$
       - ^tests/integration/.*$
+      - ^requirements.txt
 
 # network_cli
 

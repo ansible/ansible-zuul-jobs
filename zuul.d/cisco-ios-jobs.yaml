@@ -66,6 +66,10 @@
     nodeset: ios-15
     voting: false
     timeout: 10800
+    files:
+      - ^plugins/.*$
+      - ^tests/integration/.*$
+      - ^requirements.txt
 
 # - network-ee-integration-tests-ios-stable-2.9
 - job:

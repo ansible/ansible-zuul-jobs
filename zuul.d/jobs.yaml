@@ -138,6 +138,7 @@
     files:
       - ^plugins/.*$
       - ^tests/integration/.*$
+      - ^requirements.txt
 
 - job:
     name: ansible-test-integration-base

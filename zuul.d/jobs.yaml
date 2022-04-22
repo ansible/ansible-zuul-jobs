@@ -368,6 +368,14 @@
       ansible_collections_repo: github.com/ansible-collections/ansible.yang
 
 - job:
+    name: ansible-test-units-ansible-yang-python39
+    parent: ansible-test-units-base-python39
+    required-projects:
+      - name: github.com/ansible-collections/ansible.yang
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/ansible.yang
+
+- job:
     name: ansible-test-network-integration-ansible-yang-iosxr-netconf-python36
     parent: ansible-test-network-integration-iosxr-python36
     vars:
@@ -375,8 +383,22 @@
       ansible_test_integration_targets: ""
 
 - job:
+    name: ansible-test-network-integration-ansible-yang-iosxr-netconf-python38
+    parent: ansible-test-network-integration-iosxr-python38
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/ansible.yang
+      ansible_test_integration_targets: ""
+
+- job:
     name: ansible-test-network-integration-ansible-yang-junos-vsrx-netconf-python36
     parent: ansible-test-network-integration-junos-vsrx-python36
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/ansible.yang
+      ansible_test_integration_targets: ""
+
+- job:
+    name: ansible-test-network-integration-ansible-yang-junos-vsrx-netconf-python39
+    parent: ansible-test-network-integration-junos-vsrx-python39
     vars:
       ansible_collections_repo: github.com/ansible-collections/ansible.yang
       ansible_test_integration_targets: ""

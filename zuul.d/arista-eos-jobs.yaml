@@ -85,6 +85,7 @@
     name: ansible-ee-integration-arista-eos-stable-2.11
     parent: ansible-ee-integration-arista-eos
     vars:
+      ansible_runner_container_version: stable-2.11-devel
       test_ansible_skip_tags: httpapi
 
 - job:
@@ -92,6 +93,7 @@
     parent: ansible-ee-integration-arista-eos
     vars:
       ansible_runner_container_version: stable-2.12-devel
+      test_ansible_skip_tags: httpapi
 
 # httpapi
 
@@ -128,13 +130,15 @@
     parent: ansible-ee-integration-arista-eos
     vars:
       test_ansible_network_cli_ssh_type: libssh
+      test_ansible_skip_tags: httpapi
       test_fips_mode: true
 
 - job:
     name: ansible-ee-integration-arista-eos-libssh-stable-2.9
-    parent: ansible-ee-integration-arista-eos-httpapi-latest
+    parent: ansible-ee-integration-arista-eos
     vars:
       test_ansible_python_interpreter: /usr/bin/python3.8
+      test_ansible_skip_tags: httpapi
       ansible_runner_container_version: stable-2.9-devel
       test_ansible_network_cli_ssh_type: libssh
       # Backport of https://github.com/ansible/ansible/pull/73992 needed for 2.9 to enable fips
@@ -142,17 +146,19 @@
 
 - job:
     name: ansible-ee-integration-arista-eos-libssh-stable-2.11
-    parent: ansible-ee-integration-arista-eos-httpapi-latest
+    parent: ansible-ee-integration-arista-eos
     vars:
       test_ansible_python_interpreter: /usr/bin/python3.8
+      test_ansible_skip_tags: httpapi
       ansible_runner_container_version: stable-2.11-devel
       test_ansible_network_cli_ssh_type: libssh
       test_fips_mode: true
 
 - job:
     name: ansible-ee-integration-arista-eos-libssh-stable-2.12
-    parent: ansible-ee-integration-arista-eos-httpapi-latest
+    parent: ansible-ee-integration-arista-eos
     vars:
       ansible_runner_container_version: stable-2.12-devel
+      test_ansible_skip_tags: httpapi
       test_ansible_network_cli_ssh_type: libssh
       test_fips_mode: true

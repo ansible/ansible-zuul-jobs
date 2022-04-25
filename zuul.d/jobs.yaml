@@ -336,14 +336,6 @@
       ansible_test_integration_targets: ""
 
 - job:
-    name: ansible-test-units-ansible-yang-python27
-    parent: ansible-test-units-base-python27
-    required-projects:
-      - name: github.com/ansible-collections/ansible.yang
-    vars:
-      ansible_collections_repo: github.com/ansible-collections/ansible.yang
-
-- job:
     name: ansible-test-units-ansible-yang-python36
     parent: ansible-test-units-base-python36
     required-projects:

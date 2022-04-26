@@ -377,6 +377,7 @@
         - ansible-ee-integration-cisco-nxos-cli-python39-latest:
             vars:
               ansible_test_collections: true
+            voting: false
             required-projects:
               - name: github.com/ansible-collections/ansible.netcommon
               - name: github.com/ansible-collections/ansible.utils

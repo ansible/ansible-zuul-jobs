@@ -807,7 +807,8 @@
         - ansible-ee-integration-arista-eos-stable-2.11
         - ansible-ee-integration-arista-eos-stable-2.12
         - ansible-ee-integration-arista-eos-httpapi-latest
-        - ansible-ee-integration-arista-eos-httpapi-stable-2.9
+        - ansible-ee-integration-arista-eos-httpapi-stable-2.9:
+            voting: false
         - ansible-ee-integration-arista-eos-httpapi-stable-2.11
         - ansible-ee-integration-arista-eos-httpapi-stable-2.12
         - ansible-ee-integration-arista-eos-libssh-latest
@@ -870,7 +871,8 @@
               ansible_test_collections: true
             voting: false
         - ansible-ee-integration-arista-eos-latest
-        - ansible-ee-integration-arista-eos-httpapi-stable-2.9
+        - ansible-ee-integration-arista-eos-httpapi-stable-2.9:
+            voting: false
         - ansible-ee-integration-arista-eos-libssh-latest
         - ansible-ee-integration-arista-eos-libssh-stable-2.9
         - ansible-ee-integration-ios-latest

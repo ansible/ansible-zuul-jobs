@@ -17,6 +17,3 @@
 
     - name: Copy appliance inventory
       shell: "cp ~/{{ zuul.projects['github.com/ansible/network-ee'].src_dir }}/tests/integration/inventories/hosts.yaml {{ ansible_user_dir }}/zuul-output/logs/navigator"
-
-    - name: Copy ansible log file
-      shell: "cp {{ ansible_user_dir }}/ansible-debug.txt {{ ansible_user_dir }}/zuul-output/logs/controller"

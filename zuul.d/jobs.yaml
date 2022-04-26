@@ -340,6 +340,8 @@
     parent: ansible-test-units-base-python36
     required-projects:
       - name: github.com/ansible-collections/ansible.yang
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.9
     vars:
       ansible_collections_repo: github.com/ansible-collections/ansible.yang
 
@@ -348,6 +350,8 @@
     parent: ansible-test-units-base-python37
     required-projects:
       - name: github.com/ansible-collections/ansible.yang
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.9
     vars:
       ansible_collections_repo: github.com/ansible-collections/ansible.yang
 
@@ -384,6 +388,9 @@
 - job:
     name: ansible-test-network-integration-ansible-yang-junos-vsrx-netconf-python36
     parent: ansible-test-network-integration-junos-vsrx-python36
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.9
     vars:
       ansible_collections_repo: github.com/ansible-collections/ansible.yang
       ansible_test_integration_targets: ""

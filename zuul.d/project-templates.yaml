@@ -1179,10 +1179,10 @@
         - ansible-test-sanity-docker-stable-2.10
         - ansible-test-sanity-docker-stable-2.11
         - ansible-test-sanity-docker-stable-2.12
-        - ansible-test-units-ansible-yang-python27
         - ansible-test-units-ansible-yang-python36
         - ansible-test-units-ansible-yang-python37
         - ansible-test-units-ansible-yang-python38
+        - ansible-test-units-ansible-yang-python39
     gate:
       queue: integrated
       jobs: *ansible-collections-ansible-yang-units-jobs
@@ -1192,6 +1192,9 @@
     check:
       jobs: &ansible-collections-juniper-junos-ansible-yang-jobs
         - ansible-test-network-integration-ansible-yang-junos-vsrx-netconf-python36:
+            vars:
+              ansible_test_collections: true
+        - ansible-test-network-integration-ansible-yang-junos-vsrx-netconf-python39:
             vars:
               ansible_test_collections: true
         - build-ansible-collection:
@@ -1210,6 +1213,10 @@
     check:
       jobs: &ansible-collections-cisco-iosxr-ansible-yang-jobs
         - ansible-test-network-integration-ansible-yang-iosxr-netconf-python36:
+            vars:
+              ansible_test_collections: true
+            voting: false
+        - ansible-test-network-integration-ansible-yang-iosxr-netconf-python38:
             vars:
               ansible_test_collections: true
             voting: false

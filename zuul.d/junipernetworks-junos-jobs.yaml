@@ -213,3 +213,10 @@
     nodeset: vsrx3
     vars:
       ansible_test_python: 3.8
+
+- job:
+    name: ansible-test-network-integration-junos-vsrx-python39
+    parent: ansible-test-network-integration-junos-vsrx
+    nodeset: vsrx3
+    vars:
+      ansible_test_python: 3.9

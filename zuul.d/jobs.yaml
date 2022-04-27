@@ -401,6 +401,7 @@
       - name: github.com/ansible/ansible
         override-checkout: stable-2.9
     vars:
+      ansible_test_python: 3.6
       ansible_collections_repo: github.com/ansible-collections/ansible.yang
       ansible_test_integration_targets: ""
 

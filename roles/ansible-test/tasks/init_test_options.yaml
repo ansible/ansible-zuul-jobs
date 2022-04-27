@@ -22,7 +22,9 @@
 - name: Enable --requirements
   set_fact:
     ansible_test_options: "{{ ansible_test_options }} --requirements"
-  when: not ansible_test_collections
+  when:
+    - not ansible_test_collections
+    - not ansible_test_docker
 
 - name: Adjust options for unit tests
   set_fact:

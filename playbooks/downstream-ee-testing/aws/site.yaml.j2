@@ -1,0 +1,42 @@
+---
+- hosts: localhost
+  gather_facts: false
+  vars:
+    integration_tests_path: "~/{{ zuul.projects[ansible_collections_repo].src_dir }}/tests/integration/targets"
+    integration_target_failures: []
+    aws_access_key: "{{ aws_session.aws.credentials.access_key }}"
+    aws_secret_key: "{{ aws_session.aws.credentials.secret_key }}"
+    security_token: "{{ aws_session.aws.credentials.session_token }}"
+    aws_region: us-east-1
+    resource_prefix: "{{ zuul.build }}"
+    downstream_ee_testing_targets: "{{ downstream_ee_testing_targets }}"
+{% raw %}
+  tasks:
+    - when: not downstream_ee_testing_targets|length
+      block:
+        - name: Find integration test targets
+          find:
+            file_type: directory
+            paths: "{{ integration_tests_path | expanduser }}"
+            recurse: false
+          register: _targets
+
+        - name: Format integration targets
+          set_fact:
+            downstream_ee_testing_targets: "{{ _targets.files | map(attribute='path') | list | sort }}"
+
+    - name: Report missing integration targets
+      fail:
+        msg: "No integration targets found"
+      when: downstream_ee_testing_targets|length == 0
+
+    - name: Test targets to run
+      debug:
+        msg: "{{ downstream_ee_testing_targets }}"
+
+    - name: Run integration tests
+      include_tasks:
+        file: include_role.yaml
+      with_items:
+        - "{{ downstream_ee_testing_targets }}"
+{% endraw %}

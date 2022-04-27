@@ -1,0 +1,7 @@
+---
+- hosts: controller
+  gather_facts: false
+  tasks:
+    - command: "ansible-navigator run --eei brew.registry.redhat.io/{{ downstream_ee_image }} site.yaml --mode=stdout --pull-policy=never"
+      args:
+        chdir: "~/{{ zuul.projects[ansible_collections_repo].src_dir }}/tests/integration/targets"

@@ -1,0 +1,15 @@
+---
+- hosts: controller
+  gather_facts: false
+  tasks:
+    - name: Fetch the aws_session file from the controller
+      fetch:
+        flat: true
+        src: /tmp/aws_session.json
+        dest: '{{ zuul.executor.work_root }}/'
+    - set_fact:
+        aws_session: "{{ lookup('file','{{ zuul.executor.work_root }}/aws_session.json') | from_json }}"
+    - name: Prepare the site.yaml file
+      template:
+        src: "site.yaml.j2"
+        dest: "{{ zuul.projects[ansible_collections_repo].src_dir }}/tests/integration/targets/site.yaml"

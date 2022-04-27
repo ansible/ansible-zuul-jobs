@@ -762,6 +762,10 @@
             vars:
               ansible_test_collections: true
               ansible_test_integration_targets: "junos_.*"
+        - ansible-test-network-integration-junos-vsrx-netconf-python39:
+            vars:
+              ansible_test_collections: true
+              ansible_test_integration_targets: "junos_.*"
         - ansible-test-network-integration-junos-vsrx-network_cli-python36-stable29:
             vars:
               ansible_test_collections: true
@@ -1191,9 +1195,6 @@
     name: ansible-collections-ansible-yang-juniper-junos
     check:
       jobs: &ansible-collections-juniper-junos-ansible-yang-jobs
-        - ansible-test-network-integration-ansible-yang-junos-vsrx-netconf-python36:
-            vars:
-              ansible_test_collections: true
         - ansible-test-network-integration-ansible-yang-junos-vsrx-netconf-python39:
             vars:
               ansible_test_collections: true

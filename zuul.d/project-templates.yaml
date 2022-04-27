@@ -565,7 +565,7 @@
 
 - project-template:
     name: ansible-collections-community-okd
-    3pci-check:
+    third-party-check:
       jobs:
         - build-ansible-collection:
             required-projects:
@@ -1529,7 +1529,7 @@
     name: publish-to-automation-hub-3pci
     description: |
       Publish an Ansible collection to Ansible Automation Hub
-    3pci-check:
+    third-party-check:
       jobs:
         - build-ansible-collection
     pre-release:

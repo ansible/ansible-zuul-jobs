@@ -10,6 +10,7 @@
       - name: github.com/ansible/ansible
         override-checkout: milestone
       - name: github.com/ansible-collections/amazon.aws
+      - name: github.com/ansible/ansible-navigator
     timeout: 3600
     nodeset: rhel8
     vars:

@@ -20,7 +20,6 @@
       ansible_collections_repo: "{{ zuul.project.canonical_name }}"
       ansible_test_command: sanity
       ansible_test_docker: true
-      ansible_test_python: 3.8
       container_command: podman
 
 - job:

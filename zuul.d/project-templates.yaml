@@ -687,6 +687,8 @@
     name: ansible-collections-community-vmware-rest-code-generator
     check:
       jobs:
+        - ansible-tox-py38
+        - ansible-tox-py39
         - ansible-test-cloud-integration-vmware-rest-python38
         - build-ansible-collection:
             required-projects:
@@ -694,6 +696,8 @@
               - name: github.com/ansible-collections/community.vmware
     gate:
       jobs:
+        - ansible-tox-py38
+        - ansible-tox-py39
         - ansible-test-cloud-integration-vmware-rest-python38
         - build-ansible-collection:
             required-projects:

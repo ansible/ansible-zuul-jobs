@@ -4,15 +4,18 @@
       - ansible-python-jobs
     check:
       jobs:
-        - ansible-tox-py38:
-            vars:
-              tox_envlist: pytest,black
-        - ansible-tox-py39:
-            vars:
-              tox_envlist: pytest,black
-        - ansible-tox-py310:
-            vars:
-              tox_envlist: pytest,black
+        - downstream-ee-amazon-aws-ec2_ami
+        - downstream-ee-amazon-aws-ec2_eni
+        - downstream-ee-amazon-aws-ec2_vol
+        # - ansible-tox-py38:
+        #     vars:
+        #       tox_envlist: pytest,black
+        # - ansible-tox-py39:
+        #     vars:
+        #       tox_envlist: pytest,black
+        # - ansible-tox-py310:
+        #     vars:
+        #       tox_envlist: pytest,black
     gate:
       jobs:
         - ansible-tox-py38:

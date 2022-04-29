@@ -1,7 +1,27 @@
 ---
 - hosts: controller
   gather_facts: false
+  vars:
+    target_name: "{{ downstream_ee_testing_targets[0] }}"
   tasks:
-    - command: "ansible-navigator run --eei brew.registry.redhat.io/{{ downstream_ee_image }} site.yaml --mode=stdout --pull-policy=never"
-      args:
-        chdir: "~/{{ zuul.projects[ansible_collections_repo].src_dir }}/tests/integration/targets"
+    - name: Test if runne.sh exists
+      stat:
+        path: "~/{{ zuul.projects[ansible_collections_repo].src_dir }}/tests/integration/targets/{{ target_name }}/runme.sh"
+      register: runme_sh_stat
+
+    - when: runme_sh_stat.stat.exists
+      block:
+        - name: Run the target with ./runme.sh
+          command: "ansible-navigator exec --eei brew.registry.redhat.io/{{ downstream_ee_image }} --mode=stdout --pull-policy=never -- bash -c 'ls && cd {{ target_name }} && ./runme.sh' && echo runme.sh_success "
+          args:
+            chdir: "~/{{ zuul.projects[ansible_collections_repo].src_dir }}/tests/integration/targets"
+          register: runme_output
+        # See: https://github.com/ansible/ansible-navigator/issues/1215
+        - name: Evaluate if the runme.sh was a success
+          assert:
+            that:
+              - '"runme.sh_success" in runme_output.stdout'
+
+    - when: not runme_sh_stat.stat.exists
+      name: Run the target with site.yaml
+      command: "ansible-navigator run --eei brew.registry.redhat.io/{{ downstream_ee_image }} site.yaml --mode=stdout --pull-policy=never"

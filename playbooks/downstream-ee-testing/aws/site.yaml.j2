@@ -10,6 +10,7 @@
     aws_region: us-east-1
     resource_prefix: "{{ zuul.build }}"
     downstream_ee_testing_targets: "{{ downstream_ee_testing_targets }}"
+    aws_cleanup: true
 {% raw %}
   tasks:
     - when: not downstream_ee_testing_targets|length

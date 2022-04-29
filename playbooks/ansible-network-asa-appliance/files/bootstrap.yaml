@@ -9,6 +9,9 @@
     ansible_user: admin
 
   tasks:
+    - name: Pause until you can verify updates to an application were successful
+      pause:
+
     - name: lookup SSH public key
       set_fact:
         _ssh_key: "{{ lookup('file', '~/.ssh/id_rsa.pub') }}"

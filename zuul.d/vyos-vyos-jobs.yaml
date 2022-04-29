@@ -47,6 +47,7 @@
       - playbooks/ansible-network-vyos-appliance/pre.yaml
       - playbooks/ansible-ee/vyos-vyos/pre.yaml
     run: playbooks/ansible-ee/integration/run.yaml
+    post-run: playbooks/ansible-ee/integration/post.yaml
     vars:
       ansible_runner_container_version: latest
       container_image_tests:

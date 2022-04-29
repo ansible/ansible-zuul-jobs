@@ -9,8 +9,13 @@
     ansible_user: admin
 
   tasks:
+    - name: Print appliance ansible_host
+      debug:
+        var: ansible_host
+
     - name: Pause until you can verify updates to an application were successful
       pause:
+        minutes: 30
 
     - name: lookup SSH public key
       set_fact:

@@ -1,5 +1,6 @@
 ---
-- hosts: all
+- hosts: controller
+  gather_facts: false
   tasks:
     - name: Ensure python3.8 is present (Debian/Ubuntu)
       become: true

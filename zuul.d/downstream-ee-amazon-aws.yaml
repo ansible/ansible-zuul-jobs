@@ -1,0 +1,97 @@
+---
+- job:
+    name: downstream-ee-amazon-aws
+    parent: downstream-ee-integration
+    pre-run:
+      - playbooks/downstream-ee-testing/pre.yaml
+      - playbooks/downstream-ee-testing/aws/pre.yaml
+    run: playbooks/downstream-ee-testing/aws/run.yaml
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: milestone
+      - name: github.com/ansible-collections/amazon.aws
+    timeout: 3600
+    nodeset: rhel8
+    vars:
+      downstream_ee_image: rh-osbs/ansible-automation-platform-22-ee-supported-rhel8:latest
+      ansible_collections_repo: "github.com/ansible-collections/amazon.aws"
+      downstream_ee_testing_targets:
+        - "{{ zuul.job.split('-')[-1] }}"
+    semaphore: ansible-test-cloud-integration-aws
+
+- job:
+    name: downstream-ee-amazon-aws-aws_az_info
+    parent: downstream-ee-amazon-aws
+
+- job:
+    name: downstream-ee-amazon-aws-aws_caller_info
+    parent: downstream-ee-amazon-aws
+- job:
+    name: downstream-ee-amazon-aws-aws_s3
+    parent: downstream-ee-amazon-aws
+- job:
+    name: downstream-ee-amazon-aws-cloudformation
+    parent: downstream-ee-amazon-aws
+- job:
+    name: downstream-ee-amazon-aws-ec2_ami
+    parent: downstream-ee-amazon-aws
+- job:
+    name: downstream-ee-amazon-aws-ec2_eni
+    parent: downstream-ee-amazon-aws
+- job:
+    name: downstream-ee-amazon-aws-ec2_instance
+    parent: downstream-ee-amazon-aws
+- job:
+    name: downstream-ee-amazon-aws-ec2_key
+    parent: downstream-ee-amazon-aws
+- job:
+    name: downstream-ee-amazon-aws-ec2_spot_instance
+    parent: downstream-ee-amazon-aws
+- job:
+    name: downstream-ee-amazon-aws-ec2_tag
+    parent: downstream-ee-amazon-aws
+- job:
+    name: downstream-ee-amazon-aws-ec2_vol
+    parent: downstream-ee-amazon-aws
+- job:
+    name: downstream-ee-amazon-aws-ec2_vpc_dhcp_option
+    parent: downstream-ee-amazon-aws
+- job:
+    name: downstream-ee-amazon-aws-ec2_vpc_endpoint_service_info
+    parent: downstream-ee-amazon-aws
+- job:
+    name: downstream-ee-amazon-aws-ec2_vpc_igw
+    parent: downstream-ee-amazon-aws
+- job:
+    name: downstream-ee-amazon-aws-ec2_vpc_nat_gateway
+    parent: downstream-ee-amazon-aws
+- job:
+    name: downstream-ee-amazon-aws-ec2_vpc_net
+    parent: downstream-ee-amazon-aws
+- job:
+    name: downstream-ee-amazon-aws-ec2_vpc_route_table
+    parent: downstream-ee-amazon-aws
+- job:
+    name: downstream-ee-amazon-aws-ec2_vpc_subnet
+    parent: downstream-ee-amazon-aws
+- job:
+    name: downstream-ee-amazon-aws-elb_classic_lb
+    parent: downstream-ee-amazon-aws
+- job:
+    name: downstream-ee-amazon-aws-inventory_aws_ec2
+    parent: downstream-ee-amazon-aws
+- job:
+    parent: downstream-ee-amazon-aws
+    name: downstream-ee-amazon-aws-lookup_aws_secret
+- job:
+    parent: downstream-ee-amazon-aws
+    name: downstream-ee-amazon-aws-lookup_aws_service_ip_ranges
+- job:
+    parent: downstream-ee-amazon-aws
+    name: downstream-ee-amazon-aws-module_utils_core
+- job:
+    parent: downstream-ee-amazon-aws
+    name: downstream-ee-amazon-aws-module_utils_waiter
+- job:
+    parent: downstream-ee-amazon-aws
+    name: downstream-ee-amazon-aws-s3_bucket

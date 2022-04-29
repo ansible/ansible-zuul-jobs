@@ -1,18 +1,12 @@
 ---
 # =============================================================================
 - job:
-    name: ansible-test-units-ios-python27
-    parent: ansible-test-units-base-python27
-    required-projects:
-      - name: github.com/ansible-collections/cisco.ios
-    vars:
-      ansible_collections_repo: github.com/ansible-collections/cisco.ios
-
-- job:
     name: ansible-test-units-ios-python36
     parent: ansible-test-units-base-python36
     required-projects:
       - name: github.com/ansible-collections/cisco.ios
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.9
     vars:
       ansible_collections_repo: github.com/ansible-collections/cisco.ios
 
@@ -21,12 +15,22 @@
     parent: ansible-test-units-base-python37
     required-projects:
       - name: github.com/ansible-collections/cisco.ios
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.9
     vars:
       ansible_collections_repo: github.com/ansible-collections/cisco.ios
 
 - job:
     name: ansible-test-units-ios-python38
     parent: ansible-test-units-base-python38
+    required-projects:
+      - name: github.com/ansible-collections/cisco.ios
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/cisco.ios
+
+- job:
+    name: ansible-test-units-ios-python39
+    parent: ansible-test-units-base-python39
     required-projects:
       - name: github.com/ansible-collections/cisco.ios
     vars:
@@ -39,6 +43,7 @@
     name: ansible-ee-integration-ios-latest
     parent: ansible-ee-tests
     pre-run:
+      - playbooks/ansible-cloud/py38/pre.yaml
       - playbooks/ansible-ee/integration/pre.yaml
       # Ensure we install the bindeps
       - playbooks/ansible-network-appliance-base/pre.yaml
@@ -50,7 +55,7 @@
         - integration
       test_ansible_ssh_private_key_file: ~/.ssh/id_ecdsa
       test_ansible_network_cli_ssh_type: paramiko
-      test_ansible_python_interpreter: /usr/bin/python3.8
+      test_ansible_python_interpreter: /usr/bin/python3.9
       test_ansible_skip_tags: local
       test_fips_mode: false
     required-projects:
@@ -61,6 +66,10 @@
     nodeset: ios-15
     voting: false
     timeout: 10800
+    files:
+      - ^plugins/.*$
+      - ^tests/integration/.*$
+      - ^requirements.txt
 
 # - network-ee-integration-tests-ios-stable-2.9
 - job:
@@ -68,6 +77,7 @@
     parent: ansible-ee-integration-ios-latest
     voting: false
     vars:
+      test_ansible_python_interpreter: /usr/bin/python3.8
       ansible_runner_container_version: stable-2.9-devel
 # - network-ee-integration-tests-ios-stable-2.11
 - job:
@@ -98,6 +108,7 @@
     name: ansible-ee-integration-ios-libssh-stable-2.9
     parent: ansible-ee-integration-ios-libssh-latest
     vars:
+      test_ansible_python_interpreter: /usr/bin/python3.8
       ansible_runner_container_version: stable-2.9-devel
 
 # - network-ee-integration-tests-ios-libssh-stable-2.11

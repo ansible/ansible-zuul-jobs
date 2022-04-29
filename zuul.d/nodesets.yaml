@@ -170,31 +170,19 @@
           - controller
 
 - nodeset:
-    name: QRadarCE-7.3.1-python38
+    name: QRadarCE-7.3.1
     nodes:
       - name: fedora-35
         label: ansible-fedora-35-1vcpu
 
 - nodeset:
-    name: SplunkEnterprise-SES-8.0.0-python38
+    name: SplunkEnterprise-SES-8.0.0
     nodes:
       - name: fedora-35
         label: ansible-fedora-35-1vcpu
 
 - nodeset:
-    name: Trendmicro-DeepSecurity-20.0.344-python27
-    nodes:
-      - name: fedora-35
-        label: ansible-fedora-35-1vcpu
-
-- nodeset:
-    name: Trendmicro-DeepSecurity-20.0.344-python36
-    nodes:
-      - name: fedora-35
-        label: ansible-fedora-35-1vcpu
-
-- nodeset:
-    name: Trendmicro-DeepSecurity-20.0.344-python38
+    name: Trendmicro-DeepSecurity-20.0.344
     nodes:
       - name: fedora-35
         label: ansible-fedora-35-1vcpu
@@ -247,17 +235,6 @@
         nodes:
           - vyos
 
-
-# Ansible cloud appliance nodesets
-- nodeset:
-    name: vmware-govcsim-python38
-    nodes:
-      - name: fedora-35
-        label: ansible-fedora-35-1vcpu
-    groups:
-      - name: controller
-        nodes:
-          - fedora-35
 
 # vcenter 7.0.3
 - nodeset:
@@ -315,6 +292,26 @@
         nodes:
           - esxi1
           - esxi2
+
+- nodeset:
+    name: vmware-vcsa_1esxi-7.0.3-rhel
+    nodes:
+      - name: controller
+        label: ansible-rhel-8.5
+      - name: vcenter
+        label: ansible-vmware-vcsa-7.0.3
+      - name: esxi1
+        label: ansible-esxi-7.0.3
+    groups:
+      - name: appliance-ssh
+        nodes:
+          - vcenter
+      - name: appliance
+        nodes:
+          - esxi1
+      - name: esxis
+        nodes:
+          - esxi1
 
 - nodeset:
     name: controller-python27
@@ -383,3 +380,9 @@
     nodes:
       - name: controller
         label: ansible-fedora-35-1vcpu
+
+- nodeset:
+    name: rhel8
+    nodes:
+      - name: controller
+        label: ansible-rhel-8.5

@@ -526,6 +526,8 @@
     parent: ansible-test-units-base-python38
     required-projects:
       - name: github.com/ansible-collections/kubernetes.core
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.12
     vars:
       ansible_collections_repo: github.com/ansible-collections/kubernetes.core
 

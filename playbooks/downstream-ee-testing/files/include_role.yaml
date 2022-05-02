@@ -1,7 +1,7 @@
 ---
 - name: Run target role
   include_role:
-    name: "{{ item }}"
+    name: "{{ current_target }}"
 
 - name: Clear gathered facts
   ansible.builtin.meta: clear_facts

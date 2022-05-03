@@ -38,6 +38,7 @@
     - name: Run integration tests
       include_tasks:
         file: include_role.yaml
-      with_items:
-        - "{{ downstream_ee_testing_targets }}"
+      loop: "{{ downstream_ee_testing_targets }}"
+      loop_control:
+        loop_var: current_target
 {% endraw %}

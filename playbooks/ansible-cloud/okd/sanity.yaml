@@ -1,19 +1,43 @@
 ---
 - hosts: controller
   tasks:
-    - name: Build downstream collection
-      shell: "source ~/venv/bin/activate; make downstream-build"
-      args:
-        chdir: "{{ zuul.projects['github.com/openshift/community.okd'].src_dir }}"
-      environment:
-        DOWNSTREAM_BUILD_PYTHON: "python"
-        INSTALL_DOWNSTREAM_COLLECTION_PATH: "~/.ansible/collections/ansible_collections"
+    - block:
+        - name: Create temporary directory to install downstream collection
+          tempfile:
+            state: directory
+            suffix: ".downstream"
+          register: _tmpdir
 
-    - name: Run ansible-test
-      import_role:
-        name: ansible-test
-      vars:
-        ansible_test_test_command: "{{ ansible_test_command }}"
-        ansible_test_collection_namespace: "redhat"
-        ansible_test_collection_name: "openshift"
-        ansible_test_venv_path: "~/venv"
+        - set_fact:
+            collection_path: "{{ _tmpdir.path }}/collections"
+
+        - name: create collection directory
+          file:
+            state: directory
+            path: "{{ collection_path }}"
+
+        - name: Build downstream collection
+          shell: "source ~/venv/bin/activate; make downstream-build"
+          args:
+            chdir: "{{ zuul.projects['github.com/openshift/community.okd'].src_dir }}"
+          environment:
+            DOWNSTREAM_BUILD_PYTHON: "python"
+            INSTALL_DOWNSTREAM_COLLECTION_PATH: "{{ collection_path }}"
+
+        - name: Run ansible-test
+          import_role:
+            name: ansible-test
+          vars:
+            ansible_test_test_command: "{{ ansible_test_command }}"
+            ansible_test_collection_namespace: "redhat"
+            ansible_test_collection_name: "openshift"
+            ansible_test_venv_path: "~/venv"
+            ansible_test_collection_dir: "{{ collection_path }}/ansible_collections"
+            ansible_test_environment:
+              ANSIBLE_COLLECTIONS_PATH: "{{ collection_path }}"
+
+      always:
+        - name: Delete temporary directory
+          file:
+            state: absent
+            path: "{{ _tmpdir.path }}"

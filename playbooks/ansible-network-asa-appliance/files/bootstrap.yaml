@@ -9,10 +9,6 @@
     ansible_user: admin
 
   tasks:
-    - name: Print appliance ansible_host
-      debug:
-        var: ansible_host
-
     - name: lookup SSH public key
       set_fact:
         _ssh_key: "{{ lookup('file', '~/.ssh/id_rsa.pub') }}"
@@ -33,10 +29,6 @@
           - "ssh authentication publickey {{ _ssh_key.split()[1] }}"
         parents: username zuul attributes
         save: true
-
-    - name: Pause until you can verify updates to an application were successful
-      pause:
-        minutes: 300
 
 - hosts: appliance
   gather_facts: false

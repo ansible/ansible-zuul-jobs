@@ -52,14 +52,13 @@
       ansible_collections_repo: github.com/ansible-collections/openvswitch.openvswitch
 
 
-# ansible-ee
+# ansible-test
 - job:
-    name: ansible-ee-integration-ovs-latest
-    parent: ansible-ee-tests
+    name: ansible-test-integration-ovs-latest
+    parent: ansible-test-integration-base
     pre-run:
-      - playbooks/ansible-ee/integration/pre.yaml
-      - playbooks/ansible-ee/openvswitch/pre.yaml
-    run: playbooks/ansible-ee/integration/run.yaml
+      - playbooks/ansible-network-openvswitch-appliance/pre.yaml
+    run: playbooks/ansible-network-openvswitch-appliance/run.yaml
     vars:
       ansible_runner_container_version: latest
       container_image_tests:
@@ -71,26 +70,26 @@
     nodeset: openvswitch-2.15.0
 
 - job:
-    name: ansible-ee-integration-ovs-stable2.11
-    parent: ansible-ee-integration-ovs-latest
+    name: ansible-test-integration-ovs-stable2.11
+    parent: ansible-test-integration-ovs-latest
     vars:
       ansible_runner_container_version: stable-2.11-devel
 
 - job:
-    name: ansible-ee-integration-ovs-stable2.12
-    parent: ansible-ee-integration-ovs-latest
+    name: ansible-test-integration-ovs-stable2.12
+    parent: ansible-test-integration-ovs-latest
     vars:
       ansible_runner_container_version: stable-2.12-devel
 
 - job:
-    name: ansible-ee-integration-ovs-stable2.10
-    parent: ansible-ee-integration-ovs-latest
+    name: ansible-test-integration-ovs-stable2.10
+    parent: ansible-test-integration-ovs-latest
     vars:
       ansible_runner_container_version: stable-2.10-devel
 
 - job:
-    name: ansible-ee-integration-ovs-stable2.9
-    parent: ansible-ee-integration-ovs-latest
+    name: ansible-test-integration-ovs-stable2.9
+    parent: ansible-test-integration-ovs-latest
     vars:
       test_ansible_python_interpreter: /usr/bin/python3.8
       ansible_runner_container_version: stable-2.9-devel

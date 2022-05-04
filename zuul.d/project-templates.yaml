@@ -332,18 +332,18 @@
     name: ansible-collections-cisco-asa
     check:
       jobs: &ansible-collections-cisco-asa-jobs
-        - ansible-test-network-integration-asa-python39
+        - ansible-test-network-integration-asa-python39:
             voting: false
-        - ansible-test-network-integration-asa-python38-stable212
+        - ansible-test-network-integration-asa-python38-stable212:
             voting: false
-        - ansible-test-network-integration-asa-python38-stable211
+        - ansible-test-network-integration-asa-python38-stable211:
             voting: false
-        - ansible-test-network-integration-asa-python38-stable29
+        - ansible-test-network-integration-asa-python38-stable29:
             voting: false
         - ansible-test-network-integration-asa-libssh-python39
         - ansible-test-network-integration-asa-libssh-python38-stable212
         - ansible-test-network-integration-asa-libssh-python38-stable211
-        - ansible-test-network-integration-asa-libssh-python38-stable29
+        - ansible-test-network-integration-asa-libssh-python38-stable29:
             voting: false
         - build-ansible-collection:
             required-projects:

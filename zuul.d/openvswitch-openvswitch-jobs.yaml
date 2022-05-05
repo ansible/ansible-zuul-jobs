@@ -61,6 +61,7 @@
     run: playbooks/ansible-network-openvswitch-appliance/run.yaml
     vars:
       ansible_runner_container_version: latest
+      ansible_test_python: 3.9
       container_image_tests:
         - integration
       ansible_network_os: openvswitch

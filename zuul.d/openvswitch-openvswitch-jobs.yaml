@@ -55,10 +55,11 @@
 # ansible-test
 - job:
     name: ansible-test-integration-ovs-latest
-    parent: ansible-test-integration-base
+    parent: ansible-network-openvswitch-appliance
     pre-run:
-      - playbooks/ansible-network-openvswitch-appliance/pre.yaml
-    run: playbooks/ansible-network-openvswitch-appliance/run.yaml
+      - playbooks/ansible-test-base/pre.yaml
+    run: playbooks/ansible-test-base/run.yaml
+    post-run: playbooks/ansible-test-base/post.yaml
     vars:
       ansible_runner_container_version: latest
       ansible_test_python: 3.9

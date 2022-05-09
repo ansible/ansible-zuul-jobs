@@ -33,7 +33,7 @@
           - "ssh authentication publickey {{ _ssh_key.split()[1] }}"
         parents: username zuul attributes
         save: true
-    
+
     - name: Pause until you can verify updates to an application were successful
       pause:
         minutes: 300

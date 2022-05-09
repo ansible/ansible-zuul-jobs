@@ -377,8 +377,39 @@
     name: ansible-collections-cisco-nxos
     check:
       jobs:
-        - ansible-ee-integration-cisco-nxos-cli-python39-latest:
+        - ansible-test-network-integration-nxos-cli-python39-scenario01:
             voting: false
+        - ansible-test-network-integration-nxos-cli-python39-scenario02:
+            voting: false
+        - ansible-test-network-integration-nxos-cli-python39-scenario03:
+            voting: false
+        - ansible-test-network-integration-nxos-cli-python39-scenario04:
+            voting: false
+        - ansible-test-network-integration-nxos-cli-python36-stable29-scenario01:
+            voting: false
+        - ansible-test-network-integration-nxos-cli-python36-stable29-scenario02:
+            voting: false
+        - ansible-test-network-integration-nxos-cli-python36-stable29-scenario03:
+            voting: false
+        - ansible-test-network-integration-nxos-cli-python36-stable29-scenario04:
+            voting: false
+        - ansible-test-network-integration-nxos-cli-python36-stable211-scenario01:
+            voting: false
+        - ansible-test-network-integration-nxos-cli-python36-stable211-scenario02:
+            voting: false
+        - ansible-test-network-integration-nxos-cli-python36-stable211-scenario03:
+            voting: false
+        - ansible-test-network-integration-nxos-cli-python36-stable211-scenario04:
+            voting: false
+        - ansible-test-network-integration-nxos-cli-python39-stable212-scenario01:
+            voting: false
+        - ansible-test-network-integration-nxos-cli-python39-stable212-scenario02:
+            voting: false
+        - ansible-test-network-integration-nxos-cli-python39-stable212-scenario03:
+            voting: false
+        - ansible-test-network-integration-nxos-cli-python39-stable212-scenario04:
+            voting: false
+        - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-collections/ansible.netcommon
               - name: github.com/ansible-collections/ansible.utils
@@ -786,7 +817,37 @@
         - ansible-test-network-integration-junos-vsrx-network_cli-libssh-python38:
             vars:
               ansible_test_integration_targets: "junos_.*"
-        - ansible-ee-integration-cisco-nxos-cli-python39-latest:
+        - ansible-test-network-integration-nxos-cli-python39-scenario01:
+            voting: false
+        - ansible-test-network-integration-nxos-cli-python39-scenario02:
+            voting: false
+        - ansible-test-network-integration-nxos-cli-python39-scenario03:
+            voting: false
+        - ansible-test-network-integration-nxos-cli-python39-scenario04:
+            voting: false
+        - ansible-test-network-integration-nxos-cli-python36-stable29-scenario01:
+            voting: false
+        - ansible-test-network-integration-nxos-cli-python36-stable29-scenario02:
+            voting: false
+        - ansible-test-network-integration-nxos-cli-python36-stable29-scenario03:
+            voting: false
+        - ansible-test-network-integration-nxos-cli-python36-stable29-scenario04:
+            voting: false
+        - ansible-test-network-integration-nxos-cli-python36-stable211-scenario01:
+            voting: false
+        - ansible-test-network-integration-nxos-cli-python36-stable211-scenario02:
+            voting: false
+        - ansible-test-network-integration-nxos-cli-python36-stable211-scenario03:
+            voting: false
+        - ansible-test-network-integration-nxos-cli-python36-stable211-scenario04:
+            voting: false
+        - ansible-test-network-integration-nxos-cli-python39-stable212-scenario01:
+            voting: false
+        - ansible-test-network-integration-nxos-cli-python39-stable212-scenario02:
+            voting: false
+        - ansible-test-network-integration-nxos-cli-python39-stable212-scenario03:
+            voting: false
+        - ansible-test-network-integration-nxos-cli-python39-stable212-scenario04:
             voting: false
         - ansible-ee-integration-arista-eos-latest
         - ansible-ee-integration-arista-eos-stable-2.9
@@ -846,7 +907,21 @@
         - ansible-test-network-integration-junos-vsrx-network_cli-libssh-python38:
             vars:
               ansible_test_integration_targets: "junos_.*"
-        - ansible-ee-integration-cisco-nxos-cli-python39-latest:
+        - ansible-test-network-integration-nxos-cli-python39-scenario01:
+            voting: false
+        - ansible-test-network-integration-nxos-cli-python39-scenario02:
+            voting: false
+        - ansible-test-network-integration-nxos-cli-python39-scenario03:
+            voting: false
+        - ansible-test-network-integration-nxos-cli-python39-scenario04:
+            voting: false
+        - ansible-test-network-integration-nxos-cli-python36-stable211-scenario01:
+            voting: false
+        - ansible-test-network-integration-nxos-cli-python36-stable211-scenario02:
+            voting: false
+        - ansible-test-network-integration-nxos-cli-python36-stable211-scenario03:
+            voting: false
+        - ansible-test-network-integration-nxos-cli-python36-stable211-scenario04:
             voting: false
         - ansible-ee-integration-arista-eos-latest
         - ansible-ee-integration-arista-eos-httpapi-stable-2.9:

@@ -6,7 +6,6 @@
     parent: ansible-network-appliance-base
     pre-run:
       - playbooks/ansible-network-openvswitch-appliance/pre.yaml
-      - playbooks/network-ee-integration-tests/pre.yaml
     run: playbooks/ansible-network-openvswitch-appliance/run.yaml
     host-vars:
       openvswitch-2.9.0:

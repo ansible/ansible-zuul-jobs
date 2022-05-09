@@ -5,7 +5,7 @@
   gather_facts: false
   vars:
     ansible_become_pass: cisco
-    ansible_password: zuul
+    ansible_password: admin123
     ansible_user: admin
 
   tasks:

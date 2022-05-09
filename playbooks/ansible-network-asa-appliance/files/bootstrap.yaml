@@ -34,9 +34,9 @@
         parents: username zuul attributes
         save: true
 
-    - name: Pause until you can verify updates to an application were successful
-      pause:
-        minutes: 300
+    # - name: Pause until you can verify updates to an application were successful
+    #   pause:
+    #     minutes: 300
 
 - hosts: appliance
   gather_facts: false

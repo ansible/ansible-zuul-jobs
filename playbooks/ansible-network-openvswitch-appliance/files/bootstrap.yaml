@@ -1,5 +1,6 @@
 ---
 - hosts: openvswitch
+  tasks:
     - when: ansible_distribution == 'Fedora'
       block:
         - name: Install openvswitch package

@@ -8,7 +8,7 @@ vsrx3 ansible_host={{ hostvars['vsrx3'].ansible_host }} ansible_user=zuul
 junos
 
 [junos:vars]
-ansible_network_os={% if ansible_test_collections is defined -%}junipernetworks.junos.{%- endif %}junos
+ansible_network_os=junipernetworks.junos.junos
 ansible_python_interpreter=/home/zuul/venv/bin/python
 netconf={'transport': 'netconf'}
 
@@ -16,6 +16,6 @@ netconf={'transport': 'netconf'}
 vsrx3 ansible_host={{ hostvars['vsrx3'].ansible_host }} ansible_user=zuul
 
 [netconf:vars]
-ansible_network_os={% if ansible_test_collections is defined -%}junipernetworks.junos.{%- endif %}junos
+ansible_network_os=junipernetworks.junos.junos
 ansible_python_interpreter=/home/zuul/venv/bin/python
 netconf={'transport': 'netconf'}

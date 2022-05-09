@@ -16,7 +16,6 @@
     irrelevant-files:
       - .pre-commit-config.yaml
     vars:
-      ansible_test_collections: true
       ansible_collections_repo: "{{ zuul.project.canonical_name }}"
       ansible_test_command: sanity
       ansible_test_docker: true

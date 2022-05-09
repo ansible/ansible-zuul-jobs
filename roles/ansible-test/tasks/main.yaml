@@ -8,13 +8,8 @@
 - name: Prepare ansible-test parameters
   import_tasks: init_test_options.yaml
 
-- name: Single ansible mode
-  import_tasks: init_single_mode.yaml
-  when: not ansible_test_collections
-
 - name: Ansible with collections
   import_tasks: init_collection.yaml
-  when: ansible_test_collections
 
 - name: Enable persistent connection logging
   ini_file:

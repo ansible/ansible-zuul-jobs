@@ -6,10 +6,10 @@ asav9-12-3 ansible_port=22 ansible_host={{ hostvars['asav9-12-3'].ansible_host }
 
 [asa:vars]
 ansible_become=true
-ansible_become_method={% if ansible_test_collections is defined -%}ansible.netcommon.{%- endif %}enable
+ansible_become_method=ansible.netcommon.enable
 ansible_become_pass=cisco
-ansible_connection={% if ansible_test_collections is defined -%}ansible.netcommon.{%- endif %}network_cli
-ansible_network_os={% if ansible_test_collections is defined -%}cisco.asa.{%- endif %}asa
+ansible_connection=ansible.netcommon.network_cli
+ansible_network_os=cisco.asa.asa
 ansible_python_interpreter=python
 
 cli={'authorize': true}

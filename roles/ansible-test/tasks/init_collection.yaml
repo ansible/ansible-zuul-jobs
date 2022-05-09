@@ -1,8 +1,18 @@
 ---
+- name: Copy the galaxy.yml on the controller
+  fetch:
+    src: "{{ ansible_test_location }}/galaxy.yml"
+    dest: '{{ zuul.executor.work_root }}/tmp_fetch'
+  register: _fetch
+- name: Load information from galaxy.yml
+  include_vars:
+    file: '{{ _fetch.dest }}'
+    name: galaxy_info
+
 - name: Setup location of project for integration tests
   set_fact:
-    _test_location: "{{ ansible_test_collection_dir }}/{{ ansible_test_collection_namespace }}/{{ ansible_test_collection_name }}"
-    _test_cfg_location: "{{ ansible_test_collection_dir }}/{{ ansible_test_collection_namespace }}/{{ ansible_test_collection_name }}/tests/integration/{{ ansible_test_test_command }}.cfg"
+    _test_location: "{{ ansible_test_collection_dir }}/{{ galaxy_info.namespace }}/{{ galaxy_info.name }}"
+    _test_cfg_location: "{{ ansible_test_collection_dir }}/{{ galaxy_info.namespace }}/{{ galaxy_info.name }}/tests/integration/{{ ansible_test_test_command }}.cfg"
 
 - name: Setup minimum test requirements
   set_fact:

@@ -78,7 +78,6 @@
     parent: ansible-test-network-integration-iosxr
     abstract: true
     vars:
-      ansible_test_collections: true
       ansible_test_skip_tags: local,network_cli
 
 - job:
@@ -86,7 +85,6 @@
     parent: ansible-test-network-integration-iosxr
     abstract: true
     vars:
-      ansible_test_collections: true
       ansible_test_skip_tags: local,netconf
 
 - job:

@@ -1,0 +1,31 @@
+---
+- hosts: controller
+  gather_facts: false
+  vars:
+    target_name: "{{ downstream_ee_testing_targets[0] }}"
+
+  tasks:
+    - name: Fetch the aws_session file from the controller
+      fetch:
+        flat: true
+        src: /tmp/aws_session.json
+        dest: '{{ zuul.executor.work_root }}/'
+    - set_fact:
+        aws_session: "{{ lookup('file','{{ zuul.executor.work_root }}/aws_session.json') | from_json }}"
+    - name: Prepare the site.yaml file
+      template:
+        src: "site.yaml.j2"
+        dest: "{{ zuul.projects[ansible_collections_repo].src_dir }}/tests/integration/targets/site.yaml"
+    - ini_file:
+        path: "~/{{ zuul.projects[ansible_collections_repo].src_dir }}/tests/integration/targets/{{ target_name }}/inventory"
+        section: "all:vars"
+        option: "{{ item.key }}"
+        value: "{{ item.value }}"
+      with_dict:
+        aws_access_key: "{{ aws_session.aws.credentials.access_key }}"
+        aws_secret_key: "{{ aws_session.aws.credentials.secret_key }}"
+        security_token: "{{ aws_session.aws.credentials.session_token }}"
+        aws_region: us-east-1
+        resource_prefix: "{{ zuul.build }}"
+        tiny_prefix: "{{ zuul.build[0:6] }}"
+        aws_cleanup: true

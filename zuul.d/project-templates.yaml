@@ -102,6 +102,10 @@
         - integration-community.aws-11
         - integration-community.aws-12
         - integration-community.aws-13
+        # Failing due to broken six/urllib3 install in generated containers
+        # https://github.com/ansible/ansible-zuul-jobs/issues/1497
+        - ansible-ee-tests-stable-2.12:
+            voting: false
     gate:
       queue: integrated-aws
       jobs: *ansible-collections-amazon-aws-jobs
@@ -317,7 +321,7 @@
         - ansible-test-sanity-docker-stable-2.10
         - ansible-test-sanity-docker-stable-2.11
         - ansible-test-sanity-docker-stable-2.12
-        - ansible-test-units-asa-python27
+        - ansible-test-units-asa-python39
         - ansible-test-units-asa-python36
         - ansible-test-units-asa-python37
     gate:
@@ -328,16 +332,19 @@
     name: ansible-collections-cisco-asa
     check:
       jobs: &ansible-collections-cisco-asa-jobs
-        - ansible-test-network-integration-asa-python27-stable211
-        - ansible-test-network-integration-asa-python27-stable29
-        - ansible-test-network-integration-asa-python38
-        - ansible-test-network-integration-asa-python38-stable212
-        - ansible-test-network-integration-asa-python38-stable211
-        - ansible-test-network-integration-asa-python38-stable29
-        - ansible-test-network-integration-asa-libssh-python38
+        - ansible-test-network-integration-asa-python39:
+            voting: false
+        - ansible-test-network-integration-asa-python38-stable212:
+            voting: false
+        - ansible-test-network-integration-asa-python38-stable211:
+            voting: false
+        - ansible-test-network-integration-asa-python38-stable29:
+            voting: false
+        - ansible-test-network-integration-asa-libssh-python39
         - ansible-test-network-integration-asa-libssh-python38-stable212
         - ansible-test-network-integration-asa-libssh-python38-stable211
-        - ansible-test-network-integration-asa-libssh-python38-stable29
+        - ansible-test-network-integration-asa-libssh-python38-stable29:
+            voting: false
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-collections/ansible.netcommon
@@ -373,6 +380,7 @@
         - ansible-ee-integration-cisco-nxos-cli-python39-latest:
             vars:
               ansible_test_collections: true
+            voting: false
             required-projects:
               - name: github.com/ansible-collections/ansible.netcommon
               - name: github.com/ansible-collections/ansible.utils
@@ -560,7 +568,7 @@
 
 - project-template:
     name: ansible-collections-community-okd
-    3pci-check:
+    third-party-check:
       jobs:
         - build-ansible-collection:
             required-projects:
@@ -574,6 +582,11 @@
         - ansible-galaxy-importer:
             voting: false
         - ansible-test-units-community-okd-python38
+        - ansible-test-sanity-okd-downstream-devel
+        - ansible-test-sanity-okd-downstream-milestone
+        - ansible-test-sanity-okd-downstream-stable-2.9
+        - ansible-test-sanity-okd-downstream-stable-2.11
+        - ansible-test-sanity-okd-downstream-stable-2.12
 
 - project-template:
     name: ansible-collections-cloud-common
@@ -802,7 +815,8 @@
         - ansible-ee-integration-arista-eos-stable-2.11
         - ansible-ee-integration-arista-eos-stable-2.12
         - ansible-ee-integration-arista-eos-httpapi-latest
-        - ansible-ee-integration-arista-eos-httpapi-stable-2.9
+        - ansible-ee-integration-arista-eos-httpapi-stable-2.9:
+            voting: false
         - ansible-ee-integration-arista-eos-httpapi-stable-2.11
         - ansible-ee-integration-arista-eos-httpapi-stable-2.12
         - ansible-ee-integration-arista-eos-libssh-latest
@@ -865,7 +879,8 @@
               ansible_test_collections: true
             voting: false
         - ansible-ee-integration-arista-eos-latest
-        - ansible-ee-integration-arista-eos-httpapi-stable-2.9
+        - ansible-ee-integration-arista-eos-httpapi-stable-2.9:
+            voting: false
         - ansible-ee-integration-arista-eos-libssh-latest
         - ansible-ee-integration-arista-eos-libssh-stable-2.9
         - ansible-ee-integration-ios-latest
@@ -893,6 +908,10 @@
             vars:
               ansible_test_collections: true
               ansible_test_integration_targets: "junos_.*"
+        - ansible-test-network-integration-junos-vsrx-netconf-python39:
+            vars:
+              ansible_test_collections: true
+              ansible_test_integration_targets: "junos_.*"
         - ansible-test-network-integration-junos-vsrx-netconf-python36-stable211:
             vars:
               ansible_test_collections: true
@@ -906,6 +925,10 @@
               ansible_test_collections: true
               ansible_test_integration_targets: "junos_.*"
         - ansible-test-network-integration-junos-vsrx-network_cli-python38:
+            vars:
+              ansible_test_collections: true
+              ansible_test_integration_targets: "junos_.*"
+        - ansible-test-network-integration-junos-vsrx-network_cli-python39:
             vars:
               ansible_test_collections: true
               ansible_test_integration_targets: "junos_.*"
@@ -1111,9 +1134,10 @@
         - ansible-test-sanity-docker-stable-2.10
         - ansible-test-sanity-docker-stable-2.11
         - ansible-test-sanity-docker-stable-2.12
-        - ansible-test-units-netcommon-python27
         - ansible-test-units-netcommon-python36
         - ansible-test-units-netcommon-python37
+        - ansible-test-units-netcommon-python38
+        - ansible-test-units-netcommon-python39
     gate:
       queue: integrated
       fail-fast: true
@@ -1171,10 +1195,10 @@
         - ansible-test-sanity-docker-stable-2.10
         - ansible-test-sanity-docker-stable-2.11
         - ansible-test-sanity-docker-stable-2.12
-        - ansible-test-units-ansible-yang-python27
         - ansible-test-units-ansible-yang-python36
         - ansible-test-units-ansible-yang-python37
         - ansible-test-units-ansible-yang-python38
+        - ansible-test-units-ansible-yang-python39
     gate:
       queue: integrated
       jobs: *ansible-collections-ansible-yang-units-jobs
@@ -1183,7 +1207,7 @@
     name: ansible-collections-ansible-yang-juniper-junos
     check:
       jobs: &ansible-collections-juniper-junos-ansible-yang-jobs
-        - ansible-test-network-integration-ansible-yang-junos-vsrx-netconf-python36:
+        - ansible-test-network-integration-ansible-yang-junos-vsrx-netconf-python39:
             vars:
               ansible_test_collections: true
         - build-ansible-collection:
@@ -1202,6 +1226,10 @@
     check:
       jobs: &ansible-collections-cisco-iosxr-ansible-yang-jobs
         - ansible-test-network-integration-ansible-yang-iosxr-netconf-python36:
+            vars:
+              ansible_test_collections: true
+            voting: false
+        - ansible-test-network-integration-ansible-yang-iosxr-netconf-python38:
             vars:
               ansible_test_collections: true
             voting: false
@@ -1296,11 +1324,13 @@
       jobs: &ansible-collections-security-ibm-qradar-jobs
         - build-ansible-collection
         - ansible-changelog-fragment
-        - ansible-test-security-integration-qradar-python27
+        - ansible-test-security-integration-qradar-python36
+        - ansible-test-security-integration-qradar-python37
         - ansible-test-security-integration-qradar-python38
+        - ansible-test-security-integration-qradar-python39
         - ansible-test-security-integration-qradar-python38-stable29
-        - ansible-test-security-integration-qradar-python38-stable211
-        - ansible-test-security-integration-qradar-python38-stable212
+        - ansible-test-security-integration-qradar-python39-stable211
+        - ansible-test-security-integration-qradar-python39-stable212
         - ansible-test-sanity-docker-devel
         - ansible-test-sanity-docker-milestone
         - ansible-test-sanity-docker-stable-2.9
@@ -1316,11 +1346,13 @@
       jobs: &ansible-collections-security-splunk-es-jobs
         - build-ansible-collection
         - ansible-changelog-fragment
-        - ansible-security-integration-splunk-es-python27
+        - ansible-security-integration-splunk-es-python36
+        - ansible-security-integration-splunk-es-python37
         - ansible-security-integration-splunk-es-python38
+        - ansible-security-integration-splunk-es-python39
         - ansible-security-integration-splunk-es-python38-stable29
-        - ansible-security-integration-splunk-es-python38-stable211
-        - ansible-security-integration-splunk-es-python38-stable212
+        - ansible-security-integration-splunk-es-python39-stable211
+        - ansible-security-integration-splunk-es-python39-stable212
         - ansible-test-sanity-docker-devel
         - ansible-test-sanity-docker-milestone
         - ansible-test-sanity-docker-stable-2.9
@@ -1336,12 +1368,13 @@
       jobs: &ansible-collections-security-trendmicro-deepsec-jobs
         - build-ansible-collection
         - ansible-changelog-fragment
-        - ansible-security-integration-trendmicro-deepsec-python27
         - ansible-security-integration-trendmicro-deepsec-python36
+        - ansible-security-integration-trendmicro-deepsec-python37
         - ansible-security-integration-trendmicro-deepsec-python38
+        - ansible-security-integration-trendmicro-deepsec-python39
         - ansible-security-integration-trendmicro-deepsec-python38-stable29
-        - ansible-security-integration-trendmicro-deepsec-python38-stable211
-        - ansible-security-integration-trendmicro-deepsec-python38-stable212
+        - ansible-security-integration-trendmicro-deepsec-python39-stable211
+        - ansible-security-integration-trendmicro-deepsec-python39-stable212
         - ansible-test-sanity-docker-devel:
             voting: false
         - ansible-test-sanity-docker-milestone
@@ -1408,12 +1441,15 @@
       a clean and up to date EE container.
     check:
       jobs: &ansible-ee-test-jobs
+        # Latest is expected to break from time to time.
         - ansible-ee-tests-latest:
             voting: false
-        - ansible-ee-tests-stable-2.9
-        - ansible-ee-tests-stable-2.11
-        - ansible-ee-tests-stable-2.12:
+        # Temporary change due to rstcheck versioning issues.
+        # https://github.com/ansible/ansible-zuul-jobs/pull/1496
+        - ansible-ee-tests-stable-2.9:
             voting: false
+        - ansible-ee-tests-stable-2.11
+        - ansible-ee-tests-stable-2.12
     gate:
       jobs: *ansible-ee-test-jobs
 
@@ -1511,7 +1547,7 @@
     name: publish-to-automation-hub-3pci
     description: |
       Publish an Ansible collection to Ansible Automation Hub
-    3pci-check:
+    third-party-check:
       jobs:
         - build-ansible-collection
     pre-release:

@@ -1,0 +1,17 @@
+---
+- hosts: controller
+  gather_facts: false
+  tasks:
+    - name: Install python3.8
+      package:
+        name: python38
+        state: present
+      become: true
+    - name: Pull the image
+      command: "podman pull brew.registry.redhat.io/{{ downstream_ee_image }}"
+    - name: Install Ansible Navigator
+      command: "pip3.8 install --user ~/{{ zuul.projects['github.com/ansible/ansible-navigator'].src_dir }}"
+    - name: Copy the include_role.yaml file
+      copy:
+        src: files/include_role.yaml
+        dest: "{{ zuul.projects[ansible_collections_repo].src_dir }}/tests/integration/targets/include_role.yaml"

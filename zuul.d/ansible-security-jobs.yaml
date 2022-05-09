@@ -10,7 +10,7 @@
         ansible_network_os: splunk
     required-projects:
       - name: github.com/ansible/ansible-zuul-jobs
-    nodeset: SplunkEnterprise-SES-8.0.0-python38
+    nodeset: SplunkEnterprise-SES-8.0.0
 
 - job:
     name: ansible-security-integration-splunk
@@ -36,16 +36,29 @@
       ansible_test_collections: true
 
 - job:
-    name: ansible-security-integration-splunk-es-python27
+    name: ansible-security-integration-splunk-es-python36
     parent: ansible-security-integration-splunk
     vars:
-      ansible_test_python: 2.7
+      ansible_test_python: 3.6
+
+- job:
+    name: ansible-security-integration-splunk-es-python37
+    parent: ansible-security-integration-splunk
+    vars:
+      ansible_test_python: 3.7
 
 - job:
     name: ansible-security-integration-splunk-es-python38
     parent: ansible-security-integration-splunk
     vars:
+      test_ansible_python_interpreter: /usr/bin/python3.8
       ansible_test_python: 3.8
+
+- job:
+    name: ansible-security-integration-splunk-es-python39
+    parent: ansible-security-integration-splunk
+    vars:
+      ansible_test_python: 3.9
 
 # QRadar
 - job:
@@ -58,7 +71,7 @@
         ansible_network_os: qradar
     required-projects:
       - name: github.com/ansible/ansible-zuul-jobs
-    nodeset: QRadarCE-7.3.1-python38
+    nodeset: QRadarCE-7.3.1
 
 - job:
     name: ansible-test-security-integration-qradar
@@ -84,16 +97,29 @@
       ansible_test_collections: true
 
 - job:
-    name: ansible-test-security-integration-qradar-python27
+    name: ansible-test-security-integration-qradar-python36
     parent: ansible-test-security-integration-qradar
     vars:
-      ansible_test_python: 2.7
+      ansible_test_python: 3.6
+
+- job:
+    name: ansible-test-security-integration-qradar-python37
+    parent: ansible-test-security-integration-qradar
+    vars:
+      ansible_test_python: 3.7
 
 - job:
     name: ansible-test-security-integration-qradar-python38
     parent: ansible-test-security-integration-qradar
     vars:
+      test_ansible_python_interpreter: /usr/bin/python3.8
       ansible_test_python: 3.8
+
+- job:
+    name: ansible-test-security-integration-qradar-python39
+    parent: ansible-test-security-integration-qradar
+    vars:
+      ansible_test_python: 3.9
 
 # TrendMicro
 - job:
@@ -106,7 +132,7 @@
         ansible_network_os: trendmicro.deepsec.deepsec
     required-projects:
       - name: github.com/ansible/ansible-zuul-jobs
-    nodeset: Trendmicro-DeepSecurity-20.0.344-python38
+    nodeset: Trendmicro-DeepSecurity-20.0.344
 
 - job:
     name: ansible-security-integration-trendmicro-deepsec
@@ -132,19 +158,9 @@
       ansible_test_collections: true
 
 - job:
-    name: ansible-security-integration-trendmicro-deepsec-python27
-    parent: ansible-security-integration-trendmicro-deepsec
-    nodeset: Trendmicro-DeepSecurity-20.0.344-python27
-    required-projects:
-      - name: github.com/ansible/ansible
-        override-checkout: stable-2.11
-    vars:
-      ansible_test_python: 2.7
-
-- job:
     name: ansible-security-integration-trendmicro-deepsec-python36
     parent: ansible-security-integration-trendmicro-deepsec
-    nodeset: Trendmicro-DeepSecurity-20.0.344-python36
+    nodeset: Trendmicro-DeepSecurity-20.0.344
     required-projects:
       - name: github.com/ansible/ansible
         override-checkout: stable-2.11
@@ -152,11 +168,29 @@
       ansible_test_python: 3.6
 
 - job:
+    name: ansible-security-integration-trendmicro-deepsec-python37
+    parent: ansible-security-integration-trendmicro-deepsec
+    nodeset: Trendmicro-DeepSecurity-20.0.344
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.11
+    vars:
+      ansible_test_python: 3.7
+
+- job:
     name: ansible-security-integration-trendmicro-deepsec-python38
     parent: ansible-security-integration-trendmicro-deepsec
-    nodeset: Trendmicro-DeepSecurity-20.0.344-python38
+    nodeset: Trendmicro-DeepSecurity-20.0.344
     vars:
+      test_ansible_python_interpreter: /usr/bin/python3.8
       ansible_test_python: 3.8
+
+- job:
+    name: ansible-security-integration-trendmicro-deepsec-python39
+    parent: ansible-security-integration-trendmicro-deepsec
+    nodeset: Trendmicro-DeepSecurity-20.0.344
+    vars:
+      ansible_test_python: 3.9
 
 # stable29
 
@@ -183,44 +217,44 @@
 
 # stable211
 - job:
-    name: ansible-security-integration-splunk-es-python38-stable211
-    parent: ansible-security-integration-splunk-es-python38
+    name: ansible-security-integration-splunk-es-python39-stable211
+    parent: ansible-security-integration-splunk-es-python39
     required-projects:
       - name: github.com/ansible/ansible
         override-checkout: stable-2.11
 
 - job:
-    name: ansible-test-security-integration-qradar-python38-stable211
-    parent: ansible-test-security-integration-qradar-python38
+    name: ansible-test-security-integration-qradar-python39-stable211
+    parent: ansible-test-security-integration-qradar-python39
     required-projects:
       - name: github.com/ansible/ansible
         override-checkout: stable-2.11
 
 - job:
-    name: ansible-security-integration-trendmicro-deepsec-python38-stable211
-    parent: ansible-security-integration-trendmicro-deepsec-python38
+    name: ansible-security-integration-trendmicro-deepsec-python39-stable211
+    parent: ansible-security-integration-trendmicro-deepsec-python39
     required-projects:
       - name: github.com/ansible/ansible
         override-checkout: stable-2.11
 
 # stable212
 - job:
-    name: ansible-security-integration-splunk-es-python38-stable212
-    parent: ansible-security-integration-splunk-es-python38
+    name: ansible-security-integration-splunk-es-python39-stable212
+    parent: ansible-security-integration-splunk-es-python39
     required-projects:
       - name: github.com/ansible/ansible
         override-checkout: stable-2.12
 
 - job:
-    name: ansible-test-security-integration-qradar-python38-stable212
-    parent: ansible-test-security-integration-qradar-python38
+    name: ansible-test-security-integration-qradar-python39-stable212
+    parent: ansible-test-security-integration-qradar-python39
     required-projects:
       - name: github.com/ansible/ansible
         override-checkout: stable-2.12
 
 - job:
-    name: ansible-security-integration-trendmicro-deepsec-python38-stable212
-    parent: ansible-security-integration-trendmicro-deepsec-python38
+    name: ansible-security-integration-trendmicro-deepsec-python39-stable212
+    parent: ansible-security-integration-trendmicro-deepsec-python39
     required-projects:
       - name: github.com/ansible/ansible
         override-checkout: stable-2.12

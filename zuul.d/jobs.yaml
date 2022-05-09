@@ -1,15 +1,5 @@
 ---
 - job:
-    name: base
-    parent: base-minimal
-    abstract: true
-    ansible-version: 2.9
-    description: |
-      The base job for the Ansible installation of Zuul.
-    pre-run: playbooks/base/pre.yaml
-    post-run: playbooks/base/post.yaml
-
-- job:
     name: github-workflows
     description: |
       A job to validate no github workflow directory are found.
@@ -138,6 +128,7 @@
     files:
       - ^plugins/.*$
       - ^tests/integration/.*$
+      - ^requirements.txt
 
 - job:
     name: ansible-test-integration-base
@@ -158,14 +149,6 @@
       ansible_collections_repo: "{{ zuul.project.canonical_name }}"
 
 - job:
-    name: ansible-test-units-netcommon-python27
-    parent: ansible-test-units-base-python27
-    required-projects:
-      - name: github.com/ansible-collections/ansible.netcommon
-    vars:
-      ansible_collections_repo: github.com/ansible-collections/ansible.netcommon
-
-- job:
     name: ansible-test-units-netcommon-python36
     parent: ansible-test-units-base-python36
     required-projects:
@@ -176,6 +159,22 @@
 - job:
     name: ansible-test-units-netcommon-python37
     parent: ansible-test-units-base-python37
+    required-projects:
+      - name: github.com/ansible-collections/ansible.netcommon
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/ansible.netcommon
+
+- job:
+    name: ansible-test-units-netcommon-python38
+    parent: ansible-test-units-base-python38
+    required-projects:
+      - name: github.com/ansible-collections/ansible.netcommon
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/ansible.netcommon
+
+- job:
+    name: ansible-test-units-netcommon-python39
+    parent: ansible-test-units-base-python39
     required-projects:
       - name: github.com/ansible-collections/ansible.netcommon
     vars:
@@ -336,18 +335,12 @@
       ansible_test_integration_targets: ""
 
 - job:
-    name: ansible-test-units-ansible-yang-python27
-    parent: ansible-test-units-base-python27
-    required-projects:
-      - name: github.com/ansible-collections/ansible.yang
-    vars:
-      ansible_collections_repo: github.com/ansible-collections/ansible.yang
-
-- job:
     name: ansible-test-units-ansible-yang-python36
     parent: ansible-test-units-base-python36
     required-projects:
       - name: github.com/ansible-collections/ansible.yang
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.9
     vars:
       ansible_collections_repo: github.com/ansible-collections/ansible.yang
 
@@ -356,12 +349,22 @@
     parent: ansible-test-units-base-python37
     required-projects:
       - name: github.com/ansible-collections/ansible.yang
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.9
     vars:
       ansible_collections_repo: github.com/ansible-collections/ansible.yang
 
 - job:
     name: ansible-test-units-ansible-yang-python38
     parent: ansible-test-units-base-python38
+    required-projects:
+      - name: github.com/ansible-collections/ansible.yang
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/ansible.yang
+
+- job:
+    name: ansible-test-units-ansible-yang-python39
+    parent: ansible-test-units-base-python39
     required-projects:
       - name: github.com/ansible-collections/ansible.yang
     vars:
@@ -375,8 +378,15 @@
       ansible_test_integration_targets: ""
 
 - job:
-    name: ansible-test-network-integration-ansible-yang-junos-vsrx-netconf-python36
-    parent: ansible-test-network-integration-junos-vsrx-python36
+    name: ansible-test-network-integration-ansible-yang-iosxr-netconf-python38
+    parent: ansible-test-network-integration-iosxr-python38
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/ansible.yang
+      ansible_test_integration_targets: ""
+
+- job:
+    name: ansible-test-network-integration-ansible-yang-junos-vsrx-netconf-python39
+    parent: ansible-test-network-integration-junos-vsrx-python39
     vars:
       ansible_collections_repo: github.com/ansible-collections/ansible.yang
       ansible_test_integration_targets: ""

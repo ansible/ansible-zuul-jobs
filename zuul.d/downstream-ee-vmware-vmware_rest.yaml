@@ -1,0 +1,34 @@
+---
+- job:
+    name: downstream-ee-vmware-vmware_rest
+    parent: downstream-ee-integration
+    pre-run:
+      - playbooks/downstream-ee-testing/pre.yaml
+      # NOTE: this one pulls the bindep which are actually not
+      # required
+      - playbooks/ansible-network-appliance-base/pre.yaml
+      - playbooks/ansible-cloud/vcenter-appliance/pre.yaml
+      - playbooks/downstream-ee-testing/vmware_rest/pre.yaml
+    run: playbooks/downstream-ee-testing/vmware_rest/run.yaml
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: milestone
+      - name: github.com/ansible-collections/vmware.vmware_rest
+      - name: github.com/ansible/ansible-navigator
+    timeout: 3600
+    nodeset: vmware-vcsa_1esxi-7.0.3-rhel
+    vars:
+      downstream_ee_image: rh-osbs/ansible-automation-platform-22-ee-supported-rhel8:latest
+      ansible_collections_repo: "github.com/ansible-collections/vmware.vmware_rest"
+      downstream_ee_testing_targets:
+        - "{{ zuul.job.split('-')[-1] }}"
+    host-vars:
+      vcenter:
+        ansible_network_os: vmware_rest
+      esxi1:
+        ansible_network_os: vmware_rest
+    semaphore: ansible-test-cloud-integration-vmware-rest
+
+- job:
+    name: downstream-ee-vmware-vmware_rest-vcenter_vm_scenario1
+    parent: downstream-ee-vmware-vmware_rest

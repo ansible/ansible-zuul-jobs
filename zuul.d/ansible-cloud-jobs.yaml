@@ -464,12 +464,70 @@
     vars:
       ansible_collections_repo: github.com/openshift/community.okd
 
+- job:
+    name: ansible-test-sanity-okd-downstream
+    parent: ansible-test-sanity-docker
+    required-projects:
+      - name: github.com/openshift/community.okd
+    run: playbooks/ansible-cloud/okd/sanity.yaml
+
+- job:
+    name: ansible-test-sanity-okd-downstream-devel
+    parent: ansible-test-sanity-okd-downstream
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: devel
+    voting: false
+
+- job:
+    name: ansible-test-sanity-okd-downstream-milestone
+    parent: ansible-test-sanity-okd-downstream
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: milestone
+
+- job:
+    name: ansible-test-sanity-okd-downstream-stable-2.9
+    parent: ansible-test-sanity-okd-downstream
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.9
+    vars:
+      container_command: docker
+
+- job:
+    name: ansible-test-sanity-okd-downstream-stable-2.10
+    parent: ansible-test-sanity-okd-downstream
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.10
+    vars:
+      container_command: docker
+
+- job:
+    name: ansible-test-sanity-okd-downstream-stable-2.11
+    parent: ansible-test-sanity-okd-downstream
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.11
+    vars:
+      container_command: docker
+
+- job:
+    name: ansible-test-sanity-okd-downstream-stable-2.12
+    parent: ansible-test-sanity-okd-downstream
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.12
+
 ### Kubernetes Core
 - job:
     name: ansible-test-units-kubernetes-core-python38
     parent: ansible-test-units-base-python38
     required-projects:
       - name: github.com/ansible-collections/kubernetes.core
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.12
     vars:
       ansible_collections_repo: github.com/ansible-collections/kubernetes.core
 

@@ -60,6 +60,7 @@
     run: playbooks/ansible-test-base/run.yaml
     post-run: playbooks/ansible-test-base/post.yaml
     vars:
+      ansible_test_command: network-integration
       ansible_runner_container_version: latest
       ansible_test_python: 3.9
       container_image_tests:

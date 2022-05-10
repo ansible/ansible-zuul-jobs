@@ -17,6 +17,7 @@
       when:
         - ansible_distribution == "CentOS"
         - ansible_test_network_cli_ssh_type == "libssh"
+        - ansible_test_network_cli_ssh_type == "paramiko"
         - ansible_test_fips_mode | default(False)
       with_inventory_hostnames: appliance
       include_role:

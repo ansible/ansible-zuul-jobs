@@ -2,6 +2,10 @@
 - hosts: controller
   gather_facts: true
   tasks:
+    - name: Print appliance ansible_host
+      debug:
+        var: ansible_host
+
     - name: Ensure tox
       include_role:
         name: ensure-tox

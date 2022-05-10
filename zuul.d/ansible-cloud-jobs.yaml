@@ -41,7 +41,6 @@
         VMWARE_TEST_PLATFORM: static
       ansible_test_continue_on_error: false
       ansible_test_retry_on_error: true
-      ansible_test_collections: true
 
 # vcenter 7.0.3
 - job:
@@ -170,7 +169,6 @@
       ansible_collections_repo: github.com/ansible-collections/vmware.vmware_rest
       ansible_test_command: network-integration
       ansible_test_integration_targets: "zuul/"
-      ansible_test_collections: true
     timeout: 3600
     semaphore: ansible-test-cloud-integration-vmware-rest
 
@@ -254,7 +252,6 @@
       - name: github.com/ansible-collections/community.aws
     timeout: 3600
     vars:
-      ansible_test_collections: true
       ansible_test_command: integration
       ansible_test_python: 3.8
       ansible_test_retry_on_error: true
@@ -390,7 +387,6 @@
       - name: github.com/ansible-collections/amazon.aws
     timeout: 3600
     vars:
-      ansible_test_collections: true
       ansible_test_command: integration
       ansible_test_python: 3.8
       ansible_test_integration_targets: ""
@@ -549,7 +545,6 @@
     timeout: 3600
     nodeset: centos-8-stream-large
     vars:
-      ansible_test_collections: true
       ansible_test_command: integration
       ansible_test_python: 3.8
       ansible_test_retry_on_error: true

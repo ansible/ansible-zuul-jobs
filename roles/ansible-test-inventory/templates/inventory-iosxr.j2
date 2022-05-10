@@ -9,8 +9,8 @@ iosxr
 
 [iosxr:vars]
 ansible_become=true
-ansible_become_method={% if ansible_test_collections is defined -%}ansible.netcommon.{%- endif %}enable
-ansible_network_os={% if ansible_test_collections is defined -%}cisco.iosxr.{%- endif %}iosxr
+ansible_become_method=ansible.netcommon.enable
+ansible_network_os=cisco.iosxr.iosxr
 ansible_python_interpreter=/home/zuul/venv/bin/python
 ansible_ssh_private_key_file=/home/zuul/.ssh/id_rsa
 cli={'transport': 'cli'}
@@ -22,8 +22,8 @@ iosxr-7.0.2 ansible_port=22 ansible_host={{ hostvars['iosxr-7.0.2'].nodepool.pri
 
 [netconf:vars]
 ansible_become=true
-ansible_become_method={% if ansible_test_collections is defined -%}ansible.netcommon.{%- endif %}enable
-ansible_network_os={% if ansible_test_collections is defined -%}cisco.iosxr.{%- endif %}iosxr
+ansible_become_method=ansible.netcommon.enable
+ansible_network_os=cisco.iosxr.iosxr
 ansible_python_interpreter=/home/zuul/venv/bin/python
 ansible_ssh_private_key_file=/home/zuul/.ssh/id_rsa
 cli={'transport': 'cli'}

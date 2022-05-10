@@ -143,7 +143,6 @@
       - playbooks/ansible-test-base/post.yaml
     timeout: 10800
     vars:
-      ansible_test_collections: true
       ansible_test_command: integration
       ansible_test_integration_targets: ""
       ansible_collections_repo: "{{ zuul.project.canonical_name }}"
@@ -222,7 +221,6 @@
     irrelevant-files:
       - .pre-commit-config.yaml
     vars:
-      ansible_test_collections: true
       ansible_test_command: units
       ansible_test_integration_targets: ""
       # NOTE(pabelanger): ansible_test_python to be removed

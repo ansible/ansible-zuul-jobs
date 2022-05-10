@@ -74,5 +74,4 @@
       import_role:
         name: deploy-artifacts
       when:
-        - ansible_test_collections | default(False)
         - "'network-integration' not in ansible_test_command"

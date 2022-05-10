@@ -5,10 +5,10 @@
 eos-4.24.6 ansible_port=22 ansible_host={{ hostvars['eos-4.24.6'].ansible_host }} ansible_user=zuul
 
 [eos:vars]
-ansible_become_method={% if ansible_test_collections is defined -%}ansible.netcommon.{%- endif %}enable
-ansible_connection={% if ansible_test_collections is defined -%}ansible.netcommon.{%- endif %}network_cli
+ansible_become_method=ansible.netcommon.enable
+ansible_connection=ansible.netcommon.network_cli
 ansible_httpapi_pass=superSecretPass
-ansible_network_os={% if ansible_test_collections is defined -%}arista.eos.{%- endif %}eos
+ansible_network_os=arista.eos.eos
 ansible_python_interpreter=python
 
 debug=False

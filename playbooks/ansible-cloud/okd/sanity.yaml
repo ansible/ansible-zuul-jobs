@@ -14,6 +14,4 @@
         name: ansible-test
       vars:
         ansible_test_test_command: "{{ ansible_test_command }}"
-        ansible_test_collection_namespace: "redhat"
-        ansible_test_collection_name: "openshift"
         ansible_test_venv_path: "~/venv"

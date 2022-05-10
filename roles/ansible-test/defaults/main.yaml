@@ -1,9 +1,4 @@
 ---
-ansible_test_collections: false
-# Need to be defined of ansible_test_collections is true
-ansible_test_collection_namespace: ''
-# Need to be defined of ansible_test_collections is true
-ansible_test_collection_name: ''
 ansible_test_integration_targets: ''
 ansible_test_test_command: 'integration'
 ansible_test_continue_on_error: true

@@ -69,12 +69,12 @@
       ansible_test_command: network-integration
       ansible_runner_container_version: latest
       ansible_test_python: 3.9
-      #container_image_tests:
-        - integration
+      # container_image_tests:
+      #  - integration
       ansible_network_os: openvswitch
-      #test_ansible_ssh_private_key_file: ~/.ssh/id_ecdsa
-      #test_ansible_python_interpreter: /usr/bin/python3.9
-      #test_ansible_network_cli_ssh_type: libssh
+      # test_ansible_ssh_private_key_file: ~/.ssh/id_ecdsa
+      # test_ansible_python_interpreter: /usr/bin/python3.9
+      # test_ansible_network_cli_ssh_type: libssh
       ansible_collections_repo: github.com/ansible-collections/openvswitch.openvswitch
       ansible_test_integration_targets: "openvswitch_.*"
     nodeset: openvswitch-2.15.0

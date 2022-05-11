@@ -12,7 +12,7 @@
         ansible_network_os: openvswitch
     required-projects:
       - name: github.com/ansible/ansible-zuul-jobs
-    nodeset: openvswitch-2.9.0-python38
+    nodeset: openvswitch-2.15.0
 
 - job:
     name: ansible-test-units-openvswitch-python39

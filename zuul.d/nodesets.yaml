@@ -400,3 +400,9 @@
     nodes:
       - name: controller
         label: ansible-rhel-8.5
+
+- nodeset:
+    name: rhel8-xlarge
+    nodes:
+      - name: controller
+        label: ansible-fedora-36-xlarge

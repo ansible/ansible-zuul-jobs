@@ -1,0 +1,32 @@
+apiVersion: v1
+baseDomain: {{ ocp_base_domain }}
+metadata:
+  name: {{ ocp_cluster_name }}
+networking:
+  networkType: OVNKubernetes
+  machineNetwork:
+  - cidr: {{ ocp_extcidrnet }}
+  clusterNetwork:
+  - cidr: 10.128.0.0/14
+    hostPrefix: 23
+  serviceNetwork:
+  - 172.30.0.0/16
+compute:
+- architecture: amd64
+  hyperthreading: Enabled
+  name: worker
+  platform: {}
+  replicas: 0
+controlPlane:
+  architecture: amd64
+  hyperthreading: Enabled
+  name: master
+  platform: {}
+  replicas: 1
+platform:
+  none: {}
+BootstrapInPlace:
+  InstallationDisk: {{ ocp_installation_disk | default('/dev/vda') }}
+publish: External
+pullSecret: '{{ ocp_pull_secret }}'
+sshKey: '{{ ssh_key }}'

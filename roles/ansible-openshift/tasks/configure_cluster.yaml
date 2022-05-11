@@ -1,0 +1,66 @@
+---
+- name: Get authentication Pod name
+  shell: "oc get pod -n openshift-authentication -o name"
+  register: auth_pod
+
+- name: Extract the CA of the ingress
+  shell: "oc rsh -n openshift-authentication {{ auth_pod.stdout }} cat /run/secrets/kubernetes.io/serviceaccount/ca.crt"
+  register: certfile
+
+- block:
+    - name: Enable the dynamic CA configuration feature
+      shell: "update-ca-trust enable"
+
+    - name: Copy the CA certificate to the trusted cert directory
+      copy:
+        content: "{{ certfile.stdout }}"
+        dest: "{{ trusted_cert_file }}"
+
+    - name: Extract and add the Intermediate CA certificate to the list of trusted CA's
+      shell: "update-ca-trust extract"
+  become: true
+
+- name: Configure internal registry
+  shell:
+    cmd: >
+      oc patch
+      configs.imageregistry.operator.openshift.io cluster
+      --type merge
+      --patch '{"spec":{"managementState":"Managed","defaultRoute":true,"storage":{"emptyDir":{}}}}'
+
+- pause:
+    seconds: 10
+
+- name: Wait for image registry operator to be available
+  shell:
+    cmd: >
+      oc get clusteroperator image-registry
+      -o jsonpath='{.status.conditions[?(.type=="Available")].status}'
+  register: registry
+  retries: 30
+  delay: 10
+  until: registry.stdout | bool
+
+- name: Get Cluster public registry host
+  shell: "oc registry info --public"
+  register: registry
+  retries: 30
+  delay: 10
+  until: registry.rc == 0 and registry.stdout != ""
+
+- set_fact:
+    registry_hostname: "{{ registry.stdout }}"
+
+- name: Create configmap to store trusted certificate file
+  shell:
+    cmd: >
+      oc create configmap registry-cert
+      --from-file={{ registry_hostname | replace(":", "..") }}={{ trusted_cert_file }}
+      -n openshift-config
+
+- name: Patch Openshift Egress cluster
+  shell:
+    cmd: >
+      oc patch image.config.openshift.io/cluster
+      --patch '{"spec":{"additionalTrustedCA":{"name":"registry-cert"}}}'
+      --type=merge

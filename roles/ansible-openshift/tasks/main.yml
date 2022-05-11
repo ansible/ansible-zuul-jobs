@@ -1,0 +1,61 @@
+---
+# check that the CPU has support for virtualization
+- name: Verify cpu flags
+  shell: 'cat /proc/cpuinfo | grep -E "^flags" | grep -E "svm|vmx"'
+  register: result
+  ignore_errors: true
+
+- fail:
+    msg: "The CPU does not support virtualization."
+  when: result.rc != 0
+
+- name: Ensure that the needed kernel modules have been loaded
+  shell: "lsmod | grep kvm"
+  register: result
+  ignore_errors: true
+
+- fail:
+    msg: "KVM modules are missing from kernel."
+  when: result.rc != 0
+
+- name: Delete existing directory
+  file:
+    path: "{{ config_dir }}"
+    state: absent
+  ignore_errors: true
+
+- name: Create directory for installation
+  file:
+    path: "{{ config_dir }}"
+    state: directory
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
+    mode: '0755'
+
+- name: Prepare libvirt environment
+  import_tasks: tasks/prepare_libvirt.yaml
+  become: true
+
+- name: Deploy SNO
+  import_tasks: tasks/deploy_sno.yaml
+
+- name: Wait for cluster to be ready
+  import_tasks: tasks/wait_for_cluster.yaml
+
+- fail:
+    msg: "{{ _readiness.msg }}"
+  when:
+    - _readiness is defined
+    - not _readiness.completed
+
+- name: Copy kubeconfig to user directory
+  copy:
+    src: "{{config_dir }}/auth/kubeconfig"
+    dest: "~/.kube/config"
+    remote_src: true
+
+- name: Update trusted certificates
+  import_tasks: tasks/configure_cluster.yaml
+
+- name: Validate cluster sanity
+  import_tasks: tasks/validate_cluster_sanity.yaml

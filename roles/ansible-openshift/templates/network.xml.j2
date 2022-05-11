@@ -1,0 +1,26 @@
+<network>
+  <name>{{ ocp_libvirt_network_name }}</name>
+  <forward mode='nat'>
+    <nat>
+      <port start='1024' end='65535'/>
+    </nat>
+  </forward>
+  <bridge name='sno' stp='on' delay='0'/>
+  <domain name='{{ ocp_cluster_name }}.{{ ocp_base_domain }}'/>
+  <dns enable='yes'>
+    <host ip='{{ ocp_extcidrnet | ipaddr('10') | ipaddr('address') }}'>
+      <hostname>api.{{ ocp_cluster_name }}.{{ ocp_base_domain }}</hostname>
+      <hostname>api-int.{{ ocp_cluster_name }}.{{ ocp_base_domain }}</hostname>
+      <hostname>console-openshift-console.apps.{{ ocp_cluster_name }}.{{ ocp_base_domain }}</hostname>
+      <hostname>oauth-openshift.apps.{{ ocp_cluster_name }}.{{ ocp_base_domain }}</hostname>
+      <hostname>canary-openshift-ingress-canary.apps.{{ ocp_cluster_name }}.{{ ocp_base_domain }}</hostname>
+      <hostname>master1.{{ ocp_cluster_name }}.{{ ocp_base_domain }}</hostname>
+    </host>
+  </dns>
+  <ip address='{{ ocp_extcidrnet | ipaddr('first_usable') }}' prefix='{{ ocp_extcidrnet | ipaddr('prefix') }}'>
+    <dhcp>
+      <range start='{{ ocp_extcidrnet | ipaddr('11') | ipaddr('address') }}' end='{{ ocp_extcidrnet | ipaddr('last_usable') }}'/>
+      <host mac='{{ ocp_libvirt_host_mac }}' name='master1' ip='{{ ocp_extcidrnet | ipaddr('10') | ipaddr('address') }}'/>
+    </dhcp>
+  </ip>
+</network>

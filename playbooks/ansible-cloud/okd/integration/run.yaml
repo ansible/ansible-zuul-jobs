@@ -1,0 +1,6 @@
+---
+- hosts: controller
+  tasks:
+    - name: Integration tests
+      debug:
+        msg: "This is supposed to run community.okd collection integration tests on the running openshift cluster"

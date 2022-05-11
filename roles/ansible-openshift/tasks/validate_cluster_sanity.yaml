@@ -1,0 +1,56 @@
+---
+# Validate login is activated
+- name: Get kubeadmin password
+  slurp:
+    src: "{{ config_dir }}/auth/kubeadmin-password"
+  register: result
+
+- name: login into cluster using kubeadmin
+  shell: "oc login -u kubeadmin -p '{{ result.content | b64decode }}'"
+  register: login
+  retries: 60
+  delay: 5
+  until: login.rc == 0
+
+# Validate internal registry is working properly
+- block:
+    - set_fact:
+        project_name: "ansible-cluster-sanity"
+
+    - name: Create openshift namespace
+      shell: "oc create namespace {{ project_name }}"
+
+    - name: Import image from docker hub
+      shell: "oc import-image dockersamples/static-site --confirm -n {{ project_name }}"
+
+    - name: Create Pod using image from internal registry
+      shell:
+        cmd: >
+          oc run site
+          --image={{ registry_hostname }}/{{ project_name }}/static-site
+          -n {{ project_name }}
+          --expose
+          --port 80
+
+    - name: Wait for Pod to be running
+      shell: "oc wait --for=condition=Ready pod/site --timeout=360s -n {{ project_name }}"
+
+    - name: Create route for the service
+      shell: "oc create route edge --service=site -n {{ project_name }}"
+
+    - name: Get route details
+      shell: "oc get route.route.openshift.io/site -o jsonpath='{.spec.host}' -n {{ project_name }}"
+      register: route
+
+    - name: Attempt to hit https URL
+      uri:
+        url: 'https://{{ route.stdout }}'
+        return_content: true
+      until: result is successful
+      retries: 20
+      register: result
+
+  always:
+    - name: Delete namespace
+      shell: "oc delete namespace {{ project_name }} --wait=false"
+      ignore_errors: true

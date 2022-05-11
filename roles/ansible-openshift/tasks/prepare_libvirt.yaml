@@ -1,0 +1,109 @@
+---
+- name: Install required packages
+  yum:
+    name: "{{ ocp_required_packages }}"
+    state: present
+    update_cache: true
+    disable_gpg_check: true
+
+- name: Add "{{ ansible_user }}" user to libvirt and qemu group and get ssh key setup
+  user:
+    name: "{{ ansible_user }}"
+    groups: libvirt,qemu
+    append: true
+    state: present
+    generate_ssh_key: true
+
+- name: "Grant {{ ansible_user }} user execute access to {{ ansible_user_dir }}"
+  acl:
+    path: "{{ ansible_user_dir }}"
+    entity: qemu
+    etype: user
+    permissions: x
+    state: present
+
+- name: Enable and restart libvirtd Services
+  service:
+    name: libvirtd
+    state: restarted
+    enabled: true
+
+- name: Verify if there are config files in NM dnsmasq.d
+  find:
+    path: "/etc/NetworkManager/dnsmasq.d/"
+  register: _result
+
+- name: Remove dnsmasq from the DNS configuration of NetworkManager
+  file:
+    path: "{{ item.path }}"
+    state: absent
+  with_items: "{{ _result.files }}"
+
+- name: Reload Network Manager
+  service:
+    name: NetworkManager
+    state: reloaded
+
+- name: Write pool configuration
+  template:
+    src: storage-pool.xml.j2
+    dest: "{{ config_dir }}/storage-pool.xml"
+
+- name: Add the storage pool definition
+  shell: "virsh pool-define {{ config_dir }}/storage-pool.xml"
+
+- name: Start the storage pool
+  shell: "virsh pool-start {{ ocp_libvirt_pool_name }}"
+
+- name: list all storage pool
+  shell: "virsh pool-info {{ ocp_libvirt_pool_name }}"
+  register: _pool
+
+
+- name: Write network configuration
+  template:
+    src: network.xml.j2
+    dest: "{{ config_dir }}/network.xml"
+
+- name: Define network
+  shell: "virsh net-define --file {{ config_dir }}/network.xml"
+
+- name: Start the network
+  shell: "virsh net-start --network {{ ocp_libvirt_network_name }}"
+
+- name: Get network info
+  shell: "virsh net-info --network {{ ocp_libvirt_network_name }}"
+  register: _netinfo
+
+- debug: var=_netinfo.stdout
+
+- name: Define DNS entries for dnsmasq
+  copy:
+    content: |
+      address=/api.{{ ocp_cluster_name }}.{{ ocp_base_domain }}/{{ ocp_extcidrnet | ipaddr('10') | ipaddr('address') }}
+      address=/.apps.{{ ocp_cluster_name }}.{{ ocp_base_domain }}/{{ ocp_extcidrnet | ipaddr('10') | ipaddr('address') }}
+      address=/master1.{{ ocp_cluster_name }}.{{ ocp_base_domain }}/{{ ocp_extcidrnet | ipaddr('10') | ipaddr('address') }}
+    dest: /etc/NetworkManager/dnsmasq.d/sno.conf
+    owner: root
+    group: root
+    mode: u=rw,g=r,o=r
+
+- name: Include dnsmasq in the DNS configuration of NetworkManager
+  ini_file:
+    path: /etc/NetworkManager/conf.d/dnsmasq.conf
+    section: main
+    option: dns
+    value: dnsmasq
+    owner: root
+    group: root
+    mode: u=rw,g=r,o=r
+
+- name: Reload Network Manager
+  service:
+    name: NetworkManager
+    state: reloaded
+
+- name: update /etc/hosts
+  lineinfile:
+    path: /etc/hosts
+    line: "{{ ocp_extcidrnet | ipaddr('10') | ipaddr('address') }} api.{{ ocp_cluster_name }}.{{ ocp_base_domain }}"

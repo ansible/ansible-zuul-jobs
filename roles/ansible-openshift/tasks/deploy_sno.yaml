@@ -1,0 +1,125 @@
+---
+- name: Download release.txt
+  uri:
+    url: "https://mirror.openshift.com/pub/openshift-v4/x86_64/clients/ocp/{{ ocp_release }}/release.txt"
+    return_content: true
+  register: _release
+
+- set_fact:
+    ocp_release_version: "{{ _release.content.split('\n') | select('match', '  Version:  ([0-9.]*)') | list | first | regex_search('Version:  ([0-9.]*)', '\\1') | first }}"
+
+- name: Unarchive oc binary
+  unarchive:
+    src: "https://mirror.openshift.com/pub/openshift-v4/x86_64/clients/ocp/{{ ocp_release_version }}/openshift-client-linux.tar.gz"
+    dest: /usr/local/bin
+    remote_src: true
+  become: true
+
+- name: Get OCP release version for client
+  shell: "oc version -o json  --client"
+  register: _result
+
+- name: Create pull secret file
+  copy:
+    content: "{{ ocp_pull_secret }}"
+    dest: "{{ config_dir }}/pull_secret.json"
+
+- set_fact:
+    ocp_client_release: "{{ _result.stdout | from_json }}"
+
+- name: Extract openshift-install
+  shell: "oc adm release extract --registry-config {{ config_dir }}/pull_secret.json --command=openshift-install --to {{ config_dir }} {{ ocp_release_image }}"
+  vars:
+    ocp_release_image: "quay.io/openshift-release-dev/ocp-release:{{ ocp_client_release.releaseClientVersion }}-x86_64"
+
+- name: Get RHCOS iso url
+  shell: "{{ config_dir }}/openshift-install coreos print-stream-json"
+  register: _url
+
+- set_fact:
+    rhcos: "{{ _url.stdout | from_json }}"
+
+- name: Download RHCOS iso
+  get_url:
+    url: "{{ rhcos.architectures.x86_64.artifacts.metal.formats.iso.disk.location }}"
+    dest: "{{ config_dir }}/rhcos-live.iso"
+    checksum: "sha256:{{ rhcos.architectures.x86_64.artifacts.metal.formats.iso.disk.sha256 }}"
+
+# Get ssh rsa key
+- name: Get the contents of the ssh key for {{ ansible_user }}
+  slurp:
+    src: "{{ ansible_user_dir }}/.ssh/id_rsa.pub"
+  register: _sshkey
+
+- name: Generate install-config.yaml
+  template:
+    src: install-config.yaml.j2
+    dest: "{{ config_dir }}/install-config.yaml"
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
+    mode: '0644'
+  vars:
+    ssh_key: "{{ _sshkey['content'] | b64decode }}"
+
+- name: Create OpenShift Manifest
+  shell: "{{ config_dir }}/openshift-install --dir {{ config_dir }} create manifests"
+
+- name: Ensure the manifests dir is owned by {{ ansible_user }}
+  file:
+    path: "{{ item }}"
+    state: directory
+    recurse: true
+    owner: "{{ ansible_user }}"
+    group: "{{ ansible_user }}"
+    mode: '0755'
+  with_items:
+    - "{{ config_dir }}/openshift"
+    - "{{ config_dir }}/manifests"
+
+- name: Create OpenShift Ignition File
+  shell: "{{ config_dir }}/openshift-install --dir {{ config_dir }} create single-node-ignition-config"
+
+- name: Generate Embedded RHCOS LIVE ISO
+  shell:
+    cmd: >
+      podman run
+      --privileged
+      --rm
+      -v /dev:/dev
+      -v /run/udev:/run/udev
+      -v "{{ config_dir }}:/data"
+      --workdir /data
+      quay.io/coreos/coreos-installer:release
+      iso ignition embed /data/rhcos-live.iso \
+        --force \
+        --ignition-file /data/bootstrap-in-place-for-live-iso.ign \
+        --output /data/embedded.iso
+  register: rhcos_iso_live_info
+  become: true
+
+- name: Set qemu permissions on the embedded ISO file
+  file:
+    path: "{{ config_dir }}/embedded.iso"
+    owner: qemu
+    group: qemu
+    mode: '0644'
+    setype: virt_content_t
+  become: true
+
+- name: Installing single node OpenShift VM
+  shell:
+    cmd: >
+      virt-install --connect qemu:///system
+      -n {{ ocp_libvirt_host_name }}
+      --memory {{ ocp_libvirt_host_ram_size }}
+      --vcpus {{ ocp_libvirt_host_vcpus }}
+      --os-variant {{ ocp_libvirt_host_os_variant }}
+      --import
+      --network network={{ ocp_libvirt_network_name }},mac='{{ ocp_libvirt_host_mac }}'
+      --graphics none
+      --events on_reboot=restart
+      --cdrom {{ config_dir }}/embedded.iso
+      --disk pool={{ ocp_libvirt_pool_name }},size={{ ocp_libvirt_host_disk_size }}
+      --boot hd,cdrom
+      --noautoconsole
+      --wait -1

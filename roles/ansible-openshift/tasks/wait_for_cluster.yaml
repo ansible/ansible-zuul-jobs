@@ -1,0 +1,20 @@
+---
+- set_fact:
+    iter: "{{ iter | default(-1) | int + 1 }}"
+
+- name: Test cluster Readiness
+  wait_cluster_readiness:
+    binary_path: "/usr/local/bin/oc"
+    kubeconfig: "{{ config_dir }}/auth/kubeconfig"
+  register: _readiness
+
+- debug: var=_readiness
+
+- pause:
+    seconds: 30
+  when: not _readiness.completed
+
+- include_tasks: tasks/wait_for_cluster.yaml
+  when:
+    - iter | int < 80
+    - not _readiness.completed

@@ -1,0 +1,26 @@
+---
+ocp_required_packages:
+  - libvirt
+  - qemu-kvm
+  - virt-install
+  - python3-devel
+  - libvirt-devel
+  - libguestfs-tools
+  - ca-certificates
+
+ocp_libvirt_pool_name: "sno-images"
+ocp_libvirt_network_name: "sno-network"
+ocp_libvirt_pool_dir: "/var/lib/libvirt/images"
+ocp_extcidrnet: "192.169.0.0/24"
+ocp_base_domain: "ansibletesting"
+ocp_cluster_name: "sno"
+ocp_pull_secret: 'to be defined'
+ocp_release: "stable-4.9"
+ocp_libvirt_host_name: "sno"
+ocp_libvirt_host_ram_size: 16384
+ocp_libvirt_host_vcpus: 8
+ocp_libvirt_host_os_variant: "rhel8.1"
+ocp_libvirt_host_disk_size: 40
+ocp_libvirt_host_mac: "52:54:00:ee:42:e1"
+config_dir: "/tmp/ansible-openshift"
+trusted_cert_file: "/etc/pki/ca-trust/source/anchors/ingress.crt"

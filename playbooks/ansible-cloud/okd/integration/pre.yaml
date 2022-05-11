@@ -1,0 +1,34 @@
+---
+- hosts: controller
+  tasks:
+    - name: Ensure controller directory exists
+      file:
+        path: "{{ ansible_user_dir }}/zuul-output/logs/controller"
+        state: directory
+
+    # - name: Install required packages
+    #   package:
+    #     name:
+    #       - glibc-langpack-en
+    #       - make
+    #       - python38-devel
+    #       - gcc
+    #       - openldap-devel
+    #     state: present
+    #   become: true
+
+    - name: Run ensure-podman role
+      include_role:
+        name: ensure-podman
+
+    - name: Run ensure-virtualenv role
+      include_role:
+        name: ensure-virtualenv
+
+    - name: Run ensure-pip role
+      include_role:
+        name: ensure-pip
+
+    - name: Install Openshift cluster
+      include_role:
+        name: ansible-openshift

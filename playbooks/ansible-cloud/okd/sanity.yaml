@@ -15,3 +15,4 @@
       vars:
         ansible_test_test_command: "{{ ansible_test_command }}"
         ansible_test_venv_path: "~/venv"
+        ansible_test_location: "~/.ansible/collections/ansible_collections/redhat/openshift"

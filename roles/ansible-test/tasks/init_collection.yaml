@@ -1,18 +1,47 @@
 ---
-- name: Copy the galaxy.yml on the controller
-  fetch:
-    src: "{{ ansible_test_location }}/galaxy.yml"
-    dest: '{{ zuul.executor.work_root }}/tmp_fetch'
-  register: _fetch
-- name: Load information from galaxy.yml
-  include_vars:
-    file: '{{ _fetch.dest }}'
-    name: galaxy_info
+- name: check if MANIFEST.json exists
+  stat:
+    path: "{{ ansible_test_location }}/MANIFEST.json"
+  register: _manifest_json
 
-- name: Setup location of project for integration tests
-  set_fact:
-    _test_location: "{{ ansible_test_collection_dir }}/{{ galaxy_info.namespace }}/{{ galaxy_info.name }}"
-    _test_cfg_location: "{{ ansible_test_collection_dir }}/{{ galaxy_info.namespace }}/{{ galaxy_info.name }}/tests/integration/{{ ansible_test_test_command }}.cfg"
+# We've got two options here, either:
+# - ansible_test_location points on a git clone of a collection, in this
+#   case there is galaxy.yml file
+# - or ansible_test_location points on the directory of collection installed
+#   with ansible-galaxy (likely a tarball), in this case MANIFEST.json is
+#   our best bet.
+- when: _manifest_json.stat.exists
+  block:
+    - name: Copy the MANIFEST.json on the controller
+      fetch:
+        src: "{{ ansible_test_location }}/MANIFEST.json"
+        dest: '{{ zuul.executor.work_root }}/tmp_fetch'
+      register: _fetch
+    - name: Load information from MANIFEST.json
+      include_vars:
+        file: '{{ _fetch.dest }}'
+        name: galaxy_manifest
+    - name: Setup location of project for integration tests
+      set_fact:
+        _test_location: "{{ ansible_test_collection_dir }}/{{ galaxy_manifest.collection_info.namespace }}/{{ galaxy_manifest.collection_info.name }}"
+        _test_cfg_location: "{{ ansible_test_collection_dir }}/{{ galaxy_manifest.collection_info.namespace }}/{{ galaxy_manifest.collection_info.name }}/tests/integration/{{ ansible_test_test_command }}.cfg"
+
+
+- when: not _manifest_json.stat.exists
+  block:
+    - name: Copy the galaxy.yml on the controller
+      fetch:
+        src: "{{ ansible_test_location }}/galaxy.yml"
+        dest: '{{ zuul.executor.work_root }}/tmp_fetch'
+      register: _fetch
+    - name: Load information from galaxy.yml
+      include_vars:
+        file: '{{ _fetch.dest }}'
+        name: galaxy_manifest
+    - name: Setup location of project for integration tests
+      set_fact:
+        _test_location: "{{ ansible_test_collection_dir }}/{{ galaxy_info.namespace }}/{{ galaxy_info.name }}"
+        _test_cfg_location: "{{ ansible_test_collection_dir }}/{{ galaxy_info.namespace }}/{{ galaxy_info.name }}/tests/integration/{{ ansible_test_test_command }}.cfg"
 
 - name: Setup minimum test requirements
   set_fact:

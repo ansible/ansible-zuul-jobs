@@ -568,7 +568,6 @@
                 override-checkout: stable-2.2
         - ansible-test-sanity-docker-devel
         - ansible-test-sanity-docker-milestone
-        - ansible-test-sanity-docker-stable-2.9
         - ansible-test-sanity-docker-stable-2.11
         - ansible-test-sanity-docker-stable-2.12
         - ansible-galaxy-importer:
@@ -576,7 +575,6 @@
         - ansible-test-units-community-okd-python38
         - ansible-test-sanity-okd-downstream-devel
         - ansible-test-sanity-okd-downstream-milestone
-        - ansible-test-sanity-okd-downstream-stable-2.9
         - ansible-test-sanity-okd-downstream-stable-2.11
         - ansible-test-sanity-okd-downstream-stable-2.12
 

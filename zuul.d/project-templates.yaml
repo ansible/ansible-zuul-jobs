@@ -570,6 +570,7 @@
         - ansible-test-sanity-docker-milestone
         - ansible-test-sanity-docker-stable-2.11
         - ansible-test-sanity-docker-stable-2.12
+        - ansible-test-sanity-docker-stable-2.13
         - ansible-galaxy-importer:
             voting: false
         - ansible-test-units-community-okd-python38
@@ -577,6 +578,7 @@
         - ansible-test-sanity-okd-downstream-milestone
         - ansible-test-sanity-okd-downstream-stable-2.11
         - ansible-test-sanity-okd-downstream-stable-2.12
+        - ansible-test-sanity-okd-downstream-stable-2.13
 
 - project-template:
     name: ansible-collections-cloud-common

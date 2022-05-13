@@ -516,6 +516,13 @@
       - name: github.com/ansible/ansible
         override-checkout: stable-2.12
 
+- job:
+    name: ansible-test-sanity-okd-downstream-stable-2.13
+    parent: ansible-test-sanity-okd-downstream
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.13
+
 ### Kubernetes Core
 - job:
     name: ansible-test-units-kubernetes-core-python38

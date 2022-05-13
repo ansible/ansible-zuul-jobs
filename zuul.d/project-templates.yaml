@@ -1757,4 +1757,3 @@
     check:
       jobs: &ansible-collections-ansible-utils-units-jobs
         - ansible-changelog-fragment
-   

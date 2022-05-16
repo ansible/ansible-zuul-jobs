@@ -366,20 +366,20 @@
     name: ansible-tox-py38
     nodes:
       - name: controller
-        label: ansible-fedora-35-1vcpu
+        label: ansible-fedora-36-1vcpu
 
 - nodeset:
     name: ansible-tox-py39
     nodes:
       - name: controller
-        label: ansible-fedora-35-1vcpu
+        label: ansible-fedora-36-1vcpu
 
 
 - nodeset:
     name: ansible-tox-py310
     nodes:
       - name: controller
-        label: ansible-fedora-35-1vcpu
+        label: ansible-fedora-36-1vcpu
 
 - nodeset:
     name: rhel8

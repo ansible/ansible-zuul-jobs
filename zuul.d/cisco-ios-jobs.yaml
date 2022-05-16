@@ -70,6 +70,7 @@
       - ^plugins/.*$
       - ^tests/integration/.*$
       - ^requirements.txt
+      - ^bindep.txt
 
 # - network-ee-integration-tests-ios-stable-2.9
 - job:

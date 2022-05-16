@@ -173,10 +173,10 @@
     semaphore: ansible-test-cloud-integration-vmware-rest
 
 - job:
-    name: ansible-test-cloud-integration-vmware-rest-python38
+    name: ansible-test-cloud-integration-vmware-rest-python39
     parent: ansible-test-cloud-integration-vmware-rest
     vars:
-      ansible_test_python: 3.8
+      ansible_test_python: 3.9
 
 
 ##### units
@@ -233,7 +233,7 @@
 - job:
     name: ansible-test-cloud-integration-aws
     parent: ansible-core-ci-aws-session
-    nodeset: controller-python38
+    nodeset: fedora-35-1vcpu
     dependencies:
       - name: build-ansible-collection
       - name: ansible-test-splitter
@@ -253,7 +253,7 @@
     timeout: 3600
     vars:
       ansible_test_command: integration
-      ansible_test_python: 3.8
+      ansible_test_python: 3.9
       ansible_test_retry_on_error: true
       ansible_test_requirement_files:
         - requirements.txt
@@ -388,7 +388,7 @@
     timeout: 3600
     vars:
       ansible_test_command: integration
-      ansible_test_python: 3.8
+      ansible_test_python: 3.9
       ansible_test_integration_targets: ""
       ansible_collections_repo: "{{ zuul.project.canonical_name }}"
 
@@ -409,8 +409,28 @@
         - tests/unit/constraints.txt
 
 - job:
+    name: ansible-test-units-amazon-aws-python39
+    parent: ansible-test-units-base-python39
+    vars:
+      ansible_collections_repo: "{{ zuul.project.canonical_name }}"
+      ansible_test_requirement_files:
+        - requirements.txt
+        - test-requirements.txt
+        # Ansible-test picks up requirements and constraints from
+        # tests/unit when running in docker, mirror this
+        - tests/unit/requirements.txt
+      ansible_test_constraint_files:
+        - tests/unit/constraints.txt
+
+- job:
     name: ansible-test-units-amazon-cloud-python38
     parent: ansible-test-units-base-python38
+    vars:
+      ansible_collections_repo: "{{ zuul.project.canonical_name }}"
+
+- job:
+    name: ansible-test-units-amazon-cloud-python39
+    parent: ansible-test-units-base-python39
     vars:
       ansible_collections_repo: "{{ zuul.project.canonical_name }}"
 
@@ -418,6 +438,10 @@
 - job:
     name: ansible-test-units-community-aws-python38
     parent: ansible-test-units-amazon-aws-python38
+
+- job:
+    name: ansible-test-units-community-aws-python39
+    parent: ansible-test-units-amazon-aws-python39
 
 #### sanity
 - job:
@@ -448,6 +472,12 @@
 - job:
     name: ansible-test-units-cloud-common-python38
     parent: ansible-test-units-base-python38
+    vars:
+      ansible_collections_repo: "{{ zuul.project.canonical_name }}"
+
+- job:
+    name: ansible-test-units-cloud-common-python39
+    parent: ansible-test-units-base-python39
     vars:
       ansible_collections_repo: "{{ zuul.project.canonical_name }}"
 
@@ -523,6 +553,14 @@
       - name: github.com/ansible/ansible
         override-checkout: stable-2.13
 
+- job:
+    name: ansible-test-units-community-okd-python39
+    parent: ansible-test-units-base-python39
+    required-projects:
+      - name: github.com/openshift/community.okd
+    vars:
+      ansible_collections_repo: github.com/openshift/community.okd
+
 ### Kubernetes Core
 - job:
     name: ansible-test-units-kubernetes-core-python38
@@ -535,12 +573,20 @@
       ansible_collections_repo: github.com/ansible-collections/kubernetes.core
 
 - job:
+    name: ansible-test-units-kubernetes-core-python39
+    parent: ansible-test-units-base-python39
+    required-projects:
+      - name: github.com/ansible-collections/kubernetes.core
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/kubernetes.core
+
+- job:
     name: ansible-test-cloud-integration-kubernetes-core
     dependencies:
       - name: build-ansible-collection
       - name: ansible-test-splitter
     pre-run:
-      - playbooks/ansible-cloud/py38/pre.yaml
+      - playbooks/ansible-cloud/py39/pre.yaml
       - playbooks/ansible-cloud/k8s/pre.yaml
     run: playbooks/ansible-test-base/run.yaml
     files:
@@ -553,7 +599,7 @@
     nodeset: centos-8-stream-large
     vars:
       ansible_test_command: integration
-      ansible_test_python: 3.8
+      ansible_test_python: 3.9
       ansible_test_retry_on_error: true
       ansible_test_integration_targets: "{{ child.targets_to_test[zuul.job] }}"
       ansible_collections_repo: "github.com/ansible-collections/{{ zuul.job.split('-')[1] }}"

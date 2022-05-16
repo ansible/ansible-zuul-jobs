@@ -1,6 +1,10 @@
 ---
 - hosts: controller
   tasks:
+    - name: Install yaml
+      pip:
+        name: yaml
+        virtualenv: "~/venv"
     - name: Build downstream collection
       shell: "source ~/venv/bin/activate; make downstream-build"
       args:

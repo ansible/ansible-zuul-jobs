@@ -481,6 +481,7 @@
     required-projects:
       - name: github.com/ansible/ansible
         override-checkout: milestone
+    voting: false
 
 - job:
     name: ansible-test-sanity-okd-downstream-stable-2.9

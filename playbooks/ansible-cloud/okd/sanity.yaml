@@ -3,7 +3,7 @@
   tasks:
     - name: Install yaml
       pip:
-        name: yaml
+        name: pyyaml
         virtualenv: "~/venv"
     - name: Build downstream collection
       shell: "source ~/venv/bin/activate; make downstream-build"

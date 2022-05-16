@@ -9,10 +9,10 @@
       when:
         - test_fips_mode | bool
 
-    - name: Ensure python3.8 is present
+    - name: Ensure python3-devel is present
       become: true
       package:
-        name: python38-devel
+        name: python3-devel
         state: present
 
     - name: Install binary dependencies

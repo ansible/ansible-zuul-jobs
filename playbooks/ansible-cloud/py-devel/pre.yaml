@@ -1,0 +1,11 @@
+---
+- hosts: controller
+  gather_facts: false
+  tasks:
+    - name: Ensure python3-devel is present (Red Hat)
+      become: true
+      package:
+        name:
+          - python3-devel
+          - gcc
+        state: present

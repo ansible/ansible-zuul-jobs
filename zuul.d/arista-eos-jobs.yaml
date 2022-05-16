@@ -65,6 +65,7 @@
       - ^plugins/.*$
       - ^tests/integration/.*$
       - ^requirements.txt
+      - ^bindep.txt
 
 # network_cli
 

@@ -69,6 +69,7 @@
       - ^plugins/.*$
       - ^tests/integration/.*$
       - ^requirements.txt
+      - ^bindep.txt
 
 - job:
     name: ansible-ee-integration-vyos-stable-2.12

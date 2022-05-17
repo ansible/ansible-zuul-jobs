@@ -1355,8 +1355,8 @@
         - ansible-test-sanity-docker-stable-2.11
         - ansible-test-sanity-docker-stable-2.12
         - ansible-test-units-trendmicro-python39
-        - ansible-test-units-trendmicro-python36
         - ansible-test-units-trendmicro-python37
+        - ansible-test-units-trendmicro-python39
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-collections/ansible.netcommon
@@ -1372,6 +1372,8 @@
         - ansible-test-sanity-docker-stable-2.10
         - ansible-test-sanity-docker-stable-2.11
         - ansible-test-sanity-docker-stable-2.12
+        - ansible-test-units-trendmicro-python39
+        - ansible-test-units-trendmicro-python37
         - ansible-security-integration-trendmicro-deepsec-python38
         - build-ansible-collection
 

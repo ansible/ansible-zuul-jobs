@@ -102,10 +102,6 @@
         - integration-community.aws-11
         - integration-community.aws-12
         - integration-community.aws-13
-        # Failing due to broken six/urllib3 install in generated containers
-        # https://github.com/ansible/ansible-zuul-jobs/issues/1497
-        - ansible-ee-tests-stable-2.12:
-            voting: false
     gate:
       queue: integrated-aws
       jobs: *ansible-collections-amazon-aws-jobs
@@ -987,8 +983,6 @@
         - integration-kubernetes.core-with-turbo-2
         - integration-kubernetes.core-with-turbo-3
         - ansible-tox-linters
-        - ansible-ee-tests-stable-2.12:
-            voting: false
     gate:
       jobs: *ansible-collections-kubernetes-core-units-jobs
     ondemand:

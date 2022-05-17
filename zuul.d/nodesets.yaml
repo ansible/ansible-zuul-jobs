@@ -360,7 +360,7 @@
     name: ansible-galaxy-importer
     nodes:
       - name: controller
-        label: zuul-worker-ansible
+        label: ansible-fedora-35-1vcpu
 
 - nodeset:
     name: ansible-tox-py38

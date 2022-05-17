@@ -233,7 +233,7 @@
 - job:
     name: ansible-test-cloud-integration-aws
     parent: ansible-core-ci-aws-session
-    nodeset: controller-python38
+    nodeset: container-ansible
     dependencies:
       - name: build-ansible-collection2
       - name: ansible-test-splitter

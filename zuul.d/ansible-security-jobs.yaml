@@ -16,7 +16,7 @@
     name: ansible-security-integration-splunk
     abstract: true
     dependencies:
-      - name: build-ansible-collection
+      - name: build-ansible-collection2
         soft: true
     parent: ansible-security-splunk-appliance
     pre-run:
@@ -76,7 +76,7 @@
     name: ansible-test-security-integration-qradar
     abstract: true
     dependencies:
-      - name: build-ansible-collection
+      - name: build-ansible-collection2
         soft: true
     parent: ansible-security-qradar-appliance
     pre-run:
@@ -136,7 +136,7 @@
     name: ansible-security-integration-trendmicro-deepsec
     abstract: true
     dependencies:
-      - name: build-ansible-collection
+      - name: build-ansible-collection2
         soft: true
     parent: ansible-security-trendmicro-deepsec-appliance
     pre-run:

@@ -60,7 +60,7 @@
         - ansible-test-sanity-aws-ansible-2.9-python38
         - ansible-test-sanity-aws-ansible-2.11-python38
         - ansible-test-units-amazon-aws-python38
-        - build-ansible-collection:
+        - build-ansible-collection2:
             required-projects:
               - name: github.com/ansible-collections/ansible.utils
               - name: github.com/ansible-collections/ansible.netcommon
@@ -112,7 +112,7 @@
     ondemand:
       queue: integrated-aws
       jobs:
-        - build-ansible-collection:
+        - build-ansible-collection2:
             required-projects:
               - name: github.com/ansible-collections/ansible.utils
               - name: github.com/ansible-collections/ansible.netcommon
@@ -164,7 +164,7 @@
         - ansible-test-sanity-docker-stable-2.11
         - ansible-test-sanity-docker-stable-2.12
         - ansible-test-units-community-aws-python38
-        - build-ansible-collection:
+        - build-ansible-collection2:
             required-projects:
               - name: github.com/ansible-collections/amazon.aws
               - name: github.com/ansible-collections/ansible.netcommon
@@ -203,7 +203,7 @@
     ondemand:
       queue: integrated-aws
       jobs:
-        - build-ansible-collection:
+        - build-ansible-collection2:
             required-projects:
               - name: github.com/ansible-collections/amazon.aws
               - name: github.com/ansible-collections/ansible.netcommon
@@ -237,7 +237,7 @@
         - ansible-test-sanity-docker-stable-2.11
         - ansible-test-sanity-docker-stable-2.12
         - ansible-test-integration-amazon-cloud
-        - build-ansible-collection:
+        - build-ansible-collection2:
             required-projects:
               - name: github.com/ansible-collections/amazon.aws
     gate:
@@ -291,7 +291,7 @@
         - ansible-ee-integration-arista-eos-libssh-stable-2.9
         - ansible-ee-integration-arista-eos-libssh-stable-2.11
         - ansible-ee-integration-arista-eos-libssh-stable-2.12
-        - build-ansible-collection:
+        - build-ansible-collection2:
             required-projects:
               - name: github.com/ansible-collections/ansible.netcommon
               - name: github.com/ansible-collections/ansible.utils
@@ -308,7 +308,7 @@
         - ansible-test-sanity-docker-stable-2.11
         - ansible-test-sanity-docker-stable-2.12
         - ansible-test-units-eos-python38
-        - build-ansible-collection
+        - build-ansible-collection2
 
 - project-template:
     name: ansible-collections-cisco-asa-units
@@ -345,7 +345,7 @@
         - ansible-test-network-integration-asa-libssh-python38-stable211
         - ansible-test-network-integration-asa-libssh-python38-stable29:
             voting: false
-        - build-ansible-collection:
+        - build-ansible-collection2:
             required-projects:
               - name: github.com/ansible-collections/ansible.netcommon
               - name: github.com/ansible-collections/ansible.utils
@@ -386,7 +386,7 @@
       queue: integrated
       fail-fast: true
       jobs:
-        - build-ansible-collection:
+        - build-ansible-collection2:
             required-projects:
               - name: github.com/ansible-collections/ansible.netcommon
               - name: github.com/ansible-collections/ansible.utils
@@ -399,14 +399,14 @@
         - ansible-test-sanity-docker-stable-2.11
         - ansible-test-sanity-docker-stable-2.12
         - ansible-test-units-nxos-python38
-        - build-ansible-collection
+        - build-ansible-collection2
 
 - project-template:
     name: ansible-community-ansible-plugin-builder
     check:
       jobs:
         - ansible-test-integration-ansible-plugin-builder
-        - build-ansible-collection:
+        - build-ansible-collection2:
             required-projects:
               - name: github.com/ansible-collections/ansible.utils
     gate:
@@ -414,7 +414,7 @@
       fail-fast: true
       jobs:
         - ansible-test-integration-ansible-plugin-builder
-        - build-ansible-collection:
+        - build-ansible-collection2:
             required-projects:
               - name: github.com/ansible-collections/ansible.utils
 
@@ -450,7 +450,7 @@
         - ansible-ee-integration-ios-libssh-stable-2.9
         - ansible-ee-integration-ios-libssh-stable-2.11
         - ansible-ee-integration-ios-libssh-stable-2.12
-        - build-ansible-collection:
+        - build-ansible-collection2:
             required-projects:
               - name: github.com/ansible-collections/ansible.netcommon
               - name: github.com/ansible-collections/ansible.utils
@@ -466,7 +466,7 @@
         - ansible-test-sanity-docker-stable-2.10
         - ansible-test-sanity-docker-stable-2.11
         - ansible-test-sanity-docker-stable-2.12
-        - build-ansible-collection
+        - build-ansible-collection2
 
 - project-template:
     name: ansible-collections-cisco-iosxr-units
@@ -492,7 +492,7 @@
     name: ansible-collections-cisco-iosxr
     check:
       jobs:
-        - build-ansible-collection:
+        - build-ansible-collection2:
             required-projects:
               - name: github.com/ansible-collections/ansible.netcommon
               - name: github.com/ansible-collections/ansible.utils
@@ -500,7 +500,7 @@
       queue: integrated
       fail-fast: true
       jobs:
-        - build-ansible-collection:
+        - build-ansible-collection2:
             required-projects:
               - name: github.com/ansible-collections/ansible.netcommon
               - name: github.com/ansible-collections/ansible.utils
@@ -513,7 +513,7 @@
         - ansible-test-sanity-docker-stable-2.11
         - ansible-test-sanity-docker-stable-2.12
         - ansible-test-units-iosxr-python38
-        - build-ansible-collection
+        - build-ansible-collection2
 
 - project-template:
     name: ansible-collections-cisco-iosxr-netconf
@@ -521,7 +521,7 @@
       jobs:
         - ansible-test-network-integration-ansible-netcommon-iosxr-netconf-python38:
             voting: false
-        - build-ansible-collection:
+        - build-ansible-collection2:
             required-projects:
               - name: github.com/ansible-collections/ansible.netcommon
               - name: github.com/ansible-collections/ansible.utils
@@ -536,7 +536,7 @@
       queue: integrated
       fail-fast: true
       jobs:
-        - build-ansible-collection:
+        - build-ansible-collection2:
             required-projects:
               - name: github.com/ansible-collections/ansible.netcommon
               - name: github.com/ansible-collections/ansible.utils
@@ -552,7 +552,7 @@
     name: ansible-collections-community-kubernetes
     third-party-check:
       jobs:
-        - build-ansible-collection:
+        - build-ansible-collection2:
             required-projects:
               - name: github.com/ansible-collections/cloud.common
               - name: github.com/ansible-collections/kubernetes.core
@@ -561,7 +561,7 @@
     name: ansible-collections-community-okd
     third-party-check:
       jobs:
-        - build-ansible-collection:
+        - build-ansible-collection2:
             required-projects:
               - name: github.com/ansible-collections/kubernetes.core
                 override-checkout: stable-2.2
@@ -588,7 +588,7 @@
         - ansible-test-cloud-integration-vmware-rest-python38:
             required-projects:
               - name: github.com/ansible-collections/vmware.vmware_rest
-        - build-ansible-collection:
+        - build-ansible-collection2:
             required-projects:
               - name: github.com/ansible-collections/community.vmware
               - name: github.com/ansible-collections/vmware.vmware_rest
@@ -612,14 +612,14 @@
       jobs:
         - ansible-test-sanity-docker-devel
         - ansible-test-sanity-docker-milestone
-        - build-ansible-collection
+        - build-ansible-collection2
 
 - project-template:
     name: ansible-collections-community-vmware
     check:
       jobs:
         - ansible-tox-linters
-        - build-ansible-collection:
+        - build-ansible-collection2:
             required-projects:
               - name: github.com/ansible-collections/vmware.vmware_rest
               - name: github.com/ansible-collections/cloud.common
@@ -638,7 +638,7 @@
     gate:
       jobs:
         - ansible-tox-linters
-        - build-ansible-collection
+        - build-ansible-collection2
         - ansible-test-sanity-docker-stable-2.13
         - ansible-test-units-community-vmware-python38
 
@@ -647,7 +647,7 @@
     check:
       jobs: &ansible-collections-community-vmware-rest-jobs
         - ansible-test-cloud-integration-vmware-rest-python38
-        - build-ansible-collection:
+        - build-ansible-collection2:
             required-projects:
               - name: github.com/ansible-collections/cloud.common
               - name: github.com/ansible-collections/community.vmware
@@ -666,21 +666,21 @@
         - ansible-test-sanity-docker-stable-2.9
         - ansible-test-sanity-docker-stable-2.11
         - ansible-test-sanity-docker-stable-2.12
-        - build-ansible-collection
+        - build-ansible-collection2
 
 - project-template:
     name: ansible-collections-community-vmware-rest-code-generator
     check:
       jobs:
         - ansible-test-cloud-integration-vmware-rest-python38
-        - build-ansible-collection:
+        - build-ansible-collection2:
             required-projects:
               - name: github.com/ansible-collections/cloud.common
               - name: github.com/ansible-collections/community.vmware
     gate:
       jobs:
         - ansible-test-cloud-integration-vmware-rest-python38
-        - build-ansible-collection:
+        - build-ansible-collection2:
             required-projects:
               - name: github.com/ansible-collections/cloud.common
               - name: github.com/ansible-collections/community.vmware
@@ -689,13 +689,13 @@
     name: ansible-collections-community-asa
     check:
       jobs:
-        - build-ansible-collection:
+        - build-ansible-collection2:
             required-projects:
               - name: github.com/ansible-collections/ansible.netcommon
               - name: github.com/ansible-collections/ansible.utils
     gate:
       jobs:
-        - build-ansible-collection:
+        - build-ansible-collection2:
             required-projects:
               - name: github.com/ansible-collections/ansible.netcommon
               - name: github.com/ansible-collections/ansible.utils
@@ -804,7 +804,7 @@
         - ansible-ee-integration-ios-libssh-stable-2.12
         - ansible-ee-integration-vyos-latest
         - ansible-ee-integration-vyos-libssh-latest
-        - build-ansible-collection:
+        - build-ansible-collection2:
             required-projects:
               - name: github.com/ansible-collections/ansible.utils
               - name: github.com/ansible-collections/arista.eos
@@ -852,7 +852,7 @@
         - ansible-ee-integration-ios-libssh-stable-2.11
         - ansible-ee-integration-vyos-latest
         - ansible-ee-integration-vyos-libssh-latest
-        - build-ansible-collection:
+        - build-ansible-collection2:
             required-projects:
               - name: github.com/ansible-collections/ansible.utils
               - name: github.com/ansible-collections/arista.eos
@@ -909,7 +909,7 @@
         - ansible-test-network-integration-junos-vsrx-network_cli-libssh-python36-stable211:
             vars:
               ansible_test_integration_targets: "junos_.*"
-        - build-ansible-collection:
+        - build-ansible-collection2:
             required-projects:
               - name: github.com/ansible-collections/ansible.netcommon
               - name: github.com/ansible-collections/ansible.utils
@@ -928,14 +928,14 @@
         - ansible-test-sanity-docker-stable-2.12
         - ansible-test-units-junos-python38
         - ansible-test-units-junos-python39
-        - build-ansible-collection
+        - build-ansible-collection2
 
 - project-template:
     name: ansible-collections-juniper-junos-netconf
     check:
       jobs: &ansible-collections-juniper-junos-netconf-jobs
         - ansible-test-network-integration-ansible-netcommon-junos-vsrx-netconf-python38
-        - build-ansible-collection:
+        - build-ansible-collection2:
             required-projects:
               - name: github.com/ansible-collections/ansible.netcommon
               - name: github.com/ansible-collections/ansible.utils
@@ -951,7 +951,7 @@
     name: ansible-collections-kubernetes-core-units
     check:
       jobs: &ansible-collections-kubernetes-core-units-jobs
-        - build-ansible-collection
+        - build-ansible-collection2
         - ansible-test-sanity-docker-devel
         - ansible-test-sanity-docker-milestone:
             voting: false
@@ -993,7 +993,7 @@
       jobs: *ansible-collections-kubernetes-core-units-jobs
     ondemand:
       jobs:
-        - build-ansible-collection
+        - build-ansible-collection2
         - ansible-test-splitter:
             required-projects:
               - name: github.com/ansible-collections/kubernetes.core
@@ -1054,7 +1054,7 @@
         - ansible-ee-integration-vyos-libssh-stable-2.12
         - ansible-ee-integration-vyos-libssh-stable-2.11
         - ansible-ee-integration-vyos-libssh-stable-2.9
-        - build-ansible-collection:
+        - build-ansible-collection2:
             required-projects:
               - name: github.com/ansible-collections/ansible.netcommon
               - name: github.com/ansible-collections/ansible.utils
@@ -1071,7 +1071,7 @@
         - ansible-test-sanity-docker-stable-2.11
         - ansible-test-sanity-docker-stable-2.12
         - ansible-test-units-vyos-python38
-        - build-ansible-collection
+        - build-ansible-collection2
 
 - project-template:
     name: ansible-collections-frr-frr-units
@@ -1099,7 +1099,7 @@
         - ansible-test-sanity-docker-stable-2.11
         - ansible-test-sanity-docker-stable-2.12
         - ansible-test-units-frr-python38
-        - build-ansible-collection
+        - build-ansible-collection2
 
 - project-template:
     name: ansible-collections-ansible-netcommon-units
@@ -1116,7 +1116,7 @@
     check:
       jobs: &ansible-collections-ansible-network-units-jobs
         - ansible-changelog-fragment
-        - build-ansible-collection:
+        - build-ansible-collection2:
             required-projects:
               - name: github.com/ansible-collections/ansible.netcommon
               - name: github.com/ansible-collections/ansible.network
@@ -1139,7 +1139,7 @@
     check:
       jobs: &ansible-collections-ansible-security-jobs
         - ansible-changelog-fragment
-        - build-ansible-collection:
+        - build-ansible-collection2:
             required-projects:
               - name: github.com/ansible-collections/ansible.netcommon
               - name: github.com/ansible-collections/ansible.security
@@ -1176,7 +1176,7 @@
     check:
       jobs: &ansible-collections-juniper-junos-ansible-yang-jobs
         - ansible-test-network-integration-ansible-yang-junos-vsrx-netconf-python39
-        - build-ansible-collection:
+        - build-ansible-collection2:
             required-projects:
               - name: github.com/ansible-collections/ansible.yang
               - name: github.com/ansible-collections/cisco.iosxr
@@ -1195,7 +1195,7 @@
             voting: false
         - ansible-test-network-integration-ansible-yang-iosxr-netconf-python38:
             voting: false
-        - build-ansible-collection:
+        - build-ansible-collection2:
             required-projects:
               - name: github.com/ansible-collections/ansible.yang
               - name: github.com/ansible-collections/cisco.iosxr
@@ -1231,7 +1231,7 @@
     check:
       jobs: &ansible-collections-juniper-junos-yang-jobs
         - ansible-test-network-integration-community-yang-junos-vsrx-netconf-python36
-        - build-ansible-collection:
+        - build-ansible-collection2:
             required-projects:
               - name: github.com/ansible-collections/community.yang
               - name: github.com/ansible-collections/cisco.iosxr
@@ -1248,7 +1248,7 @@
       jobs: &ansible-collections-cisco-iosxr-yang-jobs
         - ansible-test-network-integration-community-yang-iosxr-netconf-python36:
             voting: false
-        - build-ansible-collection:
+        - build-ansible-collection2:
             required-projects:
               - name: github.com/ansible-collections/community.yang
               - name: github.com/ansible-collections/cisco.iosxr
@@ -1280,7 +1280,7 @@
     name: ansible-collections-security-ibm-qradar
     check:
       jobs: &ansible-collections-security-ibm-qradar-jobs
-        - build-ansible-collection
+        - build-ansible-collection2
         - ansible-changelog-fragment
         - ansible-test-security-integration-qradar-python36
         - ansible-test-security-integration-qradar-python37
@@ -1302,7 +1302,7 @@
     name: ansible-collections-security-splunk-es
     check:
       jobs: &ansible-collections-security-splunk-es-jobs
-        - build-ansible-collection
+        - build-ansible-collection2
         - ansible-changelog-fragment
         - ansible-security-integration-splunk-es-python36
         - ansible-security-integration-splunk-es-python37
@@ -1324,7 +1324,7 @@
     name: ansible-collections-security-trendmicro-deepsec-units
     check:
       jobs: &ansible-collections-security-trendmicro-deepsec-jobs
-        - build-ansible-collection
+        - build-ansible-collection2
         - ansible-changelog-fragment
         - ansible-security-integration-trendmicro-deepsec-python36
         - ansible-security-integration-trendmicro-deepsec-python37
@@ -1340,7 +1340,7 @@
         - ansible-test-sanity-docker-stable-2.10
         - ansible-test-sanity-docker-stable-2.11
         - ansible-test-sanity-docker-stable-2.12
-        - build-ansible-collection:
+        - build-ansible-collection2:
             required-projects:
               - name: github.com/ansible-collections/ansible.netcommon
               - name: github.com/ansible-collections/ansible.utils
@@ -1356,13 +1356,13 @@
         - ansible-test-sanity-docker-stable-2.11
         - ansible-test-sanity-docker-stable-2.12
         - ansible-security-integration-trendmicro-deepsec-python38
-        - build-ansible-collection
+        - build-ansible-collection2
 
 - project-template:
     name: ansible-collections-servicenow-itsm-units
     check:
       jobs: &ansible-collections-servicenow-itsm-units-jobs
-        - build-ansible-collection
+        - build-ansible-collection2
         - ansible-test-sanity-docker-devel
         - ansible-test-sanity-docker-milestone
         - ansible-test-sanity-docker-stable-2.9
@@ -1443,7 +1443,7 @@
         - ansible-test-sanity-docker-stable-2.10
         - ansible-test-sanity-docker-stable-2.11
         - ansible-test-sanity-docker-stable-2.12
-        - build-ansible-collection
+        - build-ansible-collection2
 
 - project-template:
     name: noop-jobs
@@ -1467,11 +1467,11 @@
     check:
       jobs:
         - ansible-galaxy-importer
-        - build-ansible-collection
+        - build-ansible-collection2
     gate:
       jobs:
         - ansible-galaxy-importer
-        - build-ansible-collection
+        - build-ansible-collection2
     pre-release:
       jobs:
         - release-ansible-collection-galaxy
@@ -1485,10 +1485,10 @@
       Publish an Ansible collection to Ansible Automation Hub
     check:
       jobs:
-        - build-ansible-collection
+        - build-ansible-collection2
     gate:
       jobs:
-        - build-ansible-collection
+        - build-ansible-collection2
     pre-release:
       jobs:
         - release-ansible-collection-automation-hub
@@ -1507,7 +1507,7 @@
       Publish an Ansible collection to Ansible Automation Hub
     third-party-check:
       jobs:
-        - build-ansible-collection
+        - build-ansible-collection2
     pre-release:
       jobs:
         - release-ansible-collection-automation-hub
@@ -1527,11 +1527,11 @@
     check:
       jobs:
         - ansible-galaxy-importer
-        - build-ansible-collection
+        - build-ansible-collection2
     gate:
       jobs:
         - ansible-galaxy-importer
-        - build-ansible-collection
+        - build-ansible-collection2
     pre-release:
       jobs:
         - release-ansible-collection-galaxy
@@ -1546,7 +1546,7 @@
     third-party-check:
       jobs:
         - ansible-galaxy-importer
-        - build-ansible-collection
+        - build-ansible-collection2
     pre-release:
       jobs:
         - release-ansible-collection-galaxy
@@ -1561,11 +1561,11 @@
     check:
       jobs:
         - ansible-galaxy-importer
-        - build-ansible-collection
+        - build-ansible-collection2
     gate:
       jobs:
         - ansible-galaxy-importer
-        - build-ansible-collection
+        - build-ansible-collection2
     post-release:
       jobs:
         - release-ansible-collection-galaxy-dev
@@ -1627,7 +1627,7 @@
     name: network-ee-container-image-jobs
     check:
       jobs: &id001
-        - build-ansible-collection:
+        - build-ansible-collection2:
             required-projects:
               - name: github.com/ansible-collections/amazon.aws
               - name: github.com/ansible-collections/ansible.netcommon
@@ -1653,7 +1653,7 @@
               - name: github.com/ansible-collections/vyos.vyos
         - ansible-buildset-registry:
             dependencies:
-              - build-ansible-collection
+              - build-ansible-collection2
         - network-ee-build-container-image
         - network-ee-build-container-image-stable-2.9
         - network-ee-build-container-image-stable-2.10
@@ -1709,7 +1709,7 @@
         - ansible-ee-integration-ovs-stable2.11
         - ansible-ee-integration-ovs-stable2.10
         - ansible-ee-integration-ovs-stable2.9
-        - build-ansible-collection:
+        - build-ansible-collection2:
             required-projects:
               - name: github.com/ansible-collections/ansible.netcommon
               - name: github.com/ansible-collections/ansible.utils
@@ -1725,4 +1725,4 @@
         - ansible-test-sanity-docker-stable-2.11
         - ansible-test-sanity-docker-stable-2.12
         - ansible-test-units-openvswitch-python38
-        - build-ansible-collection
+        - build-ansible-collection2

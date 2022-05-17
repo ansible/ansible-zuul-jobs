@@ -4,7 +4,7 @@
     parent: unittests
     nodeset: controller-python38
     dependencies:
-      - name: build-ansible-collection
+      - name: build-ansible-collection2
         soft: true
     pre-run:
       - playbooks/ansible-cloud/py38/pre.yaml

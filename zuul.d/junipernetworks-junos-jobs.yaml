@@ -29,7 +29,7 @@
     name: ansible-test-network-integration-junos-vsrx
     abstract: true
     dependencies:
-      - name: build-ansible-collection
+      - name: build-ansible-collection2
         soft: true
     parent: ansible-network-junos-vsrx-appliance
     pre-run:

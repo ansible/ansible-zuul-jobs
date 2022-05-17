@@ -1,0 +1,8 @@
+---
+- hosts: controller
+  tasks:
+    - name: Install ansible-core
+      package:
+        name: ansible-core
+        state: present
+      become: true

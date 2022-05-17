@@ -1,0 +1,33 @@
+---
+- hosts: controller
+  tasks:
+    - name: Install generate-ansible-collection
+      command: "pip install --user ~/{{ zuul.projects['github.com/ansible-network/releases'].src_dir }}"
+
+    - name: Run release-ansible-collection role
+      include_role:
+        name: release-ansible-collection
+      vars:
+        ansible_prepare_release__playbook_executable: "/usr/bin/ansible-playbook"
+        ansible_prepare_release__collection_path: "~/{{ item.src_dir }}"
+      with_items: "{{ zuul.projects.values() | list }}"
+
+    - name: Generate version number for ansible collection
+      args:
+        chdir: "~/{{ item.src_dir }}"
+      shell: "if test -f 'galaxy.yml'; then ~/.local/bin/generate-ansible-collection; fi"
+      with_items: "{{ zuul.projects.values() | list }}"
+
+    - name: Create a directory the zuul-output
+      file:
+        path: "{{ ansible_user_dir }}/zuul-output/artifacts"
+        state: directory
+
+    - name: Run build-ansible-collection role
+      include_role:
+        name: build-ansible-collection
+      vars:
+        ansible_galaxy_executable: "/usr/bin/ansible-galaxy"
+        ansible_galaxy_output_path: "{{ ansible_user_dir }}/zuul-output/artifacts"
+        zuul_work_dir: "~/{{ item.src_dir }}"
+      with_items: "{{ zuul.projects.values() | list }}"

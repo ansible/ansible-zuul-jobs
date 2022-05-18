@@ -485,6 +485,15 @@
         override-checkout: milestone
 
 - job:
+    name: ansible-test-sanity-okd-downstream-milestone
+    parent: ansible-test-sanity-okd-downstream
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: milestone
+    branches: stable-2.\d+
+    voting: false
+
+- job:
     name: ansible-test-sanity-okd-downstream-stable-2.9
     parent: ansible-test-sanity-okd-downstream
     required-projects:

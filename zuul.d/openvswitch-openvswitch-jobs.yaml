@@ -55,6 +55,8 @@
 - job:
     name: ansible-test-integration-ovs-latest
     parent: ansible-network-openvswitch-appliance
+    dependencies:
+      - name: build-ansible-collection
     pre-run:
       - playbooks/ansible-test-base/pre.yaml
       - playbooks/ansible-test-network-integration-base/pre.yaml

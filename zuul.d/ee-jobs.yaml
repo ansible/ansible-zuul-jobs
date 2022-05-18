@@ -10,7 +10,7 @@
     required-projects:
       - name: github.com/ansible/network-ee
     dependencies:
-      - build-ansible-collection2
+      - build-ansible-collection
     vars:
       container_image_name: quay.io/ansible/network-ee
     nodeset: controller-node

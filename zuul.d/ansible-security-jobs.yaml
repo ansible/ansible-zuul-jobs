@@ -154,6 +154,40 @@
       ansible_test_command: network-integration
       ansible_test_integration_targets: "deepsec_.*"
 
+# =============================================================================
+# Unit tests jobs
+# =============================================================================
+- job:
+    name: ansible-test-units-trendmicro-python36
+    parent: ansible-test-units-base-python36
+    required-projects:
+      - name: github.com/ansible-collections/trendmicro.deepsec
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.9
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/trendmicro.deepsec
+
+- job:
+    name: ansible-test-units-trendmicro-python37
+    parent: ansible-test-units-base-python37
+    required-projects:
+      - name: github.com/ansible-collections/trendmicro.deepsec
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.9
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/trendmicro.deepsec
+
+- job:
+    name: ansible-test-units-trendmicro-python39
+    parent: ansible-test-units-base-python39
+    required-projects:
+      - name: github.com/ansible-collections/trendmicro.deepsec
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/trendmicro.deepsec
+
+# =============================================================================
+# Integration tests jobs
+# =============================================================================
 - job:
     name: ansible-security-integration-trendmicro-deepsec-python36
     parent: ansible-security-integration-trendmicro-deepsec

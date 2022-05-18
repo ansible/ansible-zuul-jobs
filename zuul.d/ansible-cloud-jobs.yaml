@@ -456,6 +456,8 @@
     name: ansible-test-units-community-okd-python38
     parent: ansible-test-units-base-python38
     required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: milestone
       - name: github.com/openshift/community.okd
     vars:
       ansible_collections_repo: github.com/openshift/community.okd

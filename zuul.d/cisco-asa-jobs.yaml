@@ -17,7 +17,7 @@
     name: ansible-test-network-integration-asa
     abstract: true
     dependencies:
-      - name: build-ansible-collection2
+      - name: build-ansible-collection
         soft: true
     parent: ansible-network-asa-appliance
     pre-run:

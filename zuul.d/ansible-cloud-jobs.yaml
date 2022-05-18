@@ -24,7 +24,7 @@
     abstract: true
     parent: ansible-cloud-vcenter-appliance
     dependencies:
-      - name: build-ansible-collection2
+      - name: build-ansible-collection
     pre-run:
       - playbooks/ansible-test-base/pre.yaml
       - playbooks/ansible-cloud/vcenter-integration-controller/pre.yaml
@@ -154,7 +154,7 @@
     parent: ansible-cloud-vmware-rest-appliance
     abstract: true
     dependencies:
-      - name: build-ansible-collection2
+      - name: build-ansible-collection
     pre-run:
       - playbooks/ansible-test-base/pre.yaml
       - playbooks/ansible-test-network-integration-base/pre.yaml
@@ -235,7 +235,7 @@
     parent: ansible-core-ci-aws-session
     nodeset: container-ansible
     dependencies:
-      - name: build-ansible-collection2
+      - name: build-ansible-collection
       - name: ansible-test-splitter
     pre-run:
       - playbooks/ansible-test-base/pre.yaml
@@ -377,7 +377,7 @@
     name: ansible-test-integration-amazon-cloud
     parent: ansible-core-ci-aws-session
     dependencies:
-      - name: build-ansible-collection2
+      - name: build-ansible-collection
     pre-run:
       - playbooks/ansible-test-base/pre.yaml
     run: playbooks/ansible-test-base/run.yaml
@@ -537,7 +537,7 @@
 - job:
     name: ansible-test-cloud-integration-kubernetes-core
     dependencies:
-      - name: build-ansible-collection2
+      - name: build-ansible-collection
       - name: ansible-test-splitter
     pre-run:
       - playbooks/ansible-cloud/py38/pre.yaml

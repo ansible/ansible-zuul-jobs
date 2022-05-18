@@ -254,6 +254,9 @@
     parent: ansible-test-units-base
     nodeset: controller-node
     abstract: true
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.11
     vars:
       ansible_test_python: 3.8
 
@@ -262,6 +265,9 @@
     parent: ansible-test-units-base
     nodeset: controller-node
     abstract: true
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.11
     vars:
       ansible_test_python: 3.9
 

@@ -459,6 +459,7 @@
       - name: github.com/openshift/community.okd
     vars:
       ansible_collections_repo: github.com/openshift/community.okd
+      ansible_test_location: "{{ zuul.projects['github.com/openshift/community.okd'].src_dir }}"
 
 - job:
     name: ansible-test-sanity-okd-downstream

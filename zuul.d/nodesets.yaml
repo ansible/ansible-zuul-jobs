@@ -73,10 +73,16 @@
         label: ansible-fedora-35-1vcpu
 
 - nodeset:
+    name: fedora-36-1vcpu
+    nodes:
+      - name: controller
+        label: ansible-fedora-36-1vcpu
+
+- nodeset:
     name: fedora-latest-1vcpu
     nodes:
-      - name: fedora-35
-        label: ansible-fedora-35-1vcpu
+      - name: controller
+        label: ansible-fedora-36-1vcpu
 
 - nodeset:
     name: ios-15

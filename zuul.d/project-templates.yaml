@@ -914,18 +914,6 @@
       fail-fast: true
       jobs: *ansible-collections-juniper-junos-jobs
 
-    periodic:
-      jobs:
-        - ansible-test-sanity-docker-devel
-        - ansible-test-sanity-docker-milestone
-        - ansible-test-sanity-docker-stable-2.9
-        - ansible-test-sanity-docker-stable-2.10
-        - ansible-test-sanity-docker-stable-2.11
-        - ansible-test-sanity-docker-stable-2.12
-        - ansible-test-units-junos-python38
-        - ansible-test-units-junos-python39
-        - build-ansible-collection
-
 - project-template:
     name: ansible-collections-juniper-junos-netconf
     check:

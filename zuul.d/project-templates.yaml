@@ -103,10 +103,6 @@
         - integration-community.aws-11
         - integration-community.aws-12
         - integration-community.aws-13
-        # Failing due to broken six/urllib3 install in generated containers
-        # https://github.com/ansible/ansible-zuul-jobs/issues/1497
-        - ansible-ee-tests-stable-2.12:
-            voting: false
     gate:
       queue: integrated-aws
       jobs: *ansible-collections-amazon-aws-jobs
@@ -718,26 +714,6 @@
       jobs: *ansible-collections-community-asa-units-jobs
 
 - project-template:
-    name: ansible-collections-juniper-junos-units
-    check:
-      jobs: &ansible-collections-juniper-junos-units-jobs
-        - ansible-changelog-fragment
-        - ansible-test-sanity-docker-devel
-        - ansible-test-sanity-docker-milestone
-        - ansible-test-sanity-docker-stable-2.9
-        - ansible-test-sanity-docker-stable-2.10
-        - ansible-test-sanity-docker-stable-2.11
-        - ansible-test-sanity-docker-stable-2.12
-        - ansible-test-units-junos-python36
-        - ansible-test-units-junos-python37
-        - ansible-test-units-junos-python38
-        - ansible-test-units-junos-python39
-    gate:
-      queue: integrated
-      fail-fast: true
-      jobs: *ansible-collections-juniper-junos-units-jobs
-
-- project-template:
     name: ansible-collections-ansible-netcommon
     check:
       jobs:
@@ -922,18 +898,6 @@
       fail-fast: true
       jobs: *ansible-collections-juniper-junos-jobs
 
-    periodic:
-      jobs:
-        - ansible-test-sanity-docker-devel
-        - ansible-test-sanity-docker-milestone
-        - ansible-test-sanity-docker-stable-2.9
-        - ansible-test-sanity-docker-stable-2.10
-        - ansible-test-sanity-docker-stable-2.11
-        - ansible-test-sanity-docker-stable-2.12
-        - ansible-test-units-junos-python38
-        - ansible-test-units-junos-python39
-        - build-ansible-collection
-
 - project-template:
     name: ansible-collections-juniper-junos-netconf
     check:
@@ -991,8 +955,6 @@
         - integration-kubernetes.core-with-turbo-2
         - integration-kubernetes.core-with-turbo-3
         - ansible-tox-linters
-        - ansible-ee-tests-stable-2.12:
-            voting: false
     gate:
       jobs: *ansible-collections-kubernetes-core-units-jobs
     ondemand:
@@ -1302,6 +1264,16 @@
         - ansible-test-sanity-docker-stable-2.12
     gate:
       jobs: *ansible-collections-security-ibm-qradar-jobs
+    periodic:
+      jobs:
+        - ansible-test-sanity-docker-devel
+        - ansible-test-sanity-docker-milestone
+        - ansible-test-sanity-docker-stable-2.9
+        - ansible-test-sanity-docker-stable-2.10
+        - ansible-test-sanity-docker-stable-2.11
+        - ansible-test-sanity-docker-stable-2.12
+        - ansible-test-security-integration-qradar-python39
+        - build-ansible-collection
 
 - project-template:
     name: ansible-collections-security-splunk-es
@@ -1324,6 +1296,16 @@
         - ansible-test-sanity-docker-stable-2.12
     gate:
       jobs: *ansible-collections-security-splunk-es-jobs
+    periodic:
+      jobs:
+        - ansible-test-sanity-docker-devel
+        - ansible-test-sanity-docker-milestone
+        - ansible-test-sanity-docker-stable-2.9
+        - ansible-test-sanity-docker-stable-2.10
+        - ansible-test-sanity-docker-stable-2.11
+        - ansible-test-sanity-docker-stable-2.12
+        - ansible-security-integration-splunk-es-python39
+        - build-ansible-collection
 
 - project-template:
     name: ansible-collections-security-trendmicro-deepsec-units
@@ -1345,6 +1327,9 @@
         - ansible-test-sanity-docker-stable-2.10
         - ansible-test-sanity-docker-stable-2.11
         - ansible-test-sanity-docker-stable-2.12
+        - ansible-test-units-trendmicro-python36
+        - ansible-test-units-trendmicro-python37
+        - ansible-test-units-trendmicro-python39
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-collections/ansible.netcommon
@@ -1360,6 +1345,8 @@
         - ansible-test-sanity-docker-stable-2.10
         - ansible-test-sanity-docker-stable-2.11
         - ansible-test-sanity-docker-stable-2.12
+        - ansible-test-units-trendmicro-python39
+        - ansible-test-units-trendmicro-python37
         - ansible-security-integration-trendmicro-deepsec-python38
         - build-ansible-collection
 

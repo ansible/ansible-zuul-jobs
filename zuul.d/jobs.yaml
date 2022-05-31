@@ -8,6 +8,18 @@
       nodes: []
 
 - job:
+    name: build-ansible-collection
+    description: |
+      Build ansible collections and return artifacts to zuul
+    pre-run: playbooks/build-ansible-collection/pre.yaml
+    run: playbooks/build-ansible-collection/run.yaml
+    post-run:
+      - playbooks/build-ansible-collection/post.yaml
+    required-projects:
+      - github.com/ansible-network/releases
+    nodeset: container-ansible
+
+- job:
     name: ansible-tox-docs
     parent: tox-docs
     nodeset: centos-8-stream
@@ -136,7 +148,6 @@
     abstract: true
     dependencies:
       - name: build-ansible-collection
-        soft: true
     pre-run:
       - playbooks/ansible-test-base/pre.yaml
     run: playbooks/ansible-test-base/run.yaml
@@ -188,7 +199,6 @@
     abstract: true
     dependencies:
       - name: build-ansible-collection
-        soft: true
     pre-run:
       - playbooks/ansible-test-base/pre.yaml
     run: playbooks/ansible-test-base/run.yaml
@@ -261,6 +271,9 @@
     parent: ansible-test-units-base
     nodeset: controller-node
     abstract: true
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.11
     vars:
       ansible_test_python: 3.8
 
@@ -269,6 +282,9 @@
     parent: ansible-test-units-base
     nodeset: controller-node
     abstract: true
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.11
     vars:
       ansible_test_python: 3.9
 

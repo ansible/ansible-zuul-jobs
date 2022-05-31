@@ -3,7 +3,7 @@
     name: container-ansible
     nodes:
       - name: controller
-        label: ansible-fedora-35-1vcpu
+        label: zuul-worker-ansible
 
 # We don't have CentOS8 Stream yet
 - nodeset:
@@ -73,10 +73,16 @@
         label: ansible-fedora-35-1vcpu
 
 - nodeset:
+    name: fedora-36-1vcpu
+    nodes:
+      - name: controller
+        label: ansible-fedora-36-1vcpu
+
+- nodeset:
     name: fedora-latest-1vcpu
     nodes:
-      - name: fedora-35
-        label: ansible-fedora-35-1vcpu
+      - name: controller
+        label: ansible-fedora-36-1vcpu
 
 - nodeset:
     name: ios-15
@@ -354,7 +360,7 @@
     name: ansible-tox-linters
     nodes:
       - name: controller
-        label: ansible-fedora-35-1vcpu
+        label: zuul-worker-ansible
 
 - nodeset:
     name: ansible-galaxy-importer
@@ -366,20 +372,20 @@
     name: ansible-tox-py38
     nodes:
       - name: controller
-        label: ansible-fedora-35-1vcpu
+        label: zuul-worker-ansible
 
 - nodeset:
     name: ansible-tox-py39
     nodes:
       - name: controller
-        label: ansible-fedora-35-1vcpu
+        label: zuul-worker-ansible
 
 
 - nodeset:
     name: ansible-tox-py310
     nodes:
       - name: controller
-        label: ansible-fedora-35-1vcpu
+        label: zuul-worker-ansible
 
 - nodeset:
     name: rhel8

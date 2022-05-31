@@ -18,4 +18,4 @@
       import_role:
         name: deploy-artifacts
       vars:
-        deploy_artifacts_venv_path: "{{ ansible_user_dir }}/{{ zuul.projects['github.com/ansible-network/releases'].src_dir }}/.tox/venv"
+        deploy_artifacts_venv_path: "~/{{ zuul.projects['github.com/ansible-network/releases'].src_dir }}/.tox/venv"

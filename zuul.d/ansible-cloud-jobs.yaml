@@ -233,7 +233,7 @@
 - job:
     name: ansible-test-cloud-integration-aws
     parent: ansible-core-ci-aws-session
-    nodeset: fedora-35-1vcpu
+    nodeset: fedora-36-1vcpu
     dependencies:
       - name: build-ansible-collection
       - name: ansible-test-splitter
@@ -486,6 +486,8 @@
     name: ansible-test-units-community-okd-python38
     parent: ansible-test-units-base-python38
     required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: milestone
       - name: github.com/openshift/community.okd
     vars:
       ansible_collections_repo: github.com/openshift/community.okd
@@ -511,6 +513,15 @@
     required-projects:
       - name: github.com/ansible/ansible
         override-checkout: milestone
+
+- job:
+    name: ansible-test-sanity-okd-downstream-milestone
+    parent: ansible-test-sanity-okd-downstream
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: milestone
+    branches: stable-2.\d+
+    voting: false
 
 - job:
     name: ansible-test-sanity-okd-downstream-stable-2.9

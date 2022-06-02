@@ -183,6 +183,15 @@
       ansible_collections_repo: github.com/ansible-collections/ansible.posix
 
 - job:
+    name: ansible-test-units-posix-python39
+    parent: ansible-test-units-base-python39
+    required-projects:
+      - name: github.com/ansible-collections/ansible.posix
+    timeout: 3600
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/ansible.posix
+
+- job:
     name: ansible-test-units-base
     parent: unittests
     # NOTE(pabelanger): nodeset to be removed
@@ -204,6 +213,14 @@
       ansible_test_integration_targets: ""
       # NOTE(pabelanger): ansible_test_python to be removed
       ansible_test_python: 3.8
+
+- job:
+    name: ansible-test-units-base-python39
+    parent: ansible-test-units-base
+    nodeset: fedora-35-1vcpu
+    abstract: true
+    vars:
+      ansible_test_python: 3.9
 
 - job:
     name: ansible-test-units-base-python27

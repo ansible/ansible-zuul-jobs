@@ -1,0 +1,11 @@
+---
+- hosts: all
+  tasks:
+    - name: Ensure python3.9 is present (Red Hat)
+      become: true
+      package:
+        name:
+          - python3.9
+          - gcc
+        state: present
+      when: ansible_os_family == "RedHat"

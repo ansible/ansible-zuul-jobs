@@ -60,6 +60,7 @@
         - ansible-test-sanity-aws-ansible-2.9-python38
         - ansible-test-sanity-aws-ansible-2.11-python38
         - ansible-test-units-amazon-aws-python38
+        - ansible-test-units-amazon-aws-python39
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-collections/ansible.utils
@@ -160,6 +161,7 @@
         - ansible-test-sanity-docker-stable-2.11
         - ansible-test-sanity-docker-stable-2.12
         - ansible-test-units-community-aws-python38
+        - ansible-test-units-community-aws-python39
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-collections/amazon.aws
@@ -249,6 +251,7 @@
       jobs: &ansible-collections-amazon-cloud-generator-jobs
         - ansible-tox-linters
         - ansible-tox-py38
+        - ansible-tox-py39
     gate:
       jobs: *ansible-collections-amazon-cloud-generator-jobs
 
@@ -569,6 +572,7 @@
         - ansible-galaxy-importer:
             voting: false
         - ansible-test-units-community-okd-python38
+        - ansible-test-units-community-okd-python39
         - ansible-test-sanity-okd-downstream-devel
         - ansible-test-sanity-okd-downstream-milestone
         - ansible-test-sanity-okd-downstream-stable-2.11
@@ -581,7 +585,7 @@
       jobs: &ansible-collections-cloud-common-jobs
         - ansible-test-sanity-docker-devel
         - ansible-test-sanity-docker-milestone
-        - ansible-test-cloud-integration-vmware-rest-python38:
+        - ansible-test-cloud-integration-vmware-rest-python39:
             required-projects:
               - name: github.com/ansible-collections/vmware.vmware_rest
         - build-ansible-collection:
@@ -642,7 +646,7 @@
     name: ansible-collections-community-vmware-rest
     check:
       jobs: &ansible-collections-community-vmware-rest-jobs
-        - ansible-test-cloud-integration-vmware-rest-python38
+        - ansible-test-cloud-integration-vmware-rest-python39
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-collections/cloud.common
@@ -668,14 +672,14 @@
     name: ansible-collections-community-vmware-rest-code-generator
     check:
       jobs:
-        - ansible-test-cloud-integration-vmware-rest-python38
+        - ansible-test-cloud-integration-vmware-rest-python39
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-collections/cloud.common
               - name: github.com/ansible-collections/community.vmware
     gate:
       jobs:
-        - ansible-test-cloud-integration-vmware-rest-python38
+        - ansible-test-cloud-integration-vmware-rest-python39
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-collections/cloud.common
@@ -1235,6 +1239,7 @@
         - ansible-test-sanity-docker-stable-2.11
         - ansible-test-sanity-docker-stable-2.12
         - ansible-test-units-posix
+        - ansible-test-units-posix-python39
     gate:
       jobs: *ansible-collections-ansible-posix-units-jobs
 

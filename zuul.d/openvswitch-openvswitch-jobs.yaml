@@ -15,43 +15,6 @@
       - name: github.com/ansible/ansible-zuul-jobs
     nodeset: openvswitch-2.9.0-python38
 
-- job:
-    name: ansible-test-units-openvswitch-python39
-    parent: ansible-test-units-base-python39
-    required-projects:
-      - name: github.com/ansible-collections/openvswitch.openvswitch
-    vars:
-      ansible_collections_repo: github.com/ansible-collections/openvswitch.openvswitch
-
-- job:
-    name: ansible-test-units-openvswitch-python36
-    parent: ansible-test-units-base-python36
-    required-projects:
-      - name: github.com/ansible-collections/openvswitch.openvswitch
-      - name: github.com/ansible/ansible
-        override-checkout: stable-2.9
-    vars:
-      ansible_collections_repo: github.com/ansible-collections/openvswitch.openvswitch
-
-- job:
-    name: ansible-test-units-openvswitch-python37
-    parent: ansible-test-units-base-python37
-    required-projects:
-      - name: github.com/ansible-collections/openvswitch.openvswitch
-      - name: github.com/ansible/ansible
-        override-checkout: stable-2.9
-    vars:
-      ansible_collections_repo: github.com/ansible-collections/openvswitch.openvswitch
-
-- job:
-    name: ansible-test-units-openvswitch-python38
-    parent: ansible-test-units-base-python38
-    required-projects:
-      - name: github.com/ansible-collections/openvswitch.openvswitch
-    vars:
-      ansible_collections_repo: github.com/ansible-collections/openvswitch.openvswitch
-
-
 # ansible-ee
 - job:
     name: ansible-ee-integration-ovs-latest

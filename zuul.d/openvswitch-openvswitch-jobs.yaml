@@ -6,14 +6,13 @@
     parent: ansible-network-appliance-base
     pre-run:
       - playbooks/ansible-network-openvswitch-appliance/pre.yaml
-      - playbooks/network-ee-integration-tests/pre.yaml
     run: playbooks/ansible-network-openvswitch-appliance/run.yaml
     host-vars:
-      openvswitch-2.9.0:
+      openvswitch-2.15.0:
         ansible_network_os: openvswitch
     required-projects:
       - name: github.com/ansible/ansible-zuul-jobs
-    nodeset: openvswitch-2.9.0-python38
+    nodeset: openvswitch-2.15.0
 
 - job:
     name: ansible-test-units-openvswitch-python39
@@ -52,45 +51,57 @@
       ansible_collections_repo: github.com/ansible-collections/openvswitch.openvswitch
 
 
-# ansible-ee
+# ansible-test
 - job:
-    name: ansible-ee-integration-ovs-latest
-    parent: ansible-ee-tests
+    name: ansible-test-integration-ovs-latest
+    parent: ansible-network-openvswitch-appliance
+    dependencies:
+      - name: build-ansible-collection
     pre-run:
-      - playbooks/ansible-ee/integration/pre.yaml
-      - playbooks/ansible-ee/openvswitch/pre.yaml
-    run: playbooks/ansible-ee/integration/run.yaml
+      - playbooks/ansible-test-base/pre.yaml
+      - playbooks/ansible-test-network-integration-base/pre.yaml
+    run: playbooks/ansible-test-base/run.yaml
+    post-run:
+      - playbooks/ansible-test-network-integration-base/post.yaml
+      - playbooks/ansible-test-base/post.yaml
+    required-projects:
+      - name: github.com/ansible-collections/openvswitch.openvswitch
+      - name: github.com/ansible/ansible
     vars:
+      ansible_test_command: network-integration
       ansible_runner_container_version: latest
-      container_image_tests:
-        - integration
+      ansible_test_python: 3.9
+      # container_image_tests:
+      #  - integration
       ansible_network_os: openvswitch
-      test_ansible_ssh_private_key_file: ~/.ssh/id_ecdsa
-      test_ansible_python_interpreter: /usr/bin/python3.9
-      test_ansible_network_cli_ssh_type: libssh
+      # test_ansible_ssh_private_key_file: ~/.ssh/id_ecdsa
+      # test_ansible_python_interpreter: /usr/bin/python3.9
+      # test_ansible_network_cli_ssh_type: libssh
+      ansible_collections_repo: github.com/ansible-collections/openvswitch.openvswitch
+      ansible_test_integration_targets: "openvswitch_.*"
     nodeset: openvswitch-2.15.0
 
 - job:
-    name: ansible-ee-integration-ovs-stable2.11
-    parent: ansible-ee-integration-ovs-latest
+    name: ansible-test-integration-ovs-stable2.11
+    parent: ansible-test-integration-ovs-latest
     vars:
       ansible_runner_container_version: stable-2.11-devel
 
 - job:
-    name: ansible-ee-integration-ovs-stable2.12
-    parent: ansible-ee-integration-ovs-latest
+    name: ansible-test-integration-ovs-stable2.12
+    parent: ansible-test-integration-ovs-latest
     vars:
       ansible_runner_container_version: stable-2.12-devel
 
 - job:
-    name: ansible-ee-integration-ovs-stable2.10
-    parent: ansible-ee-integration-ovs-latest
+    name: ansible-test-integration-ovs-stable2.10
+    parent: ansible-test-integration-ovs-latest
     vars:
       ansible_runner_container_version: stable-2.10-devel
 
 - job:
-    name: ansible-ee-integration-ovs-stable2.9
-    parent: ansible-ee-integration-ovs-latest
+    name: ansible-test-integration-ovs-stable2.9
+    parent: ansible-test-integration-ovs-latest
     vars:
       test_ansible_python_interpreter: /usr/bin/python3.8
       ansible_runner_container_version: stable-2.9-devel

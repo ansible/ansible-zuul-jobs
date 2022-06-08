@@ -636,8 +636,6 @@
     required-projects:
       - name: github.com/ansible/ansible
         override-checkout: milestone
-    vars:
-      ansible_test_python: 3.8
 
 - job:
     name: integration-kubernetes.core-milestone-2
@@ -653,6 +651,8 @@
     required-projects:
       - name: github.com/ansible/ansible
         override-checkout: stable-2.9
+    vars:
+      ansible_test_python: 3.8
 
 - job:
     name: integration-kubernetes.core-2.9-2

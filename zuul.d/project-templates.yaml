@@ -59,6 +59,8 @@
         - ansible-test-sanity-aws-ansible-python38
         - ansible-test-sanity-aws-ansible-2.9-python38
         - ansible-test-sanity-aws-ansible-2.11-python38
+        - ansible-test-sanity-aws-ansible-2.12-python38
+        - ansible-test-sanity-aws-ansible-2.13-python38
         - ansible-test-units-amazon-aws-python38
         - ansible-test-units-amazon-aws-python39
         - build-ansible-collection:
@@ -157,9 +159,15 @@
       jobs: &ansible-collections-community-aws-jobs
         - ansible-test-sanity-docker-devel
         - ansible-test-sanity-docker-milestone
-        - ansible-test-sanity-docker-stable-2.9
-        - ansible-test-sanity-docker-stable-2.11
+        - ansible-test-sanity-docker-stable-2.9:
+            branches:
+              - stable-1.5
+        - ansible-test-sanity-docker-stable-2.11:
+            branches:
+              - stable-1.5
+              - stable-2
         - ansible-test-sanity-docker-stable-2.12
+        - ansible-test-sanity-docker-stable-2.13
         - ansible-test-units-community-aws-python38
         - ansible-test-units-community-aws-python39
         - build-ansible-collection:

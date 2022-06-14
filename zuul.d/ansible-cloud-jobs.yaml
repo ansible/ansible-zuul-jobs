@@ -455,6 +455,8 @@
 - job:
     name: ansible-test-sanity-aws-ansible-2.9-python38
     parent: ansible-test-sanity-docker-stable-2.9
+    branches:
+      - stable-1.5
     vars:
       ansible_test_sanity_skiptests:
         - 'future-import-boilerplate'
@@ -463,6 +465,25 @@
 - job:
     name: ansible-test-sanity-aws-ansible-2.11-python38
     parent: ansible-test-sanity-docker-stable-2.11
+    branches:
+      - stable-1.5
+      - stable-2
+    vars:
+      ansible_test_sanity_skiptests:
+        - 'future-import-boilerplate'
+        - 'metaclass-boilerplate'
+
+- job:
+    name: ansible-test-sanity-aws-ansible-2.12-python38
+    parent: ansible-test-sanity-docker-stable-2.12
+    vars:
+      ansible_test_sanity_skiptests:
+        - 'future-import-boilerplate'
+        - 'metaclass-boilerplate'
+
+- job:
+    name: ansible-test-sanity-aws-ansible-2.13-python38
+    parent: ansible-test-sanity-docker-stable-2.13
     vars:
       ansible_test_sanity_skiptests:
         - 'future-import-boilerplate'

@@ -264,25 +264,6 @@
       jobs: *ansible-collections-amazon-cloud-generator-jobs
 
 - project-template:
-    name: ansible-collections-arista-eos-units
-    check:
-      jobs: &ansible-collections-arista-eos-units-jobs
-        - ansible-changelog-fragment
-        - ansible-test-sanity-docker-devel
-        - ansible-test-sanity-docker-milestone
-        - ansible-test-sanity-docker-stable-2.9
-        - ansible-test-sanity-docker-stable-2.10
-        - ansible-test-sanity-docker-stable-2.11
-        - ansible-test-sanity-docker-stable-2.12
-        - ansible-test-units-eos-python39
-        - ansible-test-units-eos-python38
-        - ansible-test-units-eos-python36
-        - ansible-test-units-eos-python37
-    gate:
-      queue: integrated
-      jobs: *ansible-collections-arista-eos-units-jobs
-
-- project-template:
     name: ansible-collections-arista-eos
     check:
       jobs: &ansible-collections-arista-eos-jobs
@@ -974,26 +955,6 @@
         - integration-kubernetes.core-with-turbo-1
         - integration-kubernetes.core-with-turbo-2
         - integration-kubernetes.core-with-turbo-3
-
-- project-template:
-    name: ansible-collections-vyos-vyos-units
-    check:
-      jobs: &ansible-collections-vyos-vyos-units-jobs
-        - ansible-changelog-fragment
-        - ansible-test-sanity-docker-devel
-        - ansible-test-sanity-docker-milestone
-        - ansible-test-sanity-docker-stable-2.9
-        - ansible-test-sanity-docker-stable-2.10
-        - ansible-test-sanity-docker-stable-2.11
-        - ansible-test-sanity-docker-stable-2.12
-        - ansible-test-units-vyos-python36
-        - ansible-test-units-vyos-python37
-        - ansible-test-units-vyos-python38
-        - ansible-test-units-vyos-python39
-    gate:
-      queue: integrated
-      fail-fast: true
-      jobs: *ansible-collections-vyos-vyos-units-jobs
 
 - project-template:
     name: ansible-collections-vyos-vyos

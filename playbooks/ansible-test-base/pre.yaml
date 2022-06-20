@@ -1,6 +1,11 @@
 ---
 - hosts: controller
   tasks:
+    - name: Create the /root directory
+      file:
+        path: /root
+        state: directory
+      become: true
     - name: Ensure controller directory exists
       file:
         path: "{{ ansible_user_dir }}/zuul-output/logs/controller"

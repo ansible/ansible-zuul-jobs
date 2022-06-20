@@ -34,6 +34,41 @@
       ansible_test_command: network-integration
       ansible_test_integration_targets: "splunk_.*"
 
+# =============================================================================
+# Unit tests jobs
+# =============================================================================
+- job:
+    name: ansible-test-units-splunk-python36
+    parent: ansible-test-units-base-python36
+    required-projects:
+      - name: github.com/ansible-collections/splunk.es
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.9
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/splunk.es
+
+- job:
+    name: ansible-test-units-splunk-python37
+    parent: ansible-test-units-base-python37
+    required-projects:
+      - name: github.com/ansible-collections/splunk.es
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.9
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/splunk.es
+
+- job:
+    name: ansible-test-units-splunk-python39
+    parent: ansible-test-units-base-python39
+    required-projects:
+      - name: github.com/ansible-collections/splunk.es
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/splunk.es
+
+# =============================================================================
+# Integration tests jobs
+# =============================================================================
+
 - job:
     name: ansible-security-integration-splunk-es-python36
     parent: ansible-security-integration-splunk
@@ -93,6 +128,10 @@
       ansible_collections_repo: github.com/ansible-collections/ibm.qradar
       ansible_test_command: network-integration
       ansible_test_integration_targets: "qradar_.*"
+
+# =============================================================================
+# Integration tests jobs
+# =============================================================================
 
 - job:
     name: ansible-test-security-integration-qradar-python36

@@ -1240,6 +1240,9 @@
         - ansible-test-sanity-docker-stable-2.10
         - ansible-test-sanity-docker-stable-2.11
         - ansible-test-sanity-docker-stable-2.12
+        - ansible-test-units-splunk-python36
+        - ansible-test-units-splunk-python37
+        - ansible-test-units-splunk-python39
     gate:
       jobs: *ansible-collections-security-splunk-es-jobs
     periodic:
@@ -1250,6 +1253,8 @@
         - ansible-test-sanity-docker-stable-2.10
         - ansible-test-sanity-docker-stable-2.11
         - ansible-test-sanity-docker-stable-2.12
+        - ansible-test-units-splunk-python37
+        - ansible-test-units-splunk-python39
         - ansible-security-integration-splunk-es-python39
         - build-ansible-collection
 

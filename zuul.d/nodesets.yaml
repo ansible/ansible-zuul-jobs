@@ -170,21 +170,18 @@
     nodes:
       - name: controller
         label: ansible-fedora-35-1vcpu
-      - name: qradar
-        label: qradarce-7.3.1
     groups:
       - name: openvswitch
         nodes:
           - controller
-      - name: appliance-ssh
-        nodes:
-          - qradar
 
 - nodeset:
     name: QRadarCE-7.3.1
     nodes:
-      - name: fedora-35
-        label: ansible-fedora-35-1vcpu
+      - name: controller
+        label: ansible-fedora-36-1vcpu
+      - name: application-ssh
+        label: qradarce-7.3.1
 
 - nodeset:
     name: SplunkEnterprise-SES-8.0.0

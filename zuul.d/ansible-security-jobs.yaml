@@ -6,7 +6,7 @@
     pre-run: playbooks/ansible-security-splunk-appliance/pre.yaml
     run: playbooks/ansible-security-splunk-appliance/run.yaml
     host-vars:
-      SplunkEnterprise-SES-8.0.0:
+      appliance-ssh:
         ansible_network_os: splunk
     required-projects:
       - name: github.com/ansible/ansible-zuul-jobs

@@ -184,8 +184,10 @@
 - nodeset:
     name: SplunkEnterprise-SES-8.0.0
     nodes:
-      - name: fedora-35
-        label: ansible-fedora-35-1vcpu
+      - name: controller
+        label: ansible-fedora-36-1vcpu
+      - name: appliance-ssh
+        label: SplunkEnterprise-SES-8.0.0
 
 - nodeset:
     name: Trendmicro-DeepSecurity-20.0.344

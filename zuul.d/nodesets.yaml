@@ -180,7 +180,7 @@
     nodes:
       - name: controller
         label: ansible-fedora-36-1vcpu
-      - name: application-ssh
+      - name: application
         label: qradarce-7.3.1
 
 - nodeset:

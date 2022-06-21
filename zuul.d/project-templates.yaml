@@ -1196,7 +1196,6 @@
         - build-ansible-collection
         - ansible-changelog-fragment
         - ansible-test-security-integration-qradar-python36
-        - ansible-test-security-integration-qradar-python37
         - ansible-test-security-integration-qradar-python38
         - ansible-test-security-integration-qradar-python39
         - ansible-test-security-integration-qradar-python38-stable29

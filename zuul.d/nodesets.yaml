@@ -180,8 +180,12 @@
     nodes:
       - name: controller
         label: ansible-fedora-36-1vcpu
-      - name: application-ssh
+      - name: qradar
         label: qradarce-7.3.1
+    groups:
+      - name: appliance-ssh
+        nodes:
+          - qradar
 
 - nodeset:
     name: SplunkEnterprise-SES-8.0.0

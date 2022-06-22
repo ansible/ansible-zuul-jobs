@@ -1,6 +1,10 @@
 ---
 - hosts: controller
   tasks:
+    - name: Print controller ansible_host
+      debug:
+        var: ansible_host
+
     - name: Ensure tox
       include_role:
         name: ensure-tox
@@ -16,8 +20,14 @@
 
 - hosts: appliance*
   tasks:
-    - pause:
+    - name: Print appliance ansible_host
+      debug:
+        var: ansible_host
+
+    - name: Pause to Debug
+      pause:
         minutes: 46
+
     - import_role:
         name: splunk-admin
       vars:

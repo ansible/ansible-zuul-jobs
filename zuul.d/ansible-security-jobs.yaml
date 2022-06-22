@@ -101,12 +101,6 @@
       ansible_test_python: 3.6
 
 - job:
-    name: ansible-test-security-integration-qradar-python37
-    parent: ansible-test-security-integration-qradar
-    vars:
-      ansible_test_python: 3.7
-
-- job:
     name: ansible-test-security-integration-qradar-python38
     parent: ansible-test-security-integration-qradar
     vars:

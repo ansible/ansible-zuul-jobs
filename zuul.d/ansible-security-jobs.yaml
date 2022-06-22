@@ -77,7 +77,6 @@
     abstract: true
     dependencies:
       - name: build-ansible-collection
-        soft: true
     parent: ansible-security-qradar-appliance
     pre-run:
       - playbooks/ansible-test-base/pre.yaml

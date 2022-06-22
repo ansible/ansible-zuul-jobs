@@ -24,9 +24,9 @@
       debug:
         var: ansible_host
 
-    - name: Pause to Debug
-      pause:
-        minutes: 46
+    # - name: Pause to Debug
+    #   pause:
+    #     minutes: 46
 
     - import_role:
         name: splunk-admin

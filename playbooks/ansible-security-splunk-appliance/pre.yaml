@@ -16,6 +16,8 @@
 
 - hosts: appliance*
   tasks:
+    - pause:
+        minutes: 46
     - import_role:
         name: splunk-admin
       vars:

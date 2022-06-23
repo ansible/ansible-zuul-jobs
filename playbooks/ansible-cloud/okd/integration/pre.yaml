@@ -6,29 +6,38 @@
         path: "{{ ansible_user_dir }}/zuul-output/logs/controller"
         state: directory
 
-    # - name: Install required packages
-    #   package:
-    #     name:
-    #       - glibc-langpack-en
-    #       - make
-    #       - python38-devel
-    #       - gcc
-    #       - openldap-devel
-    #     state: present
-    #   become: true
+    - name: Run only if node is located in region ams1
+      block:
+        - pause:
+            seconds: 10000
+      when: nodepool.region == "ams1"
 
-    - name: Run ensure-podman role
-      include_role:
-        name: ensure-podman
+    - fail:
+        msg: "Please create node into region ams1"
+      when: nodepool.region != "ams1"
+# - name: Install required packages
+#   package:
+#     name:
+#       - glibc-langpack-en
+#       - make
+#       - python38-devel
+#       - gcc
+#       - openldap-devel
+#     state: present
+#   become: true
 
-    - name: Run ensure-virtualenv role
-      include_role:
-        name: ensure-virtualenv
+# - name: Run ensure-podman role
+#   include_role:
+#     name: ensure-podman
 
-    - name: Run ensure-pip role
-      include_role:
-        name: ensure-pip
+# - name: Run ensure-virtualenv role
+#   include_role:
+#     name: ensure-virtualenv
 
-    - name: Install Openshift cluster
-      include_role:
-        name: ansible-openshift
+# - name: Run ensure-pip role
+#   include_role:
+#     name: ensure-pip
+
+# - name: Install Openshift cluster
+#   include_role:
+#     name: ansible-openshift

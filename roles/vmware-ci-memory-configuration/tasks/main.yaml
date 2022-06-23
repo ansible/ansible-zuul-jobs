@@ -9,10 +9,4 @@
     analytics
     cloudvm-ram-size -C 1 vsphere-ui
     systemctl disable vsphere-ui
-    service-control --stop vsphere-ui
-    service-control --restart vmware-sps
-    service-control --restart vmware-vpxd
-    service-control --restart vmware-stsd
-    service-control --restart observability
-    service-control --restart observability-vapi
   become: true

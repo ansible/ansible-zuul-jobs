@@ -62,7 +62,7 @@ def test_cluster_readiness(module):
     cmd = [module.params.get("binary_path"), "get", "clusterversion", "-o", "json"]
     rc, out, err = module.run_command(cmd, environ_update=dict(KUBECONFIG=module.params.get("kubeconfig")))
     if rc != 0:
-        return False, err
+        return False, err, []
     result = json.loads(out)["items"][0]
     history = result["status"]["history"][0]
     if history.get("state") == "Completed":

@@ -24,3 +24,4 @@ ocp_libvirt_host_disk_size: 40
 ocp_libvirt_host_mac: "52:54:00:ee:42:e1"
 config_dir: "/tmp/ansible-openshift"
 trusted_cert_file: "/etc/pki/ca-trust/source/anchors/ingress.crt"
+ocp_cluster_network_type: "OVNKubernetes"

@@ -3,7 +3,7 @@ baseDomain: {{ ocp_base_domain }}
 metadata:
   name: {{ ocp_cluster_name }}
 networking:
-  networkType: OVNKubernetes
+  networkType: {{ ocp_cluster_network_type }}
   machineNetwork:
   - cidr: {{ ocp_extcidrnet }}
   clusterNetwork:

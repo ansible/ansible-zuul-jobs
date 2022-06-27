@@ -34,6 +34,7 @@
       - name: github.com/ansible/ansible
       - name: github.com/ansible-collections/community.vmware
     timeout: 3600
+    attempts: 6
     vars:
       ansible_collections_repo: github.com/ansible-collections/community.vmware
       ansible_test_command: integration

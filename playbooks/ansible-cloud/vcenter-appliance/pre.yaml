@@ -59,22 +59,6 @@
       vars:
         vmware_ci_set_passwords_secret_dir: '{{ zuul.executor.work_root }}'
 
-- hosts: localhost
-  gather_facts: false
-  tasks:
-    - name: Ensure we can log in the vCenter properly
-      uri:
-        url: "https://{{ hostvars['vcenter']['nodepool']['interface_ip']}}/rest/com/vmware/cis/session"
-        method: POST
-        url_password: "{{ lookup('file', '{{ zuul.executor.work_root }}/vcenter/tmp/vcenter_password.txt') }}"
-        url_username: "administrator@vsphere.local"
-        validate_certs: false
-        body_format: json
-      register: _result
-      until: _result is success and "value" in _result.json
-      retries: 100
-      delay: 6
-
 - hosts: controller
   gather_facts: false
   tasks:

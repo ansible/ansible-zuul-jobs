@@ -8,3 +8,44 @@
         name: openssl
         state: present
       become: true
+    - name: install jq
+      package:
+        name: jq
+        state: present
+      become: true
+    - name: Prepare the wait for vcenter script
+      copy:
+        content: |
+          #!/bin/bash
+          set -eux
+          server='https://vcenter.test'
+          password="{{ lookup('file', '{{ zuul.executor.work_root }}/vcenter/tmp/vcenter_password.txt') }}"
+          session_id=$(curl -q --http1.1 -X POST -k -u "administrator@vsphere.local:${password}" ${server}/rest/com/vmware/cis/session|jq -r .value)
+          ret=$(curl -k -H vmware-api-session-id:$session_id -X GET ${server}/api/vcenter/vm)
+          if [ "${ret}" = "[]" ]; then
+              echo "vCenter is ready"
+              exit 0
+          fi
+          exit 1
+        dest: "/tmp/wait_for_vcenter"
+    - name: Run wait_for_vcenter
+      command: "bash /tmp/wait_for_vcenter"
+      register: result
+      until: result is not failed
+      retries: 600
+
+- hosts: localhost
+  gather_facts: false
+  tasks:
+    - name: Ensure we can log in the vCenter properly
+      uri:
+        url: "https://{{ hostvars['vcenter']['nodepool']['interface_ip']}}/rest/com/vmware/cis/session"
+        method: POST
+        url_password: "{{ lookup('file', '{{ zuul.executor.work_root }}/vcenter/tmp/vcenter_password.txt') }}"
+        url_username: "administrator@vsphere.local"
+        validate_certs: false
+        body_format: json
+      register: _result
+      until: _result is success and "value" in _result.json
+      retries: 10
+      delay: 6

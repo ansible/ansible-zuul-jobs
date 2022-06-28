@@ -1,6 +1,6 @@
 ---
 - name: reboot vcenter
-  reboot:
-  become: true
+  debug:
+    msg: do not reboot
   when:
     - inventory_hostname == 'vcenter'

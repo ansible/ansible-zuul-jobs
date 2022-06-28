@@ -10,7 +10,12 @@
       include_vars:
         file: '{{ _fetch.dest }}'
         name: galaxy_info
+
     - name: Confirm collection can be imported into galaxy
       args:
         chdir: "~/{{ zuul.projects['github.com/ansible-network/releases'].src_dir }}"
-      shell: "source .tox/venv/bin/activate; ./tools/validate-collection.sh ~/downloads/{{ galaxy_info.namespace}}-{{ galaxy_info.name }}-*.tar.gz"
+      shell: "source .tox/venv/bin/activate ; ./tools/validate-collection.sh ~/downloads/{{ galaxy_info.namespace}}-{{ galaxy_info.name }}-*.tar.gz"
+      environment:
+        GALAXY_IMPORTER_CONFIG: "/home/zuul/{{ zuul.project.src_dir }}/tests/galaxy-importer.cfg"
+        # It would be better to use ~, but it's not being expanded
+        # GALAXY_IMPORTER_CONFIG: "~/{{ zuul.project.src_dir }}/tests/galaxy-importer.cfg"

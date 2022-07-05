@@ -435,26 +435,6 @@
         - build-ansible-collection
 
 - project-template:
-    name: ansible-collections-cisco-iosxr-units
-    check:
-      jobs: &ansible-collections-cisco-iosxr-units-jobs
-        - ansible-changelog-fragment
-        - ansible-test-sanity-docker-devel
-        - ansible-test-sanity-docker-milestone
-        - ansible-test-sanity-docker-stable-2.9
-        - ansible-test-sanity-docker-stable-2.10
-        - ansible-test-sanity-docker-stable-2.11
-        - ansible-test-sanity-docker-stable-2.12
-        - ansible-test-units-iosxr-python36
-        - ansible-test-units-iosxr-python37
-        - ansible-test-units-iosxr-python38
-        - ansible-test-units-iosxr-python39
-    gate:
-      queue: integrated
-      fail-fast: true
-      jobs: *ansible-collections-cisco-iosxr-units-jobs
-
-- project-template:
     name: ansible-collections-cisco-iosxr
     check:
       jobs:

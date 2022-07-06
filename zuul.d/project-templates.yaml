@@ -892,6 +892,7 @@
         - integration-kubernetes.core-with-turbo-2
         - integration-kubernetes.core-with-turbo-3
         - ansible-tox-linters
+        - ansible-test-changelog
     gate:
       jobs: *ansible-collections-kubernetes-core-units-jobs
     ondemand:

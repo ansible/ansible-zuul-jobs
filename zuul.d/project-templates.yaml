@@ -197,12 +197,10 @@
         - integration-community.aws-11
         - integration-community.aws-12
         - integration-community.aws-13
-        - ansible-galaxy-importer:
-            voting: false
+        - ansible-galaxy-importer
     third-party-check:
       jobs:
-        - ansible-galaxy-importer:
-            voting: false
+        - ansible-galaxy-importer
     gate:
       queue: integrated-aws
       jobs: *ansible-collections-community-aws-jobs

@@ -383,26 +383,6 @@
               - name: github.com/ansible-collections/ansible.utils
 
 - project-template:
-    name: ansible-collections-cisco-ios-units
-    check:
-      jobs: &ansible-collections-cisco-ios-units-jobs
-        - ansible-changelog-fragment
-        - ansible-test-sanity-docker-devel
-        - ansible-test-sanity-docker-milestone
-        - ansible-test-sanity-docker-stable-2.9
-        - ansible-test-sanity-docker-stable-2.10
-        - ansible-test-sanity-docker-stable-2.11
-        - ansible-test-sanity-docker-stable-2.12
-        - ansible-test-units-ios-python36
-        - ansible-test-units-ios-python37
-        - ansible-test-units-ios-python38
-        - ansible-test-units-ios-python39
-    gate:
-      queue: integrated
-      fail-fast: true
-      jobs: *ansible-collections-cisco-ios-units-jobs
-
-- project-template:
     name: ansible-collections-cisco-ios
     check:
       jobs: &ansible-collections-cisco-ios-jobs

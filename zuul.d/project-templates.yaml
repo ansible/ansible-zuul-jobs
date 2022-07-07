@@ -244,6 +244,7 @@
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-collections/amazon.aws
+        - ansible-galaxy-importer
     gate:
       queue: integrated-aws
       jobs: *ansible-collections-amazon-cloud-jobs

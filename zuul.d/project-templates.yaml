@@ -55,10 +55,14 @@
     name: ansible-aws-ci-admin
     check:
       jobs:
-        - ansible-tox-linters
+        - ansible-tox-py37:
+            vars:
+              tox_envlist: linters
     gate:
       jobs:
-        - ansible-tox-linters
+        - ansible-tox-py37:
+            vars:
+              tox_envlist: linters
 
 - project-template:
     name: ansible-collections-amazon-aws

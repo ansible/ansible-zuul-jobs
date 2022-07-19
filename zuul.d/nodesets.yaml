@@ -360,7 +360,7 @@
     name: controller-python38
     nodes:
       - name: controller
-        label: ansible-fedora-35-1vcpu
+        label: ansible-fedora-36-1vcpu
 
 - nodeset:
     name: controller-node

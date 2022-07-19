@@ -30,32 +30,6 @@
     pre-run: playbooks/ansible-tox-py39/pre.yaml
     nodeset: ansible-tox-linters
 
-- job: &ansible-tox-molecule-base
-    name: ansible-tox-molecule-base
-    # Stub job used to define only properties specific to molecule jobs,
-    # expected to decorate other job definitions via anchors. To avoid overrides
-    # it does *not* have: nodeset, abstract, description
-    pre-run: playbooks/ansible-tox-molecule/pre.yaml
-    post-run: playbooks/ansible-tox-molecule/post.yaml
-    timeout: 5400  # 1.5h as they are expected to be slower by nature
-
-- job:
-    <<: *ansible-tox-molecule-base
-    name: ansible-tox-molecule
-    description: |
-      Generic molecule jobs that does not specify which python version will
-      be using, recommended when that is not important.
-    parent: tox-molecule
-    vars:
-      tox_envlist: molecule
-    nodeset: fedora-latest-1vcpu
-
-- job:
-    name: ansible-tox-py27
-    parent: tox-py27
-    timeout: 3600
-    nodeset: centos-7-1vcpu
-
 - job:
     name: ansible-tox-py35
     parent: tox-py35
@@ -399,41 +373,6 @@
     # this one does not need any container services
     name: molecule-tox-linters
     parent: ansible-tox-linters
-
-- job:
-    <<: *ansible-tox-molecule-base
-    name: molecule-tox-docs
-    parent: ansible-tox-docs
-
-- job:
-    <<: *ansible-tox-molecule-base
-    name: molecule-tox-py27
-    parent: ansible-tox-py27
-
-- job:
-    <<: *ansible-tox-molecule-base
-    name: molecule-tox-py35
-    parent: ansible-tox-py35
-
-- job:
-    <<: *ansible-tox-molecule-base
-    name: molecule-tox-py36
-    parent: ansible-tox-py36
-
-- job:
-    <<: *ansible-tox-molecule-base
-    name: molecule-tox-py37
-    parent: ansible-tox-py37
-
-- job:
-    <<: *ansible-tox-molecule-base
-    name: molecule-tox-py38
-    parent: ansible-tox-py38
-
-- job:
-    <<: *ansible-tox-molecule-base
-    name: molecule-tox-py39
-    parent: ansible-tox-py39
 
 - job:
     name: ansible-ee-tests-base

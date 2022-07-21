@@ -6,6 +6,8 @@
     - name: Enable FIPS mode
       include_role:
         name: enable-fips
+      vars:
+        nslookup_target: ansible.com
       when:
         - test_fips_mode | bool
 

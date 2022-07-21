@@ -58,7 +58,7 @@
     name: eos-4.24.6
     nodes:
       - name: controller
-        label: ansible-fedora-35-1vcpu
+        label: ansible-fedora-36-1vcpu
       - name: eos-4.24.6
         label: vEOS-4.24.6F
     groups:

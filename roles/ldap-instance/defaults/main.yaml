@@ -1,0 +1,3 @@
+---
+ldap_instance__admin_password: "{SSHA}Y0x7NGsIXpJ3qUCyhFyweCI5zgTJsqDq"  # rootroot
+ldap_instance__user_password: "{SSHA}Thf2wFJ0KkhXt3DKn0I9oUwPEI3yl781"  # useruser

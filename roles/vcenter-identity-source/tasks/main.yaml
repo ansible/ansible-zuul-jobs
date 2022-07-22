@@ -1,0 +1,7 @@
+---
+- name: Add the identity source
+  command: /opt/vmware/bin/sso-config.sh -add_identity_source -type openldap -baseUserDN "dc=example,dc=com" -baseGroupDN "dc=example,dc=com" -domain datastore.test -alias datastore.test -username "uid=vsphere,ou=People,dc=example,dc=com" -password 'useruser' -primaryURL "ldap://datastore.test"
+  become: true
+- name: Use the new identity by default
+  command: /opt/vmware/bin/sso-config.sh -set_default_identity_sources -i datastore.test
+  become: true

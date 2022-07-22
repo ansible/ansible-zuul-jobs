@@ -7,6 +7,7 @@
     run: playbooks/ansible-cloud/vcenter-appliance/run.yaml
     required-projects:
       - name: github.com/ansible/ansible-zuul-jobs
+      - name: github.com/goneri/vcenter-ldap-role-manager
     # NOTE: we set ansible_network_os with some generic
     # value to pass the ansible-network playbooks
     host-vars:

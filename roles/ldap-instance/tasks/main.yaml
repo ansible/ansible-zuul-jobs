@@ -1,0 +1,178 @@
+---
+- name: Install OpenLDAP
+  package:
+    name:
+      - openldap-servers
+      - openldap-clients
+    state: present
+  become: true
+- command: ls /usr/share/openldap-servers
+- name: Init DB_CONFIG - was required before openldap 2.6.1-1
+  copy:
+    src: /usr/share/openldap-servers/DB_CONFIG.example
+    dest: /var/lib/ldap/DB_CONFIG
+    remote_src: true
+    owner: ldap
+    group: ldap
+  become: true
+  ignore_errors: true
+- name: Remove the UPGRADE_INSTRUCTIONS file
+  file:
+    path: /usr/share/openldap-servers/UPGRADE_INSTRUCTIONS
+    state: absent
+  become: true
+- name: Start slapd
+  systemd:
+    name: slapd
+    state: started
+    enabled: true
+  become: true
+- name: Import schemas
+  command: "ldapadd -Y EXTERNAL -H ldapi:/// -f /etc/openldap/schema/{{ item }}.ldif"
+  with_items:
+    - cosine
+    - nis
+    - inetorgperson
+  become: true
+  ignore_errors: true
+
+- name: Write increase_limits.ldif
+  copy:
+    content: |
+      dn: cn=config
+      changetype: modify
+      replace: olcSizeLimit
+      olcSizeLimit: -1
+    dest: /tmp/increase_limits.ldif
+
+
+- name: Write server configuration
+  copy:
+    content: |
+      dn: olcDatabase={0}config,cn=config
+      changetype: modify
+      replace: olcRootPW
+      olcRootPW: {{ ldap_instance__admin_password }}
+
+      dn: olcDatabase={1}monitor,cn=config
+      changetype: modify
+      replace: olcAccess
+      olcAccess: {0}to * by dn.base="gidNumber=0+uidNumber=0,cn=peercred,cn=external,cn=auth"
+        read by dn.base="cn=Manager,dc=example,dc=com" read by * none
+
+      dn: olcDatabase={2}mdb,cn=config
+      changetype: modify
+      replace: olcSuffix
+      olcSuffix: dc=example,dc=com
+
+      dn: olcDatabase={2}mdb,cn=config
+      changetype: modify
+      replace: olcRootDN
+      olcRootDN: cn=Manager,dc=example,dc=com
+
+      dn: olcDatabase={2}mdb,cn=config
+      changetype: modify
+      add: olcRootPW
+      olcRootPW: {{ldap_instance__admin_password}}
+
+      dn: olcDatabase={2}mdb,cn=config
+      changetype: modify
+      add: olcAccess
+      olcAccess: {0}to attrs=userPassword,shadowLastChange by
+        dn="cn=Manager,dc=example,dc=com" write by anonymous auth by self write by * none
+      olcAccess: {1}to dn.base="" by * read
+      olcAccess: {2}to * by dn="cn=Manager,dc=example,dc=com" write by * read
+    dest: /tmp/chdomain.ldif
+
+- name: Load the LDIF
+  command: ldapadd -Y EXTERNAL -H ldapi:/// -f /tmp/{{ item }}.ldif
+  with_items:
+    - increase_limits
+    - chdomain
+  become: true
+
+- name: Write base DN
+  copy:
+    content: |
+      dn: dc=example,dc=com
+      objectClass: top
+      objectClass: dcObject
+      objectclass: organization
+      o: Example Com
+      dc: Example
+
+      dn: cn=Manager,dc=example,dc=com
+      objectClass: organizationalRole
+      cn: Manager
+      description: LDAP Directory Manager
+
+      dn: ou=People,dc=example,dc=com
+      objectClass: organizationalUnit
+      ou: People
+
+      dn: ou=Group,dc=example,dc=com
+      objectClass: organizationalUnit
+      ou: Group
+    dest: /tmp/basedn.ldif
+- name: Write base DN
+  copy:
+    content: |
+      dn: uid=lisa,ou=People,dc=example,dc=com
+      objectClass: inetOrgPerson
+      objectClass: posixAccount
+      objectClass: shadowAccount
+      cn: Lisa
+      givenName: Lisa
+      sn: Smith
+      userPassword: {{ldap_instance__user_password}}
+      loginShell: /bin/bash
+      uidNumber: 10000
+      gidNumber: 10000
+      homeDirectory: /home/lisa
+
+      dn: uid=pierre,ou=People,dc=example,dc=com
+      objectClass: inetOrgPerson
+      objectClass: posixAccount
+      objectClass: shadowAccount
+      cn: Pierre
+      givenName: Pierre
+      sn: Dubois
+      userPassword: {{ldap_instance__user_password}}
+      loginShell: /bin/bash
+      uidNumber: 10001
+      gidNumber: 10001
+      homeDirectory: /home/pierre
+
+      dn: uid=george,ou=people,dc=example,dc=com
+      objectclass: inetorgperson
+      objectclass: posixaccount
+      objectclass: shadowaccount
+      cn: george
+      givenname: george
+      sn: abitbol
+      userpassword: {{ldap_instance__user_password}}
+      loginshell: /bin/bash
+      uidnumber: 10002
+      gidnumber: 10002
+      homedirectory: /home/pierre
+
+      dn: uid=vsphere,ou=People,dc=example,dc=com
+      objectClass: inetOrgPerson
+      objectClass: posixAccount
+      objectClass: shadowAccount
+      cn: vSphere
+      givenName: vSphere
+      sn: user
+      userPassword: {{ldap_instance__user_password}}
+      loginShell: /bin/bash
+      uidNumber: 10003
+      gidNumber: 10003
+      homeDirectory: /home/lisa
+    dest: /tmp/users.ldif
+
+- name: Load the LDIF
+  command: ldapadd -x -D cn=Manager,dc=example,dc=com -w rootroot -f /tmp/{{ item }}.ldif
+  with_items:
+    - basedn
+    - users
+  become: true

@@ -79,3 +79,30 @@
         ansible_test_provider_name: vcenter
         ansible_test_provider_root_dir: "~/{{ zuul.projects['github.com/ansible/ansible'].src_dir }}"
         ansible_test_provider_passwords_secret_dir: '{{ zuul.executor.work_root }}'
+
+- hosts: controller
+  gather_facts: false
+  tasks:
+    - name: Deploy the LDAP server
+      import_role:
+        name: ldap-instance
+
+- hosts: vcenter
+  gather_facts: false
+  tasks:
+    - name: Install the new identity provider
+      import_role:
+        name: vcenter-identity-source
+
+- hosts: controller
+  gather_facts: false
+  tasks:
+    - name: Install vcenter-ldap-role-manager dependencies
+      package:
+        name:
+          - chromedriver
+          - chromium
+          - python3-selenium
+      become: true
+    - name: Grant privilege to the george user
+      command: ~/{{ zuul.projects['github.com/goneri/vcenter-ldap-role-manager'].src_dir }}/vcenter-ldap-role-manager --headless --ignore-ssl-errors george datastore.test --add-role Administrator --add-group Administrators

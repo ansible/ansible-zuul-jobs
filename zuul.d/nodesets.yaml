@@ -331,32 +331,32 @@
         nodes:
           - esxi1
 
-- nodeset:
+- nodeset:  # Deprecated
     name: controller-python27
     nodes:
       - name: controller
         label: ansible-fedora-35-1vcpu
 
-- nodeset:
+- nodeset:  # Deprecated
     name: controller-python35
     nodes:
       - name: controller
         # note: there is no py35 on f35
         label: ansible-fedora-35-1vcpu
 
-- nodeset:
+- nodeset:  # Deprecated
     name: controller-python36
     nodes:
       - name: controller
         label: ansible-fedora-35-1vcpu
 
-- nodeset:
+- nodeset:  # Deprecated
     name: controller-python37
     nodes:
       - name: controller
         label: ansible-fedora-35-1vcpu
 
-- nodeset:
+- nodeset:  # Deprecated
     name: controller-python38
     nodes:
       - name: controller

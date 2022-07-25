@@ -149,7 +149,6 @@
 - job:
     name: ansible-test-cloud-integration-vmware-rest
     parent: ansible-cloud-vmware-rest-appliance
-    abstract: true
     dependencies:
       - name: build-ansible-collection
     pre-run:
@@ -169,13 +168,6 @@
       ansible_test_integration_targets: "zuul/"
     timeout: 3600
     semaphore: ansible-test-cloud-integration-vmware-rest
-
-- job:
-    name: ansible-test-cloud-integration-vmware-rest-python39
-    parent: ansible-test-cloud-integration-vmware-rest
-    vars:
-      ansible_test_python: 3.9
-
 
 ##### units
 - job:

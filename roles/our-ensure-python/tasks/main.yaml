@@ -2,6 +2,16 @@
 - name: Install the right Python version (rpm)
   become: true
   package:
-    name: "python{{ ensure_python__version }}"
+    name:
+      - "python{{ ensure_python__version }}"
     state: present
-  when: ansible_distribution == 'Fedora'
+  when:
+    - ansible_distribution == 'Fedora'
+    - ensure_python__version != "default"
+
+- name: Also install python3-devel
+  become: true
+  package:
+    name:
+      - python3-devel
+      - gcc

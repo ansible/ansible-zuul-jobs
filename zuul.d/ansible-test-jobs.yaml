@@ -25,9 +25,13 @@
 - job:
     name: ansible-test-sanity-docker-devel
     parent: ansible-test-sanity-docker
+    pre-run:
+      - playbooks/ansible-cloud/py-devel/pre.yaml
     required-projects:
       - name: github.com/ansible/ansible
         override-checkout: devel
+    vars:
+      ansible_test_python: 3
     voting: false
 
 - job:

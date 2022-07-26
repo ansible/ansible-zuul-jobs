@@ -35,6 +35,7 @@
       - name: github.com/ansible-collections/community.vmware
     timeout: 3600
     vars:
+      ansible_test_python: 3
       ansible_collections_repo: github.com/ansible-collections/community.vmware
       ansible_test_command: integration
       ansible_test_environment:
@@ -168,6 +169,7 @@
     vars:
       ansible_collections_repo: github.com/ansible-collections/vmware.vmware_rest
       ansible_test_command: network-integration
+      ansible_test_python: 3
       ansible_test_integration_targets: "zuul/"
     timeout: 3600
     semaphore: ansible-test-cloud-integration-vmware-rest

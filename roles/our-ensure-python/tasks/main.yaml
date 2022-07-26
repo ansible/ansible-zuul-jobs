@@ -7,7 +7,6 @@
     state: present
   when:
     - ansible_distribution == 'Fedora'
-    - ensure_python__version != "default"
 
 - name: Also install python3-devel
   become: true

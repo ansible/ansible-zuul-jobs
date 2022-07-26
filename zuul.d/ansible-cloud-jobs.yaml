@@ -14,7 +14,7 @@
         ansible_network_os: vmware_rest
       esxi1:
         ansible_network_os: vmware_rest
-    nodeset: vmware-vcsa-7.0.3-python36
+    nodeset: vmware-vcsa-7.0.3
 
 
 # master
@@ -45,30 +45,27 @@
 
 # vcenter 7.0.3
 - job:
-    name: ansible-test-cloud-integration-vcenter7_only-python36
+    name: ansible-test-cloud-integration-vcenter7_only
     parent: ansible-test-cloud-integration-vcenter
-    nodeset: vmware-vcsa-7.0.3-python36
+    nodeset: vmware-vcsa-7.0.3
     vars:
-      ansible_test_python: 3.6
       ansible_test_integration_targets: zuul/vmware/vcenter_only/
 
 - job:
-    name: ansible-test-cloud-integration-vcenter7_1esxi-python36
+    name: ansible-test-cloud-integration-vcenter7_1esxi
     parent: ansible-test-cloud-integration-vcenter
-    nodeset: vmware-vcsa_1esxi-7.0.3-python36
+    nodeset: vmware-vcsa_1esxi-7.0.3
     vars:
-      ansible_test_python: 3.6
       ansible_test_integration_targets: zuul/vmware/vcenter_1esxi/
     # 5h
     timeout: 10800
 
 
 - job:
-    name: ansible-test-cloud-integration-vcenter7_2esxi-python36
+    name: ansible-test-cloud-integration-vcenter7_2esxi
     parent: ansible-test-cloud-integration-vcenter
-    nodeset: vmware-vcsa_2esxi-7.0.3-python36
+    nodeset: vmware-vcsa_2esxi-7.0.3
     vars:
-      ansible_test_python: 3.6
       ansible_test_integration_targets: zuul/vmware/vcenter_2esxi/
     # NOTE: we set ansible_network_os with some generic
     # value to pass the ansible-network playbooks
@@ -80,48 +77,47 @@
       esxi2:
         ansible_network_os: vmware_rest
 
-# stable211
 - job:
-    name: ansible-test-cloud-integration-vcenter7_only-python36-stable211
-    parent: ansible-test-cloud-integration-vcenter7_only-python36
+    name: ansible-test-cloud-integration-vcenter7_only-stable212
+    parent: ansible-test-cloud-integration-vcenter7_only
     required-projects:
       - name: github.com/ansible/ansible
-        override-checkout: stable-2.11
+        override-checkout: stable-2.12
 
 - job:
-    name: ansible-test-cloud-integration-vcenter7_1esxi-python36-stable211
-    parent: ansible-test-cloud-integration-vcenter7_1esxi-python36
+    name: ansible-test-cloud-integration-vcenter7_1esxi-stable212
+    parent: ansible-test-cloud-integration-vcenter7_1esxi
     required-projects:
       - name: github.com/ansible/ansible
-        override-checkout: stable-2.11
+        override-checkout: stable-2.12
 
 - job:
-    name: ansible-test-cloud-integration-vcenter7_1esxi-python36-stable211_1_of_2
-    parent: ansible-test-cloud-integration-vcenter7_1esxi-python36
+    name: ansible-test-cloud-integration-vcenter7_1esxi-stable212_1_of_2
+    parent: ansible-test-cloud-integration-vcenter7_1esxi
     required-projects:
       - name: github.com/ansible/ansible
-        override-checkout: stable-2.11
+        override-checkout: stable-2.12
     vars:
       ansible_test_split_in: 2
       ansible_test_do_number: 1
 
 - job:
-    name: ansible-test-cloud-integration-vcenter7_1esxi-python36-stable211_2_of_2
-    parent: ansible-test-cloud-integration-vcenter7_1esxi-python36
+    name: ansible-test-cloud-integration-vcenter7_1esxi-stable212_2_of_2
+    parent: ansible-test-cloud-integration-vcenter7_1esxi
     required-projects:
       - name: github.com/ansible/ansible
-        override-checkout: stable-2.11
+        override-checkout: stable-2.12
     vars:
       ansible_test_split_in: 2
       ansible_test_do_number: 2
 
 
 - job:
-    name: ansible-test-cloud-integration-vcenter7_2esxi-python36-stable211
-    parent: ansible-test-cloud-integration-vcenter7_2esxi-python36
+    name: ansible-test-cloud-integration-vcenter7_2esxi-stable212
+    parent: ansible-test-cloud-integration-vcenter7_2esxi
     required-projects:
       - name: github.com/ansible/ansible
-        override-checkout: stable-2.11
+        override-checkout: stable-2.12
 
 
 ####################### vmware.vmware-rest #####################
@@ -142,7 +138,7 @@
         ansible_network_os: vmware_rest
       esxi1:
         ansible_network_os: vmware_rest
-    nodeset: vmware-vcsa_1esxi-7.0.3-python36
+    nodeset: vmware-vcsa_1esxi-7.0.3
 
 # NOTE(pabelanger): Due to low memory capacity in vexxhost, it is
 # possible to wedge the provider.  For now, only run 1 job at a time.

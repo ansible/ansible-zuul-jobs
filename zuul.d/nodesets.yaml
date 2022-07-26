@@ -256,7 +256,7 @@
 
 # vcenter 7.0.3
 - nodeset:
-    name: vmware-vcsa-7.0.3-python36
+    name: vmware-vcsa-7.0.3
     nodes:
       - name: controller
         label: ansible-fedora-36-1vcpu
@@ -268,7 +268,7 @@
           - vcenter
 
 - nodeset:
-    name: vmware-vcsa_1esxi-7.0.3-python36
+    name: vmware-vcsa_1esxi-7.0.3
     nodes:
       - name: controller
         label: ansible-fedora-36-1vcpu
@@ -288,7 +288,7 @@
           - esxi1
 
 - nodeset:
-    name: vmware-vcsa_2esxi-7.0.3-python36
+    name: vmware-vcsa_2esxi-7.0.3
     nodes:
       - name: controller
         label: ansible-fedora-36-1vcpu

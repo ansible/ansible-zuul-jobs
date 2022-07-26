@@ -558,16 +558,13 @@
               - name: github.com/ansible-collections/cloud.common
         - ansible-test-sanity-docker-devel
         - ansible-test-sanity-docker-milestone
-        - ansible-test-sanity-docker-stable-2.11
         - ansible-test-sanity-docker-stable-2.12
-        - ansible-test-units-community-vmware-python27
-        - ansible-test-units-community-vmware-python36
-        - ansible-test-units-community-vmware-python37
+        - ansible-test-sanity-docker-stable-2.13
         - ansible-test-units-community-vmware-python38
-        - ansible-test-cloud-integration-vcenter7_only-python36-stable211
-        - ansible-test-cloud-integration-vcenter7_2esxi-python36-stable211
-        - ansible-test-cloud-integration-vcenter7_1esxi-python36-stable211_1_of_2
-        - ansible-test-cloud-integration-vcenter7_1esxi-python36-stable211_2_of_2
+        - ansible-test-cloud-integration-vcenter7_only-stable212
+        - ansible-test-cloud-integration-vcenter7_2esxi-stable212
+        - ansible-test-cloud-integration-vcenter7_1esxi-stable212_1_of_2
+        - ansible-test-cloud-integration-vcenter7_1esxi-stable212_2_of_2
     gate:
       jobs:
         - ansible-tox-linters

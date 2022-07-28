@@ -518,7 +518,7 @@
       jobs: &ansible-collections-cloud-common-jobs
         - ansible-test-sanity-docker-devel
         - ansible-test-sanity-docker-milestone
-        - ansible-test-cloud-integration-vmware-rest-python39:
+        - ansible-test-cloud-integration-vmware-rest:
             required-projects:
               - name: github.com/ansible-collections/vmware.vmware_rest
         - build-ansible-collection:
@@ -576,7 +576,7 @@
     name: ansible-collections-community-vmware-rest
     check:
       jobs: &ansible-collections-community-vmware-rest-jobs
-        - ansible-test-cloud-integration-vmware-rest-python39
+        - ansible-test-cloud-integration-vmware-rest
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-collections/cloud.common
@@ -585,8 +585,10 @@
         - ansible-test-sanity-docker-devel
         - ansible-test-sanity-docker-milestone
         - ansible-test-sanity-docker-stable-2.9
+        - ansible-test-sanity-docker-stable-2.10
         - ansible-test-sanity-docker-stable-2.11
         - ansible-test-sanity-docker-stable-2.12
+        - ansible-test-sanity-docker-stable-2.13
     gate:
       jobs: *ansible-collections-community-vmware-rest-jobs
     periodic:
@@ -594,22 +596,24 @@
         - ansible-test-sanity-docker-devel
         - ansible-test-sanity-docker-milestone
         - ansible-test-sanity-docker-stable-2.9
+        - ansible-test-sanity-docker-stable-2.10
         - ansible-test-sanity-docker-stable-2.11
         - ansible-test-sanity-docker-stable-2.12
+        - ansible-test-sanity-docker-stable-2.13
         - build-ansible-collection
 
 - project-template:
     name: ansible-collections-community-vmware-rest-code-generator
     check:
       jobs:
-        - ansible-test-cloud-integration-vmware-rest-python39
+        - ansible-test-cloud-integration-vmware-rest
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-collections/cloud.common
               - name: github.com/ansible-collections/community.vmware
     gate:
       jobs:
-        - ansible-test-cloud-integration-vmware-rest-python39
+        - ansible-test-cloud-integration-vmware-rest
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-collections/cloud.common

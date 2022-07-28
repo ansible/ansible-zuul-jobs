@@ -187,6 +187,13 @@
       ansible_test_integration_targets: "netconf_.*"
 
 - job:
+    name: ansible-test-network-integration-ansible-netcommon-iosxr-grpc-python38
+    parent: ansible-test-network-integration-iosxr-python38
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/ansible.netcommon
+      ansible_test_integration_targets: "grpc_.*"
+
+- job:
     name: ansible-test-network-integration-ansible-netcommon-junos-vsrx-netconf-python38
     parent: ansible-test-network-integration-junos-vsrx-python38
     vars:

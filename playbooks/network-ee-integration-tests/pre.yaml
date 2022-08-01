@@ -3,6 +3,10 @@
   vars:
     _hosts_dict: {}
   tasks:
+    - name: Ensure we've got nslookup installed
+      package:
+        name: bind-utils
+      become: true
     - name: Enable FIPS mode
       include_role:
         name: enable-fips

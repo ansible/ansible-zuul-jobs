@@ -2,6 +2,10 @@
 - hosts: controller
   gather_facts: false
   tasks:
+    - name: Ensure we've got nslookup installed
+      package:
+        name: bind-utils
+      become: true
     - set_fact:
         _hosts_dict: {}
     - name: Enable FIPS mode

@@ -210,6 +210,9 @@
     third-party-check:
       jobs:
         - ansible-galaxy-importer
+        - build-ansible-collection:
+            required-projects:
+              - name: github.com/ansible-collections/amazon.aws
     gate:
       queue: integrated-aws
       jobs: *ansible-collections-community-aws-jobs

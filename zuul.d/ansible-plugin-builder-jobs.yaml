@@ -1,5 +1,0 @@
----
-- job:
-    name: ansible-test-integration-ansible-plugin-builder
-    parent: ansible-test-integration-base
-    nodeset: fedora-latest-1vcpu

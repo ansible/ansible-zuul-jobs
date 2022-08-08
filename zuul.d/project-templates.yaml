@@ -378,23 +378,6 @@
         - build-ansible-collection
 
 - project-template:
-    name: ansible-community-ansible-plugin-builder
-    check:
-      jobs:
-        - ansible-test-integration-ansible-plugin-builder
-        - build-ansible-collection:
-            required-projects:
-              - name: github.com/ansible-collections/ansible.utils
-    gate:
-      queue: integrated
-      fail-fast: true
-      jobs:
-        - ansible-test-integration-ansible-plugin-builder
-        - build-ansible-collection:
-            required-projects:
-              - name: github.com/ansible-collections/ansible.utils
-
-- project-template:
     name: ansible-collections-cisco-ios
     check:
       jobs: &ansible-collections-cisco-ios-jobs

@@ -2,4 +2,4 @@
 - job:
     name: ansible-test-integration-ansible-plugin-builder
     parent: ansible-test-integration-base
-    nodeset: openvswitch-2.15.0-python38
+    nodeset: fedora-latest-1vcpu

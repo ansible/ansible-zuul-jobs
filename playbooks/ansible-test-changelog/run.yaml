@@ -1,0 +1,9 @@
+---
+- hosts: all
+  gather_facts: false
+
+  tasks:
+    - name: Validate changelog fragments from Pull request
+      validate_changelog:
+        repository: "{{ ansible_test_changelog__repository | default(zuul.project.src_dir) }}"
+        branch: "{{ ansible_test_changelog__branch | default('main') }}"

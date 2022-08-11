@@ -114,6 +114,7 @@
         - integration-community.aws-11
         - integration-community.aws-12
         - integration-community.aws-13
+        - ansible-test-changelog
     gate:
       queue: integrated-aws
       jobs: *ansible-collections-amazon-aws-jobs
@@ -160,6 +161,7 @@
         - integration-community.aws-11
         - integration-community.aws-12
         - integration-community.aws-13
+        - ansible-test-changelog
 
 - project-template:
     name: ansible-collections-community-aws
@@ -892,6 +894,7 @@
         - integration-kubernetes.core-with-turbo-2
         - integration-kubernetes.core-with-turbo-3
         - ansible-tox-linters
+        - ansible-test-changelog
     gate:
       jobs: *ansible-collections-kubernetes-core-units-jobs
     ondemand:
@@ -924,6 +927,7 @@
         - integration-kubernetes.core-with-turbo-1
         - integration-kubernetes.core-with-turbo-2
         - integration-kubernetes.core-with-turbo-3
+        - ansible-test-changelog
 
 - project-template:
     name: ansible-collections-vyos-vyos

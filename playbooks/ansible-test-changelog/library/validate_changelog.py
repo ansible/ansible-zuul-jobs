@@ -49,18 +49,11 @@ RETURN = r"""
 """
 
 import re
-import traceback
 import os
 from collections import defaultdict
 
-from ansible.module_utils.basic import AnsibleModule, missing_required_lib
-
-try:
-    import yaml
-    IMP_YAML = True
-except ImportError:
-    IMP_YAML_ERR = traceback.format_exc()
-    IMP_YAML = False
+from ansible.module_utils.basic import AnsibleModule
+import yaml
 
 
 def is_valid_change_log(ref):
@@ -194,12 +187,9 @@ class ValidateChangeLog(AnsibleModule):
                     "contain only documentation changes."
             )
 
-        if not IMP_YAML:
-            self.fail_json(msg=missing_required_lib("PyYAML"), exception=IMP_YAML_ERR)
-
         for f in self.changelog:
             self.validate_changelog(os.path.join(self.params.get("repository"), f))
-        
+
         self.exit_json(msg="Changelog validation successful.")
 
 

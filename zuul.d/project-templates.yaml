@@ -509,7 +509,6 @@
         - ansible-test-sanity-docker-stable-2.13
         - ansible-galaxy-importer:
             voting: false
-        - ansible-test-units-community-okd-python38
         - ansible-test-units-community-okd-python39
         - ansible-test-sanity-okd-downstream-devel
         - ansible-test-sanity-okd-downstream-milestone

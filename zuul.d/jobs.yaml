@@ -157,6 +157,15 @@
       ansible_collections_repo: github.com/ansible-collections/ansible.posix
 
 - job:
+    name: ansible-test-units-posix-python310
+    parent: ansible-test-units-base-python310
+    required-projects:
+      - name: github.com/ansible-collections/ansible.posix
+    timeout: 3600
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/ansible.posix
+
+- job:
     name: ansible-test-units-posix-python39
     parent: ansible-test-units-base-python39
     required-projects:
@@ -185,8 +194,7 @@
     vars:
       ansible_test_command: units
       ansible_test_integration_targets: ""
-      # NOTE(pabelanger): ansible_test_python to be removed
-      ansible_test_python: 3.8
+      ansible_test_python: 3.9
 
 - job:
     name: ansible-test-units-base-python39
@@ -261,6 +269,16 @@
         override-checkout: stable-2.11
     vars:
       ansible_test_python: 3.9
+
+- job:
+    name: ansible-test-units-base-python310
+    parent: ansible-test-units-base
+    nodeset: controller-node
+    abstract: true
+    required-projects:
+      - name: github.com/ansible/ansible
+    vars:
+      ansible_test_python: "3.10"
 
 - job:
     name: ansible-test-units-yang-python27

@@ -69,7 +69,7 @@
 - nodeset:
     name: fedora-35-1vcpu
     nodes:
-      - name: fedora-35
+      - name: controller
         label: ansible-fedora-35-1vcpu
 
 - nodeset:

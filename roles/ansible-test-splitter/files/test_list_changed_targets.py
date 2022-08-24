@@ -127,6 +127,15 @@ def test_c_targets():
     assert list(c._targets())[0].execution_time() == 30
 
 
+def test_2_targets_for_one_module():
+    c = build_collection(
+        [build_alias("a", "ec2_instance\n"), build_alias("b", "ec2_instance\n")]
+    )
+    assert c.regular_targets_to_test() == []
+    c.add_target_to_plan("ec2_instance")
+    assert c.regular_targets_to_test() == ["a", "b"]
+
+
 def test_c_disabled_unstable():
     c = Collection(PosixPath("nowhere"))
     m_c_path = MagicMock()

@@ -142,6 +142,7 @@ class ValidateChangeLog(AnsibleModule):
                 "removed_features",
                 "security_fixes",
                 "bugfixes",
+                "trivial",
             )
             with open(path, "rb") as f:
                 result = list(yaml.safe_load_all(f))

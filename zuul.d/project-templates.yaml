@@ -258,6 +258,8 @@
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-collections/amazon.aws
+              - name: github.com/ansible-collections/community.aws
+              - name: github.com/ansible-collections/community.crypto
     gate:
       queue: integrated-aws
       jobs: *ansible-collections-amazon-cloud-jobs

@@ -141,6 +141,7 @@ class ValidateChangeLog(AnsibleModule):
                 "deprecated_features",
                 "removed_features",
                 "security_fixes",
+                "trivial",
                 "bugfixes",
             )
             with open(path, "rb") as f:

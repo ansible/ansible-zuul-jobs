@@ -1170,12 +1170,18 @@
       jobs: &ansible-collections-security-ibm-qradar-jobs
         - build-ansible-collection
         - ansible-changelog-fragment
-        - ansible-test-security-integration-qradar-python36
-        - ansible-test-security-integration-qradar-python38
-        - ansible-test-security-integration-qradar-python39
-        - ansible-test-security-integration-qradar-python38-stable29
-        - ansible-test-security-integration-qradar-python39-stable211
-        - ansible-test-security-integration-qradar-python39-stable212
+        - ansible-test-security-integration-qradar-python36:
+            voting: false
+        - ansible-test-security-integration-qradar-python38:
+            voting: false
+        - ansible-test-security-integration-qradar-python39:
+            voting: false
+        - ansible-test-security-integration-qradar-python38-stable29:
+            voting: false
+        - ansible-test-security-integration-qradar-python39-stable211:
+            voting: false
+        - ansible-test-security-integration-qradar-python39-stable212:
+            voting: false
         - ansible-test-sanity-docker-devel
         - ansible-test-sanity-docker-milestone
         - ansible-test-sanity-docker-stable-2.9

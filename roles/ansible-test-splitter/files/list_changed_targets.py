@@ -365,7 +365,7 @@ class ElGrandeSeparator:
                 "utils": c.utils_import,
             }
         result["what_have_changes"] = changes
-        print(json.dumps(result))
+        print(json.dumps(result, indent=2))
 
     def build_up_batches(self, slots, c):
         slow_targets = c.slow_targets_to_test()

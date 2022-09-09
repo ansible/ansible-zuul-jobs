@@ -668,10 +668,9 @@
         - ansible-test-network-integration-junos-vsrx-netconf-python38-stable212:
             vars:
               ansible_test_integration_targets: "junos_.*"
-        - ansible-test-network-integration-junos-vsrx-netconf-python38:
+        - ansible-test-network-integration-junos-vsrx-netconf-python39:
             vars:
               ansible_test_integration_targets: "junos_.*"
-            voting: false
         - ansible-test-network-integration-junos-vsrx-network_cli-python36-stable29:
             vars:
               ansible_test_integration_targets: "junos_.*"
@@ -683,10 +682,9 @@
         - ansible-test-network-integration-junos-vsrx-network_cli-python38-stable212:
             vars:
               ansible_test_integration_targets: "junos_.*"
-        - ansible-test-network-integration-junos-vsrx-network_cli-python38:
+        - ansible-test-network-integration-junos-vsrx-network_cli-python39:
             vars:
               ansible_test_integration_targets: "junos_.*"
-            voting: false
         - ansible-test-network-integration-junos-vsrx-network_cli-libssh-python36-stable29:
             vars:
               ansible_test_integration_targets: "junos_.*"
@@ -701,6 +699,7 @@
         - ansible-test-network-integration-junos-vsrx-network_cli-libssh-python38:
             vars:
               ansible_test_integration_targets: "junos_.*"
+            voting: false
         - ansible-ee-integration-cisco-nxos-cli-python39-latest:
             voting: false
         - ansible-ee-integration-arista-eos-latest
@@ -744,18 +743,16 @@
             vars:
               ansible_test_integration_targets: "junos_.*"
             voting: false
-        - ansible-test-network-integration-junos-vsrx-netconf-python38:
+        - ansible-test-network-integration-junos-vsrx-netconf-python39:
             vars:
               ansible_test_integration_targets: "junos_.*"
-            voting: false
         - ansible-test-network-integration-junos-vsrx-network_cli-python36-stable29:
             vars:
               ansible_test_integration_targets: "junos_.*"
             voting: false
-        - ansible-test-network-integration-junos-vsrx-network_cli-python38:
+        - ansible-test-network-integration-junos-vsrx-network_cli-python39:
             vars:
               ansible_test_integration_targets: "junos_.*"
-            voting: false
         - ansible-test-network-integration-junos-vsrx-network_cli-libssh-python36-stable29:
             vars:
               ansible_test_integration_targets: "junos_.*"
@@ -763,6 +760,7 @@
         - ansible-test-network-integration-junos-vsrx-network_cli-libssh-python38:
             vars:
               ansible_test_integration_targets: "junos_.*"
+            voting: false
         - ansible-ee-integration-cisco-nxos-cli-python39-latest:
             voting: false
         - ansible-ee-integration-arista-eos-latest
@@ -791,9 +789,6 @@
     name: ansible-collections-juniper-junos
     check:
       jobs: &ansible-collections-juniper-junos-jobs
-        - ansible-test-network-integration-junos-vsrx-netconf-python38:
-            vars:
-              ansible_test_integration_targets: "junos_.*"
         - ansible-test-network-integration-junos-vsrx-netconf-python39:
             vars:
               ansible_test_integration_targets: "junos_.*"
@@ -804,9 +799,6 @@
             vars:
               ansible_test_integration_targets: "junos_.*"
         - ansible-test-network-integration-junos-vsrx-netconf-python36-stable29:
-            vars:
-              ansible_test_integration_targets: "junos_.*"
-        - ansible-test-network-integration-junos-vsrx-network_cli-python38:
             vars:
               ansible_test_integration_targets: "junos_.*"
         - ansible-test-network-integration-junos-vsrx-network_cli-python39:

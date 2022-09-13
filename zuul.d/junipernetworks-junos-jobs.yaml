@@ -64,12 +64,6 @@
     vars:
       ansible_test_skip_tags: local,netconf
 
-- job:
-    name: ansible-test-network-integration-junos-vsrx-netconf-python38
-    parent: ansible-test-network-integration-junos-vsrx-netconf
-    nodeset: vsrx3
-    vars:
-      ansible_test_python: 3.8
 
 - job:
     name: ansible-test-network-integration-junos-vsrx-netconf-python39
@@ -99,12 +93,6 @@
     vars:
       ansible_test_python: 3.6
 
-- job:
-    name: ansible-test-network-integration-junos-vsrx-network_cli-python38
-    parent: ansible-test-network-integration-junos-vsrx-network_cli
-    nodeset: vsrx3
-    vars:
-      ansible_test_python: 3.8
 
 - job:
     name: ansible-test-network-integration-junos-vsrx-network_cli-python39
@@ -112,38 +100,6 @@
     nodeset: vsrx3
     vars:
       ansible_test_python: 3.9
-
-- job:
-    name: ansible-test-network-integration-junos-vsrx-network_cli-libssh-python38
-    parent: ansible-test-network-integration-junos-vsrx-network_cli-python38
-    vars:
-      ansible_test_network_cli_ssh_type: libssh
-
-- job:
-    name: ansible-test-network-integration-junos-vsrx-netconf-python38-stable212
-    parent: ansible-test-network-integration-junos-vsrx-netconf
-    nodeset: vsrx3
-    required-projects:
-      - name: github.com/ansible/ansible
-        override-checkout: stable-2.12
-    vars:
-      ansible_test_python: 3.8
-
-- job:
-    name: ansible-test-network-integration-junos-vsrx-network_cli-python38-stable212
-    parent: ansible-test-network-integration-junos-vsrx-network_cli
-    nodeset: vsrx3
-    required-projects:
-      - name: github.com/ansible/ansible
-        override-checkout: stable-2.12
-    vars:
-      ansible_test_python: 3.8
-
-- job:
-    name: ansible-test-network-integration-junos-vsrx-network_cli-libssh-python38-stable212
-    parent: ansible-test-network-integration-junos-vsrx-network_cli-python38-stable212
-    vars:
-      ansible_test_network_cli_ssh_type: libssh
 
 - job:
     name: ansible-test-network-integration-junos-vsrx-network_cli-python36-stable211
@@ -187,13 +143,6 @@
     nodeset: vsrx3
     vars:
       ansible_test_python: 3.6
-
-- job:
-    name: ansible-test-network-integration-junos-vsrx-python38
-    parent: ansible-test-network-integration-junos-vsrx
-    nodeset: vsrx3
-    vars:
-      ansible_test_python: 3.8
 
 - job:
     name: ansible-test-network-integration-junos-vsrx-python39

@@ -36,7 +36,7 @@ parser.add_argument(
 
 parser.add_argument(
     "--total-job",
-    default=13,
+    default=18,
     type=int,
     help="total job to share targets on.",
 )

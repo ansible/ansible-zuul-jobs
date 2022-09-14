@@ -101,6 +101,11 @@
         - integration-amazon.aws-11
         - integration-amazon.aws-12
         - integration-amazon.aws-13
+        - integration-amazon.aws-14
+        - integration-amazon.aws-15
+        - integration-amazon.aws-16
+        - integration-amazon.aws-17
+        - integration-amazon.aws-18
         - integration-community.aws-1
         - integration-community.aws-2
         - integration-community.aws-3
@@ -114,6 +119,11 @@
         - integration-community.aws-11
         - integration-community.aws-12
         - integration-community.aws-13
+        - integration-community.aws-14
+        - integration-community.aws-15
+        - integration-community.aws-16
+        - integration-community.aws-17
+        - integration-community.aws-18
         - ansible-test-changelog
     gate:
       queue: integrated-aws
@@ -148,6 +158,11 @@
         - integration-amazon.aws-11
         - integration-amazon.aws-12
         - integration-amazon.aws-13
+        - integration-amazon.aws-14
+        - integration-amazon.aws-15
+        - integration-amazon.aws-16
+        - integration-amazon.aws-17
+        - integration-amazon.aws-18
         - integration-community.aws-1
         - integration-community.aws-2
         - integration-community.aws-3
@@ -161,6 +176,12 @@
         - integration-community.aws-11
         - integration-community.aws-12
         - integration-community.aws-13
+        - integration-community.aws-14
+        - integration-community.aws-15
+        - integration-community.aws-16
+        - integration-community.aws-17
+        - integration-community.aws-18
+
         - ansible-test-changelog
 
 - project-template:
@@ -208,6 +229,12 @@
         - integration-community.aws-11
         - integration-community.aws-12
         - integration-community.aws-13
+        - integration-community.aws-14
+        - integration-community.aws-15
+        - integration-community.aws-16
+        - integration-community.aws-17
+        - integration-community.aws-18
+
         - ansible-galaxy-importer
     third-party-check:
       jobs:

@@ -114,8 +114,8 @@
       ansible_test_python: 3.9
 
 - job:
-    name: ansible-test-network-integration-junos-vsrx-network_cli-libssh-python38
-    parent: ansible-test-network-integration-junos-vsrx-network_cli-python38
+    name: ansible-test-network-integration-junos-vsrx-network_cli-libssh-python39
+    parent: ansible-test-network-integration-junos-vsrx-network_cli-python39
     vars:
       ansible_test_network_cli_ssh_type: libssh
 

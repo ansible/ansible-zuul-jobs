@@ -126,7 +126,7 @@ class ValidateChangeLog(AnsibleModule):
         if any([is_module_or_plugin(x) for x in self.git_changes["A"]]):
             return True
 
-        # Validate documentation changes only 
+        # Validate documentation changes only
         all_files = self.git_changes["A"] + self.git_changes["M"] + self.git_changes["D"]
         if all([is_documentation_file(x) for x in all_files]):
             return True
@@ -134,15 +134,18 @@ class ValidateChangeLog(AnsibleModule):
     def validate_changelog(self, path):
 
         try:
+            # https://github.com/ansible-community/antsibull-changelog/blob/main/docs/changelogs.rst#changelog-fragment-categories
             changes_type = (
+                "release_summary",
                 "breaking_changes",
                 "major_changes",
                 "minor_changes",
-                "deprecated_features",
                 "removed_features",
+                "deprecated_features",
                 "security_fixes",
-                "trivial",
                 "bugfixes",
+                "known_issues",
+                "trivial",
             )
             with open(path, "rb") as f:
                 result = list(yaml.safe_load_all(f))

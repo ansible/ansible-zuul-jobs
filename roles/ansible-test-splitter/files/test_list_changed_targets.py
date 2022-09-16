@@ -119,7 +119,7 @@ def test_c_targets():
     c = build_collection([build_alias("a", "#ec2\n")])
     assert len(list(c._targets())) == 1
     assert list(c._targets())[0].name == "a"
-    assert list(c._targets())[0].execution_time() == 0
+    assert list(c._targets())[0].execution_time() == 180
 
     c = build_collection([build_alias("a", "time=30\n")])
     assert len(list(c._targets())) == 1
@@ -207,13 +207,6 @@ def test_argparse():
     ]
 
 
-def test_splitter_basic():
-    c = build_collection([build_alias("a", "ec2\n")])
-    c.cover_all()
-    egs = ElGrandeSeparator([c], 13, [])
-    assert list(egs.build_up_batches(["slot1"], c)) == [("slot1", ["a"])]
-
-
 def test_splitter_with_slow():
     c = build_collection(
         [
@@ -236,36 +229,33 @@ def test_splitter_with_slow():
 def test_splitter_with_time():
     c = build_collection(
         [
-            build_alias("a", "time=100\n"),
-            build_alias("b", "time=10\n"),
-            build_alias("c", "time=20\n"),
-            build_alias("d", "time=30\n"),
-            build_alias("e", "time=40\n"),
+            build_alias("a", "time=50m\n"),
+            build_alias("b", "time=10m\n"),
+            build_alias("c", "time=180\n"),
+            build_alias("d", "time=140s  \n"),
+            build_alias("e", "time=70\n"),
         ]
     )
     c.cover_all()
     egs = ElGrandeSeparator([c])
-    result = list(egs.build_up_batches_by_time([f"slot{i}" for i in range(2)], c))
+    result = list(egs.build_up_batches([f"slot{i}" for i in range(2)], c))
     assert result == [
         ("slot0", ["a"]),
-        ("slot1", ["e", "d", "c", "b"]),
+        ("slot1", ["b", "c", "d", "e"]),
     ]
 
     c = build_collection(
         [
-            build_alias("a", "time=10\n"),
-            build_alias("b", "time=5\n"),
-            build_alias("c", "time=6\n"),
-            build_alias("d", "time=1\n"),
+            build_alias("a", "time=50m\n"),
+            build_alias("b", "time=50m\n"),
+            build_alias("c", "time=18\n"),
+            build_alias("d", "time=5m\n"),
         ]
     )
     c.cover_all()
     egs = ElGrandeSeparator([c])
-    result = list(egs.build_up_batches_by_time([f"slot{i}" for i in range(2)], c))
-    assert result == [
-        ("slot0", ["a", "d"]),
-        ("slot1", ["c", "b"]),
-    ]
+    result = list(egs.build_up_batches([f"slot{i}" for i in range(4)], c))
+    assert result == [("slot0", ["a"]), ("slot1", ["b"]), ("slot2", ["d", "c"])]
 
 
 @patch("subprocess.check_output")

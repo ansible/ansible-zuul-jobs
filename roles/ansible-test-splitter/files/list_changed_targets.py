@@ -249,6 +249,7 @@ class Target:
         return False
 
     def is_slow(self):
+        # NOTE: Should be replaced by time=3000
         if "slow" in self.lines or "# reason: slow" in self.lines:
             return True
         return False
@@ -259,12 +260,18 @@ class Target:
         return not ignore.isdisjoint(set(self.lines))
 
     def execution_time(self):
-        if self.exec_time is None:
-            self.exec_time = 0
-            for u in self.lines:
-                m = re.match(r"^time=([0-9]+)$", u)
-                if m:
-                    self.exec_time = int(m.group(1))
+        if self.exec_time:
+            return self.exec_time
+
+        self.exec_time = 3000 if self.is_slow() else 180
+        for u in self.lines:
+            if m := re.match(r"^time=([0-9]+)s\S*$", u):
+                self.exec_time = int(m.group(1))
+            elif m := re.match(r"^time=([0-9]+)m\S*$", u):
+                self.exec_time = int(m.group(1)) * 60
+            elif m := re.match(r"^time=([0-9]+)\S*$", u):
+                self.exec_time = int(m.group(1))
+
         return self.exec_time
 
 
@@ -350,12 +357,8 @@ class ElGrandeSeparator:
                     else f"integration-{c.collection_name()}-{r}"
                 )
                 slots = [f"{job_prefix}-{i+1}" for i in range(self.total_jobs)]
-                if any([t.execution_time() > 0 for t in c._my_test_plan]):
-                    for b in self.build_up_batches_by_time(slots, c):
-                        batches.append(b)
-                else:
-                    for b in self.build_up_batches(slots, c):
-                        batches.append(b)
+                for b in self.build_up_batches(slots, c):
+                    batches.append(b)
         result = self.build_result_struct(batches)
         # add collection imports
         result["imports"] = {}
@@ -368,38 +371,24 @@ class ElGrandeSeparator:
         print(json.dumps(result, indent=2))
 
     def build_up_batches(self, slots, c):
-        slow_targets = c.slow_targets_to_test()
-        regular_targets = c.regular_targets_to_test()
-        my_slot_available = [s for s in slots]
-        for i in slow_targets:
-            my_slot = my_slot_available.pop(0)
-            yield (my_slot, [i])
-
-        while regular_targets:
-            my_slot = my_slot_available.pop(0)
-            yield (my_slot, regular_targets[0 : self.targets_per_slot])
-            for _ in range(self.targets_per_slot):
-                if regular_targets:
-                    regular_targets.pop(0)
-
-    def build_up_batches_by_time(self, slots, c):
         if c.test_groups is None:
             sorted_targets = sorted(
                 c._my_test_plan, key=lambda x: x.execution_time(), reverse=True
             )
             c.test_groups = [{"total": 0, "targets": []} for _ in range(len(slots))]
 
-            def _lowest():
-                low = 0
-                idx = 1
-                while idx < len(c.test_groups):
-                    if c.test_groups[idx]["total"] < c.test_groups[low]["total"]:
-                        low = idx
-                    idx += 1
-                return low
+            def _selector(bet):
+                for idx, cur_group in enumerate(c.test_groups):
+                    if cur_group["total"] > 46 * 60:
+                        continue
+                    if cur_group["total"] + bet.execution_time() > 50 * 60:
+                        continue
+                    return idx
+                else:
+                    raise ValueError("Not enough slots available!")
 
             for t in sorted_targets:
-                at = _lowest()
+                at = _selector(t)
                 c.test_groups[at]["total"] += t.execution_time()
                 c.test_groups[at]["targets"].append(t.name)
 

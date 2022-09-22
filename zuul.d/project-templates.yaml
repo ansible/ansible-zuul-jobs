@@ -127,8 +127,7 @@
         - ansible-test-changelog
     gate:
       queue: integrated-aws
-      jobs:
-        - ansible-test-units-amazon-aws-python39
+      jobs: *ansible-collections-amazon-aws-jobs
     ondemand:
       queue: integrated-aws
       jobs:

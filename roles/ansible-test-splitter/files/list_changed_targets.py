@@ -396,25 +396,26 @@ class ElGrandeSeparator:
                 c._my_test_plan, key=lambda x: x.execution_time(), reverse=True
             )
             c.test_groups = [{"total": 0, "targets": []} for _ in range(len(slots))]
+            c.test_groups = split_into_equally_sized_chunks(sorted_targets, len(slots))
 
-            def _selector(bet):
-                for idx, cur_group in enumerate(c.test_groups):
-                    if cur_group["total"] > 46 * 60:
-                        continue
-                    if cur_group["total"] + bet.execution_time() > 50 * 60:
-                        continue
-                    return idx
-                else:
-                    raise ValueError("Not enough slots available!")
+            # def _selector(bet):
+            #     for idx, cur_group in enumerate(c.test_groups):
+            #         if cur_group["total"] > 46 * 60:
+            #             continue
+            #         if cur_group["total"] + bet.execution_time() > 50 * 60:
+            #             continue
+            #         return idx
+            #     else:
+            #         raise ValueError("Not enough slots available!")
 
-            for t in sorted_targets:
-                at = _selector(t)
-                c.test_groups[at]["total"] += t.execution_time()
-                c.test_groups[at]["targets"].append(t.name)
+            # for t in sorted_targets:
+            #     at = _selector(t)
+            #     c.test_groups[at]["total"] += t.execution_time()
+            #     c.test_groups[at]["targets"].append(t.name)
 
         for group in c.test_groups:
             if group["targets"] == []:
-                break
+                continue
             my_slot = slots.pop(0)
             yield (my_slot, group["targets"])
 
@@ -430,6 +431,31 @@ class ElGrandeSeparator:
             result["data"]["zuul"]["child_jobs"].append(job)
             result["data"]["child"]["targets_to_test"][job] = " ".join(targets)
         return result
+
+
+def split_into_equally_sized_chunks(targets, nbchunks):
+    total_time = sum(x.execution_time() for x in targets)
+    time_per_chunk = int(total_time / nbchunks) + 1
+    chunks = [{"total": 0, "targets": []} for _ in range(nbchunks)]
+
+    def _findslot(t):
+        if t.execution_time() >= time_per_chunk:
+            # find first slot with total_time=0
+            for i, d in enumerate(chunks):
+                if d["total"] == 0:
+                    return i
+        else:
+            # find the appropriate slot
+            for i, d in enumerate(chunks):
+                if t.execution_time() + d["total"] <= time_per_chunk:
+                    return i
+        return 0
+
+    for t in targets:
+        at = _findslot(t)
+        chunks[at]["total"] += t.execution_time()
+        chunks[at]["targets"].append(t.name)
+    return chunks
 
 
 if __name__ == "__main__":

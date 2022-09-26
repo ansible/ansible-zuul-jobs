@@ -200,6 +200,7 @@
               - stable-2
         - ansible-test-sanity-docker-stable-2.12
         - ansible-test-sanity-docker-stable-2.13
+        - ansible-test-sanity-docker-stable-2.14
         - ansible-test-units-community-aws-python38
         - ansible-test-units-community-aws-python39
         - build-ansible-collection:
@@ -536,6 +537,7 @@
         - ansible-test-sanity-docker-stable-2.11
         - ansible-test-sanity-docker-stable-2.12
         - ansible-test-sanity-docker-stable-2.13
+        - ansible-test-sanity-docker-stable-2.14
         - ansible-galaxy-importer:
             voting: false
         - ansible-test-units-community-okd-python39
@@ -593,6 +595,7 @@
         - ansible-test-sanity-docker-milestone
         - ansible-test-sanity-docker-stable-2.12
         - ansible-test-sanity-docker-stable-2.13
+        - ansible-test-sanity-docker-stable-2.14
         - ansible-test-units-community-vmware-python38
         - ansible-test-cloud-integration-vcenter7_only-stable212
         - ansible-test-cloud-integration-vcenter7_2esxi-stable212
@@ -603,6 +606,7 @@
         - ansible-tox-linters
         - build-ansible-collection
         - ansible-test-sanity-docker-stable-2.13
+        - ansible-test-sanity-docker-stable-2.14
         - ansible-test-units-community-vmware-python38
 
 - project-template:
@@ -622,6 +626,7 @@
         - ansible-test-sanity-docker-stable-2.11
         - ansible-test-sanity-docker-stable-2.12
         - ansible-test-sanity-docker-stable-2.13
+        - ansible-test-sanity-docker-stable-2.14
     gate:
       jobs: *ansible-collections-community-vmware-rest-jobs
     periodic:
@@ -633,6 +638,7 @@
         - ansible-test-sanity-docker-stable-2.11
         - ansible-test-sanity-docker-stable-2.12
         - ansible-test-sanity-docker-stable-2.13
+        - ansible-test-sanity-docker-stable-2.14
         - build-ansible-collection
 
 - project-template:

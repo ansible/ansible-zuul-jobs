@@ -81,3 +81,10 @@
     required-projects:
       - name: github.com/ansible/ansible
         override-checkout: stable-2.13
+
+- job:
+    name: ansible-test-sanity-docker-stable-2.14
+    parent: ansible-test-sanity-docker
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.14

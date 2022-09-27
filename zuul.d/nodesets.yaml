@@ -397,7 +397,7 @@
     name: ansible-tox-py310
     nodes:
       - name: controller
-        label: zuul-worker-ansible
+        label: ansible-fedora-36-1vcpu-aws
 
 - nodeset:
     name: rhel8

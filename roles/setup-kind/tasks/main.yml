@@ -24,5 +24,30 @@
     - "{{ kind_path }}"
     - "{{ kubectl_path }}"
 
+- copy:
+    content: |
+      kind: Cluster
+      apiVersion: kind.x-k8s.io/v1alpha4
+      networking:
+        apiServerAddress: {{ ansible_host }}
+        apiServerPort: 6443
+    dest: /tmp/kind.yaml
+
+- command: cat /tmp/kind.yaml
+
+- name: Ensure IPv6 is enabled
+  # See: https://github.com/containers/podman/issues/15395
+  sysctl:
+    name: net.ipv6.conf.all.disable_ipv6
+    value: '0'
+    state: present
+    sysctl_set: true
+    reload: true
+  become: true
+
 - name: Create cluster
-  shell: "{{ kind_path }} create cluster"
+  shell: |
+    sudo {{ kind_path }} create cluster  --config /tmp/kind.yaml
+    mkdir ~/.kube
+    sudo kind get kubeconfig |grep -v 'enabling experimental podman provider' > ~/.kube/config
+  ignore_errors: true

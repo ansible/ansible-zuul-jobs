@@ -1,8 +1,8 @@
 ---
 executable_dir: "/usr/local/bin/"
 
-kind_release: "v0.11.0"
+kind_release: "v0.15.0"
 kind_path: '{{ executable_dir + "kind" }}'
 
-kubectl_release: "v1.18.0"
+kubectl_release: "v1.25.2"
 kubectl_path: '{{ executable_dir + "kubectl" }}'

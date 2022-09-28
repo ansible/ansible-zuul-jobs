@@ -6,9 +6,11 @@
         path: "{{ ansible_user_dir }}/zuul-output/logs/controller"
         state: directory
 
-    - name: Run ensure-docker role
-      include_role:
-        name: ensure-docker
+    - name: Install podman
+      package:
+        name: podman
+        state: present
+      become: true
 
     - name: Run ensure-virtualenv role
       include_role:

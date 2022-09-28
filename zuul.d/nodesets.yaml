@@ -43,6 +43,12 @@
         label: ansible-cloud-centos-8-stream-large
 
 - nodeset:
+    name: fedora-36-large
+    nodes:
+      - name: controller
+        label: ansible-cloud-fedora-36-large
+
+- nodeset:
     name: centos-9-stream
     nodes:
       - name: controller

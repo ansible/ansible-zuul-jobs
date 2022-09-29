@@ -1,0 +1,8 @@
+---
+- hosts: all
+  gather_facts: false
+  tasks:
+    - name: Run tox
+      command: tox -e py3 -- --cov-report=html:{{ ansible_user_dir }}/zuul-output/docs/coverage tests
+      args:
+        chdir: "~//{{ zuul.project.src_dir }}"

@@ -50,4 +50,5 @@
     sudo {{ kind_path }} create cluster  --config /tmp/kind.yaml
     mkdir ~/.kube
     sudo kind get kubeconfig |grep -v 'enabling experimental podman provider' > ~/.kube/config
+    chmod 600 ~/.kube/config
   ignore_errors: true

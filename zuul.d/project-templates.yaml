@@ -72,6 +72,7 @@
         - ansible-test-sanity-aws-ansible-2.13-python38
         - ansible-test-units-amazon-aws-python38
         - ansible-test-units-amazon-aws-python39
+        - cloud-tox-py3
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-collections/ansible.utils

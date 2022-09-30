@@ -758,3 +758,11 @@
       - ^tests/integration/.*$
     nodeset: container-ansible
     timeout: 1000
+
+- job:
+    name: cloud-tox-py3
+    run: playbooks/ansible-cloud/cloud-tox-py3/run.yaml
+    nodeset:
+      nodes:
+        - name: container
+          label: zuul-worker-f37

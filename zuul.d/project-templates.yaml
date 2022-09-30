@@ -593,7 +593,6 @@
               - name: github.com/ansible-collections/cloud.common
         - ansible-test-sanity-docker-devel
         - ansible-test-sanity-docker-milestone
-        - ansible-test-sanity-docker-stable-2.12
         - ansible-test-sanity-docker-stable-2.13
         - ansible-test-sanity-docker-stable-2.14
         - ansible-test-units-community-vmware-python38

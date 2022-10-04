@@ -855,6 +855,15 @@
         - ansible-test-network-integration-junos-vsrx-network_cli-libssh-python36-stable211:
             vars:
               ansible_test_integration_targets: "junos_.*"
+        - ansible-test-network-integration-junos-vsrx-netconf-python39-stable214:
+            vars:
+              ansible_test_integration_targets: "junos_.*"
+        - ansible-test-network-integration-junos-vsrx-network_cli-python39-stable214:
+            vars:
+              ansible_test_integration_targets: "junos_.*"
+        - ansible-test-network-integration-junos-vsrx-network_cli-libssh-python39-stable214:
+            vars:
+              ansible_test_integration_targets: "junos_.*"
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-collections/ansible.netcommon

@@ -65,11 +65,11 @@
       ansible_test_skip_tags: local,netconf
 
 - job:
-    name: ansible-test-network-integration-junos-vsrx-netconf-python38
+    name: ansible-test-network-integration-junos-vsrx-netconf-python39
     parent: ansible-test-network-integration-junos-vsrx-netconf
     nodeset: vsrx3
     vars:
-      ansible_test_python: 3.8
+      ansible_test_python: 3.9
 
 - job:
     name: ansible-test-network-integration-junos-vsrx-netconf-python39
@@ -100,11 +100,11 @@
       ansible_test_python: 3.6
 
 - job:
-    name: ansible-test-network-integration-junos-vsrx-network_cli-python38
+    name: ansible-test-network-integration-junos-vsrx-network_cli-python39
     parent: ansible-test-network-integration-junos-vsrx-network_cli
     nodeset: vsrx3
     vars:
-      ansible_test_python: 3.8
+      ansible_test_python: 3.9
 
 - job:
     name: ansible-test-network-integration-junos-vsrx-network_cli-python39
@@ -120,28 +120,28 @@
       ansible_test_network_cli_ssh_type: libssh
 
 - job:
-    name: ansible-test-network-integration-junos-vsrx-netconf-python38-stable212
+    name: ansible-test-network-integration-junos-vsrx-netconf-python39-stable212
     parent: ansible-test-network-integration-junos-vsrx-netconf
     nodeset: vsrx3
     required-projects:
       - name: github.com/ansible/ansible
         override-checkout: stable-2.12
     vars:
-      ansible_test_python: 3.8
+      ansible_test_python: 3.9
 
 - job:
-    name: ansible-test-network-integration-junos-vsrx-network_cli-python38-stable212
+    name: ansible-test-network-integration-junos-vsrx-network_cli-python39-stable212
     parent: ansible-test-network-integration-junos-vsrx-network_cli
     nodeset: vsrx3
     required-projects:
       - name: github.com/ansible/ansible
         override-checkout: stable-2.12
     vars:
-      ansible_test_python: 3.8
+      ansible_test_python: 3.9
 
 - job:
-    name: ansible-test-network-integration-junos-vsrx-network_cli-libssh-python38-stable212
-    parent: ansible-test-network-integration-junos-vsrx-network_cli-python38-stable212
+    name: ansible-test-network-integration-junos-vsrx-network_cli-libssh-python39-stable212
+    parent: ansible-test-network-integration-junos-vsrx-network_cli-python39-stable212
     vars:
       ansible_test_network_cli_ssh_type: libssh
 
@@ -170,7 +170,7 @@
       - name: github.com/ansible/ansible
         override-checkout: stable-2.9
     vars:
-      test_ansible_python_interpreter: /usr/bin/python3.8
+      test_ansible_python_interpreter: /usr/bin/python3.9
       ansible_test_python: 3.6
 
 - job:
@@ -178,7 +178,7 @@
     parent: ansible-test-network-integration-junos-vsrx-network_cli-python36-stable29
     voting: false
     vars:
-      test_ansible_python_interpreter: /usr/bin/python3.8
+      test_ansible_python_interpreter: /usr/bin/python3.9
       ansible_test_network_cli_ssh_type: libssh
 
 - job:
@@ -189,11 +189,11 @@
       ansible_test_python: 3.6
 
 - job:
-    name: ansible-test-network-integration-junos-vsrx-python38
+    name: ansible-test-network-integration-junos-vsrx-python39
     parent: ansible-test-network-integration-junos-vsrx
     nodeset: vsrx3
     vars:
-      ansible_test_python: 3.8
+      ansible_test_python: 3.9
 
 - job:
     name: ansible-test-network-integration-junos-vsrx-python39

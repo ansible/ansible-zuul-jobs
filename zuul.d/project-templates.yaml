@@ -324,6 +324,9 @@
         - ansible-ee-integration-arista-eos-libssh-stable-2.9
         - ansible-ee-integration-arista-eos-libssh-stable-2.11
         - ansible-ee-integration-arista-eos-libssh-stable-2.12
+        - ansible-ee-integration-arista-eos-stable-2.14
+        - ansible-ee-integration-arista-eos-httpapi-stable-2.14
+        - ansible-ee-integration-arista-eos-libssh-stable-2.14
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-collections/ansible.netcommon

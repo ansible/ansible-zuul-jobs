@@ -2,6 +2,11 @@
 - hosts: all
   gather_facts: false
   tasks:
+    - name: Generate the complexity report
+      command: tox -e complexity-report {{ ansible_user_dir }}/zuul-output/docs/complexity
+      args:
+        chdir: "~//{{ zuul.project.src_dir }}"
+      ignore_errors: true
     - name: Run tox
       command: tox -e py3 -- --cov-report=html:{{ ansible_user_dir }}/zuul-output/docs/coverage tests
       args:

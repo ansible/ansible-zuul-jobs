@@ -74,6 +74,16 @@
       ansible_test_network_cli_ssh_type: libssh
 
 - job:
+    name: ansible-test-network-integration-asa-python38-stable214
+    parent: ansible-test-network-integration-asa
+    nodeset: asav9-12-3
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.14
+    vars:
+      ansible_test_python: 3.9
+
+- job:
     name: ansible-test-network-integration-asa-python38-stable212
     parent: ansible-test-network-integration-asa
     nodeset: asav9-12-3
@@ -92,6 +102,12 @@
         override-checkout: stable-2.11
     vars:
       ansible_test_python: 3.8
+
+- job:
+    name: ansible-test-network-integration-asa-libssh-python38-stable214
+    parent: ansible-test-network-integration-asa-python38-stable214
+    vars:
+      ansible_test_network_cli_ssh_type: libssh
 
 - job:
     name: ansible-test-network-integration-asa-libssh-python38-stable212

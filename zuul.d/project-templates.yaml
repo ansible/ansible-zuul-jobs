@@ -1213,15 +1213,12 @@
             voting: false
         - ansible-test-security-integration-qradar-python39-stable212:
             voting: false
-        - ansible-test-security-integration-qradar-python39-stable214:
-            voting: false
         - ansible-test-sanity-docker-devel
         - ansible-test-sanity-docker-milestone
         - ansible-test-sanity-docker-stable-2.9
         - ansible-test-sanity-docker-stable-2.10
         - ansible-test-sanity-docker-stable-2.11
         - ansible-test-sanity-docker-stable-2.12
-        - ansible-test-sanity-docker-stable-2.14
     gate:
       jobs: *ansible-collections-security-ibm-qradar-jobs
     periodic:
@@ -1232,7 +1229,6 @@
         - ansible-test-sanity-docker-stable-2.10
         - ansible-test-sanity-docker-stable-2.11
         - ansible-test-sanity-docker-stable-2.12
-        - ansible-test-sanity-docker-stable-2.14
         - ansible-test-security-integration-qradar-python39
         - build-ansible-collection
 
@@ -1256,15 +1252,12 @@
             voting: false
         - ansible-security-integration-splunk-es-python39-stable212:
             voting: false
-        - ansible-security-integration-splunk-es-python39-stable214:
-            voting: false
         - ansible-test-sanity-docker-devel
         - ansible-test-sanity-docker-milestone
         - ansible-test-sanity-docker-stable-2.9
         - ansible-test-sanity-docker-stable-2.10
         - ansible-test-sanity-docker-stable-2.11
         - ansible-test-sanity-docker-stable-2.12
-        - ansible-test-sanity-docker-stable-2.14
         - ansible-test-units-splunk-python36
         - ansible-test-units-splunk-python37
         - ansible-test-units-splunk-python39
@@ -1278,7 +1271,6 @@
         - ansible-test-sanity-docker-stable-2.10
         - ansible-test-sanity-docker-stable-2.11
         - ansible-test-sanity-docker-stable-2.12
-        - ansible-test-sanity-docker-stable-2.14
         - ansible-test-units-splunk-python37
         - ansible-test-units-splunk-python39
         - ansible-security-integration-splunk-es-python39
@@ -1297,7 +1289,6 @@
         - ansible-security-integration-trendmicro-deepsec-python38-stable29
         - ansible-security-integration-trendmicro-deepsec-python39-stable211
         - ansible-security-integration-trendmicro-deepsec-python39-stable212
-        - ansible-security-integration-trendmicro-deepsec-python39-stable214
         - ansible-test-sanity-docker-devel:
             voting: false
         - ansible-test-sanity-docker-milestone
@@ -1305,7 +1296,6 @@
         - ansible-test-sanity-docker-stable-2.10
         - ansible-test-sanity-docker-stable-2.11
         - ansible-test-sanity-docker-stable-2.12
-        - ansible-test-sanity-docker-stable-2.14
         - ansible-test-units-trendmicro-python36
         - ansible-test-units-trendmicro-python37
         - ansible-test-units-trendmicro-python39
@@ -1324,7 +1314,6 @@
         - ansible-test-sanity-docker-stable-2.10
         - ansible-test-sanity-docker-stable-2.11
         - ansible-test-sanity-docker-stable-2.12
-        - ansible-test-sanity-docker-stable-2.14
         - ansible-test-units-trendmicro-python39
         - ansible-test-units-trendmicro-python37
         - ansible-security-integration-trendmicro-deepsec-python38

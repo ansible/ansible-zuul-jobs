@@ -239,6 +239,7 @@
         - integration-community.aws-17
         - integration-community.aws-18
 
+        - ansible-test-changelog
         - ansible-galaxy-importer
     third-party-check:
       jobs:

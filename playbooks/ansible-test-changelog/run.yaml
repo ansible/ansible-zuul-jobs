@@ -3,7 +3,12 @@
   gather_facts: false
 
   tasks:
+    - debug:
+        var: ansible_test_changelog__branch
+    - debug:
+        var: zuul.branch
+
     - name: Validate changelog fragments from Pull request
       validate_changelog:
         repository: "{{ ansible_test_changelog__repository | default(zuul.project.src_dir) }}"
-        branch: "{{ ansible_test_changelog__branch | default('main') }}"
+        branch: "{{ ansible_test_changelog__branch | default(zuul.branch) | default('main') }}"

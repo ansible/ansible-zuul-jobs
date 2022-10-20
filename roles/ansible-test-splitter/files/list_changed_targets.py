@@ -59,11 +59,19 @@ parser.add_argument(
 )
 
 parser.add_argument(
-    "--change-url",
-    dest="change_url",
+    "--pull-request",
+    dest="pull_request",
+    required=True,
+    type=int,
+    help="GitHub Pull request number. e.g: 51",
+)
+
+parser.add_argument(
+    "--project-name",
+    dest="project_name",
     required=True,
     type=str,
-    help="GitHub Pull request URL. e.g: https://api.github.com/repos/ansible-collections/kubernetes.core/pulls/51",
+    help="GitHub project name. e.g: ansible-collections/kubernetes.core",
 )
 
 parser.add_argument(
@@ -430,15 +438,19 @@ class ElGrandeSeparator:
         return result
 
 
-def read_pullrequest_body(change_url):
+def read_pullrequest_body(project_name, pull_request):
     if REQUESTS_MODULE_IMPORT_ERROR:
         raise REQUESTS_MODULE_IMPORT_ERROR
+    change_url = "https://api.github.com/repos/%s/pulls/%d" % (
+        project_name,
+        pull_request,
+    )
     return [x for x in requests.get(change_url).json().get("body").split("\n") if x]
 
 
-def read_user_extra_requests(change_url):
+def read_user_extra_requests(project_name, pull_request):
 
-    desc = read_pullrequest_body(change_url)
+    desc = read_pullrequest_body(project_name, pull_request)
     extra_requests_patterns = (
         "Zuul-Test-Include-Extra-Targets",
         "Zuul-Test-with-Targets",
@@ -469,7 +481,7 @@ if __name__ == "__main__":
 
     ansible_releases = args.ansible_releases
     zuul_targets, zuul_extra_targets = [], []
-    pr_request = read_user_extra_requests(args.change_url)
+    pr_request = read_user_extra_requests(args.project_name, args.pull_request)
 
     if pr_request:
         release_to_test = pr_request.get("Zuul-Test-with-Releases")

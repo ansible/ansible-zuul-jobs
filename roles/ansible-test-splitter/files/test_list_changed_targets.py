@@ -209,18 +209,21 @@ def test_argparse_with_missing_arguments():
 
 
 def test_argparse_with_valid_arguments():
-    change_url = "".join(
+    project_name = "".join(
         [random.choice(string.ascii_letters + string.digits) for _ in range(50)]
     )
+    pull_request = random.randint(1, 1000)
     command_line = (
-        "--test-changed somewhere somewhere-else --change-url %s" % change_url
+        "--test-changed somewhere somewhere-else --project-name %s --pull-request %s"
+        % (project_name, pull_request)
     )
     args = parse_args(command_line.split(" "))
     assert args.collection_to_tests == [
         PosixPath("somewhere"),
         PosixPath("somewhere-else"),
     ]
-    assert args.change_url == change_url
+    assert args.project_name == project_name
+    assert args.pull_request == pull_request
 
 
 def test_splitter_with_slow():
@@ -333,10 +336,11 @@ def test_read_user_extra_requests(m_read_pullrequest_body, body, expected):
 
     m_read_pullrequest_body.return_value = body
 
-    change_url = "".join(
+    project_name = "".join(
         [random.choice(string.ascii_letters + string.digits) for _ in range(50)]
     )
+    pull_request = random.randint(1, 1000)
 
-    result = read_user_extra_requests(change_url)
+    result = read_user_extra_requests(project_name, pull_request)
     assert result == expected
-    m_read_pullrequest_body.assert_called_with(change_url)
+    m_read_pullrequest_body.assert_called_with(project_name, pull_request)

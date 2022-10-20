@@ -212,7 +212,9 @@ def test_argparse_with_missing_arguments():
 
 def test_argparse_with_valid_arguments():
     command_line = "--test-changed somewhere somewhere-else "
-    project_name = "".join([random.choice(string.ascii_letters + string.digits) for _ in range(50)])
+    project_name = "".join(
+        [random.choice(string.ascii_letters + string.digits) for _ in range(50)]
+    )
     pr_number = random.randint(1, 1000)
     command_line += "--github_project_name %s " % project_name
     command_line += "--github_pull_request_number %d" % pr_number
@@ -292,60 +294,52 @@ def test_what_changed_git_call(m_check_output):
     [
         ([], {}),
         (
-            [
-                "Zuul-Test-Include-Extra-Targets: target1, target2"
-            ],
-            {
-                "Zuul-Test-Include-Extra-Targets" : ["target1", "target2"]
-            }
+            ["Zuul-Test-Include-Extra-Targets: target1, target2"],
+            {"Zuul-Test-Include-Extra-Targets": ["target1", "target2"]},
         ),
         (
-            [
-                "Zuul-Test-Include-Extra-Targets: target1 target2"
-            ],
-            {
-                "Zuul-Test-Include-Extra-Targets" : ["target1", "target2"]
-            }
+            ["Zuul-Test-Include-Extra-Targets: target1 target2"],
+            {"Zuul-Test-Include-Extra-Targets": ["target1", "target2"]},
         ),
         (
             [
                 "Zuul-Test-Include-Extra-Targets: target1 target2",
-                "Zuul-Test-with-Releases release1 release2"
+                "Zuul-Test-with-Releases release1 release2",
             ],
-            {
-                "Zuul-Test-Include-Extra-Targets" : ["target1", "target2"]
-            }
-        ),
-        (
-            [
-                "Zuul-Test-Include-Extra-Targets: target1 target2",
-                "Zuul-Test-with-Releases:release1 release2"
-            ],
-            {
-                "Zuul-Test-Include-Extra-Targets" : ["target1", "target2"],
-                "Zuul-Test-with-Releases" : ["release1", "release2"]
-            }
+            {"Zuul-Test-Include-Extra-Targets": ["target1", "target2"]},
         ),
         (
             [
                 "Zuul-Test-Include-Extra-Targets: target1 target2",
                 "Zuul-Test-with-Releases:release1 release2",
-                "Zuul-Test-with-Targets: target1  "
             ],
             {
-                "Zuul-Test-Include-Extra-Targets" : ["target1", "target2"],
-                "Zuul-Test-with-Releases" : ["release1", "release2"],
-                "Zuul-Test-with-Targets" : ["target1"]
-            }
-        )
-    ]
+                "Zuul-Test-Include-Extra-Targets": ["target1", "target2"],
+                "Zuul-Test-with-Releases": ["release1", "release2"],
+            },
+        ),
+        (
+            [
+                "Zuul-Test-Include-Extra-Targets: target1 target2",
+                "Zuul-Test-with-Releases:release1 release2",
+                "Zuul-Test-with-Targets: target1  ",
+            ],
+            {
+                "Zuul-Test-Include-Extra-Targets": ["target1", "target2"],
+                "Zuul-Test-with-Releases": ["release1", "release2"],
+                "Zuul-Test-with-Targets": ["target1"],
+            },
+        ),
+    ],
 )
 @patch("list_changed_targets.read_pullrequest_body")
 def test_read_user_extra_requests(m_read_pullrequest_body, body, expected):
 
     m_read_pullrequest_body.return_value = body
 
-    project_name = "".join([random.choice(string.ascii_letters + string.digits) for _ in range(50)])
+    project_name = "".join(
+        [random.choice(string.ascii_letters + string.digits) for _ in range(50)]
+    )
     pr_number = random.randint(1, 1000)
 
     result = read_user_extra_requests(project_name, pr_number)

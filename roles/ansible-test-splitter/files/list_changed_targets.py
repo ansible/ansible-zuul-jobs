@@ -12,6 +12,7 @@ from collections import defaultdict
 
 try:
     from github import Github
+
     HAS_GITHUB_MODULE = True
 
 except ImportError:
@@ -450,7 +451,11 @@ def read_pullrequest_body(project_name, pr_number):
 def read_user_extra_requests(project_name, pr_number):
 
     desc = read_pullrequest_body(project_name, pr_number)
-    ansible_test_regex = ("Zuul-Test-Include-Extra-Targets", "Zuul-Test-with-Targets", "Zuul-Test-with-Releases")
+    ansible_test_regex = (
+        "Zuul-Test-Include-Extra-Targets",
+        "Zuul-Test-with-Targets",
+        "Zuul-Test-with-Releases",
+    )
 
     def _extract_data(line):
         data = (":".join(line.split(":")[1:])).replace(",", " ")
@@ -464,7 +469,7 @@ def read_user_extra_requests(project_name, pr_number):
                     result[key] = _extract_data(line)
         except:
             pass
-    
+
     return result
 
 
@@ -476,7 +481,9 @@ if __name__ == "__main__":
 
     ansible_releases = args.ansible_releases
     zuul_targets, zuul_extra_targets = [], []
-    pr_request = read_user_extra_requests(args.github_project_name, args.github_pull_request_number)
+    pr_request = read_user_extra_requests(
+        args.github_project_name, args.github_pull_request_number
+    )
     if pr_request:
         release_to_test = pr_request.get("Zuul-Test-with-Releases")
         if release_to_test:

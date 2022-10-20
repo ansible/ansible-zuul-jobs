@@ -215,8 +215,7 @@
     timeout: 1000
     vars:
       ansible_collections_repo: "{{ zuul.project.canonical_name }}"
-      ansible_test_splitter__project_name: "{{ zuul.project.name }}"
-      ansible_test_splitter__pull_request: "{{ zuul.change | int }}"
+      ansible_test_splitter__change_url: "{{ zuul.change_url }}"
 
 - semaphore:
     name: ansible-test-cloud-integration-aws

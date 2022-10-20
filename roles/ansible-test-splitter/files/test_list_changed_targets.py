@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 
-from difflib import restore
 import pytest
 import io
 from pathlib import PosixPath
@@ -16,7 +15,6 @@ from list_changed_targets import (
     parse_args,
     read_collection_name,
     read_user_extra_requests,
-    read_pullrequest_body,
 )
 
 my_module = """
@@ -211,20 +209,18 @@ def test_argparse_with_missing_arguments():
 
 
 def test_argparse_with_valid_arguments():
-    command_line = "--test-changed somewhere somewhere-else "
-    project_name = "".join(
+    change_url = "".join(
         [random.choice(string.ascii_letters + string.digits) for _ in range(50)]
     )
-    pr_number = random.randint(1, 1000)
-    command_line += "--github_project_name %s " % project_name
-    command_line += "--github_pull_request_number %d" % pr_number
+    command_line = (
+        "--test-changed somewhere somewhere-else --change-url %s" % change_url
+    )
     args = parse_args(command_line.split(" "))
     assert args.collection_to_tests == [
         PosixPath("somewhere"),
         PosixPath("somewhere-else"),
     ]
-    assert args.github_project_name == project_name
-    assert args.github_pull_request_number == pr_number
+    assert args.change_url == change_url
 
 
 def test_splitter_with_slow():
@@ -337,11 +333,10 @@ def test_read_user_extra_requests(m_read_pullrequest_body, body, expected):
 
     m_read_pullrequest_body.return_value = body
 
-    project_name = "".join(
+    change_url = "".join(
         [random.choice(string.ascii_letters + string.digits) for _ in range(50)]
     )
-    pr_number = random.randint(1, 1000)
 
-    result = read_user_extra_requests(project_name, pr_number)
+    result = read_user_extra_requests(change_url)
     assert result == expected
-    m_read_pullrequest_body.assert_called_with(project_name, pr_number)
+    m_read_pullrequest_body.assert_called_with(change_url)

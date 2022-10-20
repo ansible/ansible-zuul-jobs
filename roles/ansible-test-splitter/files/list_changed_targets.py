@@ -11,12 +11,15 @@ import re
 from collections import defaultdict
 
 try:
-    from github import Github
 
-    HAS_GITHUB_MODULE = True
+    import requests
 
-except ImportError:
-    HAS_GITHUB_MODULE = True
+    REQUESTS_MODULE_IMPORT_ERROR = None
+
+except ImportError as e:
+
+    REQUESTS_MODULE_IMPORT_ERROR = e
+
 
 parser = argparse.ArgumentParser(
     description="Evaluate which targets need to be tested."
@@ -56,19 +59,11 @@ parser.add_argument(
 )
 
 parser.add_argument(
-    "--github_project_name",
-    dest="github_project_name",
+    "--change-url",
+    dest="change_url",
     required=True,
     type=str,
-    help="GitHub project name. e.g: ansible-collections/kubernetes.core",
-)
-
-parser.add_argument(
-    "--github_pull_request_number",
-    dest="github_pull_request_number",
-    required=True,
-    type=int,
-    help="GitHub Pull request number. e.g: 517",
+    help="GitHub Pull request URL. e.g: https://api.github.com/repos/ansible-collections/kubernetes.core/pulls/51",
 )
 
 parser.add_argument(
@@ -435,23 +430,16 @@ class ElGrandeSeparator:
         return result
 
 
-def read_pullrequest_body(project_name, pr_number):
-    try:
-
-        if HAS_GITHUB_MODULE:
-            g = Github()
-            repo = g.get_repo(project_name)
-            pr = repo.get_pull(pr_number)
-            return [x for x in pr.body.split("\n") if x]
-
-    except:
-        return []
+def read_pullrequest_body(change_url):
+    if REQUESTS_MODULE_IMPORT_ERROR:
+        raise REQUESTS_MODULE_IMPORT_ERROR
+    return requests.get(change_url).json().get("body")
 
 
-def read_user_extra_requests(project_name, pr_number):
+def read_user_extra_requests(change_url):
 
-    desc = read_pullrequest_body(project_name, pr_number)
-    ansible_test_regex = (
+    desc = read_pullrequest_body(change_url)
+    extra_requests_patterns = (
         "Zuul-Test-Include-Extra-Targets",
         "Zuul-Test-with-Targets",
         "Zuul-Test-with-Releases",
@@ -464,7 +452,7 @@ def read_user_extra_requests(project_name, pr_number):
     result = {}
     for line in desc:
         try:
-            for key in ansible_test_regex:
+            for key in extra_requests_patterns:
                 if line.startswith(key + ":"):
                     result[key] = _extract_data(line)
         except:
@@ -481,9 +469,8 @@ if __name__ == "__main__":
 
     ansible_releases = args.ansible_releases
     zuul_targets, zuul_extra_targets = [], []
-    pr_request = read_user_extra_requests(
-        args.github_project_name, args.github_pull_request_number
-    )
+    pr_request = read_user_extra_requests(args.change_url)
+
     if pr_request:
         release_to_test = pr_request.get("Zuul-Test-with-Releases")
         if release_to_test:

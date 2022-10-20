@@ -433,7 +433,7 @@ class ElGrandeSeparator:
 def read_pullrequest_body(change_url):
     if REQUESTS_MODULE_IMPORT_ERROR:
         raise REQUESTS_MODULE_IMPORT_ERROR
-    return requests.get(change_url).json().get("body")
+    return [x for x in requests.get(change_url).json().get("body").split("\n") if x]
 
 
 def read_user_extra_requests(change_url):

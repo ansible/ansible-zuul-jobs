@@ -10,6 +10,12 @@ import yaml
 import re
 from collections import defaultdict
 
+try:
+    from github import Github
+    HAS_GITHUB_MODULE = True
+
+except ImportError:
+    HAS_GITHUB_MODULE = True
 
 parser = argparse.ArgumentParser(
     description="Evaluate which targets need to be tested."
@@ -46,6 +52,22 @@ parser.add_argument(
     nargs="+",
     default=[],
     help="ansible release version to test for each jobs",
+)
+
+parser.add_argument(
+    "--github_project_name",
+    dest="github_project_name",
+    required=True,
+    type=str,
+    help="GitHub project name. e.g: ansible-collections/kubernetes.core",
+)
+
+parser.add_argument(
+    "--github_pull_request_number",
+    dest="github_pull_request_number",
+    required=True,
+    type=int,
+    help="GitHub Pull request number. e.g: 517",
 )
 
 parser.add_argument(
@@ -412,14 +434,63 @@ class ElGrandeSeparator:
         return result
 
 
+def read_pullrequest_body(project_name, pr_number):
+    try:
+
+        if HAS_GITHUB_MODULE:
+            g = Github()
+            repo = g.get_repo(project_name)
+            pr = repo.get_pull(pr_number)
+            return [x for x in pr.body.split("\n") if x]
+
+    except:
+        return []
+
+
+def read_user_extra_requests(project_name, pr_number):
+
+    desc = read_pullrequest_body(project_name, pr_number)
+    ansible_test_regex = ("Zuul-Test-Include-Extra-Targets", "Zuul-Test-with-Targets", "Zuul-Test-with-Releases")
+
+    def _extract_data(line):
+        data = (":".join(line.split(":")[1:])).replace(",", " ")
+        return [x for x in data.split() if x]
+
+    result = {}
+    for line in desc:
+        try:
+            for key in ansible_test_regex:
+                if line.startswith(key + ":"):
+                    result[key] = _extract_data(line)
+        except:
+            pass
+    
+    return result
+
+
 if __name__ == "__main__":
     args = parse_args(sys.argv[1:])
 
     collections = [Collection(i) for i in args.collection_to_tests]
     collections_names = [c.collection_name() for c in collections]
 
+    ansible_releases = args.ansible_releases
+    zuul_targets, zuul_extra_targets = [], []
+    pr_request = read_user_extra_requests(args.github_project_name, args.github_pull_request_number)
+    if pr_request:
+        release_to_test = pr_request.get("Zuul-Test-with-Releases")
+        if release_to_test:
+            tmp_releases = [rel for rel in release_to_test if rel in ansible_releases]
+            ansible_releases = tmp_releases
+        zuul_extra_targets = pr_request.get("Zuul-Test-Include-Extra-Targets", [])
+        zuul_targets = pr_request.get("Zuul-Test-with-Targets")
+
     changes = {}
-    if args.test_all_the_targets:
+    if zuul_targets:
+        for t in zuul_targets:
+            for c in collections:
+                c.add_target_to_plan(t)
+    elif args.test_all_the_targets:
         for c in collections:
             c.cover_all()
     else:
@@ -452,6 +523,10 @@ if __name__ == "__main__":
                 changes[whc.collection_name()]["targets"].append(t)
                 for c in collections:
                     c.add_target_to_plan(t)
+            # add extra targets
+            for t in zuul_extra_targets:
+                for c in collections:
+                    c.add_target_to_plan(t)
 
-    egs = ElGrandeSeparator(collections, args.total_job, args.ansible_releases)
+    egs = ElGrandeSeparator(collections, args.total_job, ansible_releases)
     egs.output(changes)

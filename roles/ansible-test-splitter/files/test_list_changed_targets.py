@@ -1,9 +1,13 @@
 #!/usr/bin/env python3
 
+from difflib import restore
 import pytest
 import io
 from pathlib import PosixPath
 from unittest.mock import MagicMock, patch
+import random
+import string
+import list_changed_targets
 from list_changed_targets import (
     Collection,
     ElGrandeSeparator,
@@ -11,6 +15,8 @@ from list_changed_targets import (
     list_pyimport,
     parse_args,
     read_collection_name,
+    read_user_extra_requests,
+    read_pullrequest_body,
 )
 
 my_module = """
@@ -199,12 +205,24 @@ def test_c_with_cover():
     assert c.regular_targets_to_test() == []
 
 
-def test_argparse():
-    args = parse_args("--test-changed somewhere somewhere-else".split(" "))
+def test_argparse_with_missing_arguments():
+    with pytest.raises(SystemExit):
+        parse_args("--test-changed somewhere somewhere-else".split(" "))
+
+
+def test_argparse_with_valid_arguments():
+    command_line = "--test-changed somewhere somewhere-else "
+    project_name = "".join([random.choice(string.ascii_letters + string.digits) for _ in range(50)])
+    pr_number = random.randint(1, 1000)
+    command_line += "--github_project_name %s " % project_name
+    command_line += "--github_pull_request_number %d" % pr_number
+    args = parse_args(command_line.split(" "))
     assert args.collection_to_tests == [
         PosixPath("somewhere"),
         PosixPath("somewhere-else"),
     ]
+    assert args.github_project_name == project_name
+    assert args.github_pull_request_number == pr_number
 
 
 def test_splitter_with_slow():
@@ -267,3 +285,69 @@ def test_what_changed_git_call(m_check_output):
     m_check_output.assert_called_with(
         ["git", "diff", "origin/stable-2.1", "--name-only"], cwd=PosixPath("a")
     )
+
+
+@pytest.mark.parametrize(
+    "body,expected",
+    [
+        ([], {}),
+        (
+            [
+                "Zuul-Test-Include-Extra-Targets: target1, target2"
+            ],
+            {
+                "Zuul-Test-Include-Extra-Targets" : ["target1", "target2"]
+            }
+        ),
+        (
+            [
+                "Zuul-Test-Include-Extra-Targets: target1 target2"
+            ],
+            {
+                "Zuul-Test-Include-Extra-Targets" : ["target1", "target2"]
+            }
+        ),
+        (
+            [
+                "Zuul-Test-Include-Extra-Targets: target1 target2",
+                "Zuul-Test-with-Releases release1 release2"
+            ],
+            {
+                "Zuul-Test-Include-Extra-Targets" : ["target1", "target2"]
+            }
+        ),
+        (
+            [
+                "Zuul-Test-Include-Extra-Targets: target1 target2",
+                "Zuul-Test-with-Releases:release1 release2"
+            ],
+            {
+                "Zuul-Test-Include-Extra-Targets" : ["target1", "target2"],
+                "Zuul-Test-with-Releases" : ["release1", "release2"]
+            }
+        ),
+        (
+            [
+                "Zuul-Test-Include-Extra-Targets: target1 target2",
+                "Zuul-Test-with-Releases:release1 release2",
+                "Zuul-Test-with-Targets: target1  "
+            ],
+            {
+                "Zuul-Test-Include-Extra-Targets" : ["target1", "target2"],
+                "Zuul-Test-with-Releases" : ["release1", "release2"],
+                "Zuul-Test-with-Targets" : ["target1"]
+            }
+        )
+    ]
+)
+@patch("list_changed_targets.read_pullrequest_body")
+def test_read_user_extra_requests(m_read_pullrequest_body, body, expected):
+
+    m_read_pullrequest_body.return_value = body
+
+    project_name = "".join([random.choice(string.ascii_letters + string.digits) for _ in range(50)])
+    pr_number = random.randint(1, 1000)
+
+    result = read_user_extra_requests(project_name, pr_number)
+    assert result == expected
+    m_read_pullrequest_body.assert_called_with(project_name, pr_number)

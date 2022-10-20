@@ -14,8 +14,11 @@
       pip:
         name:
           - PyGithub
+          - PyYAML
+          - AST
         virtualenv: "{{ venv_path }}"
         virtualenv_command: "virtualenv --python python3"
+        virtualenv_site_packages: true
 
     - copy:
         src: list_changed_targets.py

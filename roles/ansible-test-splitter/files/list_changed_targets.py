@@ -448,14 +448,14 @@ def read_pullrequest_body(project_name, pull_request):
     return [x for x in requests.get(change_url).json().get("body").split("\n") if x]
 
 
-def read_user_extra_requests(project_name, pull_request):
+ZUUL_EXTRA_TARGETS = "zuul-extra-targets"
+ZUUL_TARGETS = "zuul-targets"
+ZUUL_RELEASES = "zuul-releases"
+
+
+def read_pullrequest_zuul_override(project_name, pull_request):
 
     desc = read_pullrequest_body(project_name, pull_request)
-    extra_requests_patterns = (
-        "Zuul-Test-Include-Extra-Targets",
-        "Zuul-Test-with-Targets",
-        "Zuul-Test-with-Releases",
-    )
 
     def _extract_data(line):
         data = (":".join(line.split(":")[1:])).replace(",", " ")
@@ -463,12 +463,9 @@ def read_user_extra_requests(project_name, pull_request):
 
     result = {}
     for line in desc:
-        try:
-            for key in extra_requests_patterns:
-                if line.startswith(key + ":"):
-                    result[key] = _extract_data(line)
-        except:
-            pass
+        for key in (ZUUL_EXTRA_TARGETS, ZUUL_TARGETS, ZUUL_RELEASES):
+            if line.lower().startswith(key + ":"):
+                result[key] = _extract_data(line)
 
     return result
 
@@ -481,15 +478,15 @@ if __name__ == "__main__":
 
     ansible_releases = args.ansible_releases
     zuul_targets, zuul_extra_targets = [], []
-    pr_request = read_user_extra_requests(args.project_name, args.pull_request)
+    pr_request = read_pullrequest_zuul_override(args.project_name, args.pull_request)
 
     if pr_request:
-        release_to_test = pr_request.get("Zuul-Test-with-Releases")
+        release_to_test = pr_request.get(ZUUL_RELEASES)
         if release_to_test:
             tmp_releases = [rel for rel in release_to_test if rel in ansible_releases]
             ansible_releases = tmp_releases
-        zuul_extra_targets = pr_request.get("Zuul-Test-Include-Extra-Targets", [])
-        zuul_targets = pr_request.get("Zuul-Test-with-Targets")
+        zuul_extra_targets = pr_request.get(ZUUL_EXTRA_TARGETS, [])
+        zuul_targets = pr_request.get(ZUUL_TARGETS)
 
     changes = {}
     if zuul_targets:

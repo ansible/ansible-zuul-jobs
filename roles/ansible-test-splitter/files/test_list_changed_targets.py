@@ -14,7 +14,10 @@ from list_changed_targets import (
     list_pyimport,
     parse_args,
     read_collection_name,
-    read_user_extra_requests,
+    read_pullrequest_zuul_override,
+    ZUUL_EXTRA_TARGETS,
+    ZUUL_TARGETS,
+    ZUUL_RELEASES,
 )
 
 my_module = """
@@ -289,50 +292,52 @@ def test_what_changed_git_call(m_check_output):
 
 
 @pytest.mark.parametrize(
-    "body,expected",
+    "zuul_extra_targets",
     [
-        ([], {}),
-        (
-            ["Zuul-Test-Include-Extra-Targets: target1, target2"],
-            {"Zuul-Test-Include-Extra-Targets": ["target1", "target2"]},
-        ),
-        (
-            ["Zuul-Test-Include-Extra-Targets: target1 target2"],
-            {"Zuul-Test-Include-Extra-Targets": ["target1", "target2"]},
-        ),
-        (
-            [
-                "Zuul-Test-Include-Extra-Targets: target1 target2",
-                "Zuul-Test-with-Releases release1 release2",
-            ],
-            {"Zuul-Test-Include-Extra-Targets": ["target1", "target2"]},
-        ),
-        (
-            [
-                "Zuul-Test-Include-Extra-Targets: target1 target2",
-                "Zuul-Test-with-Releases:release1 release2",
-            ],
-            {
-                "Zuul-Test-Include-Extra-Targets": ["target1", "target2"],
-                "Zuul-Test-with-Releases": ["release1", "release2"],
-            },
-        ),
-        (
-            [
-                "Zuul-Test-Include-Extra-Targets: target1 target2",
-                "Zuul-Test-with-Releases:release1 release2",
-                "Zuul-Test-with-Targets: target1  ",
-            ],
-            {
-                "Zuul-Test-Include-Extra-Targets": ["target1", "target2"],
-                "Zuul-Test-with-Releases": ["release1", "release2"],
-                "Zuul-Test-with-Targets": ["target1"],
-            },
-        ),
+        {"match": False},
+        {"text": "Zuul-Extra-Targets: target1, target2"},
+        {"text": "ZUUL-EXTRA-Targets: target1 target2"},
+        {"text": "zuul-extra-targets: target1 target2"},
+        {"text": "Zuul-EXTRA-Targets: target1 target2"},
+        {"text": "Zuul-Extra-TARGETS: target1 target2"},
+    ],
+)
+@pytest.mark.parametrize(
+    "zuul_release",
+    [
+        {"match": False},
+        {"text": "zuul-releases release1 release2", "match": False},
+        {"text": "Zuul-RELEASES:release1 release2"},
+        {"text": "zuul-releases:release1 release2"},
+    ],
+)
+@pytest.mark.parametrize(
+    "zuul_targets",
+    [
+        {"match": False},
+        {
+            "text": "zuul-Targets: target1  ",
+        },
+        {"text": "ZUUL-TARGETS=target1", "match": False},
     ],
 )
 @patch("list_changed_targets.read_pullrequest_body")
-def test_read_user_extra_requests(m_read_pullrequest_body, body, expected):
+def test_read_pullrequest_zuul_override(
+    m_read_pullrequest_body, zuul_extra_targets, zuul_release, zuul_targets
+):
+
+    body = []
+    body.append(zuul_extra_targets.get("text", ""))
+    body.append(zuul_release.get("text", ""))
+    body.append(zuul_targets.get("text", ""))
+
+    expected = {}
+    if zuul_extra_targets.get("match", True):
+        expected[ZUUL_EXTRA_TARGETS] = ["target1", "target2"]
+    if zuul_release.get("match", True):
+        expected[ZUUL_RELEASES] = ["release1", "release2"]
+    if zuul_targets.get("match", True):
+        expected[ZUUL_TARGETS] = ["target1"]
 
     m_read_pullrequest_body.return_value = body
 
@@ -341,6 +346,6 @@ def test_read_user_extra_requests(m_read_pullrequest_body, body, expected):
     )
     pull_request = random.randint(1, 1000)
 
-    result = read_user_extra_requests(project_name, pull_request)
+    result = read_pullrequest_zuul_override(project_name, pull_request)
     assert result == expected
     m_read_pullrequest_body.assert_called_with(project_name, pull_request)

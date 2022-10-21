@@ -9,16 +9,7 @@ import subprocess
 import yaml
 import re
 from collections import defaultdict
-
-try:
-
-    import requests
-
-    REQUESTS_MODULE_IMPORT_ERROR = None
-
-except ImportError as e:
-
-    REQUESTS_MODULE_IMPORT_ERROR = e
+import requests
 
 
 parser = argparse.ArgumentParser(
@@ -439,8 +430,6 @@ class ElGrandeSeparator:
 
 
 def read_pullrequest_body(project_name, pull_request):
-    if REQUESTS_MODULE_IMPORT_ERROR:
-        raise REQUESTS_MODULE_IMPORT_ERROR
     change_url = "https://api.github.com/repos/%s/pulls/%d" % (
         project_name,
         pull_request,

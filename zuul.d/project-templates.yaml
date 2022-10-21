@@ -1671,3 +1671,11 @@
     periodic:
       jobs:
         - build-ansible-collection
+
+- project-template:
+    name: ansible-collections-cloud-aws_troubleshooting
+    check:
+      jobs: &ansible-collections-cloud-aws_troubleshooting-jobs
+        - tox-ansible-lint
+    gate:
+      jobs: *ansible-collections-cloud-aws_troubleshooting-jobs

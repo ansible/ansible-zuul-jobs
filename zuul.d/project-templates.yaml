@@ -1676,6 +1676,6 @@
     name: ansible-collections-cloud-aws_troubleshooting
     check:
       jobs: &ansible-collections-cloud-aws_troubleshooting-jobs
-        - tox-ansible-lint
+        - ansible-tox-linters
     gate:
       jobs: *ansible-collections-cloud-aws_troubleshooting-jobs

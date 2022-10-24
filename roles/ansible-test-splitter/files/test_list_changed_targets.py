@@ -207,26 +207,7 @@ def test_c_with_cover():
 
 
 def test_argparse_with_missing_arguments():
-    with pytest.raises(SystemExit):
-        parse_args("--test-changed somewhere somewhere-else".split(" "))
-
-
-def test_argparse_with_valid_arguments():
-    project_name = "".join(
-        [random.choice(string.ascii_letters + string.digits) for _ in range(50)]
-    )
-    pull_request = random.randint(1, 1000)
-    command_line = (
-        "--test-changed somewhere somewhere-else --project-name %s --pull-request %s"
-        % (project_name, pull_request)
-    )
-    args = parse_args(command_line.split(" "))
-    assert args.collection_to_tests == [
-        PosixPath("somewhere"),
-        PosixPath("somewhere-else"),
-    ]
-    assert args.project_name == project_name
-    assert args.pull_request == pull_request
+    parse_args("--test-changed somewhere somewhere-else".split(" "))
 
 
 def test_splitter_with_slow():

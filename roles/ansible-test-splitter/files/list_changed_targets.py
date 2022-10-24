@@ -52,7 +52,6 @@ parser.add_argument(
 parser.add_argument(
     "--pull-request",
     dest="pull_request",
-    required=True,
     type=int,
     help="GitHub Pull request number. e.g: 51",
 )
@@ -60,7 +59,6 @@ parser.add_argument(
 parser.add_argument(
     "--project-name",
     dest="project_name",
-    required=True,
     type=str,
     help="GitHub project name. e.g: ansible-collections/kubernetes.core",
 )
@@ -467,7 +465,11 @@ if __name__ == "__main__":
 
     ansible_releases = args.ansible_releases
     zuul_targets, zuul_extra_targets = [], []
-    pr_request = read_pullrequest_zuul_override(args.project_name, args.pull_request)
+    pr_request = None
+    if args.project_name is not None and args.pull_request is not None:
+        pr_request = read_pullrequest_zuul_override(
+            args.project_name, args.pull_request
+        )
 
     if pr_request:
         release_to_test = pr_request.get(ZUUL_RELEASES)

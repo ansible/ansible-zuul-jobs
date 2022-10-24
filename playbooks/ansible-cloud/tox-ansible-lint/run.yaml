@@ -1,9 +1,0 @@
----
-- hosts: all
-  gather_facts: false
-  tasks:
-    - name: Run ansible-lint
-      command: tox -e ansible-lint
-      args:
-        chdir: "~//{{ zuul.project.src_dir }}"
-      ignore_errors: true

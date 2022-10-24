@@ -1679,3 +1679,11 @@
         - ansible-tox-linters
     gate:
       jobs: *ansible-collections-cloud-aws_troubleshooting-jobs
+
+- project-template:
+    name: ansible-collections-cloud-aws_ops
+    check:
+      jobs: &ansible-collections-cloud-aws_ops-jobs
+        - ansible-tox-linters
+    gate:
+      jobs: *ansible-collections-cloud-aws_ops-jobs

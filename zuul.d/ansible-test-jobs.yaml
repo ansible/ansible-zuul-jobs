@@ -88,4 +88,3 @@
     required-projects:
       - name: github.com/ansible/ansible
         override-checkout: stable-2.14
-    voting: false

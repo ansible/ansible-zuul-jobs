@@ -543,6 +543,14 @@
         - 'future-import-boilerplate'
         - 'metaclass-boilerplate'
 
+- job:
+    name: ansible-test-sanity-aws-ansible-2.14
+    parent: ansible-test-sanity-docker-stable-2.14
+    vars:
+      ansible_test_sanity_skiptests:
+        - 'future-import-boilerplate'
+        - 'metaclass-boilerplate'
+
 ### Cloud Common
 - job:
     name: ansible-test-units-cloud-common-python38

@@ -70,6 +70,7 @@
         - ansible-test-sanity-aws-ansible-2.11-python38
         - ansible-test-sanity-aws-ansible-2.12-python38
         - ansible-test-sanity-aws-ansible-2.13-python38
+        - ansible-test-sanity-aws-ansible-2.14
         - ansible-test-units-amazon-aws-python36
         - ansible-test-units-amazon-aws-python38
         - ansible-test-units-amazon-aws-python39

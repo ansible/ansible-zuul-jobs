@@ -336,6 +336,22 @@
     name: integration-amazon.aws-18
     parent: ansible-test-cloud-integration-aws
 
+- job:
+    name: integration-amazon.aws-19
+    parent: ansible-test-cloud-integration-aws
+
+- job:
+    name: integration-amazon.aws-20
+    parent: ansible-test-cloud-integration-aws
+
+- job:
+    name: integration-amazon.aws-21
+    parent: ansible-test-cloud-integration-aws
+
+- job:
+    name: integration-amazon.aws-22
+    parent: ansible-test-cloud-integration-aws
+
 
 - job:
     name: integration-community.aws-1
@@ -407,6 +423,22 @@
 
 - job:
     name: integration-community.aws-18
+    parent: ansible-test-cloud-integration-aws
+
+- job:
+    name: integration-community.aws-19
+    parent: ansible-test-cloud-integration-aws
+
+- job:
+    name: integration-community.aws-20
+    parent: ansible-test-cloud-integration-aws
+
+- job:
+    name: integration-community.aws-21
+    parent: ansible-test-cloud-integration-aws
+
+- job:
+    name: integration-community.aws-22
     parent: ansible-test-cloud-integration-aws
 
 

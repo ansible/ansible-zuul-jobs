@@ -91,6 +91,7 @@
               ansible_test_splitter__check_for_changes_in:
                 - "~/{{ zuul.projects['github.com/ansible-collections/amazon.aws'].src_dir }}"
                 - "~/{{ zuul.projects['github.com/ansible-collections/community.aws'].src_dir }}"
+              ansible_test_splitter__total_job: 22
         - integration-amazon.aws-1
         - integration-amazon.aws-2
         - integration-amazon.aws-3
@@ -109,6 +110,10 @@
         - integration-amazon.aws-16
         - integration-amazon.aws-17
         - integration-amazon.aws-18
+        - integration-amazon.aws-19
+        - integration-amazon.aws-20
+        - integration-amazon.aws-21
+        - integration-amazon.aws-22
         - integration-community.aws-1
         - integration-community.aws-2
         - integration-community.aws-3
@@ -127,6 +132,10 @@
         - integration-community.aws-16
         - integration-community.aws-17
         - integration-community.aws-18
+        - integration-community.aws-19
+        - integration-community.aws-20
+        - integration-community.aws-21
+        - integration-community.aws-22
         - ansible-test-changelog
     gate:
       queue: integrated-aws
@@ -166,6 +175,10 @@
         - integration-amazon.aws-16
         - integration-amazon.aws-17
         - integration-amazon.aws-18
+        - integration-amazon.aws-19
+        - integration-amazon.aws-20
+        - integration-amazon.aws-21
+        - integration-amazon.aws-22
         - integration-community.aws-1
         - integration-community.aws-2
         - integration-community.aws-3
@@ -184,6 +197,10 @@
         - integration-community.aws-16
         - integration-community.aws-17
         - integration-community.aws-18
+        - integration-community.aws-19
+        - integration-community.aws-20
+        - integration-community.aws-21
+        - integration-community.aws-22
 
         - ansible-test-changelog
 
@@ -239,6 +256,10 @@
         - integration-community.aws-16
         - integration-community.aws-17
         - integration-community.aws-18
+        - integration-community.aws-19
+        - integration-community.aws-20
+        - integration-community.aws-21
+        - integration-community.aws-22
 
         - ansible-test-changelog
         - ansible-galaxy-importer

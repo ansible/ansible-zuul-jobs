@@ -12,6 +12,8 @@
       {% if ansible_test_splitter__total_job is defined %}--total-job {{ ansible_test_splitter__total_job }}{% endif %}
       {% if ansible_test_splitter__test_changed|bool %}--test-changed{% else %}--test-all-the-targets{% endif %}
       {{ ansible_test_splitter__check_for_changes_in | join(' ') }}
+      --project-name {{ ansible_test_splitter__project_name }}
+      --pull-request {{ ansible_test_splitter__pull_request }}
 
 - name: Will split up the jobs with the following command
   debug:

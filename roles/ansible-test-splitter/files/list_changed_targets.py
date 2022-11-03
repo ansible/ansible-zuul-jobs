@@ -9,7 +9,6 @@ import subprocess
 import yaml
 import re
 from collections import defaultdict
-import requests
 
 
 parser = argparse.ArgumentParser(
@@ -47,20 +46,6 @@ parser.add_argument(
     nargs="+",
     default=[],
     help="ansible release version to test for each jobs",
-)
-
-parser.add_argument(
-    "--pull-request",
-    dest="pull_request",
-    type=int,
-    help="GitHub Pull request number. e.g: 51",
-)
-
-parser.add_argument(
-    "--project-name",
-    dest="project_name",
-    type=str,
-    help="GitHub project name. e.g: ansible-collections/kubernetes.core",
 )
 
 parser.add_argument(
@@ -427,64 +412,14 @@ class ElGrandeSeparator:
         return result
 
 
-def read_pullrequest_body(project_name, pull_request):
-    change_url = "https://api.github.com/repos/%s/pulls/%d" % (
-        project_name,
-        pull_request,
-    )
-    return [x for x in requests.get(change_url).json().get("body").split("\n") if x]
-
-
-ZUUL_EXTRA_TARGETS = "zuul-extra-targets"
-ZUUL_TARGETS = "zuul-targets"
-ZUUL_RELEASES = "zuul-releases"
-
-
-def read_pullrequest_zuul_override(project_name, pull_request):
-
-    desc = read_pullrequest_body(project_name, pull_request)
-
-    def _extract_data(line):
-        data = (":".join(line.split(":")[1:])).replace(",", " ")
-        return [x for x in data.split() if x]
-
-    result = {}
-    for line in desc:
-        for key in (ZUUL_EXTRA_TARGETS, ZUUL_TARGETS, ZUUL_RELEASES):
-            if line.lower().startswith(key + ":"):
-                result[key] = _extract_data(line)
-
-    return result
-
-
 if __name__ == "__main__":
     args = parse_args(sys.argv[1:])
 
     collections = [Collection(i) for i in args.collection_to_tests]
     collections_names = [c.collection_name() for c in collections]
 
-    ansible_releases = args.ansible_releases
-    zuul_targets, zuul_extra_targets = [], []
-    pr_request = None
-    if args.project_name is not None and args.pull_request is not None:
-        pr_request = read_pullrequest_zuul_override(
-            args.project_name, args.pull_request
-        )
-
-    if pr_request:
-        release_to_test = pr_request.get(ZUUL_RELEASES)
-        if release_to_test:
-            tmp_releases = [rel for rel in release_to_test if rel in ansible_releases]
-            ansible_releases = tmp_releases
-        zuul_extra_targets = pr_request.get(ZUUL_EXTRA_TARGETS, [])
-        zuul_targets = pr_request.get(ZUUL_TARGETS)
-
     changes = {}
-    if zuul_targets:
-        for t in zuul_targets:
-            for c in collections:
-                c.add_target_to_plan(t)
-    elif args.test_all_the_targets:
+    if args.test_all_the_targets:
         for c in collections:
             c.cover_all()
     else:
@@ -517,10 +452,6 @@ if __name__ == "__main__":
                 changes[whc.collection_name()]["targets"].append(t)
                 for c in collections:
                     c.add_target_to_plan(t)
-            # add extra targets
-            for t in zuul_extra_targets:
-                for c in collections:
-                    c.add_target_to_plan(t)
 
-    egs = ElGrandeSeparator(collections, args.total_job, ansible_releases)
+    egs = ElGrandeSeparator(collections, args.total_job, args.ansible_releases)
     egs.output(changes)

@@ -506,9 +506,10 @@
       ansible_test_integration_targets: rds_instance_upgrade
 - project-template:
     name: ansible-collections-amazon-aws-each-target
-    periodic:
+    check:
+      queue: integrated-aws
       jobs:
-        - ansible-test-splitter
+        - build-ansible-collection
         - integration-amazon.aws-target-aws_caller_info
         - integration-amazon.aws-target-cloudformation
         - integration-amazon.aws-target-ec2_ami

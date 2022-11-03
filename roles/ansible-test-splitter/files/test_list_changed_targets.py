@@ -4,9 +4,6 @@ import pytest
 import io
 from pathlib import PosixPath
 from unittest.mock import MagicMock, patch
-import random
-import string
-import list_changed_targets
 from list_changed_targets import (
     Collection,
     ElGrandeSeparator,
@@ -14,10 +11,6 @@ from list_changed_targets import (
     list_pyimport,
     parse_args,
     read_collection_name,
-    read_pullrequest_zuul_override,
-    ZUUL_EXTRA_TARGETS,
-    ZUUL_TARGETS,
-    ZUUL_RELEASES,
 )
 
 my_module = """
@@ -206,8 +199,12 @@ def test_c_with_cover():
     assert c.regular_targets_to_test() == []
 
 
-def test_argparse_with_missing_arguments():
-    parse_args("--test-changed somewhere somewhere-else".split(" "))
+def test_argparse():
+    args = parse_args("--test-changed somewhere somewhere-else".split(" "))
+    assert args.collection_to_tests == [
+        PosixPath("somewhere"),
+        PosixPath("somewhere-else"),
+    ]
 
 
 def test_splitter_with_slow():
@@ -270,63 +267,3 @@ def test_what_changed_git_call(m_check_output):
     m_check_output.assert_called_with(
         ["git", "diff", "origin/stable-2.1", "--name-only"], cwd=PosixPath("a")
     )
-
-
-@pytest.mark.parametrize(
-    "zuul_extra_targets",
-    [
-        {"match": False},
-        {"text": "Zuul-Extra-Targets: target1, target2"},
-        {"text": "ZUUL-EXTRA-Targets: target1 target2"},
-        {"text": "zuul-extra-targets: target1 target2"},
-        {"text": "Zuul-EXTRA-Targets: target1 target2"},
-        {"text": "Zuul-Extra-TARGETS: target1 target2"},
-    ],
-)
-@pytest.mark.parametrize(
-    "zuul_release",
-    [
-        {"match": False},
-        {"text": "zuul-releases release1 release2", "match": False},
-        {"text": "Zuul-RELEASES:release1 release2"},
-        {"text": "zuul-releases:release1 release2"},
-    ],
-)
-@pytest.mark.parametrize(
-    "zuul_targets",
-    [
-        {"match": False},
-        {
-            "text": "zuul-Targets: target1  ",
-        },
-        {"text": "ZUUL-TARGETS=target1", "match": False},
-    ],
-)
-@patch("list_changed_targets.read_pullrequest_body")
-def test_read_pullrequest_zuul_override(
-    m_read_pullrequest_body, zuul_extra_targets, zuul_release, zuul_targets
-):
-
-    body = []
-    body.append(zuul_extra_targets.get("text", ""))
-    body.append(zuul_release.get("text", ""))
-    body.append(zuul_targets.get("text", ""))
-
-    expected = {}
-    if zuul_extra_targets.get("match", True):
-        expected[ZUUL_EXTRA_TARGETS] = ["target1", "target2"]
-    if zuul_release.get("match", True):
-        expected[ZUUL_RELEASES] = ["release1", "release2"]
-    if zuul_targets.get("match", True):
-        expected[ZUUL_TARGETS] = ["target1"]
-
-    m_read_pullrequest_body.return_value = body
-
-    project_name = "".join(
-        [random.choice(string.ascii_letters + string.digits) for _ in range(50)]
-    )
-    pull_request = random.randint(1, 1000)
-
-    result = read_pullrequest_zuul_override(project_name, pull_request)
-    assert result == expected
-    m_read_pullrequest_body.assert_called_with(project_name, pull_request)

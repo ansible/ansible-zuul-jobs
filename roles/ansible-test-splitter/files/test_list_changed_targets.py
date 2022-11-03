@@ -151,7 +151,10 @@ def test_c_disabled_unstable():
     # if the module is targets, we continue to ignore the disabled
     c.add_target_to_plan("a")
     assert len(c.regular_targets_to_test()) == 0
-    # but the unstable is ok
+    # unstable targets should not be triggered if they were pulled in as a dependency
+    c.add_target_to_plan("b", is_direct=False)
+    assert len(c.regular_targets_to_test()) == 0
+    # but the unstable is ok when directly triggered
     c.add_target_to_plan("b")
     assert len(c.regular_targets_to_test()) == 1
 

@@ -1,14 +1,16 @@
 #!/usr/bin/env python3
 
 from pathlib import Path
-import argparse
-
+from pydantic import BaseModel
 from ruamel.yaml import YAML
 from ruamel.yaml.comments import Comment
+from typing import Iterator
+import argparse
+import json
 
 yaml = YAML()
 yaml.indent(sequence=4, offset=2)
-yaml.explicit_start = True
+yaml.explicit_start = True  # type: ignore
 
 parser = argparse.ArgumentParser()
 parser.add_argument("repo_dir", type=Path, help="Location of the amazon.aws collection")
@@ -17,7 +19,7 @@ args = parser.parse_args()
 to_skip = {"disabled", "unsupported"}
 
 
-def list_targets(repo_dir):
+def list_targets(repo_dir: Path) -> Iterator[str]:
     targets_dir = repo_dir / "tests" / "integration" / "targets"
     for alias in targets_dir.glob("*/aliases"):
         skip_reason = set(alias.read_text().split("\n")) & to_skip
@@ -27,34 +29,53 @@ def list_targets(repo_dir):
         yield alias.parent.stem
 
 
-def build_job_entry(target):
-    return {
-        "job": {
-            "name": f"integration-amazon.aws-target-{target}",
-            "nodeset": "container-ansible",
-            "parent": "ansible-test-cloud-integration-aws",
-            "vars": {"ansible_test_integration_targets": target},
-        }
-    }
+class Job(BaseModel):
+    name: str
+    nodeset: str = "container-ansible"
+    parent: str = "ansible-test-cloud-integration-aws"
+    vars: dict
+
+    @classmethod
+    def from_target_name(cls, target: str) -> "Job":
+        return cls(
+            name=f"integration-amazon.aws-target-{target}",
+            vars={"ansible_test_integration_targets": target},
+        )
 
 
-jobs = [build_job_entry(target) for target in list_targets(args.repo_dir)]
+class JobMapping(BaseModel):
+    job: Job
 
 
-project_templates = [
-    {
-        "project-template": {
-            "name": "ansible-collections-amazon-aws-each-target",
-            "periodic": {
-                # we actually depend on ansible-test-splitter, but
-                # it's listed in ansible-test-cloud-integration-aws
-                #  dependency list
-                "jobs": ["build-ansible-collection"]
-                + [job["job"]["name"] for job in jobs]
-            },
-        }
-    }
-]
+class Jobs(BaseModel):
+    jobs: list[JobMapping]
+
+
+class Queue(BaseModel):
+    jobs: list[str]
+
+
+class ProjectTemplate(BaseModel):
+    name: str
+    periodic: Queue
+
+
+jobs = Jobs(
+    jobs=[
+        JobMapping(job=Job.from_target_name(target))
+        for target in list_targets(args.repo_dir)
+    ]
+)
+
+project_template = ProjectTemplate(
+    name="ansible-collections-amazon-aws-each-target",
+    # we actually depend on ansible-test-splitter, but
+    # it's listed in ansible-test-cloud-integration-aws
+    #  dependency list
+    periodic=Queue(
+        jobs=["build-ansible-collection"] + [job.job.name for job in jobs.jobs]
+    ),
+)
 
 
 class PushRootLeft:
@@ -71,4 +92,9 @@ class PushRootLeft:
 
 
 zuul_config_file = Path("zuul.d/amazon-aws-periodical-jobs.yaml")
-yaml.dump(jobs + project_templates, zuul_config_file, transform=PushRootLeft())
+yaml.dump(
+    [job.dict() for job in jobs.jobs]
+    + [{"project-template": json.loads(project_template.json())}],
+    zuul_config_file,
+    transform=PushRootLeft(),
+)

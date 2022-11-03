@@ -295,10 +295,13 @@ class Collection:
                 return True
         return False
 
-    def add_target_to_plan(self, target_name):
+    def add_target_to_plan(self, target_name, is_direct=True):
         if not self._is_target_already_added(target_name):
             for t in self._targets():
                 if t.is_disabled():
+                    continue
+                # For indirect targets we want to skip "ignored" tests
+                if not is_direct and t.is_ignored():
                     continue
                 if t.is_alias_of(target_name):
                     self._my_test_plan.append(t)
@@ -306,9 +309,7 @@ class Collection:
     def cover_all(self):
         """Cover all the targets available."""
         for t in self._targets():
-            if t.is_ignored():
-                continue
-            self.add_target_to_plan(t.name)
+            self.add_target_to_plan(t.name, is_direct=False)
 
     def cover_module_utils(self, pymod, collections_names):
         """Track the targets to run follow up to a module_utils changed."""
@@ -326,7 +327,7 @@ class Collection:
         for mod in self.modules_import:
             intersect = [x for x in u_candidates if x in self.modules_import.get(mod)]
             if intersect:
-                self.add_target_to_plan(mod)
+                self.add_target_to_plan(mod, is_direct=False)
 
     def slow_targets_to_test(self):
         return sorted(list(set([t.name for t in self._my_test_plan if t.is_slow()])))

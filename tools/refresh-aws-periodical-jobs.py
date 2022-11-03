@@ -49,7 +49,7 @@ project_templates = [
                 # we actually depend on ansible-test-splitter, but
                 # it's listed in ansible-test-cloud-integration-aws
                 #  dependency list
-                "jobs": ["ansible-test-splitter"]
+                "jobs": ["build-ansible-collection"]
                 + [job["job"]["name"] for job in jobs]
             },
         }

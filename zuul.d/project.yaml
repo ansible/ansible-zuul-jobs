@@ -2,6 +2,7 @@
 - project:
     templates:
       - ansible-python-jobs
+      - ansible-collections-amazon-aws-each-target
     check:
       jobs:
         - ansible-tox-py38:
@@ -21,31 +22,3 @@
         - ansible-tox-py39:
             vars:
               tox_envlist: pytest,black
-    periodic:
-      jobs:
-        - downstream-ee-amazon-aws-aws_az_info
-        - downstream-ee-amazon-aws-aws_caller_info
-        - downstream-ee-amazon-aws-aws_s3
-        - downstream-ee-amazon-aws-cloudformation
-        - downstream-ee-amazon-aws-ec2_ami
-        - downstream-ee-amazon-aws-ec2_eni
-        - downstream-ee-amazon-aws-ec2_instance
-        - downstream-ee-amazon-aws-ec2_key
-        - downstream-ee-amazon-aws-ec2_spot_instance
-        - downstream-ee-amazon-aws-ec2_tag
-        - downstream-ee-amazon-aws-ec2_vol
-        - downstream-ee-amazon-aws-ec2_vpc_dhcp_option
-        - downstream-ee-amazon-aws-ec2_vpc_endpoint_service_info
-        - downstream-ee-amazon-aws-ec2_vpc_igw
-        - downstream-ee-amazon-aws-ec2_vpc_nat_gateway
-        - downstream-ee-amazon-aws-ec2_vpc_net
-        - downstream-ee-amazon-aws-ec2_vpc_route_table
-        - downstream-ee-amazon-aws-ec2_vpc_subnet
-        - downstream-ee-amazon-aws-elb_classic_lb
-        - downstream-ee-amazon-aws-inventory_aws_ec2
-        - downstream-ee-amazon-aws-lookup_aws_secret
-        - downstream-ee-amazon-aws-lookup_aws_service_ip_ranges
-        - downstream-ee-amazon-aws-module_utils_core
-        - downstream-ee-amazon-aws-module_utils_waiter
-        - downstream-ee-amazon-aws-s3_bucket
-        - downstream-ee-vmware-vmware_rest-vcenter_vm_scenario1

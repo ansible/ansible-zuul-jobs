@@ -2,7 +2,6 @@
 - project:
     templates:
       - ansible-python-jobs
-      - ansible-collections-amazon-aws-each-target
     check:
       jobs:
         - ansible-tox-py38:

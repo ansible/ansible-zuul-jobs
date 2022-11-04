@@ -508,7 +508,13 @@
     name: ansible-collections-amazon-aws-each-target
     periodic:
       jobs:
-        - build-ansible-collection
+        - build-ansible-collection:
+            required-projects:
+              - name: github.com/ansible-collections/ansible.utils
+              - name: github.com/ansible-collections/ansible.netcommon
+              - name: github.com/ansible-collections/community.aws
+              - name: github.com/ansible-collections/community.general
+              - name: github.com/ansible-collections/community.crypto
         - integration-amazon.aws-target-aws_caller_info
         - integration-amazon.aws-target-cloudformation
         - integration-amazon.aws-target-ec2_ami

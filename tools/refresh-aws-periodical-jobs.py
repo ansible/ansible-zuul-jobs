@@ -1,10 +1,9 @@
 #!/usr/bin/env python3
 
 from pathlib import Path
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 from ruamel.yaml import YAML
-from ruamel.yaml.comments import Comment
-from typing import Iterator
+from typing import Iterator, Union
 import argparse
 import json
 
@@ -51,8 +50,18 @@ class Jobs(BaseModel):
     jobs: list[JobMapping]
 
 
+class RequiredProject(BaseModel):
+    name: str
+
+
+class PTJob(BaseModel):
+    """Job entry for ProjectTemplate, not to confuse with regular Job"""
+
+    required_projects: list[RequiredProject] = Field(alias="required-projects")
+
+
 class Queue(BaseModel):
-    jobs: list[str]
+    ptjobs: list[str | dict[str, PTJob]] = Field(alias="jobs")
 
 
 class ProjectTemplate(BaseModel):
@@ -67,13 +76,26 @@ jobs = Jobs(
     ]
 )
 
+build_ansible_collection = {
+    "build-ansible-collection": {
+        "required-projects": [
+            {"name": "github.com/ansible-collections/ansible.utils"},
+            {"name": "github.com/ansible-collections/ansible.netcommon"},
+            {"name": "github.com/ansible-collections/community.aws"},
+            {"name": "github.com/ansible-collections/community.general"},
+            {"name": "github.com/ansible-collections/community.crypto"},
+        ]
+    }
+}
+
+
 project_template = ProjectTemplate(
     name="ansible-collections-amazon-aws-each-target",
     # we actually depend on ansible-test-splitter, but
     # it's listed in ansible-test-cloud-integration-aws
     #  dependency list
     periodic=Queue(
-        jobs=["build-ansible-collection"] + [job.job.name for job in jobs.jobs]
+        jobs=[build_ansible_collection] + [job.job.name for job in jobs.jobs]
     ),
 )
 
@@ -93,8 +115,8 @@ class PushRootLeft:
 
 zuul_config_file = Path("zuul.d/amazon-aws-periodical-jobs.yaml")
 yaml.dump(
-    [job.dict() for job in jobs.jobs]
-    + [{"project-template": json.loads(project_template.json())}],
+    [job.dict(by_alias=True) for job in jobs.jobs]
+    + [{"project-template": json.loads(project_template.json(by_alias=True))}],
     zuul_config_file,
     transform=PushRootLeft(),
 )

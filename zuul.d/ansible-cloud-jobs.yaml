@@ -218,7 +218,7 @@
 
 - semaphore:
     name: ansible-test-cloud-integration-aws
-    max: 8
+    max: 10
 
 - job:
     name: ansible-test-cloud-integration-aws

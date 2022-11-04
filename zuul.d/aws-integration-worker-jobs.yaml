@@ -1,0 +1,17 @@
+---
+- project-template:
+    name: ansible-collections-amazon-aws-integration
+    check:
+      jobs:
+        - noop
+    gate:
+      jobs:
+        - noop
+- project-template:
+    name: ansible-collections-community-aws-integration
+    check:
+      jobs:
+        - noop
+    gate:
+      jobs:
+        - noop

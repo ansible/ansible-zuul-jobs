@@ -31,3 +31,9 @@
         ansible_galaxy_output_path: "{{ ansible_user_dir }}/zuul-output/artifacts"
         zuul_work_dir: "~/{{ item.src_dir }}"
       with_items: "{{ zuul.projects.values() | list }}"
+
+    - name: Copy the artifacts in the logs directory
+      shell: |
+        mkdir -p {{ ansible_user_dir }}/zuul-output/logs
+        cp -rv {{ ansible_user_dir }}/zuul-output/artifacts {{ ansible_user_dir }}/zuul-output/logs
+      ignore_errors: true

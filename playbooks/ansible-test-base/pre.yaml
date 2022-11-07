@@ -6,6 +6,15 @@
         path: /root
         state: directory
       become: true
+#    - name: Ensure the system use UTF-8 local
+#      shell: |
+#         dnf install -y glibc-locale-source
+#         localedef --inputfile=en_US --charmap=UTF-8 en_US.UTF-8
+#      become: true
+    - name: Ensure UTF8 blabla
+      package:
+        name: glibc-langpack-en
+      become: true
     - name: Ensure controller directory exists
       file:
         path: "{{ ansible_user_dir }}/zuul-output/logs/controller"

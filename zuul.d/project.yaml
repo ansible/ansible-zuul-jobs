@@ -4,15 +4,18 @@
       - ansible-python-jobs
     check:
       jobs:
-        - ansible-tox-py38:
-            vars:
-              tox_envlist: pytest,black
-        - ansible-tox-py39:
-            vars:
-              tox_envlist: pytest,black
-        - ansible-tox-py310:
-            vars:
-              tox_envlist: pytest,black
+        - build-ansible-collection:
+            required-projects:
+              - name: github.com/ansible-collections/ansible.utils
+              - name: github.com/ansible-collections/ansible.netcommon
+              - name: github.com/ansible-collections/amazon.aws
+              - name: github.com/ansible-collections/community.aws
+              - name: github.com/ansible-collections/community.general
+              - name: github.com/ansible-collections/community.crypto
+            timeout: 3600
+            host-vars: {}
+            vars: {}
+        - integration-amazon.aws-target-s3_object
     gate:
       jobs:
         - ansible-tox-py38:

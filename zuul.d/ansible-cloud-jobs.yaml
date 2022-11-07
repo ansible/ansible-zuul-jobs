@@ -226,8 +226,6 @@
     nodeset: fedora-36-1vcpu
     dependencies:
       - name: build-ansible-collection
-      - name: ansible-test-splitter
-        soft: true
     pre-run:
       # - playbooks/ansible-test-base-prepare-venv/pre.yaml
       - playbooks/ansible-test-base/pre.yaml
@@ -257,7 +255,7 @@
         - tests/integration/constraints.txt
       # this child.targets_to_test data structure comes from
       # ansible-test-splitter
-      ansible_test_integration_targets: "{{ child.targets_to_test[zuul.job] }}"
+      ansible_test_integration_targets: ""
       ansible_collections_repo: "github.com/ansible-collections/{{ zuul.job.split('-')[1] }}"
     semaphore: ansible-test-cloud-integration-aws
 

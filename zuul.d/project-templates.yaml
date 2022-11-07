@@ -1538,6 +1538,10 @@
     check:
       jobs: &ansible-collections-cloud-aws_ops-jobs
         - ansible-tox-linters
+        - build-ansible-collection:
+            required-projects:
+              - name: github.com/ansible-collections/amazon.aws
+              - name: github.com/ansible-collections/community.aws
     gate:
       jobs: *ansible-collections-cloud-aws_ops-jobs
 

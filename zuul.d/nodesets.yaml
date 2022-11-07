@@ -3,7 +3,14 @@
     name: container-ansible
     nodes:
       - name: controller
-        label: zuul-worker-ansible
+        label: zuul-worker-ansible-f37
+
+- nodeset:
+    name: container-ansible-f37
+    nodes:
+      - name: controller
+        label: zuul-worker-ansible-f37
+
 
 # We don't have CentOS8 Stream yet
 - nodeset:

@@ -1,24 +1,10 @@
 ---
 - hosts: all
   tasks:
-
-    - name: Include distribution specific variables
-      include_vars: "{{ lookup('first_found', params) }}"
-      vars:
-        params:
-          files:
-            - "{{ ansible_facts.distribution }}-{{ ansible_facts.distribution_version }}.yml"
-            - "{{ ansible_facts.os_family }}-{{ ansible_facts.distribution_major_version }}.yml"
-            - "{{ ansible_facts.distribution }}.yml"
-            - "{{ ansible_facts.os_family }}.yml"
-            - default.yml
-          paths:
-            - vars
-      tags:
-        - always
-
     - name: Ensure python3.10 devel is present
       become: true
       package:
-        name: "{{ python3_devel_pkg }}"
+        name:
+          - python3.10
+          - python3-devel
         state: present

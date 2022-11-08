@@ -1,17 +1,10 @@
 ---
 - hosts: all
   tasks:
-    - name: Ensure python3.8 is present (Debian/Ubuntu)
-      become: true
-      package:
-        name: python38-devel
-        state: present
-      when: ansible_os_family != "RedHat"
-    - name: Ensure python3.8 is present (Red Hat)
+    - name: Ensure python3.8 is present
       become: true
       package:
         name:
           - python3.8
-          - gcc
+          - python3-devel
         state: present
-      when: ansible_os_family == "RedHat"

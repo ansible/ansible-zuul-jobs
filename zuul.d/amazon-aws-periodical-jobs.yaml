@@ -1420,39 +1420,6 @@
       ansible_collections_repo: github.com/ansible-collections/amazon.aws
     semaphore: ansible-test-cloud-integration-aws
 - job:
-    name: integration-amazon.aws-target-lookup_aws_secret
-    parent: ansible-core-ci-aws-session
-    nodeset: container-ansible
-    dependencies:
-      - name: build-ansible-collection
-      - name: ansible-test-splitter
-        soft: true
-    pre-run:
-      - playbooks/ansible-test-base/pre.yaml
-      - playbooks/ansible-cloud/aws/pre.yaml
-    run: playbooks/ansible-test-base/run.yaml
-    files:
-      - ^plugins/.*$
-      - ^tests/integration/.*$
-    required-projects:
-      - name: github.com/ansible/ansible
-        override-checkout: milestone
-      - name: github.com/ansible-collections/community.aws
-    timeout: 3600
-    vars:
-      ansible_test_command: integration
-      ansible_test_python: 3.9
-      ansible_test_retry_on_error: true
-      ansible_test_requirement_files:
-        - requirements.txt
-        - test-requirements.txt
-        - tests/integration/requirements.txt
-      ansible_test_constraint_files:
-        - tests/integration/constraints.txt
-      ansible_test_integration_targets: lookup_aws_secret
-      ansible_collections_repo: github.com/ansible-collections/amazon.aws
-    semaphore: ansible-test-cloud-integration-aws
-- job:
     name: integration-amazon.aws-target-lookup_aws_service_ip_ranges
     parent: ansible-core-ci-aws-session
     nodeset: container-ansible
@@ -1486,7 +1453,7 @@
       ansible_collections_repo: github.com/ansible-collections/amazon.aws
     semaphore: ansible-test-cloud-integration-aws
 - job:
-    name: integration-amazon.aws-target-lookup_aws_ssm
+    name: integration-amazon.aws-target-lookup_secretsmanager_secret
     parent: ansible-core-ci-aws-session
     nodeset: container-ansible
     dependencies:
@@ -1515,7 +1482,40 @@
         - tests/integration/requirements.txt
       ansible_test_constraint_files:
         - tests/integration/constraints.txt
-      ansible_test_integration_targets: lookup_aws_ssm
+      ansible_test_integration_targets: lookup_secretsmanager_secret
+      ansible_collections_repo: github.com/ansible-collections/amazon.aws
+    semaphore: ansible-test-cloud-integration-aws
+- job:
+    name: integration-amazon.aws-target-lookup_ssm_parameter
+    parent: ansible-core-ci-aws-session
+    nodeset: container-ansible
+    dependencies:
+      - name: build-ansible-collection
+      - name: ansible-test-splitter
+        soft: true
+    pre-run:
+      - playbooks/ansible-test-base/pre.yaml
+      - playbooks/ansible-cloud/aws/pre.yaml
+    run: playbooks/ansible-test-base/run.yaml
+    files:
+      - ^plugins/.*$
+      - ^tests/integration/.*$
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: milestone
+      - name: github.com/ansible-collections/community.aws
+    timeout: 3600
+    vars:
+      ansible_test_command: integration
+      ansible_test_python: 3.9
+      ansible_test_retry_on_error: true
+      ansible_test_requirement_files:
+        - requirements.txt
+        - test-requirements.txt
+        - tests/integration/requirements.txt
+      ansible_test_constraint_files:
+        - tests/integration/constraints.txt
+      ansible_test_integration_targets: lookup_ssm_parameter
       ansible_collections_repo: github.com/ansible-collections/amazon.aws
     semaphore: ansible-test-cloud-integration-aws
 - job:
@@ -2826,9 +2826,9 @@
         - integration-amazon.aws-target-ec2_vpc_nat_gateway
         - integration-amazon.aws-target-ec2_vpc_route_table
         - integration-amazon.aws-target-elb_classic_lb
-        - integration-amazon.aws-target-lookup_aws_secret
         - integration-amazon.aws-target-lookup_aws_service_ip_ranges
-        - integration-amazon.aws-target-lookup_aws_ssm
+        - integration-amazon.aws-target-lookup_secretsmanager_secret
+        - integration-amazon.aws-target-lookup_ssm_parameter
         - integration-amazon.aws-target-module_utils_botocore_recorder
         - integration-amazon.aws-target-s3_object
         - integration-amazon.aws-target-autoscaling_group

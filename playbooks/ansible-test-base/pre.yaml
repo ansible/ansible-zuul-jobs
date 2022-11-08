@@ -6,6 +6,13 @@
         path: /root
         state: directory
       become: true
+    - name: Install glibc-langpack-en
+      # Workaround for the zuul-worker-ansible-f{6,7} labels
+      # To remove once https://softwarefactory-project.io/r/c/containers/+/26634
+      # is merged
+      package:
+        name: glibc-langpack-en
+      become: true
     - name: Ensure controller directory exists
       file:
         path: "{{ ansible_user_dir }}/zuul-output/logs/controller"

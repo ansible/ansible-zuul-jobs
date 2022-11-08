@@ -223,7 +223,7 @@
 - job:
     name: ansible-test-cloud-integration-aws
     parent: ansible-core-ci-aws-session
-    nodeset: fedora-36-1vcpu
+    nodeset: zuul-worker-ansible-f37
     dependencies:
       - name: build-ansible-collection
       - name: ansible-test-splitter

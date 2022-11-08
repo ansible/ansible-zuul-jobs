@@ -5,6 +5,12 @@
       - name: controller
         label: zuul-worker-ansible
 
+- nodeset:
+    name: zuul-worker-ansible-f37
+    nodes:
+      - name: controller
+        label: zuul-worker-ansible-f37
+
 # We don't have CentOS8 Stream yet
 - nodeset:
     name: asav9-12-3

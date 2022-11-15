@@ -319,7 +319,6 @@ class AWSWorkerJob(Job):
     nodeset = NodesetName(__root__="fedora-36-1vcpu")
     dependencies: list[JobDependency] = [
         JobDependency(name="build-ansible-collection"),
-        JobDependency(name="ansible-test-splitter", soft=True),
     ]
     pre_run: ZuulMaybeList = Field(
         [
@@ -377,6 +376,7 @@ def build_aws_worker(collection: str, idx: int) -> Job:
         collection=collection,
         target="{{ child.targets_to_test[zuul.job] }}",
     )
+    new.dependencies.append(JobDependency(name="ansible-test-splitter"))
     return new
 
 

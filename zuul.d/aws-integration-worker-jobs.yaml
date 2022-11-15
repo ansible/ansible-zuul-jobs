@@ -7,7 +7,6 @@
     dependencies:
       - name: build-ansible-collection
       - name: ansible-test-splitter
-        soft: true
     pre-run:
       - playbooks/ansible-test-base/pre.yaml
       - playbooks/ansible-cloud/aws/pre.yaml
@@ -42,7 +41,6 @@
     dependencies:
       - name: build-ansible-collection
       - name: ansible-test-splitter
-        soft: true
     pre-run:
       - playbooks/ansible-test-base/pre.yaml
       - playbooks/ansible-cloud/aws/pre.yaml
@@ -77,7 +75,6 @@
     dependencies:
       - name: build-ansible-collection
       - name: ansible-test-splitter
-        soft: true
     pre-run:
       - playbooks/ansible-test-base/pre.yaml
       - playbooks/ansible-cloud/aws/pre.yaml
@@ -112,7 +109,6 @@
     dependencies:
       - name: build-ansible-collection
       - name: ansible-test-splitter
-        soft: true
     pre-run:
       - playbooks/ansible-test-base/pre.yaml
       - playbooks/ansible-cloud/aws/pre.yaml
@@ -147,7 +143,6 @@
     dependencies:
       - name: build-ansible-collection
       - name: ansible-test-splitter
-        soft: true
     pre-run:
       - playbooks/ansible-test-base/pre.yaml
       - playbooks/ansible-cloud/aws/pre.yaml
@@ -182,7 +177,6 @@
     dependencies:
       - name: build-ansible-collection
       - name: ansible-test-splitter
-        soft: true
     pre-run:
       - playbooks/ansible-test-base/pre.yaml
       - playbooks/ansible-cloud/aws/pre.yaml
@@ -217,7 +211,6 @@
     dependencies:
       - name: build-ansible-collection
       - name: ansible-test-splitter
-        soft: true
     pre-run:
       - playbooks/ansible-test-base/pre.yaml
       - playbooks/ansible-cloud/aws/pre.yaml
@@ -252,7 +245,6 @@
     dependencies:
       - name: build-ansible-collection
       - name: ansible-test-splitter
-        soft: true
     pre-run:
       - playbooks/ansible-test-base/pre.yaml
       - playbooks/ansible-cloud/aws/pre.yaml
@@ -287,7 +279,6 @@
     dependencies:
       - name: build-ansible-collection
       - name: ansible-test-splitter
-        soft: true
     pre-run:
       - playbooks/ansible-test-base/pre.yaml
       - playbooks/ansible-cloud/aws/pre.yaml
@@ -322,7 +313,6 @@
     dependencies:
       - name: build-ansible-collection
       - name: ansible-test-splitter
-        soft: true
     pre-run:
       - playbooks/ansible-test-base/pre.yaml
       - playbooks/ansible-cloud/aws/pre.yaml
@@ -357,7 +347,6 @@
     dependencies:
       - name: build-ansible-collection
       - name: ansible-test-splitter
-        soft: true
     pre-run:
       - playbooks/ansible-test-base/pre.yaml
       - playbooks/ansible-cloud/aws/pre.yaml
@@ -392,7 +381,6 @@
     dependencies:
       - name: build-ansible-collection
       - name: ansible-test-splitter
-        soft: true
     pre-run:
       - playbooks/ansible-test-base/pre.yaml
       - playbooks/ansible-cloud/aws/pre.yaml
@@ -427,7 +415,6 @@
     dependencies:
       - name: build-ansible-collection
       - name: ansible-test-splitter
-        soft: true
     pre-run:
       - playbooks/ansible-test-base/pre.yaml
       - playbooks/ansible-cloud/aws/pre.yaml
@@ -462,7 +449,6 @@
     dependencies:
       - name: build-ansible-collection
       - name: ansible-test-splitter
-        soft: true
     pre-run:
       - playbooks/ansible-test-base/pre.yaml
       - playbooks/ansible-cloud/aws/pre.yaml
@@ -497,7 +483,6 @@
     dependencies:
       - name: build-ansible-collection
       - name: ansible-test-splitter
-        soft: true
     pre-run:
       - playbooks/ansible-test-base/pre.yaml
       - playbooks/ansible-cloud/aws/pre.yaml
@@ -532,7 +517,6 @@
     dependencies:
       - name: build-ansible-collection
       - name: ansible-test-splitter
-        soft: true
     pre-run:
       - playbooks/ansible-test-base/pre.yaml
       - playbooks/ansible-cloud/aws/pre.yaml
@@ -567,7 +551,6 @@
     dependencies:
       - name: build-ansible-collection
       - name: ansible-test-splitter
-        soft: true
     pre-run:
       - playbooks/ansible-test-base/pre.yaml
       - playbooks/ansible-cloud/aws/pre.yaml
@@ -602,7 +585,6 @@
     dependencies:
       - name: build-ansible-collection
       - name: ansible-test-splitter
-        soft: true
     pre-run:
       - playbooks/ansible-test-base/pre.yaml
       - playbooks/ansible-cloud/aws/pre.yaml
@@ -637,7 +619,6 @@
     dependencies:
       - name: build-ansible-collection
       - name: ansible-test-splitter
-        soft: true
     pre-run:
       - playbooks/ansible-test-base/pre.yaml
       - playbooks/ansible-cloud/aws/pre.yaml
@@ -672,7 +653,6 @@
     dependencies:
       - name: build-ansible-collection
       - name: ansible-test-splitter
-        soft: true
     pre-run:
       - playbooks/ansible-test-base/pre.yaml
       - playbooks/ansible-cloud/aws/pre.yaml
@@ -707,7 +687,6 @@
     dependencies:
       - name: build-ansible-collection
       - name: ansible-test-splitter
-        soft: true
     pre-run:
       - playbooks/ansible-test-base/pre.yaml
       - playbooks/ansible-cloud/aws/pre.yaml
@@ -742,7 +721,6 @@
     dependencies:
       - name: build-ansible-collection
       - name: ansible-test-splitter
-        soft: true
     pre-run:
       - playbooks/ansible-test-base/pre.yaml
       - playbooks/ansible-cloud/aws/pre.yaml
@@ -777,7 +755,6 @@
     dependencies:
       - name: build-ansible-collection
       - name: ansible-test-splitter
-        soft: true
     pre-run:
       - playbooks/ansible-test-base/pre.yaml
       - playbooks/ansible-cloud/aws/pre.yaml
@@ -812,7 +789,6 @@
     dependencies:
       - name: build-ansible-collection
       - name: ansible-test-splitter
-        soft: true
     pre-run:
       - playbooks/ansible-test-base/pre.yaml
       - playbooks/ansible-cloud/aws/pre.yaml
@@ -847,7 +823,6 @@
     dependencies:
       - name: build-ansible-collection
       - name: ansible-test-splitter
-        soft: true
     pre-run:
       - playbooks/ansible-test-base/pre.yaml
       - playbooks/ansible-cloud/aws/pre.yaml
@@ -882,7 +857,6 @@
     dependencies:
       - name: build-ansible-collection
       - name: ansible-test-splitter
-        soft: true
     pre-run:
       - playbooks/ansible-test-base/pre.yaml
       - playbooks/ansible-cloud/aws/pre.yaml
@@ -917,7 +891,6 @@
     dependencies:
       - name: build-ansible-collection
       - name: ansible-test-splitter
-        soft: true
     pre-run:
       - playbooks/ansible-test-base/pre.yaml
       - playbooks/ansible-cloud/aws/pre.yaml
@@ -952,7 +925,6 @@
     dependencies:
       - name: build-ansible-collection
       - name: ansible-test-splitter
-        soft: true
     pre-run:
       - playbooks/ansible-test-base/pre.yaml
       - playbooks/ansible-cloud/aws/pre.yaml
@@ -987,7 +959,6 @@
     dependencies:
       - name: build-ansible-collection
       - name: ansible-test-splitter
-        soft: true
     pre-run:
       - playbooks/ansible-test-base/pre.yaml
       - playbooks/ansible-cloud/aws/pre.yaml
@@ -1022,7 +993,6 @@
     dependencies:
       - name: build-ansible-collection
       - name: ansible-test-splitter
-        soft: true
     pre-run:
       - playbooks/ansible-test-base/pre.yaml
       - playbooks/ansible-cloud/aws/pre.yaml
@@ -1057,7 +1027,6 @@
     dependencies:
       - name: build-ansible-collection
       - name: ansible-test-splitter
-        soft: true
     pre-run:
       - playbooks/ansible-test-base/pre.yaml
       - playbooks/ansible-cloud/aws/pre.yaml
@@ -1092,7 +1061,6 @@
     dependencies:
       - name: build-ansible-collection
       - name: ansible-test-splitter
-        soft: true
     pre-run:
       - playbooks/ansible-test-base/pre.yaml
       - playbooks/ansible-cloud/aws/pre.yaml
@@ -1127,7 +1095,6 @@
     dependencies:
       - name: build-ansible-collection
       - name: ansible-test-splitter
-        soft: true
     pre-run:
       - playbooks/ansible-test-base/pre.yaml
       - playbooks/ansible-cloud/aws/pre.yaml
@@ -1162,7 +1129,6 @@
     dependencies:
       - name: build-ansible-collection
       - name: ansible-test-splitter
-        soft: true
     pre-run:
       - playbooks/ansible-test-base/pre.yaml
       - playbooks/ansible-cloud/aws/pre.yaml
@@ -1197,7 +1163,6 @@
     dependencies:
       - name: build-ansible-collection
       - name: ansible-test-splitter
-        soft: true
     pre-run:
       - playbooks/ansible-test-base/pre.yaml
       - playbooks/ansible-cloud/aws/pre.yaml
@@ -1232,7 +1197,6 @@
     dependencies:
       - name: build-ansible-collection
       - name: ansible-test-splitter
-        soft: true
     pre-run:
       - playbooks/ansible-test-base/pre.yaml
       - playbooks/ansible-cloud/aws/pre.yaml
@@ -1267,7 +1231,6 @@
     dependencies:
       - name: build-ansible-collection
       - name: ansible-test-splitter
-        soft: true
     pre-run:
       - playbooks/ansible-test-base/pre.yaml
       - playbooks/ansible-cloud/aws/pre.yaml
@@ -1302,7 +1265,6 @@
     dependencies:
       - name: build-ansible-collection
       - name: ansible-test-splitter
-        soft: true
     pre-run:
       - playbooks/ansible-test-base/pre.yaml
       - playbooks/ansible-cloud/aws/pre.yaml
@@ -1337,7 +1299,6 @@
     dependencies:
       - name: build-ansible-collection
       - name: ansible-test-splitter
-        soft: true
     pre-run:
       - playbooks/ansible-test-base/pre.yaml
       - playbooks/ansible-cloud/aws/pre.yaml
@@ -1372,7 +1333,6 @@
     dependencies:
       - name: build-ansible-collection
       - name: ansible-test-splitter
-        soft: true
     pre-run:
       - playbooks/ansible-test-base/pre.yaml
       - playbooks/ansible-cloud/aws/pre.yaml
@@ -1407,7 +1367,6 @@
     dependencies:
       - name: build-ansible-collection
       - name: ansible-test-splitter
-        soft: true
     pre-run:
       - playbooks/ansible-test-base/pre.yaml
       - playbooks/ansible-cloud/aws/pre.yaml
@@ -1442,7 +1401,6 @@
     dependencies:
       - name: build-ansible-collection
       - name: ansible-test-splitter
-        soft: true
     pre-run:
       - playbooks/ansible-test-base/pre.yaml
       - playbooks/ansible-cloud/aws/pre.yaml
@@ -1477,7 +1435,6 @@
     dependencies:
       - name: build-ansible-collection
       - name: ansible-test-splitter
-        soft: true
     pre-run:
       - playbooks/ansible-test-base/pre.yaml
       - playbooks/ansible-cloud/aws/pre.yaml
@@ -1512,7 +1469,6 @@
     dependencies:
       - name: build-ansible-collection
       - name: ansible-test-splitter
-        soft: true
     pre-run:
       - playbooks/ansible-test-base/pre.yaml
       - playbooks/ansible-cloud/aws/pre.yaml

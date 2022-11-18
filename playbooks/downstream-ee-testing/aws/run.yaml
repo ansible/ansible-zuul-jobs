@@ -24,6 +24,6 @@
 
     - when: not runme_sh_stat.stat.exists
       name: Run the target with site.yaml
-      command: "ansible-navigator run --eei brew.registry.redhat.io/{{ downstream_ee_image }} site.yaml --mode=stdout --pull-policy=never"
+      command: "ansible-navigator run --eei brew.registry.redhat.io/{{ downstream_ee_image }} site.yaml --mode=stdout --pull-policy=never --display-color false"
       args:
         chdir: "~/{{ zuul.projects[ansible_collections_repo].src_dir }}/tests/integration/targets"

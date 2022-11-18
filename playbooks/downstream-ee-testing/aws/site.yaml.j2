@@ -1,6 +1,5 @@
 ---
 - hosts: localhost
-  gather_facts: false
   vars:
     integration_tests_path: "~/{{ zuul.projects[ansible_collections_repo].src_dir }}/tests/integration/targets"
     integration_target_failures: []

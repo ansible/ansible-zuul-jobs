@@ -21,7 +21,7 @@
         - ansible-tox-py39:
             vars:
               tox_envlist: pytest,black
-    periodical:
+    periodic:
       jobs:
         - downstream-ee-22-amazon-aws-s3_bucket
         - downstream-ee-22-amazon-aws-aws_s3

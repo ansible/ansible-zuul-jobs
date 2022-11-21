@@ -782,3 +782,14 @@
       nodes:
         - name: container
           label: zuul-worker-f37
+
+### Cloud.Terraform
+- job:
+    name: ansible-test-units-cloud-terraform-python38
+    parent: ansible-test-units-base-python38
+    required-projects:
+      - name: github.com/ansible-collections/cloud.terraform
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.13
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/cloud.terraform

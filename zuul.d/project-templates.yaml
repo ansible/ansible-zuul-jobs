@@ -1526,3 +1526,16 @@
         - ansible-tox-linters
     gate:
       jobs: *ansible-collections-cloud-aws_ops-jobs
+
+- project-template:
+    name: ansible-collections-cloud-terraform-units
+    check:
+      jobs: &ansible-collections-cloud-terraform-units-jobs
+        - build-ansible-collection
+        - ansible-test-sanity-docker-devel
+        - ansible-test-sanity-docker-milestone:
+            voting: false
+        - ansible-test-units-cloud-terraform-python38
+        - ansible-test-changelog
+    gate:
+      jobs: *ansible-collections-cloud-terraform-units-jobs

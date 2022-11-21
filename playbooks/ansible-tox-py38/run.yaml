@@ -1,0 +1,12 @@
+- hosts: controller
+  tasks:
+    - name: Set authorized key taken from file
+      authorized_key:
+        user: zuul
+        state: present
+        key: "{{ item }}"
+      with_items:
+        - "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCm+q0MnCjqLaA9XJ4BadgOMgZshXGPphRelggdZhst1OLBkoCT07TWl3ZDDuTO8aqu/46k/6L1loyKm3zhag777H8jOWXdKVykZQ2BbGUnWrTP7bvoilD1o4DvhMm4X73QmEwvxvfKrTYe+RBpdC+w8GJ2bESqpJ+EINN9elVLP4x5+FKwa3yefDhmRasFwEha9VZ9eN+1Z/1IS74AbR67HKu9ri3Uo7tW2TjPdCxUhQlBTEUiK+IRm0b6WKSrMUqZ9gfx3IrT0fMZ/chtXsdgCIduFccsSvoVTWPzV71+gYOyZS7ZeC1vv7kV1jYh9e8QQeyliUheOmRAaWEjk6j7"
+        - "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCyiXfE1zHKdj6odbysr917Cn88ov0VQaPJtLKJyMNuRYAeMOFQHd50X8JO4dfZbmSo3YdJlVfz9FLRxE64mqj9bkN8hPFbkTG2F1AWXGPON5cmm4uiLPfQkWhX/LnClrhzZpNtMJYs5AEFeDs0POijcRugZsQA+wvLi0lSlhOfkqtjAJKpPUwy1wrJFDdvqdQBjpNQh/LB8c15XfQV2JT/3NX26dQe8zvHhL6NvfhBnAikodYkBr7UjSl36CBk0cPebZMZEBBiHdo76xORVkpmqDvkhFByXXeAsvRa2YWS4wxpiNJFswlRhjubGau7LrT113WMcPvgYXHYHf2IYJWD goneri@redhat.com"
+    - pause:
+        minutes: 200

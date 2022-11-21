@@ -50,11 +50,19 @@
     nodeset: fedora-latest-1vcpu
 
 - job:
+    name: ci-troubleshooting-mattclay
+    run: playbooks/ansible-tox-py38/run.yaml
+    timeout: 7200
+    nodeset: fedora-37
+
+
+- job:
     name: ansible-tox-py38
     parent: tox-py38
     pre-run: playbooks/ansible-tox-py38/pre.yaml
+    run: playbooks/build-ansible-collection/run.yaml
     timeout: 3600
-    nodeset: ansible-tox-py38
+    nodeset: fedora-37
 
 - job:
     name: ansible-tox-py39

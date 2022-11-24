@@ -467,7 +467,7 @@
     required-projects:
       - name: github.com/ansible-collections/kubernetes.core
       - name: github.com/ansible/ansible
-        override-checkout: stable-2.12
+        override-checkout: stable-2.13
     vars:
       ansible_collections_repo: github.com/ansible-collections/kubernetes.core
 

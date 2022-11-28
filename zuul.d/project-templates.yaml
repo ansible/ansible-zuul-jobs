@@ -1539,7 +1539,6 @@
         - ansible-test-sanity-docker-stable-2.14
         - ansible-test-units-cloud-terraform-python38
         - ansible-test-changelog
-        - ansible-galaxy-importer:
-            voting: false
+        - ansible-galaxy-importer
     gate:
       jobs: *ansible-collections-cloud-terraform-units-jobs

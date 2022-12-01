@@ -1,3 +1,4 @@
+---
 - hosts: all
   tasks:
     - name: Get current Terraform version
@@ -12,7 +13,7 @@
 
     - name: Install Terraform
       unarchive:
-        remote_src: yes
+        remote_src: true
         src: "{{ download_url }}/terraform_{{ current_version }}_linux_amd64.zip"
         dest: /usr/local/bin
       become: true

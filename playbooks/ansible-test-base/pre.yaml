@@ -82,3 +82,7 @@
     - name: Fetch and install the artifacts
       import_role:
         name: deploy-artifacts
+
+    - name: podman may need iptables kernel modules
+      command: modprobe ip_tables
+      become: true

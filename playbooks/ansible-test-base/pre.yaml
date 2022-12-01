@@ -67,6 +67,9 @@
       shell: '~/venv/bin/pip install {{ _selinux_package }} "setuptools<50.0.0"'
       when: ansible_os_family == "RedHat"
 
+    - name: Install pytest-forked into virtualenv
+      shell: '~/venv/bin/pip install pytest-forked'
+
     - name: Ensure pip temp directory exists in /var/tmp
       file:
         state: directory

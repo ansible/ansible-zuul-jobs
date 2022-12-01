@@ -1659,6 +1659,7 @@
         - ansible-test-sanity-docker-stable-2.13
         - ansible-test-sanity-docker-stable-2.14
         - ansible-test-units-cloud-terraform-python38
+        - ansible-test-integration-cloud-terraform
         - ansible-test-changelog
         - ansible-galaxy-importer
     gate:

@@ -648,6 +648,20 @@
     vars:
       ansible_collections_repo: github.com/ansible-collections/cloud.terraform
 
+- job:
+    name: ansible-test-integration-cloud-terraform
+    parent: ansible-core-ci-aws-session
+    pre-run:
+      - playbooks/ansible-cloud/terraform/pre.yaml
+    run: playbooks/ansible-test-base/run.yaml
+    dependencies:
+      - name: build-ansible-collection
+    required-projects:
+      - name: github.com/ansible/ansible
+    vars:
+      ansible_test_command: integration
+      ansible_test_python: 3.9
+
 ### Gouttelette
 - job:
     name: ansible-test-units-gouttelette-python39

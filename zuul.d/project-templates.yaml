@@ -1543,3 +1543,19 @@
         - ansible-galaxy-importer
     gate:
       jobs: *ansible-collections-cloud-terraform-units-jobs
+
+- project-template:
+    name: ansible-collections-cloud-gouttelette-units
+    check:
+      jobs: &ansible-collections-cloud-gouttelette-units-jobs
+        - build-ansible-collection
+        - ansible-test-sanity-docker-devel
+        - ansible-test-sanity-docker-milestone:
+            voting: false
+        - ansible-test-sanity-docker-stable-2.13
+        - ansible-test-sanity-docker-stable-2.14
+        - ansible-test-units-gouttelette-python39
+        - ansible-test-changelog
+        - ansible-galaxy-importer
+    gate:
+      jobs: *ansible-collections-cloud-gouttelette-units-jobs

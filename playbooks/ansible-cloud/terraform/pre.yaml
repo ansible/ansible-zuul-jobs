@@ -1,19 +1,14 @@
 ---
 - hosts: all
   tasks:
-    - name: Get current Terraform version
-      uri:
-        url: https://checkpoint-api.hashicorp.com/v1/check/terraform
-      register: response
-
-    - name: Set current Terraform version and download url
-      set_fact:
-        current_version: "{{ response.json.current_version }}"
-        download_url: "{{ response.json.current_download_url }}"
+    - name: Add hashicorp repo
+      yum_repository:
+        name: hashicorp
+        description: hashicorp rpm repo
+        baseurl: https://rpm.releases.hashicorp.com/$release/hashicorp.repo
+      become: true
 
     - name: Install Terraform
-      unarchive:
-        remote_src: true
-        src: "{{ download_url }}/terraform_{{ current_version }}_linux_amd64.zip"
-        dest: /usr/local/bin
+      package:
+        name: terraform
       become: true

@@ -603,6 +603,14 @@
         - name: container
           label: zuul-worker-f37
 
+- job:
+    name: cloud-tox-mypy
+    run: playbooks/ansible-cloud/cloud-tox-pypy/run.yaml
+    nodeset:
+      nodes:
+        - name: container
+          label: zuul-worker-f37
+
 ### Cloud.Terraform
 - job:
     name: ansible-test-units-cloud-terraform-python38

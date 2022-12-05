@@ -1550,6 +1550,7 @@
       jobs: &ansible-collections-cloud-gouttelette-units-jobs
         - ansible-test-units-gouttelette-python39
         - cloud-tox-py3
+        - cloud-tox-mypy
         - ansible-test-changelog
     gate:
       jobs: *ansible-collections-cloud-gouttelette-units-jobs

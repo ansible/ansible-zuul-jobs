@@ -1548,7 +1548,6 @@
     name: ansible-collections-cloud-gouttelette-units
     check:
       jobs: &ansible-collections-cloud-gouttelette-units-jobs
-        - ansible-test-units-gouttelette-python39
         - cloud-tox-py3
         - ansible-test-changelog
     gate:

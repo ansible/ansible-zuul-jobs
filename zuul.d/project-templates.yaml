@@ -1548,15 +1548,8 @@
     name: ansible-collections-cloud-gouttelette-units
     check:
       jobs: &ansible-collections-cloud-gouttelette-units-jobs
-        - build-ansible-collection
-        - ansible-test-sanity-docker-devel
-        - ansible-test-sanity-docker-milestone:
-            voting: false
-        - ansible-test-sanity-docker-stable-2.13
-        - ansible-test-sanity-docker-stable-2.14
         - ansible-test-units-gouttelette-python39
         - cloud-tox-py3
         - ansible-test-changelog
-        - ansible-galaxy-importer
     gate:
       jobs: *ansible-collections-cloud-gouttelette-units-jobs

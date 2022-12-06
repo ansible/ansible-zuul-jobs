@@ -638,3 +638,31 @@
         - tests/unit/requirements.txt
       ansible_test_constraint_files:
         - tests/unit/constraints.txt
+
+- job:
+    name: tox-cloud-generate-vmware
+    parent: tox
+    description: |
+      Used by vmare_rest_code_genate and amazon_cloud_code_generator to validate the
+      module generation.
+    required-projects:
+      - name: github.com/ansible-collections/vmware_rest_code_generator
+      - name: github.com/ansible-collections/gouttelette
+    nodeset: container-ansible
+    vars:
+      tox_envlist: generate
+      zuul_work_dir: "~/{{ zuul.projects['github.com/ansible-collections/vmware_rest_code_generator'].src_dir }}"
+
+- job:
+    name: tox-cloud-generate-amazon
+    parent: tox
+    description: |
+      Used by vmare_rest_code_genate and amazon_cloud_code_generator to validate the
+      module generation.
+    required-projects:
+      - name: github.com/ansible-collections/amazon_cloud_code_generator
+      - name: github.com/ansible-collections/gouttelette
+    nodeset: container-ansible
+    vars:
+      tox_envlist: generate
+      zuul_work_dir: "~/{{ zuul.projects['github.com/ansible-collections/amazon_cloud_code_generator'].src_dir }}"

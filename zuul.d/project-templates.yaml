@@ -143,6 +143,7 @@
         - ansible-tox-linters
         - ansible-tox-py38
         - ansible-tox-py39
+        - tox-cloud-generate-amazon
     gate:
       jobs: *ansible-collections-amazon-cloud-generator-jobs
 
@@ -497,6 +498,7 @@
             required-projects:
               - name: github.com/ansible-collections/cloud.common
               - name: github.com/ansible-collections/community.vmware
+        - tox-cloud-generate-vmware
     gate:
       jobs:
         - ansible-test-cloud-integration-vmware-rest
@@ -504,6 +506,7 @@
             required-projects:
               - name: github.com/ansible-collections/cloud.common
               - name: github.com/ansible-collections/community.vmware
+        - tox-cloud-generate-vmware
 
 - project-template:
     name: ansible-collections-community-asa
@@ -1551,5 +1554,8 @@
         - cloud-tox-py3
         - cloud-tox-mypy
         - ansible-test-changelog
+        - tox-cloud-generate-vmware
+        - tox-cloud-generate-amazon
+
     gate:
       jobs: *ansible-collections-cloud-gouttelette-units-jobs

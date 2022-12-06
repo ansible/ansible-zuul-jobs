@@ -1,0 +1,8 @@
+---
+- hosts: all
+  gather_facts: false
+  tasks:
+    - name: Run mypy with tox
+      command: tox -e mypy
+      args:
+        chdir: "~//{{ zuul.project.src_dir }}"

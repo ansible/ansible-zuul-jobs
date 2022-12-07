@@ -663,7 +663,6 @@
       - name: github.com/ansible-collections/amazon_cloud_code_generator
       - name: github.com/ansible-collections/gouttelette
     nodeset: container-ansible
-    voting: false
     vars:
       tox_envlist: generate
       zuul_work_dir: "~/{{ zuul.projects['github.com/ansible-collections/amazon_cloud_code_generator'].src_dir }}"

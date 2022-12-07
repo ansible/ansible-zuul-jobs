@@ -677,3 +677,29 @@
         override-checkout: stable-2.14
     vars:
       ansible_collections_repo: github.com/ansible-collections/pravic
+
+- job:
+    name: tox-cloud-refresh-examples-vmware
+    parent: tox
+    description: |
+      Refresh the example using gouttelette.
+    required-projects:
+      - name: github.com/ansible-collections/vmware.vmware_rest
+      - name: github.com/ansible-collections/gouttelette
+    nodeset: container-ansible
+    vars:
+      tox_envlist: refresh-examples
+      zuul_work_dir: "~/{{ zuul.projects['github.com/ansible-collections/vmware.vmware_rest'].src_dir }}"
+
+- job:
+    name: tox-cloud-refresh-examples-amazon
+    parent: tox
+    description: |
+      Refresh the example using gouttelette.
+    required-projects:
+      - name: github.com/ansible-collections/amazon.cloud
+      - name: github.com/ansible-collections/gouttelette
+    nodeset: container-ansible
+    vars:
+      tox_envlist: refresh-examples
+      zuul_work_dir: "~/{{ zuul.projects['github.com/ansible-collections/amazon.cloud'].src_dir }}"

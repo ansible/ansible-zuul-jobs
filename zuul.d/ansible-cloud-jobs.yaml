@@ -666,3 +666,14 @@
     vars:
       tox_envlist: generate
       zuul_work_dir: "~/{{ zuul.projects['github.com/ansible-collections/amazon_cloud_code_generator'].src_dir }}"
+
+### Pravic
+- job:
+    name: ansible-test-units-cloud-pravic-python39
+    parent: ansible-test-units-base-python39
+    required-projects:
+      - name: github.com/ansible-collections/pravic
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.14
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/pravic

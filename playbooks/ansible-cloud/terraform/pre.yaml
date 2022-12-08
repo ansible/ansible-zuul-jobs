@@ -10,5 +10,6 @@
 
     - name: Install Terraform
       package:
+        update_cache: true
         name: terraform
       become: true

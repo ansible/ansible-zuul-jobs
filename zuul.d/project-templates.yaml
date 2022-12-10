@@ -129,6 +129,7 @@
               - name: github.com/ansible-collections/amazon.aws
               - name: github.com/ansible-collections/community.aws
               - name: github.com/ansible-collections/community.crypto
+        - tox-cloud-refresh-examples-amazon
     gate:
       queue: integrated-aws
       jobs: *ansible-collections-amazon-cloud-jobs
@@ -475,6 +476,7 @@
         - ansible-test-sanity-docker-stable-2.12
         - ansible-test-sanity-docker-stable-2.13
         - ansible-test-sanity-docker-stable-2.14
+        - tox-cloud-refresh-examples-vmware
     gate:
       jobs: *ansible-collections-community-vmware-rest-jobs
     periodic:
@@ -1558,6 +1560,13 @@
         - ansible-test-changelog
         - tox-cloud-generate-vmware
         - tox-cloud-generate-amazon
+        - tox-cloud-refresh-examples-vmware:
+            # Voting false to avoid the situation where a change break the CI
+            # on one side which prevent the merge of a fix on another side.
+            voting: false
+        - tox-cloud-refresh-examples-amazon:
+            # The same.
+            voting: false
 
     gate:
       jobs: *ansible-collections-cloud-gouttelette-units-jobs

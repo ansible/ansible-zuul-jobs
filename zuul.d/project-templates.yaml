@@ -502,7 +502,6 @@
               - name: github.com/ansible-collections/cloud.common
               - name: github.com/ansible-collections/community.vmware
         - tox-cloud-generate-vmware
-        - ansible-tox-py38
         - ansible-tox-py39
     gate:
       jobs:
@@ -513,7 +512,6 @@
               - name: github.com/ansible-collections/cloud.common
               - name: github.com/ansible-collections/community.vmware
         - tox-cloud-generate-vmware
-        - ansible-tox-py38
         - ansible-tox-py39
 
 - project-template:

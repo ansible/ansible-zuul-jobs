@@ -197,14 +197,6 @@
       ansible_test_python: 3.9
 
 - job:
-    name: ansible-test-units-base-python39
-    parent: ansible-test-units-base
-    nodeset: fedora-35-1vcpu
-    abstract: true
-    vars:
-      ansible_test_python: 3.9
-
-- job:
     name: ansible-test-units-base-python27
     parent: ansible-test-units-base
     nodeset: controller-node

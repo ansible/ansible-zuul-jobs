@@ -291,6 +291,20 @@
         - tests/unit/constraints.txt
 
 - job:
+    name: ansible-test-units-amazon-aws-python310
+    parent: ansible-test-units-base-python310
+    vars:
+      ansible_collections_repo: "{{ zuul.project.canonical_name }}"
+      ansible_test_requirement_files:
+        - requirements.txt
+        - test-requirements.txt
+        # Ansible-test picks up requirements and constraints from
+        # tests/unit when running in docker, mirror this
+        - tests/unit/requirements.txt
+      ansible_test_constraint_files:
+        - tests/unit/constraints.txt
+
+- job:
     name: ansible-test-units-amazon-cloud-python38
     parent: ansible-test-units-base-python38
     vars:

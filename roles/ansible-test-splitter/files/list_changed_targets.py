@@ -67,15 +67,20 @@ def read_collection_name(path):
         return f'{content["namespace"]}.{content["name"]}'
 
 
-def list_pyimport(prefix, module_content):
+def list_pyimport(prefix, subdir, module_content):
     root = ast.parse(module_content)
     for node in ast.walk(root):
         if isinstance(node, ast.Import) and node.names[0].name.startswith(prefix):
             yield node.names[0].name
         elif isinstance(node, ast.ImportFrom):
             module = node.module.split(".")
-            prefix = prefix if node.level == 2 else ""
-            yield f"{prefix}{'.'.join(module)}"
+            if node.level == 1:
+                current_prefix = f"{prefix}{subdir}."
+            elif node.level == 2:
+                current_prefix = f"{prefix}"
+            else:
+                current_prefix = ""
+            yield f"{current_prefix}{'.'.join(module)}"
 
 
 def build_import_tree(collection_path, collection_name, collections_names):
@@ -129,7 +134,7 @@ def build_import_tree(collection_path, collection_name, collections_names):
     all_prefixes = [f"ansible_collections.{n}.plugins." for n in collections_names]
     utils_to_visit = []
     for mod in collection_path.glob("plugins/modules/*"):
-        for i in list_pyimport(prefix, mod.read_text()):
+        for i in list_pyimport(prefix, "modules", mod.read_text()):
             if (
                 any(i.startswith(p) for p in all_prefixes)
                 and i not in modules_import[mod.stem]
@@ -152,7 +157,7 @@ def build_import_tree(collection_path, collection_name, collections_names):
                 )
                 + ".py"
             )
-            for i in list_pyimport(prefix, utils_path.read_text()):
+            for i in list_pyimport(prefix, "module_utils", utils_path.read_text()):
                 if i.startswith(prefix) and i not in utils_import[utils]:
                     utils_import[utils].append(i)
                     if i not in visited:

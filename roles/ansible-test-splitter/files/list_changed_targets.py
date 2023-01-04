@@ -153,8 +153,8 @@ def build_import_tree(collection_path, collection_name, collections_names):
                 + ".py"
             )
             for i in list_pyimport(prefix, utils_path.read_text()):
-                if i.startswith(prefix) and utils not in utils_import[i]:
-                    utils_import[i].append(utils)
+                if i.startswith(prefix) and i not in utils_import[utils]:
+                    utils_import[utils].append(i)
                     if i not in visited:
                         utils_to_visit.append(i)
         except:

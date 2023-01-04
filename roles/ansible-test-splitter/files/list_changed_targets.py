@@ -70,7 +70,7 @@ def read_collection_name(path):
 def list_pyimport(prefix, subdir, module_content):
     root = ast.parse(module_content)
     for node in ast.walk(root):
-        if isinstance(node, ast.Import) and node.names[0].name.startswith(prefix):
+        if isinstance(node, ast.Import):
             yield node.names[0].name
         elif isinstance(node, ast.ImportFrom):
             module = node.module.split(".")

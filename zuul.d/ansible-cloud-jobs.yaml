@@ -362,6 +362,11 @@
       ansible_test_sanity_skiptests:
         - 'future-import-boilerplate'
         - 'metaclass-boilerplate'
+    branches:
+      - stable-3
+      - stable-4
+      - stable-5
+      - main
 
 - job:
     name: ansible-test-sanity-aws-ansible-2.13-python38
@@ -370,6 +375,10 @@
       ansible_test_sanity_skiptests:
         - 'future-import-boilerplate'
         - 'metaclass-boilerplate'
+    branches:
+      - stable-4
+      - stable-5
+      - main
 
 - job:
     name: ansible-test-sanity-aws-ansible-2.14
@@ -378,6 +387,9 @@
       ansible_test_sanity_skiptests:
         - 'future-import-boilerplate'
         - 'metaclass-boilerplate'
+    branches:
+      - stable-5
+      - main
 
 ### Cloud Common
 - job:

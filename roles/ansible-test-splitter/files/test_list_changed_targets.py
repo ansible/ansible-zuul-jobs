@@ -65,14 +65,18 @@ def test_list_pyimport():
     ]
 
     assert list(
-        list_pyimport("ansible_collections.kubernetes.core.plugins.", "modules", my_module_2)
+        list_pyimport(
+            "ansible_collections.kubernetes.core.plugins.", "modules", my_module_2
+        )
     ) == [
         "ansible_collections.kubernetes.core.plugins.module_utils.k8sdynamicclient",
         "ansible_collections.kubernetes.core.plugins.module_utils.common",
     ]
 
     assert list(
-        list_pyimport("ansible_collections.amazon.aws.plugins.", "module_utils", my_module_3)
+        list_pyimport(
+            "ansible_collections.amazon.aws.plugins.", "module_utils", my_module_3
+        )
     ) == [
         "ansible_collections.amazon.aws.plugins.module_utils.modules",
         "ipaddress",

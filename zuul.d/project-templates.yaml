@@ -1566,16 +1566,14 @@
             # Nonvoting until the type hinting errors on the migrated code are fixed
             voting: false
         - ansible-test-changelog
-        - tox-cloud-generate-vmware
-        - tox-cloud-generate-amazon
-        - tox-cloud-refresh-examples-vmware:
-            # Voting false to avoid the situation where a change break the CI
-            # on one side which prevent the merge of a fix on another side.
+        - tox-cloud-refresh-modules-vmware
+        - tox-cloud-refresh-modules-amazon
+        - tox-cloud-refresh-examples-vmware
+        - tox-cloud-refresh-examples-amazon
+        - tox-cloud-generate-vmware:
             voting: false
-        - tox-cloud-refresh-examples-amazon:
-            # The same.
+        - tox-cloud-generate-amazon:
             voting: false
-
     gate:
       jobs: *ansible-collections-cloud-gouttelette-units-jobs
 

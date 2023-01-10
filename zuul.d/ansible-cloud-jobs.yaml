@@ -733,3 +733,31 @@
       tox_envlist: refresh-examples
       tox_package_name: amazon_cloud
       zuul_work_dir: "~/{{ zuul.projects['github.com/ansible-collections/amazon.cloud'].src_dir }}"
+
+- job:
+    name: tox-cloud-refresh-modules-vmware
+    parent: tox
+    description: |
+      Refresh the modules using gouttelette.
+    required-projects:
+      - name: github.com/ansible-collections/vmware.vmware_rest
+      - name: github.com/ansible-collections/gouttelette
+    nodeset: container-ansible
+    vars:
+      tox_envlist: refresh-modules
+      tox_package_name: vmware_rest
+      zuul_work_dir: "~/{{ zuul.projects['github.com/ansible-collections/vmware.vmware_rest'].src_dir }}"
+
+- job:
+    name: tox-cloud-refresh-modules-amazon
+    parent: tox
+    description: |
+      Refresh the example using gouttelette.
+    required-projects:
+      - name: github.com/ansible-collections/amazon.cloud
+      - name: github.com/ansible-collections/gouttelette
+    nodeset: container-ansible
+    vars:
+      tox_envlist: refresh-modules
+      tox_package_name: amazon_cloud
+      zuul_work_dir: "~/{{ zuul.projects['github.com/ansible-collections/amazon.cloud'].src_dir }}"

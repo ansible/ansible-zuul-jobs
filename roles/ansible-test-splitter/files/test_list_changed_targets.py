@@ -38,6 +38,13 @@ def main():
     k8s_ansible_mixin = K8sAnsibleMixin(module)
 """
 
+my_module_3 = """
+from .modules import AnsibleAWSModule
+from ipaddress import ipaddress
+import time
+import botocore.exceptions
+"""
+
 
 def test_read_collection_name():
     m_galaxy_file = MagicMock()
@@ -49,7 +56,7 @@ def test_read_collection_name():
 
 def test_list_pyimport():
     assert list(
-        list_pyimport("ansible_collections.amazon.aws.plugins.", my_module)
+        list_pyimport("ansible_collections.amazon.aws.plugins.", "modules", my_module)
     ) == [
         "ansible_collections.amazon.aws.plugins.module_utils.core",
         "ipaddress",
@@ -58,10 +65,23 @@ def test_list_pyimport():
     ]
 
     assert list(
-        list_pyimport("ansible_collections.kubernetes.core.plugins.", my_module_2)
+        list_pyimport(
+            "ansible_collections.kubernetes.core.plugins.", "modules", my_module_2
+        )
     ) == [
         "ansible_collections.kubernetes.core.plugins.module_utils.k8sdynamicclient",
         "ansible_collections.kubernetes.core.plugins.module_utils.common",
+    ]
+
+    assert list(
+        list_pyimport(
+            "ansible_collections.amazon.aws.plugins.", "module_utils", my_module_3
+        )
+    ) == [
+        "ansible_collections.amazon.aws.plugins.module_utils.modules",
+        "ipaddress",
+        "time",
+        "botocore.exceptions",
     ]
 
 

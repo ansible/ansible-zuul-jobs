@@ -744,7 +744,7 @@
       - name: github.com/ansible-collections/gouttelette
     nodeset: container-ansible
     vars:
-      tox_envlist: refresh-modules
+      tox_envlist: refresh_modules
       tox_package_name: vmware_rest
       zuul_work_dir: "~/{{ zuul.projects['github.com/ansible-collections/vmware.vmware_rest'].src_dir }}"
 
@@ -758,6 +758,6 @@
       - name: github.com/ansible-collections/gouttelette
     nodeset: container-ansible
     vars:
-      tox_envlist: refresh-modules
+      tox_envlist: refresh_modules
       tox_package_name: amazon_cloud
       zuul_work_dir: "~/{{ zuul.projects['github.com/ansible-collections/amazon.cloud'].src_dir }}"

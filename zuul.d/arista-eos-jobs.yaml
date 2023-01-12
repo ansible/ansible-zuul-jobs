@@ -25,6 +25,15 @@
     post-run:
       - playbooks/ansible-test-network-integration-base/post.yaml
       - playbooks/ansible-test-base/post.yaml
+    required-projects:
+      - name: github.com/ansible/ansible
+      - name: github.com/ansible-collections/arista.eos
+    timeout: 10800
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/arista.eos
+      ansible_test_command: network-integration
+      ansible_test_integration_targets: "eos_.*"
+      ansible_test_fips_mode: true
 
 - job:
     name: ansible-test-network-integration-eos-httpapi

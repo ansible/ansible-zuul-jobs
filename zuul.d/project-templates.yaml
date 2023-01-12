@@ -312,18 +312,29 @@
     name: ansible-collections-arista-eos
     check:
       jobs: &ansible-collections-arista-eos-jobs
-        - ansible-ee-integration-arista-eos-latest
-        - ansible-ee-integration-arista-eos-stable-2.9
-        - ansible-ee-integration-arista-eos-stable-2.11
-        - ansible-ee-integration-arista-eos-stable-2.12
-        - ansible-ee-integration-arista-eos-httpapi-latest
-        - ansible-ee-integration-arista-eos-httpapi-stable-2.9
-        - ansible-ee-integration-arista-eos-httpapi-stable-2.11
-        - ansible-ee-integration-arista-eos-httpapi-stable-2.12
-        - ansible-ee-integration-arista-eos-libssh-latest
-        - ansible-ee-integration-arista-eos-libssh-stable-2.9
-        - ansible-ee-integration-arista-eos-libssh-stable-2.11
-        - ansible-ee-integration-arista-eos-libssh-stable-2.12
+        - ansible-test-network-integration-eos-httpapi-python39
+        - ansible-test-network-integration-eos-httpapi-python39-stable214
+        - ansible-test-network-integration-eos-httpapi-python39-stable213
+        - ansible-test-network-integration-eos-httpapi-python39-stable212
+        - ansible-test-network-integration-eos-httpapi-python39-stable211
+        - ansible-test-network-integration-eos-network_cli-python39
+        - ansible-test-network-integration-eos-network_cli-libssh-python39
+        - ansible-test-network-integration-eos-network_cli-python39-stable214-scenario01
+        - ansible-test-network-integration-eos-network_cli-python39-stable214-scenario02
+        - ansible-test-network-integration-eos-network_cli-libssh-python39-stable214-scenario01
+        - ansible-test-network-integration-eos-network_cli-libssh-python39-stable214-scenario02
+        - ansible-test-network-integration-eos-network_cli-python39-stable213-scenario01
+        - ansible-test-network-integration-eos-network_cli-python39-stable213-scenario02
+        - ansible-test-network-integration-eos-network_cli-libssh-python39-stable213-scenario01
+        - ansible-test-network-integration-eos-network_cli-libssh-python39-stable213-scenario02
+        - ansible-test-network-integration-eos-network_cli-python39-stable212-scenario01
+        - ansible-test-network-integration-eos-network_cli-python39-stable212-scenario02
+        - ansible-test-network-integration-eos-network_cli-libssh-python39-stable212-scenario01
+        - ansible-test-network-integration-eos-network_cli-libssh-python39-stable212-scenario02
+        - ansible-test-network-integration-eos-network_cli-python39-stable211-scenario01
+        - ansible-test-network-integration-eos-network_cli-python39-stable211-scenario02
+        - ansible-test-network-integration-eos-network_cli-libssh-python39-stable211-scenario01
+        - ansible-test-network-integration-eos-network_cli-libssh-python39-stable211-scenario02
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-collections/ansible.netcommon

@@ -744,19 +744,9 @@
               ansible_test_integration_targets: "junos_.*"
         - ansible-ee-integration-cisco-nxos-cli-python39-latest:
             voting: false
-        - ansible-ee-integration-arista-eos-latest
-        - ansible-ee-integration-arista-eos-stable-2.9
-        - ansible-ee-integration-arista-eos-stable-2.11
-        - ansible-ee-integration-arista-eos-stable-2.12
-        - ansible-ee-integration-arista-eos-httpapi-latest
-        - ansible-ee-integration-arista-eos-httpapi-stable-2.9:
-            voting: false
-        - ansible-ee-integration-arista-eos-httpapi-stable-2.11
-        - ansible-ee-integration-arista-eos-httpapi-stable-2.12
-        - ansible-ee-integration-arista-eos-libssh-latest
-        - ansible-ee-integration-arista-eos-libssh-stable-2.9
-        - ansible-ee-integration-arista-eos-libssh-stable-2.11
-        - ansible-ee-integration-arista-eos-libssh-stable-2.12
+        - ansible-test-network-integration-eos-network_cli-python39
+        - ansible-test-network-integration-eos-httpapi-python39
+        - ansible-test-network-integration-eos-network_cli-libssh-python39
         - ansible-ee-integration-ios-latest
         - ansible-ee-integration-ios-stable-2.9
         - ansible-ee-integration-ios-stable-2.11
@@ -804,11 +794,10 @@
               ansible_test_integration_targets: "junos_.*"
         - ansible-ee-integration-cisco-nxos-cli-python39-latest:
             voting: false
-        - ansible-ee-integration-arista-eos-latest
-        - ansible-ee-integration-arista-eos-httpapi-stable-2.9:
-            voting: false
-        - ansible-ee-integration-arista-eos-libssh-latest
-        - ansible-ee-integration-arista-eos-libssh-stable-2.9
+        - ansible-test-network-integration-eos-network_cli-python39
+        - ansible-test-network-integration-eos-network_cli-libssh-python39
+        - ansible-test-network-integration-eos-network_cli-libssh-python39-stable211-scenario01
+        - ansible-test-network-integration-eos-network_cli-libssh-python39-stable211-scenario02
         - ansible-ee-integration-ios-latest
         - ansible-ee-integration-ios-stable-2.11
         - ansible-ee-integration-ios-libssh-latest

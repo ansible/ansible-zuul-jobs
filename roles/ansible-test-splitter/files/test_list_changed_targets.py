@@ -91,6 +91,8 @@ def test_what_changed_files():
     whc.changed_files = lambda: [
         PosixPath("tests/something"),
         PosixPath("plugins/module_utils/core.py"),
+        PosixPath("plugins/plugin_utils/base.py"),
+        PosixPath("plugins/connection/aws_ssm.py"),
         PosixPath("plugins/modules/ec2.py"),
         PosixPath("plugins/lookup/aws_test.py"),
         PosixPath("tests/integration/targets/k8s_target_1/action.yaml"),
@@ -98,6 +100,12 @@ def test_what_changed_files():
         PosixPath("tests/integration/targets/k8s_target_3/tasks/main.yaml"),
     ]
     assert list(whc.modules()) == [PosixPath("plugins/modules/ec2.py")]
+    assert list(whc.plugin_utils()) == [
+        (
+            PosixPath("plugins/plugin_utils/base.py"),
+            "ansible_collections.a.b.plugins.plugin_utils.base",
+        )
+    ]
     assert list(whc.module_utils()) == [
         (
             PosixPath("plugins/module_utils/core.py"),
@@ -110,6 +118,7 @@ def test_what_changed_files():
         "k8s_target_2",
         "k8s_target_3",
     ]
+    assert list(whc.connection()) == [PosixPath("plugins/connection/aws_ssm.py")]
 
 
 def build_collection(aliases):

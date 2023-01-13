@@ -3,24 +3,12 @@
 ## ansible-ee
 # - network-ee-integration-tests-ios
 - job:
-    name: ansible-ee-integration-ios-latest
-    parent: ansible-ee-tests
+    name: ansible-network-ios-appliance
+    parent: ansible-network-appliance-base
     pre-run:
-      - playbooks/ansible-cloud/py38/pre.yaml
-      - playbooks/ansible-ee/integration/pre.yaml
-      # Ensure we install the bindeps
       - playbooks/ansible-network-appliance-base/pre.yaml
       - playbooks/ansible-network-ios-appliance/pre.yaml
-    run: playbooks/ansible-ee/integration/run.yaml
-    vars:
-      ansible_runner_container_version: latest
-      container_image_tests:
-        - integration
-      test_ansible_ssh_private_key_file: ~/.ssh/id_ecdsa
-      test_ansible_network_cli_ssh_type: paramiko
-      test_ansible_python_interpreter: /usr/bin/python3.9
-      test_ansible_skip_tags: local
-      test_fips_mode: false
+    run: playbooks/ansible-network-ios-appliance/run.yaml
     required-projects:
       - name: github.com/ansible/ansible-zuul-jobs
     host-vars:
@@ -28,63 +16,208 @@
         ansible_network_os: ios
     nodeset: ios-15
     voting: false
+
+- job:
+    name: ansible-test-network-integration-ios
+    abstract: true
+    dependencies:
+      - name: build-ansible-collection
+        soft: true
+    parent: ansible-network-ios-appliance
+    pre-run:
+      - playbooks/ansible-test-base/pre.yaml
+      - playbooks/ansible-test-network-integration-base/pre.yaml
+    run: playbooks/ansible-test-base/run.yaml
+    post-run:
+      - playbooks/ansible-test-network-integration-base/post.yaml
+      - playbooks/ansible-test-base/post.yaml
+    required-projects:
+      - name: github.com/ansible/ansible
+      - name: github.com/ansible-collections/cisco.ios
     timeout: 10800
-    files:
-      - ^plugins/.*$
-      - ^tests/integration/.*$
-      - ^requirements.txt
-      - ^bindep.txt
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/cisco.ios
+      ansible_test_command: network-integration
+      ansible_test_integration_targets: "ios_.*"
 
-# - network-ee-integration-tests-ios-stable-2.9
-- job:
-    name: ansible-ee-integration-ios-stable-2.9
-    parent: ansible-ee-integration-ios-latest
-    voting: false
-    vars:
-      test_ansible_python_interpreter: /usr/bin/python3.8
-      ansible_runner_container_version: stable-2.9-devel
-# - network-ee-integration-tests-ios-stable-2.11
-- job:
-    name: ansible-ee-integration-ios-stable-2.11
-    parent: ansible-ee-integration-ios-latest
-    voting: false
-    vars:
-      ansible_runner_container_version: stable-2.11-devel
+# devel
 
-# - network-ee-integration-tests-ios-stable-2.12
 - job:
-    name: ansible-ee-integration-ios-stable-2.12
-    parent: ansible-ee-integration-ios-latest
-    voting: false
+    name: ansible-test-network-integration-ios-cli-python39
+    parent: ansible-test-network-integration-ios
+    nodeset: ios-15
     vars:
-      ansible_runner_container_version: stable-2.12-devel
+      ansible_test_python: 3.9
+      ansible_test_split_in: 4
 
-# - network-ee-integration-tests-ios-libssh
 - job:
-    name: ansible-ee-integration-ios-libssh-latest
-    parent: ansible-ee-integration-ios-latest
+    name: ansible-test-network-integration-ios-cli-python39-scenario01
+    parent: ansible-test-network-integration-ios-cli-python39
     vars:
-      ansible_runner_container_version: latest
-      test_ansible_network_cli_ssh_type: libssh
+      ansible_test_do_number: 1
 
-# - network-ee-integration-tests-ios-libssh-stable-2.9
 - job:
-    name: ansible-ee-integration-ios-libssh-stable-2.9
-    parent: ansible-ee-integration-ios-libssh-latest
+    name: ansible-test-network-integration-ios-cli-python39-scenario02
+    parent: ansible-test-network-integration-ios-cli-python39
     vars:
-      test_ansible_python_interpreter: /usr/bin/python3.8
-      ansible_runner_container_version: stable-2.9-devel
+      ansible_test_do_number: 2
 
-# - network-ee-integration-tests-ios-libssh-stable-2.11
 - job:
-    name: ansible-ee-integration-ios-libssh-stable-2.11
-    parent: ansible-ee-integration-ios-libssh-latest
+    name: ansible-test-network-integration-ios-cli-python39-scenario03
+    parent: ansible-test-network-integration-ios-cli-python39
     vars:
-      ansible_runner_container_version: stable-2.11-devel
+      ansible_test_do_number: 3
 
-# - network-ee-integration-tests-ios-libssh-stable-2.12
 - job:
-    name: ansible-ee-integration-ios-libssh-stable-2.12
-    parent: ansible-ee-integration-ios-libssh-latest
+    name: ansible-test-network-integration-ios-cli-python39-scenario04
+    parent: ansible-test-network-integration-ios-cli-python39
     vars:
-      ansible_runner_container_version: stable-2.12-devel
+      ansible_test_do_number: 4
+
+# stable-2.14
+
+- job:
+    name: ansible-test-network-integration-ios-cli-python39-stable214
+    parent: ansible-test-network-integration-ios
+    nodeset: ios-15
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.14
+    vars:
+      ansible_test_python: 3.9
+      ansible_test_split_in: 4
+
+- job:
+    name: ansible-test-network-integration-ios-cli-python39-stable214-scenario01
+    parent: ansible-test-network-integration-ios-cli-python39-stable214
+    vars:
+      ansible_test_do_number: 1
+
+- job:
+    name: ansible-test-network-integration-ios-cli-python39-stable214-scenario02
+    parent: ansible-test-network-integration-ios-cli-python39-stable214
+    vars:
+      ansible_test_do_number: 2
+
+- job:
+    name: ansible-test-network-integration-ios-cli-python39-stable214-scenario03
+    parent: ansible-test-network-integration-ios-cli-python39-stable214
+    vars:
+      ansible_test_do_number: 3
+
+- job:
+    name: ansible-test-network-integration-ios-cli-python39-stable214-scenario04
+    parent: ansible-test-network-integration-ios-cli-python39-stable214
+    vars:
+      ansible_test_do_number: 4
+
+# stable-2.13
+
+- job:
+    name: ansible-test-network-integration-ios-cli-python39-stable213
+    parent: ansible-test-network-integration-ios
+    nodeset: ios-15
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.13
+    vars:
+      ansible_test_python: 3.9
+      ansible_test_split_in: 4
+
+- job:
+    name: ansible-test-network-integration-ios-cli-python39-stable213-scenario01
+    parent: ansible-test-network-integration-ios-cli-python39-stable213
+    vars:
+      ansible_test_do_number: 1
+
+- job:
+    name: ansible-test-network-integration-ios-cli-python39-stable213-scenario02
+    parent: ansible-test-network-integration-ios-cli-python39-stable213
+    vars:
+      ansible_test_do_number: 2
+
+- job:
+    name: ansible-test-network-integration-ios-cli-python39-stable213-scenario03
+    parent: ansible-test-network-integration-ios-cli-python39-stable213
+    vars:
+      ansible_test_do_number: 3
+
+- job:
+    name: ansible-test-network-integration-ios-cli-python39-stable213-scenario04
+    parent: ansible-test-network-integration-ios-cli-python39-stable213
+    vars:
+      ansible_test_do_number: 4
+
+# stable-2.12
+
+- job:
+    name: ansible-test-network-integration-ios-cli-python39-stable212
+    parent: ansible-test-network-integration-ios
+    nodeset: ios-15
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.12
+    vars:
+      ansible_test_python: 3.9
+      ansible_test_split_in: 4
+
+- job:
+    name: ansible-test-network-integration-ios-cli-python39-stable212-scenario01
+    parent: ansible-test-network-integration-ios-cli-python39-stable212
+    vars:
+      ansible_test_do_number: 1
+
+- job:
+    name: ansible-test-network-integration-ios-cli-python39-stable212-scenario02
+    parent: ansible-test-network-integration-ios-cli-python39-stable212
+    vars:
+      ansible_test_do_number: 2
+
+- job:
+    name: ansible-test-network-integration-ios-cli-python39-stable212-scenario03
+    parent: ansible-test-network-integration-ios-cli-python39-stable212
+    vars:
+      ansible_test_do_number: 3
+
+- job:
+    name: ansible-test-network-integration-ios-cli-python39-stable212-scenario04
+    parent: ansible-test-network-integration-ios-cli-python39-stable212
+    vars:
+      ansible_test_do_number: 4
+
+# stable-2.11
+
+- job:
+    name: ansible-test-network-integration-ios-cli-python39-stable211
+    parent: ansible-test-network-integration-ios
+    nodeset: ios-15
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.11
+    vars:
+      ansible_test_python: 3.9
+      ansible_test_split_in: 4
+
+- job:
+    name: ansible-test-network-integration-ios-cli-python39-stable211-scenario01
+    parent: ansible-test-network-integration-ios-cli-python39-stable211
+    vars:
+      ansible_test_do_number: 1
+
+- job:
+    name: ansible-test-network-integration-ios-cli-python39-stable211-scenario02
+    parent: ansible-test-network-integration-ios-cli-python39-stable211
+    vars:
+      ansible_test_do_number: 2
+
+- job:
+    name: ansible-test-network-integration-ios-cli-python39-stable211-scenario03
+    parent: ansible-test-network-integration-ios-cli-python39-stable211
+    vars:
+      ansible_test_do_number: 3
+
+- job:
+    name: ansible-test-network-integration-ios-cli-python39-stable211-scenario04
+    parent: ansible-test-network-integration-ios-cli-python39-stable211
+    vars:
+      ansible_test_do_number: 4

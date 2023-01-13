@@ -199,38 +199,52 @@ class WhatHaveChanged:
             ]
         return self.files
 
-    def modules(self):
-        """List the modules impacted by the change"""
-        for d in self.changed_files():
-            if str(d).startswith("plugins/modules/"):
-                yield PosixPath(d)
-
-    def inventory(self):
-        """List the inventory plugins impacted by the change"""
-        for d in self.changed_files():
-            if str(d).startswith("plugins/inventory/"):
-                yield PosixPath(d)
-
-    def module_utils(self):
-        """List the Python modules impacted by the change"""
-        for d in self.changed_files():
-            if str(d).startswith("plugins/module_utils/"):
-                yield (
-                    PosixPath(d),
-                    f"ansible_collections.{self.collection_name()}.plugins.module_utils.{d.stem}",
-                )
-
-    def lookup(self):
-        """List the lookup plugins impacted by the change"""
-        for d in self.changed_files():
-            if str(d).startswith("plugins/lookup/"):
-                yield PosixPath(d)
-
     def targets(self):
         """List the test targets impacted by the change"""
         for d in self.changed_files():
             if str(d).startswith("tests/integration/targets/"):
+                # These are a special case, we only care that 'something' changed in that test
                 yield str(d).replace("tests/integration/targets/", "").split("/")[0]
+
+    def _path_matches(self, base_path):
+        # Simplest case, just a file name
+        for d in self.changed_files():
+            if str(d).startswith(base_path):
+                yield PosixPath(d)
+
+    def connection(self):
+        """List the connection plugins impacted by the change"""
+        yield from self._path_matches("plugins/connection/")
+
+    def inventory(self):
+        """List the inventory plugins impacted by the change"""
+        yield from self._path_matches("plugins/inventory/")
+
+    def lookup(self):
+        """List the lookup plugins impacted by the change"""
+        yield from self._path_matches("plugins/lookup/")
+
+    def modules(self):
+        """List the modules impacted by the change"""
+        yield from self._path_matches("plugins/modules/")
+
+    def _util_matches(self, base_path, import_path):
+        # We care about the file, but we also need to find what potential side effects would be for
+        # our change
+        for d in self.changed_files():
+            if str(d).startswith(base_path):
+                yield (
+                    PosixPath(d),
+                    f"ansible_collections.{self.collection_name()}.plugins.{import_path}.{d.stem}",
+                )
+
+    def module_utils(self):
+        """List the Python modules impacted by the change"""
+        yield from self._util_matches("plugins/module_utils/", "module_utils")
+
+    def plugin_utils(self):
+        """List the Python modules impacted by the change"""
+        yield from self._util_matches("plugins/plugin_utils/", "plugin_utils")
 
 
 class Target:
@@ -433,7 +447,9 @@ if __name__ == "__main__":
             changes[whc.collection_name()] = {
                 "modules": [],
                 "inventory": [],
+                "connection": [],
                 "module_utils": [],
+                "plugin_utils": [],
                 "lookup": [],
                 "targets": [],
             }
@@ -445,10 +461,19 @@ if __name__ == "__main__":
                 changes[whc.collection_name()]["inventory"].append(path.stem)
                 for c in collections:
                     c.add_target_to_plan(f"inventory_{path.stem}")
+            for path in whc.connection():
+                changes[whc.collection_name()]["connection"].append(path.stem)
+                for c in collections:
+                    c.add_target_to_plan(f"connection_{path.stem}")
             for path, pymod in whc.module_utils():
                 changes[whc.collection_name()]["module_utils"].append(path.stem)
                 for c in collections:
                     c.add_target_to_plan(f"module_utils_{path.stem}")
+                    c.cover_module_utils(pymod, collections_names)
+            for path, pymod in whc.plugin_utils():
+                changes[whc.collection_name()]["plugin_utils"].append(path.stem)
+                for c in collections:
+                    c.add_target_to_plan(f"plugin_utils_{path.stem}")
                     c.cover_module_utils(pymod, collections_names)
             for path in whc.lookup():
                 changes[whc.collection_name()]["lookup"].append(path.stem)

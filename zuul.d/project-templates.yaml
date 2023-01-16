@@ -789,9 +789,12 @@
               ansible_test_integration_targets: "junos_.*"
         - ansible-ee-integration-cisco-nxos-cli-python39-latest:
             voting: false
-        - ansible-test-network-integration-eos-network_cli-python39
-        - ansible-test-network-integration-eos-httpapi-python39
-        - ansible-test-network-integration-eos-network_cli-libssh-python39
+        - ansible-test-network-integration-eos-network_cli-python39:
+            voting: false
+        - ansible-test-network-integration-eos-httpapi-python39:
+            voting: false
+        - ansible-test-network-integration-eos-network_cli-libssh-python39:
+            voting: false
         - ansible-ee-integration-ios-latest
         - ansible-ee-integration-ios-stable-2.9
         - ansible-ee-integration-ios-stable-2.11
@@ -839,10 +842,14 @@
               ansible_test_integration_targets: "junos_.*"
         - ansible-ee-integration-cisco-nxos-cli-python39-latest:
             voting: false
-        - ansible-test-network-integration-eos-network_cli-python39
-        - ansible-test-network-integration-eos-network_cli-libssh-python39
-        - ansible-test-network-integration-eos-network_cli-libssh-python39-stable211-scenario01
-        - ansible-test-network-integration-eos-network_cli-libssh-python39-stable211-scenario02
+        - ansible-test-network-integration-eos-network_cli-python39:
+            voting: false
+        - ansible-test-network-integration-eos-network_cli-libssh-python39:
+            voting: false
+        - ansible-test-network-integration-eos-network_cli-libssh-python39-stable211-scenario01:
+            voting: false
+        - ansible-test-network-integration-eos-network_cli-libssh-python39-stable211-scenario02:
+            voting: false
         - ansible-ee-integration-ios-latest
         - ansible-ee-integration-ios-stable-2.11
         - ansible-ee-integration-ios-libssh-latest

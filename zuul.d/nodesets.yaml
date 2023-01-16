@@ -411,7 +411,7 @@
     name: ansible-galaxy-importer
     nodes:
       - name: controller
-        label: ansible-fedora-35-1vcpu
+        label: ansible-fedora-37-1vcpu
 
 - nodeset:
     name: ansible-tox-py38

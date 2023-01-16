@@ -64,13 +64,6 @@
     parent: ansible-test-network-integration-vyos-paramiko
 
 - job:
-    name: ansible-test-network-integration-vyos-paramiko-python39-stable211
-    parent: ansible-test-network-integration-vyos-paramiko-python39
-    required-projects:
-      - name: github.com/ansible/ansible
-        override-checkout: stable-2.11
-
-- job:
     name: ansible-test-network-integration-vyos-paramiko-python39-stable212
     parent: ansible-test-network-integration-vyos-paramiko-python39
     required-projects:
@@ -111,13 +104,6 @@
 - job:
     name: ansible-test-network-integration-vyos-libssh-python39
     parent: ansible-test-network-integration-vyos-libssh
-
-- job:
-    name: ansible-test-network-integration-vyos-libssh-python39-stable211
-    parent: ansible-test-network-integration-vyos-libssh-python39
-    required-projects:
-      - name: github.com/ansible/ansible
-        override-checkout: stable-2.11
 
 - job:
     name: ansible-test-network-integration-vyos-libssh-python39-stable212

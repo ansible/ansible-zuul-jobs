@@ -360,14 +360,86 @@
     name: ansible-collections-cisco-ios
     check:
       jobs: &ansible-collections-cisco-ios-jobs
-        - ansible-ee-integration-ios-latest
-        - ansible-ee-integration-ios-stable-2.9
-        - ansible-ee-integration-ios-stable-2.11
-        - ansible-ee-integration-ios-stable-2.12
-        - ansible-ee-integration-ios-libssh-latest
-        - ansible-ee-integration-ios-libssh-stable-2.9
-        - ansible-ee-integration-ios-libssh-stable-2.11
-        - ansible-ee-integration-ios-libssh-stable-2.12
+        - ansible-test-network-integration-ios-cli-python39-scenario01:
+            vars:
+              ansible_test_collections: true
+            voting: false
+        - ansible-test-network-integration-ios-cli-python39-scenario02:
+            vars:
+              ansible_test_collections: true
+            voting: false
+        - ansible-test-network-integration-ios-cli-python39-scenario03:
+            vars:
+              ansible_test_collections: true
+            voting: false
+        - ansible-test-network-integration-ios-cli-python39-scenario04:
+            vars:
+              ansible_test_collections: true
+            voting: false
+        - ansible-test-network-integration-ios-cli-python39-stable214-scenario01:
+            vars:
+              ansible_test_collections: true
+            voting: false
+        - ansible-test-network-integration-ios-cli-python39-stable214-scenario02:
+            vars:
+              ansible_test_collections: true
+            voting: false
+        - ansible-test-network-integration-ios-cli-python39-stable214-scenario03:
+            vars:
+              ansible_test_collections: true
+            voting: false
+        - ansible-test-network-integration-ios-cli-python39-stable214-scenario04:
+            vars:
+              ansible_test_collections: true
+            voting: false
+        - ansible-test-network-integration-ios-cli-python39-stable213-scenario01:
+            vars:
+              ansible_test_collections: true
+            voting: false
+        - ansible-test-network-integration-ios-cli-python39-stable213-scenario02:
+            vars:
+              ansible_test_collections: true
+            voting: false
+        - ansible-test-network-integration-ios-cli-python39-stable213-scenario03:
+            vars:
+              ansible_test_collections: true
+            voting: false
+        - ansible-test-network-integration-ios-cli-python39-stable213-scenario04:
+            vars:
+              ansible_test_collections: true
+            voting: false
+        - ansible-test-network-integration-ios-cli-python39-stable212-scenario01:
+            vars:
+              ansible_test_collections: true
+            voting: false
+        - ansible-test-network-integration-ios-cli-python39-stable212-scenario02:
+            vars:
+              ansible_test_collections: true
+            voting: false
+        - ansible-test-network-integration-ios-cli-python39-stable212-scenario03:
+            vars:
+              ansible_test_collections: true
+            voting: false
+        - ansible-test-network-integration-ios-cli-python39-stable212-scenario04:
+            vars:
+              ansible_test_collections: true
+            voting: false
+        - ansible-test-network-integration-ios-cli-python39-stable211-scenario01:
+            vars:
+              ansible_test_collections: true
+            voting: false
+        - ansible-test-network-integration-ios-cli-python39-stable211-scenario02:
+            vars:
+              ansible_test_collections: true
+            voting: false
+        - ansible-test-network-integration-ios-cli-python39-stable211-scenario03:
+            vars:
+              ansible_test_collections: true
+            voting: false
+        - ansible-test-network-integration-ios-cli-python39-stable211-scenario04:
+            vars:
+              ansible_test_collections: true
+            voting: false
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-collections/ansible.netcommon
@@ -384,6 +456,7 @@
         - ansible-test-sanity-docker-stable-2.10
         - ansible-test-sanity-docker-stable-2.11
         - ansible-test-sanity-docker-stable-2.12
+        - ansible-test-sanity-docker-stable-2.13
         - build-ansible-collection
 
 - project-template:
@@ -697,14 +770,21 @@
         - ansible-ee-integration-arista-eos-libssh-stable-2.9
         - ansible-ee-integration-arista-eos-libssh-stable-2.11
         - ansible-ee-integration-arista-eos-libssh-stable-2.12
-        - ansible-ee-integration-ios-latest
-        - ansible-ee-integration-ios-stable-2.9
-        - ansible-ee-integration-ios-stable-2.11
-        - ansible-ee-integration-ios-stable-2.12
-        - ansible-ee-integration-ios-libssh-latest
-        - ansible-ee-integration-ios-libssh-stable-2.9
-        - ansible-ee-integration-ios-libssh-stable-2.11
-        - ansible-ee-integration-ios-libssh-stable-2.12
+        - ansible-test-network-integration-ios-cli-python39-scenario01:
+            vars:
+              ansible_test_collections: true
+            voting: false
+        - ansible-test-network-integration-ios-cli-python39-scenario02:
+            vars:
+              ansible_test_collections: true
+            voting: false
+        - ansible-test-network-integration-ios-cli-python39-scenario03:
+            vars:
+              ansible_test_collections: true
+            voting: false
+        - ansible-test-network-integration-ios-cli-python39-scenario04:
+            vars:
+              ansible_test_collections: true
         - ansible-ee-integration-vyos-latest
         - ansible-ee-integration-vyos-libssh-latest
         - build-ansible-collection:
@@ -763,10 +843,21 @@
             voting: false
         - ansible-ee-integration-arista-eos-libssh-latest
         - ansible-ee-integration-arista-eos-libssh-stable-2.9
-        - ansible-ee-integration-ios-latest
-        - ansible-ee-integration-ios-stable-2.11
-        - ansible-ee-integration-ios-libssh-latest
-        - ansible-ee-integration-ios-libssh-stable-2.11
+        - ansible-test-network-integration-ios-cli-python39-scenario01:
+            vars:
+              ansible_test_collections: true
+            voting: false
+        - ansible-test-network-integration-ios-cli-python39-scenario02:
+            vars:
+              ansible_test_collections: true
+            voting: false
+        - ansible-test-network-integration-ios-cli-python39-scenario03:
+            vars:
+              ansible_test_collections: true
+            voting: false
+        - ansible-test-network-integration-ios-cli-python39-scenario04:
+            vars:
+              ansible_test_collections: true
         - ansible-ee-integration-vyos-latest
         - ansible-ee-integration-vyos-libssh-latest
         - build-ansible-collection:

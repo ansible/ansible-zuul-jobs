@@ -236,7 +236,7 @@
       - name: github.com/ansible/ansible
       - name: github.com/ansible-collections/amazon.aws
     timeout: 3600
-    nodeset: fedora-35-1vcpu
+    nodeset: container-ansible
     vars:
       ansible_test_command: integration
       ansible_test_python: 3.9

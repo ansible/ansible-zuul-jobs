@@ -187,37 +187,37 @@
 # stable-2.11
 
 - job:
-    name: ansible-test-network-integration-nxos-cli-python39-stable211
+    name: ansible-test-network-integration-nxos-cli-python39-stable29
     parent: ansible-test-network-integration-nxos
     nodeset: nxos-9
     required-projects:
       - name: github.com/ansible/ansible
-        override-checkout: stable-2.11
+        override-checkout: stable-2.9
     vars:
       ansible_test_python: 3.9
       ansible_test_skip_tags: local,nxapi
       ansible_test_split_in: 4
 
 - job:
-    name: ansible-test-network-integration-nxos-cli-python39-stable211-scenario01
-    parent: ansible-test-network-integration-nxos-cli-python39-stable211
+    name: ansible-test-network-integration-nxos-cli-python39-stable29-scenario01
+    parent: ansible-test-network-integration-nxos-cli-python39-stable29
     vars:
       ansible_test_do_number: 1
 
 - job:
-    name: ansible-test-network-integration-nxos-cli-python39-stable211-scenario02
-    parent: ansible-test-network-integration-nxos-cli-python39-stable211
+    name: ansible-test-network-integration-nxos-cli-python39-stable29-scenario02
+    parent: ansible-test-network-integration-nxos-cli-python39-stable29
     vars:
       ansible_test_do_number: 2
 
 - job:
-    name: ansible-test-network-integration-nxos-cli-python39-stable211-scenario03
-    parent: ansible-test-network-integration-nxos-cli-python39-stable211
+    name: ansible-test-network-integration-nxos-cli-python39-stable29-scenario03
+    parent: ansible-test-network-integration-nxos-cli-python39-stable29
     vars:
       ansible_test_do_number: 3
 
 - job:
-    name: ansible-test-network-integration-nxos-cli-python39-stable211-scenario04
-    parent: ansible-test-network-integration-nxos-cli-python39-stable211
+    name: ansible-test-network-integration-nxos-cli-python39-stable29-scenario04
+    parent: ansible-test-network-integration-nxos-cli-python39-stable29
     vars:
       ansible_test_do_number: 4

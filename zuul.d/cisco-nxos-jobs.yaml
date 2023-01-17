@@ -184,7 +184,7 @@
     vars:
       ansible_test_do_number: 4
 
-# stable-2.11
+# stable-2.9
 
 - job:
     name: ansible-test-network-integration-nxos-cli-python39-stable29
@@ -195,6 +195,7 @@
         override-checkout: stable-2.9
     vars:
       ansible_test_network_cli_ssh_type: libssh
+      test_ansible_python_interpreter: /usr/bin/python3.8
       ansible_test_python: 3.8
       ansible_test_skip_tags: local,nxapi
       ansible_test_split_in: 4

@@ -194,7 +194,7 @@
       - name: github.com/ansible/ansible
         override-checkout: stable-2.9
     vars:
-      ansible_test_python: 3.9
+      ansible_test_python: 3.8
       ansible_test_skip_tags: local,nxapi
       ansible_test_split_in: 4
 

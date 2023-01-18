@@ -1,0 +1,24 @@
+---
+# NOTE(pabelanger): This needs to move into proper zuul-job, however until we
+# can use vyos_config on zuul-executor, we need to run as nested.
+- hosts: appliance
+  gather_facts: false
+  vars:
+    ansible_password: admin
+    ansible_user: admin
+    enable_password: admin
+  tasks:
+    - name: lookup SSH public key
+      set_fact:
+        _ssh_key: "{{ lookup('file', '~/.ssh/id_ecdsa.pub') }}"
+
+    - name: Setup new user
+      become: true
+      eos_config:
+        lines:
+          - ip name-server 1.1.1.1
+          - username zuul privilege 15 nopassword
+          - "username zuul ssh-key {{ _ssh_key.split()[0] }} {{ _ssh_key.split()[1] }}"
+          - aaa authentication policy local allow-nopassword-remote-login
+        match: none
+        save_when: always

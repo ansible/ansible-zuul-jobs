@@ -1,130 +1,277 @@
 ---
-# ansible-ee
 - job:
-    name: ansible-ee-integration-arista-eos
-    parent: ansible-ee-tests
-    pre-run:
-      - playbooks/ansible-ee/integration/pre.yaml
-      # Ensure we install the bindeps
-      - playbooks/ansible-network-appliance-base/pre.yaml
-      - playbooks/ansible-ee/arista-eos/pre.yaml
-    run: playbooks/ansible-ee/integration/run.yaml
-    post-run: playbooks/ansible-ee/integration/post.yaml
-    vars:
-      ansible_runner_container_version: latest
-      container_image_tests:
-        - integration
-      test_ansible_ssh_private_key_file: ~/.ssh/id_ecdsa
-      test_ansible_python_interpreter: /usr/bin/python3.9
-      test_ansible_network_cli_ssh_type: paramiko
-      test_fips_mode: false
+    name: ansible-network-eos-appliance
+    parent: ansible-network-appliance-base
+    pre-run: playbooks/ansible-network-eos-appliance/pre.yaml
+    run: playbooks/ansible-network-eos-appliance/run.yaml
     host-vars:
       eos-4.24.6:
         ansible_network_os: eos
     required-projects:
       - name: github.com/ansible/ansible-zuul-jobs
     nodeset: eos-4.24.6
+
+- job:
+    name: ansible-test-network-integration-eos
+    abstract: true
+    dependencies:
+      - name: build-ansible-collection
+        soft: true
+    parent: ansible-network-eos-appliance
+    pre-run:
+      - playbooks/ansible-test-base/pre.yaml
+      - playbooks/ansible-test-network-integration-base/pre.yaml
+    run: playbooks/ansible-test-base/run.yaml
+    post-run:
+      - playbooks/ansible-test-network-integration-base/post.yaml
+      - playbooks/ansible-test-base/post.yaml
+    required-projects:
+      - name: github.com/ansible/ansible
+      - name: github.com/ansible-collections/arista.eos
     timeout: 10800
-    files:
-      - ^plugins/.*$
-      - ^tests/integration/.*$
-      - ^requirements.txt
-      - ^bindep.txt
-
-# network_cli
-
-- job:
-    name: ansible-ee-integration-arista-eos-latest
-    parent: ansible-ee-integration-arista-eos
     vars:
-      test_ansible_skip_tags: httpapi
+      ansible_collections_repo: github.com/ansible-collections/arista.eos
+      ansible_test_command: network-integration
+      ansible_test_integration_targets: "eos_.*"
+      ansible_test_fips_mode: true
 
 - job:
-    name: ansible-ee-integration-arista-eos-stable-2.9
-    parent: ansible-ee-integration-arista-eos
+    name: ansible-test-network-integration-eos-httpapi
+    parent: ansible-test-network-integration-eos
+    abstract: true
     vars:
-      test_ansible_python_interpreter: /usr/bin/python3.8
-      ansible_runner_container_version: stable-2.9-devel
-      test_ansible_skip_tags: httpapi
+      ansible_test_collections: true
+      ansible_test_skip_tags: local,network_cli
 
 - job:
-    name: ansible-ee-integration-arista-eos-stable-2.11
-    parent: ansible-ee-integration-arista-eos
+    name: ansible-test-network-integration-eos-network_cli
+    parent: ansible-test-network-integration-eos
+    abstract: true
     vars:
-      ansible_runner_container_version: stable-2.11-devel
-      test_ansible_skip_tags: httpapi
+      ansible_test_collections: true
+      ansible_test_skip_tags: local,httpapi
+
+# devel
 
 - job:
-    name: ansible-ee-integration-arista-eos-stable-2.12
-    parent: ansible-ee-integration-arista-eos
+    name: ansible-test-network-integration-eos-python39
+    parent: ansible-test-network-integration-eos
+    nodeset: eos-4.24.6
     vars:
-      ansible_runner_container_version: stable-2.12-devel
-      test_ansible_skip_tags: httpapi
-
-# httpapi
+      ansible_test_python: 3.9
 
 - job:
-    name: ansible-ee-integration-arista-eos-httpapi-latest
-    parent: ansible-ee-integration-arista-eos
+    name: ansible-test-network-integration-eos-httpapi-python39
+    parent: ansible-test-network-integration-eos-httpapi
+    nodeset: eos-4.24.6
     vars:
-      test_ansible_skip_tags: network_cli
-- job:
-    name: ansible-ee-integration-arista-eos-httpapi-stable-2.9
-    parent: ansible-ee-integration-arista-eos
-    vars:
-      test_ansible_python_interpreter: /usr/bin/python3.8
-      ansible_runner_container_version: stable-2.9-devel
-      test_ansible_skip_tags: network_cli
+      ansible_test_python: 3.9
 
 - job:
-    name: ansible-ee-integration-arista-eos-httpapi-stable-2.11
-    parent: ansible-ee-integration-arista-eos
+    name: ansible-test-network-integration-eos-network_cli-python39
+    parent: ansible-test-network-integration-eos-network_cli
+    nodeset: eos-4.24.6
     vars:
-      ansible_runner_container_version: stable-2.11-devel
-      test_ansible_skip_tags: network_cli
+      ansible_test_python: 3.9
 
 - job:
-    name: ansible-ee-integration-arista-eos-httpapi-stable-2.12
-    parent: ansible-ee-integration-arista-eos
-    vars:
-      ansible_runner_container_version: stable-2.12-devel
-      test_ansible_skip_tags: network_cli
-
-# libssh
-- job:
-    name: ansible-ee-integration-arista-eos-libssh-latest
-    parent: ansible-ee-integration-arista-eos
+    name: ansible-test-network-integration-eos-network_cli-libssh-python39
+    parent: ansible-test-network-integration-eos-network_cli-python39
     vars:
       test_ansible_network_cli_ssh_type: libssh
-      test_ansible_skip_tags: httpapi
-      test_fips_mode: true
+
+# stable-2.14
 
 - job:
-    name: ansible-ee-integration-arista-eos-libssh-stable-2.9
-    parent: ansible-ee-integration-arista-eos
+    name: ansible-test-network-integration-eos-httpapi-python39-stable214
+    parent: ansible-test-network-integration-eos-httpapi
+    nodeset: eos-4.24.6
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.14
     vars:
-      test_ansible_python_interpreter: /usr/bin/python3.8
-      test_ansible_skip_tags: httpapi
-      ansible_runner_container_version: stable-2.9-devel
-      test_ansible_network_cli_ssh_type: libssh
-      # Backport of https://github.com/ansible/ansible/pull/73992 needed for 2.9 to enable fips
-      test_fips_mode: false
+      ansible_test_python: 3.9
 
 - job:
-    name: ansible-ee-integration-arista-eos-libssh-stable-2.11
-    parent: ansible-ee-integration-arista-eos
+    name: ansible-test-network-integration-eos-network_cli-python39-stable214
+    parent: ansible-test-network-integration-eos-network_cli
+    nodeset: eos-4.24.6
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.14
     vars:
-      test_ansible_python_interpreter: /usr/bin/python3.8
-      test_ansible_skip_tags: httpapi
-      ansible_runner_container_version: stable-2.11-devel
-      test_ansible_network_cli_ssh_type: libssh
-      test_fips_mode: true
+      ansible_test_python: 3.9
+      ansible_test_split_in: 2
 
 - job:
-    name: ansible-ee-integration-arista-eos-libssh-stable-2.12
-    parent: ansible-ee-integration-arista-eos
+    name: ansible-test-network-integration-eos-network_cli-python39-stable214-scenario01
+    parent: ansible-test-network-integration-eos-network_cli-python39-stable214
     vars:
-      ansible_runner_container_version: stable-2.12-devel
-      test_ansible_skip_tags: httpapi
+      ansible_test_do_number: 1
+
+- job:
+    name: ansible-test-network-integration-eos-network_cli-python39-stable214-scenario02
+    parent: ansible-test-network-integration-eos-network_cli-python39-stable214
+    vars:
+      ansible_test_do_number: 2
+
+- job:
+    name: ansible-test-network-integration-eos-network_cli-libssh-python39-stable214-scenario01
+    parent: ansible-test-network-integration-eos-network_cli-python39-stable214
+    vars:
       test_ansible_network_cli_ssh_type: libssh
-      test_fips_mode: true
+      ansible_test_do_number: 1
+
+- job:
+    name: ansible-test-network-integration-eos-network_cli-libssh-python39-stable214-scenario02
+    parent: ansible-test-network-integration-eos-network_cli-python39-stable214
+    vars:
+      test_ansible_network_cli_ssh_type: libssh
+      ansible_test_do_number: 2
+
+# stable-2.13
+
+- job:
+    name: ansible-test-network-integration-eos-httpapi-python39-stable213
+    parent: ansible-test-network-integration-eos-httpapi
+    nodeset: eos-4.24.6
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.13
+    vars:
+      ansible_test_python: 3.9
+
+- job:
+    name: ansible-test-network-integration-eos-network_cli-python39-stable213
+    parent: ansible-test-network-integration-eos-network_cli
+    nodeset: eos-4.24.6
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.13
+    vars:
+      ansible_test_python: 3.9
+      ansible_test_split_in: 2
+
+- job:
+    name: ansible-test-network-integration-eos-network_cli-python39-stable213-scenario01
+    parent: ansible-test-network-integration-eos-network_cli-python39-stable213
+    vars:
+      ansible_test_do_number: 1
+
+- job:
+    name: ansible-test-network-integration-eos-network_cli-python39-stable213-scenario02
+    parent: ansible-test-network-integration-eos-network_cli-python39-stable213
+    vars:
+      ansible_test_do_number: 2
+
+- job:
+    name: ansible-test-network-integration-eos-network_cli-libssh-python39-stable213-scenario01
+    parent: ansible-test-network-integration-eos-network_cli-python39-stable213
+    vars:
+      test_ansible_network_cli_ssh_type: libssh
+      ansible_test_do_number: 1
+
+- job:
+    name: ansible-test-network-integration-eos-network_cli-libssh-python39-stable213-scenario02
+    parent: ansible-test-network-integration-eos-network_cli-python39-stable213
+    vars:
+      test_ansible_network_cli_ssh_type: libssh
+      ansible_test_do_number: 2
+
+# stable-2.12
+
+- job:
+    name: ansible-test-network-integration-eos-httpapi-python39-stable212
+    parent: ansible-test-network-integration-eos-httpapi
+    nodeset: eos-4.24.6
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.12
+    vars:
+      ansible_test_python: 3.9
+
+- job:
+    name: ansible-test-network-integration-eos-network_cli-python39-stable212
+    parent: ansible-test-network-integration-eos-network_cli
+    nodeset: eos-4.24.6
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.12
+    vars:
+      ansible_test_python: 3.9
+      ansible_test_split_in: 2
+
+- job:
+    name: ansible-test-network-integration-eos-network_cli-python39-stable212-scenario01
+    parent: ansible-test-network-integration-eos-network_cli-python39-stable212
+    vars:
+      ansible_test_do_number: 1
+
+- job:
+    name: ansible-test-network-integration-eos-network_cli-python39-stable212-scenario02
+    parent: ansible-test-network-integration-eos-network_cli-python39-stable212
+    vars:
+      ansible_test_do_number: 2
+
+- job:
+    name: ansible-test-network-integration-eos-network_cli-libssh-python39-stable212-scenario01
+    parent: ansible-test-network-integration-eos-network_cli-python39-stable212
+    vars:
+      test_ansible_network_cli_ssh_type: libssh
+      ansible_test_do_number: 1
+
+- job:
+    name: ansible-test-network-integration-eos-network_cli-libssh-python39-stable212-scenario02
+    parent: ansible-test-network-integration-eos-network_cli-python39-stable212
+    vars:
+      test_ansible_network_cli_ssh_type: libssh
+      ansible_test_do_number: 2
+
+# stable-2.11
+
+- job:
+    name: ansible-test-network-integration-eos-httpapi-python39-stable211
+    parent: ansible-test-network-integration-eos-httpapi
+    nodeset: eos-4.24.6
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.11
+    vars:
+      ansible_test_python: 3.9
+
+- job:
+    name: ansible-test-network-integration-eos-network_cli-python39-stable211
+    parent: ansible-test-network-integration-eos-network_cli
+    nodeset: eos-4.24.6
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.11
+    vars:
+      ansible_test_python: 3.9
+      ansible_test_split_in: 2
+
+- job:
+    name: ansible-test-network-integration-eos-network_cli-python39-stable211-scenario01
+    parent: ansible-test-network-integration-eos-network_cli-python39-stable211
+    vars:
+      ansible_test_do_number: 1
+
+- job:
+    name: ansible-test-network-integration-eos-network_cli-python39-stable211-scenario02
+    parent: ansible-test-network-integration-eos-network_cli-python39-stable211
+    vars:
+      ansible_test_do_number: 2
+
+- job:
+    name: ansible-test-network-integration-eos-network_cli-libssh-python39-stable211-scenario01
+    parent: ansible-test-network-integration-eos-network_cli-python39-stable211
+    vars:
+      test_ansible_network_cli_ssh_type: libssh
+      ansible_test_do_number: 1
+
+- job:
+    name: ansible-test-network-integration-eos-network_cli-libssh-python39-stable211-scenario02
+    parent: ansible-test-network-integration-eos-network_cli-python39-stable211
+    vars:
+      test_ansible_network_cli_ssh_type: libssh
+      ansible_test_do_number: 2

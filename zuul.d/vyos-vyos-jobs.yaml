@@ -48,7 +48,7 @@
     parent: ansible-test-network-integration-vyos
     abstract: true
     vars:
-      test_ansible_network_cli_ssh_type: paramiko
+      ansible_test_network_cli_ssh_type: paramiko
 
 - job:
     name: ansible-test-network-integration-vyos-paramiko-python36-stable29
@@ -60,29 +60,29 @@
       ansible_test_python: 3.6
 
 - job:
-    name: ansible-test-network-integration-vyos-paramiko-python39
-    parent: ansible-test-network-integration-vyos-paramiko
-
-- job:
     name: ansible-test-network-integration-vyos-paramiko-python39-stable212
-    parent: ansible-test-network-integration-vyos-paramiko-python39
+    parent: ansible-test-network-integration-vyos-paramiko
     required-projects:
       - name: github.com/ansible/ansible
         override-checkout: stable-2.12
 
 - job:
     name: ansible-test-network-integration-vyos-paramiko-python39-stable213
-    parent: ansible-test-network-integration-vyos-paramiko-python39
+    parent: ansible-test-network-integration-vyos-paramiko
     required-projects:
       - name: github.com/ansible/ansible
         override-checkout: stable-2.13
 
 - job:
     name: ansible-test-network-integration-vyos-paramiko-python39-stable214
-    parent: ansible-test-network-integration-vyos-paramiko-python39
+    parent: ansible-test-network-integration-vyos-paramiko
     required-projects:
       - name: github.com/ansible/ansible
         override-checkout: stable-2.14
+
+- job:
+    name: ansible-test-network-integration-vyos-paramiko-python39-devel
+    parent: ansible-test-network-integration-vyos-paramiko
 
 # libssh
 - job:
@@ -90,7 +90,7 @@
     parent: ansible-test-network-integration-vyos
     abstract: true
     vars:
-      test_ansible_network_cli_ssh_type: libssh
+      ansible_test_network_cli_ssh_type: libssh
 
 - job:
     name: ansible-test-network-integration-vyos-libssh-python36-stable29
@@ -102,26 +102,26 @@
       ansible_test_python: 3.6
 
 - job:
-    name: ansible-test-network-integration-vyos-libssh-python39
-    parent: ansible-test-network-integration-vyos-libssh
-
-- job:
     name: ansible-test-network-integration-vyos-libssh-python39-stable212
-    parent: ansible-test-network-integration-vyos-libssh-python39
+    parent: ansible-test-network-integration-vyos-libssh
     required-projects:
       - name: github.com/ansible/ansible
         override-checkout: stable-2.12
 
 - job:
     name: ansible-test-network-integration-vyos-libssh-python39-stable213
-    parent: ansible-test-network-integration-vyos-libssh-python39
+    parent: ansible-test-network-integration-vyos-libssh
     required-projects:
       - name: github.com/ansible/ansible
         override-checkout: stable-2.13
 
 - job:
     name: ansible-test-network-integration-vyos-libssh-python39-stable214
-    parent: ansible-test-network-integration-vyos-libssh-python39
+    parent: ansible-test-network-integration-vyos-libssh
     required-projects:
       - name: github.com/ansible/ansible
         override-checkout: stable-2.14
+
+- job:
+    name: ansible-test-network-integration-vyos-libssh-python39-devel
+    parent: ansible-test-network-integration-vyos-libssh

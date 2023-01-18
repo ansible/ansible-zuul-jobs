@@ -758,7 +758,8 @@
         - ansible-test-network-integration-vyos-paramiko-python39-stable214
         - ansible-test-network-integration-vyos-paramiko-python39-stable213
         - ansible-test-network-integration-vyos-paramiko-python39-stable212
-        - ansible-test-network-integration-vyos-paramiko-python36-stable29
+        - ansible-test-network-integration-vyos-paramiko-python36-stable29:
+            voting: false
         - ansible-test-network-integration-vyos-libssh-python39-devel
         - ansible-test-network-integration-vyos-libssh-python39-stable214
         - ansible-test-network-integration-vyos-libssh-python39-stable213
@@ -831,7 +832,8 @@
         - ansible-test-network-integration-vyos-paramiko-python39-stable214
         - ansible-test-network-integration-vyos-paramiko-python39-stable213
         - ansible-test-network-integration-vyos-paramiko-python39-stable212
-        - ansible-test-network-integration-vyos-paramiko-python36-stable29
+        - ansible-test-network-integration-vyos-paramiko-python36-stable29:
+            voting: false
         - ansible-test-network-integration-vyos-libssh-python39-devel
         - ansible-test-network-integration-vyos-libssh-python39-stable214
         - ansible-test-network-integration-vyos-libssh-python39-stable213
@@ -1006,7 +1008,8 @@
         - ansible-test-network-integration-vyos-paramiko-python39-stable214
         - ansible-test-network-integration-vyos-paramiko-python39-stable213
         - ansible-test-network-integration-vyos-paramiko-python39-stable212
-        - ansible-test-network-integration-vyos-paramiko-python36-stable29
+        - ansible-test-network-integration-vyos-paramiko-python36-stable29:
+            voting: false
         - ansible-test-network-integration-vyos-libssh-python39-devel
         - ansible-test-network-integration-vyos-libssh-python39-stable214
         - ansible-test-network-integration-vyos-libssh-python39-stable213

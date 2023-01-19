@@ -31,6 +31,9 @@
         state: directory
         path: /var/tmp/ansible-test-pip
 
+    - name: Update pip
+      shell: "~/venv/bin/pip install --upgrade pip"
+
     - name: Install ansible into virtualenv
       # TODO(pabelanger): Remove ANSIBLE_SKIP_CONFLICT_CHECK in the future.
       environment:

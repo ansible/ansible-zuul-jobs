@@ -661,6 +661,7 @@
     vars:
       ansible_test_command: integration
       ansible_test_python: 3.9
+      ansible_test_integration_targets: "cloud/aws/"
 
 ### Gouttelette
 - job:

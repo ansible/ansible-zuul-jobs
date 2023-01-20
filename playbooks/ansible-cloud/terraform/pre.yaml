@@ -8,7 +8,8 @@
         baseurl: https://rpm.releases.hashicorp.com/fedora/$releasever/$basearch/stable
       become: true
 
-    - rpm_key:
+    - name: Add hashicorp gpg key
+      rpm_key:
         key: https://rpm.releases.hashicorp.com/gpg
       become: true
 

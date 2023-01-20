@@ -653,7 +653,10 @@
     parent: ansible-core-ci-aws-session
     pre-run:
       - playbooks/ansible-cloud/terraform/pre.yaml
+      - playbooks/ansible-test-base/pre.yaml
     run: playbooks/ansible-test-base/run.yaml
+    post-run:
+      - playbooks/ansible-test-base/post.yaml
     dependencies:
       - name: build-ansible-collection
     required-projects:

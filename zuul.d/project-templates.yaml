@@ -738,8 +738,17 @@
         - ansible-ee-integration-ios-libssh-stable-2.9
         - ansible-ee-integration-ios-libssh-stable-2.11
         - ansible-ee-integration-ios-libssh-stable-2.12
-        - ansible-ee-integration-vyos-latest
-        - ansible-ee-integration-vyos-libssh-latest
+        - ansible-test-network-integration-vyos-paramiko-python39-devel
+        - ansible-test-network-integration-vyos-paramiko-python39-stable214
+        - ansible-test-network-integration-vyos-paramiko-python39-stable213
+        - ansible-test-network-integration-vyos-paramiko-python39-stable212
+        - ansible-test-network-integration-vyos-paramiko-python36-stable29:
+            voting: false
+        - ansible-test-network-integration-vyos-libssh-python39-devel
+        - ansible-test-network-integration-vyos-libssh-python39-stable214
+        - ansible-test-network-integration-vyos-libssh-python39-stable213
+        - ansible-test-network-integration-vyos-libssh-python39-stable212
+        - ansible-test-network-integration-vyos-libssh-python36-stable29
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-collections/ansible.utils
@@ -803,8 +812,17 @@
         - ansible-ee-integration-ios-stable-2.11
         - ansible-ee-integration-ios-libssh-latest
         - ansible-ee-integration-ios-libssh-stable-2.11
-        - ansible-ee-integration-vyos-latest
-        - ansible-ee-integration-vyos-libssh-latest
+        - ansible-test-network-integration-vyos-paramiko-python39-devel
+        - ansible-test-network-integration-vyos-paramiko-python39-stable214
+        - ansible-test-network-integration-vyos-paramiko-python39-stable213
+        - ansible-test-network-integration-vyos-paramiko-python39-stable212
+        - ansible-test-network-integration-vyos-paramiko-python36-stable29:
+            voting: false
+        - ansible-test-network-integration-vyos-libssh-python39-devel
+        - ansible-test-network-integration-vyos-libssh-python39-stable214
+        - ansible-test-network-integration-vyos-libssh-python39-stable213
+        - ansible-test-network-integration-vyos-libssh-python39-stable212
+        - ansible-test-network-integration-vyos-libssh-python36-stable29
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-collections/ansible.utils
@@ -970,14 +988,17 @@
     name: ansible-collections-vyos-vyos
     check:
       jobs: &ansible-collections-vyos-vyos-jobs
-        - ansible-ee-integration-vyos-latest
-        - ansible-ee-integration-vyos-stable-2.12
-        - ansible-ee-integration-vyos-stable-2.11
-        - ansible-ee-integration-vyos-stable-2.9
-        - ansible-ee-integration-vyos-libssh-latest
-        - ansible-ee-integration-vyos-libssh-stable-2.12
-        - ansible-ee-integration-vyos-libssh-stable-2.11
-        - ansible-ee-integration-vyos-libssh-stable-2.9
+        - ansible-test-network-integration-vyos-paramiko-python39-devel
+        - ansible-test-network-integration-vyos-paramiko-python39-stable214
+        - ansible-test-network-integration-vyos-paramiko-python39-stable213
+        - ansible-test-network-integration-vyos-paramiko-python39-stable212
+        - ansible-test-network-integration-vyos-paramiko-python36-stable29:
+            voting: false
+        - ansible-test-network-integration-vyos-libssh-python39-devel
+        - ansible-test-network-integration-vyos-libssh-python39-stable214
+        - ansible-test-network-integration-vyos-libssh-python39-stable213
+        - ansible-test-network-integration-vyos-libssh-python39-stable212
+        - ansible-test-network-integration-vyos-libssh-python36-stable29
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-collections/ansible.netcommon

@@ -666,6 +666,7 @@
       ansible_test_command: integration
       ansible_test_python: 3.9
       ansible_test_integration_targets: "aws"
+      ansible_collections_repo: "{{ zuul.project.canonical_name }}"
 
 ### Gouttelette
 - job:

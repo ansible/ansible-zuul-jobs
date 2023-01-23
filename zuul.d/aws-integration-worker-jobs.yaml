@@ -1502,7 +1502,7 @@
       queue: integrated-aws
       jobs:
         - build-ansible-collection:
-            required-projects:
+            required-projects: &ansible-collections-amazon-aws-build-requirements
               - name: github.com/ansible-collections/ansible.utils
               - name: github.com/ansible-collections/amazon.aws
               - name: github.com/ansible-collections/ansible.netcommon
@@ -1576,13 +1576,7 @@
       queue: integrated-aws
       jobs:
         - build-ansible-collection:
-            required-projects:
-              - name: github.com/ansible-collections/ansible.utils
-              - name: github.com/ansible-collections/amazon.aws
-              - name: github.com/ansible-collections/ansible.netcommon
-              - name: github.com/ansible-collections/community.aws
-              - name: github.com/ansible-collections/community.general
-              - name: github.com/ansible-collections/community.crypto
+            required-projects: *ansible-collections-amazon-aws-build-requirements
             timeout: 3600
             host-vars: {}
             vars: {}
@@ -1650,13 +1644,7 @@
       queue: integrated-aws
       jobs:
         - build-ansible-collection:
-            required-projects:
-              - name: github.com/ansible-collections/ansible.utils
-              - name: github.com/ansible-collections/amazon.aws
-              - name: github.com/ansible-collections/ansible.netcommon
-              - name: github.com/ansible-collections/community.aws
-              - name: github.com/ansible-collections/community.general
-              - name: github.com/ansible-collections/community.crypto
+            required-projects: *ansible-collections-amazon-aws-build-requirements
             timeout: 3600
             host-vars: {}
             vars: {}
@@ -1726,7 +1714,7 @@
       queue: integrated-aws
       jobs:
         - build-ansible-collection:
-            required-projects:
+            required-projects: &ansible-collections-community-aws-build-requirements
               - name: github.com/ansible-collections/ansible.utils
               - name: github.com/ansible-collections/ansible.windows
               - name: github.com/ansible-collections/amazon.aws
@@ -1779,13 +1767,7 @@
       queue: integrated-aws
       jobs:
         - build-ansible-collection:
-            required-projects:
-              - name: github.com/ansible-collections/ansible.utils
-              - name: github.com/ansible-collections/amazon.aws
-              - name: github.com/ansible-collections/ansible.netcommon
-              - name: github.com/ansible-collections/community.aws
-              - name: github.com/ansible-collections/community.general
-              - name: github.com/ansible-collections/community.crypto
+            required-projects: *ansible-collections-community-aws-build-requirements
             timeout: 3600
             host-vars: {}
             vars: {}
@@ -1831,13 +1813,7 @@
       queue: integrated-aws
       jobs:
         - build-ansible-collection:
-            required-projects:
-              - name: github.com/ansible-collections/ansible.utils
-              - name: github.com/ansible-collections/amazon.aws
-              - name: github.com/ansible-collections/ansible.netcommon
-              - name: github.com/ansible-collections/community.aws
-              - name: github.com/ansible-collections/community.general
-              - name: github.com/ansible-collections/community.crypto
+            required-projects: *ansible-collections-community-aws-build-requirements
             timeout: 3600
             host-vars: {}
             vars: {}

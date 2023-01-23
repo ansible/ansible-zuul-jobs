@@ -357,6 +357,22 @@
             vars:
               ansible_test_collections: true
             voting: false
+        - ansible-test-network-integration-nxos-cli-python38-stable29-scenario01:
+            vars:
+              ansible_test_collections: true
+            voting: false
+        - ansible-test-network-integration-nxos-cli-python38-stable29-scenario02:
+            vars:
+              ansible_test_collections: true
+            voting: false
+        - ansible-test-network-integration-nxos-cli-python38-stable29-scenario03:
+            vars:
+              ansible_test_collections: true
+            voting: false
+        - ansible-test-network-integration-nxos-cli-python38-stable29-scenario04:
+            vars:
+              ansible_test_collections: true
+            voting: false
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-collections/ansible.netcommon

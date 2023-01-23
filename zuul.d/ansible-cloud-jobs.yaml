@@ -655,6 +655,7 @@
       - playbooks/ansible-cloud/terraform/pre.yaml
       - playbooks/ansible-test-base/pre.yaml
     run: playbooks/ansible-test-base/run.yaml
+    nodeset: fedora-35-1vcpu
     post-run:
       - playbooks/ansible-test-base/post.yaml
     dependencies:
@@ -666,7 +667,7 @@
       ansible_test_command: integration
       ansible_test_python: 3.9
       ansible_test_integration_targets: "aws"
-      ansible_collections_repo: "{{ zuul.project.canonical_name }}"
+      ansible_collections_repo: github.com/ansible-collections/cloud.terraform
 
 ### Gouttelette
 - job:

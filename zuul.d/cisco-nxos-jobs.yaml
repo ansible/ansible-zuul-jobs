@@ -196,6 +196,7 @@
     vars:
       ansible_test_network_cli_ssh_type: libssh
       test_ansible_python_interpreter: /usr/bin/python3.8
+      ansible_test_python: 3.8
       ansible_test_skip_tags: local,nxapi
       ansible_test_split_in: 4
 

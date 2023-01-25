@@ -1660,6 +1660,10 @@
         - ansible-test-sanity-docker-stable-2.14
         - ansible-test-units-cloud-terraform-python38
         - ansible-test-integration-cloud-terraform
+        - build-ansible-collection:
+            required-projects:
+              - name: github.com/ansible-collections/amazon.aws
+              - name: github.com/ansible-collections/community.general
         - ansible-test-changelog
         - ansible-galaxy-importer
     gate:

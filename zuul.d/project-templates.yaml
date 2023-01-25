@@ -502,24 +502,54 @@
             required-projects:
               - name: github.com/ansible-collections/kubernetes.core
                 override-checkout: stable-2.4
-        - ansible-test-sanity-docker-devel
-        - ansible-test-sanity-docker-milestone
+        - ansible-test-sanity-docker-devel:
+            required-projects:
+              - name: github.com/ansible-collections/kubernetes.core
+                override-checkout: stable-2.4
+        - ansible-test-sanity-docker-milestone:
+            required-projects:
+              - name: github.com/ansible-collections/kubernetes.core
+                override-checkout: stable-2.4
         - ansible-test-sanity-docker-stable-2.11:
             required-projects:
               - name: github.com/ansible-collections/kubernetes.core
                 override-checkout: stable-2.4
-        - ansible-test-sanity-docker-stable-2.12
-        - ansible-test-sanity-docker-stable-2.13
-        - ansible-test-sanity-docker-stable-2.14
+        - ansible-test-sanity-docker-stable-2.12:
+            required-projects:
+              - name: github.com/ansible-collections/kubernetes.core
+                override-checkout: stable-2.4
+        - ansible-test-sanity-docker-stable-2.13:
+            required-projects:
+              - name: github.com/ansible-collections/kubernetes.core
+                override-checkout: stable-2.4
+        - ansible-test-sanity-docker-stable-2.14:
+            required-projects:
+              - name: github.com/ansible-collections/kubernetes.core
+                override-checkout: stable-2.4
         - ansible-galaxy-importer:
             voting: false
         - ansible-test-units-community-okd-python39
-        - ansible-test-sanity-okd-downstream-devel
+        - ansible-test-sanity-okd-downstream-devel:
+            required-projects:
+              - name: github.com/ansible-collections/kubernetes.core
+                override-checkout: stable-2.4
         - ansible-test-sanity-okd-downstream-milestone:
             voting: false
-        - ansible-test-sanity-okd-downstream-stable-2.11
-        - ansible-test-sanity-okd-downstream-stable-2.12
-        - ansible-test-sanity-okd-downstream-stable-2.13
+            required-projects:
+              - name: github.com/ansible-collections/kubernetes.core
+                override-checkout: stable-2.4
+        - ansible-test-sanity-okd-downstream-stable-2.11:
+            required-projects:
+              - name: github.com/ansible-collections/kubernetes.core
+                override-checkout: stable-2.4
+        - ansible-test-sanity-okd-downstream-stable-2.12:
+            required-projects:
+              - name: github.com/ansible-collections/kubernetes.core
+                override-checkout: stable-2.4
+        - ansible-test-sanity-okd-downstream-stable-2.13:
+            required-projects:
+              - name: github.com/ansible-collections/kubernetes.core
+                override-checkout: stable-2.4
 
 - project-template:
     name: ansible-collections-cloud-common

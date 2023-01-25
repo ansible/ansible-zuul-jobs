@@ -504,7 +504,10 @@
                 override-checkout: stable-2.4
         - ansible-test-sanity-docker-devel
         - ansible-test-sanity-docker-milestone
-        - ansible-test-sanity-docker-stable-2.11
+        - ansible-test-sanity-docker-stable-2.11:
+            required-projects:
+              - name: github.com/ansible-collections/kubernetes.core
+                override-checkout: stable-2.4
         - ansible-test-sanity-docker-stable-2.12
         - ansible-test-sanity-docker-stable-2.13
         - ansible-test-sanity-docker-stable-2.14

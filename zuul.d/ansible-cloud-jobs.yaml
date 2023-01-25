@@ -655,7 +655,7 @@
       - playbooks/ansible-cloud/terraform/pre.yaml
       - playbooks/ansible-test-base/pre.yaml
     run: playbooks/ansible-test-base/run.yaml
-    nodeset: fedora-35-1vcpu
+    nodeset: fedora-36-1vcpu
     post-run:
       - playbooks/ansible-test-base/post.yaml
     dependencies:

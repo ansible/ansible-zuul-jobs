@@ -1752,5 +1752,6 @@
         - ansible-test-sanity-docker-stable-2.14
         - ansible-test-units-cloud-pravic-python39
         - ansible-galaxy-importer
+        - ansible-test-integration-cloud-pravic
     gate:
       jobs: *ansible-collections-cloud-pravic-jobs

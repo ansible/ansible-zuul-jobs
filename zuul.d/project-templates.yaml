@@ -556,6 +556,7 @@
 - project-template:
     name: ansible-collections-community-vmware
     check:
+      fail-fast: true
       jobs:
         - ansible-tox-linters
         - build-ansible-collection:

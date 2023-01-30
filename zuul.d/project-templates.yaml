@@ -160,6 +160,7 @@
         - ansible-test-network-integration-eos-httpapi-python39-stable213
         - ansible-test-network-integration-eos-httpapi-python39-stable212
         - ansible-test-network-integration-eos-httpapi-python39-stable211
+        - ansible-test-network-integration-eos-httpapi-python39-stable29
         - ansible-test-network-integration-eos-network_cli-python39-stable214-scenario01:
             vars:
               ansible_test_collections: true
@@ -221,6 +222,22 @@
               ansible_test_collections: true
             voting: false
         - ansible-test-network-integration-eos-network_cli-libssh-python39-stable211-scenario02:
+            vars:
+              ansible_test_collections: true
+            voting: false
+        - ansible-test-network-integration-eos-network_cli-python39-stable29-scenario01:
+            vars:
+              ansible_test_collections: true
+            voting: false
+        - ansible-test-network-integration-eos-network_cli-python39-stable29-scenario02:
+            vars:
+              ansible_test_collections: true
+            voting: false
+        - ansible-test-network-integration-eos-network_cli-libssh-python39-stable29-scenario01:
+            vars:
+              ansible_test_collections: true
+            voting: false
+        - ansible-test-network-integration-eos-network_cli-libssh-python39-stable29-scenario02:
             vars:
               ansible_test_collections: true
             voting: false

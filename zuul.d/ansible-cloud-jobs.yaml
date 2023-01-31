@@ -447,15 +447,6 @@
       container_command: docker
 
 - job:
-    name: ansible-test-sanity-okd-downstream-stable-2.10
-    parent: ansible-test-sanity-okd-downstream
-    required-projects:
-      - name: github.com/ansible/ansible
-        override-checkout: stable-2.10
-    vars:
-      container_command: docker
-
-- job:
     name: ansible-test-sanity-okd-downstream-stable-2.11
     parent: ansible-test-sanity-okd-downstream
     required-projects:
@@ -477,6 +468,13 @@
     required-projects:
       - name: github.com/ansible/ansible
         override-checkout: stable-2.13
+
+- job:
+    name: ansible-test-sanity-okd-downstream-stable-2.14
+    parent: ansible-test-sanity-okd-downstream
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.14
 
 - job:
     name: ansible-test-units-community-okd-python39

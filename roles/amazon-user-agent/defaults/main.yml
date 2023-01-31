@@ -1,0 +1,2 @@
+---
+amazon_user_agent__collection_path: "~/{{ zuul.projects[zuul.project.canonical_name].src_dir }}"

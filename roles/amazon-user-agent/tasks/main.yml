@@ -1,0 +1,8 @@
+---
+- copy:
+    src: validate_user_agent.py
+    dest: /tmp/validate_user_agent.py
+    mode: '0700'
+
+- name: Validate user agent variable from collection
+  command: "python3 /tmp/validate_user_agent.py -c {{ amazon_user_agent__collection_path }} -n {{ amazon_user_agent__variable_name }}"

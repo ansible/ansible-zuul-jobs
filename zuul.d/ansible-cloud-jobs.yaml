@@ -216,6 +216,15 @@
     vars:
       ansible_collections_repo: "{{ zuul.project.canonical_name }}"
 
+- job:
+    name: amazon-validate-user-agent
+    run: playbooks/amazon-user-agent/run.yaml
+    files:
+      - ^galaxy.(yaml|yml)$
+    nodeset: container-ansible
+    timeout: 1000
+
+
 - semaphore:
     name: ansible-test-cloud-integration-aws
     max: 10

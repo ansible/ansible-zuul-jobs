@@ -1,0 +1,6 @@
+---
+- hosts: all
+  tasks:
+    - name: Run amazon-user-agent
+      include_role:
+        name: amazon-user-agent

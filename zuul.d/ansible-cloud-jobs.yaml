@@ -648,6 +648,29 @@
     vars:
       ansible_collections_repo: github.com/ansible-collections/cloud.terraform
 
+- job:
+    name: ansible-test-integration-cloud-terraform
+    parent: ansible-core-ci-aws-session
+    pre-run:
+      - playbooks/ansible-cloud/terraform/pre.yaml
+      - playbooks/ansible-test-base/pre.yaml
+      - playbooks/ansible-cloud/aws/pre.yaml
+    run: playbooks/ansible-test-base/run.yaml
+    nodeset: fedora-36-1vcpu
+    post-run:
+      - playbooks/ansible-test-base/post.yaml
+    dependencies:
+      - name: build-ansible-collection
+    required-projects:
+      - name: github.com/ansible-collections/amazon.aws
+      - name: github.com/ansible/ansible
+        override-checkout: milestone
+    vars:
+      ansible_test_command: integration
+      ansible_test_python: 3.9
+      ansible_test_integration_targets: "aws"
+      ansible_collections_repo: github.com/ansible-collections/cloud.terraform
+
 ### Gouttelette
 - job:
     name: ansible-test-units-gouttelette-python39

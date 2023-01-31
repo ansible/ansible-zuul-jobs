@@ -1,0 +1,20 @@
+---
+- hosts: all
+  tasks:
+    - name: Add hashicorp repo
+      yum_repository:
+        name: hashicorp
+        description: hashicorp rpm repo
+        baseurl: https://rpm.releases.hashicorp.com/fedora/$releasever/$basearch/stable
+      become: true
+
+    - name: Add hashicorp gpg key
+      rpm_key:
+        key: https://rpm.releases.hashicorp.com/gpg
+      become: true
+
+    - name: Install Terraform
+      package:
+        update_cache: true
+        name: terraform
+      become: true

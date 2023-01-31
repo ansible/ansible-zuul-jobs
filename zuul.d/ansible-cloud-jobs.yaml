@@ -207,10 +207,7 @@
 - job:
     name: ansible-test-splitter
     pre-run: playbooks/ansible-test-splitter/pre.yaml
-    run: playbooks/ansible-test-splitter/run.yaml
-    files:
-      - ^plugins/.*$
-      - ^tests/integration/.*$
+    run: playbooks/ansible-test-splitter/run.yaml   
     nodeset: container-ansible
     timeout: 1000
     vars:
@@ -228,7 +225,7 @@
       - name: build-ansible-collection
     pre-run:
       - playbooks/ansible-cloud/aws/pre.yaml
-      - playbooks/ansible-test-base/pre.yaml
+      - playbooks/ansible-test-base/pre.yaml0
     run: playbooks/ansible-test-base/run.yaml
     post-run:
       - playbooks/ansible-test-base/post.yaml
@@ -515,9 +512,6 @@
       - playbooks/ansible-cloud/py39/pre.yaml
       - playbooks/ansible-cloud/k8s/pre.yaml
     run: playbooks/ansible-test-base/run.yaml
-    files:
-      - ^plugins/.*$
-      - ^tests/integration/.*$
     required-projects:
       - name: github.com/ansible/ansible
       - name: github.com/ansible-collections/kubernetes.core

@@ -926,7 +926,7 @@
             required-projects:
               - name: github.com/ansible-collections/kubernetes.core
             vars:
-              ansible_test_splitter__test_changed: true
+              ansible_test_splitter__test_changed: false
               ansible_test_splitter__total_job: 3
               ansible_test_splitter__releases_to_test:
                 - "devel"

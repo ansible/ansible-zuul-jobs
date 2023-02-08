@@ -1018,15 +1018,6 @@
         - build-ansible-collection
 
 - project-template:
-    name: ansible-collections-ansible-netcommon-units
-    check:
-      jobs: &ansible-collections-ansible-netcommon-units-jobs
-        - ansible-changelog-fragment
-    gate:
-      fail-fast: true
-      jobs: *ansible-collections-ansible-netcommon-units-jobs
-
-- project-template:
     name: ansible-collections-ansible-network-units
     check:
       jobs: &ansible-collections-ansible-network-units-jobs

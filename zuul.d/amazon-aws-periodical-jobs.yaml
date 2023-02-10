@@ -265,7 +265,7 @@
     extra-vars: {}
     semaphore: ansible-test-cloud-integration-aws
 - job:
-    name: integration-amazon.aws-target-ec2_ami
+    name: integration-amazon.aws-target-ec2_ami_instance
     parent: ansible-core-ci-aws-session
     nodeset: container-ansible
     dependencies:
@@ -293,7 +293,73 @@
         - tests/integration/requirements.txt
       ansible_test_constraint_files:
         - tests/integration/constraints.txt
-      ansible_test_integration_targets: ec2_ami
+      ansible_test_integration_targets: ec2_ami_instance
+      ansible_collections_repo: github.com/ansible-collections/amazon.aws
+    extra-vars: {}
+    semaphore: ansible-test-cloud-integration-aws
+- job:
+    name: integration-amazon.aws-target-ec2_ami_snapshot
+    parent: ansible-core-ci-aws-session
+    nodeset: container-ansible
+    dependencies:
+      - name: build-ansible-collection
+    pre-run:
+      - playbooks/ansible-test-base/pre.yaml
+      - playbooks/ansible-cloud/aws/pre.yaml
+    run: playbooks/ansible-test-base/run.yaml
+    files:
+      - ^plugins/.*$
+      - ^tests/integration/.*$
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: milestone
+      - name: github.com/ansible-collections/community.aws
+    timeout: 3600
+    host-vars: {}
+    vars:
+      ansible_test_command: integration
+      ansible_test_python: 3.9
+      ansible_test_retry_on_error: true
+      ansible_test_requirement_files:
+        - requirements.txt
+        - test-requirements.txt
+        - tests/integration/requirements.txt
+      ansible_test_constraint_files:
+        - tests/integration/constraints.txt
+      ansible_test_integration_targets: ec2_ami_snapshot
+      ansible_collections_repo: github.com/ansible-collections/amazon.aws
+    extra-vars: {}
+    semaphore: ansible-test-cloud-integration-aws
+- job:
+    name: integration-amazon.aws-target-ec2_ami_tpm
+    parent: ansible-core-ci-aws-session
+    nodeset: container-ansible
+    dependencies:
+      - name: build-ansible-collection
+    pre-run:
+      - playbooks/ansible-test-base/pre.yaml
+      - playbooks/ansible-cloud/aws/pre.yaml
+    run: playbooks/ansible-test-base/run.yaml
+    files:
+      - ^plugins/.*$
+      - ^tests/integration/.*$
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: milestone
+      - name: github.com/ansible-collections/community.aws
+    timeout: 3600
+    host-vars: {}
+    vars:
+      ansible_test_command: integration
+      ansible_test_python: 3.9
+      ansible_test_retry_on_error: true
+      ansible_test_requirement_files:
+        - requirements.txt
+        - test-requirements.txt
+        - tests/integration/requirements.txt
+      ansible_test_constraint_files:
+        - tests/integration/constraints.txt
+      ansible_test_integration_targets: ec2_ami_tpm
       ansible_collections_repo: github.com/ansible-collections/amazon.aws
     extra-vars: {}
     semaphore: ansible-test-cloud-integration-aws
@@ -1651,6 +1717,39 @@
     extra-vars: {}
     semaphore: ansible-test-cloud-integration-aws
 - job:
+    name: integration-amazon.aws-target-lambda_event
+    parent: ansible-core-ci-aws-session
+    nodeset: container-ansible
+    dependencies:
+      - name: build-ansible-collection
+    pre-run:
+      - playbooks/ansible-test-base/pre.yaml
+      - playbooks/ansible-cloud/aws/pre.yaml
+    run: playbooks/ansible-test-base/run.yaml
+    files:
+      - ^plugins/.*$
+      - ^tests/integration/.*$
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: milestone
+      - name: github.com/ansible-collections/community.aws
+    timeout: 3600
+    host-vars: {}
+    vars:
+      ansible_test_command: integration
+      ansible_test_python: 3.9
+      ansible_test_retry_on_error: true
+      ansible_test_requirement_files:
+        - requirements.txt
+        - test-requirements.txt
+        - tests/integration/requirements.txt
+      ansible_test_constraint_files:
+        - tests/integration/constraints.txt
+      ansible_test_integration_targets: lambda_event
+      ansible_collections_repo: github.com/ansible-collections/amazon.aws
+    extra-vars: {}
+    semaphore: ansible-test-cloud-integration-aws
+- job:
     name: integration-amazon.aws-target-lambda_layer
     parent: ansible-core-ci-aws-session
     nodeset: container-ansible
@@ -1746,6 +1845,39 @@
       ansible_test_constraint_files:
         - tests/integration/constraints.txt
       ansible_test_integration_targets: lookup_aws_account_attribute
+      ansible_collections_repo: github.com/ansible-collections/amazon.aws
+    extra-vars: {}
+    semaphore: ansible-test-cloud-integration-aws
+- job:
+    name: integration-amazon.aws-target-lookup_aws_collection_constants
+    parent: ansible-core-ci-aws-session
+    nodeset: container-ansible
+    dependencies:
+      - name: build-ansible-collection
+    pre-run:
+      - playbooks/ansible-test-base/pre.yaml
+      - playbooks/ansible-cloud/aws/pre.yaml
+    run: playbooks/ansible-test-base/run.yaml
+    files:
+      - ^plugins/.*$
+      - ^tests/integration/.*$
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: milestone
+      - name: github.com/ansible-collections/community.aws
+    timeout: 3600
+    host-vars: {}
+    vars:
+      ansible_test_command: integration
+      ansible_test_python: 3.9
+      ansible_test_retry_on_error: true
+      ansible_test_requirement_files:
+        - requirements.txt
+        - test-requirements.txt
+        - tests/integration/requirements.txt
+      ansible_test_constraint_files:
+        - tests/integration/constraints.txt
+      ansible_test_integration_targets: lookup_aws_collection_constants
       ansible_collections_repo: github.com/ansible-collections/amazon.aws
     extra-vars: {}
     semaphore: ansible-test-cloud-integration-aws
@@ -2808,7 +2940,6 @@
 - project-template:
     name: ansible-collections-amazon-aws-each-target
     periodic:
-      queue: integrated-aws
       jobs:
         - build-ansible-collection:
             required-projects:
@@ -2818,6 +2949,7 @@
               - name: github.com/ansible-collections/community.aws
               - name: github.com/ansible-collections/community.general
               - name: github.com/ansible-collections/community.crypto
+              - name: github.com/ansible-collections/ansible.windows
             timeout: 3600
             host-vars: {}
             vars: {}
@@ -2830,7 +2962,9 @@
         - integration-amazon.aws-target-cloudwatch_metric_alarm
         - integration-amazon.aws-target-cloudwatchevent_rule
         - integration-amazon.aws-target-cloudwatchlogs
-        - integration-amazon.aws-target-ec2_ami
+        - integration-amazon.aws-target-ec2_ami_instance
+        - integration-amazon.aws-target-ec2_ami_snapshot
+        - integration-amazon.aws-target-ec2_ami_tpm
         - integration-amazon.aws-target-ec2_eip
         - integration-amazon.aws-target-ec2_eni
         - integration-amazon.aws-target-ec2_instance_block_devices
@@ -2872,9 +3006,11 @@
         - integration-amazon.aws-target-kms_key
         - integration-amazon.aws-target-lambda
         - integration-amazon.aws-target-lambda_alias
+        - integration-amazon.aws-target-lambda_event
         - integration-amazon.aws-target-lambda_layer
         - integration-amazon.aws-target-lambda_policy
         - integration-amazon.aws-target-lookup_aws_account_attribute
+        - integration-amazon.aws-target-lookup_aws_collection_constants
         - integration-amazon.aws-target-lookup_aws_service_ip_ranges
         - integration-amazon.aws-target-lookup_secretsmanager_secret
         - integration-amazon.aws-target-lookup_ssm_parameter

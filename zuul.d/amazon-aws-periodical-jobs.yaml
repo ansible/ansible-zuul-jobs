@@ -2808,7 +2808,6 @@
 - project-template:
     name: ansible-collections-amazon-aws-each-target
     periodic:
-      queue: integrated-aws
       jobs:
         - build-ansible-collection:
             required-projects:

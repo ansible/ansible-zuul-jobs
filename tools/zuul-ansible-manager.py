@@ -158,7 +158,6 @@ class Jobs(MyBaseModel):
 
 
 class Queue(MyBaseModel):
-    queue: Optional[str] = None
     ptjobs: Optional[list[str | dict[str, Job]]] = Field(alias="jobs")
     fail_fast: Optional[bool] = Field(alias="fail-fast")
 
@@ -291,6 +290,7 @@ def aws_periodical_jobs(amazon_aws_repo_dir: Path) -> None:
                     name="github.com/ansible-collections/community.general"
                 ),
                 RequiredProject(name="github.com/ansible-collections/community.crypto"),
+                RequiredProject(name="github.com/ansible-collections/ansible.windows"),
             ]
         }
     }
@@ -302,7 +302,6 @@ def aws_periodical_jobs(amazon_aws_repo_dir: Path) -> None:
         #  dependency list
         periodic=Queue(
             jobs=[build_ansible_collection] + [job.job.name for job in jobs],
-            queue="integrated-aws",
         ),
     )
 
@@ -401,6 +400,7 @@ def aws_integration_jobs(number_of_workers: int):
                     name="github.com/ansible-collections/community.general"
                 ),
                 RequiredProject(name="github.com/ansible-collections/community.crypto"),
+                RequiredProject(name="github.com/ansible-collections/ansible.windows"),
             ]
         }
     }
@@ -438,7 +438,6 @@ def aws_integration_jobs(number_of_workers: int):
                 ansible_test_splitter(collections=["community.aws", "amazon.aws"]),
             ]
             + [job.name for job in worker_jobs],
-            queue="integrated-aws",
         ),
         gate=Queue(
             jobs=[
@@ -446,7 +445,6 @@ def aws_integration_jobs(number_of_workers: int):
                 ansible_test_splitter(collections=["community.aws", "amazon.aws"]),
             ]
             + [job.name for job in worker_jobs],
-            queue="integrated-aws",
         ),
         ondemand=Queue(
             jobs=[
@@ -456,7 +454,6 @@ def aws_integration_jobs(number_of_workers: int):
                 ),
             ]
             + [job.name for job in worker_jobs],
-            queue="integrated-aws",
         ),
     )
 
@@ -471,7 +468,6 @@ def aws_integration_jobs(number_of_workers: int):
                 ansible_test_splitter(collections=["community.aws", "amazon.aws"]),
             ]
             + [job.name for job in community_aws_workder_jobs],
-            queue="integrated-aws",
         ),
         gate=Queue(
             jobs=[
@@ -479,7 +475,6 @@ def aws_integration_jobs(number_of_workers: int):
                 ansible_test_splitter(collections=["community.aws", "amazon.aws"]),
             ]
             + [job.name for job in community_aws_workder_jobs],
-            queue="integrated-aws",
         ),
         ondemand=Queue(
             jobs=[
@@ -489,7 +484,6 @@ def aws_integration_jobs(number_of_workers: int):
                 ),
             ]
             + [job.name for job in community_aws_workder_jobs],
-            queue="integrated-aws",
         ),
     )
     zuul_config = MappingList(

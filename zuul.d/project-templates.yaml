@@ -3,26 +3,16 @@
     name: integrated-queue
     description: |
       Group projects together into a shared (integrated) change queue.
-    check:
-      queue: integrated
-    gate:
-      queue: integrated
 
 - project-template:
     name: integrated-vmware-queue
     description: |
       Group projects together into a shared (integrated-vmware) change queue.
-    check:
-      queue: integrated-vmware
-    gate:
-      queue: integrated-vmware
 
 - project-template:
     name: execution-environments-queue
     description: |
       Group projects together into a shared change queue for Execution Environments.
-    gate:
-      queue: execution-environments
 
 - project-template:
     name: ansible-python-jobs
@@ -63,7 +53,6 @@
 - project-template:
     name: ansible-collections-amazon-aws
     check:
-      queue: integrated-aws
       jobs: &ansible-collections-amazon-aws-jobs
         - ansible-test-sanity-aws-ansible-python38:
             voting: false
@@ -84,7 +73,6 @@
 - project-template:
     name: ansible-collections-community-aws
     check:
-      queue: integrated-aws
       jobs: &ansible-collections-community-aws-jobs
         - ansible-test-sanity-docker-devel
         - ansible-test-sanity-docker-milestone
@@ -113,13 +101,11 @@
             required-projects:
               - name: github.com/ansible-collections/amazon.aws
     gate:
-      queue: integrated-aws
       jobs: *ansible-collections-community-aws-jobs
 
 - project-template:
     name: ansible-collections-amazon-cloud
     check:
-      queue: integrated-aws
       jobs: &ansible-collections-amazon-cloud-jobs
         - ansible-test-sanity-docker-devel
         - ansible-test-sanity-docker-milestone
@@ -135,10 +121,8 @@
               - name: github.com/ansible-collections/community.crypto
         - tox-cloud-refresh-examples-amazon
     gate:
-      queue: integrated-aws
       jobs: *ansible-collections-amazon-cloud-jobs
     ondemand:
-      queue: integrated-aws
       jobs: *ansible-collections-amazon-cloud-jobs
 
 - project-template:
@@ -229,7 +213,6 @@
               - name: github.com/ansible-collections/ansible.netcommon
               - name: github.com/ansible-collections/ansible.utils
     gate:
-      queue: integrated
       fail-fast: true
       jobs: *ansible-collections-arista-eos-jobs
     periodic:
@@ -258,7 +241,6 @@
         - ansible-test-units-asa-python36
         - ansible-test-units-asa-python37
     gate:
-      queue: integrated
       jobs: *ansible-collections-cisco-asa-units-jobs
 
 - project-template:
@@ -286,7 +268,6 @@
               - name: github.com/ansible-collections/ansible.netcommon
               - name: github.com/ansible-collections/ansible.utils
     gate:
-      queue: integrated
       jobs: *ansible-collections-cisco-asa-jobs
 
 - project-template:
@@ -362,7 +343,6 @@
               - name: github.com/ansible-collections/ansible.netcommon
               - name: github.com/ansible-collections/ansible.utils
     gate:
-      queue: integrated
       fail-fast: true
       jobs:
         - build-ansible-collection:
@@ -388,7 +368,6 @@
             required-projects:
               - name: github.com/ansible-collections/ansible.utils
     gate:
-      queue: integrated
       fail-fast: true
       jobs:
         - ansible-test-integration-ansible-plugin-builder
@@ -413,7 +392,6 @@
               - name: github.com/ansible-collections/ansible.netcommon
               - name: github.com/ansible-collections/ansible.utils
     gate:
-      queue: integrated
       fail-fast: true
       jobs: *ansible-collections-cisco-ios-jobs
     periodic:
@@ -435,7 +413,6 @@
               - name: github.com/ansible-collections/ansible.netcommon
               - name: github.com/ansible-collections/ansible.utils
     gate:
-      queue: integrated
       fail-fast: true
       jobs:
         - build-ansible-collection:
@@ -470,7 +447,6 @@
               - name: github.com/ansible-collections/openvswitch.openvswitch
               - name: github.com/ansible-collections/vyos.vyos
     gate:
-      queue: integrated
       fail-fast: true
       jobs:
         - build-ansible-collection:
@@ -761,7 +737,6 @@
               - name: github.com/ansible-collections/openvswitch.openvswitch
               - name: github.com/ansible-collections/vyos.vyos
     gate:
-      queue: integrated
       fail-fast: true
       jobs:
         - ansible-test-network-integration-junos-vsrx-netconf-python36-stable29:
@@ -889,7 +864,6 @@
               - name: github.com/ansible-collections/ansible.netcommon
               - name: github.com/ansible-collections/ansible.utils
     gate:
-      queue: integrated
       fail-fast: true
       jobs: *ansible-collections-juniper-junos-jobs
 
@@ -906,7 +880,6 @@
               - name: github.com/ansible-collections/cisco.nxos
               - name: github.com/ansible-collections/junipernetworks.junos
     gate:
-      queue: integrated
       fail-fast: true
       jobs: *ansible-collections-juniper-junos-netconf-jobs
 
@@ -1005,7 +978,6 @@
               - name: github.com/ansible-collections/ansible.netcommon
               - name: github.com/ansible-collections/ansible.utils
     gate:
-      queue: integrated
       fail-fast: true
       jobs: *ansible-collections-vyos-vyos-jobs
     periodic:
@@ -1033,7 +1005,6 @@
         - ansible-test-units-frr-python38
         - ansible-test-units-frr-python39
     gate:
-      queue: integrated
       jobs: *ansible-collections-ffr-ffr-units-jobs
     periodic:
       jobs:
@@ -1052,7 +1023,6 @@
       jobs: &ansible-collections-ansible-netcommon-units-jobs
         - ansible-changelog-fragment
     gate:
-      queue: integrated
       fail-fast: true
       jobs: *ansible-collections-ansible-netcommon-units-jobs
 
@@ -1075,7 +1045,6 @@
               - name: github.com/ansible-collections/openvswitch.openvswitch
               - name: github.com/ansible-collections/vyos.vyos
     gate:
-      queue: integrated
       fail-fast: true
       jobs: *ansible-collections-ansible-network-units-jobs
 
@@ -1094,7 +1063,6 @@
               - name: github.com/ansible-collections/splunk.es
               - name: github.com/ansible-collections/trendmicro.deepsec
     gate:
-      queue: integrated
       jobs: *ansible-collections-ansible-security-jobs
 
 - project-template:
@@ -1113,7 +1081,6 @@
         - ansible-test-units-ansible-yang-python38
         - ansible-test-units-ansible-yang-python39
     gate:
-      queue: integrated
       jobs: *ansible-collections-ansible-yang-units-jobs
 
 - project-template:
@@ -1129,7 +1096,6 @@
               - name: github.com/ansible-collections/ansible.netcommon
               - name: github.com/ansible-collections/ansible.utils
     gate:
-      queue: integrated
       jobs: *ansible-collections-juniper-junos-ansible-yang-jobs
 
 - project-template:
@@ -1148,7 +1114,6 @@
               - name: github.com/ansible-collections/ansible.netcommon
               - name: github.com/ansible-collections/ansible.utils
     gate:
-      queue: integrated
       fail-fast: true
       jobs: *ansible-collections-cisco-iosxr-ansible-yang-jobs
 
@@ -1168,7 +1133,6 @@
         - ansible-test-units-yang-python37
         - ansible-test-units-yang-python38
     gate:
-      queue: integrated
       jobs: *ansible-collections-community-yang-units-jobs
 
 - project-template:
@@ -1184,7 +1148,6 @@
               - name: github.com/ansible-collections/ansible.netcommon
               - name: github.com/ansible-collections/ansible.utils
     gate:
-      queue: integrated
       jobs: *ansible-collections-juniper-junos-yang-jobs
 
 - project-template:
@@ -1201,7 +1164,6 @@
               - name: github.com/ansible-collections/ansible.netcommon
               - name: github.com/ansible-collections/ansible.utils
     gate:
-      queue: integrated
       fail-fast: true
       jobs: *ansible-collections-cisco-iosxr-yang-jobs
 
@@ -1332,7 +1294,6 @@
               - name: github.com/ansible-collections/ansible.netcommon
               - name: github.com/ansible-collections/ansible.utils
     gate:
-      queue: integrated
       jobs: *ansible-collections-security-trendmicro-deepsec-jobs
     periodic:
       jobs:
@@ -1684,7 +1645,6 @@
               - name: github.com/ansible-collections/ansible.netcommon
               - name: github.com/ansible-collections/ansible.utils
     gate:
-      queue: integrated
       jobs: *ansible-collections-openvswitch-openvswitch-jobs
     periodic:
       jobs:

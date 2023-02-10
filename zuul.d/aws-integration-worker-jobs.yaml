@@ -1501,13 +1501,14 @@
     check:
       jobs:
         - build-ansible-collection:
-            required-projects: &ansible-collections-amazon-aws-build-requirements
+            required-projects:
               - name: github.com/ansible-collections/ansible.utils
               - name: github.com/ansible-collections/amazon.aws
               - name: github.com/ansible-collections/ansible.netcommon
               - name: github.com/ansible-collections/community.aws
               - name: github.com/ansible-collections/community.general
               - name: github.com/ansible-collections/community.crypto
+              - name: github.com/ansible-collections/ansible.windows
             timeout: 3600
             host-vars: {}
             vars: {}
@@ -1574,7 +1575,14 @@
     gate:
       jobs:
         - build-ansible-collection:
-            required-projects: *ansible-collections-amazon-aws-build-requirements
+            required-projects:
+              - name: github.com/ansible-collections/ansible.utils
+              - name: github.com/ansible-collections/amazon.aws
+              - name: github.com/ansible-collections/ansible.netcommon
+              - name: github.com/ansible-collections/community.aws
+              - name: github.com/ansible-collections/community.general
+              - name: github.com/ansible-collections/community.crypto
+              - name: github.com/ansible-collections/ansible.windows
             timeout: 3600
             host-vars: {}
             vars: {}
@@ -1641,7 +1649,14 @@
     ondemand:
       jobs:
         - build-ansible-collection:
-            required-projects: *ansible-collections-amazon-aws-build-requirements
+            required-projects:
+              - name: github.com/ansible-collections/ansible.utils
+              - name: github.com/ansible-collections/amazon.aws
+              - name: github.com/ansible-collections/ansible.netcommon
+              - name: github.com/ansible-collections/community.aws
+              - name: github.com/ansible-collections/community.general
+              - name: github.com/ansible-collections/community.crypto
+              - name: github.com/ansible-collections/ansible.windows
             timeout: 3600
             host-vars: {}
             vars: {}
@@ -1710,14 +1725,14 @@
     check:
       jobs:
         - build-ansible-collection:
-            required-projects: &ansible-collections-community-aws-build-requirements
+            required-projects:
               - name: github.com/ansible-collections/ansible.utils
-              - name: github.com/ansible-collections/ansible.windows
               - name: github.com/ansible-collections/amazon.aws
               - name: github.com/ansible-collections/ansible.netcommon
               - name: github.com/ansible-collections/community.aws
               - name: github.com/ansible-collections/community.general
               - name: github.com/ansible-collections/community.crypto
+              - name: github.com/ansible-collections/ansible.windows
             timeout: 3600
             host-vars: {}
             vars: {}
@@ -1762,7 +1777,14 @@
     gate:
       jobs:
         - build-ansible-collection:
-            required-projects: *ansible-collections-community-aws-build-requirements
+            required-projects:
+              - name: github.com/ansible-collections/ansible.utils
+              - name: github.com/ansible-collections/amazon.aws
+              - name: github.com/ansible-collections/ansible.netcommon
+              - name: github.com/ansible-collections/community.aws
+              - name: github.com/ansible-collections/community.general
+              - name: github.com/ansible-collections/community.crypto
+              - name: github.com/ansible-collections/ansible.windows
             timeout: 3600
             host-vars: {}
             vars: {}
@@ -1807,7 +1829,14 @@
     ondemand:
       jobs:
         - build-ansible-collection:
-            required-projects: *ansible-collections-community-aws-build-requirements
+            required-projects:
+              - name: github.com/ansible-collections/ansible.utils
+              - name: github.com/ansible-collections/amazon.aws
+              - name: github.com/ansible-collections/ansible.netcommon
+              - name: github.com/ansible-collections/community.aws
+              - name: github.com/ansible-collections/community.general
+              - name: github.com/ansible-collections/community.crypto
+              - name: github.com/ansible-collections/ansible.windows
             timeout: 3600
             host-vars: {}
             vars: {}

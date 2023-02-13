@@ -6,11 +6,20 @@
         path: "{{ ansible_user_dir }}/zuul-output/logs/controller"
         state: directory
 
+    - set_fact:
+        ansible_k8s_setup_kind_with_docker: '{{ ansible_k8s_setup_kind_with_docker | default(true) | bool }}'
+
     - name: Install podman
       package:
         name: podman
         state: present
       become: true
+      when: not ansible_k8s_setup_kind_with_docker
+
+    - name: Run ensure-docker role
+      include_role:
+        name: ensure-docker
+      when: ansible_k8s_setup_kind_with_docker
 
     - name: Run ensure-virtualenv role
       include_role:
@@ -63,3 +72,5 @@
     - name: Install Kubernetes cluster
       include_role:
         name: setup-kind
+      vars:
+        setup_kind_with_docker: '{{ ansible_k8s_setup_kind_with_docker }}'

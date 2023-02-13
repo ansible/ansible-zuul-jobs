@@ -530,6 +530,7 @@
       ansible_test_integration_targets: "{{ child.targets_to_test[zuul.job] }}"
       ansible_collections_repo: "github.com/ansible-collections/{{ zuul.job.split('-')[1] }}"
       ansible_test_venv_path: "~/venv"
+      ansible_k8s_setup_kind_with_docker: true
 
 - job:
     name: integration-kubernetes.core-devel-1

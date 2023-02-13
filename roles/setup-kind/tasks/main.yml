@@ -35,20 +35,28 @@
 
 - command: cat /tmp/kind.yaml
 
-- name: Ensure IPv6 is enabled
-  # See: https://github.com/containers/podman/issues/15395
-  sysctl:
-    name: net.ipv6.conf.all.disable_ipv6
-    value: '0'
-    state: present
-    sysctl_set: true
-    reload: true
-  become: true
+- name: Install cluster with Podman driver
+  block:
+    - name: Ensure IPv6 is enabled
+      # See: https://github.com/containers/podman/issues/15395
+      sysctl:
+        name: net.ipv6.conf.all.disable_ipv6
+        value: '0'
+        state: present
+        sysctl_set: true
+        reload: true
+      become: true
 
-- name: Create cluster
+    - name: Create cluster
+      shell: |
+        sudo {{ kind_path }} create cluster  --config /tmp/kind.yaml
+        mkdir ~/.kube
+        sudo kind get kubeconfig |grep -v 'enabling experimental podman provider' > ~/.kube/config
+        chmod 600 ~/.kube/config
+      ignore_errors: true
+  when: not setup_kind_with_docker
+
+- name: Install cluster with Docker driver
   shell: |
     sudo {{ kind_path }} create cluster  --config /tmp/kind.yaml
-    mkdir ~/.kube
-    sudo kind get kubeconfig |grep -v 'enabling experimental podman provider' > ~/.kube/config
-    chmod 600 ~/.kube/config
-  ignore_errors: true
+  when: setup_kind_with_docker

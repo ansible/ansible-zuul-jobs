@@ -488,6 +488,15 @@
 
 ### Kubernetes Core
 - job:
+    name: cloud-integration-kubernetes-core
+    run: playbooks/ansible-cloud/k8s/configure.yaml
+    required-projects:
+      - name: github.com/ansible/ansible
+      - name: github.com/ansible-collections/kubernetes.core
+    timeout: 3600
+    nodeset: fedora-36-large
+
+- job:
     name: ansible-test-units-kubernetes-core-python38
     parent: ansible-test-units-base-python38
     required-projects:

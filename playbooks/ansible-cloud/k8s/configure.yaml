@@ -1,0 +1,25 @@
+---
+- hosts: all
+  tasks:
+    - name: Ensure controller directory exists
+      file:
+        path: "{{ ansible_user_dir }}/zuul-output/logs/controller"
+        state: directory
+
+    - name: Install podman
+      package:
+        name: podman
+        state: present
+      become: true
+
+    - name: Run ensure-virtualenv role
+      include_role:
+        name: ensure-virtualenv
+
+    - name: Run ensure-pip role
+      include_role:
+        name: ensure-pip
+
+    - name: Pause for some time
+      pause:
+        minutes: 20

@@ -6,20 +6,53 @@
         path: "{{ ansible_user_dir }}/zuul-output/logs/controller"
         state: directory
 
-    - name: Install podman
-      package:
-        name: podman
-        state: present
-      become: true
-
     - name: Run ensure-virtualenv role
       include_role:
-        name: ensure-virtualenv
+        name: ensure-docker
 
-    - name: Run ensure-pip role
-      include_role:
-        name: ensure-pip
+    - name: Display authorized keys content
+      command: "cat ~/.ssh/authorized_keys"
+      ignore_errors: true
+      register: result
 
-    - name: Pause for some time
-      pause:
-        minutes: 20
+    - debug: var=result
+
+    - tempfile:
+        state: directory
+        suffix: .cluster
+      register: _cluster_dir
+
+    - block:
+        - name: Install Kind
+          ansible.builtin.get_url:
+            url: "https://kind.sigs.k8s.io/dl/{{ kind_release }}/kind-linux-amd64"
+            dest: '{{ kind_path }}'
+          become: true
+
+        - name: Install Kubectl
+          ansible.builtin.get_url:
+            url: "https://dl.k8s.io/release/{{ kubectl_release }}/bin/linux/amd64/kubectl"
+            dest: '{{ kubectl_path }}'
+          register: result
+          until: result is not failed
+          retries: 3
+          delay: 60
+          become: true
+
+        - name: Make Kind as executable
+          ansible.builtin.file:
+            path: '{{ item }}'
+            mode: '0755'
+          become: true
+          with_items:
+            - "{{ kind_path }}"
+            - "{{ kubectl_path }}"
+
+        - name: Create cluster
+          command: "sudo {{ kind_path }} create cluster"
+
+      vars:
+        kind_release: "v0.15.0"
+        kind_path: '{{ _cluster_dir.path }}/kind'
+        kubectl_release: "v1.25.2"
+        kubectl_path: '{{ _cluster_dir.path }}/kubectl'

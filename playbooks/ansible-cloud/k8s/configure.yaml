@@ -10,11 +10,6 @@
       include_role:
         name: ensure-docker
 
-    - name: Display authorized keys content
-      command: "cat ~/.ssh/authorized_keys"
-      ignore_errors: true
-      register: result
-
     - debug: var=result
 
     - tempfile:
@@ -50,6 +45,59 @@
 
         - name: Create cluster
           command: "sudo {{ kind_path }} create cluster"
+
+        - name: Display authorized keys content
+          command: "cat ~/.kube/config"
+          ignore_errors: true
+          register: result
+
+        - name: Run ensure-virtualenv role
+          include_role:
+            name: ensure-virtualenv
+
+        - name: Run ensure-pip role
+          include_role:
+            name: ensure-pip
+
+        - name: Setup base virtualenv_options
+          set_fact:
+            _virtualenv_options: "--python python{{ ansible_test_python }}"
+
+        - name: Ensure pip temp directory exists in /var/tmp
+          file:
+            state: directory
+            path: /var/tmp/ansible-test-pip
+
+        - name: Create virtualenv for ansible-test
+          shell: "virtualenv {{ _virtualenv_options }} {{ ansible_test_venv_path }}"
+
+        - name: Upgrade pip
+          shell: "{{ ansible_test_venv_path }}/bin/pip install --upgrade pip"
+
+        - name: Install Ansible into virtualenv
+          environment:
+            ANSIBLE_SKIP_CONFLICT_CHECK: 1
+            TMPDIR: /var/tmp/ansible-test-pip
+          shell: "{{ ansible_test_venv_path }}/bin/pip install {{ ansible_user_dir }}/{{ zuul.projects['github.com/ansible/ansible'].src_dir }}"
+
+        - name: Fetch and install the artifacts
+          import_role:
+            name: deploy-artifacts
+
+        - name: Install collection dependencies
+          pip:
+            name:
+              - yamllint
+              - kubernetes
+              - flake8
+              - jsonpatch
+            virtualenv: '{{ ansible_test_venv_path }}'
+            virtualenv_python: python3
+
+        - name: get cluster information
+          k8s_cluster_info:
+          register: _info
+          ansible_python_interpreter: "{{ ansible_test_venv_path }}/bin/python"
 
       vars:
         kind_release: "v0.15.0"

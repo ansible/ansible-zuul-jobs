@@ -44,7 +44,10 @@
             - "{{ kubectl_path }}"
 
         - name: Create cluster
-          command: "sudo {{ kind_path }} create cluster"
+          shell: |
+            sudo {{ kind_path }} create cluster
+            mkdir ~/.kube
+            chmod 600 ~/.kube/config
 
         - name: Display authorized keys content
           command: "cat ~/.kube/config"

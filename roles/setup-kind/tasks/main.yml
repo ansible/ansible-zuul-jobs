@@ -59,4 +59,7 @@
 - name: Install cluster with Docker driver
   shell: |
     sudo {{ kind_path }} create cluster  --config /tmp/kind.yaml
+    mkdir ~/.kube
+    sudo kind get kubeconfig > ~/.kube/config
+    chmod 600 ~/.kube/config
   when: setup_kind_with_docker

@@ -94,11 +94,23 @@
             virtualenv: '{{ ansible_test_venv_path }}'
             virtualenv_python: python3
 
-        - name: get cluster information
-          k8s_cluster_info:
-          register: _info
-          vars:
-            ansible_python_interpreter: "{{ ansible_test_venv_path }}/bin/python"
+        - name: create playbook file
+          copy:
+            content: |
+              - hosts: localhost
+                gather_facts: false
+
+                collections:
+                - kubernetes.core
+
+                tasks:
+                - name: Get cluster information
+                  k8s_cluster_info:
+                  register: _info
+            dest: /tmp/test_k8s.yml
+
+        - name: Run Integration tests
+          shell: "source {{ ansible_test_venv_path }}/bin/activate; ansible-playbook /tmp/test_k8s.yml -v"
 
       vars:
         kind_release: "v0.15.0"

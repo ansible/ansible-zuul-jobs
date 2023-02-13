@@ -10,8 +10,6 @@
       include_role:
         name: ensure-docker
 
-    - debug: var=result
-
     - tempfile:
         state: directory
         suffix: .cluster
@@ -47,6 +45,7 @@
           shell: |
             sudo {{ kind_path }} create cluster
             mkdir ~/.kube
+            sudo {{ kind_path }} get kubeconfig > ~/.kube/config
             chmod 600 ~/.kube/config
 
         - name: Display authorized keys content

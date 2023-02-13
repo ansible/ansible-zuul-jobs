@@ -51,7 +51,7 @@
       shell: |
         sudo {{ kind_path }} create cluster  --config /tmp/kind.yaml
         mkdir ~/.kube
-        sudo kind get kubeconfig |grep -v 'enabling experimental podman provider' > ~/.kube/config
+        sudo {{ kind_path }} get kubeconfig |grep -v 'enabling experimental podman provider' > ~/.kube/config
         chmod 600 ~/.kube/config
       ignore_errors: true
   when: not setup_kind_with_docker
@@ -60,6 +60,6 @@
   shell: |
     sudo {{ kind_path }} create cluster  --config /tmp/kind.yaml
     mkdir ~/.kube
-    sudo kind get kubeconfig > ~/.kube/config
+    sudo {{ kind_path }} get kubeconfig > ~/.kube/config
     chmod 600 ~/.kube/config
   when: setup_kind_with_docker

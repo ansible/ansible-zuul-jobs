@@ -74,6 +74,3 @@
         name: setup-kind
       vars:
         setup_kind_with_docker: '{{ ansible_k8s_setup_kind_with_docker }}'
-
-    - stat:
-        path: ~/.kube/config

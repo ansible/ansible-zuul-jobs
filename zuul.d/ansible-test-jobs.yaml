@@ -5,7 +5,7 @@
     nodeset:
       nodes:
         - name: controller
-          label: ansible-fedora-36-1vcpu
+          label: ansible-fedora-37-1vcpu
     dependencies:
       - name: build-ansible-collection
         soft: true

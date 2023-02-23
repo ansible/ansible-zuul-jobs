@@ -111,11 +111,11 @@
 - job:
     name: ansible-network-appliance-base
     pre-run: playbooks/ansible-network-appliance-base/pre.yaml
-    files:
-      - ^plugins/.*$
-      - ^tests/integration/.*$
-      - ^requirements.txt
-      - ^bindep.txt
+    # files:
+    #   - ^plugins/.*$
+    #   - ^tests/integration/.*$
+    #   - ^requirements.txt
+    #   - ^bindep.txt
 
 - job:
     name: ansible-test-integration-base

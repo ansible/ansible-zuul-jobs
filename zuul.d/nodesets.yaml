@@ -292,7 +292,7 @@
     name: vmware-vcsa-7.0.3
     nodes:
       - name: controller
-        label: ansible-fedora-36-1vcpu
+        label: ansible-fedora-37-1vcpu
       - name: vcenter
         label: ansible-vmware-vcsa-7.0.3
     groups:
@@ -304,7 +304,7 @@
     name: vmware-vcsa_1esxi-7.0.3
     nodes:
       - name: controller
-        label: ansible-fedora-36-1vcpu
+        label: ansible-fedora-37-1vcpu
       - name: vcenter
         label: ansible-vmware-vcsa-7.0.3
       - name: esxi1
@@ -324,7 +324,7 @@
     name: vmware-vcsa_2esxi-7.0.3
     nodes:
       - name: controller
-        label: ansible-fedora-36-1vcpu
+        label: ansible-fedora-37-1vcpu
       - name: vcenter
         label: ansible-vmware-vcsa-7.0.3
       - name: esxi1

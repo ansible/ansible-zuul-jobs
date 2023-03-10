@@ -160,6 +160,7 @@
       - playbooks/ansible-test-base/post.yaml
     required-projects:
       - name: github.com/ansible/ansible
+        override-checkout: stable-2.14
       - name: github.com/ansible-collections/vmware.vmware_rest
     vars:
       ansible_collections_repo: github.com/ansible-collections/vmware.vmware_rest

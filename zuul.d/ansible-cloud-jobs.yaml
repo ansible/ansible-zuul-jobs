@@ -405,6 +405,54 @@
     vars:
       ansible_collections_repo: "{{ zuul.project.canonical_name }}"
 
+- job:
+    name: ansible-test-sanity-cloud-common-ansible-python38
+    parent: ansible-test-sanity-docker-milestone
+    vars:
+      ansible_test_sanity_skiptests:
+        - 'future-import-boilerplate'
+        - 'metaclass-boilerplate'
+
+- job:
+    name: ansible-test-sanity-cloud-common-ansible-2.9-python38
+    parent: ansible-test-sanity-docker-stable-2.9
+    vars:
+      ansible_test_sanity_skiptests:
+        - 'future-import-boilerplate'
+        - 'metaclass-boilerplate'
+
+- job:
+    name: ansible-test-sanity-cloud-common-ansible-2.11-python38
+    parent: ansible-test-sanity-docker-stable-2.11
+    vars:
+      ansible_test_sanity_skiptests:
+        - 'future-import-boilerplate'
+        - 'metaclass-boilerplate'
+
+- job:
+    name: ansible-test-sanity-cloud-common-ansible-2.12-python38
+    parent: ansible-test-sanity-docker-stable-2.12
+    vars:
+      ansible_test_sanity_skiptests:
+        - 'future-import-boilerplate'
+        - 'metaclass-boilerplate'
+
+- job:
+    name: ansible-test-sanity-cloud-common-ansible-2.13-python38
+    parent: ansible-test-sanity-docker-stable-2.13
+    vars:
+      ansible_test_sanity_skiptests:
+        - 'future-import-boilerplate'
+        - 'metaclass-boilerplate'
+
+- job:
+    name: ansible-test-sanity-cloud-common-ansible-2.14
+    parent: ansible-test-sanity-docker-stable-2.14
+    vars:
+      ansible_test_sanity_skiptests:
+        - 'future-import-boilerplate'
+        - 'metaclass-boilerplate'
+
 ### Community OKD
 
 - job:

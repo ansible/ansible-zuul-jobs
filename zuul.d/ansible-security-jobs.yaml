@@ -226,7 +226,7 @@
     nodeset: Trendmicro-DeepSecurity-20.0.344
     required-projects:
       - name: github.com/ansible/ansible
-        override-checkout: stable-2.11
+        override-checkout: stable-2.12-devel
     vars:
       ansible_test_python: 3.6
 
@@ -236,7 +236,7 @@
     nodeset: Trendmicro-DeepSecurity-20.0.344
     required-projects:
       - name: github.com/ansible/ansible
-        override-checkout: stable-2.11
+        override-checkout: stable-2.12-devel
     vars:
       ansible_test_python: 3.7
 
@@ -278,28 +278,6 @@
       - name: github.com/ansible/ansible
         override-checkout: stable-2.9
 
-# stable211
-- job:
-    name: ansible-security-integration-splunk-es-python39-stable211
-    parent: ansible-security-integration-splunk-es-python39
-    required-projects:
-      - name: github.com/ansible/ansible
-        override-checkout: stable-2.11
-
-- job:
-    name: ansible-test-security-integration-qradar-python39-stable211
-    parent: ansible-test-security-integration-qradar-python39
-    required-projects:
-      - name: github.com/ansible/ansible
-        override-checkout: stable-2.11
-
-- job:
-    name: ansible-security-integration-trendmicro-deepsec-python39-stable211
-    parent: ansible-security-integration-trendmicro-deepsec-python39
-    required-projects:
-      - name: github.com/ansible/ansible
-        override-checkout: stable-2.11
-
 # stable212
 - job:
     name: ansible-security-integration-splunk-es-python39-stable212
@@ -321,3 +299,47 @@
     required-projects:
       - name: github.com/ansible/ansible
         override-checkout: stable-2.12
+
+# stable213
+- job:
+    name: ansible-security-integration-splunk-es-python39-stable213
+    parent: ansible-security-integration-splunk-es-python39
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.13
+
+- job:
+    name: ansible-test-security-integration-qradar-python39-stable213
+    parent: ansible-test-security-integration-qradar-python39
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.13
+
+- job:
+    name: ansible-security-integration-trendmicro-deepsec-python39-stable213
+    parent: ansible-security-integration-trendmicro-deepsec-python39
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.13
+
+# stable214
+- job:
+    name: ansible-security-integration-splunk-es-python39-stable214
+    parent: ansible-security-integration-splunk-es-python39
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.14
+
+- job:
+    name: ansible-test-security-integration-qradar-python39-stable214
+    parent: ansible-test-security-integration-qradar-python39
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.14
+
+- job:
+    name: ansible-security-integration-trendmicro-deepsec-python39-stable214
+    parent: ansible-security-integration-trendmicro-deepsec-python39
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.14

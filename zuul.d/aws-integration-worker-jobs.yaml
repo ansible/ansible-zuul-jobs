@@ -1580,7 +1580,8 @@
     name: ansible-collections-community-aws-integration
     check:
       jobs: []
-    gate: []
+    gate: 
+      jobs: []
     ondemand:
       jobs:
         - build-ansible-collection:

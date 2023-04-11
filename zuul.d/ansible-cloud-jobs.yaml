@@ -612,17 +612,6 @@
     name: integration-kubernetes.core-with-turbo-3
     parent: integration-kubernetes.core-with-turbo-1
 
-# Ansible test changelog
-- job:
-    name: ansible-test-changelog
-    pre-run: playbooks/ansible-test-changelog/pre.yaml
-    run: playbooks/ansible-test-changelog/run.yaml
-    files:
-      - ^plugins/.*$
-      - ^tests/integration/.*$
-    nodeset: container-ansible
-    timeout: 1000
-
 - job:
     name: cloud-tox-py3
     run: playbooks/ansible-cloud/cloud-tox-py3/run.yaml

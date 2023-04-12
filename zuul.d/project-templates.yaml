@@ -1187,6 +1187,7 @@
         - ansible-test-sanity-docker-stable-2.11
         - ansible-test-sanity-docker-stable-2.12
         - ansible-test-sanity-docker-stable-2.13
+        - ansible-test-sanity-docker-stable-2.14
         - ansible-test-units-posix-python39
         - ansible-test-units-posix-python310
     gate:

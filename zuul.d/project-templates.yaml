@@ -113,7 +113,6 @@
         - ansible-test-sanity-docker-stable-2.12
         - ansible-test-sanity-docker-stable-2.13
         - ansible-test-sanity-docker-stable-2.14
-        - ansible-test-integration-amazon-cloud
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-collections/amazon.aws

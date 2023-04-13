@@ -998,36 +998,6 @@
         - build-ansible-collection
 
 - project-template:
-<<<<<<< Updated upstream
-    name: ansible-collections-frr-frr-units
-    check:
-      jobs: &ansible-collections-ffr-ffr-units-jobs
-        - ansible-test-sanity-docker-devel
-        - ansible-test-sanity-docker-milestone
-        - ansible-test-sanity-docker-stable-2.9
-        - ansible-test-sanity-docker-stable-2.10
-        - ansible-test-sanity-docker-stable-2.11
-        - ansible-test-sanity-docker-stable-2.12
-        - ansible-test-units-frr-python36
-        - ansible-test-units-frr-python37
-        - ansible-test-units-frr-python38
-        - ansible-test-units-frr-python39
-    gate:
-      jobs: *ansible-collections-ffr-ffr-units-jobs
-    periodic:
-      jobs:
-        - ansible-test-sanity-docker-devel
-        - ansible-test-sanity-docker-milestone
-        - ansible-test-sanity-docker-stable-2.9
-        - ansible-test-sanity-docker-stable-2.10
-        - ansible-test-sanity-docker-stable-2.11
-        - ansible-test-sanity-docker-stable-2.12
-        - ansible-test-units-frr-python38
-        - build-ansible-collection
-
-- project-template:
-=======
->>>>>>> Stashed changes
     name: ansible-collections-ansible-netcommon-units
     check:
       jobs: &ansible-collections-ansible-netcommon-units-jobs

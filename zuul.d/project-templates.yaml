@@ -902,37 +902,8 @@
         - ansible-test-sanity-docker-stable-2.11
         - ansible-test-sanity-docker-stable-2.12
         - ansible-test-units-kubernetes-core-python38
-        - ansible-test-splitter:
-            required-projects:
-              - name: github.com/ansible-collections/kubernetes.core
-            vars:
-              ansible_test_splitter__test_changed: true
-              ansible_test_splitter__total_job: 3
-              ansible_test_splitter__releases_to_test:
-                - "devel"
-                - "milestone"
-                - "2.9"
-                - "2.10"
-                - "with-turbo"
-        - ansible-tox-linters
     gate:
       jobs: *ansible-collections-kubernetes-core-units-jobs
-    ondemand:
-      jobs:
-        - build-ansible-collection
-        - ansible-test-splitter:
-            required-projects:
-              - name: github.com/ansible-collections/kubernetes.core
-            vars:
-              ansible_test_splitter__test_changed: false
-              ansible_test_splitter__total_job: 3
-              ansible_test_splitter__releases_to_test:
-                - "devel"
-                - "milestone"
-                - "2.9"
-                - "2.10"
-                - "with-turbo"
-        - ansible-tox-linters
 
 - project-template:
     name: ansible-collections-vyos-vyos

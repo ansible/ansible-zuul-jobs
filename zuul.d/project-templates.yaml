@@ -914,23 +914,7 @@
                 - "2.9"
                 - "2.10"
                 - "with-turbo"
-        - integration-kubernetes.core-devel-1
-        - integration-kubernetes.core-devel-2
-        - integration-kubernetes.core-devel-3
-        - integration-kubernetes.core-milestone-1
-        - integration-kubernetes.core-milestone-2
-        - integration-kubernetes.core-milestone-3
-        - integration-kubernetes.core-2.9-1
-        - integration-kubernetes.core-2.9-2
-        - integration-kubernetes.core-2.9-3
-        - integration-kubernetes.core-2.10-1
-        - integration-kubernetes.core-2.10-2
-        - integration-kubernetes.core-2.10-3
-        - integration-kubernetes.core-with-turbo-1
-        - integration-kubernetes.core-with-turbo-2
-        - integration-kubernetes.core-with-turbo-3
         - ansible-tox-linters
-        - ansible-test-changelog
     gate:
       jobs: *ansible-collections-kubernetes-core-units-jobs
     ondemand:
@@ -948,22 +932,7 @@
                 - "2.9"
                 - "2.10"
                 - "with-turbo"
-        - integration-kubernetes.core-devel-1
-        - integration-kubernetes.core-devel-2
-        - integration-kubernetes.core-devel-3
-        - integration-kubernetes.core-milestone-1
-        - integration-kubernetes.core-milestone-2
-        - integration-kubernetes.core-milestone-3
-        - integration-kubernetes.core-2.9-1
-        - integration-kubernetes.core-2.9-2
-        - integration-kubernetes.core-2.9-3
-        - integration-kubernetes.core-2.10-1
-        - integration-kubernetes.core-2.10-2
-        - integration-kubernetes.core-2.10-3
-        - integration-kubernetes.core-with-turbo-1
-        - integration-kubernetes.core-with-turbo-2
-        - integration-kubernetes.core-with-turbo-3
-        - ansible-test-changelog
+        - ansible-tox-linters
 
 - project-template:
     name: ansible-collections-vyos-vyos

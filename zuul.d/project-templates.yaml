@@ -1623,6 +1623,7 @@
         - tox-cloud-refresh-modules-vmware
         - tox-cloud-refresh-modules-amazon
         - tox-cloud-refresh-examples-vmware
+        - tox-cloud-refresh-examples-amazon
         - tox-cloud-generate-vmware:
             voting: false
         - tox-cloud-generate-amazon:

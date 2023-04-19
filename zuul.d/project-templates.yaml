@@ -118,7 +118,6 @@
               - name: github.com/ansible-collections/amazon.aws
               - name: github.com/ansible-collections/community.aws
               - name: github.com/ansible-collections/community.crypto
-        - tox-cloud-refresh-examples-amazon
     gate:
       jobs: *ansible-collections-amazon-cloud-jobs
     ondemand:

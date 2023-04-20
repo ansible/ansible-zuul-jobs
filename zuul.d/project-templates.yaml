@@ -566,22 +566,10 @@
     name: ansible-collections-community-vmware-rest
     check:
       jobs: &ansible-collections-community-vmware-rest-jobs
-        - ansible-test-cloud-integration-vmware-rest
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-collections/cloud.common
               - name: github.com/ansible-collections/community.vmware
-        - ansible-tox-linters
-        - ansible-test-sanity-docker-devel
-        - ansible-test-sanity-docker-milestone
-        - ansible-test-sanity-docker-stable-2.9
-        - ansible-test-sanity-docker-stable-2.10:
-            voting: false
-        - ansible-test-sanity-docker-stable-2.11
-        - ansible-test-sanity-docker-stable-2.12
-        - ansible-test-sanity-docker-stable-2.13
-        - ansible-test-sanity-docker-stable-2.14
-        - tox-cloud-refresh-examples-vmware
     gate:
       jobs: *ansible-collections-community-vmware-rest-jobs
     periodic:

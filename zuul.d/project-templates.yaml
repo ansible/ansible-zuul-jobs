@@ -288,6 +288,22 @@
             vars:
               ansible_test_collections: true
             voting: false
+        - ansible-test-network-integration-nxos-cli-python39-stable215-scenario01:
+            vars:
+              ansible_test_collections: true
+            voting: false
+        - ansible-test-network-integration-nxos-cli-python39-stable215-scenario02:
+            vars:
+              ansible_test_collections: true
+            voting: false
+        - ansible-test-network-integration-nxos-cli-python39-stable215-scenario03:
+            vars:
+              ansible_test_collections: true
+            voting: false
+        - ansible-test-network-integration-nxos-cli-python39-stable215-scenario04:
+            vars:
+              ansible_test_collections: true
+            voting: false
         - ansible-test-network-integration-nxos-cli-python39-stable214-scenario01:
             vars:
               ansible_test_collections: true

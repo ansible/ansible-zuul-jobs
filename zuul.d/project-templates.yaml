@@ -1630,17 +1630,3 @@
             voting: false
     gate:
       jobs: *ansible-collections-cloud-gouttelette-units-jobs
-
-- project-template:
-    name: ansible-collections-cloud-pravic
-    check:
-      jobs: &ansible-collections-cloud-pravic-jobs
-        - build-ansible-collection
-        - ansible-test-sanity-docker-devel
-        - ansible-test-sanity-docker-milestone:
-            voting: false
-        - ansible-test-sanity-docker-stable-2.14
-        - ansible-test-units-cloud-pravic-python39
-        - ansible-galaxy-importer
-    gate:
-      jobs: *ansible-collections-cloud-pravic-jobs

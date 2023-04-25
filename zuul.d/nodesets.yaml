@@ -375,7 +375,7 @@
     nodes:
       - name: controller
         # note: there is no py35 on f35
-        label: ansible-fedora-35-1vcpu
+        label: ansible-fedora-37-1vcpu
 
 - nodeset:  # Deprecated
     name: controller-python36

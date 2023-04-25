@@ -48,7 +48,7 @@
 - job:
     name: ansible-test-network-integration-openvswitch-python39-stable215
     parent: ansible-test-network-integration-openvswitch
-    nodeset: openvswitch-2.9.0-python27
+    nodeset: openvswitch-2.9.0-python38
     required-projects:
       - name: github.com/ansible/ansible
         override-checkout: stable-2.15

@@ -254,7 +254,7 @@
     name: vsrx3
     nodes:
       - name: controller
-        label: ansible-fedora-35-1vcpu
+        label: ansible-fedora-37-1vcpu
       - name: vsrx3
         label: vsrx3
     groups:

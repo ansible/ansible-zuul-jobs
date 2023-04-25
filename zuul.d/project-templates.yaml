@@ -50,11 +50,6 @@
       jobs:
         - ansible-tox-linters
 
-- project-template:
-    name: ansible-collections-amazon-aws
-    check:
-      jobs: &ansible-collections-amazon-aws-jobs
-        - cloud-tox-py3
 
 - project-template:
     name: ansible-collections-community-aws

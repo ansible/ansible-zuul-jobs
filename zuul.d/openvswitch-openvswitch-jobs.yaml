@@ -15,45 +15,85 @@
       - name: github.com/ansible/ansible-zuul-jobs
     nodeset: openvswitch-2.9.0-python38
 
-# ansible-ee
 - job:
-    name: ansible-ee-integration-ovs-latest
-    parent: ansible-ee-tests
+    name: ansible-test-network-integration-openvswitch
+    abstract: true
+    dependencies:
+      - name: build-ansible-collection
+        soft: true
+    parent: ansible-network-openvswitch-appliance
     pre-run:
-      - playbooks/ansible-ee/integration/pre.yaml
-      - playbooks/ansible-ee/openvswitch/pre.yaml
-    run: playbooks/ansible-ee/integration/run.yaml
+      - playbooks/ansible-test-base/pre.yaml
+      - playbooks/ansible-test-network-integration-base/pre.yaml
+    run: playbooks/ansible-test-base/run.yaml
+    post-run:
+      - playbooks/ansible-test-network-integration-base/post.yaml
+      - playbooks/ansible-test-base/post.yaml
+    required-projects:
+      - name: github.com/ansible/ansible
+      - name: github.com/ansible-collections/openvswitch.openvswitch
+    timeout: 3600
     vars:
-      ansible_runner_container_version: latest
-      container_image_tests:
-        - integration
-      ansible_network_os: openvswitch
-      test_ansible_ssh_private_key_file: ~/.ssh/id_ecdsa
-      test_ansible_python_interpreter: /usr/bin/python3.9
-      test_ansible_network_cli_ssh_type: libssh
-    nodeset: openvswitch-2.15.0
+      ansible_collections_repo: github.com/ansible-collections/openvswitch.openvswitch
+      ansible_test_command: network-integration
+      ansible_test_integration_targets: "openvswitch_.*"
 
 - job:
-    name: ansible-ee-integration-ovs-stable2.11
-    parent: ansible-ee-integration-ovs-latest
+    name: ansible-test-network-integration-openvswitch-python39
+    parent: ansible-test-network-integration-openvswitch
+    nodeset: openvswitch-2.9.0-python38
     vars:
-      ansible_runner_container_version: stable-2.11-devel
+      ansible_test_python: 3.9
 
 - job:
-    name: ansible-ee-integration-ovs-stable2.12
-    parent: ansible-ee-integration-ovs-latest
+    name: ansible-test-network-integration-openvswitch-python39-stable215
+    parent: ansible-test-network-integration-openvswitch
+    nodeset: openvswitch-2.9.0-python27
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.15
     vars:
-      ansible_runner_container_version: stable-2.12-devel
+      ansible_test_collections: true
+      ansible_test_python: 3.9
 
 - job:
-    name: ansible-ee-integration-ovs-stable2.10
-    parent: ansible-ee-integration-ovs-latest
+    name: ansible-test-network-integration-openvswitch-python39-stable214
+    parent: ansible-test-network-integration-openvswitch
+    nodeset: openvswitch-2.9.0-python38
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.14
     vars:
-      ansible_runner_container_version: stable-2.10-devel
+      ansible_test_python: 3.9
 
 - job:
-    name: ansible-ee-integration-ovs-stable2.9
-    parent: ansible-ee-integration-ovs-latest
+    name: ansible-test-network-integration-openvswitch-python39-stable213
+    parent: ansible-test-network-integration-openvswitch
+    nodeset: openvswitch-2.9.0-python38
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.13
     vars:
-      test_ansible_python_interpreter: /usr/bin/python3.8
-      ansible_runner_container_version: stable-2.9-devel
+      ansible_test_collections: true
+      ansible_test_python: 3.9
+
+- job:
+    name: ansible-test-network-integration-openvswitch-python39-stable212
+    parent: ansible-test-network-integration-openvswitch
+    nodeset: openvswitch-2.9.0-python38
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.12
+    vars:
+      ansible_test_python: 3.9
+
+- job:
+    name: ansible-test-network-integration-openvswitch-python39-stable29
+    parent: ansible-test-network-integration-openvswitch
+    nodeset: openvswitch-2.9.0-python38
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.9
+    vars:
+      ansible_test_collections: true
+      ansible_test_python: 3.9

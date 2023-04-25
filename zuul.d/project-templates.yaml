@@ -1575,11 +1575,12 @@
     name: ansible-collections-openvswitch-openvswitch
     check:
       jobs: &ansible-collections-openvswitch-openvswitch-jobs
-        - ansible-ee-integration-ovs-latest
-        - ansible-ee-integration-ovs-stable2.12
-        - ansible-ee-integration-ovs-stable2.11
-        - ansible-ee-integration-ovs-stable2.10
-        - ansible-ee-integration-ovs-stable2.9
+        - ansible-test-network-integration-openvswitch-python39
+        - ansible-test-network-integration-openvswitch-python39-stable215
+        - ansible-test-network-integration-openvswitch-python39-stable214
+        - ansible-test-network-integration-openvswitch-python39-stable213
+        - ansible-test-network-integration-openvswitch-python39-stable212
+        - ansible-test-network-integration-openvswitch-python39-stable29
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-collections/ansible.netcommon

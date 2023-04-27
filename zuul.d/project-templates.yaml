@@ -1557,9 +1557,10 @@
     check:
       jobs: &ansible-collections-openvswitch-openvswitch-jobs
         - ansible-ee-integration-ovs-latest
+        - ansible-ee-integration-ovs-stable2.15
+        - ansible-ee-integration-ovs-stable2.14
+        - ansible-ee-integration-ovs-stable2.13
         - ansible-ee-integration-ovs-stable2.12
-        - ansible-ee-integration-ovs-stable2.11
-        - ansible-ee-integration-ovs-stable2.10
         - ansible-ee-integration-ovs-stable2.9
         - build-ansible-collection:
             required-projects:

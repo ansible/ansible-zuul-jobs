@@ -1575,6 +1575,7 @@
     name: ansible-collections-openvswitch-openvswitch
     check:
       jobs: &ansible-collections-openvswitch-openvswitch-jobs
+        - ansible-test-network-integration-openvswitch
         - ansible-test-network-integration-openvswitch-python39
         - ansible-test-network-integration-openvswitch-python39-stable215
         - ansible-test-network-integration-openvswitch-python39-stable214

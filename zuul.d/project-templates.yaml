@@ -817,48 +817,75 @@
     check:
       jobs: &ansible-collections-juniper-junos-jobs
         - ansible-test-network-integration-junos-vsrx-netconf-python39:
+            voting: false
             vars:
               ansible_test_integration_targets: "junos_.*"
         - ansible-test-network-integration-junos-vsrx-netconf-python36-stable211:
+            voting: false
             vars:
               ansible_test_integration_targets: "junos_.*"
         - ansible-test-network-integration-junos-vsrx-netconf-python39-stable212:
+            voting: false
             vars:
               ansible_test_integration_targets: "junos_.*"
         - ansible-test-network-integration-junos-vsrx-netconf-python36-stable29:
+            voting: false
             vars:
               ansible_test_integration_targets: "junos_.*"
         - ansible-test-network-integration-junos-vsrx-network_cli-python39:
+            voting: false
             vars:
               ansible_test_integration_targets: "junos_.*"
         - ansible-test-network-integration-junos-vsrx-network_cli-python39-stable212:
+            voting: false
             vars:
               ansible_test_integration_targets: "junos_.*"
         - ansible-test-network-integration-junos-vsrx-network_cli-python36-stable211:
+            voting: false
             vars:
               ansible_test_integration_targets: "junos_.*"
         - ansible-test-network-integration-junos-vsrx-network_cli-python36-stable29:
+            voting: false
             vars:
               ansible_test_integration_targets: "junos_.*"
         - ansible-test-network-integration-junos-vsrx-network_cli-libssh-python39:
+            voting: false
             vars:
               ansible_test_integration_targets: "junos_.*"
         - ansible-test-network-integration-junos-vsrx-network_cli-libssh-python39-stable212:
+            voting: false
             vars:
               ansible_test_integration_targets: "junos_.*"
         - ansible-test-network-integration-junos-vsrx-network_cli-libssh-python36-stable29:
+            voting: false
             vars:
               ansible_test_integration_targets: "junos_.*"
         - ansible-test-network-integration-junos-vsrx-network_cli-libssh-python36-stable211:
+            voting: false
+            vars:
+              ansible_test_integration_targets: "junos_.*"
+        - ansible-test-network-integration-junos-vsrx-netconf-python39-stable215:
+            voting: false
+            vars:
+              ansible_test_integration_targets: "junos_.*"
+        - ansible-test-network-integration-junos-vsrx-network_cli-python39-stable215:
+            voting: false
+            vars:
+              ansible_test_integration_targets: "junos_.*"
+        - ansible-test-network-integration-junos-vsrx-network_cli-libssh-python39-stable215:
+            voting: false
             vars:
               ansible_test_integration_targets: "junos_.*"
         - ansible-test-network-integration-junos-vsrx-netconf-python39-stable214:
+            voting: false
             vars:
               ansible_test_integration_targets: "junos_.*"
         - ansible-test-network-integration-junos-vsrx-network_cli-python39-stable214:
+            voting: false
             vars:
               ansible_test_integration_targets: "junos_.*"
         - ansible-test-network-integration-junos-vsrx-network_cli-libssh-python39-stable214:
+            voting: false
             vars:
               ansible_test_integration_targets: "junos_.*"
         - build-ansible-collection:

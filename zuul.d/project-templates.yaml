@@ -1599,22 +1599,6 @@
         - build-ansible-collection
 
 - project-template:
-    name: ansible-collections-cloud-aws_troubleshooting
-    check:
-      jobs: &ansible-collections-cloud-aws_troubleshooting-jobs
-        - ansible-tox-linters
-    gate:
-      jobs: *ansible-collections-cloud-aws_troubleshooting-jobs
-
-- project-template:
-    name: ansible-collections-cloud-aws_ops
-    check:
-      jobs: &ansible-collections-cloud-aws_ops-jobs
-        - ansible-tox-linters
-    gate:
-      jobs: *ansible-collections-cloud-aws_ops-jobs
-
-- project-template:
     name: ansible-collections-cloud-terraform-units
     check:
       jobs: &ansible-collections-cloud-terraform-units-jobs

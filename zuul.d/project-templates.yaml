@@ -1599,18 +1599,6 @@
         - build-ansible-collection
 
 - project-template:
-    name: ansible-collections-cloud-terraform-units
-    check:
-      jobs: &ansible-collections-cloud-terraform-units-jobs
-        - build-ansible-collection:
-            required-projects:
-              - name: github.com/ansible-collections/amazon.aws
-              - name: github.com/ansible-collections/community.general
-        - ansible-galaxy-importer
-    gate:
-      jobs: *ansible-collections-cloud-terraform-units-jobs
-
-- project-template:
     name: ansible-collections-cloud-gouttelette-units
     check:
       jobs: &ansible-collections-cloud-gouttelette-units-jobs

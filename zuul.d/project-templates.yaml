@@ -1599,6 +1599,13 @@
         - build-ansible-collection
 
 - project-template:
+    name: ansible-collections-cloud-terraform-units
+    check:
+      jobs: []
+    gate:
+      jobs: []
+
+- project-template:
     name: ansible-collections-cloud-gouttelette-units
     check:
       jobs: &ansible-collections-cloud-gouttelette-units-jobs

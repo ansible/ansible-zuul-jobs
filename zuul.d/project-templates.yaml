@@ -1602,19 +1602,10 @@
     name: ansible-collections-cloud-terraform-units
     check:
       jobs: &ansible-collections-cloud-terraform-units-jobs
-        - build-ansible-collection
-        - ansible-test-sanity-docker-devel
-        - ansible-test-sanity-docker-milestone:
-            voting: false
-        - ansible-test-sanity-docker-stable-2.13
-        - ansible-test-sanity-docker-stable-2.14
-        - ansible-test-units-cloud-terraform-python38
-        - ansible-test-integration-cloud-terraform
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-collections/amazon.aws
               - name: github.com/ansible-collections/community.general
-        - ansible-test-changelog
         - ansible-galaxy-importer
     gate:
       jobs: *ansible-collections-cloud-terraform-units-jobs

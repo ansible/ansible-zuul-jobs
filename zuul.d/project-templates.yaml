@@ -526,6 +526,7 @@
             voting: false
         - ansible-test-sanity-docker-stable-2.13
         - ansible-test-sanity-docker-stable-2.14
+        - ansible-test-sanity-docker-stable-2.15
         - ansible-test-units-community-vmware-python38
         - ansible-test-cloud-integration-vcenter7_only-stable214
         - ansible-test-cloud-integration-vcenter7_2esxi-stable214
@@ -537,6 +538,7 @@
         - build-ansible-collection
         - ansible-test-sanity-docker-stable-2.13
         - ansible-test-sanity-docker-stable-2.14
+        - ansible-test-sanity-docker-stable-2.15
         - ansible-test-units-community-vmware-python38
 
 - project-template:

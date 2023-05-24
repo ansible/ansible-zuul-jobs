@@ -1590,12 +1590,8 @@
             voting: false
         - ansible-test-changelog
         - tox-cloud-refresh-modules-vmware
-        - tox-cloud-refresh-modules-amazon
         - tox-cloud-refresh-examples-vmware
-        - tox-cloud-refresh-examples-amazon
         - tox-cloud-generate-vmware:
-            voting: false
-        - tox-cloud-generate-amazon:
             voting: false
     gate:
       jobs: *ansible-collections-cloud-gouttelette-units-jobs

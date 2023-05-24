@@ -699,7 +699,6 @@
       - name: github.com/ansible-collections/gouttelette
     nodeset: container-ansible
     vars:
-      tox_envlist: refresh-examples
       tox_package_name: amazon_cloud
       zuul_work_dir: "~/{{ zuul.projects['github.com/ansible-collections/amazon.cloud'].src_dir }}"
 

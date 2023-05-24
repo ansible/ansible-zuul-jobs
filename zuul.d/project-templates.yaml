@@ -520,13 +520,6 @@
             required-projects:
               - name: github.com/ansible-collections/vmware.vmware_rest
               - name: github.com/ansible-collections/cloud.common
-        - ansible-test-sanity-docker-devel:
-            voting: false
-        - ansible-test-sanity-docker-milestone:
-            voting: false
-        - ansible-test-sanity-docker-stable-2.13
-        - ansible-test-sanity-docker-stable-2.14
-        - ansible-test-units-community-vmware-python38
         - ansible-test-cloud-integration-vcenter7_only-stable214
         - ansible-test-cloud-integration-vcenter7_2esxi-stable214
         - ansible-test-cloud-integration-vcenter7_1esxi-stable214_1_of_2
@@ -535,9 +528,6 @@
       jobs:
         - ansible-tox-linters
         - build-ansible-collection
-        - ansible-test-sanity-docker-stable-2.13
-        - ansible-test-sanity-docker-stable-2.14
-        - ansible-test-units-community-vmware-python38
 
 - project-template:
     name: ansible-collections-community-vmware-rest

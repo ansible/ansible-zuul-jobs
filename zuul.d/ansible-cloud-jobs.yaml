@@ -271,6 +271,7 @@
 - job:
     name: ansible-test-units-amazon-aws-python310
     parent: ansible-test-units-base-python310
+    voting: false
     vars:
       ansible_collections_repo: "{{ zuul.project.canonical_name }}"
       ansible_test_requirement_files:

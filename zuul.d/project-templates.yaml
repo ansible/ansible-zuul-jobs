@@ -58,6 +58,10 @@
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-collections/amazon.aws
+        - ansible-galaxy-importer:
+            voting: false
+    third-party-check:
+      jobs: *ansible-collections-community-aws-jobs
     gate:
       jobs: *ansible-collections-community-aws-jobs
 

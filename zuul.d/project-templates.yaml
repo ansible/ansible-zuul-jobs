@@ -55,10 +55,6 @@
     name: ansible-collections-community-aws
     check:
       jobs: &ansible-collections-community-aws-jobs
-        - ansible-galaxy-importer
-    third-party-check:
-      jobs:
-        - ansible-galaxy-importer
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-collections/amazon.aws

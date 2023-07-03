@@ -155,15 +155,6 @@
     gate:
       fail-fast: true
       jobs: *ansible-collections-arista-eos-jobs
-    periodic:
-      jobs:
-        - ansible-test-sanity-docker-devel
-        - ansible-test-sanity-docker-milestone
-        - ansible-test-sanity-docker-stable-2.9
-        - ansible-test-sanity-docker-stable-2.10
-        - ansible-test-sanity-docker-stable-2.11
-        - ansible-test-sanity-docker-stable-2.12
-        - build-ansible-collection
 
 - project-template:
     name: ansible-collections-cisco-asa-units
@@ -305,15 +296,6 @@
             required-projects:
               - name: github.com/ansible-collections/ansible.netcommon
               - name: github.com/ansible-collections/ansible.utils
-    periodic:
-      jobs:
-        - ansible-test-sanity-docker-devel
-        - ansible-test-sanity-docker-milestone
-        - ansible-test-sanity-docker-stable-2.9
-        - ansible-test-sanity-docker-stable-2.10
-        - ansible-test-sanity-docker-stable-2.11
-        - ansible-test-sanity-docker-stable-2.12
-        - build-ansible-collection
 
 - project-template:
     name: ansible-community-ansible-plugin-builder
@@ -350,15 +332,6 @@
     gate:
       fail-fast: true
       jobs: *ansible-collections-cisco-ios-jobs
-    periodic:
-      jobs:
-        - ansible-test-sanity-docker-devel
-        - ansible-test-sanity-docker-milestone
-        - ansible-test-sanity-docker-stable-2.9
-        - ansible-test-sanity-docker-stable-2.10
-        - ansible-test-sanity-docker-stable-2.11
-        - ansible-test-sanity-docker-stable-2.12
-        - build-ansible-collection
 
 - project-template:
     name: ansible-collections-cisco-iosxr
@@ -375,15 +348,6 @@
             required-projects:
               - name: github.com/ansible-collections/ansible.netcommon
               - name: github.com/ansible-collections/ansible.utils
-    periodic:
-      jobs:
-        - ansible-test-sanity-docker-devel
-        - ansible-test-sanity-docker-milestone
-        - ansible-test-sanity-docker-stable-2.9
-        - ansible-test-sanity-docker-stable-2.10
-        - ansible-test-sanity-docker-stable-2.11
-        - ansible-test-sanity-docker-stable-2.12
-        - build-ansible-collection
 
 - project-template:
     name: ansible-collections-cisco-iosxr-netconf
@@ -900,15 +864,6 @@
     gate:
       fail-fast: true
       jobs: *ansible-collections-vyos-vyos-jobs
-    periodic:
-      jobs:
-        - ansible-test-sanity-docker-devel
-        - ansible-test-sanity-docker-milestone
-        - ansible-test-sanity-docker-stable-2.9
-        - ansible-test-sanity-docker-stable-2.10
-        - ansible-test-sanity-docker-stable-2.11
-        - ansible-test-sanity-docker-stable-2.12
-        - build-ansible-collection
 
 - project-template:
     name: ansible-collections-ansible-netcommon-units
@@ -1545,9 +1500,6 @@
               - name: github.com/ansible-collections/ansible.utils
     gate:
       jobs: *ansible-collections-openvswitch-openvswitch-jobs
-    periodic:
-      jobs:
-        - build-ansible-collection
 
 - project-template:
     name: ansible-collections-cloud-terraform-units

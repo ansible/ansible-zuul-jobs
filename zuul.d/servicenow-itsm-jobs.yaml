@@ -11,14 +11,6 @@
       ansible_collections_repo: github.com/ansible-collections/servicenow.itsm
 
 - job:
-    name: ansible-test-units-servicenow-itsm-python36
-    parent: ansible-test-units-base-python36
-    required-projects:
-      - name: github.com/ansible-collections/servicenow.itsm
-    vars:
-      ansible_collections_repo: github.com/ansible-collections/servicenow.itsm
-
-- job:
     name: ansible-test-units-servicenow-itsm-python37
     parent: ansible-test-units-base-python37
     required-projects:
@@ -29,6 +21,14 @@
 - job:
     name: ansible-test-units-servicenow-itsm-python38
     parent: ansible-test-units-base-python38
+    required-projects:
+      - name: github.com/ansible-collections/servicenow.itsm
+    vars:
+      ansible_collections_repo: github.com/ansible-collections/servicenow.itsm
+
+- job:
+    name: ansible-test-units-servicenow-itsm-python39
+    parent: ansible-test-units-base-python39
     required-projects:
       - name: github.com/ansible-collections/servicenow.itsm
     vars:

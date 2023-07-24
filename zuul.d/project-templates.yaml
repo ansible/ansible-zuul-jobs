@@ -418,14 +418,6 @@
     name: ansible-collections-cloud-common
     check:
       jobs: &ansible-collections-cloud-common-jobs
-        - ansible-test-sanity-docker-devel
-        - ansible-test-sanity-docker-milestone
-        - ansible-test-sanity-docker-stable-2.9
-        - ansible-test-sanity-docker-stable-2.10
-        - ansible-test-sanity-docker-stable-2.11
-        - ansible-test-sanity-docker-stable-2.12
-        - ansible-test-sanity-docker-stable-2.13
-        - ansible-test-sanity-docker-stable-2.14
         - ansible-test-cloud-integration-vmware-rest:
             required-projects:
               - name: github.com/ansible-collections/vmware.vmware_rest
@@ -449,11 +441,6 @@
         - integration-kubernetes.core-with-turbo-3
     gate:
       jobs: *ansible-collections-cloud-common-jobs
-    periodic:
-      jobs:
-        - ansible-test-sanity-docker-devel
-        - ansible-test-sanity-docker-milestone
-        - build-ansible-collection
 
 - project-template:
     name: ansible-collections-community-vmware

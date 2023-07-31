@@ -42,7 +42,7 @@
     parent: ansible-test-network-integration-nxos
     nodeset: nxos-9
     vars:
-      ansible_test_python: 3.10
+      ansible_test_python: "3.10"
       ansible_test_skip_tags: local,nxapi
       ansible_test_split_in: 4
 

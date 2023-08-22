@@ -347,7 +347,7 @@ class AWSWorkerJob(Job):
 
     vars = {
         "ansible_test_command": "integration",
-        "ansible_test_python": 3.9,
+        "ansible_test_python": 3.11,
         "ansible_test_retry_on_error": True,
         "ansible_test_requirement_files": [
             "requirements.txt",

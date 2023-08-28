@@ -900,29 +900,15 @@
     gate:
       jobs: *ansible-collections-ansible-security-jobs
 
-- project-template:
-    name: ansible-collections-ansible-yang-units
-    check:
-      jobs: &ansible-collections-ansible-yang-units-jobs
-        - ansible-changelog-fragment
-        - ansible-test-sanity-docker-devel
-        - ansible-test-sanity-docker-milestone
-        - ansible-test-sanity-docker-stable-2.9
-        - ansible-test-sanity-docker-stable-2.10
-        - ansible-test-sanity-docker-stable-2.11
-        - ansible-test-sanity-docker-stable-2.12
-        - ansible-test-units-ansible-yang-python36
-        - ansible-test-units-ansible-yang-python37
-        - ansible-test-units-ansible-yang-python38
-        - ansible-test-units-ansible-yang-python39
-    gate:
-      jobs: *ansible-collections-ansible-yang-units-jobs
 
 - project-template:
     name: ansible-collections-ansible-yang-juniper-junos
     check:
       jobs: &ansible-collections-juniper-junos-ansible-yang-jobs
         - ansible-test-network-integration-ansible-yang-junos-vsrx-netconf-python39
+        - ansible-test-network-integration-ansible-yang-junos-vsrx-netconf-python39-stable215
+        - ansible-test-network-integration-ansible-yang-junos-vsrx-netconf-python39-stable214
+        - ansible-test-network-integration-ansible-yang-junos-vsrx-netconf-python39-stable212
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-collections/ansible.yang

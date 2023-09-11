@@ -80,6 +80,55 @@
     vars:
       test_ansible_network_cli_ssh_type: libssh
 
+# stable-2.15
+
+- job:
+    name: ansible-test-network-integration-eos-httpapi-python39-stable215
+    parent: ansible-test-network-integration-eos-httpapi
+    nodeset: eos-4.24.6
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.15
+    vars:
+      ansible_test_python: 3.9
+
+- job:
+    name: ansible-test-network-integration-eos-network_cli-python39-stable215
+    parent: ansible-test-network-integration-eos-network_cli
+    nodeset: eos-4.24.6
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.15
+    vars:
+      ansible_test_python: 3.9
+      ansible_test_split_in: 2
+
+- job:
+    name: ansible-test-network-integration-eos-network_cli-python39-stable215-scenario01
+    parent: ansible-test-network-integration-eos-network_cli-python39-stable215
+    vars:
+      ansible_test_do_number: 1
+
+- job:
+    name: ansible-test-network-integration-eos-network_cli-python39-stable215-scenario02
+    parent: ansible-test-network-integration-eos-network_cli-python39-stable215
+    vars:
+      ansible_test_do_number: 2
+
+- job:
+    name: ansible-test-network-integration-eos-network_cli-libssh-python39-stable215-scenario01
+    parent: ansible-test-network-integration-eos-network_cli-python39-stable215
+    vars:
+      test_ansible_network_cli_ssh_type: libssh
+      ansible_test_do_number: 1
+
+- job:
+    name: ansible-test-network-integration-eos-network_cli-libssh-python39-stable215-scenario02
+    parent: ansible-test-network-integration-eos-network_cli-python39-stable215
+    vars:
+      test_ansible_network_cli_ssh_type: libssh
+      ansible_test_do_number: 2
+
 # stable-2.14
 
 - job:

@@ -278,6 +278,7 @@
         override-checkout: stable-2.13
     vars:
       container_command: docker
+      ansible_test_python: 3.9
 
 - job:
     name: ansible-test-sanity-okd-downstream-stable-2.14

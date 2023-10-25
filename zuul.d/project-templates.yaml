@@ -174,24 +174,6 @@
       jobs: *ansible-collections-arista-eos-jobs
 
 - project-template:
-    name: ansible-collections-cisco-asa-units
-    check:
-      jobs: &ansible-collections-cisco-asa-units-jobs
-        - ansible-changelog-fragment
-        - ansible-test-sanity-docker-devel
-        - ansible-test-sanity-docker-milestone
-        - ansible-test-sanity-docker-stable-2.9
-        - ansible-test-sanity-docker-stable-2.10
-        - ansible-test-sanity-docker-stable-2.11
-        - ansible-test-sanity-docker-stable-2.12
-        - ansible-test-sanity-docker-stable-2.14
-        - ansible-test-units-asa-python39
-        - ansible-test-units-asa-python36
-        - ansible-test-units-asa-python37
-    gate:
-      jobs: *ansible-collections-cisco-asa-units-jobs
-
-- project-template:
     name: ansible-collections-cisco-asa
     check:
       jobs: &ansible-collections-cisco-asa-jobs

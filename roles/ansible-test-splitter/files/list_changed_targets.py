@@ -470,45 +470,48 @@ if __name__ == "__main__":
             c.cover_all()
     else:
         for whc in [WhatHaveChanged(i, args.branch) for i in args.collection_to_tests]:
-            changes[whc.collection_name()] = {
-                "modules": [],
-                "inventory": [],
-                "connection": [],
-                "module_utils": [],
-                "plugin_utils": [],
-                "lookup": [],
-                "targets": [],
-            }
-            for path in whc.modules():
-                changes[whc.collection_name()]["modules"].append(path.stem)
-                for c in collections:
-                    c.add_target_to_plan(path.stem)
-            for path in whc.inventory():
-                changes[whc.collection_name()]["inventory"].append(path.stem)
-                for c in collections:
-                    c.add_target_to_plan(f"inventory_{path.stem}")
-            for path in whc.connection():
-                changes[whc.collection_name()]["connection"].append(path.stem)
-                for c in collections:
-                    c.add_target_to_plan(f"connection_{path.stem}")
-            for path, pymod in whc.module_utils():
-                changes[whc.collection_name()]["module_utils"].append(path.stem)
-                for c in collections:
-                    c.add_target_to_plan(f"module_utils_{path.stem}")
-                    c.cover_module_utils(pymod, collections_names)
-            for path, pymod in whc.plugin_utils():
-                changes[whc.collection_name()]["plugin_utils"].append(path.stem)
-                for c in collections:
-                    c.add_target_to_plan(f"plugin_utils_{path.stem}")
-                    c.cover_module_utils(pymod, collections_names)
-            for path in whc.lookup():
-                changes[whc.collection_name()]["lookup"].append(path.stem)
-                for c in collections:
-                    c.add_target_to_plan(f"lookup_{path.stem}")
-            for t in whc.targets():
-                changes[whc.collection_name()]["targets"].append(t)
-                for c in collections:
-                    c.add_target_to_plan(t)
+            try:
+                changes[whc.collection_name()] = {
+                    "modules": [],
+                    "inventory": [],
+                    "connection": [],
+                    "module_utils": [],
+                    "plugin_utils": [],
+                    "lookup": [],
+                    "targets": [],
+                }
+                for path in whc.modules():
+                    changes[whc.collection_name()]["modules"].append(path.stem)
+                    for c in collections:
+                        c.add_target_to_plan(path.stem)
+                for path in whc.inventory():
+                    changes[whc.collection_name()]["inventory"].append(path.stem)
+                    for c in collections:
+                        c.add_target_to_plan(f"inventory_{path.stem}")
+                for path in whc.connection():
+                    changes[whc.collection_name()]["connection"].append(path.stem)
+                    for c in collections:
+                        c.add_target_to_plan(f"connection_{path.stem}")
+                for path, pymod in whc.module_utils():
+                    changes[whc.collection_name()]["module_utils"].append(path.stem)
+                    for c in collections:
+                        c.add_target_to_plan(f"module_utils_{path.stem}")
+                        c.cover_module_utils(pymod, collections_names)
+                for path, pymod in whc.plugin_utils():
+                    changes[whc.collection_name()]["plugin_utils"].append(path.stem)
+                    for c in collections:
+                        c.add_target_to_plan(f"plugin_utils_{path.stem}")
+                        c.cover_module_utils(pymod, collections_names)
+                for path in whc.lookup():
+                    changes[whc.collection_name()]["lookup"].append(path.stem)
+                    for c in collections:
+                        c.add_target_to_plan(f"lookup_{path.stem}")
+                for t in whc.targets():
+                    changes[whc.collection_name()]["targets"].append(t)
+                    for c in collections:
+                        c.add_target_to_plan(t)
+            except subprocess.CalledProcessError as e:
+                raise Exception(f"Failed to process dependency tree for {whc.collection_name()}") from e
 
     egs = ElGrandeSeparator(collections, args.total_job, args.ansible_releases)
     egs.output(changes)

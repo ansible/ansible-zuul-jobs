@@ -461,8 +461,6 @@
             voting: false
         - ansible-test-sanity-docker-stable-2.11
         - ansible-test-sanity-docker-stable-2.12
-        - ansible-test-sanity-docker-stable-2.13
-        - ansible-test-sanity-docker-stable-2.14
         - tox-cloud-refresh-examples-vmware
     gate:
       jobs: *ansible-collections-community-vmware-rest-jobs
@@ -474,8 +472,6 @@
         - ansible-test-sanity-docker-stable-2.10
         - ansible-test-sanity-docker-stable-2.11
         - ansible-test-sanity-docker-stable-2.12
-        - ansible-test-sanity-docker-stable-2.13
-        - ansible-test-sanity-docker-stable-2.14
         - build-ansible-collection
 
 - project-template:

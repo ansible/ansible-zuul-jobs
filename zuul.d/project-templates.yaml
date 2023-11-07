@@ -374,30 +374,6 @@
               - name: github.com/ansible-collections/kubernetes.core
 
 - project-template:
-    name: ansible-collections-community-okd
-    third-party-check:
-      jobs:
-        - build-ansible-collection:
-            required-projects:
-              - name: github.com/ansible-collections/kubernetes.core
-                override-checkout: stable-2.4
-        - ansible-test-sanity-docker-devel
-        - ansible-test-sanity-docker-milestone
-        - ansible-test-sanity-docker-stable-2.11
-        - ansible-test-sanity-docker-stable-2.12
-        - ansible-test-sanity-docker-stable-2.13
-        - ansible-test-sanity-docker-stable-2.14
-        - ansible-galaxy-importer:
-            voting: false
-        - ansible-test-units-community-okd-python39
-        - ansible-test-sanity-okd-downstream-devel
-        - ansible-test-sanity-okd-downstream-milestone:
-            voting: false
-        - ansible-test-sanity-okd-downstream-stable-2.11
-        - ansible-test-sanity-okd-downstream-stable-2.12
-        - ansible-test-sanity-okd-downstream-stable-2.13
-
-- project-template:
     name: ansible-collections-cloud-common
     check:
       jobs: &ansible-collections-cloud-common-jobs

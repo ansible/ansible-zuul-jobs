@@ -1088,24 +1088,6 @@
         - build-ansible-collection
 
 - project-template:
-    name: ansible-collections-servicenow-itsm-units
-    check:
-      jobs: &ansible-collections-servicenow-itsm-units-jobs
-        - build-ansible-collection
-        - ansible-test-sanity-docker-devel
-        - ansible-test-sanity-docker-milestone
-        - ansible-test-sanity-docker-stable-2.9
-        - ansible-test-sanity-docker-stable-2.10
-        - ansible-test-sanity-docker-stable-2.11
-        - ansible-test-sanity-docker-stable-2.12
-        - ansible-test-units-servicenow-itsm-python27
-        - ansible-test-units-servicenow-itsm-python36
-        - ansible-test-units-servicenow-itsm-python37
-        - ansible-test-units-servicenow-itsm-python38
-    gate:
-      jobs: *ansible-collections-servicenow-itsm-units-jobs
-
-- project-template:
     name: ansible-collections-symantec-epm-units
     check:
       jobs: &ansible-collections-symantec-epm-units-jobs
@@ -1375,7 +1357,6 @@
               - name: github.com/ansible-collections/junipernetworks.junos
               - name: github.com/ansible-collections/kubernetes.core
               - name: github.com/ansible-collections/openvswitch.openvswitch
-              - name: github.com/ansible-collections/servicenow.itsm
               - name: github.com/ansible-collections/splunk.es
               - name: github.com/ansible-collections/trendmicro.deepsec
               - name: github.com/ansible-collections/vmware.vmware_rest

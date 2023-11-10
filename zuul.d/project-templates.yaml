@@ -453,13 +453,11 @@
             required-projects:
               - name: github.com/ansible-collections/cloud.common
               - name: github.com/ansible-collections/community.vmware
-        - ansible-test-sanity-docker-milestone
         - tox-cloud-refresh-examples-vmware
     gate:
       jobs: *ansible-collections-community-vmware-rest-jobs
     periodic:
       jobs:
-        - ansible-test-sanity-docker-milestone
         - build-ansible-collection
 
 - project-template:

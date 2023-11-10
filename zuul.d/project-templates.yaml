@@ -396,19 +396,6 @@
               - name: github.com/ansible-collections/community.vmware
               - name: github.com/ansible-collections/vmware.vmware_rest
               - name: github.com/ansible-collections/kubernetes.core
-        - ansible-test-splitter:
-            required-projects:
-              - name: github.com/ansible-collections/kubernetes.core
-            vars:
-              ansible_test_splitter__test_changed: false
-              ansible_test_splitter__total_job: 3
-              ansible_test_splitter__check_for_changes_in:
-                - "~/{{ zuul.projects['github.com/ansible-collections/kubernetes.core'].src_dir }}"
-              ansible_test_splitter__releases_to_test:
-                - "with-turbo"
-        - integration-kubernetes.core-with-turbo-1
-        - integration-kubernetes.core-with-turbo-2
-        - integration-kubernetes.core-with-turbo-3
     gate:
       jobs: *ansible-collections-cloud-common-jobs
 

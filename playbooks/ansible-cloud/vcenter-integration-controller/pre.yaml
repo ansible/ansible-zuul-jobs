@@ -13,8 +13,9 @@
         name: jq
         state: present
       become: true
-    - debug:
-      msg: "{{ lookup('file', '{{ zuul.executor.work_root }}/vcenter/tmp/vcenter_password.txt') }}"
+    - name: Debug
+      debug:
+        msg: "{{ lookup('file', '{{ zuul.executor.work_root }}/vcenter/tmp/vcenter_password.txt') }}"
     - name: Prepare the wait for vcenter script
       copy:
         content: |

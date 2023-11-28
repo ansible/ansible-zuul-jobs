@@ -409,10 +409,10 @@
             required-projects:
               - name: github.com/ansible-collections/vmware.vmware_rest
               - name: github.com/ansible-collections/cloud.common
-        - ansible-test-cloud-integration-vcenter7_only-stable215
-        - ansible-test-cloud-integration-vcenter7_2esxi-stable215
-        - ansible-test-cloud-integration-vcenter7_1esxi-stable215_1_of_2
-        - ansible-test-cloud-integration-vcenter7_1esxi-stable215_2_of_2
+        - ansible-test-cloud-integration-vcenter7_only-stable216
+        - ansible-test-cloud-integration-vcenter7_2esxi-stable216
+        - ansible-test-cloud-integration-vcenter7_1esxi-stable216_1_of_2
+        - ansible-test-cloud-integration-vcenter7_1esxi-stable216_2_of_2
     gate:
       jobs:
         - ansible-tox-linters

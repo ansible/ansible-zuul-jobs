@@ -1031,7 +1031,6 @@
       jobs: *ansible-collections-security-trendmicro-deepsec-jobs
     periodic:
       jobs:
-        - ansible-security-integration-trendmicro-deepsec-python38
         - build-ansible-collection
 
 - project-template:

@@ -1055,8 +1055,7 @@
       This is a set of jobs, run the sanity and unit tests from within
       a clean and up to date EE container.
     check:
-      jobs:
-        &ansible-ee-test-jobs # Latest is expected to break from time to time.
+      jobs: &ansible-ee-test-jobs
         - ansible-ee-tests-latest:
             voting: false
         # Temporary change due to rstcheck versioning issues.

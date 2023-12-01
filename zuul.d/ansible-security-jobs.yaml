@@ -200,6 +200,12 @@
 # =============================================================================
 # Integration tests jobs
 # =============================================================================
+- job:
+    name: ansible-security-integration-trendmicro-deepsec-python39
+    parent: ansible-security-integration-trendmicro-deepsec
+    nodeset: Trendmicro-DeepSecurity-20.0.344
+    vars:
+      ansible_test_python: 3.9
 # stable214
 - job:
     name: ansible-security-integration-splunk-es-python39-stable214

@@ -12,28 +12,6 @@
       - name: github.com/ansible/ansible-zuul-jobs
     nodeset: SplunkEnterprise-SES-8.0.0
 
-- job:
-    name: ansible-security-integration-splunk
-    abstract: true
-    dependencies:
-      - name: build-ansible-collection
-        soft: true
-    parent: ansible-security-splunk-appliance
-    pre-run:
-      - playbooks/ansible-test-base/pre.yaml
-      - playbooks/ansible-test-network-integration-base/pre.yaml
-    run: playbooks/ansible-test-base/run.yaml
-    post-run:
-      - playbooks/ansible-test-network-integration-base/post.yaml
-      - playbooks/ansible-test-base/post.yaml
-    required-projects:
-      - name: github.com/ansible/ansible
-      - name: github.com/ansible-collections/splunk.es
-    vars:
-      ansible_collections_repo: github.com/ansible-collections/splunk.es
-      ansible_test_command: network-integration
-      ansible_test_integration_targets: "splunk_.*"
-
 # QRadar
 - job:
     name: ansible-security-qradar-appliance

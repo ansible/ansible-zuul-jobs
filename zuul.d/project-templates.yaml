@@ -50,6 +50,7 @@
       jobs:
         - ansible-tox-linters
 
+
 - project-template:
     name: ansible-collections-community-aws
     check:
@@ -924,6 +925,7 @@
       fail-fast: true
       jobs: *ansible-collections-cisco-iosxr-yang-jobs
 
+
 - project-template:
     name: ansible-collections-ansible-posix-units
     check:
@@ -1030,8 +1032,8 @@
       This is a set of jobs, run the sanity and unit tests from within
       a clean and up to date EE container.
     check:
-      jobs:
-        &ansible-ee-test-jobs # Latest is expected to break from time to time.
+      jobs: &ansible-ee-test-jobs
+        # Latest is expected to break from time to time.
         - ansible-ee-tests-latest:
             voting: false
         # Temporary change due to rstcheck versioning issues.

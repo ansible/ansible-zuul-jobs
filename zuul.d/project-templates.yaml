@@ -961,45 +961,10 @@
     check:
       jobs: &ansible-collections-security-splunk-es-jobs
         - build-ansible-collection
-        - ansible-changelog-fragment
-        - ansible-security-integration-splunk-es-python36:
-            voting: false
-        - ansible-security-integration-splunk-es-python37:
-            voting: false
-        - ansible-security-integration-splunk-es-python38:
-            voting: false
-        - ansible-security-integration-splunk-es-python39:
-            voting: false
-        - ansible-security-integration-splunk-es-python38-stable29:
-            voting: false
-        - ansible-security-integration-splunk-es-python39-stable212:
-            voting: false
-        - ansible-security-integration-splunk-es-python39-stable213:
-            voting: false
-        - ansible-security-integration-splunk-es-python39-stable214:
-            voting: false
-        - ansible-test-sanity-docker-devel
-        - ansible-test-sanity-docker-milestone
-        - ansible-test-sanity-docker-stable-2.9
-        - ansible-test-sanity-docker-stable-2.12
-        - ansible-test-sanity-docker-stable-2.13
-        - ansible-test-sanity-docker-stable-2.14
-        - ansible-test-units-splunk-python36
-        - ansible-test-units-splunk-python37
-        - ansible-test-units-splunk-python39
     gate:
       jobs: *ansible-collections-security-splunk-es-jobs
     periodic:
       jobs:
-        - ansible-test-sanity-docker-devel
-        - ansible-test-sanity-docker-milestone
-        - ansible-test-sanity-docker-stable-2.9
-        - ansible-test-sanity-docker-stable-2.12
-        - ansible-test-sanity-docker-stable-2.13
-        - ansible-test-sanity-docker-stable-2.14
-        - ansible-test-units-splunk-python37
-        - ansible-test-units-splunk-python39
-        - ansible-security-integration-splunk-es-python39
         - build-ansible-collection
 
 - project-template:

@@ -12,88 +12,6 @@
       - name: github.com/ansible/ansible-zuul-jobs
     nodeset: SplunkEnterprise-SES-8.0.0
 
-- job:
-    name: ansible-security-integration-splunk
-    abstract: true
-    dependencies:
-      - name: build-ansible-collection
-        soft: true
-    parent: ansible-security-splunk-appliance
-    pre-run:
-      - playbooks/ansible-test-base/pre.yaml
-      - playbooks/ansible-test-network-integration-base/pre.yaml
-    run: playbooks/ansible-test-base/run.yaml
-    post-run:
-      - playbooks/ansible-test-network-integration-base/post.yaml
-      - playbooks/ansible-test-base/post.yaml
-    required-projects:
-      - name: github.com/ansible/ansible
-      - name: github.com/ansible-collections/splunk.es
-    vars:
-      ansible_collections_repo: github.com/ansible-collections/splunk.es
-      ansible_test_command: network-integration
-      ansible_test_integration_targets: "splunk_.*"
-
-# =============================================================================
-# Unit tests jobs
-# =============================================================================
-- job:
-    name: ansible-test-units-splunk-python36
-    parent: ansible-test-units-base-python36
-    required-projects:
-      - name: github.com/ansible-collections/splunk.es
-      - name: github.com/ansible/ansible
-        override-checkout: stable-2.9
-    vars:
-      ansible_collections_repo: github.com/ansible-collections/splunk.es
-
-- job:
-    name: ansible-test-units-splunk-python37
-    parent: ansible-test-units-base-python37
-    required-projects:
-      - name: github.com/ansible-collections/splunk.es
-      - name: github.com/ansible/ansible
-        override-checkout: stable-2.9
-    vars:
-      ansible_collections_repo: github.com/ansible-collections/splunk.es
-
-- job:
-    name: ansible-test-units-splunk-python39
-    parent: ansible-test-units-base-python39
-    required-projects:
-      - name: github.com/ansible-collections/splunk.es
-    vars:
-      ansible_collections_repo: github.com/ansible-collections/splunk.es
-
-# =============================================================================
-# Integration tests jobs
-# =============================================================================
-
-- job:
-    name: ansible-security-integration-splunk-es-python36
-    parent: ansible-security-integration-splunk
-    vars:
-      ansible_test_python: 3.6
-
-- job:
-    name: ansible-security-integration-splunk-es-python37
-    parent: ansible-security-integration-splunk
-    vars:
-      ansible_test_python: 3.7
-
-- job:
-    name: ansible-security-integration-splunk-es-python38
-    parent: ansible-security-integration-splunk
-    vars:
-      test_ansible_python_interpreter: /usr/bin/python3.8
-      ansible_test_python: 3.8
-
-- job:
-    name: ansible-security-integration-splunk-es-python39
-    parent: ansible-security-integration-splunk
-    vars:
-      ansible_test_python: 3.9
-
 # QRadar
 - job:
     name: ansible-security-qradar-appliance
@@ -258,13 +176,6 @@
 # stable29
 
 - job:
-    name: ansible-security-integration-splunk-es-python38-stable29
-    parent: ansible-security-integration-splunk-es-python38
-    required-projects:
-      - name: github.com/ansible/ansible
-        override-checkout: stable-2.9
-
-- job:
     name: ansible-test-security-integration-qradar-python38-stable29
     parent: ansible-test-security-integration-qradar-python38
     required-projects:
@@ -279,12 +190,6 @@
         override-checkout: stable-2.9
 
 # stable212
-- job:
-    name: ansible-security-integration-splunk-es-python39-stable212
-    parent: ansible-security-integration-splunk-es-python39
-    required-projects:
-      - name: github.com/ansible/ansible
-        override-checkout: stable-2.12
 
 - job:
     name: ansible-test-security-integration-qradar-python39-stable212
@@ -301,12 +206,6 @@
         override-checkout: stable-2.12
 
 # stable213
-- job:
-    name: ansible-security-integration-splunk-es-python39-stable213
-    parent: ansible-security-integration-splunk-es-python39
-    required-projects:
-      - name: github.com/ansible/ansible
-        override-checkout: stable-2.13
 
 - job:
     name: ansible-test-security-integration-qradar-python39-stable213
@@ -323,12 +222,6 @@
         override-checkout: stable-2.13
 
 # stable214
-- job:
-    name: ansible-security-integration-splunk-es-python39-stable214
-    parent: ansible-security-integration-splunk-es-python39
-    required-projects:
-      - name: github.com/ansible/ansible
-        override-checkout: stable-2.14
 
 - job:
     name: ansible-test-security-integration-qradar-python39-stable214

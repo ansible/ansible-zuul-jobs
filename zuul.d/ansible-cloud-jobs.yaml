@@ -35,7 +35,7 @@
       - name: github.com/ansible-collections/community.vmware
     timeout: 3600
     vars:
-      ansible_test_python: 3
+      ansible_test_python: 3.12
       ansible_collections_repo: github.com/ansible-collections/community.vmware
       ansible_test_command: integration
       ansible_test_environment:
@@ -50,6 +50,7 @@
     nodeset: vmware-vcsa-7.0.3
     vars:
       ansible_test_integration_targets: zuul/vmware/vcenter_only/
+      ansible_test_python: 3.12
 
 - job:
     name: ansible-test-cloud-integration-vcenter7_1esxi
@@ -57,6 +58,7 @@
     nodeset: vmware-vcsa_1esxi-7.0.3
     vars:
       ansible_test_integration_targets: zuul/vmware/vcenter_1esxi/
+      ansible_test_python: 3.12
     # 5h
     timeout: 10800
 
@@ -67,6 +69,7 @@
     nodeset: vmware-vcsa_2esxi-7.0.3
     vars:
       ansible_test_integration_targets: zuul/vmware/vcenter_2esxi/
+      ansible_test_python: 3.12
     # NOTE: we set ansible_network_os with some generic
     # value to pass the ansible-network playbooks
     host-vars:

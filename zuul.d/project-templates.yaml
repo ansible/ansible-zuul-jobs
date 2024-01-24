@@ -369,21 +369,6 @@
             voting: false
 
 - project-template:
-    name: ansible-collections-cloud-common
-    check:
-      jobs: &ansible-collections-cloud-common-jobs
-        - ansible-test-cloud-integration-vmware-rest:
-            required-projects:
-              - name: github.com/ansible-collections/vmware.vmware_rest
-        - build-ansible-collection:
-            required-projects:
-              - name: github.com/ansible-collections/community.vmware
-              - name: github.com/ansible-collections/vmware.vmware_rest
-              - name: github.com/ansible-collections/kubernetes.core
-    gate:
-      jobs: *ansible-collections-cloud-common-jobs
-
-- project-template:
     name: ansible-collections-community-vmware
     check:
       fail-fast: true

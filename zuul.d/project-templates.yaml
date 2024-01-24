@@ -1174,6 +1174,17 @@
         - release-ansible-collection-galaxy
 
 - project-template:
+    name: publish-to-galaxy-plain
+    description: |
+      Publish an Ansible collection to Ansible Galaxy
+    pre-release:
+      jobs:
+        - release-ansible-collection-galaxy
+    release:
+      jobs:
+        - release-ansible-collection-galaxy
+
+- project-template:
     name: publish-to-galaxy-3pci
     description: |
       Publish an Ansible collection to Ansible Galaxy

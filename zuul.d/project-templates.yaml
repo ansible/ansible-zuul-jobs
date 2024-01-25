@@ -50,7 +50,6 @@
       jobs:
         - ansible-tox-linters
 
-
 - project-template:
     name: ansible-collections-community-aws
     check:
@@ -910,7 +909,6 @@
       fail-fast: true
       jobs: *ansible-collections-cisco-iosxr-yang-jobs
 
-
 - project-template:
     name: ansible-collections-ansible-posix-units
     check:
@@ -957,25 +955,8 @@
     check:
       jobs: &ansible-collections-security-trendmicro-deepsec-jobs
         - build-ansible-collection
-        - ansible-changelog-fragment
-        - ansible-security-integration-trendmicro-deepsec-python36
-        - ansible-security-integration-trendmicro-deepsec-python37
-        - ansible-security-integration-trendmicro-deepsec-python38
         - ansible-security-integration-trendmicro-deepsec-python39
-        - ansible-security-integration-trendmicro-deepsec-python38-stable29
-        - ansible-security-integration-trendmicro-deepsec-python39-stable212
-        - ansible-security-integration-trendmicro-deepsec-python39-stable213
         - ansible-security-integration-trendmicro-deepsec-python39-stable214
-        - ansible-test-sanity-docker-devel:
-            voting: false
-        - ansible-test-sanity-docker-milestone
-        - ansible-test-sanity-docker-stable-2.9
-        - ansible-test-sanity-docker-stable-2.12
-        - ansible-test-sanity-docker-stable-2.13
-        - ansible-test-sanity-docker-stable-2.14
-        - ansible-test-units-trendmicro-python36
-        - ansible-test-units-trendmicro-python37
-        - ansible-test-units-trendmicro-python39
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-collections/ansible.netcommon
@@ -984,15 +965,6 @@
       jobs: *ansible-collections-security-trendmicro-deepsec-jobs
     periodic:
       jobs:
-        - ansible-test-sanity-docker-devel
-        - ansible-test-sanity-docker-milestone
-        - ansible-test-sanity-docker-stable-2.9
-        - ansible-test-sanity-docker-stable-2.12
-        - ansible-test-sanity-docker-stable-2.13
-        - ansible-test-sanity-docker-stable-2.14
-        - ansible-test-units-trendmicro-python39
-        - ansible-test-units-trendmicro-python37
-        - ansible-security-integration-trendmicro-deepsec-python38
         - build-ansible-collection
 
 - project-template:
@@ -1018,7 +990,6 @@
       a clean and up to date EE container.
     check:
       jobs: &ansible-ee-test-jobs
-        # Latest is expected to break from time to time.
         - ansible-ee-tests-latest:
             voting: false
         # Temporary change due to rstcheck versioning issues.

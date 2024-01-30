@@ -1133,6 +1133,10 @@
     name: publish-to-galaxy-plain
     description: |
       Publish an Ansible collection to Ansible Galaxy
+    # This is needed to override the default config from publish-to-galaxy-3pci
+    third-party-check:
+      jobs:
+        - noop
     pre-release:
       jobs:
         - release-ansible-collection-galaxy

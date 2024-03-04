@@ -756,7 +756,7 @@
         - ansible-test-network-integration-vyos-paramiko-python39-devel:
             voting: false
         - ansible-test-network-integration-vyos-paramiko-python39-stable214:
-            voting: flase
+            voting: false
         - ansible-test-network-integration-vyos-paramiko-python39-stable213:
             voting: false
         - ansible-test-network-integration-vyos-paramiko-python39-stable212:

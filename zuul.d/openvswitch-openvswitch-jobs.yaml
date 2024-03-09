@@ -34,22 +34,28 @@
     nodeset: openvswitch-2.15.0
 
 - job:
-    name: ansible-ee-integration-ovs-stable2.11
+    name: ansible-ee-integration-ovs-stable2.15
     parent: ansible-ee-integration-ovs-latest
     vars:
-      ansible_runner_container_version: stable-2.11-devel
+      ansible_runner_container_version: stable-2.15-devel
+
+- job:
+    name: ansible-ee-integration-ovs-stable2.14
+    parent: ansible-ee-integration-ovs-latest
+    vars:
+      ansible_runner_container_version: stable-2.14-devel
+
+- job:
+    name: ansible-ee-integration-ovs-stable2.13
+    parent: ansible-ee-integration-ovs-latest
+    vars:
+      ansible_runner_container_version: stable-2.13-devel
 
 - job:
     name: ansible-ee-integration-ovs-stable2.12
     parent: ansible-ee-integration-ovs-latest
     vars:
       ansible_runner_container_version: stable-2.12-devel
-
-- job:
-    name: ansible-ee-integration-ovs-stable2.10
-    parent: ansible-ee-integration-ovs-latest
-    vars:
-      ansible_runner_container_version: stable-2.10-devel
 
 - job:
     name: ansible-ee-integration-ovs-stable2.9

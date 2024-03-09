@@ -1,2 +1,3 @@
 ansible<2.10
 paramiko==2.8.1
+setuptools

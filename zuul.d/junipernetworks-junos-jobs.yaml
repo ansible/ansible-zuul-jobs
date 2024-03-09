@@ -27,7 +27,6 @@
 
 - job:
     name: ansible-test-network-integration-junos-vsrx
-    abstract: true
     dependencies:
       - name: build-ansible-collection
         soft: true

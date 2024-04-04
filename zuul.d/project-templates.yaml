@@ -427,7 +427,6 @@
               - name: github.com/ansible-collections/ansible.utils
               - name: github.com/ansible-collections/arista.eos
               - name: github.com/ansible-collections/cisco.ios
-              - name: github.com/ansible-collections/cisco.nxos
               - name: github.com/ansible-collections/junipernetworks.junos
               - name: github.com/ansible-collections/openvswitch.openvswitch
               - name: github.com/ansible-collections/vyos.vyos
@@ -483,7 +482,6 @@
               - name: github.com/ansible-collections/ansible.utils
               - name: github.com/ansible-collections/arista.eos
               - name: github.com/ansible-collections/cisco.ios
-              - name: github.com/ansible-collections/cisco.nxos
               - name: github.com/ansible-collections/junipernetworks.junos
               - name: github.com/ansible-collections/openvswitch.openvswitch
               - name: github.com/ansible-collections/vyos.vyos
@@ -581,7 +579,6 @@
             required-projects:
               - name: github.com/ansible-collections/ansible.netcommon
               - name: github.com/ansible-collections/ansible.utils
-              - name: github.com/ansible-collections/cisco.nxos
               - name: github.com/ansible-collections/junipernetworks.junos
     gate:
       fail-fast: true
@@ -655,7 +652,6 @@
               - name: github.com/ansible-collections/ansible.utils
               - name: github.com/ansible-collections/arista.eos
               - name: github.com/ansible-collections/cisco.ios
-              - name: github.com/ansible-collections/cisco.nxos
               - name: github.com/ansible-collections/frr.frr
               - name: github.com/ansible-collections/junipernetworks.junos
               - name: github.com/ansible-collections/openvswitch.openvswitch
@@ -1113,7 +1109,6 @@
               - name: github.com/ansible-collections/arista.eos
               - name: github.com/ansible-collections/cisco.asa
               - name: github.com/ansible-collections/cisco.ios
-              - name: github.com/ansible-collections/cisco.nxos
               - name: github.com/ansible-collections/cloud.common
               - name: github.com/ansible-collections/frr.frr
               - name: github.com/ansible-collections/ibm.qradar

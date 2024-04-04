@@ -216,26 +216,6 @@
               - name: github.com/ansible-collections/ansible.utils
 
 - project-template:
-    name: ansible-collections-cisco-ios
-    check:
-      jobs: &ansible-collections-cisco-ios-jobs
-        - ansible-ee-integration-ios-latest
-        - ansible-ee-integration-ios-stable-2.9
-        - ansible-ee-integration-ios-stable-2.11
-        - ansible-ee-integration-ios-stable-2.12
-        - ansible-ee-integration-ios-libssh-latest
-        - ansible-ee-integration-ios-libssh-stable-2.9
-        - ansible-ee-integration-ios-libssh-stable-2.11
-        - ansible-ee-integration-ios-libssh-stable-2.12
-        - build-ansible-collection:
-            required-projects:
-              - name: github.com/ansible-collections/ansible.netcommon
-              - name: github.com/ansible-collections/ansible.utils
-    gate:
-      fail-fast: true
-      jobs: *ansible-collections-cisco-ios-jobs
-
-- project-template:
     name: ansible-collections-cisco-iosxr
     check:
       jobs:

@@ -216,50 +216,6 @@
               - name: github.com/ansible-collections/ansible.utils
 
 - project-template:
-    name: ansible-collections-cisco-iosxr
-    check:
-      jobs:
-        - build-ansible-collection:
-            required-projects:
-              - name: github.com/ansible-collections/ansible.netcommon
-              - name: github.com/ansible-collections/ansible.utils
-    gate:
-      fail-fast: true
-      jobs:
-        - build-ansible-collection:
-            required-projects:
-              - name: github.com/ansible-collections/ansible.netcommon
-              - name: github.com/ansible-collections/ansible.utils
-
-- project-template:
-    name: ansible-collections-cisco-iosxr-netconf
-    check:
-      jobs:
-        - ansible-test-network-integration-ansible-netcommon-iosxr-netconf-python38:
-            voting: false
-        - build-ansible-collection:
-            required-projects:
-              - name: github.com/ansible-collections/ansible.netcommon
-              - name: github.com/ansible-collections/ansible.utils
-              - name: github.com/ansible-collections/arista.eos
-              - name: github.com/ansible-collections/cisco.iosxr
-              - name: github.com/ansible-collections/junipernetworks.junos
-              - name: github.com/ansible-collections/openvswitch.openvswitch
-              - name: github.com/ansible-collections/vyos.vyos
-    gate:
-      fail-fast: true
-      jobs:
-        - build-ansible-collection:
-            required-projects:
-              - name: github.com/ansible-collections/ansible.netcommon
-              - name: github.com/ansible-collections/ansible.utils
-              - name: github.com/ansible-collections/arista.eos
-              - name: github.com/ansible-collections/cisco.iosxr
-              - name: github.com/ansible-collections/junipernetworks.junos
-              - name: github.com/ansible-collections/openvswitch.openvswitch
-              - name: github.com/ansible-collections/vyos.vyos
-
-- project-template:
     name: ansible-collections-community-kubernetes
     third-party-check:
       jobs:
@@ -442,7 +398,6 @@
             required-projects:
               - name: github.com/ansible-collections/ansible.utils
               - name: github.com/ansible-collections/arista.eos
-              - name: github.com/ansible-collections/cisco.iosxr
               - name: github.com/ansible-collections/junipernetworks.junos
               - name: github.com/ansible-collections/openvswitch.openvswitch
               - name: github.com/ansible-collections/vyos.vyos
@@ -493,7 +448,6 @@
             required-projects:
               - name: github.com/ansible-collections/ansible.utils
               - name: github.com/ansible-collections/arista.eos
-              - name: github.com/ansible-collections/cisco.iosxr
               - name: github.com/ansible-collections/junipernetworks.junos
               - name: github.com/ansible-collections/openvswitch.openvswitch
               - name: github.com/ansible-collections/vyos.vyos
@@ -591,7 +545,6 @@
             required-projects:
               - name: github.com/ansible-collections/ansible.netcommon
               - name: github.com/ansible-collections/ansible.utils
-              - name: github.com/ansible-collections/cisco.iosxr
               - name: github.com/ansible-collections/junipernetworks.junos
     gate:
       fail-fast: true
@@ -664,7 +617,6 @@
               - name: github.com/ansible-collections/ansible.network
               - name: github.com/ansible-collections/ansible.utils
               - name: github.com/ansible-collections/arista.eos
-              - name: github.com/ansible-collections/cisco.iosxr
               - name: github.com/ansible-collections/frr.frr
               - name: github.com/ansible-collections/junipernetworks.junos
               - name: github.com/ansible-collections/openvswitch.openvswitch
@@ -716,7 +668,6 @@
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-collections/ansible.yang
-              - name: github.com/ansible-collections/cisco.iosxr
               - name: github.com/ansible-collections/junipernetworks.junos
               - name: github.com/ansible-collections/ansible.netcommon
               - name: github.com/ansible-collections/ansible.utils
@@ -734,7 +685,6 @@
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-collections/ansible.yang
-              - name: github.com/ansible-collections/cisco.iosxr
               - name: github.com/ansible-collections/junipernetworks.junos
               - name: github.com/ansible-collections/ansible.netcommon
               - name: github.com/ansible-collections/ansible.utils
@@ -768,7 +718,6 @@
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-collections/community.yang
-              - name: github.com/ansible-collections/cisco.iosxr
               - name: github.com/ansible-collections/junipernetworks.junos
               - name: github.com/ansible-collections/ansible.netcommon
               - name: github.com/ansible-collections/ansible.utils
@@ -784,7 +733,6 @@
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-collections/community.yang
-              - name: github.com/ansible-collections/cisco.iosxr
               - name: github.com/ansible-collections/junipernetworks.junos
               - name: github.com/ansible-collections/ansible.netcommon
               - name: github.com/ansible-collections/ansible.utils
@@ -1125,7 +1073,6 @@
               - name: github.com/ansible-collections/ansible.utils
               - name: github.com/ansible-collections/arista.eos
               - name: github.com/ansible-collections/cisco.asa
-              - name: github.com/ansible-collections/cisco.iosxr
               - name: github.com/ansible-collections/cloud.common
               - name: github.com/ansible-collections/frr.frr
               - name: github.com/ansible-collections/ibm.qradar

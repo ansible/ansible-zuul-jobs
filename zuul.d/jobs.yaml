@@ -299,7 +299,6 @@
 
 - job:
     name: ansible-test-network-integration-community-yang-iosxr-netconf-python36
-    parent: ansible-test-network-integration-iosxr-python36
     vars:
       ansible_collections_repo: github.com/ansible-collections/community.yang
       ansible_test_integration_targets: ""
@@ -349,14 +348,12 @@
 
 - job:
     name: ansible-test-network-integration-ansible-yang-iosxr-netconf-python36
-    parent: ansible-test-network-integration-iosxr-python36
     vars:
       ansible_collections_repo: github.com/ansible-collections/ansible.yang
       ansible_test_integration_targets: ""
 
 - job:
     name: ansible-test-network-integration-ansible-yang-iosxr-netconf-python38
-    parent: ansible-test-network-integration-iosxr-python38
     vars:
       ansible_collections_repo: github.com/ansible-collections/ansible.yang
       ansible_test_integration_targets: ""

@@ -427,8 +427,6 @@
               - name: github.com/ansible-collections/ansible.utils
               - name: github.com/ansible-collections/arista.eos
               - name: github.com/ansible-collections/cisco.ios
-              - name: github.com/ansible-collections/cisco.iosxr
-              - name: github.com/ansible-collections/cisco.nxos
               - name: github.com/ansible-collections/junipernetworks.junos
               - name: github.com/ansible-collections/openvswitch.openvswitch
               - name: github.com/ansible-collections/vyos.vyos
@@ -484,8 +482,6 @@
               - name: github.com/ansible-collections/ansible.utils
               - name: github.com/ansible-collections/arista.eos
               - name: github.com/ansible-collections/cisco.ios
-              - name: github.com/ansible-collections/cisco.iosxr
-              - name: github.com/ansible-collections/cisco.nxos
               - name: github.com/ansible-collections/junipernetworks.junos
               - name: github.com/ansible-collections/openvswitch.openvswitch
               - name: github.com/ansible-collections/vyos.vyos

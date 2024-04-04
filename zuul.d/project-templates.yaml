@@ -427,6 +427,7 @@
               - name: github.com/ansible-collections/ansible.utils
               - name: github.com/ansible-collections/arista.eos
               - name: github.com/ansible-collections/cisco.ios
+              - name: github.com/ansible-collections/cisco.nxos
               - name: github.com/ansible-collections/junipernetworks.junos
               - name: github.com/ansible-collections/openvswitch.openvswitch
               - name: github.com/ansible-collections/vyos.vyos
@@ -482,6 +483,7 @@
               - name: github.com/ansible-collections/ansible.utils
               - name: github.com/ansible-collections/arista.eos
               - name: github.com/ansible-collections/cisco.ios
+              - name: github.com/ansible-collections/cisco.nxos
               - name: github.com/ansible-collections/junipernetworks.junos
               - name: github.com/ansible-collections/openvswitch.openvswitch
               - name: github.com/ansible-collections/vyos.vyos
@@ -579,7 +581,6 @@
             required-projects:
               - name: github.com/ansible-collections/ansible.netcommon
               - name: github.com/ansible-collections/ansible.utils
-              - name: github.com/ansible-collections/cisco.iosxr
               - name: github.com/ansible-collections/cisco.nxos
               - name: github.com/ansible-collections/junipernetworks.junos
     gate:
@@ -654,7 +655,6 @@
               - name: github.com/ansible-collections/ansible.utils
               - name: github.com/ansible-collections/arista.eos
               - name: github.com/ansible-collections/cisco.ios
-              - name: github.com/ansible-collections/cisco.iosxr
               - name: github.com/ansible-collections/cisco.nxos
               - name: github.com/ansible-collections/frr.frr
               - name: github.com/ansible-collections/junipernetworks.junos
@@ -707,7 +707,6 @@
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-collections/ansible.yang
-              - name: github.com/ansible-collections/cisco.iosxr
               - name: github.com/ansible-collections/junipernetworks.junos
               - name: github.com/ansible-collections/ansible.netcommon
               - name: github.com/ansible-collections/ansible.utils
@@ -725,7 +724,6 @@
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-collections/ansible.yang
-              - name: github.com/ansible-collections/cisco.iosxr
               - name: github.com/ansible-collections/junipernetworks.junos
               - name: github.com/ansible-collections/ansible.netcommon
               - name: github.com/ansible-collections/ansible.utils
@@ -759,7 +757,6 @@
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-collections/community.yang
-              - name: github.com/ansible-collections/cisco.iosxr
               - name: github.com/ansible-collections/junipernetworks.junos
               - name: github.com/ansible-collections/ansible.netcommon
               - name: github.com/ansible-collections/ansible.utils
@@ -775,7 +772,6 @@
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-collections/community.yang
-              - name: github.com/ansible-collections/cisco.iosxr
               - name: github.com/ansible-collections/junipernetworks.junos
               - name: github.com/ansible-collections/ansible.netcommon
               - name: github.com/ansible-collections/ansible.utils
@@ -1117,7 +1113,6 @@
               - name: github.com/ansible-collections/arista.eos
               - name: github.com/ansible-collections/cisco.asa
               - name: github.com/ansible-collections/cisco.ios
-              - name: github.com/ansible-collections/cisco.iosxr
               - name: github.com/ansible-collections/cisco.nxos
               - name: github.com/ansible-collections/cloud.common
               - name: github.com/ansible-collections/frr.frr

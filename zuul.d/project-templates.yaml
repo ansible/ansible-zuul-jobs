@@ -216,26 +216,6 @@
               - name: github.com/ansible-collections/ansible.utils
 
 - project-template:
-    name: ansible-collections-cisco-ios
-    check:
-      jobs: &ansible-collections-cisco-ios-jobs
-        - ansible-ee-integration-ios-latest
-        - ansible-ee-integration-ios-stable-2.9
-        - ansible-ee-integration-ios-stable-2.11
-        - ansible-ee-integration-ios-stable-2.12
-        - ansible-ee-integration-ios-libssh-latest
-        - ansible-ee-integration-ios-libssh-stable-2.9
-        - ansible-ee-integration-ios-libssh-stable-2.11
-        - ansible-ee-integration-ios-libssh-stable-2.12
-        - build-ansible-collection:
-            required-projects:
-              - name: github.com/ansible-collections/ansible.netcommon
-              - name: github.com/ansible-collections/ansible.utils
-    gate:
-      fail-fast: true
-      jobs: *ansible-collections-cisco-ios-jobs
-
-- project-template:
     name: ansible-collections-community-kubernetes
     third-party-check:
       jobs:
@@ -403,14 +383,6 @@
             voting: false
         - ansible-test-network-integration-eos-network_cli-libssh-python39:
             voting: false
-        - ansible-ee-integration-ios-latest
-        - ansible-ee-integration-ios-stable-2.9
-        - ansible-ee-integration-ios-stable-2.11
-        - ansible-ee-integration-ios-stable-2.12
-        - ansible-ee-integration-ios-libssh-latest
-        - ansible-ee-integration-ios-libssh-stable-2.9
-        - ansible-ee-integration-ios-libssh-stable-2.11
-        - ansible-ee-integration-ios-libssh-stable-2.12
         - ansible-test-network-integration-vyos-paramiko-python39-devel
         - ansible-test-network-integration-vyos-paramiko-python39-stable214
         - ansible-test-network-integration-vyos-paramiko-python39-stable213
@@ -426,7 +398,6 @@
             required-projects:
               - name: github.com/ansible-collections/ansible.utils
               - name: github.com/ansible-collections/arista.eos
-              - name: github.com/ansible-collections/cisco.ios
               - name: github.com/ansible-collections/junipernetworks.junos
               - name: github.com/ansible-collections/openvswitch.openvswitch
               - name: github.com/ansible-collections/vyos.vyos
@@ -462,10 +433,6 @@
             voting: false
         - ansible-test-network-integration-eos-network_cli-libssh-python39-stable211-scenario02:
             voting: false
-        - ansible-ee-integration-ios-latest
-        - ansible-ee-integration-ios-stable-2.11
-        - ansible-ee-integration-ios-libssh-latest
-        - ansible-ee-integration-ios-libssh-stable-2.11
         - ansible-test-network-integration-vyos-paramiko-python39-devel
         - ansible-test-network-integration-vyos-paramiko-python39-stable214
         - ansible-test-network-integration-vyos-paramiko-python39-stable213
@@ -481,7 +448,6 @@
             required-projects:
               - name: github.com/ansible-collections/ansible.utils
               - name: github.com/ansible-collections/arista.eos
-              - name: github.com/ansible-collections/cisco.ios
               - name: github.com/ansible-collections/junipernetworks.junos
               - name: github.com/ansible-collections/openvswitch.openvswitch
               - name: github.com/ansible-collections/vyos.vyos
@@ -651,7 +617,6 @@
               - name: github.com/ansible-collections/ansible.network
               - name: github.com/ansible-collections/ansible.utils
               - name: github.com/ansible-collections/arista.eos
-              - name: github.com/ansible-collections/cisco.ios
               - name: github.com/ansible-collections/frr.frr
               - name: github.com/ansible-collections/junipernetworks.junos
               - name: github.com/ansible-collections/openvswitch.openvswitch
@@ -1108,7 +1073,6 @@
               - name: github.com/ansible-collections/ansible.utils
               - name: github.com/ansible-collections/arista.eos
               - name: github.com/ansible-collections/cisco.asa
-              - name: github.com/ansible-collections/cisco.ios
               - name: github.com/ansible-collections/cloud.common
               - name: github.com/ansible-collections/frr.frr
               - name: github.com/ansible-collections/ibm.qradar

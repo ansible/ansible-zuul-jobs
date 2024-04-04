@@ -134,13 +134,6 @@
       ansible_collections_repo: "{{ zuul.project.canonical_name }}"
 
 - job:
-    name: ansible-test-network-integration-ansible-netcommon-iosxr-netconf-python38
-    parent: ansible-test-network-integration-iosxr-python38
-    vars:
-      ansible_collections_repo: github.com/ansible-collections/ansible.netcommon
-      ansible_test_integration_targets: "netconf_.*"
-
-- job:
     name: ansible-test-network-integration-ansible-netcommon-junos-vsrx-netconf-python39
     parent: ansible-test-network-integration-junos-vsrx-python39
     vars:

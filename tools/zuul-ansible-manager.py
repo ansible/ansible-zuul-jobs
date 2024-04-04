@@ -646,10 +646,9 @@ if __name__ == "__main__":
     exit_failure = False
     match args.function_name:
         case "refresh":
-            aws_periodical_jobs(args.amazon_aws_repo_dir)
             aws_integration_jobs(number_of_workers=22)
         case "refresh-aws-periodical-jobs":
-            aws_periodical_jobs(args.amazon_aws_repo_dir)
+            print("The AWS preriodical jobs are no longer being run")
         case "refresh-aws-integration-jobs":
             aws_integration_jobs(number_of_workers=22)
         case "check_slow":

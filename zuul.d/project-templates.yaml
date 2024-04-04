@@ -235,14 +235,6 @@
       fail-fast: true
       jobs: *ansible-collections-cisco-ios-jobs
 
-- project-template:
-    name: ansible-collections-cisco-iosxr
-    check:
-      jobs:
-        - build-ansible-collection:
-            required-projects:
-              - name: github.com/ansible-collections/ansible.netcommon
-              - name: github.com/ansible-collections/ansible.utils
     gate:
       fail-fast: true
       jobs:
@@ -250,38 +242,6 @@
             required-projects:
               - name: github.com/ansible-collections/ansible.netcommon
               - name: github.com/ansible-collections/ansible.utils
-
-- project-template:
-    name: ansible-collections-cisco-iosxr-netconf
-    check:
-      jobs:
-        - ansible-test-network-integration-ansible-netcommon-iosxr-netconf-python38:
-            voting: false
-        - build-ansible-collection:
-            required-projects:
-              - name: github.com/ansible-collections/ansible.netcommon
-              - name: github.com/ansible-collections/ansible.utils
-              - name: github.com/ansible-collections/arista.eos
-              - name: github.com/ansible-collections/cisco.ios
-              - name: github.com/ansible-collections/cisco.iosxr
-              - name: github.com/ansible-collections/cisco.nxos
-              - name: github.com/ansible-collections/junipernetworks.junos
-              - name: github.com/ansible-collections/openvswitch.openvswitch
-              - name: github.com/ansible-collections/vyos.vyos
-    gate:
-      fail-fast: true
-      jobs:
-        - build-ansible-collection:
-            required-projects:
-              - name: github.com/ansible-collections/ansible.netcommon
-              - name: github.com/ansible-collections/ansible.utils
-              - name: github.com/ansible-collections/arista.eos
-              - name: github.com/ansible-collections/cisco.ios
-              - name: github.com/ansible-collections/cisco.iosxr
-              - name: github.com/ansible-collections/cisco.nxos
-              - name: github.com/ansible-collections/junipernetworks.junos
-              - name: github.com/ansible-collections/openvswitch.openvswitch
-              - name: github.com/ansible-collections/vyos.vyos
 
 - project-template:
     name: ansible-collections-community-kubernetes
@@ -475,7 +435,6 @@
               - name: github.com/ansible-collections/ansible.utils
               - name: github.com/ansible-collections/arista.eos
               - name: github.com/ansible-collections/cisco.ios
-              - name: github.com/ansible-collections/cisco.iosxr
               - name: github.com/ansible-collections/cisco.nxos
               - name: github.com/ansible-collections/junipernetworks.junos
               - name: github.com/ansible-collections/openvswitch.openvswitch
@@ -532,7 +491,6 @@
               - name: github.com/ansible-collections/ansible.utils
               - name: github.com/ansible-collections/arista.eos
               - name: github.com/ansible-collections/cisco.ios
-              - name: github.com/ansible-collections/cisco.iosxr
               - name: github.com/ansible-collections/cisco.nxos
               - name: github.com/ansible-collections/junipernetworks.junos
               - name: github.com/ansible-collections/openvswitch.openvswitch
@@ -631,7 +589,6 @@
             required-projects:
               - name: github.com/ansible-collections/ansible.netcommon
               - name: github.com/ansible-collections/ansible.utils
-              - name: github.com/ansible-collections/cisco.iosxr
               - name: github.com/ansible-collections/cisco.nxos
               - name: github.com/ansible-collections/junipernetworks.junos
     gate:
@@ -706,7 +663,6 @@
               - name: github.com/ansible-collections/ansible.utils
               - name: github.com/ansible-collections/arista.eos
               - name: github.com/ansible-collections/cisco.ios
-              - name: github.com/ansible-collections/cisco.iosxr
               - name: github.com/ansible-collections/cisco.nxos
               - name: github.com/ansible-collections/frr.frr
               - name: github.com/ansible-collections/junipernetworks.junos

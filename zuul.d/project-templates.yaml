@@ -522,9 +522,6 @@
               - name: github.com/ansible-collections/ansible.security
               - name: github.com/ansible-collections/ansible.utils
               - name: github.com/ansible-collections/cisco.asa
-              - name: github.com/ansible-collections/ibm.qradar
-              - name: github.com/ansible-collections/splunk.es
-              - name: github.com/ansible-collections/trendmicro.deepsec
     gate:
       jobs: *ansible-collections-ansible-security-jobs
 
@@ -643,46 +640,6 @@
         - ansible-test-units-posix-python310
     gate:
       jobs: *ansible-collections-ansible-posix-units-jobs
-
-- project-template:
-    name: ansible-collections-security-ibm-qradar
-    check:
-      jobs: &ansible-collections-security-ibm-qradar-jobs
-        - build-ansible-collection
-        - ansible-changelog-fragment
-    gate:
-      jobs: *ansible-collections-security-ibm-qradar-jobs
-    periodic:
-      jobs:
-        - build-ansible-collection
-
-- project-template:
-    name: ansible-collections-security-splunk-es
-    check:
-      jobs: &ansible-collections-security-splunk-es-jobs
-        - build-ansible-collection
-    gate:
-      jobs: *ansible-collections-security-splunk-es-jobs
-    periodic:
-      jobs:
-        - build-ansible-collection
-
-- project-template:
-    name: ansible-collections-security-trendmicro-deepsec-units
-    check:
-      jobs: &ansible-collections-security-trendmicro-deepsec-jobs
-        - build-ansible-collection
-        - ansible-security-integration-trendmicro-deepsec-python39
-        - ansible-security-integration-trendmicro-deepsec-python39-stable214
-        - build-ansible-collection:
-            required-projects:
-              - name: github.com/ansible-collections/ansible.netcommon
-              - name: github.com/ansible-collections/ansible.utils
-    gate:
-      jobs: *ansible-collections-security-trendmicro-deepsec-jobs
-    periodic:
-      jobs:
-        - build-ansible-collection
 
 - project-template:
     name: ansible-collections-symantec-epm-units
@@ -960,12 +917,9 @@
               - name: github.com/ansible-collections/cisco.asa
               - name: github.com/ansible-collections/cloud.common
               - name: github.com/ansible-collections/frr.frr
-              - name: github.com/ansible-collections/ibm.qradar
               - name: github.com/ansible-collections/junipernetworks.junos
               - name: github.com/ansible-collections/kubernetes.core
               - name: github.com/ansible-collections/openvswitch.openvswitch
-              - name: github.com/ansible-collections/splunk.es
-              - name: github.com/ansible-collections/trendmicro.deepsec
               - name: github.com/ansible-collections/vmware.vmware_rest
               - name: github.com/ansible-collections/vyos.vyos
         - ansible-buildset-registry:

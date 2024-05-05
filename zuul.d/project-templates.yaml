@@ -986,18 +986,3 @@
             voting: false
     gate:
       jobs: *ansible-collections-cloud-gouttelette-units-jobs
-
-- project-template:
-    name: ansible-collections-community-docker
-    third-party-check:
-      jobs:
-        - build-ansible-collection:
-            required-projects:
-              - name: github.com/ansible-collections/community.library_inventory_filtering
-        - ansible-galaxy-importer
-    pre-release:
-      jobs:
-        - release-ansible-collection-galaxy
-    release:
-      jobs:
-        - release-ansible-collection-galaxy

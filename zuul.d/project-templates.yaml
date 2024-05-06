@@ -807,10 +807,6 @@
     name: publish-to-galaxy-plain
     description: |
       Publish an Ansible collection to Ansible Galaxy
-    # This is needed to override the default config from publish-to-galaxy-3pci
-    third-party-check:
-      jobs:
-        - noop
     pre-release:
       jobs:
         - release-ansible-collection-galaxy
@@ -990,18 +986,3 @@
             voting: false
     gate:
       jobs: *ansible-collections-cloud-gouttelette-units-jobs
-
-- project-template:
-    name: ansible-collections-community-docker
-    third-party-check:
-      jobs:
-        - build-ansible-collection:
-            required-projects:
-              - name: github.com/ansible-collections/community.library_inventory_filtering
-        - ansible-galaxy-importer
-    pre-release:
-      jobs:
-        - release-ansible-collection-galaxy
-    release:
-      jobs:
-        - release-ansible-collection-galaxy

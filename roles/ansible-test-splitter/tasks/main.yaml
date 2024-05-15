@@ -4,6 +4,12 @@
     dest: /tmp/list_changed_targets.py
     mode: '0700'
 
+- name: Fetch repository tree
+  ansible.builtin.command:
+    cmd: git fetch --all
+    chdir: "{{ item }}"
+  with_items: "{{ ansible_test_splitter__check_for_changes_in }}"
+
 - set_fact:
     splitter_cmd: >
       python3 /tmp/list_changed_targets.py

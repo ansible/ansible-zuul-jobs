@@ -68,6 +68,12 @@ class AnsibleTestSplitterGitClone(AnsibleModule):
         self.execute_module()
 
     def checkout_repository(self, repo: Dict[str, str]) -> str:
+        cmd = "git status"
+        rc, stdout, stderr = self.run_command(cmd, cwd="~/" + repo["src_dir"])
+        if rc != 0:
+            self.fail_json(msg=stderr, stdout=stdout, rc=rc)
+        return stdout
+
         path = os.path.join(self.params.get("dest_dir"), repo["src_dir"])
         parent = os.path.dirname(path)
         # create parent directory
@@ -80,7 +86,7 @@ class AnsibleTestSplitterGitClone(AnsibleModule):
             self.fail_json(msg=stderr, stdout=stdout, rc=rc)
 
         # checkout expected branch
-        cmd = "git checkout {0}".format(repo["checkout"])
+        cmd = "git checkout {0}".format(repo["commit"])
         rc, stdout, stderr = self.run_command(cmd, cwd=path)
         if rc != 0:
             self.fail_json(msg=stderr, stdout=stdout, rc=rc)
@@ -91,7 +97,7 @@ class AnsibleTestSplitterGitClone(AnsibleModule):
         for src_d in self.params.get("changes_src_dir"):
             for key, val in self.params.get("zuul_projects").items():
                 if val["src_dir"] == src_d:
-                    paths.append(self.checkout_repository(val))
+                    paths.append({key: self.checkout_repository(val)})
 
         self.exit_json(paths=" ".join(paths))
 

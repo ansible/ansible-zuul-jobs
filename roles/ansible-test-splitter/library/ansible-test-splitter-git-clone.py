@@ -67,8 +67,8 @@ class AnsibleTestSplitterGitClone(AnsibleModule):
         self.git_path = self.get_bin_path("git", required=True)
         self.execute_module()
 
-    def checkout_repository(self, repo: Dict[str, str]) -> str:
-        cmd = "git status"
+    def fetch_repository(self, repo: Dict[str, str]) -> str:
+        cmd = "git fetch --no-tags --prune --progress --depth=1 origin"
         rc, stdout, stderr = self.run_command(cmd, cwd="~/" + repo["src_dir"])
         if rc != 0:
             self.fail_json(msg=stderr, stdout=stdout, rc=rc)

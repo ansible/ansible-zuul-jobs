@@ -181,6 +181,15 @@ class WhatHaveChanged:
         Returns a list of pathlib.PosixPath
         """
         if self.files is None:
+            # Fetch all branches from repositories
+            subprocess.check_output(
+                [
+                    "git",
+                    "fetch",
+                    "--all",
+                ],
+                cwd=self.collection_path,
+            )
             self.files = [
                 PosixPath(p)
                 for p in (

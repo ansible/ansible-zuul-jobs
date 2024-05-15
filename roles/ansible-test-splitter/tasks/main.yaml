@@ -1,4 +1,17 @@
 ---
+- name: Create temporary directory to work in
+  ansible.builtin.tempfile:
+    state: directory
+    suffix: .ansible_test_splitter
+  register: _splitter_dir
+
+- name: Checkout repositories
+  ansible-test-splitter-git-clone:
+    changes_src_dir: "{{ ansible_test_splitter__check_for_changes_in }}"
+    zuul_projects: "{{ zuul.projects }}"
+    dest_dir: "{{ _splitter_dir.path }}"
+  register: git_clone
+
 - copy:
     src: list_changed_targets.py
     dest: /tmp/list_changed_targets.py
@@ -11,7 +24,7 @@
       {% if ansible_test_splitter__releases_to_test is defined %}--ansible-releases {{ ansible_test_splitter__releases_to_test | join(' ') }}{% endif %}
       {% if ansible_test_splitter__total_job is defined %}--total-job {{ ansible_test_splitter__total_job }}{% endif %}
       {% if ansible_test_splitter__test_changed|bool %}--test-changed{% else %}--test-all-the-targets{% endif %}
-      {{ ansible_test_splitter__check_for_changes_in | join(' ') }}
+      {{ git_clone.paths }}
 
 - name: Will split up the jobs with the following command
   debug:
@@ -20,6 +33,11 @@
 - name: Split up the workload
   command: "{{ splitter_cmd }}"
   register: _result
+
+- name: Remove temporary directory
+  ansible.builtin.file:
+    state: absent
+    path: "{{ _splitter_dir.path }}"
 
 - set_fact:
     for_zuul_return: '{{ _result.stdout | from_json }}'

@@ -136,7 +136,6 @@
               - name: github.com/ansible-collections/kubernetes.core
         - ansible-test-sanity-docker-devel
         - ansible-test-sanity-docker-milestone
-        - ansible-test-sanity-docker-stable-2.14
         - ansible-test-sanity-docker-stable-2.15
         - ansible-test-sanity-docker-stable-2.16
         - ansible-galaxy-importer:
@@ -145,7 +144,6 @@
         - ansible-test-sanity-okd-downstream-devel
         - ansible-test-sanity-okd-downstream-milestone:
             voting: false
-        - ansible-test-sanity-okd-downstream-stable-2.14
         - ansible-test-sanity-okd-downstream-stable-2.15
         - ansible-test-sanity-okd-downstream-stable-2.16
 

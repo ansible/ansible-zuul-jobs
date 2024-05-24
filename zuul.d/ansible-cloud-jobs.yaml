@@ -294,6 +294,13 @@
         override-checkout: stable-2.16
 
 - job:
+    name: ansible-test-sanity-okd-downstream-stable-2.17
+    parent: ansible-test-sanity-okd-downstream
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.17
+
+- job:
     name: ansible-test-units-community-okd-python39
     parent: ansible-test-units-base-python39
     required-projects:

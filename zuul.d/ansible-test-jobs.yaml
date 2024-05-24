@@ -116,3 +116,12 @@
         override-checkout: stable-2.16
     vars:
       ansible_test_python: '3.11'
+
+- job:
+    name: ansible-test-sanity-docker-stable-2.17
+    parent: ansible-test-sanity-docker
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: stable-2.17
+    vars:
+      ansible_test_python: '3.11'

@@ -1,5 +1,7 @@
 ---
 - hosts: controller
+  vars:
+    ansible_test_location: "~/{{ zuul.projects[ansible_collections_repo].src_dir }}"
   tasks:
     - name: Copy the galaxy.yml on the controller
       fetch:
@@ -25,6 +27,5 @@
         name: ansible-test
       vars:
         ansible_test_test_command: "{{ ansible_test_command }}"
-        ansible_test_location: "~/{{ zuul.projects[ansible_collections_repo].src_dir }}"
         ansible_test_git_branch: "{{ zuul.projects['github.com/ansible/ansible'].checkout }}"
         ansible_test_ansible_path: "~/{{ zuul.projects['github.com/ansible/ansible'].src_dir }}"

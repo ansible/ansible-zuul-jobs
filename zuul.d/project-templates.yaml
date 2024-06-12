@@ -278,22 +278,6 @@
         - ansible-test-network-integration-junos-vsrx-network_cli-libssh-python39:
             vars:
               ansible_test_integration_targets: "junos_.*"
-        - ansible-test-network-integration-vyos-paramiko-python39-devel
-        - ansible-test-network-integration-vyos-paramiko-python39-stable214
-        - ansible-test-network-integration-vyos-paramiko-python39-stable213
-        - ansible-test-network-integration-vyos-paramiko-python39-stable212
-        - ansible-test-network-integration-vyos-paramiko-python36-stable29:
-            voting: false
-        - ansible-test-network-integration-vyos-libssh-python39-devel
-        - ansible-test-network-integration-vyos-libssh-python39-stable214
-        - ansible-test-network-integration-vyos-libssh-python39-stable213
-        - ansible-test-network-integration-vyos-libssh-python39-stable212
-        - ansible-test-network-integration-vyos-libssh-python36-stable29
-        - build-ansible-collection:
-            required-projects:
-              - name: github.com/ansible-collections/ansible.utils
-              - name: github.com/ansible-collections/junipernetworks.junos
-              - name: github.com/ansible-collections/vyos.vyos
     gate:
       fail-fast: true
       jobs:
@@ -318,22 +302,10 @@
         - ansible-test-network-integration-junos-vsrx-network_cli-libssh-python39:
             vars:
               ansible_test_integration_targets: "junos_.*"
-        - ansible-test-network-integration-vyos-paramiko-python39-devel
-        - ansible-test-network-integration-vyos-paramiko-python39-stable214
-        - ansible-test-network-integration-vyos-paramiko-python39-stable213
-        - ansible-test-network-integration-vyos-paramiko-python39-stable212
-        - ansible-test-network-integration-vyos-paramiko-python36-stable29:
-            voting: false
-        - ansible-test-network-integration-vyos-libssh-python39-devel
-        - ansible-test-network-integration-vyos-libssh-python39-stable214
-        - ansible-test-network-integration-vyos-libssh-python39-stable213
-        - ansible-test-network-integration-vyos-libssh-python39-stable212
-        - ansible-test-network-integration-vyos-libssh-python36-stable29
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-collections/ansible.utils
               - name: github.com/ansible-collections/junipernetworks.junos
-              - name: github.com/ansible-collections/vyos.vyos
 
 - project-template:
     name: ansible-collections-juniper-junos
@@ -449,38 +421,6 @@
       jobs: *ansible-collections-kubernetes-core-units-jobs
 
 - project-template:
-    name: ansible-collections-vyos-vyos
-    check:
-      jobs: &ansible-collections-vyos-vyos-jobs
-        - ansible-test-network-integration-vyos-paramiko-python39-devel:
-            voting: false
-        - ansible-test-network-integration-vyos-paramiko-python39-stable214:
-            voting: false
-        - ansible-test-network-integration-vyos-paramiko-python39-stable213:
-            voting: false
-        - ansible-test-network-integration-vyos-paramiko-python39-stable212:
-            voting: false
-        - ansible-test-network-integration-vyos-paramiko-python36-stable29:
-            voting: false
-        - ansible-test-network-integration-vyos-libssh-python39-devel:
-            voting: false
-        - ansible-test-network-integration-vyos-libssh-python39-stable214:
-            voting: false
-        - ansible-test-network-integration-vyos-libssh-python39-stable213:
-            voting: false
-        - ansible-test-network-integration-vyos-libssh-python39-stable212:
-            voting: false
-        - ansible-test-network-integration-vyos-libssh-python36-stable29:
-            voting: false
-        - build-ansible-collection:
-            required-projects:
-              - name: github.com/ansible-collections/ansible.netcommon
-              - name: github.com/ansible-collections/ansible.utils
-    gate:
-      fail-fast: true
-      jobs: *ansible-collections-vyos-vyos-jobs
-
-- project-template:
     name: ansible-collections-ansible-netcommon-units
     check:
       jobs: &ansible-collections-ansible-netcommon-units-jobs
@@ -500,7 +440,6 @@
               - name: github.com/ansible-collections/ansible.network
               - name: github.com/ansible-collections/ansible.utils
               - name: github.com/ansible-collections/junipernetworks.junos
-              - name: github.com/ansible-collections/vyos.vyos
     gate:
       fail-fast: true
       jobs: *ansible-collections-ansible-network-units-jobs
@@ -907,7 +846,6 @@
               - name: github.com/ansible-collections/junipernetworks.junos
               - name: github.com/ansible-collections/kubernetes.core
               - name: github.com/ansible-collections/vmware.vmware_rest
-              - name: github.com/ansible-collections/vyos.vyos
         - ansible-buildset-registry:
             dependencies:
               - build-ansible-collection

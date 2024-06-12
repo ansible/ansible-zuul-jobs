@@ -516,7 +516,6 @@
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-collections/ansible.netcommon
-              - name: github.com/ansible-collections/ansible.security
               - name: github.com/ansible-collections/ansible.utils
               - name: github.com/ansible-collections/cisco.asa
     gate:
@@ -905,7 +904,6 @@
               - name: github.com/ansible-collections/ansible.netcommon
               - name: github.com/ansible-collections/ansible.network
               - name: github.com/ansible-collections/ansible.posix
-              - name: github.com/ansible-collections/ansible.security
               - name: github.com/ansible-collections/ansible.utils
               - name: github.com/ansible-collections/cisco.asa
               - name: github.com/ansible-collections/cloud.common

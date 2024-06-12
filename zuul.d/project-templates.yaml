@@ -293,7 +293,6 @@
             required-projects:
               - name: github.com/ansible-collections/ansible.utils
               - name: github.com/ansible-collections/junipernetworks.junos
-              - name: github.com/ansible-collections/openvswitch.openvswitch
               - name: github.com/ansible-collections/vyos.vyos
     gate:
       fail-fast: true
@@ -334,7 +333,6 @@
             required-projects:
               - name: github.com/ansible-collections/ansible.utils
               - name: github.com/ansible-collections/junipernetworks.junos
-              - name: github.com/ansible-collections/openvswitch.openvswitch
               - name: github.com/ansible-collections/vyos.vyos
 
 - project-template:
@@ -502,7 +500,6 @@
               - name: github.com/ansible-collections/ansible.network
               - name: github.com/ansible-collections/ansible.utils
               - name: github.com/ansible-collections/junipernetworks.junos
-              - name: github.com/ansible-collections/openvswitch.openvswitch
               - name: github.com/ansible-collections/vyos.vyos
     gate:
       fail-fast: true
@@ -909,7 +906,6 @@
               - name: github.com/ansible-collections/cloud.common
               - name: github.com/ansible-collections/junipernetworks.junos
               - name: github.com/ansible-collections/kubernetes.core
-              - name: github.com/ansible-collections/openvswitch.openvswitch
               - name: github.com/ansible-collections/vmware.vmware_rest
               - name: github.com/ansible-collections/vyos.vyos
         - ansible-buildset-registry:
@@ -940,23 +936,6 @@
         - network-ee-upload-container-image-stable-2.12:
             vars:
               upload_container_image_promote: false
-
-# openvswitch.openvswitch
-- project-template:
-    name: ansible-collections-openvswitch-openvswitch
-    check:
-      jobs: &ansible-collections-openvswitch-openvswitch-jobs
-        - ansible-ee-integration-ovs-latest
-        - ansible-ee-integration-ovs-stable2.12
-        - ansible-ee-integration-ovs-stable2.11
-        - ansible-ee-integration-ovs-stable2.10
-        - ansible-ee-integration-ovs-stable2.9
-        - build-ansible-collection:
-            required-projects:
-              - name: github.com/ansible-collections/ansible.netcommon
-              - name: github.com/ansible-collections/ansible.utils
-    gate:
-      jobs: *ansible-collections-openvswitch-openvswitch-jobs
 
 - project-template:
     name: ansible-collections-cloud-terraform-units

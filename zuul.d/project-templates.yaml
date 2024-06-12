@@ -278,6 +278,11 @@
         - ansible-test-network-integration-junos-vsrx-network_cli-libssh-python39:
             vars:
               ansible_test_integration_targets: "junos_.*"
+        - build-ansible-collection:
+            required-projects:
+              - name: github.com/ansible-collections/ansible.utils
+              - name: github.com/ansible-collections/junipernetworks.junos
+
     gate:
       fail-fast: true
       jobs:

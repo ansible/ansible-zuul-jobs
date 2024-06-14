@@ -1,22 +1,17 @@
 ---
 - hosts: all
-  vars:
-    ansible_artifacts_path: "~/artifacts"
   tasks:
-    - name: Find existing tarballs in folder
-      find:
-        file_type: file
-        paths: "{{ ansible_artifacts_path }}"
-        patterns: "redhat-openshift-*.tar.gz"
-      register: result
-
-    - name: Delete existing tarballs
-      file:
-        path: "{{ item.path }}"
-        state: absent
-      with_items: "{{ result.files }}"
-
-    - name: Build an ansible collection
+    - name: Build and install downstream collection
       args:
-        chdir: "{{ zuul_work_dir }}"
+        chdir: "{{ zuul.project.src_dir }}"
       shell: "make downstream-build && mv redhat-openshift-*.tar.gz {{ ansible_artifacts_path }}"
+      environment:
+        INSTALL_DOWNSTREAM_COLLECTION_PATH: "./collections"
+
+    - name: Run build-ansible-collection role
+      include_role:
+        name: build-ansible-collection
+      vars:
+        zuul_work_dir: "{{ zuul.project.src_dir }}/collections/ansible_collections/redhat/openshift/"
+        ansible_galaxy_executable: "~/{{ zuul.projects['github.com/ansible-network/releases'].src_dir }}/.tox/generate_collection_version/bin/ansible-galaxy"
+        ansible_galaxy_output_path: "~/artifacts"

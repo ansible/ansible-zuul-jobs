@@ -24,7 +24,7 @@
     - name: Find existing tarballs in folder
       find:
         file_type: file
-        paths: .
+        paths: "{{ zuul_work_dir }}"
         patterns: "redhat-openshift-*.tar.gz"
       register: openshift_artifact
 

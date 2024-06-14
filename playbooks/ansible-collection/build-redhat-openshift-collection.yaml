@@ -4,7 +4,7 @@
     - name: Build and install downstream collection
       args:
         chdir: "{{ zuul.project.src_dir }}"
-      shell: "make downstream-build && mv redhat-openshift-*.tar.gz {{ ansible_artifacts_path }}"
+      shell: "make downstream-build"
       environment:
         INSTALL_DOWNSTREAM_COLLECTION_PATH: "./collections"
 

@@ -324,7 +324,7 @@
     required-projects:
       - github.com/ansible-network/releases
     vars:
-      zuul_work_dir: "{{ zuul.project.src_dir }}"
+      zuul_work_dir: "{{ ansible_user_dir }}/{{ zuul.project.src_dir }}"
       ansible_galaxy_executable: "{{ ansible_user_dir }}/{{ zuul.projects['github.com/ansible-network/releases'].src_dir }}/.tox/generate_collection_version/bin/ansible-galaxy"
     # secrets:
     #   - secret: ansible_automation_hub_secret

@@ -1,0 +1,16 @@
+---
+- hosts: all
+  tasks:
+    - name: Setup tox role
+      include_role:
+        name: tox
+      vars:
+        tox_envlist: generate_collection_version
+        tox_extra_args: -vv --notest
+        tox_install_siblings: false
+        zuul_work_dir: "{{ zuul.projects['github.com/ansible-network/releases'].src_dir }}"
+
+    - name: Generate version number for ansible collection.
+      args:
+        chdir: "{{ zuul.project.src_dir }}"
+      command: "~/{{ zuul.projects['github.com/ansible-network/releases'].src_dir }}/.tox/generate_collection_version/bin/generate-ansible-collection"

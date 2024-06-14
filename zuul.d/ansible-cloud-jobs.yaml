@@ -308,6 +308,30 @@
     vars:
       ansible_collections_repo: github.com/openshift/community.okd
 
+- job:
+    name: release-redhat-openshift-automation-hub
+    description: |
+      Release downstream collection redhat.openshift to https://cloud.redhat.com/ansible/automation-hub
+    pre-run: playbooks/ansible-collection/pre.yaml
+    run:
+      - playbooks/ansible-collection/run-pre.yaml
+      - playbooks/ansible-collection/build-redhat-openshift-collection.yaml
+    post-run:
+      - playbooks/ansible-collection/post.yaml
+      # - playbooks/publish/ansible-automation-hub.yaml
+    required-projects:
+      - github.com/ansible-network/releases
+    vars:
+      zuul_work_dir: "{{ zuul.project.src_dir }}"
+      ansible_galaxy_executable: "{{ ansible_user_dir }}/{{ zuul.projects['github.com/ansible-network/releases'].src_dir }}/.tox/generate_collection_version/bin/ansible-galaxy"
+    # secrets:
+    #   - secret: ansible_automation_hub_secret
+    #     name: ansible_galaxy_info
+    nodeset:
+      nodes:
+        - name: controller
+          label: ansible-fedora-37-1vcpu
+
 ### Kubernetes Core
 - job:
     name: ansible-test-units-kubernetes-core-python38

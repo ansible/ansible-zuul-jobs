@@ -1,0 +1,9 @@
+---
+- hosts: all
+  tasks:
+    - name: Run build-ansible-collection role
+      include_role:
+        name: build-ansible-collection
+      vars:
+        ansible_galaxy_executable: "~/{{ zuul.projects['github.com/ansible-network/releases'].src_dir }}/.tox/generate_collection_version/bin/ansible-galaxy"
+        ansible_galaxy_output_path: "~/artifacts"

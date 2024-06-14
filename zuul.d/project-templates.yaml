@@ -131,24 +131,25 @@
     name: ansible-collections-community-okd
     third-party-check:
       jobs:
-        - build-ansible-collection:
-            required-projects:
-              - name: github.com/ansible-collections/kubernetes.core
-                override-checkout: main
-        - ansible-test-sanity-docker-devel
-        - ansible-test-sanity-docker-milestone
-        - ansible-test-sanity-docker-stable-2.15
-        - ansible-test-sanity-docker-stable-2.16
-        - ansible-test-sanity-docker-stable-2.17
-        - ansible-galaxy-importer:
-            voting: false
-        - ansible-test-units-community-okd-python39
-        - ansible-test-sanity-okd-downstream-devel
-        - ansible-test-sanity-okd-downstream-milestone:
-            voting: false
-        - ansible-test-sanity-okd-downstream-stable-2.15
-        - ansible-test-sanity-okd-downstream-stable-2.16
-        - ansible-test-sanity-okd-downstream-stable-2.17
+        - release-redhat-openshift-automation-hub
+        # - build-ansible-collection:
+        #     required-projects:
+        #       - name: github.com/ansible-collections/kubernetes.core
+        #         override-checkout: main
+        # - ansible-test-sanity-docker-devel
+        # - ansible-test-sanity-docker-milestone
+        # - ansible-test-sanity-docker-stable-2.15
+        # - ansible-test-sanity-docker-stable-2.16
+        # - ansible-test-sanity-docker-stable-2.17
+        # - ansible-galaxy-importer:
+        #     voting: false
+        # - ansible-test-units-community-okd-python39
+        # - ansible-test-sanity-okd-downstream-devel
+        # - ansible-test-sanity-okd-downstream-milestone:
+        #     voting: false
+        # - ansible-test-sanity-okd-downstream-stable-2.15
+        # - ansible-test-sanity-okd-downstream-stable-2.16
+        # - ansible-test-sanity-okd-downstream-stable-2.17
 
 - project-template:
     name: ansible-collections-community-vmware

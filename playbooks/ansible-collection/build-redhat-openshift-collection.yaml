@@ -19,19 +19,4 @@
     - name: Build an ansible collection
       args:
         chdir: "{{ zuul_work_dir }}"
-      shell: "make downstream-build"
-
-    - name: Find existing tarballs in folder
-      find:
-        file_type: file
-        paths: "{{ zuul_work_dir }}"
-        patterns: "redhat-openshift-*.tar.gz"
-      register: openshift_artifact
-
-    - debug: var=openshift_artifact
-
-    - name: Copy redhat.openshift tarball into artifact directory
-      copy:
-        src: "{{ item.path }}"
-        dest: "{{ ansible_artifacts_path }}"
-      with_items: "{{ openshift_artifact.files }}"
+      shell: "make downstream-build && mv redhat-openshift-*.tar.gz {{ ansible_artifacts_path }}"

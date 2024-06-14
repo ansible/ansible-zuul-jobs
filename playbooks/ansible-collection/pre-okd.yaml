@@ -1,0 +1,8 @@
+---
+- hosts: controller
+  tasks:
+    - name: Ensure make is installed on the controller
+      package:
+        name: make
+        state: present
+      become: true

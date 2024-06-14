@@ -3,12 +3,6 @@
   vars:
     ansible_artifacts_path: "~/artifacts"
   tasks:
-    - name: Install required system package
-      become: true
-      package:
-        name: main
-        state: present
-
     - name: Find existing tarballs in folder
       find:
         file_type: file

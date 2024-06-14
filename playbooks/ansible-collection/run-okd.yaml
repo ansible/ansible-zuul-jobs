@@ -1,0 +1,17 @@
+---
+- hosts: all
+  tasks:
+    - name: Build downstream collection
+      args:
+        chdir: "{{ zuul.project.src_dir }}"
+      shell: "make downstream-build"
+
+    - name: Publish collections to Automation Hub
+      block:
+        - name: Run upload-ansible-collection-fork
+          include_role:
+            name: upload-ansible-collection-fork
+          vars:
+            ansible_galaxy_type: automation_hub
+            ansible_galaxy_collection_path: "{{ zuul.project.src_dir }}"
+            ansible_galaxy_info: "my testing token"

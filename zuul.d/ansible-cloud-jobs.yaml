@@ -317,10 +317,7 @@
       - playbooks/ansible-collection/pre.yaml
     run:
       - playbooks/ansible-collection/run-pre.yaml
-      - playbooks/ansible-collection/build-redhat-openshift-collection.yaml
-    post-run:
-      - playbooks/ansible-collection/post.yaml
-      # - playbooks/publish/ansible-automation-hub.yaml
+      - playbooks/ansible-collection/run-okd.yaml
     required-projects:
       - github.com/ansible-network/releases
     # secrets:

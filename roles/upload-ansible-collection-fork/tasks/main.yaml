@@ -17,13 +17,16 @@
       find:
         paths: "{{ ansible_galaxy_collection_path }}"
         patterns: "*.tar.gz"
-      register: found_tarballs
+      register: ansible_galaxy_collection_tarballs
+      when: ansible_galaxy_collection_tarballs is undefined
+
+    - debug: var=ansible_galaxy_collection_tarballs
 
     - name: Publish collection to Ansible Galaxy / Automation Hub
       environment:
         ANSIBLE_CONFIG: "{{ _ansiblecfg_tmp.path }}"
       shell: "{{ ansible_galaxy_executable }} -vvv collection publish {{ item.path }}"
-      with_items: "{{ found_tarballs.files }}"
+      with_items: "{{ ansible_galaxy_collection_tarballs.files }}"
 
   always:
     - name: Shred ansible-galaxy credentials

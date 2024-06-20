@@ -843,6 +843,7 @@
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-collections/amazon.aws
+              # This must be removed
               - name: github.com/ansible-collections/ansible.netcommon
               - name: github.com/ansible-collections/ansible.network
               - name: github.com/ansible-collections/ansible.posix

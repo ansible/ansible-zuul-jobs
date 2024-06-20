@@ -743,7 +743,6 @@
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-collections/amazon.aws
-              - name: github.com/ansible-collections/ansible.netcommon
               - name: github.com/ansible-collections/ansible.network
               - name: github.com/ansible-collections/ansible.posix
               - name: github.com/ansible-collections/ansible.utils

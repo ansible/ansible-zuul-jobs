@@ -65,7 +65,7 @@
 
 - job:
     name: ansible-tox-py310
-    parent: tox-py39  # there is no tox-py310 upstream
+    parent: tox-py39 # there is no tox-py310 upstream
     vars:
       tox_envlist: py310
     pre-run: playbooks/ansible-tox-py310/pre.yaml
@@ -132,13 +132,6 @@
       ansible_test_command: integration
       ansible_test_integration_targets: ""
       ansible_collections_repo: "{{ zuul.project.canonical_name }}"
-
-- job:
-    name: ansible-test-network-integration-ansible-netcommon-junos-vsrx-netconf-python39
-    parent: ansible-test-network-integration-junos-vsrx-python39
-    vars:
-      ansible_collections_repo: github.com/ansible-collections/ansible.netcommon
-      ansible_test_integration_targets: "netconf_.*"
 
 - job:
     name: ansible-test-units-posix
@@ -264,106 +257,6 @@
       - name: github.com/ansible/ansible
     vars:
       ansible_test_python: "3.10"
-
-- job:
-    name: ansible-test-units-yang-python27
-    parent: ansible-test-units-base-python27
-    required-projects:
-      - name: github.com/ansible-collections/community.yang
-    vars:
-      ansible_collections_repo: github.com/ansible-collections/community.yang
-
-- job:
-    name: ansible-test-units-yang-python36
-    parent: ansible-test-units-base-python36
-    required-projects:
-      - name: github.com/ansible-collections/community.yang
-    vars:
-      ansible_collections_repo: github.com/ansible-collections/community.yang
-
-- job:
-    name: ansible-test-units-yang-python37
-    parent: ansible-test-units-base-python37
-    required-projects:
-      - name: github.com/ansible-collections/community.yang
-    vars:
-      ansible_collections_repo: github.com/ansible-collections/community.yang
-
-- job:
-    name: ansible-test-units-yang-python38
-    parent: ansible-test-units-base-python38
-    required-projects:
-      - name: github.com/ansible-collections/community.yang
-    vars:
-      ansible_collections_repo: github.com/ansible-collections/community.yang
-
-- job:
-    name: ansible-test-network-integration-community-yang-iosxr-netconf-python36
-    vars:
-      ansible_collections_repo: github.com/ansible-collections/community.yang
-      ansible_test_integration_targets: ""
-
-- job:
-    name: ansible-test-network-integration-community-yang-junos-vsrx-netconf-python36
-    parent: ansible-test-network-integration-junos-vsrx-python36
-    vars:
-      ansible_collections_repo: github.com/ansible-collections/community.yang
-      ansible_test_integration_targets: ""
-
-- job:
-    name: ansible-test-units-ansible-yang-python36
-    parent: ansible-test-units-base-python36
-    required-projects:
-      - name: github.com/ansible-collections/ansible.yang
-      - name: github.com/ansible/ansible
-        override-checkout: stable-2.9
-    vars:
-      ansible_collections_repo: github.com/ansible-collections/ansible.yang
-
-- job:
-    name: ansible-test-units-ansible-yang-python37
-    parent: ansible-test-units-base-python37
-    required-projects:
-      - name: github.com/ansible-collections/ansible.yang
-      - name: github.com/ansible/ansible
-        override-checkout: stable-2.9
-    vars:
-      ansible_collections_repo: github.com/ansible-collections/ansible.yang
-
-- job:
-    name: ansible-test-units-ansible-yang-python38
-    parent: ansible-test-units-base-python38
-    required-projects:
-      - name: github.com/ansible-collections/ansible.yang
-    vars:
-      ansible_collections_repo: github.com/ansible-collections/ansible.yang
-
-- job:
-    name: ansible-test-units-ansible-yang-python39
-    parent: ansible-test-units-base-python39
-    required-projects:
-      - name: github.com/ansible-collections/ansible.yang
-    vars:
-      ansible_collections_repo: github.com/ansible-collections/ansible.yang
-
-- job:
-    name: ansible-test-network-integration-ansible-yang-iosxr-netconf-python36
-    vars:
-      ansible_collections_repo: github.com/ansible-collections/ansible.yang
-      ansible_test_integration_targets: ""
-
-- job:
-    name: ansible-test-network-integration-ansible-yang-iosxr-netconf-python38
-    vars:
-      ansible_collections_repo: github.com/ansible-collections/ansible.yang
-      ansible_test_integration_targets: ""
-
-- job:
-    name: ansible-test-network-integration-ansible-yang-junos-vsrx-netconf-python39
-    parent: ansible-test-network-integration-junos-vsrx-python39
-    vars:
-      ansible_collections_repo: github.com/ansible-collections/ansible.yang
-      ansible_test_integration_targets: ""
 
 # molecule- prefixed jobs match ansible- ones but also enable extra
 # virtualization services that are use by molecule, like docker, podman (TBD)

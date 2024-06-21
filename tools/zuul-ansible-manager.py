@@ -281,10 +281,6 @@ def aws_periodical_jobs(amazon_aws_repo_dir: Path) -> None:
         "build-ansible-collection": {
             "required-projects": [
                 RequiredProject(name="github.com/ansible-collections/amazon.aws"),
-                RequiredProject(name="github.com/ansible-collections/ansible.utils"),
-                RequiredProject(
-                    name="github.com/ansible-collections/ansible.netcommon"
-                ),
                 RequiredProject(name="github.com/ansible-collections/community.aws"),
                 RequiredProject(
                     name="github.com/ansible-collections/community.general"
@@ -390,11 +386,7 @@ def aws_integration_jobs(number_of_workers: int):
     build_ansible_collection = {
         "build-ansible-collection": {
             "required-projects": [
-                RequiredProject(name="github.com/ansible-collections/ansible.utils"),
                 RequiredProject(name="github.com/ansible-collections/amazon.aws"),
-                RequiredProject(
-                    name="github.com/ansible-collections/ansible.netcommon"
-                ),
                 RequiredProject(name="github.com/ansible-collections/community.aws"),
                 RequiredProject(
                     name="github.com/ansible-collections/community.general"

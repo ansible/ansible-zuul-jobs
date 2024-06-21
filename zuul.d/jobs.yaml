@@ -65,7 +65,7 @@
 
 - job:
     name: ansible-tox-py310
-    parent: tox-py39 # there is no tox-py310 upstream
+    parent: tox-py39  # there is no tox-py310 upstream
     vars:
       tox_envlist: py310
     pre-run: playbooks/ansible-tox-py310/pre.yaml

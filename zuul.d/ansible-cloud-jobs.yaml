@@ -78,46 +78,46 @@
         ansible_network_os: vmware_rest
 
 - job:
-    name: ansible-test-cloud-integration-vcenter7_only-stable216
+    name: ansible-test-cloud-integration-vcenter7_only-stable217
     parent: ansible-test-cloud-integration-vcenter7_only
     required-projects:
       - name: github.com/ansible/ansible
-        override-checkout: stable-2.16
+        override-checkout: stable-2.17
 
 - job:
-    name: ansible-test-cloud-integration-vcenter7_1esxi-stable216
+    name: ansible-test-cloud-integration-vcenter7_1esxi-stable217
     parent: ansible-test-cloud-integration-vcenter7_1esxi
     required-projects:
       - name: github.com/ansible/ansible
-        override-checkout: stable-2.16
+        override-checkout: stable-2.17
 
 - job:
-    name: ansible-test-cloud-integration-vcenter7_1esxi-stable216_1_of_2
+    name: ansible-test-cloud-integration-vcenter7_1esxi-stable217_1_of_2
     parent: ansible-test-cloud-integration-vcenter7_1esxi
     required-projects:
       - name: github.com/ansible/ansible
-        override-checkout: stable-2.16
+        override-checkout: stable-2.17
     vars:
       ansible_test_split_in: 2
       ansible_test_do_number: 1
 
 - job:
-    name: ansible-test-cloud-integration-vcenter7_1esxi-stable216_2_of_2
+    name: ansible-test-cloud-integration-vcenter7_1esxi-stable217_2_of_2
     parent: ansible-test-cloud-integration-vcenter7_1esxi
     required-projects:
       - name: github.com/ansible/ansible
-        override-checkout: stable-2.16
+        override-checkout: stable-2.17
     vars:
       ansible_test_split_in: 2
       ansible_test_do_number: 2
 
 
 - job:
-    name: ansible-test-cloud-integration-vcenter7_2esxi-stable216
+    name: ansible-test-cloud-integration-vcenter7_2esxi-stable217
     parent: ansible-test-cloud-integration-vcenter7_2esxi
     required-projects:
       - name: github.com/ansible/ansible
-        override-checkout: stable-2.16
+        override-checkout: stable-2.17
 
 
 ####################### vmware.vmware-rest #####################

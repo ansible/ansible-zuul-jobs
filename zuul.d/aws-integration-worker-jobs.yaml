@@ -1572,6 +1572,7 @@
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-collections/amazon.aws
+              - name: github.com/ansible-collections/community.aws
             timeout: 3600
             host-vars: {}
             vars: {}

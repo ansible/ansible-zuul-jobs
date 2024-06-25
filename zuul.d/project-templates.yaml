@@ -237,81 +237,6 @@
       jobs: *ansible-collections-community-asa-units-jobs
 
 - project-template:
-    name: ansible-collections-ansible-netcommon
-    check:
-      jobs:
-        - ansible-test-network-integration-junos-vsrx-netconf-python36-stable29:
-            vars:
-              ansible_test_integration_targets: "junos_.*"
-            voting: false
-        - ansible-test-network-integration-junos-vsrx-netconf-python36-stable211:
-            vars:
-              ansible_test_integration_targets: "junos_.*"
-        - ansible-test-network-integration-junos-vsrx-netconf-python39-stable212:
-            vars:
-              ansible_test_integration_targets: "junos_.*"
-        - ansible-test-network-integration-junos-vsrx-netconf-python39:
-            vars:
-              ansible_test_integration_targets: "junos_.*"
-        - ansible-test-network-integration-junos-vsrx-network_cli-python36-stable29:
-            vars:
-              ansible_test_integration_targets: "junos_.*"
-            voting: false
-        - ansible-test-network-integration-junos-vsrx-network_cli-python36-stable211:
-            vars:
-              ansible_test_integration_targets: "junos_.*"
-        - ansible-test-network-integration-junos-vsrx-network_cli-python39-stable212:
-            vars:
-              ansible_test_integration_targets: "junos_.*"
-        - ansible-test-network-integration-junos-vsrx-network_cli-python39:
-            vars:
-              ansible_test_integration_targets: "junos_.*"
-        - ansible-test-network-integration-junos-vsrx-network_cli-libssh-python36-stable29:
-            vars:
-              ansible_test_integration_targets: "junos_.*"
-            voting: false
-        - ansible-test-network-integration-junos-vsrx-network_cli-libssh-python36-stable211:
-            vars:
-              ansible_test_integration_targets: "junos_.*"
-        - ansible-test-network-integration-junos-vsrx-network_cli-libssh-python39-stable212:
-            vars:
-              ansible_test_integration_targets: "junos_.*"
-        - ansible-test-network-integration-junos-vsrx-network_cli-libssh-python39:
-            vars:
-              ansible_test_integration_targets: "junos_.*"
-        - build-ansible-collection:
-            required-projects:
-              - name: github.com/ansible-collections/ansible.utils
-
-    gate:
-      fail-fast: true
-      jobs:
-        - ansible-test-network-integration-junos-vsrx-netconf-python36-stable29:
-            vars:
-              ansible_test_integration_targets: "junos_.*"
-            voting: false
-        - ansible-test-network-integration-junos-vsrx-netconf-python39:
-            vars:
-              ansible_test_integration_targets: "junos_.*"
-        - ansible-test-network-integration-junos-vsrx-network_cli-python36-stable29:
-            vars:
-              ansible_test_integration_targets: "junos_.*"
-            voting: false
-        - ansible-test-network-integration-junos-vsrx-network_cli-python39:
-            vars:
-              ansible_test_integration_targets: "junos_.*"
-        - ansible-test-network-integration-junos-vsrx-network_cli-libssh-python36-stable29:
-            vars:
-              ansible_test_integration_targets: "junos_.*"
-            voting: false
-        - ansible-test-network-integration-junos-vsrx-network_cli-libssh-python39:
-            vars:
-              ansible_test_integration_targets: "junos_.*"
-        - build-ansible-collection:
-            required-projects:
-              - name: github.com/ansible-collections/ansible.utils
-
-- project-template:
     name: ansible-collections-kubernetes-core-units
     check:
       jobs: &ansible-collections-kubernetes-core-units-jobs
@@ -325,15 +250,6 @@
         - ansible-test-units-kubernetes-core-python38
     gate:
       jobs: *ansible-collections-kubernetes-core-units-jobs
-
-- project-template:
-    name: ansible-collections-ansible-netcommon-units
-    check:
-      jobs: &ansible-collections-ansible-netcommon-units-jobs
-        - ansible-changelog-fragment
-    gate:
-      fail-fast: true
-      jobs: *ansible-collections-ansible-netcommon-units-jobs
 
 - project-template:
     name: ansible-collections-ansible-network-units

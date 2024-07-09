@@ -64,7 +64,7 @@
         - ansible_test_python is version('3.11', '<=')
 
     - name: Install selinux into virtualenv
-      shell: '~/venv/bin/pip install {{ _selinux_package }} "setuptools<50.0.0"'
+      shell: '~/venv/bin/pip install {{ _selinux_package }} "setuptools"'
       when: ansible_os_family == "RedHat"
 
     - name: Install pytest-forked into virtualenv

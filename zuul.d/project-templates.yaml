@@ -178,7 +178,6 @@
             required-projects:
               - name: github.com/ansible-collections/cloud.common
               - name: github.com/ansible-collections/community.vmware
-        - tox-cloud-refresh-examples-vmware
     gate:
       jobs: *ansible-collections-community-vmware-rest-jobs
     periodic:
@@ -614,7 +613,6 @@
             voting: false
         - ansible-test-changelog
         - tox-cloud-refresh-modules-vmware
-        - tox-cloud-refresh-examples-vmware
         - tox-cloud-generate-vmware:
             voting: false
     gate:

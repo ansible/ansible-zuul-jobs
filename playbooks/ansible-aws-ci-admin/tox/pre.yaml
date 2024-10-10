@@ -1,0 +1,8 @@
+---
+- hosts: all
+  tasks:
+    - name: Ensure make
+      become: true
+      package:
+        name: make
+        state: present

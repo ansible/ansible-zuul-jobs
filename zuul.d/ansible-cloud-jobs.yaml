@@ -527,3 +527,12 @@
       tox_envlist: refresh_modules
       tox_package_name: vmware_rest
       zuul_work_dir: "~/{{ zuul.projects['github.com/ansible-collections/vmware.vmware_rest'].src_dir }}"
+
+### aws-ci-admin
+- job:
+    name: ansible-tox-aws-ci-admin-py37
+    parent: ansible-tox-py37
+    pre-run:
+      - playbooks/ansible-aws-ci-admin/tox/pre.yaml
+    required-projects:
+      - name: github.com/ansible/aws-ci-admin

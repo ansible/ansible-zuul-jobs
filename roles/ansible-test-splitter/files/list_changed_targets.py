@@ -242,7 +242,7 @@ class WhatHaveChanged:
             try:
                 relative_path = d.relative_to(base_path)
                 parts = [*relative_path.parts[:-1]]
-                if str(d.stem) != "__init__":
+                if d.stem != "__init__":
                     parts.append(d.stem)
                 relative_module = ".".join(parts)
                 yield (

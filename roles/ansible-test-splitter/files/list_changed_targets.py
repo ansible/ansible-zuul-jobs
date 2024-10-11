@@ -4,6 +4,7 @@ import argparse
 import ast
 import json
 from pathlib import PosixPath
+import pprint
 import sys
 import subprocess
 import yaml
@@ -208,7 +209,9 @@ class WhatHaveChanged:
         for d in self.changed_files():
             if str(d).startswith("tests/integration/targets/"):
                 # These are a special case, we only care that 'something' changed in that test
-                yield str(d).replace("tests/integration/targets/", "").split("/", maxsplit=1)[0]
+                yield str(d).replace("tests/integration/targets/", "").split(
+                    "/", maxsplit=1
+                )[0]
 
     def _path_matches(self, base_path):
         # Simplest case, just a file name

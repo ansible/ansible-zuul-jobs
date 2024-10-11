@@ -61,12 +61,18 @@ def test_list_pyimport():
         "ipaddress",
         "time",
         "botocore.exceptions",
-    } - set(list_pyimport("ansible_collections.amazon.aws.plugins.", "modules", my_module))
+    } - set(
+        list_pyimport("ansible_collections.amazon.aws.plugins.", "modules", my_module)
+    )
 
     assert set() == {
         "ansible_collections.kubernetes.core.plugins.module_utils.k8sdynamicclient",
         "ansible_collections.kubernetes.core.plugins.module_utils.common",
-    } - set(list_pyimport("ansible_collections.kubernetes.core.plugins.", "modules", my_module_2))
+    } - set(
+        list_pyimport(
+            "ansible_collections.kubernetes.core.plugins.", "modules", my_module_2
+        )
+    )
 
     assert set() == {
         "ansible_collections.amazon.aws.plugins.module_utils._autoscaling.common",
@@ -74,7 +80,11 @@ def test_list_pyimport():
         "ipaddress",
         "time",
         "botocore.exceptions",
-    } - set(list_pyimport("ansible_collections.amazon.aws.plugins.", "module_utils", my_module_3))
+    } - set(
+        list_pyimport(
+            "ansible_collections.amazon.aws.plugins.", "module_utils", my_module_3
+        )
+    )
 
 
 def test_what_changed_files():

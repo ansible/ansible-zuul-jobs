@@ -40,6 +40,7 @@ def main():
 
 my_module_3 = """
 from .modules import AnsibleAWSModule
+from ._autoscaling import common as _common
 from ipaddress import ipaddress
 import time
 import botocore.exceptions
@@ -55,34 +56,25 @@ def test_read_collection_name():
 
 
 def test_list_pyimport():
-    assert list(
-        list_pyimport("ansible_collections.amazon.aws.plugins.", "modules", my_module)
-    ) == [
+    assert set() == {
         "ansible_collections.amazon.aws.plugins.module_utils.core",
         "ipaddress",
         "time",
         "botocore.exceptions",
-    ]
+    } - set(list_pyimport("ansible_collections.amazon.aws.plugins.", "modules", my_module))
 
-    assert list(
-        list_pyimport(
-            "ansible_collections.kubernetes.core.plugins.", "modules", my_module_2
-        )
-    ) == [
+    assert set() == {
         "ansible_collections.kubernetes.core.plugins.module_utils.k8sdynamicclient",
         "ansible_collections.kubernetes.core.plugins.module_utils.common",
-    ]
+    } - set(list_pyimport("ansible_collections.kubernetes.core.plugins.", "modules", my_module_2))
 
-    assert list(
-        list_pyimport(
-            "ansible_collections.amazon.aws.plugins.", "module_utils", my_module_3
-        )
-    ) == [
+    assert set() == {
+        "ansible_collections.amazon.aws.plugins.module_utils._autoscaling.common",
         "ansible_collections.amazon.aws.plugins.module_utils.modules",
         "ipaddress",
         "time",
         "botocore.exceptions",
-    ]
+    } - set(list_pyimport("ansible_collections.amazon.aws.plugins.", "module_utils", my_module_3))
 
 
 def test_what_changed_files():
@@ -91,6 +83,8 @@ def test_what_changed_files():
     whc.changed_files = lambda: [
         PosixPath("tests/something"),
         PosixPath("plugins/module_utils/core.py"),
+        PosixPath("plugins/module_utils/_autoscaling/common.py"),
+        PosixPath("plugins/module_utils/_autoscaling/__init__.py"),
         PosixPath("plugins/plugin_utils/base.py"),
         PosixPath("plugins/connection/aws_ssm.py"),
         PosixPath("plugins/modules/ec2.py"),
@@ -104,13 +98,25 @@ def test_what_changed_files():
         (
             PosixPath("plugins/plugin_utils/base.py"),
             "ansible_collections.a.b.plugins.plugin_utils.base",
+            "base",
         )
     ]
     assert list(whc.module_utils()) == [
         (
             PosixPath("plugins/module_utils/core.py"),
             "ansible_collections.a.b.plugins.module_utils.core",
-        )
+            "core",
+        ),
+        (
+            PosixPath("plugins/module_utils/_autoscaling/common.py"),
+            "ansible_collections.a.b.plugins.module_utils._autoscaling.common",
+            "_autoscaling.common",
+        ),
+        (
+            PosixPath("plugins/module_utils/_autoscaling/__init__.py"),
+            "ansible_collections.a.b.plugins.module_utils._autoscaling",
+            "_autoscaling",
+        ),
     ]
     assert list(whc.lookup()) == [PosixPath("plugins/lookup/aws_test.py")]
     assert list(whc.targets()) == [

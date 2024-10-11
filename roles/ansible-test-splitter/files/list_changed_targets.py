@@ -80,7 +80,11 @@ def list_pyimport(prefix, subdir, module_content):
                 current_prefix = f"{prefix}"
             else:
                 current_prefix = ""
-            yield f"{current_prefix}{'.'.join(module)}"
+            full_path = f"{current_prefix}{'.'.join(module)}"
+            yield full_path
+            # ensure we also catch any modules being imported using "from x.y import z"
+            for name in node.names:
+                yield f"{full_path}.{name.name}"
 
 
 def build_import_tree(collection_path, collection_name, collections_names):

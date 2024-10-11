@@ -4,7 +4,6 @@ import argparse
 import ast
 import json
 from pathlib import PosixPath
-import pprint
 import sys
 import subprocess
 import yaml

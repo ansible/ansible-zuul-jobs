@@ -80,7 +80,11 @@ def list_pyimport(prefix, subdir, module_content):
                 current_prefix = f"{prefix}"
             else:
                 current_prefix = ""
-            yield f"{current_prefix}{'.'.join(module)}"
+            full_path = f"{current_prefix}{'.'.join(module)}"
+            yield full_path
+            # ensure we also catch any modules being imported using "from x.y import z"
+            for name in node.names:
+                yield f"{full_path}.{name.name}"
 
 
 def build_import_tree(collection_path, collection_name, collections_names):
@@ -204,7 +208,9 @@ class WhatHaveChanged:
         for d in self.changed_files():
             if str(d).startswith("tests/integration/targets/"):
                 # These are a special case, we only care that 'something' changed in that test
-                yield str(d).replace("tests/integration/targets/", "").split("/")[0]
+                yield str(d).replace("tests/integration/targets/", "").split(
+                    "/", maxsplit=1
+                )[0]
 
     def _path_matches(self, base_path):
         # Simplest case, just a file name
@@ -231,12 +237,21 @@ class WhatHaveChanged:
     def _util_matches(self, base_path, import_path):
         # We care about the file, but we also need to find what potential side effects would be for
         # our change
+        base_path = PosixPath(base_path)
         for d in self.changed_files():
-            if str(d).startswith(base_path):
+            try:
+                relative_path = d.relative_to(base_path)
+                parts = [*relative_path.parts[:-1]]
+                if d.stem != "__init__":
+                    parts.append(d.stem)
+                relative_module = ".".join(parts)
                 yield (
                     PosixPath(d),
-                    f"ansible_collections.{self.collection_name()}.plugins.{import_path}.{d.stem}",
+                    f"ansible_collections.{self.collection_name()}.plugins.{import_path}.{relative_module}",
+                    relative_module,
                 )
+            except ValueError:
+                pass
 
     def module_utils(self):
         """List the Python modules impacted by the change"""
@@ -491,15 +506,15 @@ if __name__ == "__main__":
                 changes[whc.collection_name()]["connection"].append(path.stem)
                 for c in collections:
                     c.add_target_to_plan(f"connection_{path.stem}")
-            for path, pymod in whc.module_utils():
-                changes[whc.collection_name()]["module_utils"].append(path.stem)
+            for path, pymod, stem in whc.module_utils():
+                changes[whc.collection_name()]["module_utils"].append(stem)
                 for c in collections:
-                    c.add_target_to_plan(f"module_utils_{path.stem}")
+                    c.add_target_to_plan(f"module_utils_{stem.replace('.', '_')}")
                     c.cover_module_utils(pymod, collections_names)
-            for path, pymod in whc.plugin_utils():
-                changes[whc.collection_name()]["plugin_utils"].append(path.stem)
+            for path, pymodi, stem in whc.plugin_utils():
+                changes[whc.collection_name()]["plugin_utils"].append(stem)
                 for c in collections:
-                    c.add_target_to_plan(f"plugin_utils_{path.stem}")
+                    c.add_target_to_plan(f"plugin_utils_{stem.replace('.', '_')}")
                     c.cover_module_utils(pymod, collections_names)
             for path in whc.lookup():
                 changes[whc.collection_name()]["lookup"].append(path.stem)

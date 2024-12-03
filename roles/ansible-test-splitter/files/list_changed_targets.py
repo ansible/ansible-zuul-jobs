@@ -147,6 +147,20 @@ def build_import_tree(collection_path, collection_name, collections_names):
                 if i not in utils_to_visit:
                     utils_to_visit.append(i)
 
+    inventories_import = defaultdict(list)
+    prefix = f"ansible_collections.{collection_name}.plugins."
+    all_prefixes = [f"ansible_collections.{n}.plugins." for n in collections_names]
+    utils_to_visit = []
+    for mod in collection_path.glob("plugins/inventory/*"):
+        for i in list_pyimport(prefix, "inventory", mod.read_text()):
+            if (
+                any(i.startswith(p) for p in all_prefixes)
+                and i not in inventories_import[mod.stem]
+            ):
+                inventories_import[mod.stem].append(i)
+                if i not in utils_to_visit:
+                    utils_to_visit.append(i)
+
     utils_import = defaultdict(list)
     visited = []
     while utils_to_visit:
@@ -168,7 +182,7 @@ def build_import_tree(collection_path, collection_name, collections_names):
                         utils_to_visit.append(i)
         except:
             pass
-    return modules_import, utils_import
+    return modules_import, utils_import, inventories_import
 
 
 class WhatHaveChanged:
@@ -316,6 +330,7 @@ class Collection:
         self.collection_name = lambda: read_collection_name(path)
         self.modules_import = None
         self.utils_import = None
+        self.inventories_import = None
         self.test_groups = None
 
     def _targets(self):
@@ -347,8 +362,16 @@ class Collection:
 
     def cover_module_utils(self, pymod, collections_names):
         """Track the targets to run follow up to a module_utils changed."""
-        if self.modules_import is None or self.utils_import is None:
-            self.modules_import, self.utils_import = build_import_tree(
+        if (
+            self.modules_import is None
+            or self.utils_import is None
+            or self.inventories_import is None
+        ):
+            (
+                self.modules_import,
+                self.utils_import,
+                self.inventories_import,
+            ) = build_import_tree(
                 self.collection_path, self.collection_name(), collections_names
             )
 
@@ -362,6 +385,13 @@ class Collection:
             intersect = [x for x in u_candidates if x in self.modules_import.get(mod)]
             if intersect:
                 self.add_target_to_plan(mod, is_direct=False)
+
+        for inv in self.inventories_import:
+            intersect = [
+                x for x in u_candidates if x in self.inventories_import.get(inv)
+            ]
+            if intersect:
+                c.add_target_to_plan(f"inventory_{inv}")
 
     def slow_targets_to_test(self):
         return sorted(list(set([t.name for t in self._my_test_plan if t.is_slow()])))
@@ -401,6 +431,7 @@ class ElGrandeSeparator:
             result["imports"][c.collection_name()] = {
                 "modules": c.modules_import,
                 "utils": c.utils_import,
+                "inventories": c.inventories_import,
             }
         result["what_have_changes"] = changes
         print(json.dumps(result, indent=2))
@@ -515,7 +546,7 @@ if __name__ == "__main__":
                 changes[whc.collection_name()]["plugin_utils"].append(stem)
                 for c in collections:
                     c.add_target_to_plan(f"plugin_utils_{stem.replace('.', '_')}")
-                    c.cover_module_utils(pymod, collections_names)
+                    c.cover_module_utils(pymodi, collections_names)
             for path in whc.lookup():
                 changes[whc.collection_name()]["lookup"].append(path.stem)
                 for c in collections:

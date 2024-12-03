@@ -362,8 +362,16 @@ class Collection:
 
     def cover_module_utils(self, pymod, collections_names):
         """Track the targets to run follow up to a module_utils changed."""
-        if self.modules_import is None or self.utils_import is None or self.inventories_import is None:
-            self.modules_import, self.utils_import, self.inventories_import = build_import_tree(
+        if (
+            self.modules_import is None
+            or self.utils_import is None
+            or self.inventories_import is None
+        ):
+            (
+                self.modules_import,
+                self.utils_import,
+                self.inventories_import,
+            ) = build_import_tree(
                 self.collection_path, self.collection_name(), collections_names
             )
 
@@ -379,7 +387,9 @@ class Collection:
                 self.add_target_to_plan(mod, is_direct=False)
 
         for inv in self.inventories_import:
-            intersect = [x for x in u_candidates if x in self.inventories_import.get(inv)]
+            intersect = [
+                x for x in u_candidates if x in self.inventories_import.get(inv)
+            ]
             if intersect:
                 c.add_target_to_plan(f"inventory_{inv}")
 

@@ -1,0 +1,34 @@
+---
+- hosts: controller
+  tasks:
+    - name: Run our-ensure-python role (Fedora only for now)
+      include_role:
+        name: our-ensure-python
+      vars:
+        ensure_python__version: "3.11"
+
+    - name: Run ensure-virtualenv role
+      include_role:
+        name: ensure-virtualenv
+
+    - name: Setup base virtualenv_options
+      set_fact:
+        _virtualenv_options: "--python python3.11"
+
+    - name: Create virtualenv for ansible-test
+      shell: "virtualenv {{ _virtualenv_options }} ~/venv"
+
+    # - name: Set selinux package
+    #   set_fact:
+    #     _selinux_package: selinux-please-lie-to-me
+
+    # - name: Install selinux into virtualenv
+    #   shell: '~/venv/bin/pip install {{ _selinux_package }} "setuptools<50.0.0"'
+
+    - name: Install pytest-forked into virtualenv
+      environment:
+        ANSIBLE_SKIP_CONFLICT_CHECK: 1
+      shell: '~/venv/bin/pip install git+https://github.com/ansible/ansible@devel'
+
+    - name: Display ansible version
+      shell: "source ~/work/env/py312/bin/activate && ansible-galaxy --version"

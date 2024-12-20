@@ -247,6 +247,7 @@
         - ansible-test-sanity-docker-stable-2.11
         - ansible-test-sanity-docker-stable-2.12
         - ansible-test-units-kubernetes-core-python38
+        - ansible-testing-venv
     gate:
       jobs: *ansible-collections-kubernetes-core-units-jobs
 

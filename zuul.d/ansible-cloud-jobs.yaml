@@ -518,3 +518,8 @@
       tox_envlist: refresh_modules
       tox_package_name: vmware_rest
       zuul_work_dir: "~/{{ zuul.projects['github.com/ansible-collections/vmware.vmware_rest'].src_dir }}"
+
+- job:
+    name: ansible-testing-venv
+    run: playbooks/ansible-cloud/k8s/publisher.yml
+    nodeset: fedora-37

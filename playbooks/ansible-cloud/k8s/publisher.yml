@@ -31,4 +31,4 @@
       shell: '~/venv/bin/pip install git+https://github.com/ansible/ansible@devel'
 
     - name: Display ansible version
-      shell: "source ~/work/env/py312/bin/activate && ansible-galaxy --version"
+      shell: "source ~/venv/bin/activate && ansible-galaxy --version"

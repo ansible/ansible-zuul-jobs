@@ -210,19 +210,6 @@
       jobs: *ansible-collections-ansible-network-units-jobs
 
 - project-template:
-    name: ansible-collections-ansible-security
-    check:
-      jobs: &ansible-collections-ansible-security-jobs
-        - ansible-changelog-fragment
-        - build-ansible-collection:
-            required-projects:
-              - name: github.com/ansible-collections/ansible.netcommon
-              - name: github.com/ansible-collections/ansible.utils
-              - name: github.com/ansible-collections/cisco.asa
-    gate:
-      jobs: *ansible-collections-ansible-security-jobs
-
-- project-template:
     name: ansible-collections-ansible-posix-units
     check:
       jobs: &ansible-collections-ansible-posix-units-jobs

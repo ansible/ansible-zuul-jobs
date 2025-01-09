@@ -76,33 +76,6 @@
       jobs: *ansible-collections-amazon-cloud-generator-jobs
 
 - project-template:
-    name: ansible-collections-cisco-asa
-    check:
-      jobs: &ansible-collections-cisco-asa-jobs
-        - ansible-test-network-integration-asa-python39:
-            voting: false
-        - ansible-test-network-integration-asa-python38-stable212:
-            voting: false
-        - ansible-test-network-integration-asa-python38-stable214:
-            voting: false
-        - ansible-test-network-integration-asa-python38-stable211:
-            voting: false
-        - ansible-test-network-integration-asa-python38-stable29:
-            voting: false
-        - ansible-test-network-integration-asa-libssh-python39
-        - ansible-test-network-integration-asa-libssh-python38-stable214
-        - ansible-test-network-integration-asa-libssh-python38-stable212
-        - ansible-test-network-integration-asa-libssh-python38-stable211
-        - ansible-test-network-integration-asa-libssh-python38-stable29:
-            voting: false
-        - build-ansible-collection:
-            required-projects:
-              - name: github.com/ansible-collections/ansible.netcommon
-              - name: github.com/ansible-collections/ansible.utils
-    gate:
-      jobs: *ansible-collections-cisco-asa-jobs
-
-- project-template:
     name: ansible-community-ansible-plugin-builder
     check:
       jobs:
@@ -208,34 +181,6 @@
         - ansible-tox-py39
 
 - project-template:
-    name: ansible-collections-community-asa
-    check:
-      jobs:
-        - build-ansible-collection:
-            required-projects:
-              - name: github.com/ansible-collections/ansible.netcommon
-              - name: github.com/ansible-collections/ansible.utils
-    gate:
-      jobs:
-        - build-ansible-collection:
-            required-projects:
-              - name: github.com/ansible-collections/ansible.netcommon
-              - name: github.com/ansible-collections/ansible.utils
-
-- project-template:
-    name: ansible-collections-community-asa-units
-    check:
-      jobs: &ansible-collections-community-asa-units-jobs
-        - ansible-test-sanity-docker-devel
-        - ansible-test-sanity-docker-milestone
-        - ansible-test-sanity-docker-stable-2.9
-        - ansible-test-sanity-docker-stable-2.10
-        - ansible-test-sanity-docker-stable-2.11
-        - ansible-test-sanity-docker-stable-2.12
-    gate:
-      jobs: *ansible-collections-community-asa-units-jobs
-
-- project-template:
     name: ansible-collections-kubernetes-core-units
     check:
       jobs: &ansible-collections-kubernetes-core-units-jobs
@@ -263,19 +208,6 @@
     gate:
       fail-fast: true
       jobs: *ansible-collections-ansible-network-units-jobs
-
-- project-template:
-    name: ansible-collections-ansible-security
-    check:
-      jobs: &ansible-collections-ansible-security-jobs
-        - ansible-changelog-fragment
-        - build-ansible-collection:
-            required-projects:
-              - name: github.com/ansible-collections/ansible.netcommon
-              - name: github.com/ansible-collections/ansible.utils
-              - name: github.com/ansible-collections/cisco.asa
-    gate:
-      jobs: *ansible-collections-ansible-security-jobs
 
 - project-template:
     name: ansible-collections-ansible-posix-units
@@ -563,7 +495,6 @@
               - name: github.com/ansible-collections/ansible.network
               - name: github.com/ansible-collections/ansible.posix
               - name: github.com/ansible-collections/ansible.utils
-              - name: github.com/ansible-collections/cisco.asa
               - name: github.com/ansible-collections/cloud.common
               - name: github.com/ansible-collections/kubernetes.core
               - name: github.com/ansible-collections/vmware.vmware_rest

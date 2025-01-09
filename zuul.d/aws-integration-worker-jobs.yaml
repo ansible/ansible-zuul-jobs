@@ -1500,6 +1500,11 @@
     name: ansible-collections-amazon-aws-integration
     check:
       jobs:
+        - ensure-backport:
+            timeout: 3600
+            host-vars: {}
+            vars: {}
+            extra-vars: {}
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-collections/ansible.utils

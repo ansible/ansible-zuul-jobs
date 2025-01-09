@@ -257,7 +257,6 @@
         - ansible-test-sanity-docker-stable-2.11
         - ansible-test-sanity-docker-stable-2.12
         - ansible-test-units-kubernetes-core-python38
-        - ensure-backport
 
 - project-template:
     name: ansible-collections-ansible-network-units

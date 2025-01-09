@@ -14,7 +14,7 @@
         dest: '{{ t_dir.path }}/ensure_backport.py'
         mode: '0700'
 
-    - name:  Execute script
+    - name: Execute script
       ansible.builtin.command:
         cmd: >
           python3 {{ t_dir.path }}/ensure_backport.py --pr-id {{ zuul.change }} --project-name {{ zuul.project.name }}

@@ -1587,6 +1587,11 @@
             host-vars: {}
             vars: {}
             extra-vars: {}
+        - ensure-backport:
+            timeout: 3600
+            host-vars: {}
+            vars: {}
+            extra-vars: {}
         - ansible-test-splitter:
             required-projects:
               - name: github.com/ansible-collections/amazon.aws
@@ -1785,6 +1790,11 @@
               - name: github.com/ansible-collections/community.general
               - name: github.com/ansible-collections/community.crypto
               - name: github.com/ansible-collections/ansible.windows
+            timeout: 3600
+            host-vars: {}
+            vars: {}
+            extra-vars: {}
+        - ensure-backport:
             timeout: 3600
             host-vars: {}
             vars: {}

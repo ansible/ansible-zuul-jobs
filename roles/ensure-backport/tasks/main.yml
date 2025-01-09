@@ -1,0 +1,26 @@
+---
+- name: Ensure PR contains backport label
+  when: zuul.branch in ('main', 'master')
+  block:
+    - name: Create temporary directory to execute script in
+      ansible.builtin.tempfile:
+        state: directory
+        suffix: .backport_py
+      register: t_dir
+
+    - name: Copy script into executable directory
+      ansible.builtin.copy:
+        src: ensure_backport.py
+        dest: '{{ t_dir.path }}/ensure_backport.py'
+        mode: '0700'
+
+    - name:  Execute script
+      ansible.builtin.command:
+        cmd: >
+          python3 {{ t_dir.path }}/ensure_backport.py --pr-id {{ zuul.change }} --project-name {{ zuul.project.name }}
+
+  always:
+    - name: Delete temporary directory
+      ansible.builtin.file:
+        state: absent
+        path: '{{ t_dir.path }}'

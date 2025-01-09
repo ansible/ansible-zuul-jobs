@@ -518,3 +518,10 @@
       tox_envlist: refresh_modules
       tox_package_name: vmware_rest
       zuul_work_dir: "~/{{ zuul.projects['github.com/ansible-collections/vmware.vmware_rest'].src_dir }}"
+
+### A Job to validate that PR merge contains at least one backport-* or do_not_backport label
+- job:
+    name: ensure-backport
+    run: playbooks/ensure-backport/run.yaml
+    nodeset: container-ansible
+    timeout: 1000

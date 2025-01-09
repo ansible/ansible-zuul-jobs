@@ -10,7 +10,7 @@ import requests
 from datetime import datetime
 from datetime import timedelta
 
-from collections import UserList, UserDict
+from collections import UserList
 
 parser = argparse.ArgumentParser(prog="Ansible-Zuul manager")
 subparsers = parser.add_subparsers(dest="function_name", required=True)
@@ -29,13 +29,7 @@ parser_refresh.add_argument(
     "--amazon-aws-repo-dir",
     type=Path,
     required=True,
-    help="Localtion of a local copy of the amazon.aws collection, e.g: ~/.ansible/collections/ansible_collections/amazon/aws/",
-)
-parser_refresh_aws_periodical_jobs.add_argument(
-    "--amazon-aws-repo-dir",
-    type=Path,
-    required=True,
-    help="Localtion of a local copy of the amazon.aws collection, e.g: ~/.ansible/collections/ansible_collections/amazon/aws/",
+    help="Location of a local copy of the amazon.aws collection, e.g: ~/.ansible/collections/ansible_collections/amazon/aws/",
 )
 subparsers.add_parser("check", help="Sanity check")
 subparsers.add_parser(
@@ -405,6 +399,10 @@ def aws_integration_jobs(number_of_workers: int):
         }
     }
 
+    ensure_backport = {
+        "ensure-backport": {}
+    }
+
     @validate_arguments
     def ansible_test_splitter(collections: list[str], only_test_changed: bool = True):
         ansible_test_splitter__check_for_changes_in = [
@@ -442,6 +440,7 @@ def aws_integration_jobs(number_of_workers: int):
         gate=Queue(
             jobs=[
                 build_ansible_collection,
+                ensure_backport,
                 ansible_test_splitter(collections=["community.aws", "amazon.aws"]),
             ]
             + [job.name for job in worker_jobs],
@@ -472,6 +471,7 @@ def aws_integration_jobs(number_of_workers: int):
         gate=Queue(
             jobs=[
                 build_ansible_collection,
+                ensure_backport,
                 ansible_test_splitter(collections=["community.aws", "amazon.aws"]),
             ]
             + [job.name for job in community_aws_workder_jobs],

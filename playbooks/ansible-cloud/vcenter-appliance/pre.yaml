@@ -28,7 +28,10 @@
         zuul_work_dir: "{{ zuul.projects['github.com/ansible/ansible-zuul-jobs'].src_dir }}"
 
     - name: Install vmware.vmware_rest
-      command: "ansible-galaxy collection install vmware.vmware_rest"
+      args:
+        chdir: ~/downloads
+        executable: /bin/bash
+      shell: "source {{ deploy_artifacts_venv_path }}/bin/activate; ansible-galaxy collection install vmware.vmware_rest"
 
 - hosts: vcenter
   gather_facts: false

@@ -131,7 +131,6 @@
         - ansible-tox-linters
         - build-ansible-collection:
             required-projects:
-              - name: github.com/ansible-collections/vmware.vmware_rest
               - name: github.com/ansible-collections/cloud.common
         - ansible-test-cloud-integration-vcenter7_only-stable218
         - ansible-test-cloud-integration-vcenter7_2esxi-stable218

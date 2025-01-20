@@ -13,7 +13,6 @@
     required-projects:
       - name: github.com/ansible/ansible
         override-checkout: milestone
-      - name: github.com/ansible-collections/vmware.vmware_rest
       - name: github.com/ansible/ansible-navigator
     timeout: 3600
     nodeset: vmware-vcsa_1esxi-7.0.3-rhel

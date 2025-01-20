@@ -163,7 +163,6 @@
         - ansible-test-cloud-integration-vmware-rest
         - build-ansible-collection:
             required-projects:
-              - name: github.com/ansible-collections/vmware.vmware_rest
               - name: github.com/ansible-collections/cloud.common
               - name: github.com/ansible-collections/community.vmware
         - tox-cloud-generate-vmware
@@ -173,7 +172,6 @@
         - ansible-test-cloud-integration-vmware-rest
         - build-ansible-collection:
             required-projects:
-              - name: github.com/ansible-collections/vmware.vmware_rest
               - name: github.com/ansible-collections/cloud.common
               - name: github.com/ansible-collections/community.vmware
         - tox-cloud-generate-vmware
@@ -496,7 +494,6 @@
               - name: github.com/ansible-collections/ansible.utils
               - name: github.com/ansible-collections/cloud.common
               - name: github.com/ansible-collections/kubernetes.core
-              - name: github.com/ansible-collections/vmware.vmware_rest
         - ansible-buildset-registry:
             dependencies:
               - build-ansible-collection

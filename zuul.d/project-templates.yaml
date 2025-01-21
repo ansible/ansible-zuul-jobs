@@ -143,44 +143,6 @@
         - build-ansible-collection
 
 - project-template:
-    name: ansible-collections-community-vmware-rest
-    check:
-      jobs: &ansible-collections-community-vmware-rest-jobs
-        - ansible-test-cloud-integration-vmware-rest
-        - build-ansible-collection:
-            required-projects:
-              - name: github.com/ansible-collections/cloud.common
-              - name: github.com/ansible-collections/community.vmware
-    gate:
-      jobs: *ansible-collections-community-vmware-rest-jobs
-    periodic:
-      jobs:
-        - build-ansible-collection
-
-- project-template:
-    name: ansible-collections-community-vmware-rest-code-generator
-    check:
-      jobs:
-        - ansible-test-cloud-integration-vmware-rest
-        - build-ansible-collection:
-            required-projects:
-              - name: github.com/ansible-collections/vmware.vmware_rest
-              - name: github.com/ansible-collections/cloud.common
-              - name: github.com/ansible-collections/community.vmware
-        - tox-cloud-generate-vmware
-        - ansible-tox-py39
-    gate:
-      jobs:
-        - ansible-test-cloud-integration-vmware-rest
-        - build-ansible-collection:
-            required-projects:
-              - name: github.com/ansible-collections/vmware.vmware_rest
-              - name: github.com/ansible-collections/cloud.common
-              - name: github.com/ansible-collections/community.vmware
-        - tox-cloud-generate-vmware
-        - ansible-tox-py39
-
-- project-template:
     name: ansible-collections-kubernetes-core-units
     check:
       jobs: &ansible-collections-kubernetes-core-units-jobs
@@ -543,8 +505,5 @@
             # Nonvoting until the type hinting errors on the migrated code are fixed
             voting: false
         - ansible-test-changelog
-        - tox-cloud-refresh-modules-vmware
-        - tox-cloud-generate-vmware:
-            voting: false
     gate:
       jobs: *ansible-collections-cloud-gouttelette-units-jobs

@@ -1905,6 +1905,16 @@
         - integration-community.aws-20
         - integration-community.aws-21
         - integration-community.aws-22
+        - integration-fallible-amazon.aws-1
+        - integration-fallible-amazon.aws-2
+        - integration-fallible-amazon.aws-3
+        - integration-fallible-amazon.aws-4
+        - integration-fallible-amazon.aws-5
+        - integration-fallible-amazon.aws-6
+        - integration-fallible-amazon.aws-7
+        - integration-fallible-amazon.aws-8
+        - integration-fallible-amazon.aws-9
+        - integration-fallible-amazon.aws-10
     gate:
       jobs:
         - build-ansible-collection:

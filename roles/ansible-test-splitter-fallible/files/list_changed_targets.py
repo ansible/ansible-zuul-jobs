@@ -17,6 +17,9 @@ parser = argparse.ArgumentParser(
 parser.add_argument(
     "--branch", type=str, default="main", help="the default branch to test against"
 )
+parser.add_argument(
+    "--change-message", type=str, help="The description message in the pull request."
+)
 
 parser.add_argument(
     "--test-all-the-targets",
@@ -515,6 +518,12 @@ if __name__ == "__main__":
         for c in collections:
             c.cover_all()
     else:
+        change_message = args.change_message
+        reg = re.compile(r'TestedTargets=(.*)\n')
+        tested_targets = []
+        m = reg.search(change_message)
+        if m:
+            tested_targets = m.group(1).split(',')
         for whc in [WhatHaveChanged(i, args.branch) for i in args.collection_to_tests]:
             changes[whc.collection_name()] = {
                 "modules": [],
@@ -525,6 +534,9 @@ if __name__ == "__main__":
                 "lookup": [],
                 "targets": [],
             }
+            if tested_targets:
+                changes[whc.collection_name()]["targets"] = tested_targets
+                continue
             for path in whc.modules():
                 changes[whc.collection_name()]["modules"].append(path.stem)
                 for c in collections:

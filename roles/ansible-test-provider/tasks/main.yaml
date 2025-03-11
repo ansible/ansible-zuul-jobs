@@ -1,4 +1,7 @@
 ---
+- name: Create directory structure
+  command: "mkdir -p {{ ansible_test_provider_root_dir }}/test/integration/"
+
 - name: Config the provider for ansible-test
   template:
     src: "cloud-config-{{ ansible_test_provider_name }}.ini.j2"

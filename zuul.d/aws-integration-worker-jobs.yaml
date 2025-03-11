@@ -1860,6 +1860,7 @@
                 - ~/{{ zuul.projects['github.com/ansible-collections/amazon.aws'].src_dir
                   }}
               ansible_test_splitter__total_job: 10
+              ansible_test_splitter__change_message: '{{ zuul.build_refs[0].change_message }}'
             extra-vars: {}
         - integration-amazon.aws-1
         - integration-amazon.aws-2

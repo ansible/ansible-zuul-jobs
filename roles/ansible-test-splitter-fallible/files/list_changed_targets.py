@@ -518,12 +518,13 @@ if __name__ == "__main__":
         for c in collections:
             c.cover_all()
     else:
-        change_message = args.change_message
-        reg = re.compile(r'TestedTargets=(.*)\n')
         tested_targets = []
-        m = reg.search(change_message)
-        if m:
-            tested_targets = m.group(1).split(',')
+        with open(args.change_message, 'r') as f:
+            change_message = f.read()
+            reg = re.compile(r'TestedTargets=(.*)\n')
+            m = reg.search(change_message)
+            if m:
+                tested_targets = m.group(1).split(',')
         for whc in [WhatHaveChanged(i, args.branch) for i in args.collection_to_tests]:
             changes[whc.collection_name()] = {
                 "modules": [],

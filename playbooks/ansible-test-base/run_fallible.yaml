@@ -1,0 +1,31 @@
+---
+- hosts: controller
+  vars:
+    ansible_test_location: "~/{{ zuul.projects[ansible_collections_repo].src_dir }}"
+  tasks:
+    - name: Copy the galaxy.yml on the controller
+      fetch:
+        src: "{{ ansible_test_location }}/galaxy.yml"
+        dest: '{{ zuul.executor.work_root }}/tmp_fetch'
+      register: _fetch
+    - name: Load information from galaxy.yml
+      include_vars:
+        file: '{{ _fetch.dest }}'
+        name: galaxy_info
+
+    - name: Enable FIPS mode
+      when:
+        - ansible_distribution == "CentOS"
+        - ansible_test_network_cli_ssh_type == "libssh"
+        - ansible_test_fips_mode | default(False)
+      with_inventory_hostnames: appliance
+      include_role:
+        name: enable-fips-mode
+
+    - name: Run ansible-test
+      import_role:
+        name: ansible-test
+      vars:
+        ansible_test_test_command: "{{ ansible_test_command }}"
+        ansible_test_git_branch: "{{ zuul.projects['github.com/ansible/ansible'].checkout }}"
+        ansible_test_ansible_path: "~/{{ zuul.projects[zuul.project.canonical_name].src_dir }}"

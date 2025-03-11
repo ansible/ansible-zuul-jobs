@@ -202,6 +202,18 @@
     vars:
       ansible_collections_repo: "{{ zuul.project.canonical_name }}"
 
+- job:
+    name: ansible-test-splitter-fallible
+    pre-run: playbooks/ansible-test-splitter/pre.yaml
+    run: playbooks/ansible-test-splitter/run_fallible.yaml
+    files:
+      - ^plugins/.*$
+      - ^tests/integration/.*$
+    nodeset: container-ansible
+    timeout: 1000
+    vars:
+      ansible_collections_repo: "{{ zuul.project.canonical_name }}"
+
 - semaphore:
     name: ansible-test-cloud-integration-aws
     max: 10

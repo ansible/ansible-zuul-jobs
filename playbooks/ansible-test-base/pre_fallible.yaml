@@ -1,0 +1,95 @@
+---
+- hosts: controller
+  tasks:
+    - name: Create the /root directory
+      file:
+        path: /root
+        state: directory
+      become: true
+    - name: Install glibc-langpack-en
+      # Workaround for the zuul-worker-ansible-f{6,7} labels
+      # To remove once https://softwarefactory-project.io/r/c/containers/+/26634
+      # is merged
+      package:
+        name: glibc-langpack-en
+      become: true
+    - name: Ensure controller directory exists
+      file:
+        path: "{{ ansible_user_dir }}/zuul-output/logs/controller"
+        state: directory
+
+    - name: Install container runtime
+      include_role:
+        name: "ensure-{{ (container_command == 'docker') | ternary('docker', 'podman') }}"
+      when:
+        - ansible_test_docker | default(False)
+
+    - name: Add python38 support if needed
+      block:
+        - name: Ensure python3.8 is present
+          become: true
+          package:
+            name: python3.8-dev
+            state: present
+      when:
+        - ansible_os_family == "Debian"
+        - ansible_test_python is version('3.8', '==')
+
+    - name: Run our-ensure-python role (Fedora only for now)
+      include_role:
+        name: our-ensure-python
+      vars:
+        ensure_python__version: "{{ ansible_test_python }}"
+
+    - name: Run ensure-virtualenv role
+      include_role:
+        name: ensure-virtualenv
+
+    - name: Setup base virtualenv_options
+      set_fact:
+        _virtualenv_options: "--python python{{ ansible_test_python }}"
+
+    - name: Create virtualenv for ansible-test
+      shell: "virtualenv {{ _virtualenv_options }} ~/venv"
+
+    - name: Set selinux package
+      set_fact:
+        _selinux_package: selinux
+
+    - name: Set selinux package (Fedora)
+      set_fact:
+        _selinux_package: selinux-please-lie-to-me
+      when:
+        - ansible_distribution == 'Fedora'
+        - ansible_test_python is version('3.11', '<=')
+
+    - name: Install selinux into virtualenv
+      shell: '~/venv/bin/pip install {{ _selinux_package }} "setuptools<50.0.0"'
+      when: ansible_os_family == "RedHat"
+
+    - name: Install pytest-forked into virtualenv
+      shell: '~/venv/bin/pip install pytest-forked'
+
+    - name: Update pip
+      shell: "~/venv/bin/pip install --upgrade pip"
+
+    - name: Ensure pip temp directory exists in /var/tmp
+      file:
+        state: directory
+        path: /var/tmp/ansible-test-pip
+
+    - name: Install ansible into virtualenv
+      # TODO(pabelanger): Remove ANSIBLE_SKIP_CONFLICT_CHECK in the future.
+      environment:
+        ANSIBLE_SKIP_CONFLICT_CHECK: 1
+        TMPDIR: /var/tmp/ansible-test-pip
+      shell: "~/venv/bin/pip install --upgrade fallible[compat]"
+
+    - name: Fetch and install the artifacts
+      import_role:
+        name: deploy-artifacts
+
+    - name: podman may need iptables kernel modules
+      command: modprobe ip_tables
+      become: true
+      when: "ansible_connection != 'kubectl'"

@@ -1,0 +1,6 @@
+---
+- hosts: all
+  tasks:
+    - name: Run ansible-test-splitter-fallible
+      include_role:
+        name: ansible-test-splitter-fallible

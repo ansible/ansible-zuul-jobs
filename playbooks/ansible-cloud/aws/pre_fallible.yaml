@@ -1,0 +1,21 @@
+---
+- hosts: controller
+  tasks:
+    - name: Install binary dependencies
+      include_role:
+        name: bindep
+      vars:
+        bindep_dir: "{{ zuul.project.src_dir }}"
+
+    - name: Fetch the aws_session file from the controller
+      fetch:
+        flat: true
+        src: "/tmp/aws_session.json"
+        dest: '{{ zuul.executor.work_root }}/'
+
+    - import_role:
+        name: ansible-test-provider
+      vars:
+        ansible_test_provider_name: aws
+        ansible_test_provider_root_dir: "~/{{ zuul.projects[zuul.project.canonical_name].src_dir }}"
+        ansible_test_provider_passwords_secret_dir: '{{ zuul.executor.work_root }}'

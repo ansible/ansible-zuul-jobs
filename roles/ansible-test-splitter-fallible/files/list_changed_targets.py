@@ -536,6 +536,9 @@ if __name__ == "__main__":
             }
             if tested_targets:
                 changes[whc.collection_name()]["targets"] = tested_targets
+                for c in collections:
+                    for t in tested_targets:
+                        c.add_target_to_plan(t)
                 continue
             for path in whc.modules():
                 changes[whc.collection_name()]["modules"].append(path.stem)

@@ -447,21 +447,6 @@ class ElGrandeSeparator:
             c.test_groups = [{"total": 0, "targets": []} for _ in range(len(slots))]
             c.test_groups = split_into_equally_sized_chunks(sorted_targets, len(slots))
 
-            # def _selector(bet):
-            #     for idx, cur_group in enumerate(c.test_groups):
-            #         if cur_group["total"] > 46 * 60:
-            #             continue
-            #         if cur_group["total"] + bet.execution_time() > 50 * 60:
-            #             continue
-            #         return idx
-            #     else:
-            #         raise ValueError("Not enough slots available!")
-
-            # for t in sorted_targets:
-            #     at = _selector(t)
-            #     c.test_groups[at]["total"] += t.execution_time()
-            #     c.test_groups[at]["targets"].append(t.name)
-
         for group in c.test_groups:
             if group["targets"] == []:
                 continue

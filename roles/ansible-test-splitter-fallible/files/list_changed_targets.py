@@ -520,11 +520,10 @@ if __name__ == "__main__":
     else:
         tested_targets = []
         with open(args.change_message, 'r') as f:
-            change_message = f.read()
-            reg = re.compile(r'TestedTargets=(.*)\n')
-            m = reg.search(change_message)
-            if m:
-                tested_targets = m.group(1).split(',')
+            for line in f.read().split("\n"):
+                if line.startswith("TestedTargets"):
+                    tested_targets = line.split("=", maxsplit=1)[1].split(",")
+                    break
         for whc in [WhatHaveChanged(i, args.branch) for i in args.collection_to_tests]:
             changes[whc.collection_name()] = {
                 "modules": [],

@@ -5,7 +5,7 @@
     mode: '0700'
 
 - name: Check if Pull request contains 'test-all-the-targets' label
-  when: not (ansible_test_splitter__test_changed | default(False) | bool)
+  when: ansible_test_splitter__test_changed | default(False) | bool
   block:
     - name: List labels from pull request
       ansible.builtin.command: >-
@@ -16,7 +16,7 @@
       register: pr_labels
 
     - ansible.builtin.set_fact:
-        changes_in: '{{ (test_all_the_targets in pr_labels.stdout) | bool }}'
+        ansible_test_splitter__test_changed: '{{ (test_all_the_targets not in pr_labels.stdout) | bool }}'
       vars:
         test_all_the_targets: '"name": "test-all-the-targets"'
 

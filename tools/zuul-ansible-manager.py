@@ -425,7 +425,8 @@ def aws_integration_jobs(number_of_workers: int):
     community_aws_workder_jobs = [
         build_aws_worker("community.aws", idx) for idx in range(number_of_workers)
     ] + [
-        build_aws_fallible_worker("amazon.aws", idx) for idx in range(number_of_workers)
+        build_aws_fallible_worker("community.aws", idx)
+        for idx in range(number_of_workers)
     ]
 
     build_ansible_collection = {

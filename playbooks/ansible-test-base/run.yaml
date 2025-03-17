@@ -28,4 +28,4 @@
       vars:
         ansible_test_test_command: "{{ ansible_test_command }}"
         ansible_test_git_branch: "{{ zuul.projects['github.com/ansible/ansible'].checkout }}"
-        ansible_test_ansible_path: "~/{{ zuul.projects['github.com/ansible/ansible'].src_dir }}"
+        ansible_test_ansible_path: "~/{{ zuul.projects[zuul.project.canonical_name].src_dir }}"

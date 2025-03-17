@@ -749,6 +749,754 @@
     extra-vars: {}
     semaphore: ansible-test-cloud-integration-aws
 - job:
+    name: integration-amazon.aws-fallible-1
+    parent: ansible-core-ci-aws-session
+    nodeset: fedora-36-1vcpu
+    dependencies:
+      - name: build-ansible-collection
+      - name: ansible-test-splitter
+    pre-run:
+      - playbooks/ansible-test-base/pre.yaml
+      - playbooks/ansible-cloud/aws/pre.yaml
+    run: playbooks/ansible-test-base/run.yaml
+    files:
+      - ^plugins/.*$
+      - ^tests/integration/.*$
+    required-projects:
+      - name: github.com/ansible-collections/community.aws
+    timeout: 3600
+    host-vars: {}
+    vars:
+      ansible_test_command: integration
+      ansible_test_python: 3.11
+      ansible_test_retry_on_error: true
+      ansible_test_requirement_files:
+        - requirements.txt
+        - test-requirements.txt
+        - tests/integration/requirements.txt
+      ansible_test_core_py_package: fallible[compat]
+      ansible_test_constraint_files:
+        - tests/integration/constraints.txt
+      ansible_test_integration_targets: '{{ child.targets_to_test[zuul.job] }}'
+      ansible_collections_repo: github.com/ansible-collections/amazon.aws
+    extra-vars: {}
+    semaphore: ansible-test-cloud-integration-aws
+    voting: false
+- job:
+    name: integration-amazon.aws-fallible-2
+    parent: ansible-core-ci-aws-session
+    nodeset: fedora-36-1vcpu
+    dependencies:
+      - name: build-ansible-collection
+      - name: ansible-test-splitter
+    pre-run:
+      - playbooks/ansible-test-base/pre.yaml
+      - playbooks/ansible-cloud/aws/pre.yaml
+    run: playbooks/ansible-test-base/run.yaml
+    files:
+      - ^plugins/.*$
+      - ^tests/integration/.*$
+    required-projects:
+      - name: github.com/ansible-collections/community.aws
+    timeout: 3600
+    host-vars: {}
+    vars:
+      ansible_test_command: integration
+      ansible_test_python: 3.11
+      ansible_test_retry_on_error: true
+      ansible_test_requirement_files:
+        - requirements.txt
+        - test-requirements.txt
+        - tests/integration/requirements.txt
+      ansible_test_core_py_package: fallible[compat]
+      ansible_test_constraint_files:
+        - tests/integration/constraints.txt
+      ansible_test_integration_targets: '{{ child.targets_to_test[zuul.job] }}'
+      ansible_collections_repo: github.com/ansible-collections/amazon.aws
+    extra-vars: {}
+    semaphore: ansible-test-cloud-integration-aws
+    voting: false
+- job:
+    name: integration-amazon.aws-fallible-3
+    parent: ansible-core-ci-aws-session
+    nodeset: fedora-36-1vcpu
+    dependencies:
+      - name: build-ansible-collection
+      - name: ansible-test-splitter
+    pre-run:
+      - playbooks/ansible-test-base/pre.yaml
+      - playbooks/ansible-cloud/aws/pre.yaml
+    run: playbooks/ansible-test-base/run.yaml
+    files:
+      - ^plugins/.*$
+      - ^tests/integration/.*$
+    required-projects:
+      - name: github.com/ansible-collections/community.aws
+    timeout: 3600
+    host-vars: {}
+    vars:
+      ansible_test_command: integration
+      ansible_test_python: 3.11
+      ansible_test_retry_on_error: true
+      ansible_test_requirement_files:
+        - requirements.txt
+        - test-requirements.txt
+        - tests/integration/requirements.txt
+      ansible_test_core_py_package: fallible[compat]
+      ansible_test_constraint_files:
+        - tests/integration/constraints.txt
+      ansible_test_integration_targets: '{{ child.targets_to_test[zuul.job] }}'
+      ansible_collections_repo: github.com/ansible-collections/amazon.aws
+    extra-vars: {}
+    semaphore: ansible-test-cloud-integration-aws
+    voting: false
+- job:
+    name: integration-amazon.aws-fallible-4
+    parent: ansible-core-ci-aws-session
+    nodeset: fedora-36-1vcpu
+    dependencies:
+      - name: build-ansible-collection
+      - name: ansible-test-splitter
+    pre-run:
+      - playbooks/ansible-test-base/pre.yaml
+      - playbooks/ansible-cloud/aws/pre.yaml
+    run: playbooks/ansible-test-base/run.yaml
+    files:
+      - ^plugins/.*$
+      - ^tests/integration/.*$
+    required-projects:
+      - name: github.com/ansible-collections/community.aws
+    timeout: 3600
+    host-vars: {}
+    vars:
+      ansible_test_command: integration
+      ansible_test_python: 3.11
+      ansible_test_retry_on_error: true
+      ansible_test_requirement_files:
+        - requirements.txt
+        - test-requirements.txt
+        - tests/integration/requirements.txt
+      ansible_test_core_py_package: fallible[compat]
+      ansible_test_constraint_files:
+        - tests/integration/constraints.txt
+      ansible_test_integration_targets: '{{ child.targets_to_test[zuul.job] }}'
+      ansible_collections_repo: github.com/ansible-collections/amazon.aws
+    extra-vars: {}
+    semaphore: ansible-test-cloud-integration-aws
+    voting: false
+- job:
+    name: integration-amazon.aws-fallible-5
+    parent: ansible-core-ci-aws-session
+    nodeset: fedora-36-1vcpu
+    dependencies:
+      - name: build-ansible-collection
+      - name: ansible-test-splitter
+    pre-run:
+      - playbooks/ansible-test-base/pre.yaml
+      - playbooks/ansible-cloud/aws/pre.yaml
+    run: playbooks/ansible-test-base/run.yaml
+    files:
+      - ^plugins/.*$
+      - ^tests/integration/.*$
+    required-projects:
+      - name: github.com/ansible-collections/community.aws
+    timeout: 3600
+    host-vars: {}
+    vars:
+      ansible_test_command: integration
+      ansible_test_python: 3.11
+      ansible_test_retry_on_error: true
+      ansible_test_requirement_files:
+        - requirements.txt
+        - test-requirements.txt
+        - tests/integration/requirements.txt
+      ansible_test_core_py_package: fallible[compat]
+      ansible_test_constraint_files:
+        - tests/integration/constraints.txt
+      ansible_test_integration_targets: '{{ child.targets_to_test[zuul.job] }}'
+      ansible_collections_repo: github.com/ansible-collections/amazon.aws
+    extra-vars: {}
+    semaphore: ansible-test-cloud-integration-aws
+    voting: false
+- job:
+    name: integration-amazon.aws-fallible-6
+    parent: ansible-core-ci-aws-session
+    nodeset: fedora-36-1vcpu
+    dependencies:
+      - name: build-ansible-collection
+      - name: ansible-test-splitter
+    pre-run:
+      - playbooks/ansible-test-base/pre.yaml
+      - playbooks/ansible-cloud/aws/pre.yaml
+    run: playbooks/ansible-test-base/run.yaml
+    files:
+      - ^plugins/.*$
+      - ^tests/integration/.*$
+    required-projects:
+      - name: github.com/ansible-collections/community.aws
+    timeout: 3600
+    host-vars: {}
+    vars:
+      ansible_test_command: integration
+      ansible_test_python: 3.11
+      ansible_test_retry_on_error: true
+      ansible_test_requirement_files:
+        - requirements.txt
+        - test-requirements.txt
+        - tests/integration/requirements.txt
+      ansible_test_core_py_package: fallible[compat]
+      ansible_test_constraint_files:
+        - tests/integration/constraints.txt
+      ansible_test_integration_targets: '{{ child.targets_to_test[zuul.job] }}'
+      ansible_collections_repo: github.com/ansible-collections/amazon.aws
+    extra-vars: {}
+    semaphore: ansible-test-cloud-integration-aws
+    voting: false
+- job:
+    name: integration-amazon.aws-fallible-7
+    parent: ansible-core-ci-aws-session
+    nodeset: fedora-36-1vcpu
+    dependencies:
+      - name: build-ansible-collection
+      - name: ansible-test-splitter
+    pre-run:
+      - playbooks/ansible-test-base/pre.yaml
+      - playbooks/ansible-cloud/aws/pre.yaml
+    run: playbooks/ansible-test-base/run.yaml
+    files:
+      - ^plugins/.*$
+      - ^tests/integration/.*$
+    required-projects:
+      - name: github.com/ansible-collections/community.aws
+    timeout: 3600
+    host-vars: {}
+    vars:
+      ansible_test_command: integration
+      ansible_test_python: 3.11
+      ansible_test_retry_on_error: true
+      ansible_test_requirement_files:
+        - requirements.txt
+        - test-requirements.txt
+        - tests/integration/requirements.txt
+      ansible_test_core_py_package: fallible[compat]
+      ansible_test_constraint_files:
+        - tests/integration/constraints.txt
+      ansible_test_integration_targets: '{{ child.targets_to_test[zuul.job] }}'
+      ansible_collections_repo: github.com/ansible-collections/amazon.aws
+    extra-vars: {}
+    semaphore: ansible-test-cloud-integration-aws
+    voting: false
+- job:
+    name: integration-amazon.aws-fallible-8
+    parent: ansible-core-ci-aws-session
+    nodeset: fedora-36-1vcpu
+    dependencies:
+      - name: build-ansible-collection
+      - name: ansible-test-splitter
+    pre-run:
+      - playbooks/ansible-test-base/pre.yaml
+      - playbooks/ansible-cloud/aws/pre.yaml
+    run: playbooks/ansible-test-base/run.yaml
+    files:
+      - ^plugins/.*$
+      - ^tests/integration/.*$
+    required-projects:
+      - name: github.com/ansible-collections/community.aws
+    timeout: 3600
+    host-vars: {}
+    vars:
+      ansible_test_command: integration
+      ansible_test_python: 3.11
+      ansible_test_retry_on_error: true
+      ansible_test_requirement_files:
+        - requirements.txt
+        - test-requirements.txt
+        - tests/integration/requirements.txt
+      ansible_test_core_py_package: fallible[compat]
+      ansible_test_constraint_files:
+        - tests/integration/constraints.txt
+      ansible_test_integration_targets: '{{ child.targets_to_test[zuul.job] }}'
+      ansible_collections_repo: github.com/ansible-collections/amazon.aws
+    extra-vars: {}
+    semaphore: ansible-test-cloud-integration-aws
+    voting: false
+- job:
+    name: integration-amazon.aws-fallible-9
+    parent: ansible-core-ci-aws-session
+    nodeset: fedora-36-1vcpu
+    dependencies:
+      - name: build-ansible-collection
+      - name: ansible-test-splitter
+    pre-run:
+      - playbooks/ansible-test-base/pre.yaml
+      - playbooks/ansible-cloud/aws/pre.yaml
+    run: playbooks/ansible-test-base/run.yaml
+    files:
+      - ^plugins/.*$
+      - ^tests/integration/.*$
+    required-projects:
+      - name: github.com/ansible-collections/community.aws
+    timeout: 3600
+    host-vars: {}
+    vars:
+      ansible_test_command: integration
+      ansible_test_python: 3.11
+      ansible_test_retry_on_error: true
+      ansible_test_requirement_files:
+        - requirements.txt
+        - test-requirements.txt
+        - tests/integration/requirements.txt
+      ansible_test_core_py_package: fallible[compat]
+      ansible_test_constraint_files:
+        - tests/integration/constraints.txt
+      ansible_test_integration_targets: '{{ child.targets_to_test[zuul.job] }}'
+      ansible_collections_repo: github.com/ansible-collections/amazon.aws
+    extra-vars: {}
+    semaphore: ansible-test-cloud-integration-aws
+    voting: false
+- job:
+    name: integration-amazon.aws-fallible-10
+    parent: ansible-core-ci-aws-session
+    nodeset: fedora-36-1vcpu
+    dependencies:
+      - name: build-ansible-collection
+      - name: ansible-test-splitter
+    pre-run:
+      - playbooks/ansible-test-base/pre.yaml
+      - playbooks/ansible-cloud/aws/pre.yaml
+    run: playbooks/ansible-test-base/run.yaml
+    files:
+      - ^plugins/.*$
+      - ^tests/integration/.*$
+    required-projects:
+      - name: github.com/ansible-collections/community.aws
+    timeout: 3600
+    host-vars: {}
+    vars:
+      ansible_test_command: integration
+      ansible_test_python: 3.11
+      ansible_test_retry_on_error: true
+      ansible_test_requirement_files:
+        - requirements.txt
+        - test-requirements.txt
+        - tests/integration/requirements.txt
+      ansible_test_core_py_package: fallible[compat]
+      ansible_test_constraint_files:
+        - tests/integration/constraints.txt
+      ansible_test_integration_targets: '{{ child.targets_to_test[zuul.job] }}'
+      ansible_collections_repo: github.com/ansible-collections/amazon.aws
+    extra-vars: {}
+    semaphore: ansible-test-cloud-integration-aws
+    voting: false
+- job:
+    name: integration-amazon.aws-fallible-11
+    parent: ansible-core-ci-aws-session
+    nodeset: fedora-36-1vcpu
+    dependencies:
+      - name: build-ansible-collection
+      - name: ansible-test-splitter
+    pre-run:
+      - playbooks/ansible-test-base/pre.yaml
+      - playbooks/ansible-cloud/aws/pre.yaml
+    run: playbooks/ansible-test-base/run.yaml
+    files:
+      - ^plugins/.*$
+      - ^tests/integration/.*$
+    required-projects:
+      - name: github.com/ansible-collections/community.aws
+    timeout: 3600
+    host-vars: {}
+    vars:
+      ansible_test_command: integration
+      ansible_test_python: 3.11
+      ansible_test_retry_on_error: true
+      ansible_test_requirement_files:
+        - requirements.txt
+        - test-requirements.txt
+        - tests/integration/requirements.txt
+      ansible_test_core_py_package: fallible[compat]
+      ansible_test_constraint_files:
+        - tests/integration/constraints.txt
+      ansible_test_integration_targets: '{{ child.targets_to_test[zuul.job] }}'
+      ansible_collections_repo: github.com/ansible-collections/amazon.aws
+    extra-vars: {}
+    semaphore: ansible-test-cloud-integration-aws
+    voting: false
+- job:
+    name: integration-amazon.aws-fallible-12
+    parent: ansible-core-ci-aws-session
+    nodeset: fedora-36-1vcpu
+    dependencies:
+      - name: build-ansible-collection
+      - name: ansible-test-splitter
+    pre-run:
+      - playbooks/ansible-test-base/pre.yaml
+      - playbooks/ansible-cloud/aws/pre.yaml
+    run: playbooks/ansible-test-base/run.yaml
+    files:
+      - ^plugins/.*$
+      - ^tests/integration/.*$
+    required-projects:
+      - name: github.com/ansible-collections/community.aws
+    timeout: 3600
+    host-vars: {}
+    vars:
+      ansible_test_command: integration
+      ansible_test_python: 3.11
+      ansible_test_retry_on_error: true
+      ansible_test_requirement_files:
+        - requirements.txt
+        - test-requirements.txt
+        - tests/integration/requirements.txt
+      ansible_test_core_py_package: fallible[compat]
+      ansible_test_constraint_files:
+        - tests/integration/constraints.txt
+      ansible_test_integration_targets: '{{ child.targets_to_test[zuul.job] }}'
+      ansible_collections_repo: github.com/ansible-collections/amazon.aws
+    extra-vars: {}
+    semaphore: ansible-test-cloud-integration-aws
+    voting: false
+- job:
+    name: integration-amazon.aws-fallible-13
+    parent: ansible-core-ci-aws-session
+    nodeset: fedora-36-1vcpu
+    dependencies:
+      - name: build-ansible-collection
+      - name: ansible-test-splitter
+    pre-run:
+      - playbooks/ansible-test-base/pre.yaml
+      - playbooks/ansible-cloud/aws/pre.yaml
+    run: playbooks/ansible-test-base/run.yaml
+    files:
+      - ^plugins/.*$
+      - ^tests/integration/.*$
+    required-projects:
+      - name: github.com/ansible-collections/community.aws
+    timeout: 3600
+    host-vars: {}
+    vars:
+      ansible_test_command: integration
+      ansible_test_python: 3.11
+      ansible_test_retry_on_error: true
+      ansible_test_requirement_files:
+        - requirements.txt
+        - test-requirements.txt
+        - tests/integration/requirements.txt
+      ansible_test_core_py_package: fallible[compat]
+      ansible_test_constraint_files:
+        - tests/integration/constraints.txt
+      ansible_test_integration_targets: '{{ child.targets_to_test[zuul.job] }}'
+      ansible_collections_repo: github.com/ansible-collections/amazon.aws
+    extra-vars: {}
+    semaphore: ansible-test-cloud-integration-aws
+    voting: false
+- job:
+    name: integration-amazon.aws-fallible-14
+    parent: ansible-core-ci-aws-session
+    nodeset: fedora-36-1vcpu
+    dependencies:
+      - name: build-ansible-collection
+      - name: ansible-test-splitter
+    pre-run:
+      - playbooks/ansible-test-base/pre.yaml
+      - playbooks/ansible-cloud/aws/pre.yaml
+    run: playbooks/ansible-test-base/run.yaml
+    files:
+      - ^plugins/.*$
+      - ^tests/integration/.*$
+    required-projects:
+      - name: github.com/ansible-collections/community.aws
+    timeout: 3600
+    host-vars: {}
+    vars:
+      ansible_test_command: integration
+      ansible_test_python: 3.11
+      ansible_test_retry_on_error: true
+      ansible_test_requirement_files:
+        - requirements.txt
+        - test-requirements.txt
+        - tests/integration/requirements.txt
+      ansible_test_core_py_package: fallible[compat]
+      ansible_test_constraint_files:
+        - tests/integration/constraints.txt
+      ansible_test_integration_targets: '{{ child.targets_to_test[zuul.job] }}'
+      ansible_collections_repo: github.com/ansible-collections/amazon.aws
+    extra-vars: {}
+    semaphore: ansible-test-cloud-integration-aws
+    voting: false
+- job:
+    name: integration-amazon.aws-fallible-15
+    parent: ansible-core-ci-aws-session
+    nodeset: fedora-36-1vcpu
+    dependencies:
+      - name: build-ansible-collection
+      - name: ansible-test-splitter
+    pre-run:
+      - playbooks/ansible-test-base/pre.yaml
+      - playbooks/ansible-cloud/aws/pre.yaml
+    run: playbooks/ansible-test-base/run.yaml
+    files:
+      - ^plugins/.*$
+      - ^tests/integration/.*$
+    required-projects:
+      - name: github.com/ansible-collections/community.aws
+    timeout: 3600
+    host-vars: {}
+    vars:
+      ansible_test_command: integration
+      ansible_test_python: 3.11
+      ansible_test_retry_on_error: true
+      ansible_test_requirement_files:
+        - requirements.txt
+        - test-requirements.txt
+        - tests/integration/requirements.txt
+      ansible_test_core_py_package: fallible[compat]
+      ansible_test_constraint_files:
+        - tests/integration/constraints.txt
+      ansible_test_integration_targets: '{{ child.targets_to_test[zuul.job] }}'
+      ansible_collections_repo: github.com/ansible-collections/amazon.aws
+    extra-vars: {}
+    semaphore: ansible-test-cloud-integration-aws
+    voting: false
+- job:
+    name: integration-amazon.aws-fallible-16
+    parent: ansible-core-ci-aws-session
+    nodeset: fedora-36-1vcpu
+    dependencies:
+      - name: build-ansible-collection
+      - name: ansible-test-splitter
+    pre-run:
+      - playbooks/ansible-test-base/pre.yaml
+      - playbooks/ansible-cloud/aws/pre.yaml
+    run: playbooks/ansible-test-base/run.yaml
+    files:
+      - ^plugins/.*$
+      - ^tests/integration/.*$
+    required-projects:
+      - name: github.com/ansible-collections/community.aws
+    timeout: 3600
+    host-vars: {}
+    vars:
+      ansible_test_command: integration
+      ansible_test_python: 3.11
+      ansible_test_retry_on_error: true
+      ansible_test_requirement_files:
+        - requirements.txt
+        - test-requirements.txt
+        - tests/integration/requirements.txt
+      ansible_test_core_py_package: fallible[compat]
+      ansible_test_constraint_files:
+        - tests/integration/constraints.txt
+      ansible_test_integration_targets: '{{ child.targets_to_test[zuul.job] }}'
+      ansible_collections_repo: github.com/ansible-collections/amazon.aws
+    extra-vars: {}
+    semaphore: ansible-test-cloud-integration-aws
+    voting: false
+- job:
+    name: integration-amazon.aws-fallible-17
+    parent: ansible-core-ci-aws-session
+    nodeset: fedora-36-1vcpu
+    dependencies:
+      - name: build-ansible-collection
+      - name: ansible-test-splitter
+    pre-run:
+      - playbooks/ansible-test-base/pre.yaml
+      - playbooks/ansible-cloud/aws/pre.yaml
+    run: playbooks/ansible-test-base/run.yaml
+    files:
+      - ^plugins/.*$
+      - ^tests/integration/.*$
+    required-projects:
+      - name: github.com/ansible-collections/community.aws
+    timeout: 3600
+    host-vars: {}
+    vars:
+      ansible_test_command: integration
+      ansible_test_python: 3.11
+      ansible_test_retry_on_error: true
+      ansible_test_requirement_files:
+        - requirements.txt
+        - test-requirements.txt
+        - tests/integration/requirements.txt
+      ansible_test_core_py_package: fallible[compat]
+      ansible_test_constraint_files:
+        - tests/integration/constraints.txt
+      ansible_test_integration_targets: '{{ child.targets_to_test[zuul.job] }}'
+      ansible_collections_repo: github.com/ansible-collections/amazon.aws
+    extra-vars: {}
+    semaphore: ansible-test-cloud-integration-aws
+    voting: false
+- job:
+    name: integration-amazon.aws-fallible-18
+    parent: ansible-core-ci-aws-session
+    nodeset: fedora-36-1vcpu
+    dependencies:
+      - name: build-ansible-collection
+      - name: ansible-test-splitter
+    pre-run:
+      - playbooks/ansible-test-base/pre.yaml
+      - playbooks/ansible-cloud/aws/pre.yaml
+    run: playbooks/ansible-test-base/run.yaml
+    files:
+      - ^plugins/.*$
+      - ^tests/integration/.*$
+    required-projects:
+      - name: github.com/ansible-collections/community.aws
+    timeout: 3600
+    host-vars: {}
+    vars:
+      ansible_test_command: integration
+      ansible_test_python: 3.11
+      ansible_test_retry_on_error: true
+      ansible_test_requirement_files:
+        - requirements.txt
+        - test-requirements.txt
+        - tests/integration/requirements.txt
+      ansible_test_core_py_package: fallible[compat]
+      ansible_test_constraint_files:
+        - tests/integration/constraints.txt
+      ansible_test_integration_targets: '{{ child.targets_to_test[zuul.job] }}'
+      ansible_collections_repo: github.com/ansible-collections/amazon.aws
+    extra-vars: {}
+    semaphore: ansible-test-cloud-integration-aws
+    voting: false
+- job:
+    name: integration-amazon.aws-fallible-19
+    parent: ansible-core-ci-aws-session
+    nodeset: fedora-36-1vcpu
+    dependencies:
+      - name: build-ansible-collection
+      - name: ansible-test-splitter
+    pre-run:
+      - playbooks/ansible-test-base/pre.yaml
+      - playbooks/ansible-cloud/aws/pre.yaml
+    run: playbooks/ansible-test-base/run.yaml
+    files:
+      - ^plugins/.*$
+      - ^tests/integration/.*$
+    required-projects:
+      - name: github.com/ansible-collections/community.aws
+    timeout: 3600
+    host-vars: {}
+    vars:
+      ansible_test_command: integration
+      ansible_test_python: 3.11
+      ansible_test_retry_on_error: true
+      ansible_test_requirement_files:
+        - requirements.txt
+        - test-requirements.txt
+        - tests/integration/requirements.txt
+      ansible_test_core_py_package: fallible[compat]
+      ansible_test_constraint_files:
+        - tests/integration/constraints.txt
+      ansible_test_integration_targets: '{{ child.targets_to_test[zuul.job] }}'
+      ansible_collections_repo: github.com/ansible-collections/amazon.aws
+    extra-vars: {}
+    semaphore: ansible-test-cloud-integration-aws
+    voting: false
+- job:
+    name: integration-amazon.aws-fallible-20
+    parent: ansible-core-ci-aws-session
+    nodeset: fedora-36-1vcpu
+    dependencies:
+      - name: build-ansible-collection
+      - name: ansible-test-splitter
+    pre-run:
+      - playbooks/ansible-test-base/pre.yaml
+      - playbooks/ansible-cloud/aws/pre.yaml
+    run: playbooks/ansible-test-base/run.yaml
+    files:
+      - ^plugins/.*$
+      - ^tests/integration/.*$
+    required-projects:
+      - name: github.com/ansible-collections/community.aws
+    timeout: 3600
+    host-vars: {}
+    vars:
+      ansible_test_command: integration
+      ansible_test_python: 3.11
+      ansible_test_retry_on_error: true
+      ansible_test_requirement_files:
+        - requirements.txt
+        - test-requirements.txt
+        - tests/integration/requirements.txt
+      ansible_test_core_py_package: fallible[compat]
+      ansible_test_constraint_files:
+        - tests/integration/constraints.txt
+      ansible_test_integration_targets: '{{ child.targets_to_test[zuul.job] }}'
+      ansible_collections_repo: github.com/ansible-collections/amazon.aws
+    extra-vars: {}
+    semaphore: ansible-test-cloud-integration-aws
+    voting: false
+- job:
+    name: integration-amazon.aws-fallible-21
+    parent: ansible-core-ci-aws-session
+    nodeset: fedora-36-1vcpu
+    dependencies:
+      - name: build-ansible-collection
+      - name: ansible-test-splitter
+    pre-run:
+      - playbooks/ansible-test-base/pre.yaml
+      - playbooks/ansible-cloud/aws/pre.yaml
+    run: playbooks/ansible-test-base/run.yaml
+    files:
+      - ^plugins/.*$
+      - ^tests/integration/.*$
+    required-projects:
+      - name: github.com/ansible-collections/community.aws
+    timeout: 3600
+    host-vars: {}
+    vars:
+      ansible_test_command: integration
+      ansible_test_python: 3.11
+      ansible_test_retry_on_error: true
+      ansible_test_requirement_files:
+        - requirements.txt
+        - test-requirements.txt
+        - tests/integration/requirements.txt
+      ansible_test_core_py_package: fallible[compat]
+      ansible_test_constraint_files:
+        - tests/integration/constraints.txt
+      ansible_test_integration_targets: '{{ child.targets_to_test[zuul.job] }}'
+      ansible_collections_repo: github.com/ansible-collections/amazon.aws
+    extra-vars: {}
+    semaphore: ansible-test-cloud-integration-aws
+    voting: false
+- job:
+    name: integration-amazon.aws-fallible-22
+    parent: ansible-core-ci-aws-session
+    nodeset: fedora-36-1vcpu
+    dependencies:
+      - name: build-ansible-collection
+      - name: ansible-test-splitter
+    pre-run:
+      - playbooks/ansible-test-base/pre.yaml
+      - playbooks/ansible-cloud/aws/pre.yaml
+    run: playbooks/ansible-test-base/run.yaml
+    files:
+      - ^plugins/.*$
+      - ^tests/integration/.*$
+    required-projects:
+      - name: github.com/ansible-collections/community.aws
+    timeout: 3600
+    host-vars: {}
+    vars:
+      ansible_test_command: integration
+      ansible_test_python: 3.11
+      ansible_test_retry_on_error: true
+      ansible_test_requirement_files:
+        - requirements.txt
+        - test-requirements.txt
+        - tests/integration/requirements.txt
+      ansible_test_core_py_package: fallible[compat]
+      ansible_test_constraint_files:
+        - tests/integration/constraints.txt
+      ansible_test_integration_targets: '{{ child.targets_to_test[zuul.job] }}'
+      ansible_collections_repo: github.com/ansible-collections/amazon.aws
+    extra-vars: {}
+    semaphore: ansible-test-cloud-integration-aws
+    voting: false
+- job:
     name: integration-community.aws-1
     parent: ansible-core-ci-aws-session
     nodeset: fedora-36-1vcpu
@@ -1496,6 +2244,754 @@
       ansible_collections_repo: github.com/ansible-collections/community.aws
     extra-vars: {}
     semaphore: ansible-test-cloud-integration-aws
+- job:
+    name: integration-amazon.aws-fallible-1
+    parent: ansible-core-ci-aws-session
+    nodeset: fedora-36-1vcpu
+    dependencies:
+      - name: build-ansible-collection
+      - name: ansible-test-splitter
+    pre-run:
+      - playbooks/ansible-test-base/pre.yaml
+      - playbooks/ansible-cloud/aws/pre.yaml
+    run: playbooks/ansible-test-base/run.yaml
+    files:
+      - ^plugins/.*$
+      - ^tests/integration/.*$
+    required-projects:
+      - name: github.com/ansible-collections/community.aws
+    timeout: 3600
+    host-vars: {}
+    vars:
+      ansible_test_command: integration
+      ansible_test_python: 3.11
+      ansible_test_retry_on_error: true
+      ansible_test_requirement_files:
+        - requirements.txt
+        - test-requirements.txt
+        - tests/integration/requirements.txt
+      ansible_test_core_py_package: fallible[compat]
+      ansible_test_constraint_files:
+        - tests/integration/constraints.txt
+      ansible_test_integration_targets: '{{ child.targets_to_test[zuul.job] }}'
+      ansible_collections_repo: github.com/ansible-collections/amazon.aws
+    extra-vars: {}
+    semaphore: ansible-test-cloud-integration-aws
+    voting: false
+- job:
+    name: integration-amazon.aws-fallible-2
+    parent: ansible-core-ci-aws-session
+    nodeset: fedora-36-1vcpu
+    dependencies:
+      - name: build-ansible-collection
+      - name: ansible-test-splitter
+    pre-run:
+      - playbooks/ansible-test-base/pre.yaml
+      - playbooks/ansible-cloud/aws/pre.yaml
+    run: playbooks/ansible-test-base/run.yaml
+    files:
+      - ^plugins/.*$
+      - ^tests/integration/.*$
+    required-projects:
+      - name: github.com/ansible-collections/community.aws
+    timeout: 3600
+    host-vars: {}
+    vars:
+      ansible_test_command: integration
+      ansible_test_python: 3.11
+      ansible_test_retry_on_error: true
+      ansible_test_requirement_files:
+        - requirements.txt
+        - test-requirements.txt
+        - tests/integration/requirements.txt
+      ansible_test_core_py_package: fallible[compat]
+      ansible_test_constraint_files:
+        - tests/integration/constraints.txt
+      ansible_test_integration_targets: '{{ child.targets_to_test[zuul.job] }}'
+      ansible_collections_repo: github.com/ansible-collections/amazon.aws
+    extra-vars: {}
+    semaphore: ansible-test-cloud-integration-aws
+    voting: false
+- job:
+    name: integration-amazon.aws-fallible-3
+    parent: ansible-core-ci-aws-session
+    nodeset: fedora-36-1vcpu
+    dependencies:
+      - name: build-ansible-collection
+      - name: ansible-test-splitter
+    pre-run:
+      - playbooks/ansible-test-base/pre.yaml
+      - playbooks/ansible-cloud/aws/pre.yaml
+    run: playbooks/ansible-test-base/run.yaml
+    files:
+      - ^plugins/.*$
+      - ^tests/integration/.*$
+    required-projects:
+      - name: github.com/ansible-collections/community.aws
+    timeout: 3600
+    host-vars: {}
+    vars:
+      ansible_test_command: integration
+      ansible_test_python: 3.11
+      ansible_test_retry_on_error: true
+      ansible_test_requirement_files:
+        - requirements.txt
+        - test-requirements.txt
+        - tests/integration/requirements.txt
+      ansible_test_core_py_package: fallible[compat]
+      ansible_test_constraint_files:
+        - tests/integration/constraints.txt
+      ansible_test_integration_targets: '{{ child.targets_to_test[zuul.job] }}'
+      ansible_collections_repo: github.com/ansible-collections/amazon.aws
+    extra-vars: {}
+    semaphore: ansible-test-cloud-integration-aws
+    voting: false
+- job:
+    name: integration-amazon.aws-fallible-4
+    parent: ansible-core-ci-aws-session
+    nodeset: fedora-36-1vcpu
+    dependencies:
+      - name: build-ansible-collection
+      - name: ansible-test-splitter
+    pre-run:
+      - playbooks/ansible-test-base/pre.yaml
+      - playbooks/ansible-cloud/aws/pre.yaml
+    run: playbooks/ansible-test-base/run.yaml
+    files:
+      - ^plugins/.*$
+      - ^tests/integration/.*$
+    required-projects:
+      - name: github.com/ansible-collections/community.aws
+    timeout: 3600
+    host-vars: {}
+    vars:
+      ansible_test_command: integration
+      ansible_test_python: 3.11
+      ansible_test_retry_on_error: true
+      ansible_test_requirement_files:
+        - requirements.txt
+        - test-requirements.txt
+        - tests/integration/requirements.txt
+      ansible_test_core_py_package: fallible[compat]
+      ansible_test_constraint_files:
+        - tests/integration/constraints.txt
+      ansible_test_integration_targets: '{{ child.targets_to_test[zuul.job] }}'
+      ansible_collections_repo: github.com/ansible-collections/amazon.aws
+    extra-vars: {}
+    semaphore: ansible-test-cloud-integration-aws
+    voting: false
+- job:
+    name: integration-amazon.aws-fallible-5
+    parent: ansible-core-ci-aws-session
+    nodeset: fedora-36-1vcpu
+    dependencies:
+      - name: build-ansible-collection
+      - name: ansible-test-splitter
+    pre-run:
+      - playbooks/ansible-test-base/pre.yaml
+      - playbooks/ansible-cloud/aws/pre.yaml
+    run: playbooks/ansible-test-base/run.yaml
+    files:
+      - ^plugins/.*$
+      - ^tests/integration/.*$
+    required-projects:
+      - name: github.com/ansible-collections/community.aws
+    timeout: 3600
+    host-vars: {}
+    vars:
+      ansible_test_command: integration
+      ansible_test_python: 3.11
+      ansible_test_retry_on_error: true
+      ansible_test_requirement_files:
+        - requirements.txt
+        - test-requirements.txt
+        - tests/integration/requirements.txt
+      ansible_test_core_py_package: fallible[compat]
+      ansible_test_constraint_files:
+        - tests/integration/constraints.txt
+      ansible_test_integration_targets: '{{ child.targets_to_test[zuul.job] }}'
+      ansible_collections_repo: github.com/ansible-collections/amazon.aws
+    extra-vars: {}
+    semaphore: ansible-test-cloud-integration-aws
+    voting: false
+- job:
+    name: integration-amazon.aws-fallible-6
+    parent: ansible-core-ci-aws-session
+    nodeset: fedora-36-1vcpu
+    dependencies:
+      - name: build-ansible-collection
+      - name: ansible-test-splitter
+    pre-run:
+      - playbooks/ansible-test-base/pre.yaml
+      - playbooks/ansible-cloud/aws/pre.yaml
+    run: playbooks/ansible-test-base/run.yaml
+    files:
+      - ^plugins/.*$
+      - ^tests/integration/.*$
+    required-projects:
+      - name: github.com/ansible-collections/community.aws
+    timeout: 3600
+    host-vars: {}
+    vars:
+      ansible_test_command: integration
+      ansible_test_python: 3.11
+      ansible_test_retry_on_error: true
+      ansible_test_requirement_files:
+        - requirements.txt
+        - test-requirements.txt
+        - tests/integration/requirements.txt
+      ansible_test_core_py_package: fallible[compat]
+      ansible_test_constraint_files:
+        - tests/integration/constraints.txt
+      ansible_test_integration_targets: '{{ child.targets_to_test[zuul.job] }}'
+      ansible_collections_repo: github.com/ansible-collections/amazon.aws
+    extra-vars: {}
+    semaphore: ansible-test-cloud-integration-aws
+    voting: false
+- job:
+    name: integration-amazon.aws-fallible-7
+    parent: ansible-core-ci-aws-session
+    nodeset: fedora-36-1vcpu
+    dependencies:
+      - name: build-ansible-collection
+      - name: ansible-test-splitter
+    pre-run:
+      - playbooks/ansible-test-base/pre.yaml
+      - playbooks/ansible-cloud/aws/pre.yaml
+    run: playbooks/ansible-test-base/run.yaml
+    files:
+      - ^plugins/.*$
+      - ^tests/integration/.*$
+    required-projects:
+      - name: github.com/ansible-collections/community.aws
+    timeout: 3600
+    host-vars: {}
+    vars:
+      ansible_test_command: integration
+      ansible_test_python: 3.11
+      ansible_test_retry_on_error: true
+      ansible_test_requirement_files:
+        - requirements.txt
+        - test-requirements.txt
+        - tests/integration/requirements.txt
+      ansible_test_core_py_package: fallible[compat]
+      ansible_test_constraint_files:
+        - tests/integration/constraints.txt
+      ansible_test_integration_targets: '{{ child.targets_to_test[zuul.job] }}'
+      ansible_collections_repo: github.com/ansible-collections/amazon.aws
+    extra-vars: {}
+    semaphore: ansible-test-cloud-integration-aws
+    voting: false
+- job:
+    name: integration-amazon.aws-fallible-8
+    parent: ansible-core-ci-aws-session
+    nodeset: fedora-36-1vcpu
+    dependencies:
+      - name: build-ansible-collection
+      - name: ansible-test-splitter
+    pre-run:
+      - playbooks/ansible-test-base/pre.yaml
+      - playbooks/ansible-cloud/aws/pre.yaml
+    run: playbooks/ansible-test-base/run.yaml
+    files:
+      - ^plugins/.*$
+      - ^tests/integration/.*$
+    required-projects:
+      - name: github.com/ansible-collections/community.aws
+    timeout: 3600
+    host-vars: {}
+    vars:
+      ansible_test_command: integration
+      ansible_test_python: 3.11
+      ansible_test_retry_on_error: true
+      ansible_test_requirement_files:
+        - requirements.txt
+        - test-requirements.txt
+        - tests/integration/requirements.txt
+      ansible_test_core_py_package: fallible[compat]
+      ansible_test_constraint_files:
+        - tests/integration/constraints.txt
+      ansible_test_integration_targets: '{{ child.targets_to_test[zuul.job] }}'
+      ansible_collections_repo: github.com/ansible-collections/amazon.aws
+    extra-vars: {}
+    semaphore: ansible-test-cloud-integration-aws
+    voting: false
+- job:
+    name: integration-amazon.aws-fallible-9
+    parent: ansible-core-ci-aws-session
+    nodeset: fedora-36-1vcpu
+    dependencies:
+      - name: build-ansible-collection
+      - name: ansible-test-splitter
+    pre-run:
+      - playbooks/ansible-test-base/pre.yaml
+      - playbooks/ansible-cloud/aws/pre.yaml
+    run: playbooks/ansible-test-base/run.yaml
+    files:
+      - ^plugins/.*$
+      - ^tests/integration/.*$
+    required-projects:
+      - name: github.com/ansible-collections/community.aws
+    timeout: 3600
+    host-vars: {}
+    vars:
+      ansible_test_command: integration
+      ansible_test_python: 3.11
+      ansible_test_retry_on_error: true
+      ansible_test_requirement_files:
+        - requirements.txt
+        - test-requirements.txt
+        - tests/integration/requirements.txt
+      ansible_test_core_py_package: fallible[compat]
+      ansible_test_constraint_files:
+        - tests/integration/constraints.txt
+      ansible_test_integration_targets: '{{ child.targets_to_test[zuul.job] }}'
+      ansible_collections_repo: github.com/ansible-collections/amazon.aws
+    extra-vars: {}
+    semaphore: ansible-test-cloud-integration-aws
+    voting: false
+- job:
+    name: integration-amazon.aws-fallible-10
+    parent: ansible-core-ci-aws-session
+    nodeset: fedora-36-1vcpu
+    dependencies:
+      - name: build-ansible-collection
+      - name: ansible-test-splitter
+    pre-run:
+      - playbooks/ansible-test-base/pre.yaml
+      - playbooks/ansible-cloud/aws/pre.yaml
+    run: playbooks/ansible-test-base/run.yaml
+    files:
+      - ^plugins/.*$
+      - ^tests/integration/.*$
+    required-projects:
+      - name: github.com/ansible-collections/community.aws
+    timeout: 3600
+    host-vars: {}
+    vars:
+      ansible_test_command: integration
+      ansible_test_python: 3.11
+      ansible_test_retry_on_error: true
+      ansible_test_requirement_files:
+        - requirements.txt
+        - test-requirements.txt
+        - tests/integration/requirements.txt
+      ansible_test_core_py_package: fallible[compat]
+      ansible_test_constraint_files:
+        - tests/integration/constraints.txt
+      ansible_test_integration_targets: '{{ child.targets_to_test[zuul.job] }}'
+      ansible_collections_repo: github.com/ansible-collections/amazon.aws
+    extra-vars: {}
+    semaphore: ansible-test-cloud-integration-aws
+    voting: false
+- job:
+    name: integration-amazon.aws-fallible-11
+    parent: ansible-core-ci-aws-session
+    nodeset: fedora-36-1vcpu
+    dependencies:
+      - name: build-ansible-collection
+      - name: ansible-test-splitter
+    pre-run:
+      - playbooks/ansible-test-base/pre.yaml
+      - playbooks/ansible-cloud/aws/pre.yaml
+    run: playbooks/ansible-test-base/run.yaml
+    files:
+      - ^plugins/.*$
+      - ^tests/integration/.*$
+    required-projects:
+      - name: github.com/ansible-collections/community.aws
+    timeout: 3600
+    host-vars: {}
+    vars:
+      ansible_test_command: integration
+      ansible_test_python: 3.11
+      ansible_test_retry_on_error: true
+      ansible_test_requirement_files:
+        - requirements.txt
+        - test-requirements.txt
+        - tests/integration/requirements.txt
+      ansible_test_core_py_package: fallible[compat]
+      ansible_test_constraint_files:
+        - tests/integration/constraints.txt
+      ansible_test_integration_targets: '{{ child.targets_to_test[zuul.job] }}'
+      ansible_collections_repo: github.com/ansible-collections/amazon.aws
+    extra-vars: {}
+    semaphore: ansible-test-cloud-integration-aws
+    voting: false
+- job:
+    name: integration-amazon.aws-fallible-12
+    parent: ansible-core-ci-aws-session
+    nodeset: fedora-36-1vcpu
+    dependencies:
+      - name: build-ansible-collection
+      - name: ansible-test-splitter
+    pre-run:
+      - playbooks/ansible-test-base/pre.yaml
+      - playbooks/ansible-cloud/aws/pre.yaml
+    run: playbooks/ansible-test-base/run.yaml
+    files:
+      - ^plugins/.*$
+      - ^tests/integration/.*$
+    required-projects:
+      - name: github.com/ansible-collections/community.aws
+    timeout: 3600
+    host-vars: {}
+    vars:
+      ansible_test_command: integration
+      ansible_test_python: 3.11
+      ansible_test_retry_on_error: true
+      ansible_test_requirement_files:
+        - requirements.txt
+        - test-requirements.txt
+        - tests/integration/requirements.txt
+      ansible_test_core_py_package: fallible[compat]
+      ansible_test_constraint_files:
+        - tests/integration/constraints.txt
+      ansible_test_integration_targets: '{{ child.targets_to_test[zuul.job] }}'
+      ansible_collections_repo: github.com/ansible-collections/amazon.aws
+    extra-vars: {}
+    semaphore: ansible-test-cloud-integration-aws
+    voting: false
+- job:
+    name: integration-amazon.aws-fallible-13
+    parent: ansible-core-ci-aws-session
+    nodeset: fedora-36-1vcpu
+    dependencies:
+      - name: build-ansible-collection
+      - name: ansible-test-splitter
+    pre-run:
+      - playbooks/ansible-test-base/pre.yaml
+      - playbooks/ansible-cloud/aws/pre.yaml
+    run: playbooks/ansible-test-base/run.yaml
+    files:
+      - ^plugins/.*$
+      - ^tests/integration/.*$
+    required-projects:
+      - name: github.com/ansible-collections/community.aws
+    timeout: 3600
+    host-vars: {}
+    vars:
+      ansible_test_command: integration
+      ansible_test_python: 3.11
+      ansible_test_retry_on_error: true
+      ansible_test_requirement_files:
+        - requirements.txt
+        - test-requirements.txt
+        - tests/integration/requirements.txt
+      ansible_test_core_py_package: fallible[compat]
+      ansible_test_constraint_files:
+        - tests/integration/constraints.txt
+      ansible_test_integration_targets: '{{ child.targets_to_test[zuul.job] }}'
+      ansible_collections_repo: github.com/ansible-collections/amazon.aws
+    extra-vars: {}
+    semaphore: ansible-test-cloud-integration-aws
+    voting: false
+- job:
+    name: integration-amazon.aws-fallible-14
+    parent: ansible-core-ci-aws-session
+    nodeset: fedora-36-1vcpu
+    dependencies:
+      - name: build-ansible-collection
+      - name: ansible-test-splitter
+    pre-run:
+      - playbooks/ansible-test-base/pre.yaml
+      - playbooks/ansible-cloud/aws/pre.yaml
+    run: playbooks/ansible-test-base/run.yaml
+    files:
+      - ^plugins/.*$
+      - ^tests/integration/.*$
+    required-projects:
+      - name: github.com/ansible-collections/community.aws
+    timeout: 3600
+    host-vars: {}
+    vars:
+      ansible_test_command: integration
+      ansible_test_python: 3.11
+      ansible_test_retry_on_error: true
+      ansible_test_requirement_files:
+        - requirements.txt
+        - test-requirements.txt
+        - tests/integration/requirements.txt
+      ansible_test_core_py_package: fallible[compat]
+      ansible_test_constraint_files:
+        - tests/integration/constraints.txt
+      ansible_test_integration_targets: '{{ child.targets_to_test[zuul.job] }}'
+      ansible_collections_repo: github.com/ansible-collections/amazon.aws
+    extra-vars: {}
+    semaphore: ansible-test-cloud-integration-aws
+    voting: false
+- job:
+    name: integration-amazon.aws-fallible-15
+    parent: ansible-core-ci-aws-session
+    nodeset: fedora-36-1vcpu
+    dependencies:
+      - name: build-ansible-collection
+      - name: ansible-test-splitter
+    pre-run:
+      - playbooks/ansible-test-base/pre.yaml
+      - playbooks/ansible-cloud/aws/pre.yaml
+    run: playbooks/ansible-test-base/run.yaml
+    files:
+      - ^plugins/.*$
+      - ^tests/integration/.*$
+    required-projects:
+      - name: github.com/ansible-collections/community.aws
+    timeout: 3600
+    host-vars: {}
+    vars:
+      ansible_test_command: integration
+      ansible_test_python: 3.11
+      ansible_test_retry_on_error: true
+      ansible_test_requirement_files:
+        - requirements.txt
+        - test-requirements.txt
+        - tests/integration/requirements.txt
+      ansible_test_core_py_package: fallible[compat]
+      ansible_test_constraint_files:
+        - tests/integration/constraints.txt
+      ansible_test_integration_targets: '{{ child.targets_to_test[zuul.job] }}'
+      ansible_collections_repo: github.com/ansible-collections/amazon.aws
+    extra-vars: {}
+    semaphore: ansible-test-cloud-integration-aws
+    voting: false
+- job:
+    name: integration-amazon.aws-fallible-16
+    parent: ansible-core-ci-aws-session
+    nodeset: fedora-36-1vcpu
+    dependencies:
+      - name: build-ansible-collection
+      - name: ansible-test-splitter
+    pre-run:
+      - playbooks/ansible-test-base/pre.yaml
+      - playbooks/ansible-cloud/aws/pre.yaml
+    run: playbooks/ansible-test-base/run.yaml
+    files:
+      - ^plugins/.*$
+      - ^tests/integration/.*$
+    required-projects:
+      - name: github.com/ansible-collections/community.aws
+    timeout: 3600
+    host-vars: {}
+    vars:
+      ansible_test_command: integration
+      ansible_test_python: 3.11
+      ansible_test_retry_on_error: true
+      ansible_test_requirement_files:
+        - requirements.txt
+        - test-requirements.txt
+        - tests/integration/requirements.txt
+      ansible_test_core_py_package: fallible[compat]
+      ansible_test_constraint_files:
+        - tests/integration/constraints.txt
+      ansible_test_integration_targets: '{{ child.targets_to_test[zuul.job] }}'
+      ansible_collections_repo: github.com/ansible-collections/amazon.aws
+    extra-vars: {}
+    semaphore: ansible-test-cloud-integration-aws
+    voting: false
+- job:
+    name: integration-amazon.aws-fallible-17
+    parent: ansible-core-ci-aws-session
+    nodeset: fedora-36-1vcpu
+    dependencies:
+      - name: build-ansible-collection
+      - name: ansible-test-splitter
+    pre-run:
+      - playbooks/ansible-test-base/pre.yaml
+      - playbooks/ansible-cloud/aws/pre.yaml
+    run: playbooks/ansible-test-base/run.yaml
+    files:
+      - ^plugins/.*$
+      - ^tests/integration/.*$
+    required-projects:
+      - name: github.com/ansible-collections/community.aws
+    timeout: 3600
+    host-vars: {}
+    vars:
+      ansible_test_command: integration
+      ansible_test_python: 3.11
+      ansible_test_retry_on_error: true
+      ansible_test_requirement_files:
+        - requirements.txt
+        - test-requirements.txt
+        - tests/integration/requirements.txt
+      ansible_test_core_py_package: fallible[compat]
+      ansible_test_constraint_files:
+        - tests/integration/constraints.txt
+      ansible_test_integration_targets: '{{ child.targets_to_test[zuul.job] }}'
+      ansible_collections_repo: github.com/ansible-collections/amazon.aws
+    extra-vars: {}
+    semaphore: ansible-test-cloud-integration-aws
+    voting: false
+- job:
+    name: integration-amazon.aws-fallible-18
+    parent: ansible-core-ci-aws-session
+    nodeset: fedora-36-1vcpu
+    dependencies:
+      - name: build-ansible-collection
+      - name: ansible-test-splitter
+    pre-run:
+      - playbooks/ansible-test-base/pre.yaml
+      - playbooks/ansible-cloud/aws/pre.yaml
+    run: playbooks/ansible-test-base/run.yaml
+    files:
+      - ^plugins/.*$
+      - ^tests/integration/.*$
+    required-projects:
+      - name: github.com/ansible-collections/community.aws
+    timeout: 3600
+    host-vars: {}
+    vars:
+      ansible_test_command: integration
+      ansible_test_python: 3.11
+      ansible_test_retry_on_error: true
+      ansible_test_requirement_files:
+        - requirements.txt
+        - test-requirements.txt
+        - tests/integration/requirements.txt
+      ansible_test_core_py_package: fallible[compat]
+      ansible_test_constraint_files:
+        - tests/integration/constraints.txt
+      ansible_test_integration_targets: '{{ child.targets_to_test[zuul.job] }}'
+      ansible_collections_repo: github.com/ansible-collections/amazon.aws
+    extra-vars: {}
+    semaphore: ansible-test-cloud-integration-aws
+    voting: false
+- job:
+    name: integration-amazon.aws-fallible-19
+    parent: ansible-core-ci-aws-session
+    nodeset: fedora-36-1vcpu
+    dependencies:
+      - name: build-ansible-collection
+      - name: ansible-test-splitter
+    pre-run:
+      - playbooks/ansible-test-base/pre.yaml
+      - playbooks/ansible-cloud/aws/pre.yaml
+    run: playbooks/ansible-test-base/run.yaml
+    files:
+      - ^plugins/.*$
+      - ^tests/integration/.*$
+    required-projects:
+      - name: github.com/ansible-collections/community.aws
+    timeout: 3600
+    host-vars: {}
+    vars:
+      ansible_test_command: integration
+      ansible_test_python: 3.11
+      ansible_test_retry_on_error: true
+      ansible_test_requirement_files:
+        - requirements.txt
+        - test-requirements.txt
+        - tests/integration/requirements.txt
+      ansible_test_core_py_package: fallible[compat]
+      ansible_test_constraint_files:
+        - tests/integration/constraints.txt
+      ansible_test_integration_targets: '{{ child.targets_to_test[zuul.job] }}'
+      ansible_collections_repo: github.com/ansible-collections/amazon.aws
+    extra-vars: {}
+    semaphore: ansible-test-cloud-integration-aws
+    voting: false
+- job:
+    name: integration-amazon.aws-fallible-20
+    parent: ansible-core-ci-aws-session
+    nodeset: fedora-36-1vcpu
+    dependencies:
+      - name: build-ansible-collection
+      - name: ansible-test-splitter
+    pre-run:
+      - playbooks/ansible-test-base/pre.yaml
+      - playbooks/ansible-cloud/aws/pre.yaml
+    run: playbooks/ansible-test-base/run.yaml
+    files:
+      - ^plugins/.*$
+      - ^tests/integration/.*$
+    required-projects:
+      - name: github.com/ansible-collections/community.aws
+    timeout: 3600
+    host-vars: {}
+    vars:
+      ansible_test_command: integration
+      ansible_test_python: 3.11
+      ansible_test_retry_on_error: true
+      ansible_test_requirement_files:
+        - requirements.txt
+        - test-requirements.txt
+        - tests/integration/requirements.txt
+      ansible_test_core_py_package: fallible[compat]
+      ansible_test_constraint_files:
+        - tests/integration/constraints.txt
+      ansible_test_integration_targets: '{{ child.targets_to_test[zuul.job] }}'
+      ansible_collections_repo: github.com/ansible-collections/amazon.aws
+    extra-vars: {}
+    semaphore: ansible-test-cloud-integration-aws
+    voting: false
+- job:
+    name: integration-amazon.aws-fallible-21
+    parent: ansible-core-ci-aws-session
+    nodeset: fedora-36-1vcpu
+    dependencies:
+      - name: build-ansible-collection
+      - name: ansible-test-splitter
+    pre-run:
+      - playbooks/ansible-test-base/pre.yaml
+      - playbooks/ansible-cloud/aws/pre.yaml
+    run: playbooks/ansible-test-base/run.yaml
+    files:
+      - ^plugins/.*$
+      - ^tests/integration/.*$
+    required-projects:
+      - name: github.com/ansible-collections/community.aws
+    timeout: 3600
+    host-vars: {}
+    vars:
+      ansible_test_command: integration
+      ansible_test_python: 3.11
+      ansible_test_retry_on_error: true
+      ansible_test_requirement_files:
+        - requirements.txt
+        - test-requirements.txt
+        - tests/integration/requirements.txt
+      ansible_test_core_py_package: fallible[compat]
+      ansible_test_constraint_files:
+        - tests/integration/constraints.txt
+      ansible_test_integration_targets: '{{ child.targets_to_test[zuul.job] }}'
+      ansible_collections_repo: github.com/ansible-collections/amazon.aws
+    extra-vars: {}
+    semaphore: ansible-test-cloud-integration-aws
+    voting: false
+- job:
+    name: integration-amazon.aws-fallible-22
+    parent: ansible-core-ci-aws-session
+    nodeset: fedora-36-1vcpu
+    dependencies:
+      - name: build-ansible-collection
+      - name: ansible-test-splitter
+    pre-run:
+      - playbooks/ansible-test-base/pre.yaml
+      - playbooks/ansible-cloud/aws/pre.yaml
+    run: playbooks/ansible-test-base/run.yaml
+    files:
+      - ^plugins/.*$
+      - ^tests/integration/.*$
+    required-projects:
+      - name: github.com/ansible-collections/community.aws
+    timeout: 3600
+    host-vars: {}
+    vars:
+      ansible_test_command: integration
+      ansible_test_python: 3.11
+      ansible_test_retry_on_error: true
+      ansible_test_requirement_files:
+        - requirements.txt
+        - test-requirements.txt
+        - tests/integration/requirements.txt
+      ansible_test_core_py_package: fallible[compat]
+      ansible_test_constraint_files:
+        - tests/integration/constraints.txt
+      ansible_test_integration_targets: '{{ child.targets_to_test[zuul.job] }}'
+      ansible_collections_repo: github.com/ansible-collections/amazon.aws
+    extra-vars: {}
+    semaphore: ansible-test-cloud-integration-aws
+    voting: false
 - project-template:
     name: ansible-collections-amazon-aws-integration
     check:
@@ -1550,6 +3046,28 @@
         - integration-amazon.aws-20
         - integration-amazon.aws-21
         - integration-amazon.aws-22
+        - integration-amazon.aws-fallible-1
+        - integration-amazon.aws-fallible-2
+        - integration-amazon.aws-fallible-3
+        - integration-amazon.aws-fallible-4
+        - integration-amazon.aws-fallible-5
+        - integration-amazon.aws-fallible-6
+        - integration-amazon.aws-fallible-7
+        - integration-amazon.aws-fallible-8
+        - integration-amazon.aws-fallible-9
+        - integration-amazon.aws-fallible-10
+        - integration-amazon.aws-fallible-11
+        - integration-amazon.aws-fallible-12
+        - integration-amazon.aws-fallible-13
+        - integration-amazon.aws-fallible-14
+        - integration-amazon.aws-fallible-15
+        - integration-amazon.aws-fallible-16
+        - integration-amazon.aws-fallible-17
+        - integration-amazon.aws-fallible-18
+        - integration-amazon.aws-fallible-19
+        - integration-amazon.aws-fallible-20
+        - integration-amazon.aws-fallible-21
+        - integration-amazon.aws-fallible-22
         - integration-community.aws-1
         - integration-community.aws-2
         - integration-community.aws-3
@@ -1572,6 +3090,28 @@
         - integration-community.aws-20
         - integration-community.aws-21
         - integration-community.aws-22
+        - integration-amazon.aws-fallible-1
+        - integration-amazon.aws-fallible-2
+        - integration-amazon.aws-fallible-3
+        - integration-amazon.aws-fallible-4
+        - integration-amazon.aws-fallible-5
+        - integration-amazon.aws-fallible-6
+        - integration-amazon.aws-fallible-7
+        - integration-amazon.aws-fallible-8
+        - integration-amazon.aws-fallible-9
+        - integration-amazon.aws-fallible-10
+        - integration-amazon.aws-fallible-11
+        - integration-amazon.aws-fallible-12
+        - integration-amazon.aws-fallible-13
+        - integration-amazon.aws-fallible-14
+        - integration-amazon.aws-fallible-15
+        - integration-amazon.aws-fallible-16
+        - integration-amazon.aws-fallible-17
+        - integration-amazon.aws-fallible-18
+        - integration-amazon.aws-fallible-19
+        - integration-amazon.aws-fallible-20
+        - integration-amazon.aws-fallible-21
+        - integration-amazon.aws-fallible-22
     gate:
       jobs:
         - build-ansible-collection:
@@ -1624,6 +3164,28 @@
         - integration-amazon.aws-20
         - integration-amazon.aws-21
         - integration-amazon.aws-22
+        - integration-amazon.aws-fallible-1
+        - integration-amazon.aws-fallible-2
+        - integration-amazon.aws-fallible-3
+        - integration-amazon.aws-fallible-4
+        - integration-amazon.aws-fallible-5
+        - integration-amazon.aws-fallible-6
+        - integration-amazon.aws-fallible-7
+        - integration-amazon.aws-fallible-8
+        - integration-amazon.aws-fallible-9
+        - integration-amazon.aws-fallible-10
+        - integration-amazon.aws-fallible-11
+        - integration-amazon.aws-fallible-12
+        - integration-amazon.aws-fallible-13
+        - integration-amazon.aws-fallible-14
+        - integration-amazon.aws-fallible-15
+        - integration-amazon.aws-fallible-16
+        - integration-amazon.aws-fallible-17
+        - integration-amazon.aws-fallible-18
+        - integration-amazon.aws-fallible-19
+        - integration-amazon.aws-fallible-20
+        - integration-amazon.aws-fallible-21
+        - integration-amazon.aws-fallible-22
         - integration-community.aws-1
         - integration-community.aws-2
         - integration-community.aws-3
@@ -1646,6 +3208,28 @@
         - integration-community.aws-20
         - integration-community.aws-21
         - integration-community.aws-22
+        - integration-amazon.aws-fallible-1
+        - integration-amazon.aws-fallible-2
+        - integration-amazon.aws-fallible-3
+        - integration-amazon.aws-fallible-4
+        - integration-amazon.aws-fallible-5
+        - integration-amazon.aws-fallible-6
+        - integration-amazon.aws-fallible-7
+        - integration-amazon.aws-fallible-8
+        - integration-amazon.aws-fallible-9
+        - integration-amazon.aws-fallible-10
+        - integration-amazon.aws-fallible-11
+        - integration-amazon.aws-fallible-12
+        - integration-amazon.aws-fallible-13
+        - integration-amazon.aws-fallible-14
+        - integration-amazon.aws-fallible-15
+        - integration-amazon.aws-fallible-16
+        - integration-amazon.aws-fallible-17
+        - integration-amazon.aws-fallible-18
+        - integration-amazon.aws-fallible-19
+        - integration-amazon.aws-fallible-20
+        - integration-amazon.aws-fallible-21
+        - integration-amazon.aws-fallible-22
     ondemand:
       jobs:
         - build-ansible-collection:
@@ -1698,6 +3282,28 @@
         - integration-amazon.aws-20
         - integration-amazon.aws-21
         - integration-amazon.aws-22
+        - integration-amazon.aws-fallible-1
+        - integration-amazon.aws-fallible-2
+        - integration-amazon.aws-fallible-3
+        - integration-amazon.aws-fallible-4
+        - integration-amazon.aws-fallible-5
+        - integration-amazon.aws-fallible-6
+        - integration-amazon.aws-fallible-7
+        - integration-amazon.aws-fallible-8
+        - integration-amazon.aws-fallible-9
+        - integration-amazon.aws-fallible-10
+        - integration-amazon.aws-fallible-11
+        - integration-amazon.aws-fallible-12
+        - integration-amazon.aws-fallible-13
+        - integration-amazon.aws-fallible-14
+        - integration-amazon.aws-fallible-15
+        - integration-amazon.aws-fallible-16
+        - integration-amazon.aws-fallible-17
+        - integration-amazon.aws-fallible-18
+        - integration-amazon.aws-fallible-19
+        - integration-amazon.aws-fallible-20
+        - integration-amazon.aws-fallible-21
+        - integration-amazon.aws-fallible-22
         - integration-community.aws-1
         - integration-community.aws-2
         - integration-community.aws-3
@@ -1720,6 +3326,28 @@
         - integration-community.aws-20
         - integration-community.aws-21
         - integration-community.aws-22
+        - integration-amazon.aws-fallible-1
+        - integration-amazon.aws-fallible-2
+        - integration-amazon.aws-fallible-3
+        - integration-amazon.aws-fallible-4
+        - integration-amazon.aws-fallible-5
+        - integration-amazon.aws-fallible-6
+        - integration-amazon.aws-fallible-7
+        - integration-amazon.aws-fallible-8
+        - integration-amazon.aws-fallible-9
+        - integration-amazon.aws-fallible-10
+        - integration-amazon.aws-fallible-11
+        - integration-amazon.aws-fallible-12
+        - integration-amazon.aws-fallible-13
+        - integration-amazon.aws-fallible-14
+        - integration-amazon.aws-fallible-15
+        - integration-amazon.aws-fallible-16
+        - integration-amazon.aws-fallible-17
+        - integration-amazon.aws-fallible-18
+        - integration-amazon.aws-fallible-19
+        - integration-amazon.aws-fallible-20
+        - integration-amazon.aws-fallible-21
+        - integration-amazon.aws-fallible-22
 - project-template:
     name: ansible-collections-community-aws-integration
     check:
@@ -1774,6 +3402,28 @@
         - integration-community.aws-20
         - integration-community.aws-21
         - integration-community.aws-22
+        - integration-amazon.aws-fallible-1
+        - integration-amazon.aws-fallible-2
+        - integration-amazon.aws-fallible-3
+        - integration-amazon.aws-fallible-4
+        - integration-amazon.aws-fallible-5
+        - integration-amazon.aws-fallible-6
+        - integration-amazon.aws-fallible-7
+        - integration-amazon.aws-fallible-8
+        - integration-amazon.aws-fallible-9
+        - integration-amazon.aws-fallible-10
+        - integration-amazon.aws-fallible-11
+        - integration-amazon.aws-fallible-12
+        - integration-amazon.aws-fallible-13
+        - integration-amazon.aws-fallible-14
+        - integration-amazon.aws-fallible-15
+        - integration-amazon.aws-fallible-16
+        - integration-amazon.aws-fallible-17
+        - integration-amazon.aws-fallible-18
+        - integration-amazon.aws-fallible-19
+        - integration-amazon.aws-fallible-20
+        - integration-amazon.aws-fallible-21
+        - integration-amazon.aws-fallible-22
     gate:
       jobs:
         - build-ansible-collection:
@@ -1826,6 +3476,28 @@
         - integration-community.aws-20
         - integration-community.aws-21
         - integration-community.aws-22
+        - integration-amazon.aws-fallible-1
+        - integration-amazon.aws-fallible-2
+        - integration-amazon.aws-fallible-3
+        - integration-amazon.aws-fallible-4
+        - integration-amazon.aws-fallible-5
+        - integration-amazon.aws-fallible-6
+        - integration-amazon.aws-fallible-7
+        - integration-amazon.aws-fallible-8
+        - integration-amazon.aws-fallible-9
+        - integration-amazon.aws-fallible-10
+        - integration-amazon.aws-fallible-11
+        - integration-amazon.aws-fallible-12
+        - integration-amazon.aws-fallible-13
+        - integration-amazon.aws-fallible-14
+        - integration-amazon.aws-fallible-15
+        - integration-amazon.aws-fallible-16
+        - integration-amazon.aws-fallible-17
+        - integration-amazon.aws-fallible-18
+        - integration-amazon.aws-fallible-19
+        - integration-amazon.aws-fallible-20
+        - integration-amazon.aws-fallible-21
+        - integration-amazon.aws-fallible-22
     ondemand:
       jobs:
         - build-ansible-collection:
@@ -1878,3 +3550,25 @@
         - integration-community.aws-20
         - integration-community.aws-21
         - integration-community.aws-22
+        - integration-amazon.aws-fallible-1
+        - integration-amazon.aws-fallible-2
+        - integration-amazon.aws-fallible-3
+        - integration-amazon.aws-fallible-4
+        - integration-amazon.aws-fallible-5
+        - integration-amazon.aws-fallible-6
+        - integration-amazon.aws-fallible-7
+        - integration-amazon.aws-fallible-8
+        - integration-amazon.aws-fallible-9
+        - integration-amazon.aws-fallible-10
+        - integration-amazon.aws-fallible-11
+        - integration-amazon.aws-fallible-12
+        - integration-amazon.aws-fallible-13
+        - integration-amazon.aws-fallible-14
+        - integration-amazon.aws-fallible-15
+        - integration-amazon.aws-fallible-16
+        - integration-amazon.aws-fallible-17
+        - integration-amazon.aws-fallible-18
+        - integration-amazon.aws-fallible-19
+        - integration-amazon.aws-fallible-20
+        - integration-amazon.aws-fallible-21
+        - integration-amazon.aws-fallible-22

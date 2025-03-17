@@ -10,7 +10,7 @@ import requests
 from datetime import datetime
 from datetime import timedelta
 
-from collections import UserList, UserDict
+from collections import UserList
 
 parser = argparse.ArgumentParser(prog="Ansible-Zuul manager")
 subparsers = parser.add_subparsers(dest="function_name", required=True)
@@ -362,10 +362,36 @@ class AWSWorkerJob(Job):
     def from_target_name(cls, collection: str, target: str, **kwargs) -> "Job":
         new_instance = cls(**kwargs)
         new_instance.vars["ansible_test_integration_targets"] = target
-        new_instance.vars[
-            "ansible_collections_repo"
-        ] = f"github.com/ansible-collections/{ collection }"
+        new_instance.vars["ansible_collections_repo"] = (
+            f"github.com/ansible-collections/{ collection }"
+        )
         return new_instance
+
+
+class AWSFallibleWorkerJob(AWSWorkerJob):
+    required_projects: list[RequiredProject] = Field(
+        [
+            RequiredProject(
+                **{"name": "github.com/ansible-collections/community.aws"},
+            ),
+        ],
+        alias="required-projects",
+    )
+
+    vars = {
+        "ansible_test_command": "integration",
+        "ansible_test_python": 3.11,
+        "ansible_test_retry_on_error": True,
+        "ansible_test_requirement_files": [
+            "requirements.txt",
+            "test-requirements.txt",
+            "tests/integration/requirements.txt",
+        ],
+        "ansible_test_core_py_package": "fallible[compat]",
+        "ansible_test_constraint_files": ["tests/integration/constraints.txt"],
+    }
+    semaphore = "ansible-test-cloud-integration-aws"
+    voting = False
 
 
 @validate_arguments
@@ -379,12 +405,27 @@ def build_aws_worker(collection: str, idx: int) -> Job:
     return new
 
 
+@validate_arguments
+def build_aws_fallible_worker(collection: str, idx: int) -> Job:
+    new = AWSFallibleWorkerJob.from_target_name(
+        name=f"integration-{collection}-fallible-{idx+1}",
+        collection=collection,
+        target="{{ child.targets_to_test[zuul.job] }}",
+    )
+    new.dependencies.append(JobDependency(name="ansible-test-splitter"))
+    return new
+
+
 def aws_integration_jobs(number_of_workers: int):
     amazon_aws_worker_jobs = [
         build_aws_worker("amazon.aws", idx) for idx in range(number_of_workers)
+    ] + [
+        build_aws_fallible_worker("amazon.aws", idx) for idx in range(number_of_workers)
     ]
     community_aws_workder_jobs = [
         build_aws_worker("community.aws", idx) for idx in range(number_of_workers)
+    ] + [
+        build_aws_fallible_worker("amazon.aws", idx) for idx in range(number_of_workers)
     ]
 
     build_ansible_collection = {

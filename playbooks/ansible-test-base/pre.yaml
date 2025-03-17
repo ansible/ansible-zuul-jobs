@@ -84,6 +84,12 @@
         ANSIBLE_SKIP_CONFLICT_CHECK: 1
         TMPDIR: /var/tmp/ansible-test-pip
       shell: "~/venv/bin/pip install ~/{{ zuul.projects['github.com/ansible/ansible'].src_dir }}"
+      when: ansible_test_core_py_package is undefined
+
+    - name: Install ansible into virtualenv (using py package)
+      shell: "~/venv/bin/pip install --upgrade {{ ansible_test_core_py_package }}"
+      when:
+        - ansible_test_core_py_package | default("") != ""
 
     - name: Fetch and install the artifacts
       import_role:

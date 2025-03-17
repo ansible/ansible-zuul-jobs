@@ -474,8 +474,12 @@ class ElGrandeSeparator:
         }
 
         for job, targets in batches:
+            m = re.match(r'(.*)-([0-9]*)', job)
+            fallible_job = "-".join([m.group(1), "fallible", m.group(2)])
             result["data"]["zuul"]["child_jobs"].append(job)
             result["data"]["child"]["targets_to_test"][job] = " ".join(targets)
+            result["data"]["zuul"]["child_jobs"].append(fallible_job)
+            result["data"]["child"]["targets_to_test"][fallible_job] = " ".join(targets)
         return result
 
 

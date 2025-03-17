@@ -17,6 +17,5 @@
         name: ansible-test-provider
       vars:
         ansible_test_provider_name: aws
-        # The location of a copy of ansible-2.10
-        ansible_test_provider_root_dir: "~/{{ zuul.projects['github.com/ansible/ansible'].src_dir }}"
+        ansible_test_provider_root_dir: "~/{{ zuul.projects[zuul.project.canonical_name].src_dir }}"
         ansible_test_provider_passwords_secret_dir: '{{ zuul.executor.work_root }}'

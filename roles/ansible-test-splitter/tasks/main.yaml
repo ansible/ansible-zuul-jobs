@@ -4,6 +4,22 @@
     dest: /tmp/list_changed_targets.py
     mode: '0700'
 
+- name: Check if Pull request contains 'test-all-the-targets' label
+  when: not (ansible_test_splitter__test_changed | default(False) | bool)
+  block:
+    - name: List labels from pull request
+      ansible.builtin.command: >-
+        curl -L
+        -H "Accept: application/vnd.github+json"
+        -H "X-GitHub-Api-Version: 2022-11-28"
+        https://api.github.com/repos/{{ zuul.project.name }}/issues/{{ zuul.change }}/labels
+      register: pr_labels
+
+    - ansible.builtin.set_fact:
+        changes_in: '{{ (test_all_the_targets in pr_labels.stdout) | bool }}'
+      vars:
+        test_all_the_targets: '"name": "test-all-the-targets"'
+
 - set_fact:
     splitter_cmd: >
       python3 /tmp/list_changed_targets.py

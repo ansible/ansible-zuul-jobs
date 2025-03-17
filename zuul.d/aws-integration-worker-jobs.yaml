@@ -2245,7 +2245,7 @@
     extra-vars: {}
     semaphore: ansible-test-cloud-integration-aws
 - job:
-    name: integration-amazon.aws-fallible-1
+    name: integration-community.aws-fallible-1
     parent: ansible-core-ci-aws-session
     nodeset: fedora-36-1vcpu
     dependencies:
@@ -2274,12 +2274,12 @@
       ansible_test_constraint_files:
         - tests/integration/constraints.txt
       ansible_test_integration_targets: '{{ child.targets_to_test[zuul.job] }}'
-      ansible_collections_repo: github.com/ansible-collections/amazon.aws
+      ansible_collections_repo: github.com/ansible-collections/community.aws
     extra-vars: {}
     semaphore: ansible-test-cloud-integration-aws
     voting: false
 - job:
-    name: integration-amazon.aws-fallible-2
+    name: integration-community.aws-fallible-2
     parent: ansible-core-ci-aws-session
     nodeset: fedora-36-1vcpu
     dependencies:
@@ -2308,12 +2308,12 @@
       ansible_test_constraint_files:
         - tests/integration/constraints.txt
       ansible_test_integration_targets: '{{ child.targets_to_test[zuul.job] }}'
-      ansible_collections_repo: github.com/ansible-collections/amazon.aws
+      ansible_collections_repo: github.com/ansible-collections/community.aws
     extra-vars: {}
     semaphore: ansible-test-cloud-integration-aws
     voting: false
 - job:
-    name: integration-amazon.aws-fallible-3
+    name: integration-community.aws-fallible-3
     parent: ansible-core-ci-aws-session
     nodeset: fedora-36-1vcpu
     dependencies:
@@ -2342,12 +2342,12 @@
       ansible_test_constraint_files:
         - tests/integration/constraints.txt
       ansible_test_integration_targets: '{{ child.targets_to_test[zuul.job] }}'
-      ansible_collections_repo: github.com/ansible-collections/amazon.aws
+      ansible_collections_repo: github.com/ansible-collections/community.aws
     extra-vars: {}
     semaphore: ansible-test-cloud-integration-aws
     voting: false
 - job:
-    name: integration-amazon.aws-fallible-4
+    name: integration-community.aws-fallible-4
     parent: ansible-core-ci-aws-session
     nodeset: fedora-36-1vcpu
     dependencies:
@@ -2376,12 +2376,12 @@
       ansible_test_constraint_files:
         - tests/integration/constraints.txt
       ansible_test_integration_targets: '{{ child.targets_to_test[zuul.job] }}'
-      ansible_collections_repo: github.com/ansible-collections/amazon.aws
+      ansible_collections_repo: github.com/ansible-collections/community.aws
     extra-vars: {}
     semaphore: ansible-test-cloud-integration-aws
     voting: false
 - job:
-    name: integration-amazon.aws-fallible-5
+    name: integration-community.aws-fallible-5
     parent: ansible-core-ci-aws-session
     nodeset: fedora-36-1vcpu
     dependencies:
@@ -2410,12 +2410,12 @@
       ansible_test_constraint_files:
         - tests/integration/constraints.txt
       ansible_test_integration_targets: '{{ child.targets_to_test[zuul.job] }}'
-      ansible_collections_repo: github.com/ansible-collections/amazon.aws
+      ansible_collections_repo: github.com/ansible-collections/community.aws
     extra-vars: {}
     semaphore: ansible-test-cloud-integration-aws
     voting: false
 - job:
-    name: integration-amazon.aws-fallible-6
+    name: integration-community.aws-fallible-6
     parent: ansible-core-ci-aws-session
     nodeset: fedora-36-1vcpu
     dependencies:
@@ -2444,12 +2444,12 @@
       ansible_test_constraint_files:
         - tests/integration/constraints.txt
       ansible_test_integration_targets: '{{ child.targets_to_test[zuul.job] }}'
-      ansible_collections_repo: github.com/ansible-collections/amazon.aws
+      ansible_collections_repo: github.com/ansible-collections/community.aws
     extra-vars: {}
     semaphore: ansible-test-cloud-integration-aws
     voting: false
 - job:
-    name: integration-amazon.aws-fallible-7
+    name: integration-community.aws-fallible-7
     parent: ansible-core-ci-aws-session
     nodeset: fedora-36-1vcpu
     dependencies:
@@ -2478,12 +2478,12 @@
       ansible_test_constraint_files:
         - tests/integration/constraints.txt
       ansible_test_integration_targets: '{{ child.targets_to_test[zuul.job] }}'
-      ansible_collections_repo: github.com/ansible-collections/amazon.aws
+      ansible_collections_repo: github.com/ansible-collections/community.aws
     extra-vars: {}
     semaphore: ansible-test-cloud-integration-aws
     voting: false
 - job:
-    name: integration-amazon.aws-fallible-8
+    name: integration-community.aws-fallible-8
     parent: ansible-core-ci-aws-session
     nodeset: fedora-36-1vcpu
     dependencies:
@@ -2512,12 +2512,12 @@
       ansible_test_constraint_files:
         - tests/integration/constraints.txt
       ansible_test_integration_targets: '{{ child.targets_to_test[zuul.job] }}'
-      ansible_collections_repo: github.com/ansible-collections/amazon.aws
+      ansible_collections_repo: github.com/ansible-collections/community.aws
     extra-vars: {}
     semaphore: ansible-test-cloud-integration-aws
     voting: false
 - job:
-    name: integration-amazon.aws-fallible-9
+    name: integration-community.aws-fallible-9
     parent: ansible-core-ci-aws-session
     nodeset: fedora-36-1vcpu
     dependencies:
@@ -2546,12 +2546,12 @@
       ansible_test_constraint_files:
         - tests/integration/constraints.txt
       ansible_test_integration_targets: '{{ child.targets_to_test[zuul.job] }}'
-      ansible_collections_repo: github.com/ansible-collections/amazon.aws
+      ansible_collections_repo: github.com/ansible-collections/community.aws
     extra-vars: {}
     semaphore: ansible-test-cloud-integration-aws
     voting: false
 - job:
-    name: integration-amazon.aws-fallible-10
+    name: integration-community.aws-fallible-10
     parent: ansible-core-ci-aws-session
     nodeset: fedora-36-1vcpu
     dependencies:
@@ -2580,12 +2580,12 @@
       ansible_test_constraint_files:
         - tests/integration/constraints.txt
       ansible_test_integration_targets: '{{ child.targets_to_test[zuul.job] }}'
-      ansible_collections_repo: github.com/ansible-collections/amazon.aws
+      ansible_collections_repo: github.com/ansible-collections/community.aws
     extra-vars: {}
     semaphore: ansible-test-cloud-integration-aws
     voting: false
 - job:
-    name: integration-amazon.aws-fallible-11
+    name: integration-community.aws-fallible-11
     parent: ansible-core-ci-aws-session
     nodeset: fedora-36-1vcpu
     dependencies:
@@ -2614,12 +2614,12 @@
       ansible_test_constraint_files:
         - tests/integration/constraints.txt
       ansible_test_integration_targets: '{{ child.targets_to_test[zuul.job] }}'
-      ansible_collections_repo: github.com/ansible-collections/amazon.aws
+      ansible_collections_repo: github.com/ansible-collections/community.aws
     extra-vars: {}
     semaphore: ansible-test-cloud-integration-aws
     voting: false
 - job:
-    name: integration-amazon.aws-fallible-12
+    name: integration-community.aws-fallible-12
     parent: ansible-core-ci-aws-session
     nodeset: fedora-36-1vcpu
     dependencies:
@@ -2648,12 +2648,12 @@
       ansible_test_constraint_files:
         - tests/integration/constraints.txt
       ansible_test_integration_targets: '{{ child.targets_to_test[zuul.job] }}'
-      ansible_collections_repo: github.com/ansible-collections/amazon.aws
+      ansible_collections_repo: github.com/ansible-collections/community.aws
     extra-vars: {}
     semaphore: ansible-test-cloud-integration-aws
     voting: false
 - job:
-    name: integration-amazon.aws-fallible-13
+    name: integration-community.aws-fallible-13
     parent: ansible-core-ci-aws-session
     nodeset: fedora-36-1vcpu
     dependencies:
@@ -2682,12 +2682,12 @@
       ansible_test_constraint_files:
         - tests/integration/constraints.txt
       ansible_test_integration_targets: '{{ child.targets_to_test[zuul.job] }}'
-      ansible_collections_repo: github.com/ansible-collections/amazon.aws
+      ansible_collections_repo: github.com/ansible-collections/community.aws
     extra-vars: {}
     semaphore: ansible-test-cloud-integration-aws
     voting: false
 - job:
-    name: integration-amazon.aws-fallible-14
+    name: integration-community.aws-fallible-14
     parent: ansible-core-ci-aws-session
     nodeset: fedora-36-1vcpu
     dependencies:
@@ -2716,12 +2716,12 @@
       ansible_test_constraint_files:
         - tests/integration/constraints.txt
       ansible_test_integration_targets: '{{ child.targets_to_test[zuul.job] }}'
-      ansible_collections_repo: github.com/ansible-collections/amazon.aws
+      ansible_collections_repo: github.com/ansible-collections/community.aws
     extra-vars: {}
     semaphore: ansible-test-cloud-integration-aws
     voting: false
 - job:
-    name: integration-amazon.aws-fallible-15
+    name: integration-community.aws-fallible-15
     parent: ansible-core-ci-aws-session
     nodeset: fedora-36-1vcpu
     dependencies:
@@ -2750,12 +2750,12 @@
       ansible_test_constraint_files:
         - tests/integration/constraints.txt
       ansible_test_integration_targets: '{{ child.targets_to_test[zuul.job] }}'
-      ansible_collections_repo: github.com/ansible-collections/amazon.aws
+      ansible_collections_repo: github.com/ansible-collections/community.aws
     extra-vars: {}
     semaphore: ansible-test-cloud-integration-aws
     voting: false
 - job:
-    name: integration-amazon.aws-fallible-16
+    name: integration-community.aws-fallible-16
     parent: ansible-core-ci-aws-session
     nodeset: fedora-36-1vcpu
     dependencies:
@@ -2784,12 +2784,12 @@
       ansible_test_constraint_files:
         - tests/integration/constraints.txt
       ansible_test_integration_targets: '{{ child.targets_to_test[zuul.job] }}'
-      ansible_collections_repo: github.com/ansible-collections/amazon.aws
+      ansible_collections_repo: github.com/ansible-collections/community.aws
     extra-vars: {}
     semaphore: ansible-test-cloud-integration-aws
     voting: false
 - job:
-    name: integration-amazon.aws-fallible-17
+    name: integration-community.aws-fallible-17
     parent: ansible-core-ci-aws-session
     nodeset: fedora-36-1vcpu
     dependencies:
@@ -2818,12 +2818,12 @@
       ansible_test_constraint_files:
         - tests/integration/constraints.txt
       ansible_test_integration_targets: '{{ child.targets_to_test[zuul.job] }}'
-      ansible_collections_repo: github.com/ansible-collections/amazon.aws
+      ansible_collections_repo: github.com/ansible-collections/community.aws
     extra-vars: {}
     semaphore: ansible-test-cloud-integration-aws
     voting: false
 - job:
-    name: integration-amazon.aws-fallible-18
+    name: integration-community.aws-fallible-18
     parent: ansible-core-ci-aws-session
     nodeset: fedora-36-1vcpu
     dependencies:
@@ -2852,12 +2852,12 @@
       ansible_test_constraint_files:
         - tests/integration/constraints.txt
       ansible_test_integration_targets: '{{ child.targets_to_test[zuul.job] }}'
-      ansible_collections_repo: github.com/ansible-collections/amazon.aws
+      ansible_collections_repo: github.com/ansible-collections/community.aws
     extra-vars: {}
     semaphore: ansible-test-cloud-integration-aws
     voting: false
 - job:
-    name: integration-amazon.aws-fallible-19
+    name: integration-community.aws-fallible-19
     parent: ansible-core-ci-aws-session
     nodeset: fedora-36-1vcpu
     dependencies:
@@ -2886,12 +2886,12 @@
       ansible_test_constraint_files:
         - tests/integration/constraints.txt
       ansible_test_integration_targets: '{{ child.targets_to_test[zuul.job] }}'
-      ansible_collections_repo: github.com/ansible-collections/amazon.aws
+      ansible_collections_repo: github.com/ansible-collections/community.aws
     extra-vars: {}
     semaphore: ansible-test-cloud-integration-aws
     voting: false
 - job:
-    name: integration-amazon.aws-fallible-20
+    name: integration-community.aws-fallible-20
     parent: ansible-core-ci-aws-session
     nodeset: fedora-36-1vcpu
     dependencies:
@@ -2920,12 +2920,12 @@
       ansible_test_constraint_files:
         - tests/integration/constraints.txt
       ansible_test_integration_targets: '{{ child.targets_to_test[zuul.job] }}'
-      ansible_collections_repo: github.com/ansible-collections/amazon.aws
+      ansible_collections_repo: github.com/ansible-collections/community.aws
     extra-vars: {}
     semaphore: ansible-test-cloud-integration-aws
     voting: false
 - job:
-    name: integration-amazon.aws-fallible-21
+    name: integration-community.aws-fallible-21
     parent: ansible-core-ci-aws-session
     nodeset: fedora-36-1vcpu
     dependencies:
@@ -2954,12 +2954,12 @@
       ansible_test_constraint_files:
         - tests/integration/constraints.txt
       ansible_test_integration_targets: '{{ child.targets_to_test[zuul.job] }}'
-      ansible_collections_repo: github.com/ansible-collections/amazon.aws
+      ansible_collections_repo: github.com/ansible-collections/community.aws
     extra-vars: {}
     semaphore: ansible-test-cloud-integration-aws
     voting: false
 - job:
-    name: integration-amazon.aws-fallible-22
+    name: integration-community.aws-fallible-22
     parent: ansible-core-ci-aws-session
     nodeset: fedora-36-1vcpu
     dependencies:
@@ -2988,7 +2988,7 @@
       ansible_test_constraint_files:
         - tests/integration/constraints.txt
       ansible_test_integration_targets: '{{ child.targets_to_test[zuul.job] }}'
-      ansible_collections_repo: github.com/ansible-collections/amazon.aws
+      ansible_collections_repo: github.com/ansible-collections/community.aws
     extra-vars: {}
     semaphore: ansible-test-cloud-integration-aws
     voting: false
@@ -3090,28 +3090,28 @@
         - integration-community.aws-20
         - integration-community.aws-21
         - integration-community.aws-22
-        - integration-amazon.aws-fallible-1
-        - integration-amazon.aws-fallible-2
-        - integration-amazon.aws-fallible-3
-        - integration-amazon.aws-fallible-4
-        - integration-amazon.aws-fallible-5
-        - integration-amazon.aws-fallible-6
-        - integration-amazon.aws-fallible-7
-        - integration-amazon.aws-fallible-8
-        - integration-amazon.aws-fallible-9
-        - integration-amazon.aws-fallible-10
-        - integration-amazon.aws-fallible-11
-        - integration-amazon.aws-fallible-12
-        - integration-amazon.aws-fallible-13
-        - integration-amazon.aws-fallible-14
-        - integration-amazon.aws-fallible-15
-        - integration-amazon.aws-fallible-16
-        - integration-amazon.aws-fallible-17
-        - integration-amazon.aws-fallible-18
-        - integration-amazon.aws-fallible-19
-        - integration-amazon.aws-fallible-20
-        - integration-amazon.aws-fallible-21
-        - integration-amazon.aws-fallible-22
+        - integration-community.aws-fallible-1
+        - integration-community.aws-fallible-2
+        - integration-community.aws-fallible-3
+        - integration-community.aws-fallible-4
+        - integration-community.aws-fallible-5
+        - integration-community.aws-fallible-6
+        - integration-community.aws-fallible-7
+        - integration-community.aws-fallible-8
+        - integration-community.aws-fallible-9
+        - integration-community.aws-fallible-10
+        - integration-community.aws-fallible-11
+        - integration-community.aws-fallible-12
+        - integration-community.aws-fallible-13
+        - integration-community.aws-fallible-14
+        - integration-community.aws-fallible-15
+        - integration-community.aws-fallible-16
+        - integration-community.aws-fallible-17
+        - integration-community.aws-fallible-18
+        - integration-community.aws-fallible-19
+        - integration-community.aws-fallible-20
+        - integration-community.aws-fallible-21
+        - integration-community.aws-fallible-22
     gate:
       jobs:
         - build-ansible-collection:
@@ -3208,28 +3208,28 @@
         - integration-community.aws-20
         - integration-community.aws-21
         - integration-community.aws-22
-        - integration-amazon.aws-fallible-1
-        - integration-amazon.aws-fallible-2
-        - integration-amazon.aws-fallible-3
-        - integration-amazon.aws-fallible-4
-        - integration-amazon.aws-fallible-5
-        - integration-amazon.aws-fallible-6
-        - integration-amazon.aws-fallible-7
-        - integration-amazon.aws-fallible-8
-        - integration-amazon.aws-fallible-9
-        - integration-amazon.aws-fallible-10
-        - integration-amazon.aws-fallible-11
-        - integration-amazon.aws-fallible-12
-        - integration-amazon.aws-fallible-13
-        - integration-amazon.aws-fallible-14
-        - integration-amazon.aws-fallible-15
-        - integration-amazon.aws-fallible-16
-        - integration-amazon.aws-fallible-17
-        - integration-amazon.aws-fallible-18
-        - integration-amazon.aws-fallible-19
-        - integration-amazon.aws-fallible-20
-        - integration-amazon.aws-fallible-21
-        - integration-amazon.aws-fallible-22
+        - integration-community.aws-fallible-1
+        - integration-community.aws-fallible-2
+        - integration-community.aws-fallible-3
+        - integration-community.aws-fallible-4
+        - integration-community.aws-fallible-5
+        - integration-community.aws-fallible-6
+        - integration-community.aws-fallible-7
+        - integration-community.aws-fallible-8
+        - integration-community.aws-fallible-9
+        - integration-community.aws-fallible-10
+        - integration-community.aws-fallible-11
+        - integration-community.aws-fallible-12
+        - integration-community.aws-fallible-13
+        - integration-community.aws-fallible-14
+        - integration-community.aws-fallible-15
+        - integration-community.aws-fallible-16
+        - integration-community.aws-fallible-17
+        - integration-community.aws-fallible-18
+        - integration-community.aws-fallible-19
+        - integration-community.aws-fallible-20
+        - integration-community.aws-fallible-21
+        - integration-community.aws-fallible-22
     ondemand:
       jobs:
         - build-ansible-collection:
@@ -3326,28 +3326,28 @@
         - integration-community.aws-20
         - integration-community.aws-21
         - integration-community.aws-22
-        - integration-amazon.aws-fallible-1
-        - integration-amazon.aws-fallible-2
-        - integration-amazon.aws-fallible-3
-        - integration-amazon.aws-fallible-4
-        - integration-amazon.aws-fallible-5
-        - integration-amazon.aws-fallible-6
-        - integration-amazon.aws-fallible-7
-        - integration-amazon.aws-fallible-8
-        - integration-amazon.aws-fallible-9
-        - integration-amazon.aws-fallible-10
-        - integration-amazon.aws-fallible-11
-        - integration-amazon.aws-fallible-12
-        - integration-amazon.aws-fallible-13
-        - integration-amazon.aws-fallible-14
-        - integration-amazon.aws-fallible-15
-        - integration-amazon.aws-fallible-16
-        - integration-amazon.aws-fallible-17
-        - integration-amazon.aws-fallible-18
-        - integration-amazon.aws-fallible-19
-        - integration-amazon.aws-fallible-20
-        - integration-amazon.aws-fallible-21
-        - integration-amazon.aws-fallible-22
+        - integration-community.aws-fallible-1
+        - integration-community.aws-fallible-2
+        - integration-community.aws-fallible-3
+        - integration-community.aws-fallible-4
+        - integration-community.aws-fallible-5
+        - integration-community.aws-fallible-6
+        - integration-community.aws-fallible-7
+        - integration-community.aws-fallible-8
+        - integration-community.aws-fallible-9
+        - integration-community.aws-fallible-10
+        - integration-community.aws-fallible-11
+        - integration-community.aws-fallible-12
+        - integration-community.aws-fallible-13
+        - integration-community.aws-fallible-14
+        - integration-community.aws-fallible-15
+        - integration-community.aws-fallible-16
+        - integration-community.aws-fallible-17
+        - integration-community.aws-fallible-18
+        - integration-community.aws-fallible-19
+        - integration-community.aws-fallible-20
+        - integration-community.aws-fallible-21
+        - integration-community.aws-fallible-22
 - project-template:
     name: ansible-collections-community-aws-integration
     check:
@@ -3402,28 +3402,28 @@
         - integration-community.aws-20
         - integration-community.aws-21
         - integration-community.aws-22
-        - integration-amazon.aws-fallible-1
-        - integration-amazon.aws-fallible-2
-        - integration-amazon.aws-fallible-3
-        - integration-amazon.aws-fallible-4
-        - integration-amazon.aws-fallible-5
-        - integration-amazon.aws-fallible-6
-        - integration-amazon.aws-fallible-7
-        - integration-amazon.aws-fallible-8
-        - integration-amazon.aws-fallible-9
-        - integration-amazon.aws-fallible-10
-        - integration-amazon.aws-fallible-11
-        - integration-amazon.aws-fallible-12
-        - integration-amazon.aws-fallible-13
-        - integration-amazon.aws-fallible-14
-        - integration-amazon.aws-fallible-15
-        - integration-amazon.aws-fallible-16
-        - integration-amazon.aws-fallible-17
-        - integration-amazon.aws-fallible-18
-        - integration-amazon.aws-fallible-19
-        - integration-amazon.aws-fallible-20
-        - integration-amazon.aws-fallible-21
-        - integration-amazon.aws-fallible-22
+        - integration-community.aws-fallible-1
+        - integration-community.aws-fallible-2
+        - integration-community.aws-fallible-3
+        - integration-community.aws-fallible-4
+        - integration-community.aws-fallible-5
+        - integration-community.aws-fallible-6
+        - integration-community.aws-fallible-7
+        - integration-community.aws-fallible-8
+        - integration-community.aws-fallible-9
+        - integration-community.aws-fallible-10
+        - integration-community.aws-fallible-11
+        - integration-community.aws-fallible-12
+        - integration-community.aws-fallible-13
+        - integration-community.aws-fallible-14
+        - integration-community.aws-fallible-15
+        - integration-community.aws-fallible-16
+        - integration-community.aws-fallible-17
+        - integration-community.aws-fallible-18
+        - integration-community.aws-fallible-19
+        - integration-community.aws-fallible-20
+        - integration-community.aws-fallible-21
+        - integration-community.aws-fallible-22
     gate:
       jobs:
         - build-ansible-collection:
@@ -3476,28 +3476,28 @@
         - integration-community.aws-20
         - integration-community.aws-21
         - integration-community.aws-22
-        - integration-amazon.aws-fallible-1
-        - integration-amazon.aws-fallible-2
-        - integration-amazon.aws-fallible-3
-        - integration-amazon.aws-fallible-4
-        - integration-amazon.aws-fallible-5
-        - integration-amazon.aws-fallible-6
-        - integration-amazon.aws-fallible-7
-        - integration-amazon.aws-fallible-8
-        - integration-amazon.aws-fallible-9
-        - integration-amazon.aws-fallible-10
-        - integration-amazon.aws-fallible-11
-        - integration-amazon.aws-fallible-12
-        - integration-amazon.aws-fallible-13
-        - integration-amazon.aws-fallible-14
-        - integration-amazon.aws-fallible-15
-        - integration-amazon.aws-fallible-16
-        - integration-amazon.aws-fallible-17
-        - integration-amazon.aws-fallible-18
-        - integration-amazon.aws-fallible-19
-        - integration-amazon.aws-fallible-20
-        - integration-amazon.aws-fallible-21
-        - integration-amazon.aws-fallible-22
+        - integration-community.aws-fallible-1
+        - integration-community.aws-fallible-2
+        - integration-community.aws-fallible-3
+        - integration-community.aws-fallible-4
+        - integration-community.aws-fallible-5
+        - integration-community.aws-fallible-6
+        - integration-community.aws-fallible-7
+        - integration-community.aws-fallible-8
+        - integration-community.aws-fallible-9
+        - integration-community.aws-fallible-10
+        - integration-community.aws-fallible-11
+        - integration-community.aws-fallible-12
+        - integration-community.aws-fallible-13
+        - integration-community.aws-fallible-14
+        - integration-community.aws-fallible-15
+        - integration-community.aws-fallible-16
+        - integration-community.aws-fallible-17
+        - integration-community.aws-fallible-18
+        - integration-community.aws-fallible-19
+        - integration-community.aws-fallible-20
+        - integration-community.aws-fallible-21
+        - integration-community.aws-fallible-22
     ondemand:
       jobs:
         - build-ansible-collection:
@@ -3550,25 +3550,25 @@
         - integration-community.aws-20
         - integration-community.aws-21
         - integration-community.aws-22
-        - integration-amazon.aws-fallible-1
-        - integration-amazon.aws-fallible-2
-        - integration-amazon.aws-fallible-3
-        - integration-amazon.aws-fallible-4
-        - integration-amazon.aws-fallible-5
-        - integration-amazon.aws-fallible-6
-        - integration-amazon.aws-fallible-7
-        - integration-amazon.aws-fallible-8
-        - integration-amazon.aws-fallible-9
-        - integration-amazon.aws-fallible-10
-        - integration-amazon.aws-fallible-11
-        - integration-amazon.aws-fallible-12
-        - integration-amazon.aws-fallible-13
-        - integration-amazon.aws-fallible-14
-        - integration-amazon.aws-fallible-15
-        - integration-amazon.aws-fallible-16
-        - integration-amazon.aws-fallible-17
-        - integration-amazon.aws-fallible-18
-        - integration-amazon.aws-fallible-19
-        - integration-amazon.aws-fallible-20
-        - integration-amazon.aws-fallible-21
-        - integration-amazon.aws-fallible-22
+        - integration-community.aws-fallible-1
+        - integration-community.aws-fallible-2
+        - integration-community.aws-fallible-3
+        - integration-community.aws-fallible-4
+        - integration-community.aws-fallible-5
+        - integration-community.aws-fallible-6
+        - integration-community.aws-fallible-7
+        - integration-community.aws-fallible-8
+        - integration-community.aws-fallible-9
+        - integration-community.aws-fallible-10
+        - integration-community.aws-fallible-11
+        - integration-community.aws-fallible-12
+        - integration-community.aws-fallible-13
+        - integration-community.aws-fallible-14
+        - integration-community.aws-fallible-15
+        - integration-community.aws-fallible-16
+        - integration-community.aws-fallible-17
+        - integration-community.aws-fallible-18
+        - integration-community.aws-fallible-19
+        - integration-community.aws-fallible-20
+        - integration-community.aws-fallible-21
+        - integration-community.aws-fallible-22

@@ -31,7 +31,7 @@
     post-run: playbooks/ansible-test-base/post.yaml
     required-projects:
       - name: github.com/ansible/ansible
-        override-checkout: stable-2.18
+        override-checkout: refs/pull/84621/head
       - name: github.com/ansible-collections/community.vmware
     timeout: 3600
     vars:

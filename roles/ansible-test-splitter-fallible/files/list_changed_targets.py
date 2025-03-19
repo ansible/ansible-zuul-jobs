@@ -507,7 +507,7 @@ if __name__ == "__main__":
         with open(args.change_message, 'r') as f:
             for line in f.read().split("\n"):
                 if line.startswith("TestedTargets"):
-                    tested_targets = line.split("=", maxsplit=1)[1].split(",")
+                    tested_targets = line.replace(' ', '').split("=", maxsplit=1)[1].split(",")
                     break
         for whc in [WhatHaveChanged(i, args.branch) for i in args.collection_to_tests]:
             changes[whc.collection_name()] = {

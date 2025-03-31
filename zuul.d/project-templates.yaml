@@ -137,10 +137,18 @@
         - ansible-test-cloud-integration-vcenter7_2esxi-stable218
         - ansible-test-cloud-integration-vcenter7_1esxi-stable218_1_of_2
         - ansible-test-cloud-integration-vcenter7_1esxi-stable218_2_of_2
+        - ansible-galaxy-importer:
+            voting: false
+    third-party-check:
+      jobs:
+        - ansible-galaxy-importer:
+            voting: false
     gate:
       jobs:
         - ansible-tox-linters
         - build-ansible-collection
+        - ansible-galaxy-importer:
+            voting: false
 
 - project-template:
     name: ansible-collections-kubernetes-core-units

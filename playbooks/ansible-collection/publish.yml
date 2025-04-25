@@ -1,0 +1,30 @@
+---
+- hosts: controller
+  tasks:
+    - name: Run ensure-virtualenv role
+      include_role:
+        name: ensure-virtualenv
+
+    - name: Create temporary directory for python virtual env
+      ansible.builtin.tempfile:
+        state: directory
+        suffix: .ansible_venv
+      register: venv_path
+
+    - block:
+        - name: Create virtualenv and install ansible devel into it
+          ansible.builtin.pip:
+            virtualenv_python: python3.11
+            virtualenv: "{{ venv_path.path }}"
+            state: present
+            name:
+              - 'git+https://github.com/ansible/ansible@devel'
+
+        - name: Publish collections tarballs
+          shell: "source {{ venv_path.path }}/bin/activate && ansible-galaxy --version"
+
+      always:
+        - name: Delete temporary directory used for python virtual env
+          ansible.builtin.file:
+            state: absent
+            path: "{{ venv_path.path }}"

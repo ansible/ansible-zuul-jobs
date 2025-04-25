@@ -1,0 +1,16 @@
+---
+- hosts: controller
+  tasks:
+    - name: Run bindep role
+      include_role:
+        name: bindep
+
+    - name: Ensure ansible-core is installed on the controller
+      package:
+        name: ansible-core
+        state: present
+      become: true
+
+    - name: Run revoke-sudo role
+      include_role:
+        name: revoke-sudo

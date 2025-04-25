@@ -436,11 +436,13 @@
 
 - job:
     name: test-release-ansible-collection-automation-hub
-    description: |
-      Release ansible collection to https://cloud.redhat.com/ansible/automation-hub
-    final: true
+    pre-run: playbooks/ansible-collection/pre.yaml
     run:
-      - playbooks/ansible-cloud/test_publish.yml
+      - playbooks/ansible-collection/run-pre.yaml
+      - playbooks/ansible-collection/run.yaml
+    post-run:
+      - playbooks/ansible-collection/post.yaml
+      - playbooks/ansible-collection/publish.yml
     required-projects:
       - github.com/ansible-network/releases
     vars:

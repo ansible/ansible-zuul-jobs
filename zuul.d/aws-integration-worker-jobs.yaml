@@ -1724,6 +1724,7 @@
     name: ansible-collections-community-aws-integration
     check:
       jobs:
+        - test-release-ansible-collection-automation-hub
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-collections/ansible.utils

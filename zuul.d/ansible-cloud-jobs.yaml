@@ -433,3 +433,19 @@
         override-checkout: stable-2.14
     vars:
       ansible_collections_repo: github.com/ansible-collections/pravic
+
+- job:
+    name: test-release-ansible-collection-automation-hub
+    description: |
+      Release ansible collection to https://cloud.redhat.com/ansible/automation-hub
+    final: true
+    run:
+      - playbooks/ansible-cloud/test_publish.yml
+    required-projects:
+      - github.com/ansible-network/releases
+    vars:
+      ansible_galaxy_executable: "{{ ansible_user_dir }}/{{ zuul.projects['github.com/ansible-network/releases'].src_dir }}/.tox/generate_collection_version/bin/ansible-galaxy"
+    nodeset:
+      nodes:
+        - name: controller
+          label: ansible-fedora-37-1vcpu

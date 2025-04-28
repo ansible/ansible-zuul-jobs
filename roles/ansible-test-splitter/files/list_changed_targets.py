@@ -17,6 +17,12 @@ parser = argparse.ArgumentParser(
 parser.add_argument(
     "--branch", type=str, default="main", help="the default branch to test against"
 )
+parser.add_argument(
+    "--change-message-file",
+    type=str,
+    help="the path to a file containing the PR description.",
+    dest="change_message_file",
+)
 
 parser.add_argument(
     "--test-all-the-targets",
@@ -508,10 +514,27 @@ if __name__ == "__main__":
     args = parse_args(sys.argv[1:])
 
     collections = [Collection(i) for i in args.collection_to_tests]
+    test_all_the_targets = args.test_all_the_targets
+    if not test_all_the_targets:
+        if args.change_message_file:
+            with open(args.change_message_file) as f:
+                for line in f.read().split("\n"):
+                    if line.startswith("TestAllTheTargets="):
+                        col_names = [
+                            c.replace(" ", "")
+                            for c in line.split("=", maxsplit=1)[1].split(",")
+                        ]
+                        collections = list(
+                            filter(
+                                lambda c: c.collection_name() in col_names, collections
+                            )
+                        )
+                        test_all_the_targets = True
+                        break
     collections_names = [c.collection_name() for c in collections]
 
     changes = {}
-    if args.test_all_the_targets:
+    if test_all_the_targets:
         for c in collections:
             c.cover_all()
     else:

@@ -107,7 +107,6 @@
         - build-ansible-collection:
             required-projects:
               - name: github.com/ansible-collections/kubernetes.core
-                override-checkout: main
         - ansible-test-sanity-docker-devel
         - ansible-test-sanity-docker-milestone
         - ansible-test-sanity-docker-stable-2.16

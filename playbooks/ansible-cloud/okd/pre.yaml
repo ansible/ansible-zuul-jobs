@@ -1,5 +1,5 @@
 ---
-- hosts: controller
+- hosts: all
   tasks:
     - name: Build downstream collection
       shell: "source ~/venv/bin/activate; make downstream-build"

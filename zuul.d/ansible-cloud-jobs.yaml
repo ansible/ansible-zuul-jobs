@@ -261,6 +261,7 @@
       tox_envlist: ansible-lint
       tox_extra_args:
         root: "~/.ansible/collections/ansible_collections/redhat/openshift"
+      ansible_test_python: 3
       downstream_collections_path: "~/.ansible/collections/ansible_collections"
 
 ### Kubernetes Core

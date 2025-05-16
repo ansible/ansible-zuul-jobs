@@ -251,7 +251,7 @@
 
 - job:
     name: ansible-tox-linters-okd-downstream
-    parent: tox
+    parent: ansible-tox-linters
     required-projects:
       - name: github.com/openshift/community.okd
     pre-run: playbooks/ansible-cloud/okd/pre.yaml

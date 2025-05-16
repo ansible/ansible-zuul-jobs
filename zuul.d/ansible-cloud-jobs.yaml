@@ -254,11 +254,11 @@
     parent: tox
     required-projects:
       - name: github.com/openshift/community.okd
-    tox_envlist: ansible-lint
-    tox_extra_args:
-      root: "~/.ansible/collections/ansible_collections/redhat/openshift"
     pre-run: playbooks/ansible-cloud/okd/pre.yaml
     vars:
+      tox_envlist: ansible-lint
+      tox_extra_args:
+        root: "~/.ansible/collections/ansible_collections/redhat/openshift"
       downstream_collections_path: "~/.ansible/collections/ansible_collections"
 
 ### Kubernetes Core

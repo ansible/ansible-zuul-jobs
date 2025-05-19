@@ -252,6 +252,8 @@
 - job:
     name: ansible-tox-linters-okd-downstream
     parent: ansible-tox-linters
+    dependencies:
+      - name: build-ansible-collection
     required-projects:
       - name: github.com/openshift/community.okd
       - name: github.com/ansible/ansible

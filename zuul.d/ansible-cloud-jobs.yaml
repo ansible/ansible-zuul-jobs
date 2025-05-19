@@ -254,6 +254,7 @@
     parent: ansible-tox-linters
     required-projects:
       - name: github.com/openshift/community.okd
+      - name: github.com/ansible/ansible
     pre-run:
       - playbooks/ansible-test-base/pre.yaml
       - playbooks/ansible-cloud/okd/pre.yaml

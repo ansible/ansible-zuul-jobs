@@ -127,14 +127,10 @@
       fail-fast: true
       jobs:
         - ansible-tox-linters
-        - build-ansible-collection:
-            required-projects:
-              - name: github.com/ansible-collections/vmware.vmware_rest
-              - name: github.com/ansible-collections/cloud.common
-        - ansible-test-cloud-integration-vcenter7_only-stable218
-        - ansible-test-cloud-integration-vcenter7_2esxi-stable218
-        - ansible-test-cloud-integration-vcenter7_1esxi-stable218_1_of_2
-        - ansible-test-cloud-integration-vcenter7_1esxi-stable218_2_of_2
+        - ansible-test-cloud-integration-vcenter7_only-stable219
+        - ansible-test-cloud-integration-vcenter7_2esxi-stable219
+        - ansible-test-cloud-integration-vcenter7_1esxi-stable219_1_of_2
+        - ansible-test-cloud-integration-vcenter7_1esxi-stable219_2_of_2
         - ansible-galaxy-importer:
             voting: false
     third-party-check:

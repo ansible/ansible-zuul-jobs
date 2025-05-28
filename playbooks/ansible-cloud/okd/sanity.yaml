@@ -1,18 +1,10 @@
 ---
 - hosts: controller
   tasks:
-    - name: Build downstream collection
-      shell: "source ~/venv/bin/activate; make downstream-build"
-      args:
-        chdir: "{{ zuul.projects['github.com/openshift/community.okd'].src_dir }}"
-      environment:
-        DOWNSTREAM_BUILD_PYTHON: "python"
-        INSTALL_DOWNSTREAM_COLLECTION_PATH: "~/.ansible/collections/ansible_collections"
-
     - name: Run ansible-test
       import_role:
         name: ansible-test
       vars:
         ansible_test_test_command: "{{ ansible_test_command }}"
         ansible_test_venv_path: "~/venv"
-        ansible_test_location: "~/.ansible/collections/ansible_collections/redhat/openshift"
+        ansible_test_location: "{{ downstream_collections_path }}/redhat/openshift"

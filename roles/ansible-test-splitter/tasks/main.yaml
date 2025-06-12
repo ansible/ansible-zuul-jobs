@@ -4,10 +4,20 @@
     dest: /tmp/list_changed_targets.py
     mode: '0700'
 
+- name: Create temporary file for PR description
+  ansible.builtin.tempfile:
+    suffix: .desc
+  register: desc_file
+
+- ansible.builtin.copy:
+    content: "{{ zuul.change_message }}"
+    dest: "{{ desc_file.path }}"
+
 - set_fact:
     splitter_cmd: >
       python3 /tmp/list_changed_targets.py
       --branch {{ zuul.branch }}
+      --change-message-file {{ desc_file.path }}
       {% if ansible_test_splitter__releases_to_test is defined %}--ansible-releases {{ ansible_test_splitter__releases_to_test | join(' ') }}{% endif %}
       {% if ansible_test_splitter__total_job is defined %}--total-job {{ ansible_test_splitter__total_job }}{% endif %}
       {% if ansible_test_splitter__test_changed|bool %}--test-changed{% else %}--test-all-the-targets{% endif %}

@@ -45,12 +45,15 @@
       include_role:
         name: ensure-virtualenv
 
-    - name: Setup base virtualenv_options
-      set_fact:
-        _virtualenv_options: "--python python{{ ansible_test_python }}"
+    - name: Find the full path of the Python interpreter
+      ansible.builtin.command: "which python{{ ansible_test_python }}"
+      register: python_executable
+      changed_when: false
 
-    - name: Create virtualenv for ansible-test
-      shell: "virtualenv {{ _virtualenv_options }} ~/venv"
+    - name: Create virtualenv for ansible-test with a specific interpreter
+      ansible.builtin.command:
+        cmd: "virtualenv --python={{ python_executable.stdout }} ~/venv"
+        creates: "~/venv/bin/activate"
 
     - name: Set selinux package
       set_fact:

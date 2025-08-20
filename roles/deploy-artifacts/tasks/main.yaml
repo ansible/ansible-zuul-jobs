@@ -16,8 +16,10 @@
   with_items: "{{ zuul.artifacts }}"
   when: "'metadata' in item and 'type' in item.metadata and (item.metadata.type == 'ansible_collection')"
 
+
+
 - name: Install require-project collection using ansible-galaxy
   args:
     chdir: ~/downloads
     executable: /bin/bash
-  shell: "source {{ deploy_artifacts_venv_path }}/bin/activate; echo '--- Python Version ---'; python3 --version; echo '----------------------'; ansible-galaxy collection install {{ __collections }}"
+  shell: "source {{ deploy_artifacts_venv_path }}/bin/activate; echo '--- Python and Fedora Version ---'; python3 --version; cat /etc/fedora-release; echo '----------------------'; ansible-galaxy collection install {{ __collections }}"

@@ -16,8 +16,6 @@
   with_items: "{{ zuul.artifacts }}"
   when: "'metadata' in item and 'type' in item.metadata and (item.metadata.type == 'ansible_collection')"
 
-
-
 - name: Install require-project collection using ansible-galaxy
   args:
     chdir: ~/downloads

@@ -315,7 +315,7 @@ def aws_periodical_jobs(amazon_aws_repo_dir: Path) -> None:
 
 class AWSWorkerJob(Job):
     parent = "ansible-core-ci-aws-session"
-    nodeset = NodesetName(__root__="fedora-42-1vcpu")
+    nodeset = NodesetName(__root__="cloud-fedora-42")
     dependencies: list[JobDependency] = [
         JobDependency(name="build-ansible-collection"),
     ]

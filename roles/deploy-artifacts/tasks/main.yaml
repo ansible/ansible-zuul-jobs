@@ -20,4 +20,4 @@
   args:
     chdir: ~/downloads
     executable: /bin/bash
-  shell: "source {{ deploy_artifacts_venv_path }}/bin/activate; echo '--- Python and Fedora Version ---'; python3 --version; cat /etc/fedora-release; echo '----------------------'; ansible-galaxy collection install {{ __collections }}"
+  shell: "source {{ deploy_artifacts_venv_path }}/bin/activate; ansible-galaxy collection install {{ __collections }}"

@@ -315,7 +315,7 @@ def aws_periodical_jobs(amazon_aws_repo_dir: Path) -> None:
 
 class AWSWorkerJob(Job):
     parent = "ansible-core-ci-aws-session"
-    nodeset = NodesetName(__root__="fedora-36-1vcpu")
+    nodeset = NodesetName(__root__="cloud-fedora-42")
     dependencies: list[JobDependency] = [
         JobDependency(name="build-ansible-collection"),
     ]
@@ -347,7 +347,7 @@ class AWSWorkerJob(Job):
 
     vars = {
         "ansible_test_command": "integration",
-        "ansible_test_python": 3.11,
+        "ansible_test_python": 3.12,
         "ansible_test_retry_on_error": True,
         "ansible_test_requirement_files": [
             "requirements.txt",

@@ -3,7 +3,7 @@
 - job:
     name: integration-amazon.aws-1
     parent: ansible-core-ci-aws-session
-    nodeset: fedora-36-1vcpu
+    nodeset: cloud-fedora-42
     dependencies:
       - name: build-ansible-collection
       - name: ansible-test-splitter
@@ -22,7 +22,7 @@
     host-vars: {}
     vars:
       ansible_test_command: integration
-      ansible_test_python: 3.11
+      ansible_test_python: 3.12
       ansible_test_retry_on_error: true
       ansible_test_requirement_files:
         - requirements.txt
@@ -37,7 +37,7 @@
 - job:
     name: integration-amazon.aws-2
     parent: ansible-core-ci-aws-session
-    nodeset: fedora-36-1vcpu
+    nodeset: cloud-fedora-42
     dependencies:
       - name: build-ansible-collection
       - name: ansible-test-splitter
@@ -56,7 +56,7 @@
     host-vars: {}
     vars:
       ansible_test_command: integration
-      ansible_test_python: 3.11
+      ansible_test_python: 3.12
       ansible_test_retry_on_error: true
       ansible_test_requirement_files:
         - requirements.txt
@@ -71,7 +71,7 @@
 - job:
     name: integration-amazon.aws-3
     parent: ansible-core-ci-aws-session
-    nodeset: fedora-36-1vcpu
+    nodeset: cloud-fedora-42
     dependencies:
       - name: build-ansible-collection
       - name: ansible-test-splitter
@@ -90,7 +90,7 @@
     host-vars: {}
     vars:
       ansible_test_command: integration
-      ansible_test_python: 3.11
+      ansible_test_python: 3.12
       ansible_test_retry_on_error: true
       ansible_test_requirement_files:
         - requirements.txt
@@ -105,7 +105,7 @@
 - job:
     name: integration-amazon.aws-4
     parent: ansible-core-ci-aws-session
-    nodeset: fedora-36-1vcpu
+    nodeset: cloud-fedora-42
     dependencies:
       - name: build-ansible-collection
       - name: ansible-test-splitter
@@ -124,7 +124,7 @@
     host-vars: {}
     vars:
       ansible_test_command: integration
-      ansible_test_python: 3.11
+      ansible_test_python: 3.12
       ansible_test_retry_on_error: true
       ansible_test_requirement_files:
         - requirements.txt
@@ -139,7 +139,7 @@
 - job:
     name: integration-amazon.aws-5
     parent: ansible-core-ci-aws-session
-    nodeset: fedora-36-1vcpu
+    nodeset: cloud-fedora-42
     dependencies:
       - name: build-ansible-collection
       - name: ansible-test-splitter
@@ -158,7 +158,7 @@
     host-vars: {}
     vars:
       ansible_test_command: integration
-      ansible_test_python: 3.11
+      ansible_test_python: 3.12
       ansible_test_retry_on_error: true
       ansible_test_requirement_files:
         - requirements.txt
@@ -173,7 +173,7 @@
 - job:
     name: integration-amazon.aws-6
     parent: ansible-core-ci-aws-session
-    nodeset: fedora-36-1vcpu
+    nodeset: cloud-fedora-42
     dependencies:
       - name: build-ansible-collection
       - name: ansible-test-splitter
@@ -192,7 +192,7 @@
     host-vars: {}
     vars:
       ansible_test_command: integration
-      ansible_test_python: 3.11
+      ansible_test_python: 3.12
       ansible_test_retry_on_error: true
       ansible_test_requirement_files:
         - requirements.txt
@@ -207,7 +207,7 @@
 - job:
     name: integration-amazon.aws-7
     parent: ansible-core-ci-aws-session
-    nodeset: fedora-36-1vcpu
+    nodeset: cloud-fedora-42
     dependencies:
       - name: build-ansible-collection
       - name: ansible-test-splitter
@@ -226,7 +226,7 @@
     host-vars: {}
     vars:
       ansible_test_command: integration
-      ansible_test_python: 3.11
+      ansible_test_python: 3.12
       ansible_test_retry_on_error: true
       ansible_test_requirement_files:
         - requirements.txt
@@ -241,7 +241,7 @@
 - job:
     name: integration-amazon.aws-8
     parent: ansible-core-ci-aws-session
-    nodeset: fedora-36-1vcpu
+    nodeset: cloud-fedora-42
     dependencies:
       - name: build-ansible-collection
       - name: ansible-test-splitter
@@ -260,7 +260,7 @@
     host-vars: {}
     vars:
       ansible_test_command: integration
-      ansible_test_python: 3.11
+      ansible_test_python: 3.12
       ansible_test_retry_on_error: true
       ansible_test_requirement_files:
         - requirements.txt
@@ -275,7 +275,7 @@
 - job:
     name: integration-amazon.aws-9
     parent: ansible-core-ci-aws-session
-    nodeset: fedora-36-1vcpu
+    nodeset: cloud-fedora-42
     dependencies:
       - name: build-ansible-collection
       - name: ansible-test-splitter
@@ -294,7 +294,7 @@
     host-vars: {}
     vars:
       ansible_test_command: integration
-      ansible_test_python: 3.11
+      ansible_test_python: 3.12
       ansible_test_retry_on_error: true
       ansible_test_requirement_files:
         - requirements.txt
@@ -309,7 +309,7 @@
 - job:
     name: integration-amazon.aws-10
     parent: ansible-core-ci-aws-session
-    nodeset: fedora-36-1vcpu
+    nodeset: cloud-fedora-42
     dependencies:
       - name: build-ansible-collection
       - name: ansible-test-splitter
@@ -328,7 +328,7 @@
     host-vars: {}
     vars:
       ansible_test_command: integration
-      ansible_test_python: 3.11
+      ansible_test_python: 3.12
       ansible_test_retry_on_error: true
       ansible_test_requirement_files:
         - requirements.txt
@@ -343,7 +343,7 @@
 - job:
     name: integration-amazon.aws-11
     parent: ansible-core-ci-aws-session
-    nodeset: fedora-36-1vcpu
+    nodeset: cloud-fedora-42
     dependencies:
       - name: build-ansible-collection
       - name: ansible-test-splitter
@@ -362,7 +362,7 @@
     host-vars: {}
     vars:
       ansible_test_command: integration
-      ansible_test_python: 3.11
+      ansible_test_python: 3.12
       ansible_test_retry_on_error: true
       ansible_test_requirement_files:
         - requirements.txt
@@ -377,7 +377,7 @@
 - job:
     name: integration-amazon.aws-12
     parent: ansible-core-ci-aws-session
-    nodeset: fedora-36-1vcpu
+    nodeset: cloud-fedora-42
     dependencies:
       - name: build-ansible-collection
       - name: ansible-test-splitter
@@ -396,7 +396,7 @@
     host-vars: {}
     vars:
       ansible_test_command: integration
-      ansible_test_python: 3.11
+      ansible_test_python: 3.12
       ansible_test_retry_on_error: true
       ansible_test_requirement_files:
         - requirements.txt
@@ -411,7 +411,7 @@
 - job:
     name: integration-amazon.aws-13
     parent: ansible-core-ci-aws-session
-    nodeset: fedora-36-1vcpu
+    nodeset: cloud-fedora-42
     dependencies:
       - name: build-ansible-collection
       - name: ansible-test-splitter
@@ -430,7 +430,7 @@
     host-vars: {}
     vars:
       ansible_test_command: integration
-      ansible_test_python: 3.11
+      ansible_test_python: 3.12
       ansible_test_retry_on_error: true
       ansible_test_requirement_files:
         - requirements.txt
@@ -445,7 +445,7 @@
 - job:
     name: integration-amazon.aws-14
     parent: ansible-core-ci-aws-session
-    nodeset: fedora-36-1vcpu
+    nodeset: cloud-fedora-42
     dependencies:
       - name: build-ansible-collection
       - name: ansible-test-splitter
@@ -464,7 +464,7 @@
     host-vars: {}
     vars:
       ansible_test_command: integration
-      ansible_test_python: 3.11
+      ansible_test_python: 3.12
       ansible_test_retry_on_error: true
       ansible_test_requirement_files:
         - requirements.txt
@@ -479,7 +479,7 @@
 - job:
     name: integration-amazon.aws-15
     parent: ansible-core-ci-aws-session
-    nodeset: fedora-36-1vcpu
+    nodeset: cloud-fedora-42
     dependencies:
       - name: build-ansible-collection
       - name: ansible-test-splitter
@@ -498,7 +498,7 @@
     host-vars: {}
     vars:
       ansible_test_command: integration
-      ansible_test_python: 3.11
+      ansible_test_python: 3.12
       ansible_test_retry_on_error: true
       ansible_test_requirement_files:
         - requirements.txt
@@ -513,7 +513,7 @@
 - job:
     name: integration-amazon.aws-16
     parent: ansible-core-ci-aws-session
-    nodeset: fedora-36-1vcpu
+    nodeset: cloud-fedora-42
     dependencies:
       - name: build-ansible-collection
       - name: ansible-test-splitter
@@ -532,7 +532,7 @@
     host-vars: {}
     vars:
       ansible_test_command: integration
-      ansible_test_python: 3.11
+      ansible_test_python: 3.12
       ansible_test_retry_on_error: true
       ansible_test_requirement_files:
         - requirements.txt
@@ -547,7 +547,7 @@
 - job:
     name: integration-amazon.aws-17
     parent: ansible-core-ci-aws-session
-    nodeset: fedora-36-1vcpu
+    nodeset: cloud-fedora-42
     dependencies:
       - name: build-ansible-collection
       - name: ansible-test-splitter
@@ -566,7 +566,7 @@
     host-vars: {}
     vars:
       ansible_test_command: integration
-      ansible_test_python: 3.11
+      ansible_test_python: 3.12
       ansible_test_retry_on_error: true
       ansible_test_requirement_files:
         - requirements.txt
@@ -581,7 +581,7 @@
 - job:
     name: integration-amazon.aws-18
     parent: ansible-core-ci-aws-session
-    nodeset: fedora-36-1vcpu
+    nodeset: cloud-fedora-42
     dependencies:
       - name: build-ansible-collection
       - name: ansible-test-splitter
@@ -600,7 +600,7 @@
     host-vars: {}
     vars:
       ansible_test_command: integration
-      ansible_test_python: 3.11
+      ansible_test_python: 3.12
       ansible_test_retry_on_error: true
       ansible_test_requirement_files:
         - requirements.txt
@@ -615,7 +615,7 @@
 - job:
     name: integration-amazon.aws-19
     parent: ansible-core-ci-aws-session
-    nodeset: fedora-36-1vcpu
+    nodeset: cloud-fedora-42
     dependencies:
       - name: build-ansible-collection
       - name: ansible-test-splitter
@@ -634,7 +634,7 @@
     host-vars: {}
     vars:
       ansible_test_command: integration
-      ansible_test_python: 3.11
+      ansible_test_python: 3.12
       ansible_test_retry_on_error: true
       ansible_test_requirement_files:
         - requirements.txt
@@ -649,7 +649,7 @@
 - job:
     name: integration-amazon.aws-20
     parent: ansible-core-ci-aws-session
-    nodeset: fedora-36-1vcpu
+    nodeset: cloud-fedora-42
     dependencies:
       - name: build-ansible-collection
       - name: ansible-test-splitter
@@ -668,7 +668,7 @@
     host-vars: {}
     vars:
       ansible_test_command: integration
-      ansible_test_python: 3.11
+      ansible_test_python: 3.12
       ansible_test_retry_on_error: true
       ansible_test_requirement_files:
         - requirements.txt
@@ -683,7 +683,7 @@
 - job:
     name: integration-amazon.aws-21
     parent: ansible-core-ci-aws-session
-    nodeset: fedora-36-1vcpu
+    nodeset: cloud-fedora-42
     dependencies:
       - name: build-ansible-collection
       - name: ansible-test-splitter
@@ -702,7 +702,7 @@
     host-vars: {}
     vars:
       ansible_test_command: integration
-      ansible_test_python: 3.11
+      ansible_test_python: 3.12
       ansible_test_retry_on_error: true
       ansible_test_requirement_files:
         - requirements.txt
@@ -717,7 +717,7 @@
 - job:
     name: integration-amazon.aws-22
     parent: ansible-core-ci-aws-session
-    nodeset: fedora-36-1vcpu
+    nodeset: cloud-fedora-42
     dependencies:
       - name: build-ansible-collection
       - name: ansible-test-splitter
@@ -736,7 +736,7 @@
     host-vars: {}
     vars:
       ansible_test_command: integration
-      ansible_test_python: 3.11
+      ansible_test_python: 3.12
       ansible_test_retry_on_error: true
       ansible_test_requirement_files:
         - requirements.txt
@@ -751,7 +751,7 @@
 - job:
     name: integration-community.aws-1
     parent: ansible-core-ci-aws-session
-    nodeset: fedora-36-1vcpu
+    nodeset: cloud-fedora-42
     dependencies:
       - name: build-ansible-collection
       - name: ansible-test-splitter
@@ -770,7 +770,7 @@
     host-vars: {}
     vars:
       ansible_test_command: integration
-      ansible_test_python: 3.11
+      ansible_test_python: 3.12
       ansible_test_retry_on_error: true
       ansible_test_requirement_files:
         - requirements.txt
@@ -785,7 +785,7 @@
 - job:
     name: integration-community.aws-2
     parent: ansible-core-ci-aws-session
-    nodeset: fedora-36-1vcpu
+    nodeset: cloud-fedora-42
     dependencies:
       - name: build-ansible-collection
       - name: ansible-test-splitter
@@ -804,7 +804,7 @@
     host-vars: {}
     vars:
       ansible_test_command: integration
-      ansible_test_python: 3.11
+      ansible_test_python: 3.12
       ansible_test_retry_on_error: true
       ansible_test_requirement_files:
         - requirements.txt
@@ -819,7 +819,7 @@
 - job:
     name: integration-community.aws-3
     parent: ansible-core-ci-aws-session
-    nodeset: fedora-36-1vcpu
+    nodeset: cloud-fedora-42
     dependencies:
       - name: build-ansible-collection
       - name: ansible-test-splitter
@@ -838,7 +838,7 @@
     host-vars: {}
     vars:
       ansible_test_command: integration
-      ansible_test_python: 3.11
+      ansible_test_python: 3.12
       ansible_test_retry_on_error: true
       ansible_test_requirement_files:
         - requirements.txt
@@ -853,7 +853,7 @@
 - job:
     name: integration-community.aws-4
     parent: ansible-core-ci-aws-session
-    nodeset: fedora-36-1vcpu
+    nodeset: cloud-fedora-42
     dependencies:
       - name: build-ansible-collection
       - name: ansible-test-splitter
@@ -872,7 +872,7 @@
     host-vars: {}
     vars:
       ansible_test_command: integration
-      ansible_test_python: 3.11
+      ansible_test_python: 3.12
       ansible_test_retry_on_error: true
       ansible_test_requirement_files:
         - requirements.txt
@@ -887,7 +887,7 @@
 - job:
     name: integration-community.aws-5
     parent: ansible-core-ci-aws-session
-    nodeset: fedora-36-1vcpu
+    nodeset: cloud-fedora-42
     dependencies:
       - name: build-ansible-collection
       - name: ansible-test-splitter
@@ -906,7 +906,7 @@
     host-vars: {}
     vars:
       ansible_test_command: integration
-      ansible_test_python: 3.11
+      ansible_test_python: 3.12
       ansible_test_retry_on_error: true
       ansible_test_requirement_files:
         - requirements.txt
@@ -921,7 +921,7 @@
 - job:
     name: integration-community.aws-6
     parent: ansible-core-ci-aws-session
-    nodeset: fedora-36-1vcpu
+    nodeset: cloud-fedora-42
     dependencies:
       - name: build-ansible-collection
       - name: ansible-test-splitter
@@ -940,7 +940,7 @@
     host-vars: {}
     vars:
       ansible_test_command: integration
-      ansible_test_python: 3.11
+      ansible_test_python: 3.12
       ansible_test_retry_on_error: true
       ansible_test_requirement_files:
         - requirements.txt
@@ -955,7 +955,7 @@
 - job:
     name: integration-community.aws-7
     parent: ansible-core-ci-aws-session
-    nodeset: fedora-36-1vcpu
+    nodeset: cloud-fedora-42
     dependencies:
       - name: build-ansible-collection
       - name: ansible-test-splitter
@@ -974,7 +974,7 @@
     host-vars: {}
     vars:
       ansible_test_command: integration
-      ansible_test_python: 3.11
+      ansible_test_python: 3.12
       ansible_test_retry_on_error: true
       ansible_test_requirement_files:
         - requirements.txt
@@ -989,7 +989,7 @@
 - job:
     name: integration-community.aws-8
     parent: ansible-core-ci-aws-session
-    nodeset: fedora-36-1vcpu
+    nodeset: cloud-fedora-42
     dependencies:
       - name: build-ansible-collection
       - name: ansible-test-splitter
@@ -1008,7 +1008,7 @@
     host-vars: {}
     vars:
       ansible_test_command: integration
-      ansible_test_python: 3.11
+      ansible_test_python: 3.12
       ansible_test_retry_on_error: true
       ansible_test_requirement_files:
         - requirements.txt
@@ -1023,7 +1023,7 @@
 - job:
     name: integration-community.aws-9
     parent: ansible-core-ci-aws-session
-    nodeset: fedora-36-1vcpu
+    nodeset: cloud-fedora-42
     dependencies:
       - name: build-ansible-collection
       - name: ansible-test-splitter
@@ -1042,7 +1042,7 @@
     host-vars: {}
     vars:
       ansible_test_command: integration
-      ansible_test_python: 3.11
+      ansible_test_python: 3.12
       ansible_test_retry_on_error: true
       ansible_test_requirement_files:
         - requirements.txt
@@ -1057,7 +1057,7 @@
 - job:
     name: integration-community.aws-10
     parent: ansible-core-ci-aws-session
-    nodeset: fedora-36-1vcpu
+    nodeset: cloud-fedora-42
     dependencies:
       - name: build-ansible-collection
       - name: ansible-test-splitter
@@ -1076,7 +1076,7 @@
     host-vars: {}
     vars:
       ansible_test_command: integration
-      ansible_test_python: 3.11
+      ansible_test_python: 3.12
       ansible_test_retry_on_error: true
       ansible_test_requirement_files:
         - requirements.txt
@@ -1091,7 +1091,7 @@
 - job:
     name: integration-community.aws-11
     parent: ansible-core-ci-aws-session
-    nodeset: fedora-36-1vcpu
+    nodeset: cloud-fedora-42
     dependencies:
       - name: build-ansible-collection
       - name: ansible-test-splitter
@@ -1110,7 +1110,7 @@
     host-vars: {}
     vars:
       ansible_test_command: integration
-      ansible_test_python: 3.11
+      ansible_test_python: 3.12
       ansible_test_retry_on_error: true
       ansible_test_requirement_files:
         - requirements.txt
@@ -1125,7 +1125,7 @@
 - job:
     name: integration-community.aws-12
     parent: ansible-core-ci-aws-session
-    nodeset: fedora-36-1vcpu
+    nodeset: cloud-fedora-42
     dependencies:
       - name: build-ansible-collection
       - name: ansible-test-splitter
@@ -1144,7 +1144,7 @@
     host-vars: {}
     vars:
       ansible_test_command: integration
-      ansible_test_python: 3.11
+      ansible_test_python: 3.12
       ansible_test_retry_on_error: true
       ansible_test_requirement_files:
         - requirements.txt
@@ -1159,7 +1159,7 @@
 - job:
     name: integration-community.aws-13
     parent: ansible-core-ci-aws-session
-    nodeset: fedora-36-1vcpu
+    nodeset: cloud-fedora-42
     dependencies:
       - name: build-ansible-collection
       - name: ansible-test-splitter
@@ -1178,7 +1178,7 @@
     host-vars: {}
     vars:
       ansible_test_command: integration
-      ansible_test_python: 3.11
+      ansible_test_python: 3.12
       ansible_test_retry_on_error: true
       ansible_test_requirement_files:
         - requirements.txt
@@ -1193,7 +1193,7 @@
 - job:
     name: integration-community.aws-14
     parent: ansible-core-ci-aws-session
-    nodeset: fedora-36-1vcpu
+    nodeset: cloud-fedora-42
     dependencies:
       - name: build-ansible-collection
       - name: ansible-test-splitter
@@ -1212,7 +1212,7 @@
     host-vars: {}
     vars:
       ansible_test_command: integration
-      ansible_test_python: 3.11
+      ansible_test_python: 3.12
       ansible_test_retry_on_error: true
       ansible_test_requirement_files:
         - requirements.txt
@@ -1227,7 +1227,7 @@
 - job:
     name: integration-community.aws-15
     parent: ansible-core-ci-aws-session
-    nodeset: fedora-36-1vcpu
+    nodeset: cloud-fedora-42
     dependencies:
       - name: build-ansible-collection
       - name: ansible-test-splitter
@@ -1246,7 +1246,7 @@
     host-vars: {}
     vars:
       ansible_test_command: integration
-      ansible_test_python: 3.11
+      ansible_test_python: 3.12
       ansible_test_retry_on_error: true
       ansible_test_requirement_files:
         - requirements.txt
@@ -1261,7 +1261,7 @@
 - job:
     name: integration-community.aws-16
     parent: ansible-core-ci-aws-session
-    nodeset: fedora-36-1vcpu
+    nodeset: cloud-fedora-42
     dependencies:
       - name: build-ansible-collection
       - name: ansible-test-splitter
@@ -1280,7 +1280,7 @@
     host-vars: {}
     vars:
       ansible_test_command: integration
-      ansible_test_python: 3.11
+      ansible_test_python: 3.12
       ansible_test_retry_on_error: true
       ansible_test_requirement_files:
         - requirements.txt
@@ -1295,7 +1295,7 @@
 - job:
     name: integration-community.aws-17
     parent: ansible-core-ci-aws-session
-    nodeset: fedora-36-1vcpu
+    nodeset: cloud-fedora-42
     dependencies:
       - name: build-ansible-collection
       - name: ansible-test-splitter
@@ -1314,7 +1314,7 @@
     host-vars: {}
     vars:
       ansible_test_command: integration
-      ansible_test_python: 3.11
+      ansible_test_python: 3.12
       ansible_test_retry_on_error: true
       ansible_test_requirement_files:
         - requirements.txt
@@ -1329,7 +1329,7 @@
 - job:
     name: integration-community.aws-18
     parent: ansible-core-ci-aws-session
-    nodeset: fedora-36-1vcpu
+    nodeset: cloud-fedora-42
     dependencies:
       - name: build-ansible-collection
       - name: ansible-test-splitter
@@ -1348,7 +1348,7 @@
     host-vars: {}
     vars:
       ansible_test_command: integration
-      ansible_test_python: 3.11
+      ansible_test_python: 3.12
       ansible_test_retry_on_error: true
       ansible_test_requirement_files:
         - requirements.txt
@@ -1363,7 +1363,7 @@
 - job:
     name: integration-community.aws-19
     parent: ansible-core-ci-aws-session
-    nodeset: fedora-36-1vcpu
+    nodeset: cloud-fedora-42
     dependencies:
       - name: build-ansible-collection
       - name: ansible-test-splitter
@@ -1382,7 +1382,7 @@
     host-vars: {}
     vars:
       ansible_test_command: integration
-      ansible_test_python: 3.11
+      ansible_test_python: 3.12
       ansible_test_retry_on_error: true
       ansible_test_requirement_files:
         - requirements.txt
@@ -1397,7 +1397,7 @@
 - job:
     name: integration-community.aws-20
     parent: ansible-core-ci-aws-session
-    nodeset: fedora-36-1vcpu
+    nodeset: cloud-fedora-42
     dependencies:
       - name: build-ansible-collection
       - name: ansible-test-splitter
@@ -1416,7 +1416,7 @@
     host-vars: {}
     vars:
       ansible_test_command: integration
-      ansible_test_python: 3.11
+      ansible_test_python: 3.12
       ansible_test_retry_on_error: true
       ansible_test_requirement_files:
         - requirements.txt
@@ -1431,7 +1431,7 @@
 - job:
     name: integration-community.aws-21
     parent: ansible-core-ci-aws-session
-    nodeset: fedora-36-1vcpu
+    nodeset: cloud-fedora-42
     dependencies:
       - name: build-ansible-collection
       - name: ansible-test-splitter
@@ -1450,7 +1450,7 @@
     host-vars: {}
     vars:
       ansible_test_command: integration
-      ansible_test_python: 3.11
+      ansible_test_python: 3.12
       ansible_test_retry_on_error: true
       ansible_test_requirement_files:
         - requirements.txt
@@ -1465,7 +1465,7 @@
 - job:
     name: integration-community.aws-22
     parent: ansible-core-ci-aws-session
-    nodeset: fedora-36-1vcpu
+    nodeset: cloud-fedora-42
     dependencies:
       - name: build-ansible-collection
       - name: ansible-test-splitter
@@ -1484,7 +1484,7 @@
     host-vars: {}
     vars:
       ansible_test_command: integration
-      ansible_test_python: 3.11
+      ansible_test_python: 3.12
       ansible_test_retry_on_error: true
       ansible_test_requirement_files:
         - requirements.txt

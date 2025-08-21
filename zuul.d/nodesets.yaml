@@ -118,6 +118,12 @@
         label: ansible-fedora-37-1vcpu
 
 - nodeset:
+    name: cloud-fedora-42
+    nodes:
+      - name: controller
+        label: cloud-fedora-42
+
+- nodeset:
     name: ios-15
     nodes:
       # NOTE: Fedora 35 comes with a version of ssh that ignore the

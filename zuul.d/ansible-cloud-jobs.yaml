@@ -116,7 +116,10 @@
     parent: ansible-test-sanity-docker
     required-projects:
       - name: github.com/openshift/community.okd
+    pre-run: playbooks/ansible-cloud/okd/pre.yaml
     run: playbooks/ansible-cloud/okd/sanity.yaml
+    vars:
+      downstream_collections_path: "~/.ansible/collections/ansible_collections"
 
 - job:
     name: ansible-test-sanity-okd-downstream-devel
@@ -186,6 +189,24 @@
       - name: github.com/openshift/community.okd
     vars:
       ansible_collections_repo: github.com/openshift/community.okd
+
+- job:
+    name: ansible-tox-linters-okd-downstream
+    parent: ansible-tox-linters
+    dependencies:
+      - name: build-ansible-collection
+    required-projects:
+      - name: github.com/openshift/community.okd
+      - name: github.com/ansible/ansible
+    pre-run:
+      - playbooks/ansible-test-base/pre.yaml
+      - playbooks/ansible-cloud/okd/pre.yaml
+    vars:
+      tox_envlist: ansible-lint
+      tox_extra_args:
+        root: "~/.ansible/collections/ansible_collections/redhat/openshift"
+      ansible_test_python: 3
+      downstream_collections_path: "~/.ansible/collections/ansible_collections"
 
 ### Kubernetes Core
 - job:

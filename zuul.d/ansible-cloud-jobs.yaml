@@ -383,7 +383,6 @@
       ansible_collections_repo: github.com/ansible-collections/pravic
 
 ### ansible.mcp
----
 - job:
     name: integration-ansible-mcp
     parent: ansible-core-ci-aws-session

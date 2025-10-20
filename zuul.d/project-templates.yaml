@@ -505,3 +505,20 @@
         - ansible-test-changelog
     gate:
       jobs: *ansible-collections-cloud-gouttelette-units-jobs
+
+- project-template:
+    name: ansible-collections-ansible-mcp-integration
+    check:
+      jobs:
+        - build-ansible-collection:
+            required-projects:
+              - name: github.com/ansible-collections/ansible.mcp
+            timeout: 3600
+        - integration-ansible-mcp
+    gate:
+      jobs:
+        - build-ansible-collection:
+            required-projects:
+              - name: github.com/ansible-collections/ansible.mcp
+            timeout: 3600
+        - integration-ansible-mcp

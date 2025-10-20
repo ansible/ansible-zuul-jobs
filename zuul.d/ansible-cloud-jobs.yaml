@@ -381,3 +381,29 @@
         override-checkout: stable-2.14
     vars:
       ansible_collections_repo: github.com/ansible-collections/pravic
+
+### ansible.mcp
+- job:
+    name: integration-ansible-mcp
+    parent: ansible-core-ci-aws-session
+    nodeset: cloud-fedora-42
+    dependencies:
+      - name: build-ansible-collection
+    pre-run:
+      - playbooks/ansible-test-base/pre.yaml
+      - playbooks/ansible-cloud/aws/pre.yaml
+    run: playbooks/ansible-test-base/run.yaml
+    files:
+      - ^plugins/.*$
+      - ^tests/integration/.*$
+    required-projects:
+      - name: github.com/ansible/ansible
+        override-checkout: milestone
+    timeout: 3600
+    vars:
+      ansible_test_command: integration
+      ansible_test_python: 3.12
+      ansible_test_retry_on_error: true
+      ansible_test_requirement_files:
+        - test-requirements.txt
+      ansible_collections_repo: github.com/ansible-collections/ansible.mcp

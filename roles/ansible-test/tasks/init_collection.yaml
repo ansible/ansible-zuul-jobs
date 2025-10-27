@@ -62,6 +62,13 @@
   environment:
     TMPDIR: /var/tmp/ansible-test-pip
 
+- name: Fetch the integration_config.yml file from the controller
+  ansible.builtin.fetch:
+    flat: true
+    src: "/tmp/integration_config.yml"
+    dest: "{{ _test_location }}/tests/integration/"
+  ignore_errors: true
+
 - name: Copy potential cloud provider configuration for ansible-test in the collection
   shell: "cp -v {{ ansible_test_ansible_path }}/test/integration/cloud-config-*.ini {{ _test_location }}/tests/integration/"
   ignore_errors: true

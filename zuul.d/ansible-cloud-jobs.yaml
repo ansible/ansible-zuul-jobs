@@ -385,7 +385,7 @@
 ### ansible.mcp
 - job:
     name: integration-ansible-mcp
-    parent: ansible-core-ci-aws-session
+    parent: ansible-mcp-integration-base
     nodeset: cloud-fedora-42
     dependencies:
       - name: build-ansible-collection

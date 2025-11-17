@@ -397,8 +397,8 @@
       - ^plugins/.*$
       - ^tests/integration/.*$
     required-projects:
-      - name: github.com/ansible/ansible
-        override-checkout: milestone
+      - name: github.com/abikouo/ansible
+        override-checkout: ansible_test_script_integration_config
     timeout: 3600
     vars:
       ansible_test_command: integration

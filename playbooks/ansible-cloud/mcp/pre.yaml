@@ -5,4 +5,4 @@
       environment:
         ANSIBLE_SKIP_CONFLICT_CHECK: 1
         TMPDIR: /var/tmp/ansible-test-pip
-      shell: "~/venv/bin/pip install git+https://github.com/abikouo/ansible:ansible_test_script_integration_config"
+      shell: "~/venv/bin/pip install git+https://github.com/abikouo/ansible@ansible_test_script_integration_config"

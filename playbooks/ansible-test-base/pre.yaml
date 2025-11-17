@@ -86,7 +86,9 @@
       environment:
         ANSIBLE_SKIP_CONFLICT_CHECK: 1
         TMPDIR: /var/tmp/ansible-test-pip
-      shell: "~/venv/bin/pip install ~/{{ zuul.projects['github.com/ansible/ansible'].src_dir }}"
+      shell: "~/venv/bin/pip install {{ ansible_test_pip_package }}"
+      vars:
+        ansible_test_pip_package: "{{ ansible_test_package_src | default('~/' + zuul.projects['github.com/ansible/ansible'].src_dir) }}"
 
     - name: Fetch and install the artifacts
       import_role:

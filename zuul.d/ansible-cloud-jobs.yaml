@@ -392,7 +392,6 @@
     pre-run:
       - playbooks/ansible-test-base/pre.yaml
       - playbooks/ansible-cloud/aws/pre.yaml
-      - playbooks/ansible-cloud/mcp/pre.yaml
     run: playbooks/ansible-test-base/run.yaml
     files:
       - ^plugins/.*$
@@ -408,3 +407,4 @@
       ansible_test_requirement_files:
         - test-requirements.txt
       ansible_collections_repo: github.com/ansible-collections/ansible.mcp
+      ansible_test_package_src: "git+https://github.com/abikouo/ansible@ansible_test_script_integration_config"

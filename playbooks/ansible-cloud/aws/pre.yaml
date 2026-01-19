@@ -1,6 +1,9 @@
 ---
 - hosts: controller
   tasks:
+    - name: Install jq binary (required for indirect node count)
+      ansible.builtin.shell: sudo dnf -y install jq
+
     - name: Install binary dependencies
       include_role:
         name: bindep

@@ -277,7 +277,10 @@ class WhatHaveChanged:
 
     def extensions_audit_event_query(self) -> bool:
         """Return true when the extensions/audit/event_query.yml file has been updated"""
-        event_query_files = ("extensions/audit/event_query.yml", "extensions/audit/event_query.yaml")
+        event_query_files = (
+            "extensions/audit/event_query.yml",
+            "extensions/audit/event_query.yaml",
+        )
         return any([str(d) in event_query_files for d in self.changed_files()])
 
 
@@ -360,7 +363,9 @@ class Collection:
                 if t.is_alias_of(target_name):
                     self._my_test_plan.append(t)
 
-    def add_indirect_node_count_targets_to_plan(self, alias_name="indirect_node_count", prefix_name="node_query_"):
+    def add_indirect_node_count_targets_to_plan(
+        self, alias_name="indirect_node_count", prefix_name="node_query_"
+    ):
         for t in self._targets():
             if self._is_target_already_added(t.name):
                 continue

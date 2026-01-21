@@ -1566,12 +1566,8 @@
             vars:
               ansible_test_splitter__test_changed: true
               ansible_test_splitter__check_for_changes_in:
-                - ~/{{ 
-                  zuul.projects['github.com/ansible-collections/amazon.aws'].src_dir
-                  }}
-                - ~/{{ 
-                  zuul.projects['github.com/ansible-collections/community.aws'].src_dir
-                  }}
+                - ~/{{zuul.projects['github.com/ansible-collections/amazon.aws'].src_dir}}
+                - ~/{{zuul.projects['github.com/ansible-collections/community.aws'].src_dir}}
               ansible_test_splitter__total_job: 22
             extra-vars: {}
         - integration-amazon.aws-1
@@ -1642,12 +1638,8 @@
             vars:
               ansible_test_splitter__test_changed: true
               ansible_test_splitter__check_for_changes_in:
-                - ~/{{ 
-                  zuul.projects['github.com/ansible-collections/amazon.aws'].src_dir
-                  }}
-                - ~/{{ 
-                  zuul.projects['github.com/ansible-collections/community.aws'].src_dir
-                  }}
+                - ~/{{zuul.projects['github.com/ansible-collections/amazon.aws'].src_dir}}
+                - ~/{{zuul.projects['github.com/ansible-collections/community.aws'].src_dir}}
               ansible_test_splitter__total_job: 22
             extra-vars: {}
         - integration-amazon.aws-1
@@ -1718,12 +1710,8 @@
             vars:
               ansible_test_splitter__test_changed: false
               ansible_test_splitter__check_for_changes_in:
-                - ~/{{ 
-                  zuul.projects['github.com/ansible-collections/amazon.aws'].src_dir
-                  }}
-                - ~/{{ 
-                  zuul.projects['github.com/ansible-collections/community.aws'].src_dir
-                  }}
+                - ~/{{zuul.projects['github.com/ansible-collections/amazon.aws'].src_dir}}
+                - ~/{{zuul.projects['github.com/ansible-collections/community.aws'].src_dir}}
               ansible_test_splitter__total_job: 22
             extra-vars: {}
         - integration-amazon.aws-1
@@ -1796,12 +1784,8 @@
             vars:
               ansible_test_splitter__test_changed: true
               ansible_test_splitter__check_for_changes_in:
-                - ~/{{ 
-                  zuul.projects['github.com/ansible-collections/amazon.aws'].src_dir
-                  }}
-                - ~/{{ 
-                  zuul.projects['github.com/ansible-collections/community.aws'].src_dir
-                  }}
+                - ~/{{zuul.projects['github.com/ansible-collections/amazon.aws'].src_dir}}
+                - ~/{{zuul.projects['github.com/ansible-collections/community.aws'].src_dir}}
               ansible_test_splitter__total_job: 22
             extra-vars: {}
         - integration-community.aws-1
@@ -1850,12 +1834,8 @@
             vars:
               ansible_test_splitter__test_changed: true
               ansible_test_splitter__check_for_changes_in:
-                - ~/{{ 
-                  zuul.projects['github.com/ansible-collections/amazon.aws'].src_dir
-                  }}
-                - ~/{{ 
-                  zuul.projects['github.com/ansible-collections/community.aws'].src_dir
-                  }}
+                - ~/{{zuul.projects['github.com/ansible-collections/amazon.aws'].src_dir}}
+                - ~/{{zuul.projects['github.com/ansible-collections/community.aws'].src_dir}}
               ansible_test_splitter__total_job: 22
             extra-vars: {}
         - integration-community.aws-1
@@ -1904,12 +1884,8 @@
             vars:
               ansible_test_splitter__test_changed: false
               ansible_test_splitter__check_for_changes_in:
-                - ~/{{ 
-                  zuul.projects['github.com/ansible-collections/amazon.aws'].src_dir
-                  }}
-                - ~/{{ 
-                  zuul.projects['github.com/ansible-collections/community.aws'].src_dir
-                  }}
+                - ~/{{zuul.projects['github.com/ansible-collections/amazon.aws'].src_dir}}
+                - ~/{{zuul.projects['github.com/ansible-collections/community.aws'].src_dir}}
               ansible_test_splitter__total_job: 22
             extra-vars: {}
         - integration-community.aws-1

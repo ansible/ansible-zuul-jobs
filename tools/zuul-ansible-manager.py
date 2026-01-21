@@ -408,7 +408,7 @@ def aws_integration_jobs(number_of_workers: int):
     @validate_arguments
     def ansible_test_splitter(collections: list[str], only_test_changed: bool = True):
         ansible_test_splitter__check_for_changes_in = [
-            f"~/{{{{ zuul.projects['github.com/ansible-collections/{ c }'].src_dir }}}}"
+            f"~/{{{{zuul.projects['github.com/ansible-collections/{ c }'].src_dir}}}}"
             for c in sorted(collections)
         ]
 

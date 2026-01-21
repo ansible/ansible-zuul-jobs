@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 from pathlib import Path
-from pydantic import BaseModel, Field, Extra, validate_arguments
+from pydantic.v1 import BaseModel, Field, Extra, validate_arguments
 import ruamel.yaml.constructor
 from ruamel.yaml import YAML
 from typing import Iterator, Optional, Any
@@ -10,7 +10,7 @@ import requests
 from datetime import datetime
 from datetime import timedelta
 
-from collections import UserList, UserDict
+from collections import UserList
 
 parser = argparse.ArgumentParser(prog="Ansible-Zuul manager")
 subparsers = parser.add_subparsers(dest="function_name", required=True)
@@ -329,7 +329,7 @@ class AWSWorkerJob(Job):
 
     run = ZuulMaybeList("playbooks/ansible-test-base/run.yaml")
 
-    files = ["^plugins/.*$", "^tests/integration/.*$"]
+    files = ["^plugins/.*$", "^tests/integration/.*$", "^extensions/.*$"]
     required_projects: list[RequiredProject] = Field(
         [
             RequiredProject(

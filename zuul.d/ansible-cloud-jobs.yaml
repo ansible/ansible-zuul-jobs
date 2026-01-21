@@ -84,6 +84,7 @@
     files:
       - ^plugins/.*$
       - ^tests/integration/.*$
+      - ^extensions/.*$
     nodeset: container-ansible
     timeout: 1000
     vars:

@@ -275,6 +275,14 @@ class WhatHaveChanged:
         """List the Python modules impacted by the change"""
         yield from self._util_matches("plugins/plugin_utils/", "plugin_utils")
 
+    def extensions_audit_event_query(self) -> bool:
+        """Return true when the extensions/audit/event_query.yml file has been updated"""
+        event_query_files = (
+            "extensions/audit/event_query.yml",
+            "extensions/audit/event_query.yaml",
+        )
+        return any([str(d) in event_query_files for d in self.changed_files()])
+
 
 class Target:
     def __init__(self, path):
@@ -354,6 +362,17 @@ class Collection:
                     continue
                 if t.is_alias_of(target_name):
                     self._my_test_plan.append(t)
+
+    def add_indirect_node_count_targets_to_plan(
+        self, alias_name="indirect_node_count", prefix_name="node_query_"
+    ):
+        for t in self._targets():
+            if self._is_target_already_added(t.name):
+                continue
+            if t.is_alias_of(alias_name) or t.name.startswith(prefix_name):
+                # add the target to the plan if either the name starts with 'node_query_' or
+                # the aliases file contains the line 'indirect_node_count'
+                self._my_test_plan.append(t)
 
     def cover_all(self):
         """Cover all the targets available."""
@@ -555,6 +574,10 @@ if __name__ == "__main__":
                 changes[whc.collection_name()]["targets"].append(t)
                 for c in collections:
                     c.add_target_to_plan(t)
+            # indirect node count targets
+            if whc.extensions_audit_event_query():
+                for c in collections:
+                    c.add_indirect_node_count_targets_to_plan()
 
     egs = ElGrandeSeparator(collections, args.total_job, args.ansible_releases)
     egs.output(changes)

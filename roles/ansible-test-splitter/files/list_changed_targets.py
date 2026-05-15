@@ -300,9 +300,9 @@ class Target:
         return False
 
     def is_disabled(self):
-        if "disabled" in self.lines:
-            return True
-        return False
+        """Check if target should never be run (disabled or hidden)"""
+        never_run = set(["disabled", "hidden"])
+        return not never_run.isdisjoint(set(self.lines))
 
     def is_slow(self):
         # NOTE: Should be replaced by time=3000
@@ -311,7 +311,7 @@ class Target:
         return False
 
     def is_ignored(self):
-        """Show the target be ignored by default?"""
+        """Check if target should be skipped when added indirectly"""
         ignore = set(["unsupported", "disabled", "unstable", "hidden"])
         return not ignore.isdisjoint(set(self.lines))
 

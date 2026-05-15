@@ -204,6 +204,22 @@ def test_c_disabled_unstable():
     assert len(c.regular_targets_to_test()) == 1
 
 
+def test_c_hidden():
+    c = Collection(PosixPath("nowhere"))
+    m_c_path = MagicMock()
+    c.collection_path = m_c_path
+    m_c_path.glob.return_value = [
+        build_alias("setup_something", "hidden\n"),
+    ]
+
+    # hidden targets should never be triggered, even directly
+    c.add_target_to_plan("setup_something")
+    assert len(c.regular_targets_to_test()) == 0
+    # hidden targets should not be triggered indirectly either
+    c.add_target_to_plan("setup_something", is_direct=False)
+    assert len(c.regular_targets_to_test()) == 0
+
+
 def test_c_slow_regular_targets():
     c = build_collection(
         [

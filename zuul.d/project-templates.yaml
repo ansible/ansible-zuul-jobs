@@ -236,15 +236,11 @@
 
 - project-template:
     name: ansible-collections-ansible-network
+    description: |
+      DEPRECATED: ansible.network is a meta collection with no active module
+      development. Periodic jobs disabled as of 2026-06.
     periodic:
-      jobs:
-        - ansible-test-sanity-docker-devel
-        - ansible-test-sanity-docker-milestone
-        - ansible-test-sanity-docker-stable-2.9
-        - ansible-test-sanity-docker-stable-2.10
-        - ansible-test-sanity-docker-stable-2.11
-        - ansible-test-sanity-docker-stable-2.12
-        - build-ansible-collection
+      jobs: []
 
 - project-template:
     name: noop-jobs

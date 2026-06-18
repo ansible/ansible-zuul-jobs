@@ -8,6 +8,7 @@
       the intermediate registry secret need not be supplied to the
       image build playbook.
     parent: ansible-buildset-registry
+    pre-run: playbooks/container-image/pre.yaml
     run: playbooks/container-image/run.yaml
     dependencies:
       - name: ansible-buildset-registry

@@ -31,6 +31,18 @@
     nodeset: ansible-tox-linters
 
 - job:
+    name: ansible-tox
+    parent: tox-linters
+    pre-run:
+    pre-run:
+      - playbooks/ansible-tox-py37/pre.yaml
+      - playbooks/ansible-tox-py38/pre.yaml
+      - playbooks/ansible-tox-py39/pre.yaml
+      - playbooks/ansible-tox-py310/pre.yaml
+      - playbooks/ansible-tox/packages.yaml
+    nodeset: fedora-latest-1vcpu
+
+- job:
     name: ansible-tox-py35
     parent: tox-py35
     timeout: 3600

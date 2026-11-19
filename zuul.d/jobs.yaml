@@ -109,6 +109,16 @@
     nodeset: ansible-galaxy-importer
 
 - job:
+    name: ansible-test-sanity-docker-devel
+    parent: ansible-test-sanity-base-devel
+    pre-run: playbooks/ansible-test-sanity-docker/pre.yaml
+    vars:
+      ansible_test_collections: true
+      ansible_collections_repo: "{{ zuul.project.canonical_name }}"
+      ansible_test_command: sanity -v --docker
+      ansible_test_enable_ara: false
+
+- job:
     name: ansible-network-appliance-base
     pre-run: playbooks/ansible-network-appliance-base/pre.yaml
     files:

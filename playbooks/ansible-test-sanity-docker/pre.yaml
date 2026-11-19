@@ -1,0 +1,5 @@
+---
+- name: Install docker
+  hosts: all
+  roles:
+    - ensure-docker

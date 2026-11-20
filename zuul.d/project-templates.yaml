@@ -42,6 +42,20 @@
         - ansible-tox-py39
 
 - project-template:
+    name: ansible-collections-community-aws
+    check:
+      jobs: &ansible-collections-community-aws-jobs
+        - build-ansible-collection:
+            required-projects:
+              - name: github.com/ansible-collections/amazon.aws
+        - ansible-galaxy-importer:
+            voting: false
+    third-party-check:
+      jobs: *ansible-collections-community-aws-jobs
+    gate:
+      jobs: *ansible-collections-community-aws-jobs
+
+- project-template:
     name: ansible-collections-amazon-cloud-code-generator
     check:
       jobs: &ansible-collections-amazon-cloud-generator-jobs
